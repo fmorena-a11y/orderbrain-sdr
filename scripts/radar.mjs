@@ -61,7 +61,7 @@ async function overpass(q, { timeout = 180 } = {}) {
 
 // ---------- ciudades por país
 async function citiesFor(cc) {
-  const els = await overpass(`area["ISO3166-1"="${cc}"][admin_level=2]->.a;node(area.a)["place"~"^(city|town)$"]["population"];out tags;`, { timeout: 120 });
+  const els = await overpass(`area["ISO3166-1"="${cc}"][admin_level=2]->.a;node(area.a)["place"~"^(city|town)$"]["population"];out body;`, { timeout: 120 });
   const out = [];
   for (const e of els) {
     const pop = parseInt(String(e.tags.population || "").replace(/[^\d]/g, ""), 10);
@@ -208,7 +208,12 @@ async function main() {
     if (ONLY.length && !ONLY.includes(cc)) continue;
     const at = state.citiesAt[cc];
     if (state.cities[cc]?.length && at && (Date.now() - Date.parse(at)) / 864e5 < 60) continue;
-    try { state.cities[cc] = await citiesFor(cc); state.citiesAt[cc] = new Date().toISOString(); log(`${cc}: ${state.cities[cc].length} ciudades de más de ${MIN_POP} habitantes`); }
+    try {
+      const list = await citiesFor(cc);
+      if (!list.length) throw new Error("Overpass no devolvió ciudades");
+      state.cities[cc] = list; state.citiesAt[cc] = new Date().toISOString();
+      log(`${cc}: ${list.length} ciudades de más de ${MIN_POP} habitantes`);
+    }
     catch (e) { run.errors.push(`ciudades ${cc}: ${e.message}`); log("error ciudades", cc, e.message); }
     await sleep(2000);
   }
