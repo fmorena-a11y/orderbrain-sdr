@@ -1,8 +1,8 @@
 // Ficha del colegio: preparar el contacto, registrar el resultado e historial. Incluye el modo sesión.
 import { $, S, api, esc, icon, pill, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, ago, TYPE_ICON,
-  telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials } from "./core.js";
+  telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink } from "./core.js";
 
-const D = { id: null, data: null, tab: "prep", form: null, activityId: null, saving: false, result: null, brief: null, briefLoading: false, err: null };
+const D = { id: null, data: null, tab: "prep", form: null, activityId: null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null };
 const CH = [["call", "Llamada", "phone"], ["whatsapp", "WhatsApp", "whatsapp"], ["mail", "Mail", "mail"], ["visit", "Visita", "user"]];
 const NEXT_TYPES = [["", "Sin próximo paso"], ["call", "Llamada"], ["deadline", "WhatsApp"], ["task", "Mail"]];
 const GOOD = ["callback", "info", "demo"];
@@ -20,12 +20,45 @@ const newForm = () => ({ channel: "call", outcome: null, contact: { name: "", ro
 export async function openSchool(id, { activityId = null, tab = null, keepSession = false } = {}) {
   if (!S.byId.has(id)) return toast("Colegio inexistente", { type: "err" });
   if (!keepSession) S.session = null;
-  Object.assign(D, { id, data: null, form: newForm(), activityId, saving: false, result: null, brief: null, briefLoading: false, err: null, tab: tab || (activityId ? "log" : "prep") });
+  Object.assign(D, { id, data: null, form: newForm(), activityId, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, tab: tab || (activityId ? "log" : "prep") });
   $("drawer").hidden = false; $("scrim").hidden = false;
   $("scrim").onclick = closeSchool;
   draw();
   $("drawer").focus?.();
   load();
+  loadPhotos(id);
+}
+async function loadPhotos(id) {
+  let list = [];
+  try { list = (await api(`/api/schools/${id}/photos`)).photos || []; } catch {}
+  if (D.id !== id) return;
+  D.photos = list;
+  const g = $("drawer").querySelector("#gallery");
+  if (g) { g.outerHTML = gallery(S.byId.get(id)); bindGallery(S.byId.get(id)); }
+}
+// Fotos: las de Google y la web primero, y siempre la vista satelital al final.
+function photoList(s) { return [...(D.photos || []), { url: satLink(s), kind: "sat", credit: "Vista satelital · Esri, Maxar, Earthstar Geographics" }]; }
+const KIND = { google: "Google Maps", web: "Web del colegio", sat: "Satélite" };
+function gallery(s) {
+  const list = photoList(s);
+  return `<div class="gallery" id="gallery" aria-label="Fotos del colegio">${list.map((p, i) => `<button class="ph ${p.kind}" data-ph="${i}" aria-label="Ver foto ${i + 1} (${KIND[p.kind]})"><img src="${esc(p.kind === "sat" ? satLink(s, { w: 480, h: 300 }) : p.url)}" alt="" loading="lazy" referrerpolicy="no-referrer"><span class="cap">${esc(KIND[p.kind])}</span></button>`).join("")}${D.photos === null ? `<div class="ph skel" aria-hidden="true"></div>` : ""}</div>`;
+}
+function bindGallery(s) {
+  const g = $("drawer").querySelector("#gallery"); if (!g) return;
+  g.querySelectorAll("img").forEach(img => img.addEventListener("error", () => img.closest(".ph")?.remove()));
+  g.querySelectorAll("[data-ph]").forEach(b => b.onclick = () => lightbox(s, +b.dataset.ph));
+}
+function lightbox(s, start) {
+  const list = photoList(s); let i = start;
+  const m = modal(`<div class="lb"><img id="lbImg" alt=""><div class="lb-bar"><span id="lbCap" class="faint"></span><span class="lb-nav">${list.length > 1 ? `<button class="icon-btn" id="lbPrev" aria-label="Anterior">${icon("arrowLeft")}</button><button class="icon-btn" id="lbNext" aria-label="Siguiente">${icon("arrowRight")}</button>` : ""}<button class="icon-btn" id="lbClose" aria-label="Cerrar">${icon("x")}</button></span></div></div>`);
+  m.querySelector(".modal-box").classList.add("wide");
+  const show = () => { const p = list[i]; m.querySelector("#lbImg").src = p.kind === "sat" ? satLink(s, { w: 1400, h: 900 }) : p.url; m.querySelector("#lbCap").textContent = `${i + 1} de ${list.length} · ${p.credit || KIND[p.kind]}`; };
+  const go = d => { i = (i + d + list.length) % list.length; show(); };
+  m.querySelector("#lbPrev")?.addEventListener("click", () => go(-1));
+  m.querySelector("#lbNext")?.addEventListener("click", () => go(1));
+  m.querySelector("#lbClose").onclick = () => m.close();
+  m.addEventListener("keydown", e => { if (e.key === "ArrowLeft") go(-1); if (e.key === "ArrowRight") go(1); });
+  show();
 }
 export function closeSchool() {
   $("drawer").hidden = true; $("scrim").hidden = true; D.id = null;
@@ -104,6 +137,8 @@ function draw() {
     <div class="d-meta">
       ${mk.espacio ? `<span class="tag" title="Vocabulario del mercado">${icon("globe", "sm")} ${esc(s.country)} · «${esc(mk.espacio)}» · ${mk.trato === "vos" ? "vos" : "tú"}</span>` : ""}
       ${s.rating ? `<span class="tag">★ ${esc(s.rating)}</span>` : ""}
+      ${s.found ? `<span class="tag" title="Encontrado por el radar el ${esc(s.found)}">${icon("target", "sm")} Radar</span>` : ""}
+      ${(s.opp || []).map(o => `<span class="tag">${esc(o)}</span>`).join("")}
       ${d?.attempts ? `<span class="tag">${d.attempts} intento${d.attempts > 1 ? "s" : ""} sin respuesta</span>` : ""}
       ${s.lastTouch ? `<span class="tag">Último: ${esc(s.lastTouch.outcome.toLowerCase())} ${esc(ago(s.lastTouch.at))}</span>` : ""}
       ${m?.openDealOwner ? `<span class="tag">${icon("deal", "sm")} Trato de ${esc(m.openDealOwner)}</span>` : ""}
@@ -157,6 +192,7 @@ function prepBody(s, d) {
   const cands = !m.confirmed ? (m.candidates || []) : [];
   const me = (S.me.name || "").split(" ")[0];
   return `<div class="stack">
+    ${gallery(s)}
     ${warn ? `<div class="callout warn">${icon("alert")}<span>${esc(warn)}</span></div>` : ""}
     ${cands.length ? `<div class="sec"><h3><span class="l">${icon("building")} ¿Es alguna de estas organizaciones de Pipedrive?</span></h3>${m.orgId ? `<p class="muted" style="margin:0 0 6px">Ahora está vinculado a <b>${esc(m.orgName)}</b>.</p>` : ""}${cands.map(c => `<div class="cand"><span>${esc(c.name)}</span><button class="btn sm" data-org="${c.id}" data-name="${esc(c.name)}">Es esta</button></div>`).join("")}${m.orgId ? `<div class="cand"><span class="muted">Ninguna de estas</span><button class="btn sm ghost" id="unlink">Desvincular</button></div>` : ""}</div>` : ""}
     <div class="sec">
@@ -189,6 +225,7 @@ function prepBody(s, d) {
 }
 function bindPrep(s, d) {
   const el = $("drawer");
+  bindGallery(s);
   el.querySelector("#brief")?.addEventListener("click", async () => {
     D.briefLoading = true; draw();
     try { D.brief = await api(`/api/schools/${s.id}/brief`); } catch (e) { toast(e.message, { type: "err" }); }

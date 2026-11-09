@@ -452,3 +452,20 @@ details.obj p { margin: 0 0 12px; color: var(--ink-2); }
 .spin { width: 16px; height: 16px; border-radius: 50%; border: 2px solid currentColor; border-right-color: transparent; animation: rot .7s linear infinite; display: inline-block; }
 @keyframes rot { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* ---------- fotos */
+.gallery { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 2px; scrollbar-width: thin; }
+.ph { position: relative; flex: none; width: 220px; height: 140px; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); padding: 0; cursor: zoom-in; background: var(--surface-2); scroll-snap-align: start; }
+.ph:first-child { width: 300px; }
+.ph img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .2s; }
+.ph:hover img { transform: scale(1.03); }
+.ph .cap { position: absolute; left: 8px; bottom: 8px; font-size: 11.5px; font-weight: 600; color: #fff; background: rgb(0 0 0 / .55); padding: 2px 8px; border-radius: 999px; }
+.ph.skel { cursor: default; border: 0; }
+@media (max-width: 560px) { .ph, .ph:first-child { width: 72vw; height: 160px; } }
+.modal-box.wide { width: min(1100px, 100%); padding: 10px; }
+.lb img { width: 100%; max-height: calc(100vh - 140px); object-fit: contain; border-radius: 10px; background: #000; display: block; }
+.lb-bar { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 4px 0; font-size: 13px; }
+.lb-nav { display: flex; gap: 4px; }
+.cov { padding: 8px 0; border-top: 1px solid var(--line); }
+.cov:first-child { border-top: 0; }
+.cov-h { display: flex; justify-content: space-between; gap: 8px; font-size: 14px; flex-wrap: wrap; }

@@ -124,6 +124,11 @@ export function gcalLink({ title, date, time, minutes = 30, details = "", locati
   return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${f(start)}/${f(end)}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}${guests ? `&add=${encodeURIComponent(guests)}` : ""}`;
 }
 export const mapsDir = s => `https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lng}`;
+// Vista satelital del colegio (Esri World Imagery, sin clave). span en grados de longitud (~250 m por defecto).
+export function satLink(s, { w = 800, h = 480, span = 0.0035 } = {}) {
+  const dLng = span / 2, dLat = (span * h / w) / 2 * Math.cos(s.lat * Math.PI / 180);
+  return `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/export?bbox=${s.lng - dLng},${s.lat - dLat},${s.lng + dLng},${s.lat + dLat}&bboxSR=4326&imageSR=3857&size=${w},${h}&format=jpg&f=image`;
+}
 export const mapsSearch = s => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + " " + s.city)}`;
 
 // ---------- piezas de interfaz

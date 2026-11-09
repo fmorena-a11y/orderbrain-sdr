@@ -1,0 +1,55 @@
+# Radar de colegios: agente que corre cada 2 horas, recorre todas las ciudades de todos los países
+# y suma a data/schools.json los colegios privados nuevos. Cada corrida con cambios hace commit en main,
+# y Vercel publica la base actualizada sola.
+name: Radar de colegios
+
+on:
+  schedule:
+    - cron: "17 */2 * * *"
+  workflow_dispatch:
+    inputs:
+      minutes:
+        description: "Minutos de trabajo"
+        default: "20"
+      countries:
+        description: "Países (MX,PE,AR,CL,UY,GT,CR). Vacío = todos"
+        default: ""
+  push:
+    branches: [main]
+    paths: ["scripts/radar.mjs", ".github/workflows/radar.yml"]
+
+concurrency:
+  group: radar
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  radar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Buscar colegios
+        env:
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          RADAR_COUNTRIES: ${{ inputs.countries }}
+        run: node scripts/radar.mjs --minutes "${{ inputs.minutes || '20' }}"
+      - name: Guardar resultados
+        run: |
+          git config user.name "OrderBrain Radar"
+          git config user.email "radar@users.noreply.github.com"
+          git add data/schools.json data/radar
+          if git diff --cached --quiet; then echo "Sin cambios"; exit 0; fi
+          SUMMARY=$(node -e 'const r=require("./data/radar/state.json").runs[0];console.log(`${r.added} colegios nuevos en ${r.cities.length} ciudades (total ${r.total})`)')
+          git commit -m "Radar: $SUMMARY"
+          for i in 1 2 3 4; do
+            git pull --rebase -X theirs origin main && git push origin HEAD:main && exit 0
+            sleep $((i * 5))
+          done
+          exit 1

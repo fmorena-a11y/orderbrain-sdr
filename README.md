@@ -43,6 +43,28 @@ Cada colegio recibe un puntaje de 1 a 100 con los motivos visibles: nunca contac
 - **Asistente (con IA):** «¿a quién llamo ahora?», «agendá una demo con Vallesol el jueves a las 10 para Juan Diego», «armame un guion para San José Obrero», «¿cómo respondo "ya tenemos un sistema"?». Todo lo que escribe en Pipedrive se confirma con un botón.
 - **Búsqueda rápida:** Ctrl K o `/`. Atajos 1 a 4 para cambiar de sección y Esc para cerrar.
 
+## Radar: el agente que busca colegios 24/7
+
+`scripts/radar.mjs` corre en GitHub Actions cada 2 horas (`.github/workflows/radar.yml`), también a mano desde Actions → «Radar de colegios» → Run workflow.
+
+1. Arma la lista de ciudades de más de 40.000 habitantes de cada país (México, Perú, Argentina, Chile, Uruguay, Guatemala y Costa Rica) con OpenStreetMap. Las ciudades pegadas a una más grande se revisan dentro de ella.
+2. Revisa primero las ciudades nunca escaneadas, de la más grande a la más chica, y después vuelve a cada una cada 30 días.
+3. Por ciudad busca colegios, institutos, preparatorias y universidades, descarta los públicos (escuelas numeradas, federales, estatales, CONALEP, I.E. N°, liceos públicos, etc.) y se queda con los privados.
+4. No duplica: si el colegio ya está en la base, solo completa teléfono, web, email o dirección.
+5. Marca oportunidades: bilingüe o internacional, confesional (redes de colegios), universidad (OrderGO) y privado confirmado. Eso sube su prioridad en «A quién llamar».
+6. Opcional, con secretos del repo (Settings → Secrets and variables → Actions):
+   - `GOOGLE_MAPS_API_KEY`: rating, teléfono, web y fotos de Google de cada colegio nuevo.
+   - `ANTHROPIC_API_KEY`: encaje con OrderEAT (alto, medio, bajo) y ángulo de venta de cada colegio nuevo.
+7. Guarda `data/schools.json` y `data/radar/state.json` con un commit en `main`; Vercel publica la base nueva sola.
+
+En la app, la sección **Radar** muestra la cobertura por país, las corridas y las mejores oportunidades nuevas, con un botón para hacer una sesión de llamadas con ellas.
+
+Variables: `RADAR_MIN_POP` (40000), `RADAR_RESCAN_DAYS` (30), `RADAR_MINUTES` (20), `RADAR_PLACES_MAX`, `RADAR_WEB_MAX`, `RADAR_AI_MAX`.
+
+## Fotos de cada colegio
+
+La ficha muestra una galería sin salir de la app: fotos de Google Maps (si el servidor tiene `GOOGLE_MAPS_API_KEY`), la imagen de portada de la web del colegio y siempre una vista satelital del predio (sirve para estimar el tamaño). Se toca una foto para verla grande.
+
 ## Probarlo sin tocar Pipedrive
 
 ```bash
@@ -122,6 +144,8 @@ lib/sales.js           Ficha, registro de contactos, cola de prioridad, agenda y
 lib/ai.js              Claude: notas, brief de llamada, mensajes y asistente con herramientas
 lib/store.js           Colegios, cache del cruce y registro de contactos (Redis o DATA_DIR)
 lib/time.js            Zonas horarias y días hábiles
+lib/photos.js          Fotos de cada colegio (Google, web y satélite)
+scripts/radar.mjs      Radar: busca colegios privados en todas las ciudades (GitHub Actions)
 public/                Frontend sin build: HTML, CSS y módulos JS (mapa con Leaflet)
 ```
 

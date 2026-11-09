@@ -4,6 +4,7 @@ import { renderToday } from "./today.js";
 import { renderExplore } from "./explore.js";
 import { renderAgenda } from "./agenda.js";
 import { renderTeam } from "./team.js";
+import { renderRadar } from "./radar.js";
 import { openSchool, closeSchool, drawerOpen, startSession } from "./school.js";
 import { openAssistant, closeAssistant } from "./chat.js";
 
@@ -11,6 +12,7 @@ const VIEWS = {
   hoy: { label: "Hoy", icon: "sun", render: renderToday },
   prospectar: { label: "Prospectar", icon: "map", render: renderExplore },
   agenda: { label: "Agenda", icon: "calendar", render: renderAgenda },
+  radar: { label: "Radar", icon: "target", render: renderRadar },
   equipo: { label: "Equipo", icon: "users", render: renderTeam },
 };
 
@@ -85,6 +87,7 @@ function renderPalette() {
     { label: "Empezar sesión de llamadas", sub: "Los mejores prospectos de tu territorio, uno tras otro", ic: "play", fn: () => startSession() },
     { label: "Prospectar en el mapa", sub: "Colegios por país y ciudad", ic: "map", fn: () => go("prospectar") },
     { label: "Mi agenda", sub: "Actividades pendientes en Pipedrive", ic: "calendar", fn: () => go("agenda") },
+    { label: "Radar de colegios", sub: "Lo que encontró el agente que recorre todas las ciudades", ic: "target", fn: () => go("radar") },
     { label: "Ranking del equipo", sub: "Contactos y demos de la semana", ic: "users", fn: () => go("equipo") },
     ...(S.ai ? [{ label: "Abrir asistente", sub: "Pedile que agende, cargue notas o arme un guion", ic: "sparkles", fn: () => openAssistant() }] : []),
   ].filter(a => !q || norm(a.label + " " + a.sub).includes(q));
@@ -121,7 +124,7 @@ addEventListener("keydown", e => {
   if (typing || e.ctrlKey || e.metaKey || e.altKey) return;
   if (e.key === "/") { e.preventDefault(); openPalette(); }
   if (!drawerOpen()) {
-    if (e.key === "1") go("hoy"); if (e.key === "2") go("prospectar"); if (e.key === "3") go("agenda"); if (e.key === "4") go("equipo");
+    const k = { 1: "hoy", 2: "prospectar", 3: "agenda", 4: "radar", 5: "equipo" }[e.key]; if (k) go(k);
   }
 });
 

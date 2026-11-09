@@ -7,6 +7,8 @@ import * as pd from "./lib/pipedrive.js";
 import { schools, byId, sync, flush, kvEnabled } from "./lib/store.js";
 import * as sales from "./lib/sales.js";
 import * as ai from "./lib/ai.js";
+import { photosFor, googleEnabled } from "./lib/photos.js";
+import { createRequire } from "module";
 import { MARKETS, LOST_REASONS, TYPE_LABEL, DAILY_GOAL } from "./lib/config.js";
 import { safeTz, toUtc } from "./lib/time.js";
 
@@ -88,7 +90,7 @@ app.get("/api/me", auth, (req, res) => res.json({
   user: req.session.user, ai: ai.aiEnabled(), demo: pd.DEMO, goal: DAILY_GOAL, pdWeb: pd.PD_WEB,
   countries: [...new Set(schools.map(s => s.country))].sort(), markets: MARKETS, outcomes: sales.OUTCOMES, lostReasons: LOST_REASONS, types: TYPE_LABEL,
 }));
-app.get("/api/schools", auth, (req, res) => res.json(schools.map(sales.schoolSummary)));
+app.get("/api/schools", auth, (req, res) => res.json(schools.map(sales.schoolListItem)));
 app.get("/api/team", auth, wrap(async (req, res) => { const m = await pd.meta(); res.json(m.users.map(u => ({ id: u.id, name: u.name }))); }));
 
 // Revisa varios colegios contra Pipedrive (de a 3 en paralelo).
@@ -112,6 +114,10 @@ app.get("/api/schools/:id/next", auth, schoolParam, (req, res) => res.json(sales
 app.post("/api/schools/:id/log", auth, schoolParam, wrap(async (req, res) => {
   res.json(await sales.logContact(req.params.id, req.session.user, req.body || {}, req.tz));
 }));
+app.get("/api/schools/:id/photos", auth, schoolParam, wrap(async (req, res) => {
+  res.set("cache-control", "private, max-age=3600");
+  res.json({ photos: await photosFor(req.params.id, { refresh: req.query.refresh === "1" }), google: googleEnabled() });
+}));
 app.get("/api/schools/:id/brief", auth, schoolParam, wrap(async (req, res) => res.json(await ai.brief(req.params.id, { user: req.session.user }))));
 app.post("/api/schools/:id/draft", auth, schoolParam, wrap(async (req, res) => {
   const { channel, purpose, contact, base } = req.body || {};
@@ -134,6 +140,25 @@ app.post("/api/activities/:id/move", auth, wrap(async (req, res) => {
   await pd.updateActivity(Number(req.params.id), { due_date: u.date, ...(u.time ? { due_time: u.time } : {}) });
   res.json({ ok: true });
 }));
+// Radar: lo que encontró el agente de prospección (scripts/radar.mjs).
+function radarState() { try { return createRequire(import.meta.url)("./data/radar/state.json"); } catch { return { cities: {}, scanned: {}, runs: [] }; } }
+app.get("/api/radar", auth, (req, res) => {
+  const st = radarState();
+  const countries = {};
+  for (const [cc, list] of Object.entries(st.cities || {})) {
+    const name = { MX: "México", PE: "Perú", AR: "Argentina", CL: "Chile", UY: "Uruguay", GT: "Guatemala", CR: "Costa Rica" }[cc] || cc;
+    const scanned = list.filter(c => st.scanned?.[`${cc}|${c.name}`]).length;
+    countries[name] = { cities: list.length, scanned, schools: schools.filter(s => s.country === name).length, found: schools.filter(s => s.country === name && s.src === "osm").length };
+  }
+  const weekAgo = new Date(Date.now() - 7 * 864e5).toISOString().slice(0, 10);
+  const fresh = schools.filter(s => s.found && s.found >= weekAgo);
+  const top = fresh.map(s => ({ s, r: sales.scoreFor(s) })).filter(x => x.r).sort((a, b) => b.r.score - a.r.score).slice(0, 40)
+    .map(({ s, r }) => ({ ...sales.schoolListItem(s), score: r.score, reasons: r.reasons, opp: s.opp || [], found: s.found }));
+  const byCity = {};
+  for (const s of fresh) { const k = `${s.city}, ${s.country}`; byCity[k] = (byCity[k] || 0) + 1; }
+  res.json({ runs: (st.runs || []).slice(0, 12), countries, total: schools.length, fromRadar: schools.filter(s => s.src === "osm").length, weekNew: fresh.length,
+    topCities: Object.entries(byCity).sort((a, b) => b[1] - a[1]).slice(0, 12), top, google: googleEnabled(), ai: ai.aiEnabled() });
+});
 app.get("/api/feed", auth, wrap(async (req, res) => res.json(await sales.teamFeed())));
 app.get("/api/stats", auth, (req, res) => res.json(sales.stats(req.session.user, req.tz)));
 

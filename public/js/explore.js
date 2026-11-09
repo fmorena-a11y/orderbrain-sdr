@@ -6,7 +6,7 @@ const E = S.explore;
 const FILTERS = [["prospect", "Para prospectar"], ["new", "Nunca contactado"], ["org", "En Pipe sin trato"], ["lost", "Perdido"], ["open", "En proceso"], ["client", "Cliente"], ["unk", "Sin revisar"], ["all", "Todos"]];
 const PROSPECT = ["new", "org", "lost", "unk"];
 const RANK = { new: 0, org: 1, lost: 2, unk: 3, open: 4, client: 5 };
-let host, map, layer, busy = false;
+let host, map, layer, canvas, busy = false;
 
 const scope = () => S.schools.filter(s => (!E.country || s.country === E.country) && (!E.city || s.city === E.city));
 const searchList = () => { const q = norm(E.q); return S.schools.filter(s => (!E.country || s.country === E.country) && norm(`${s.name} ${s.city} ${s.addr || ""}`).includes(q)); };
@@ -109,6 +109,7 @@ function initMap() {
     L.tileLayer(B + "Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16 }).addTo(map);
   } else L.tileLayer(B + "World_Street_Map/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, attribution: "© Esri, HERE, OpenStreetMap" }).addTo(map);
   layer = L.layerGroup().addTo(map);
+  canvas = L.canvas({ padding: 0.3 });
   setTimeout(() => map.invalidateSize(), 50);
 }
 function drawMap() {
@@ -123,8 +124,10 @@ function drawMap() {
       pts.push([lat, lng]);
     });
   } else {
+    // puntos en canvas: aguanta miles de colegios por ciudad sin trabarse
+    const colors = Object.fromEntries(Object.entries(ST).map(([k, v]) => [k, cssVar(v.c)]));
     applyFilter(E.q ? searchList() : scope()).forEach(s => {
-      L.marker([s.lat, s.lng], { icon: L.divIcon({ className: "", iconSize: [16, 16], html: `<div class="dot" style="width:16px;height:16px;background:${cssVar(ST[s.status].c)}"></div>` }), title: s.name, keyboard: true })
+      L.circleMarker([s.lat, s.lng], { renderer: canvas, radius: 7, color: "#fff", weight: 2, fillColor: colors[s.status], fillOpacity: 1 })
         .on("click", () => openSchool(s.id)).bindTooltip(`${s.name} · ${ST[s.status].l}`).addTo(layer);
       pts.push([s.lat, s.lng]);
     });
