@@ -18,6 +18,8 @@ const DEV_EMAIL = process.env.DEV_LOGIN_EMAIL || "";
 const PROD = process.env.NODE_ENV === "production";
 // En modo demo (Pipedrive de prueba) se permite entrar sin Google aunque sea producción: no hay datos reales.
 const DEV_OK = !!DEV_EMAIL && (!PROD || pd.DEMO);
+// Las sesiones quedan atadas al modo (demo o real): al pasar a Pipedrive real, las sesiones de demo dejan de valer.
+const MODE = pd.DEMO ? "demo" : "live";
 const google = GOOGLE_CLIENT_ID ? new OAuth2Client(GOOGLE_CLIENT_ID) : null;
 
 if (!process.env.SESSION_SECRET) console.warn("⚠ Falta SESSION_SECRET: las sesiones no son seguras.");
@@ -55,6 +57,7 @@ app.post("/auth/google", async (req, res) => {
     if (!p.email_verified) return res.status(403).json({ error: "Tu email de Google no está verificado." });
     if (DOMAIN && !p.email.toLowerCase().endsWith("@" + DOMAIN)) return res.status(403).json({ error: `Solo pueden entrar cuentas @${DOMAIN}.` });
     req.session.user = { email: p.email.toLowerCase(), name: p.name || p.email, picture: p.picture || "", ...(await attachPipedriveUser(p.email)) };
+    req.session.mode = MODE;
     res.json({ user: req.session.user });
   } catch { res.status(401).json({ error: "No se pudo validar el login de Google." }); }
 });
@@ -62,12 +65,14 @@ app.post("/auth/dev", async (req, res) => {
   if (!DEV_OK) return res.status(404).end();
   const pdu = await attachPipedriveUser(DEV_EMAIL);
   req.session.user = { email: DEV_EMAIL.toLowerCase(), name: pdu.pdName || DEV_EMAIL.split("@")[0], ...pdu };
+  req.session.mode = MODE;
   res.json({ user: req.session.user });
 });
 app.post("/auth/logout", (req, res) => { req.session = null; res.json({ ok: true }); });
 
 const auth = (req, res, next) => {
   if (!req.session?.user) return res.status(401).json({ error: "Iniciá sesión." });
+  if (req.session.mode !== MODE || (DOMAIN && !req.session.user.email.endsWith("@" + DOMAIN) && MODE === "live")) { req.session = null; return res.status(401).json({ error: "Iniciá sesión." }); }
   req.tz = safeTz(req.get("x-tz"));
   next();
 };
@@ -143,9 +148,17 @@ app.post("/api/proposals/confirm", auth, wrap(async (req, res) => {
   const p = ai.getProposal(token);
   if (!p) return res.status(404).json({ error: "La propuesta venció. Pedila de nuevo en el chat." });
   if (p.requestedBy !== req.session.user.email) return res.status(403).json({ error: "Esta propuesta es de otra persona." });
-  if (!(await ai.claimProposal(token))) return res.json({ ok: true, already: true, orgUrl: p.orgId ? `${pd.PD_WEB}/organization/${p.orgId}` : pd.PD_WEB });
-  try { res.json(await confirmProposal(p, req)); }
+  const claim = await ai.claimProposal(token);
+  if (claim !== true) {
+    if (claim.state === "done") return res.json({ ok: true, already: true, orgUrl: claim.orgUrl || pd.PD_WEB });
+    if (claim.state === "discarded") return res.status(410).json({ error: "Esta propuesta se descartó. Pedila de nuevo en el chat." });
+    return res.status(409).json({ error: "Se está guardando. Esperá unos segundos y actualizá." });
+  }
+  let out;
+  try { out = await confirmProposal(p, req); }
   catch (e) { await ai.releaseProposal(token); throw e; }
+  await ai.finishProposal(token, "done", out.orgUrl);
+  res.json(out);
 }));
 async function confirmProposal(p, req) {
   let orgId = p.orgId, dealId = p.dealId;
@@ -167,7 +180,7 @@ async function confirmProposal(p, req) {
 }
 app.post("/api/proposals/discard", auth, wrap(async (req, res) => {
   const token = String(req.body?.id || "");
-  if (ai.getProposal(token)?.requestedBy === req.session.user.email) await ai.claimProposal(token);
+  if (ai.getProposal(token)?.requestedBy === req.session.user.email && (await ai.claimProposal(token)) === true) await ai.finishProposal(token, "discarded");
   res.json({ ok: true });
 }));
 
