@@ -20,7 +20,7 @@ const STATE_FILE = path.join(ROOT, "data", "radar", "state.json");
 const env = process.env;
 const arg = (k, d) => { const i = process.argv.indexOf("--" + k); return i > 0 ? process.argv[i + 1] : d; };
 const DRY = process.argv.includes("--dry");
-const MINUTES = Number(arg("minutes", env.RADAR_MINUTES || 20));
+const MINUTES = Math.min(Math.max(Number(arg("minutes", env.RADAR_MINUTES || 20)) || 20, 1), 35);
 const MIN_POP = Number(env.RADAR_MIN_POP || 40000);
 const RESCAN_DAYS = Number(env.RADAR_RESCAN_DAYS || 30);
 const PLACES_MAX = Number(env.RADAR_PLACES_MAX || 150);
@@ -77,7 +77,7 @@ async function citiesFor(cc) {
     const pop = parseInt(String(e.tags.population || "").replace(/[^\d]/g, ""), 10);
     const name = e.tags["name:es"] || e.tags.name;
     if (!name || !(pop >= MIN_POP) || e.lat == null) continue;
-    out.push({ name, lat: +e.lat.toFixed(5), lng: +e.lon.toFixed(5), pop });
+    out.push({ id: e.id, name, lat: +e.lat.toFixed(5), lng: +e.lon.toFixed(5), pop });
   }
   // las ciudades muy cercanas a una más grande (conurbados) se escanean dentro de la grande
   out.sort((a, b) => b.pop - a.pop);
@@ -97,13 +97,18 @@ const PUBLIC_RE = new RegExp([
   "universidad (nacional|autonoma|estatal|publica|tecnologica nacional)",
   "\\b(ceip|ies|ceo|cra|cepa|cpi|cpr|eso)\\b", "colegio publico", "instituto de educacion secundaria", "escuela oficial", "centro publico",
   "unidad educativa (fiscal|fiscomisional|municipal|nacional|del milenio)", "\\bfiscal\\b", "escuela basica", "colegio nacional", "u e n\\b",
+  "\\bpublic[oa]s?\\b", "instituto tecnologico de", "universidad (tecnologica|politecnica)", "colegio (municipal|tecnico profesional)", "\\bctp\\b", "por cooperativa", "\\bcindea\\b", "\\bipec\\b",
+  "\\b(uba|udelar|uchile|usach|unmsm|uni|unal|uncuyo|unlp|unc|unr|utn|uaem|uanl|udg|buap|uv|uady|uas|uson)\\b",
   "institucion educativa (distrital|departamental|municipal|oficial)", "colegio distrital", "colegio departamental", "\\bied\\b", "\\binem\\b", "\\bunam\\b", "\\bipn\\b", "\\bliceo departamental", "\\bescuela publica", "\\bjardin de ninos (federal|estatal)",
 ].join("|"), "i");
 const PRIVATE_RE = /\b(unidad educativa|colegio|instituto|school|college|academy|academia|liceo|montessori|waldorf|bilingue|bilingual|british|american|britanico|americano|aleman|frances|italiano|ingles|internacional|international|iep|i e p|cep|cebp|kinder|preparatoria|prepa|centro educativo|complejo educativo|gimnasio|lycee|deutsche|scuola|universidad|university)\b/i;
 const RELIGIOUS_RE = /\b(san|santa|santo|sagrado|maria|marista|lasalle|la salle|salesian|jesuit|cristo|cristian|adventista|evangel|catolic|parroquial|inmaculad|corazon|guadalupe|teresa|ignacio|agustin|franciscan|dominic|bautista|anglican|hebreo|judio|hebrew)\b/i;
 const INTL_RE = /\b(bilingue|bilingual|british|american|britanico|americano|aleman|frances|italiano|internacional|international|lycee|deutsche|scuola|english|ingles|cambridge|ib)\b/i;
 
-export function classify(tags) {
+// En Costa Rica los «liceos» y muchos «colegios» son públicos: ahí se pide una señal clara de privado.
+const STRICT = new Set(["CR"]);
+const STRONG_PRIVATE_RE = /\b(school|college|academy|bilingue|bilingual|international|internacional|montessori|waldorf|cristiano|adventista|saint|st|british|american|lycee|deutsche|privad|particular)\b/i;
+export function classify(tags, cc = "") {
   const name = String(tags.name || "").trim();
   if (!name || name.length < 4) return null;
   const n = norm(name);
@@ -114,6 +119,7 @@ export function classify(tags) {
   const isPrivateTag = /^(private|religious|ngo|community|private_nonprofit|private_forprofit)$/.test(opType) || tags.fee === "yes" || /privad|particular/.test(norm(tags["school:type"] || "") + " " + n);
   if (!isPrivateTag && PUBLIC_RE.test(n)) return null;
   if (!isPrivateTag && !PRIVATE_RE.test(n)) return null;
+  if (!isPrivateTag && STRICT.has(cc) && !STRONG_PRIVATE_RE.test(n)) return null;
   const levels = [];
   const isced = String(tags["isced:level"] || "");
   if (/\b0\b|preescolar|kinder|jardin|inicial/.test(n + " " + isced)) levels.push("Preescolar");
@@ -132,7 +138,7 @@ export function classify(tags) {
 const pick = (t, ...ks) => { for (const k of ks) if (t[k]) return String(t[k]).split(";")[0].trim(); return ""; };
 function fromOsm(e, city, cc) {
   const t = e.tags || {};
-  const c = classify(t); if (!c) return null;
+  const c = classify(t, cc); if (!c) return null;
   const lat = e.lat ?? e.center?.lat, lng = e.lon ?? e.center?.lon;
   if (lat == null) return null;
   const street = [pick(t, "addr:street"), pick(t, "addr:housenumber")].filter(Boolean).join(" ");
@@ -147,13 +153,22 @@ function fromOsm(e, city, cc) {
 }
 
 // ---------- unir con la base existente
+// Palabras que no distinguen un colegio de otro.
+const GENERIC = new Set("colegio colegios instituto institucion educativa escuela school college academy academia liceo unidad centro educacional educativo complejo bilingue bilingual internacional international kinder jardin preparatoria prepa primaria secundaria nivel inicial particular privado privada sede campus de del la las el los y the of san santa santo".split(" "));
+const keyTokens = s => norm(s).split(" ").filter(w => w.length > 2 && !GENERIC.has(w));
+// Devuelve { x, exact }: exact = mismo elemento del mapa o mismo nombre; si no, coincidencia aproximada por cercanía.
 function matchExisting(list, idx, s) {
   const n = norm(s.name);
-  if (s.osm && idx.osm.has(s.osm)) return idx.osm.get(s.osm);
-  for (const x of idx.byName.get(n) || []) if (x.country === s.country && km(x, s) < 2) return x;
+  if (s.osm && idx.osm.has(s.osm)) return { x: idx.osm.get(s.osm), exact: true };
+  for (const x of idx.byName.get(n) || []) if (x.country === s.country && km(x, s) < 2) return { x, exact: true };
+  const mine = keyTokens(s.name); if (!mine.length) return null;
   const near = list.filter(x => x.country === s.country && Math.abs(x.lat - s.lat) < 0.003 && Math.abs(x.lng - s.lng) < 0.003);
-  const toks = new Set(n.split(" ").filter(w => w.length > 3));
-  for (const x of near) { const xt = norm(x.name).split(" ").filter(w => w.length > 3); if (xt.length && xt.filter(w => toks.has(w)).length / xt.length >= 0.5) return x; }
+  for (const x of near) {
+    const theirs = keyTokens(x.name); if (!theirs.length) continue;
+    const shared = theirs.filter(w => mine.includes(w)).length;
+    // hace falta compartir las palabras propias del nombre en los dos sentidos
+    if (shared / theirs.length >= 0.6 && shared / mine.length >= 0.6) return { x, exact: false };
+  }
   return null;
 }
 function buildIndex(list) {
@@ -180,51 +195,80 @@ async function placesLookup(s) {
   });
   if (!r.ok) throw new Error(`Places ${r.status}`);
   const j = await r.json();
-  const p = (j.places || []).find(p => p.location && km(s, { lat: p.location.latitude, lng: p.location.longitude }) < 1.5);
+  // tiene que estar a menos de 300 m y compartir las palabras propias del nombre
+  const mine = keyTokens(s.name);
+  const p = (j.places || []).find(p => {
+    if (!p.location || km(s, { lat: p.location.latitude, lng: p.location.longitude }) > 0.3) return false;
+    const theirs = keyTokens(p.displayName?.text || "");
+    if (!mine.length) return norm(p.displayName?.text) === norm(s.name);
+    return theirs.filter(w => mine.includes(w)).length / mine.length >= 0.5;
+  });
   return p || null;
 }
+// Devuelve la URL, "" si la página cargó y no tiene imagen, o lanza error si no se pudo leer (se reintenta otro día).
 async function ogImage(url) {
   const r = await fetch(url, { signal: AbortSignal.timeout(8000), redirect: "follow", headers: { "user-agent": "Mozilla/5.0 (compatible; OrderBrain-Radar/1.0)", accept: "text/html" } });
-  if (!r.ok || !/html/.test(r.headers.get("content-type") || "")) return null;
+  if (!r.ok) throw new Error(`web ${r.status}`);
+  if (!/html/.test(r.headers.get("content-type") || "")) return "";
   const html = (await r.text()).slice(0, 300000);
   const m = html.match(/<meta[^>]+(?:property|name)=["'](?:og:image|og:image:url|twitter:image)["'][^>]*content=["']([^"']+)["']/i) || html.match(/<meta[^>]+content=["']([^"']+)["'][^>]*(?:property|name)=["'](?:og:image|twitter:image)["']/i);
-  if (!m) return null;
-  try { const u = new URL(m[1].replace(/&amp;/g, "&"), r.url); return /^https:/.test(u.href) ? u.href : null; } catch { return null; }
+  if (!m) return "";
+  try { const u = new URL(m[1].replace(/&amp;/g, "&"), r.url); return /^https:/.test(u.href) ? u.href : ""; } catch { return ""; }
 }
+// Evaluación rápida de colegios nuevos (encaje, si es privado y ángulo), con salida estructurada.
 async function aiAssess(batch) {
-  const key = env.ANTHROPIC_API_KEY; if (!key || !batch.length) return {};
-  const r = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST", signal: AbortSignal.timeout(90000),
-    headers: { "content-type": "application/json", "x-api-key": key, "anthropic-version": "2023-06-01" },
-    body: JSON.stringify({ model: env.ANTHROPIC_MODEL || "claude-sonnet-5-5", max_tokens: 4000, messages: [{ role: "user", content:
-      `Sos SDR senior de OrderEAT (software para la cafetería escolar: app para que las familias carguen saldo, punto de venta sin efectivo, reportes). Para cada colegio de la lista, estimá solo con el nombre, la ciudad y los datos dados: fit (alto, medio o bajo) para OrderEAT, privado (si, probable, no) y angulo: una frase corta y concreta para abrir la llamada. No inventes datos. Respondé solo JSON: {"<id>": {"fit": "...", "privado": "...", "angulo": "..."}}.\n\n` +
-      batch.map(s => `${s.id} | ${s.name} | ${s.city}, ${s.country}${s.levels?.length ? " | niveles: " + s.levels.join(", ") : ""}${s.web ? " | web: " + s.web : ""}`).join("\n") }] }),
+  if (!env.ANTHROPIC_API_KEY || !batch.length) return {};
+  const { default: Anthropic } = await import("@anthropic-ai/sdk");
+  const client = new Anthropic();
+  const res = await client.messages.create({
+    model: env.ANTHROPIC_MODEL || "claude-opus-5-5", max_tokens: 16000,
+    output_config: { effort: "low", format: { type: "json_schema", schema: {
+      type: "object", additionalProperties: false, required: ["items"],
+      properties: { items: { type: "array", items: { type: "object", additionalProperties: false, required: ["id", "fit", "privado", "angulo"],
+        properties: { id: { type: "string" }, fit: { type: "string", enum: ["alto", "medio", "bajo"] }, privado: { type: "string", enum: ["si", "probable", "no"] }, angulo: { type: "string" } } } } },
+    } } },
+    messages: [{ role: "user", content: `Sos SDR senior de OrderEAT (software para la cafetería escolar: app para que las familias carguen saldo, punto de venta sin efectivo, reportes). Para cada colegio de la lista, estimá solo con el nombre, la ciudad y los datos dados: fit (alto, medio o bajo) para OrderEAT, privado (si, probable o no) y angulo: una frase corta y concreta para abrir la llamada. No inventes datos.\n\n` +
+      batch.map(s => `${s.id} | ${s.name} | ${s.city}, ${s.country}${s.levels?.length ? " | niveles: " + s.levels.join(", ") : ""}${s.web ? " | web: " + s.web : ""}`).join("\n") }],
   });
-  if (!r.ok) throw new Error(`Claude ${r.status}`);
-  const j = await r.json();
-  const t = (j.content || []).filter(b => b.type === "text").map(b => b.text).join("");
-  const m = t.match(/\{[\s\S]*\}/); return m ? JSON.parse(m[0]) : {};
+  if (res.stop_reason !== "end_turn") throw new Error(`respuesta incompleta (${res.stop_reason})`);
+  const t = res.content.filter(b => b.type === "text").map(b => b.text).join("");
+  return Object.fromEntries((JSON.parse(t).items || []).map(x => [x.id, x]));
 }
 
 // ---------- corrida
 async function main() {
-  const schools = JSON.parse(fs.readFileSync(SCHOOLS_FILE, "utf8"));
+  const original = fs.readFileSync(SCHOOLS_FILE, "utf8");
+  const schools = JSON.parse(original);
   fs.mkdirSync(path.dirname(STATE_FILE), { recursive: true });
-  let state = { cities: {}, citiesAt: {}, scanned: {}, runs: [] };
+  let state = { cities: {}, citiesAt: {}, scanned: {}, failed: {}, runs: [] };
   try { state = { ...state, ...JSON.parse(fs.readFileSync(STATE_FILE, "utf8")) }; } catch {}
   const idx = buildIndex(schools);
   const run = { at: new Date().toISOString(), cities: [], added: 0, enriched: 0, photos: 0, ai: 0, studies: 0, errors: [] };
   const added = [];
+  let citiesFetched = 0;
+  // guarda lo hecho; también si GitHub corta la corrida (SIGTERM)
+  const save = (reason = "") => {
+    const json = JSON.stringify(schools, null, 1) + "\n";
+    const changed = json !== original;
+    if (!changed && !run.cities.length && !citiesFetched) { log("sin cambios: no se escribe nada"); return; }
+    const total = schools.filter(s => s.private !== "no").length;
+    state.runs = [{ ...run, minutes: +((Date.now() - T0) / 60e3).toFixed(1), total, cities: run.cities.slice(0, 80), errors: run.errors.slice(0, 20), ...(reason ? { cut: reason } : {}) }, ...(state.runs || [])].slice(0, 40);
+    if (DRY) { log("--dry: no se escribe nada"); return; }
+    if (changed) fs.writeFileSync(SCHOOLS_FILE, json);
+    fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 1) + "\n");
+  };
+  process.once("SIGTERM", () => { log("corrida cortada: guardo lo hecho"); save("cortada"); process.exit(0); });
 
   // 1. listas de ciudades (se renuevan cada 60 días)
   for (const cc of Object.keys(COUNTRIES)) {
     if (ONLY.length && !ONLY.includes(cc)) continue;
     const at = state.citiesAt[cc];
     if (state.cities[cc]?.length && at && (Date.now() - Date.parse(at)) / 864e5 < 60) continue;
+    if (timeLeft() < MINUTES * 60e3 * 0.5) break;
     try {
       const list = await citiesFor(cc);
       if (!list.length) throw new Error("Overpass no devolvió ciudades");
-      state.cities[cc] = list; state.citiesAt[cc] = new Date().toISOString();
+      state.cities[cc] = list; state.citiesAt[cc] = new Date().toISOString(); citiesFetched++;
       log(`${cc}: ${list.length} ciudades de más de ${MIN_POP} habitantes`);
     }
     catch (e) { run.errors.push(`ciudades ${cc}: ${e.message}`); log("error ciudades", cc, e.message); }
@@ -236,12 +280,15 @@ async function main() {
   for (const [cc, list] of Object.entries(state.cities)) {
     if (ONLY.length && !ONLY.includes(cc)) continue;
     for (const c of list) {
-      const k = `${cc}|${c.name}`, at = state.scanned[k];
+      const k = `${cc}|${c.id ? "n" + c.id : c.name}`, at = state.scanned[k] || state.scanned[`${cc}|${c.name}`];
       if (at && (Date.now() - Date.parse(at)) / 864e5 < RESCAN_DAYS) continue;
-      queue.push({ cc, c, k, at: at || "", rank: at ? Date.parse(at) : -c.pop });
+      const f = state.failed?.[k];
+      // una ciudad que falla espera más cada vez (6 h, 12 h, 24 h…) y va al final de la cola
+      if (f && Date.now() - Date.parse(f.at) < Math.min(2 ** (f.n - 1) * 6, 168) * 3600e3) continue;
+      queue.push({ cc, c, k, at: at || "", failed: f?.n || 0, rank: at ? Date.parse(at) : -c.pop });
     }
   }
-  queue.sort((a, b) => (a.at ? 1 : 0) - (b.at ? 1 : 0) || a.rank - b.rank);
+  queue.sort((a, b) => a.failed - b.failed || (a.at ? 1 : 0) - (b.at ? 1 : 0) || a.rank - b.rank);
   log(`${queue.length} ciudades pendientes`);
 
   // 3. escanear mientras quede tiempo (se reserva un 35% para enriquecer)
@@ -249,15 +296,19 @@ async function main() {
     if (timeLeft() < MINUTES * 60e3 * 0.35) break;
     const R = Math.round(radiusKm(q.c.pop) * 1000);
     try {
-      const els = await overpass(`nwr["amenity"~"^(school|college|university)$"]["name"](around:${R},${q.c.lat},${q.c.lng});out center tags;`);
+      // (area.a): solo lo que está dentro del país, para no sumar colegios del otro lado de la frontera
+      const els = await overpass(`area["ISO3166-1"="${q.cc}"]["boundary"="administrative"]->.a;nwr["amenity"~"^(school|college|university)$"]["name"](around:${R},${q.c.lat},${q.c.lng})(area.a);out center tags;`);
       let n = 0, upd = 0;
       for (const e of els) {
         const s = fromOsm(e, q.c, q.cc); if (!s) continue;
-        const ex = matchExisting(schools, idx, s);
-        if (ex) {
-          let ch = false;
-          for (const f of ["phone", "web", "email", "addr"]) if (!ex[f] && s[f]) { ex[f] = s[f]; ch = true; }
-          if (!ex.osm) { ex.osm = s.osm; idx.osm.set(s.osm, ex); ch = true; }
+        const hit = matchExisting(schools, idx, s);
+        if (hit) {
+          const ex = hit.x; let ch = false;
+          // solo se completan datos cuando es seguro que es el mismo colegio
+          if (hit.exact) {
+            for (const f of ["phone", "web", "email", "addr"]) if (!ex[f] && s[f]) { ex[f] = s[f]; ch = true; }
+            if (!ex.osm) { ex.osm = s.osm; idx.osm.set(s.osm, ex); ch = true; }
+          }
           if (!ex.levels?.length && s.levels.length) { ex.levels = s.levels; ch = true; }
           if (ch) upd++;
           continue;
@@ -265,10 +316,14 @@ async function main() {
         added.push(addTo(schools, idx, s)); n++;
       }
       state.scanned[q.k] = new Date().toISOString();
+      if (state.failed) delete state.failed[q.k];
       run.cities.push({ cc: q.cc, city: q.c.name, found: n, updated: upd, osm: els.length });
       run.added += n;
       log(`${q.cc} ${q.c.name}: ${els.length} en el mapa, ${n} nuevos, ${upd} actualizados`);
-    } catch (e) { run.errors.push(`${q.k}: ${e.message}`); log("error", q.k, e.message); }
+    } catch (e) {
+      run.errors.push(`${q.k}: ${e.message}`); log("error", q.k, e.message);
+      if (!/sin tiempo/.test(e.message)) { state.failed = state.failed || {}; state.failed[q.k] = { n: (state.failed[q.k]?.n || 0) + 1, at: new Date().toISOString(), error: String(e.message).slice(0, 120) }; }
+    }
     await sleep(1500);
   }
 
@@ -285,7 +340,8 @@ async function main() {
           s.phone = s.phone || p.internationalPhoneNumber || p.nationalPhoneNumber || "";
           s.web = s.web || p.websiteUri || "";
           if (!s.addr && p.formattedAddress) s.addr = p.formattedAddress.split(",").slice(0, 2).join(",");
-          if (p.photos?.length) { s.photos = p.photos.slice(0, 4).map(x => x.name); run.photos++; }
+          // las fotos se piden al abrir la ficha con el id del lugar (los nombres de foto de Google vencen)
+          if (p.photos?.length) run.photos++;
           if (p.googleMapsUri) s.maps = p.googleMapsUri;
           run.enriched++;
         }
@@ -295,27 +351,29 @@ async function main() {
   }
 
   // 5. imagen de la web del colegio
-  const webTodo = schools.filter(s => s.web && s.img === undefined).slice(0, WEB_MAX);
+  const retryOk = s => !s.imgTry || (Date.now() - Date.parse(s.imgTry)) / 864e5 > 14;
+  const webTodo = schools.filter(s => s.web && s.img === undefined && retryOk(s)).slice(0, WEB_MAX);
   for (const s of webTodo) {
     if (timeLeft() < 45e3) break;
-    try { s.img = (await ogImage(s.web)) || ""; if (s.img) run.photos++; } catch { s.img = ""; }
+    try { s.img = await ogImage(s.web); delete s.imgTry; if (s.img) run.photos++; } catch { s.imgTry = today; }
   }
 
   // 6. evaluación con IA de los nuevos
   if (env.ANTHROPIC_API_KEY) {
     const todo = schools.filter(s => s.src === "osm" && !s.fit).slice(0, AI_MAX);
-    for (let i = 0; i < todo.length && timeLeft() > 30e3; i += 40) {
-      const batch = todo.slice(i, i + 40);
+    for (let i = 0; i < todo.length && timeLeft() > 30e3; i += 25) {
+      const batch = todo.slice(i, i + 25);
       try {
         const res = await aiAssess(batch);
         for (const s of batch) {
           const a = res[s.id]; if (!a) continue;
           s.fit = ["alto", "medio", "bajo"].includes(a.fit) ? a.fit : "medio";
+          // no se borra: queda marcado y la app lo oculta (así el radar no lo vuelve a sumar)
           if (a.privado === "no") s.private = "no";
           if (a.angulo && !s.pitch) s.pitch = String(a.angulo).slice(0, 220);
           run.ai++;
         }
-      } catch (e) { run.errors.push(`ia: ${e.message}`); break; }
+      } catch (e) { run.errors.push(`ia: ${e.message}`); if (/401|403|credit|billing/i.test(e.message)) break; }
     }
   }
 
@@ -344,12 +402,36 @@ async function main() {
   }
 
   // 8. guardar
-  const cleaned = schools.filter(s => s.private !== "no");
-  state.runs = [{ ...run, minutes: +((Date.now() - T0) / 60e3).toFixed(1), total: cleaned.length, cities: run.cities.slice(0, 80), errors: run.errors.slice(0, 20) }, ...(state.runs || [])].slice(0, 40);
-  log(`fin: ${run.added} nuevos, ${run.enriched} enriquecidos con Google, ${run.photos} fotos, ${run.ai} evaluados con IA, ${run.studies} estudios, ${run.errors.length} errores. Total ${cleaned.length}.`);
-  if (DRY) { log("--dry: no se escribe nada"); return; }
-  fs.writeFileSync(SCHOOLS_FILE, JSON.stringify(cleaned, null, 1) + "\n");
-  fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 1) + "\n");
+  log(`fin: ${run.added} nuevos, ${run.enriched} enriquecidos con Google, ${run.photos} fotos, ${run.ai} evaluados con IA, ${run.studies} estudios, ${run.errors.length} errores.`);
+  save();
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) main().catch(e => { console.error(e); process.exit(1); });
+// ---------- --merge <carpeta>: une el resultado de la corrida con la versión más nueva de main
+// (la usa el workflow antes de hacer push, para no pisar ediciones hechas a mano mientras corría el radar).
+// Nunca pisa un dato que ya existe: solo suma colegios nuevos y completa campos vacíos.
+// Campos que solo escribe el radar: ahí manda la versión de la corrida.
+const RADAR_OWNED = ["private", "fit", "studied", "img", "imgTry", "gplace"];
+function mergeFrom(dir) {
+  const mine = JSON.parse(fs.readFileSync(path.join(dir, "schools.json"), "utf8"));
+  const latest = JSON.parse(fs.readFileSync(SCHOOLS_FILE, "utf8"));
+  const byId = new Map(latest.map(s => [s.id, s])), byOsm = new Map(latest.filter(s => s.osm).map(s => [s.osm, s]));
+  let added = 0, filled = 0;
+  for (const r of mine) {
+    const cur = byId.get(r.id) || (r.osm && byOsm.get(r.osm));
+    if (!cur) { latest.push(r); byId.set(r.id, r); added++; continue; }
+    for (const [k, v] of Object.entries(r)) {
+      const empty = cur[k] === undefined || cur[k] === "" || (Array.isArray(cur[k]) && !cur[k].length);
+      if (RADAR_OWNED.includes(k) ? cur[k] !== v : empty && v !== undefined && v !== "" && !(Array.isArray(v) && !v.length)) { cur[k] = v; filled++; }
+    }
+  }
+  fs.writeFileSync(SCHOOLS_FILE, JSON.stringify(latest, null, 1) + "\n");
+  const st = path.join(dir, "state.json"); if (fs.existsSync(st)) fs.copyFileSync(st, STATE_FILE);
+  const sd = path.join(dir, "studies");
+  if (fs.existsSync(sd)) { fs.mkdirSync(STUDY_DIR, { recursive: true }); for (const f of fs.readdirSync(sd)) if (f.endsWith(".json")) fs.copyFileSync(path.join(sd, f), path.join(STUDY_DIR, f)); }
+  console.log(`merge: ${added} colegios nuevos, ${filled} datos completados`);
+}
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  const m = arg("merge", "");
+  if (m) mergeFrom(m); else main().catch(e => { console.error(e); process.exit(1); });
+}

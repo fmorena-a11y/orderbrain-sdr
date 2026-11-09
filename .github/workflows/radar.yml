@@ -1,6 +1,7 @@
-# Radar de colegios: agente que corre cada 2 horas, recorre todas las ciudades de todos los países
-# y suma a data/schools.json los colegios privados nuevos. Cada corrida con cambios hace commit en main,
-# y Vercel publica la base actualizada sola.
+# Radar de colegios: agente que corre cada 2 horas, recorre todas las ciudades de todos los países,
+# suma a data/schools.json los colegios privados nuevos y estudia los mejores.
+# Al terminar une su resultado con la versión más nueva de main (sin pisar ediciones hechas a mano)
+# y hace commit solo si hubo cambios. Vercel publica la base nueva sola.
 name: Radar de colegios
 
 on:
@@ -9,10 +10,10 @@ on:
   workflow_dispatch:
     inputs:
       minutes:
-        description: "Minutos de trabajo"
+        description: "Minutos de trabajo (1 a 35)"
         default: "20"
       countries:
-        description: "Países (MX,PE,AR,CL,UY,GT,CR). Vacío = todos"
+        description: "Países (MX,PE,AR,CO,ES…). Vacío = todos"
         default: ""
   push:
     branches: [main]
@@ -41,18 +42,27 @@ jobs:
           GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           RADAR_COUNTRIES: ${{ inputs.countries }}
-        run: node scripts/radar.mjs --minutes "${{ inputs.minutes || '20' }}"
+          RADAR_MINUTES: ${{ inputs.minutes || '20' }}
+        run: node scripts/radar.mjs
       - name: Guardar resultados
         run: |
+          set -e
+          mkdir -p /tmp/radar/studies
+          cp data/schools.json data/radar/state.json /tmp/radar/
+          cp data/studies/*.json /tmp/radar/studies/ 2>/dev/null || true
           git config user.name "OrderBrain Radar"
           git config user.email "radar@users.noreply.github.com"
-          mkdir -p data/studies
-          git add data/schools.json data/radar data/studies
-          if git diff --cached --quiet; then echo "Sin cambios"; exit 0; fi
-          SUMMARY=$(node -e 'const r=require("./data/radar/state.json").runs[0];console.log(`${r.added} colegios nuevos en ${r.cities.length} ciudades, ${r.studies||0} estudios (total ${r.total})`)')
-          git commit -m "Radar: $SUMMARY"
           for i in 1 2 3 4; do
-            git pull --rebase -X theirs origin main && git push origin HEAD:main && exit 0
+            git fetch -q origin main
+            git reset -q --hard origin/main
+            node scripts/radar.mjs --merge /tmp/radar
+            node -e 'JSON.parse(require("fs").readFileSync("data/schools.json","utf8"))'
+            mkdir -p data/studies
+            git add data/schools.json data/radar data/studies
+            if git diff --cached --quiet; then echo "Sin cambios"; exit 0; fi
+            SUMMARY=$(node -e 'const r=require("./data/radar/state.json").runs[0];console.log(`${r.added} colegios nuevos en ${r.cities.length} ciudades, ${r.studies||0} estudios (total ${r.total})`)')
+            git commit -q -m "Radar: $SUMMARY"
+            if git push -q origin HEAD:main; then exit 0; fi
             sleep $((i * 5))
           done
           exit 1

@@ -884,8 +884,7 @@
   "hours": "Lun a vie 8:00 a 18:00, sáb 8:00 a 13:30",
   "pitch": "Perfil bilingüe.",
   "zone": "Centro-oeste",
-  "id": "piura-colegio-peruano-canadiense",
-  "img": ""
+  "id": "piura-colegio-peruano-canadiense"
  },
  {
   "name": "Colegio Salesiano Don Bosco",
@@ -930,8 +929,7 @@
   "hours": "Lun a vie 7:30 a 20:30",
   "pitch": "En Google figura como «Santa Monica College».",
   "zone": "Este",
-  "id": "piura-colegio-santa-monica-y-san-agustin",
-  "img": ""
+  "id": "piura-colegio-santa-monica-y-san-agustin"
  },
  {
   "name": "Colegio Turicará",
@@ -945,8 +943,7 @@
   "maps": "https://maps.google.com/?cid=17655470361893155742",
   "pitch": "Colegio de varones, hermano de Vallesol.",
   "zone": "Norte",
-  "id": "piura-colegio-turicara",
-  "img": ""
+  "id": "piura-colegio-turicara"
  },
  {
   "name": "Colegio Vallesol",
@@ -961,8 +958,7 @@
   "hours": "Lun a vie 7:00 a 18:00",
   "pitch": "Colegio de mujeres, hermano de Turicará.",
   "zone": "Norte",
-  "id": "piura-colegio-vallesol",
-  "img": ""
+  "id": "piura-colegio-vallesol"
  },
  {
   "name": "Colegio Villarreal",
@@ -1098,8 +1094,7 @@
   "rating": "4,6 (97)",
   "pitch": "Del Arzobispado, muy bien valorado.",
   "zone": "Centro-oeste",
-  "id": "piura-san-jose-obrero",
-  "img": ""
+  "id": "piura-san-jose-obrero"
  },
  {
   "name": "Colegio México Nuevo Campus Puebla",
