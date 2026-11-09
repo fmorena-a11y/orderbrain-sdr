@@ -2,7 +2,7 @@
 import { $, S, api, esc, icon, pill, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, ago, TYPE_ICON,
   telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink } from "./core.js";
 
-const D = { id: null, data: null, tab: "prep", form: null, activityId: null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null };
+const D = { id: null, data: null, tab: "prep", form: null, activityId: null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null };
 const CH = [["call", "Llamada", "phone"], ["whatsapp", "WhatsApp", "whatsapp"], ["mail", "Mail", "mail"], ["visit", "Visita", "user"]];
 const NEXT_TYPES = [["", "Sin próximo paso"], ["call", "Llamada"], ["deadline", "WhatsApp"], ["task", "Mail"]];
 const GOOD = ["callback", "info", "demo"];
@@ -20,14 +20,38 @@ const newForm = () => ({ channel: "call", outcome: null, contact: { name: "", ro
 export async function openSchool(id, { activityId = null, tab = null, keepSession = false } = {}) {
   if (!S.byId.has(id)) return toast("Colegio inexistente", { type: "err" });
   if (!keepSession) S.session = null;
-  Object.assign(D, { id, data: null, form: newForm(), activityId, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, tab: tab || (activityId ? "log" : "prep") });
+  Object.assign(D, { id, data: null, form: newForm(), activityId, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null, tab: tab || (activityId ? "log" : "prep") });
   $("drawer").hidden = false; $("scrim").hidden = false;
   $("scrim").onclick = closeSchool;
   draw();
   $("drawer").focus?.();
   load();
   loadPhotos(id);
+  loadStudy(id);
 }
+// Estudio: si no existe, se pide solo (tarda 1 o 2 minutos) y aparece cuando está listo.
+async function loadStudy(id, { refresh = false } = {}) {
+  const redraw = () => { if (D.id === id && D.tab === "prep" && D.data) keepScroll(draw); };
+  try {
+    if (!refresh) {
+      const r = await api(`/api/schools/${id}/study`);
+      if (D.id !== id) return;
+      if (r.study) { D.study = r.study; return redraw(); }
+      if (!r.enabled) { D.study = null; return redraw(); }
+    }
+    D.studyWorking = true; D.studyErr = null; redraw();
+    let st = null;
+    try { st = (await api(`/api/schools/${id}/study`, { body: { refresh } })).study; }
+    catch (e) {
+      // si otra persona lo está generando, esperar a que aparezca
+      for (let i = 0; i < 24 && !st && D.id === id; i++) { await new Promise(r => setTimeout(r, 8000)); st = (await api(`/api/schools/${id}/study`).catch(() => ({}))).study; }
+      if (!st) throw e;
+    }
+    if (D.id !== id) return;
+    D.study = st; D.studyWorking = false; redraw();
+  } catch (e) { if (D.id !== id) return; D.studyWorking = false; D.studyErr = e.message; redraw(); }
+}
+function keepScroll(fn) { const b = $("drawer").querySelector("#dBody"); const top = b?.scrollTop || 0; fn(); const nb = $("drawer").querySelector("#dBody"); if (nb) nb.scrollTop = top; }
 async function loadPhotos(id) {
   let list = [];
   try { list = (await api(`/api/schools/${id}/photos`)).photos || []; } catch {}
@@ -37,8 +61,12 @@ async function loadPhotos(id) {
   if (g) { g.outerHTML = gallery(S.byId.get(id)); bindGallery(S.byId.get(id)); }
 }
 // Fotos: las de Google y la web primero, y siempre la vista satelital al final.
-function photoList(s) { return [...(D.photos || []), { url: satLink(s), kind: "sat", credit: "Vista satelital · Esri, Maxar, Earthstar Geographics" }]; }
-const KIND = { google: "Google Maps", web: "Web del colegio", sat: "Satélite" };
+function photoList(s) {
+  const seen = new Set((D.photos || []).map(p => p.url));
+  const fromStudy = (D.study?.imagenes || []).filter(x => !seen.has(x.url)).map(x => ({ url: x.url, kind: "study", credit: x.descripcion || "Encontrada en la web" }));
+  return [...(D.photos || []), ...fromStudy, { url: satLink(s), kind: "sat", credit: "Vista satelital · Esri, Maxar, Earthstar Geographics" }];
+}
+const KIND = { google: "Google Maps", web: "Web del colegio", study: "Web", sat: "Satélite" };
 function gallery(s) {
   const list = photoList(s);
   return `<div class="gallery" id="gallery" aria-label="Fotos del colegio">${list.map((p, i) => `<button class="ph ${p.kind}" data-ph="${i}" aria-label="Ver foto ${i + 1} (${KIND[p.kind]})"><img src="${esc(p.kind === "sat" ? satLink(s, { w: 480, h: 300 }) : p.url)}" alt="" loading="lazy" referrerpolicy="no-referrer"><span class="cap">${esc(KIND[p.kind])}</span></button>`).join("")}${D.photos === null ? `<div class="ph skel" aria-hidden="true"></div>` : ""}</div>`;
@@ -185,22 +213,55 @@ function bindTop(s, d) {
 const open = url => window.open(url, "_blank", "noopener");
 
 // ---------- Preparar
+const FIT = { alto: ["new", "Encaje alto"], medio: ["lost", "Encaje medio"], bajo: ["client", "Encaje bajo"] };
+const known = v => v && !/^(sin datos|desconocid|no (se )?encontr|n\/a|-)/i.test(String(v).trim());
+function studyCard(s) {
+  if (D.studyWorking) return `<div class="sec study working"><h3><span class="l">${icon("sparkles")} Estudio del colegio</span></h3>
+    <div class="study-progress"><span class="spin"></span><div><b>Investigando el colegio en la web…</b><p class="muted">Leo su sitio, redes y noticias para armarte el perfil, los decisores y el guion. Tarda 1 o 2 minutos; podés ir llamando mientras.</p></div></div></div>`;
+  if (D.studyErr) return `<div class="callout warn">${icon("alert")}<span>No se pudo hacer el estudio: ${esc(D.studyErr)} <button class="linkbtn" id="stRetry">Reintentar</button></span></div>`;
+  const st = D.study; if (!st) return "";
+  const pf = st.perfil || {};
+  const facts = [["Niveles", (pf.niveles || []).join(", ")], ["Alumnos", pf.alumnos], ["Cuota", pf.cuota], ["Segmento", pf.segmento], ["Cafetería", [st.cafeteria?.modelo !== "desconocido" && st.cafeteria?.modelo, st.cafeteria?.detalle].filter(Boolean).join(" · ")], ["Red o congregación", pf.red], ["Idiomas", pf.idiomas], ["Sedes", pf.sedes], ["Antigüedad", pf.antiguedad]].filter(([, v]) => known(v));
+  const c = st.contacto || {};
+  const [fcls, flbl] = FIT[st.fit] || FIT.medio;
+  return `<div class="sec study">
+    <h3><span class="l">${icon("sparkles")} Estudio del colegio</span><span class="pill ${fcls}" title="${esc(st.fit_razon || "")}">${flbl}</span></h3>
+    <p class="lead">${esc(st.resumen)}</p>
+    ${st.angulo ? `<div class="callout ok">${icon("bolt")}<span><b>Ángulo:</b> ${esc(st.angulo)}</span></div>` : ""}
+    ${facts.length ? `<dl class="facts">${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>` : ""}
+    ${st.decisores?.length ? `<div class="sub-h">Decisores</div>${st.decisores.map(x => `<div class="person"><div class="t"><b>${esc(x.nombre)}</b><small>${esc(x.cargo)}${x.fuente ? ` · ${/^https?:/.test(x.fuente) ? `<a href="${esc(x.fuente)}" target="_blank" rel="noopener">fuente</a>` : esc(x.fuente)}` : ""}</small></div></div>`).join("")}` : ""}
+    ${(c.telefonos?.length || c.emails?.length || c.redes?.length || c.whatsapp) ? `<div class="sub-h">Contacto</div><div class="chips">
+      ${(c.telefonos || []).map(t => `<a class="chip" href="${esc(telLink(t))}">${icon("phone", "sm")} ${esc(t)}</a>`).join("")}
+      ${[c.whatsapp, ...(c.telefonos || [])].filter(Boolean).slice(0, 1).map(t => `<button class="chip" data-stwa="${esc(t)}">${icon("whatsapp", "sm")} WhatsApp</button>`).join("")}
+      ${(c.emails || []).map(m => `<button class="chip" data-stmail="${esc(m)}">${icon("mail", "sm")} ${esc(m)}</button>`).join("")}
+      ${(c.redes || []).filter(u => /^https?:\/\//.test(u)).map(u => `<a class="chip" href="${esc(u)}" target="_blank" rel="noopener">${icon("external", "sm")} ${esc(u.replace(/^https?:\/\/(www\.)?/, "").split("/")[0])}</a>`).join("")}</div>` : ""}
+    ${(st.senales?.length || st.riesgos?.length) ? `<div class="two-col">
+      ${st.senales?.length ? `<div><div class="sub-h">Señales de oportunidad</div><ul class="ticks ok">${st.senales.map(x => `<li>${icon("check", "sm")}<span>${esc(x)}</span></li>`).join("")}</ul></div>` : ""}
+      ${st.riesgos?.length ? `<div><div class="sub-h">A tener en cuenta</div><ul class="ticks warn">${st.riesgos.map(x => `<li>${icon("alert", "sm")}<span>${esc(x)}</span></li>`).join("")}</ul></div>` : ""}</div>` : ""}
+    ${st.proximo_paso ? `<p style="margin:12px 0 0"><b>Próximo paso sugerido:</b> ${esc(st.proximo_paso)}</p>` : ""}
+    <div class="study-foot">
+      ${st.fuentes?.length ? `<details><summary>${st.fuentes.length} fuentes</summary><ul>${st.fuentes.map(f => `<li><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.titulo || f.url)}</a></li>`).join("")}</ul></details>` : "<span></span>"}
+      <span class="actions"><span class="faint">Actualizado ${esc(ago(st.at))}</span><button class="btn sm ghost" id="stNote">${icon("note", "sm")} Guardar en Pipedrive</button><button class="btn sm ghost" id="stRefresh" aria-label="Actualizar estudio" title="Volver a investigar">${icon("refresh", "sm")}</button></span>
+    </div>
+  </div>`;
+}
 function prepBody(s, d) {
-  const p = d.playbook, b = D.brief, m = d.match;
-  const sit = b?.situacion || p.situacion, apertura = b?.apertura || p.apertura, preguntas = b?.preguntas || p.preguntas, objeciones = b?.objeciones || p.objeciones, cierre = b?.cierre || p.cierre;
+  const p = d.playbook, b = D.study || null, m = d.match;
+  const sit = p.situacion, apertura = b?.apertura || p.apertura, preguntas = b?.preguntas?.length ? b.preguntas : p.preguntas, objeciones = b?.objeciones?.length ? b.objeciones : p.objeciones, cierre = p.cierre;
   const warn = s.status === "client" ? "Ya es cliente de OrderEAT. No lo prospectes: si hay algo, avisale al equipo de cuentas." : s.status === "open" ? `Tiene un trato abierto${m.openDealOwner ? ` de ${m.openDealOwner}` : ""}. Coordiná con esa persona antes de contactar.` : "";
   const cands = !m.confirmed ? (m.candidates || []) : [];
   const me = (S.me.name || "").split(" ")[0];
   return `<div class="stack">
     ${gallery(s)}
     ${warn ? `<div class="callout warn">${icon("alert")}<span>${esc(warn)}</span></div>` : ""}
+    ${studyCard(s)}
     ${cands.length ? `<div class="sec"><h3><span class="l">${icon("building")} ¿Es alguna de estas organizaciones de Pipedrive?</span></h3>${m.orgId ? `<p class="muted" style="margin:0 0 6px">Ahora está vinculado a <b>${esc(m.orgName)}</b>.</p>` : ""}${cands.map(c => `<div class="cand"><span>${esc(c.name)}</span><button class="btn sm" data-org="${c.id}" data-name="${esc(c.name)}">Es esta</button></div>`).join("")}${m.orgId ? `<div class="cand"><span class="muted">Ninguna de estas</span><button class="btn sm ghost" id="unlink">Desvincular</button></div>` : ""}</div>` : ""}
     <div class="sec">
-      <h3><span class="l">${icon("target")} Situación y objetivo</span>${b ? `<span class="ai-badge">${icon("sparkles", "sm")} Brief con IA</span>` : S.ai ? `<button class="btn sm" id="brief" ${D.briefLoading ? "disabled" : ""}>${D.briefLoading ? `<span class="spin"></span> Leyendo Pipedrive…` : `${icon("sparkles", "sm")} Preparar con IA`}</button>` : ""}</h3>
+      <h3><span class="l">${icon("target")} Situación y objetivo</span></h3>
       <p style="margin:0 0 8px">${esc(sit)}</p>
-      ${b?.angulo ? `<p style="margin:0 0 8px"><b>Ángulo:</b> ${esc(b.angulo)}</p>` : ""}
+
       <p class="muted" style="margin:0"><b>Objetivo:</b> ${esc(p.objetivo)}</p>
-      ${b?.alerta ? `<div class="callout warn" style="margin-top:10px">${icon("alert")}<span>${esc(b.alerta)}</span></div>` : ""}
+
       ${s.pitch ? `<div class="callout info" style="margin-top:10px">${icon("bolt")}<span>${esc(s.pitch)}</span></div>` : ""}
     </div>
     <div class="sec"><h3><span class="l">${icon("phone")} Primeros 15 segundos</span></h3>
@@ -226,11 +287,16 @@ function prepBody(s, d) {
 function bindPrep(s, d) {
   const el = $("drawer");
   bindGallery(s);
-  el.querySelector("#brief")?.addEventListener("click", async () => {
-    D.briefLoading = true; draw();
-    try { D.brief = await api(`/api/schools/${s.id}/brief`); } catch (e) { toast(e.message, { type: "err" }); }
-    D.briefLoading = false; if (D.id === s.id) draw();
+  el.querySelector("#stRefresh")?.addEventListener("click", () => loadStudy(s.id, { refresh: true }));
+  el.querySelector("#stRetry")?.addEventListener("click", () => loadStudy(s.id));
+  el.querySelector("#stNote")?.addEventListener("click", async e => {
+    const b = e.currentTarget; b.disabled = true;
+    try { const r = await api(`/api/schools/${s.id}/study/note`, { body: {} }); toast("Estudio guardado como nota en Pipedrive", { href: r.orgUrl, action: "Abrir" }); }
+    catch (err) { toast(err.message, { type: "err" }); }
+    b.disabled = false;
   });
+  el.querySelectorAll("[data-stwa]").forEach(b => b.onclick = () => templateMenu(b, s, d, "whatsapp", { phone: b.dataset.stwa }));
+  el.querySelectorAll("[data-stmail]").forEach(b => b.onclick = () => templateMenu(b, s, d, "mail", { email: b.dataset.stmail }));
   el.querySelectorAll("[data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy));
   el.querySelectorAll("[data-q]").forEach(c => c.onchange = () => { D.form.asked = { ...(D.form.asked || {}), [c.dataset.q]: c.checked }; });
   el.querySelectorAll("[data-org]").forEach(b => b.onclick = () => { D.data = null; draw(); load({ match: { orgId: +b.dataset.org, orgName: b.dataset.name } }); });

@@ -34,6 +34,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+      - run: npm ci --omit=dev
       - name: Buscar colegios
         env:
           GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
@@ -44,9 +46,10 @@ jobs:
         run: |
           git config user.name "OrderBrain Radar"
           git config user.email "radar@users.noreply.github.com"
-          git add data/schools.json data/radar
+          mkdir -p data/studies
+          git add data/schools.json data/radar data/studies
           if git diff --cached --quiet; then echo "Sin cambios"; exit 0; fi
-          SUMMARY=$(node -e 'const r=require("./data/radar/state.json").runs[0];console.log(`${r.added} colegios nuevos en ${r.cities.length} ciudades (total ${r.total})`)')
+          SUMMARY=$(node -e 'const r=require("./data/radar/state.json").runs[0];console.log(`${r.added} colegios nuevos en ${r.cities.length} ciudades, ${r.studies||0} estudios (total ${r.total})`)')
           git commit -m "Radar: $SUMMARY"
           for i in 1 2 3 4; do
             git pull --rebase -X theirs origin main && git push origin HEAD:main && exit 0

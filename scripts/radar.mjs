@@ -26,12 +26,18 @@ const RESCAN_DAYS = Number(env.RADAR_RESCAN_DAYS || 30);
 const PLACES_MAX = Number(env.RADAR_PLACES_MAX || 150);
 const WEB_MAX = Number(env.RADAR_WEB_MAX || 150);
 const AI_MAX = Number(env.RADAR_AI_MAX || 120);
+const STUDY_MAX = Number(env.RADAR_STUDY_MAX || 8);
+const STUDY_DIR = path.join(ROOT, "data", "studies");
 const T0 = Date.now();
 const timeLeft = () => MINUTES * 60e3 - (Date.now() - T0);
 const today = new Date().toISOString().slice(0, 10);
 const log = (...a) => console.log(`[${((Date.now() - T0) / 1000).toFixed(0)}s]`, ...a);
 
-export const COUNTRIES = { MX: "México", PE: "Perú", AR: "Argentina", CL: "Chile", UY: "Uruguay", GT: "Guatemala", CR: "Costa Rica" };
+export const COUNTRIES = {
+  MX: "México", PE: "Perú", AR: "Argentina", CL: "Chile", UY: "Uruguay", GT: "Guatemala", CR: "Costa Rica",
+  CO: "Colombia", EC: "Ecuador", BO: "Bolivia", PY: "Paraguay", VE: "Venezuela", PA: "Panamá", DO: "República Dominicana",
+  HN: "Honduras", SV: "El Salvador", NI: "Nicaragua", PR: "Puerto Rico", ES: "España",
+};
 const ONLY = (arg("countries", env.RADAR_COUNTRIES || "") || "").split(",").map(s => s.trim().toUpperCase()).filter(Boolean);
 
 // ---------- utilidades
@@ -47,6 +53,10 @@ let mirror = 0;
 async function overpass(q, { timeout = 180 } = {}) {
   let last;
   for (let attempt = 0; attempt < 6; attempt++) {
+    // nunca pasarse del tiempo de la corrida: si no alcanza, se corta y se guarda lo hecho
+    const allowed = Math.floor(Math.min(timeout, timeLeft() / 1000 - 90));
+    if (allowed < 25) throw new Error("sin tiempo en esta corrida");
+    timeout = allowed;
     const url = MIRRORS[mirror % MIRRORS.length];
     try {
       const r = await fetch(url, { method: "POST", headers: { "content-type": "application/x-www-form-urlencoded", "user-agent": "OrderBrain-Radar/1.0 (school prospecting)" }, body: "data=" + encodeURIComponent(`[out:json][timeout:${timeout}];${q}`), signal: AbortSignal.timeout((timeout + 20) * 1000) });
@@ -61,7 +71,7 @@ async function overpass(q, { timeout = 180 } = {}) {
 
 // ---------- ciudades por país
 async function citiesFor(cc) {
-  const els = await overpass(`area["ISO3166-1"="${cc}"][admin_level=2]->.a;node(area.a)["place"~"^(city|town)$"]["population"];out body;`, { timeout: 120 });
+  const els = await overpass(`area["ISO3166-1"="${cc}"]["boundary"="administrative"]->.a;node(area.a)["place"~"^(city|town)$"]["population"];out body;`, { timeout: 120 });
   const out = [];
   for (const e of els) {
     const pop = parseInt(String(e.tags.population || "").replace(/[^\d]/g, ""), 10);
@@ -84,9 +94,12 @@ const PUBLIC_RE = new RegExp([
   "telesecundaria", "\\bconafe\\b", "\\bcetis\\b", "\\bcbtis\\b", "\\bcbta\\b", "\\bconalep\\b", "\\bcecyt", "\\bcobach", "colegio de bachilleres", "\\bdgeti\\b",
   "\\bcetmar\\b", "\\bemsad\\b", "\\bcecati\\b", "\\bcam\\b", "\\busaer\\b", "\\bcendi\\b", "\\bcaic\\b", "\\bpronoei\\b", "\\bcebe\\b", "\\bceba\\b", "\\bprite\\b",
   "liceo (bicentenario|municipal|publico|politecnico)", "escuela basica", "instituto nacional", "colegio nacional", "colegio provincial", "escuela de educacion (secundaria|primaria|tecnica|especial)",
-  "universidad (nacional|autonoma|estatal|publica|tecnologica nacional)", "\\bunam\\b", "\\bipn\\b", "\\bliceo departamental", "\\bescuela publica", "\\bjardin de ninos (federal|estatal)",
+  "universidad (nacional|autonoma|estatal|publica|tecnologica nacional)",
+  "\\b(ceip|ies|ceo|cra|cepa|cpi|cpr|eso)\\b", "colegio publico", "instituto de educacion secundaria", "escuela oficial", "centro publico",
+  "unidad educativa (fiscal|fiscomisional|municipal|nacional|del milenio)", "\\bfiscal\\b", "escuela basica", "colegio nacional", "u e n\\b",
+  "institucion educativa (distrital|departamental|municipal|oficial)", "colegio distrital", "colegio departamental", "\\bied\\b", "\\binem\\b", "\\bunam\\b", "\\bipn\\b", "\\bliceo departamental", "\\bescuela publica", "\\bjardin de ninos (federal|estatal)",
 ].join("|"), "i");
-const PRIVATE_RE = /\b(colegio|instituto|school|college|academy|academia|liceo|montessori|waldorf|bilingue|bilingual|british|american|britanico|americano|aleman|frances|italiano|ingles|internacional|international|iep|i e p|cep|cebp|kinder|preparatoria|prepa|centro educativo|complejo educativo|gimnasio|lycee|deutsche|scuola|universidad|university)\b/i;
+const PRIVATE_RE = /\b(unidad educativa|colegio|instituto|school|college|academy|academia|liceo|montessori|waldorf|bilingue|bilingual|british|american|britanico|americano|aleman|frances|italiano|ingles|internacional|international|iep|i e p|cep|cebp|kinder|preparatoria|prepa|centro educativo|complejo educativo|gimnasio|lycee|deutsche|scuola|universidad|university)\b/i;
 const RELIGIOUS_RE = /\b(san|santa|santo|sagrado|maria|marista|lasalle|la salle|salesian|jesuit|cristo|cristian|adventista|evangel|catolic|parroquial|inmaculad|corazon|guadalupe|teresa|ignacio|agustin|franciscan|dominic|bautista|anglican|hebreo|judio|hebrew)\b/i;
 const INTL_RE = /\b(bilingue|bilingual|british|american|britanico|americano|aleman|frances|italiano|internacional|international|lycee|deutsche|scuola|english|ingles|cambridge|ib)\b/i;
 
@@ -200,7 +213,7 @@ async function main() {
   let state = { cities: {}, citiesAt: {}, scanned: {}, runs: [] };
   try { state = { ...state, ...JSON.parse(fs.readFileSync(STATE_FILE, "utf8")) }; } catch {}
   const idx = buildIndex(schools);
-  const run = { at: new Date().toISOString(), cities: [], added: 0, enriched: 0, photos: 0, ai: 0, errors: [] };
+  const run = { at: new Date().toISOString(), cities: [], added: 0, enriched: 0, photos: 0, ai: 0, studies: 0, errors: [] };
   const added = [];
 
   // 1. listas de ciudades (se renuevan cada 60 días)
@@ -306,10 +319,34 @@ async function main() {
     }
   }
 
-  // 7. guardar
+  // 7. estudios de prospección (Claude con búsqueda web) para los mejores colegios sin estudio
+  if (env.ANTHROPIC_API_KEY && STUDY_MAX > 0) {
+    const { research } = await import("../lib/study.js");
+    fs.mkdirSync(STUDY_DIR, { recursive: true });
+    const has = s => fs.existsSync(path.join(STUDY_DIR, s.id + ".json"));
+    const rank = s => (s.fit === "alto" ? 30 : s.fit === "bajo" ? -30 : 0) + (s.opp || []).length * 6 + (s.web ? 8 : 0) + (s.phone ? 6 : 0) + (s.pitch ? 4 : 0) + (s.found === today ? 5 : 0) + (s.src !== "osm" ? 12 : 0);
+    const todo = schools.filter(s => s.private !== "no" && s.fit !== "bajo" && !has(s)).sort((a, b) => rank(b) - rank(a)).slice(0, STUDY_MAX);
+    for (const s of todo) {
+      if (timeLeft() < 150e3) break;
+      try {
+        const st = await research(s);
+        if (!DRY) fs.writeFileSync(path.join(STUDY_DIR, s.id + ".json"), JSON.stringify(st, null, 1) + "\n");
+        if (st.angulo) s.pitch = String(st.angulo).slice(0, 240);
+        if (st.fit) s.fit = st.fit;
+        s.phone = s.phone || st.contacto?.telefonos?.[0] || "";
+        s.email = s.email || st.contacto?.emails?.[0] || "";
+        if (!s.web && /^https?:\/\//.test(st.contacto?.web || "")) s.web = st.contacto.web;
+        s.studied = st.at.slice(0, 10);
+        run.studies++;
+        log(`estudio: ${s.name} (${st.fit}, ${st.busquedas} búsquedas)`);
+      } catch (e) { run.errors.push(`estudio ${s.id}: ${e.message}`); log("error estudio", s.id, e.message); if (/401|403|credit|billing/i.test(e.message)) break; }
+    }
+  }
+
+  // 8. guardar
   const cleaned = schools.filter(s => s.private !== "no");
   state.runs = [{ ...run, minutes: +((Date.now() - T0) / 60e3).toFixed(1), total: cleaned.length, cities: run.cities.slice(0, 80), errors: run.errors.slice(0, 20) }, ...(state.runs || [])].slice(0, 40);
-  log(`fin: ${run.added} nuevos, ${run.enriched} enriquecidos con Google, ${run.photos} fotos, ${run.ai} evaluados con IA, ${run.errors.length} errores. Total ${cleaned.length}.`);
+  log(`fin: ${run.added} nuevos, ${run.enriched} enriquecidos con Google, ${run.photos} fotos, ${run.ai} evaluados con IA, ${run.studies} estudios, ${run.errors.length} errores. Total ${cleaned.length}.`);
   if (DRY) { log("--dry: no se escribe nada"); return; }
   fs.writeFileSync(SCHOOLS_FILE, JSON.stringify(cleaned, null, 1) + "\n");
   fs.writeFileSync(STATE_FILE, JSON.stringify(state, null, 1) + "\n");

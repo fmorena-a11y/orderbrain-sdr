@@ -12,7 +12,7 @@
   "functions": {
     "api/index.js": {
       "includeFiles": "data/**",
-      "maxDuration": 60
+      "maxDuration": 300
     }
   }
 }

@@ -4,7 +4,8 @@ import { OAuth2Client } from "google-auth-library";
 import path from "path";
 import { fileURLToPath } from "url";
 import * as pd from "./lib/pipedrive.js";
-import { schools, byId, sync, flush, kvEnabled } from "./lib/store.js";
+import { schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock } from "./lib/store.js";
+import { research, studyEnabled, studyToHtml } from "./lib/study.js";
 import * as sales from "./lib/sales.js";
 import * as ai from "./lib/ai.js";
 import { photosFor, googleEnabled } from "./lib/photos.js";
@@ -87,7 +88,7 @@ const schoolParam = (req, res, next) => byId.has(req.params.id) ? next() : res.s
 
 // ---------- API
 app.get("/api/me", auth, (req, res) => res.json({
-  user: req.session.user, ai: ai.aiEnabled(), demo: pd.DEMO, goal: DAILY_GOAL, pdWeb: pd.PD_WEB,
+  user: req.session.user, ai: ai.aiEnabled(), study: studyEnabled(), demo: pd.DEMO, goal: DAILY_GOAL, pdWeb: pd.PD_WEB,
   countries: [...new Set(schools.map(s => s.country))].sort(), markets: MARKETS, outcomes: sales.OUTCOMES, lostReasons: LOST_REASONS, types: TYPE_LABEL,
 }));
 app.get("/api/schools", auth, (req, res) => res.json(schools.map(sales.schoolListItem)));
@@ -117,6 +118,31 @@ app.post("/api/schools/:id/log", auth, schoolParam, wrap(async (req, res) => {
 app.get("/api/schools/:id/photos", auth, schoolParam, wrap(async (req, res) => {
   res.set("cache-control", "private, max-age=3600");
   res.json({ photos: await photosFor(req.params.id, { refresh: req.query.refresh === "1" }), google: googleEnabled() });
+}));
+// Estudio de prospección: se genera solo la primera vez que alguien abre el colegio.
+const studying = new Map();
+app.get("/api/schools/:id/study", auth, schoolParam, wrap(async (req, res) => {
+  res.json({ study: await getStudy(req.params.id), enabled: studyEnabled(), working: studying.has(req.params.id) });
+}));
+app.post("/api/schools/:id/study", auth, schoolParam, wrap(async (req, res) => {
+  const id = req.params.id, force = !!req.body?.refresh;
+  if (!force) { const cur = await getStudy(id); if (cur) return res.json({ study: cur }); }
+  if (!studyEnabled()) return res.status(400).json({ error: "El estudio automático necesita ANTHROPIC_API_KEY en el servidor." });
+  if (!studying.has(id)) studying.set(id, withLock("study:" + id, async () => {
+    if (!force) { const cur = await getStudy(id); if (cur) return cur; }
+    const m = await sales.checkSchool(id).catch(() => null);
+    const st = await research(byId.get(id), { context: m ? `Estado en Pipedrive: ${m.detail || "sin datos"}` : "" });
+    await setStudy(id, st);
+    return st;
+  }).finally(() => studying.delete(id)));
+  res.json({ study: await studying.get(id) });
+}));
+app.post("/api/schools/:id/study/note", auth, schoolParam, wrap(async (req, res) => {
+  const st = await getStudy(req.params.id);
+  if (!st) return res.status(404).json({ error: "Todavía no hay estudio de este colegio." });
+  const rec = await sales.ensureOrg(req.params.id);
+  await pd.addNote({ content: studyToHtml(byId.get(req.params.id), st), orgId: rec.orgId, dealId: rec.openDealId });
+  res.json({ ok: true, orgUrl: `${pd.PD_WEB}/organization/${rec.orgId}` });
 }));
 app.get("/api/schools/:id/brief", auth, schoolParam, wrap(async (req, res) => res.json(await ai.brief(req.params.id, { user: req.session.user }))));
 app.post("/api/schools/:id/draft", auth, schoolParam, wrap(async (req, res) => {

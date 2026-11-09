@@ -14,7 +14,7 @@ export async function renderRadar(el) {
   const totCities = cs.reduce((a, [, c]) => a + c.cities, 0), scanned = cs.reduce((a, [, c]) => a + c.scanned, 0);
   const pct = totCities ? Math.round(scanned / totCities * 100) : 0;
   el.innerHTML = `<div class="page">
-    <div class="page-head"><div><h1>Radar</h1><p>Un agente recorre todas las ciudades de más de 40.000 habitantes de cada país cada 2 horas y suma los colegios privados que todavía no tenemos. Los nuevos entran solos en «A quién llamar».</p></div>
+    <div class="page-head"><div><h1>Radar</h1><p>Un agente recorre cada 2 horas todas las ciudades de más de 40.000 habitantes de Latinoamérica y España, suma los colegios privados que todavía no tenemos y estudia a fondo los mejores. Los nuevos entran solos en «A quién llamar».</p></div>
       ${r.top.length ? `<button class="btn primary" id="sessNew">${icon("play")} Sesión con los nuevos</button>` : ""}</div>
     <section class="card hero" style="grid-template-columns:auto 1fr">
       <div class="ring" style="--p:${pct}" role="img" aria-label="${pct}% de las ciudades escaneadas"><b>${pct}%<small>ciudades</small></b></div>
@@ -36,7 +36,7 @@ export async function renderRadar(el) {
         </div></section>
         ${r.topCities.length ? `<section class="card"><div class="card-h"><h2>${icon("map")} Dónde encontró más</h2><span class="sub">esta semana</span></div><div class="card-b">${r.topCities.map(([c, n]) => `<div class="rank" style="grid-template-columns:1fr auto"><span>${esc(c)}</span><span class="num"><b>${n}</b></span></div>`).join("")}</div></section>` : ""}
         <section class="card"><div class="card-h"><h2>${icon("clock")} Corridas</h2></div><div class="card-b">
-          ${r.runs.length ? r.runs.map(x => `<div class="feed-item" style="grid-template-columns:1fr"><div><b>${x.added} nuevos</b> en ${x.cities.length} ciudades${x.errors?.length ? ` · <span style="color:var(--err)">${x.errors.length} errores</span>` : ""}<br><small>${esc(ago(x.at))} · ${x.minutes} min${x.cities.length ? " · " + esc(x.cities.slice(0, 4).map(c => c.city).join(", ")) + (x.cities.length > 4 ? "…" : "") : ""}</small></div></div>`).join("")
+          ${r.runs.length ? r.runs.map(x => `<div class="feed-item" style="grid-template-columns:1fr"><div><b>${x.added} nuevos</b> en ${x.cities.length} ciudades${x.studies ? ` · ${x.studies} estudios` : ""}${x.errors?.length ? ` · <span style="color:var(--err)">${x.errors.length} errores</span>` : ""}<br><small>${esc(ago(x.at))} · ${x.minutes} min${x.cities.length ? " · " + esc(x.cities.slice(0, 4).map(c => c.city).join(", ")) + (x.cities.length > 4 ? "…" : "") : ""}</small></div></div>`).join("")
             : `<p class="muted" style="margin:0">Sin corridas todavía.</p>`}
         </div></section>
       </div>
