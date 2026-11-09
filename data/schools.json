@@ -884,7 +884,8 @@
   "hours": "Lun a vie 8:00 a 18:00, sáb 8:00 a 13:30",
   "pitch": "Perfil bilingüe.",
   "zone": "Centro-oeste",
-  "id": "piura-colegio-peruano-canadiense"
+  "id": "piura-colegio-peruano-canadiense",
+  "img": ""
  },
  {
   "name": "Colegio Salesiano Don Bosco",
@@ -899,7 +900,8 @@
   "hours": "Lun a vie 7:00 a 17:00",
   "pitch": "Grande y tradicional, mucho volumen en recreos.",
   "zone": "Este",
-  "id": "piura-colegio-salesiano-don-bosco"
+  "id": "piura-colegio-salesiano-don-bosco",
+  "img": "https://salesianospiura.edu.pe/img/seo-og.jpg"
  },
  {
   "name": "Colegio San Ignacio de Loyola",
@@ -912,7 +914,8 @@
   "web": "http://www.csil.edu.pe/",
   "maps": "https://maps.google.com/?cid=13609435797927787522",
   "zone": "Este",
-  "id": "piura-colegio-san-ignacio-de-loyola"
+  "id": "piura-colegio-san-ignacio-de-loyola",
+  "img": "https://www.csil.edu.pe/wp-content/uploads/2021/05/cropped-111.jpg"
  },
  {
   "name": "Colegio Santa Mónica y San Agustín",
@@ -927,7 +930,8 @@
   "hours": "Lun a vie 7:30 a 20:30",
   "pitch": "En Google figura como «Santa Monica College».",
   "zone": "Este",
-  "id": "piura-colegio-santa-monica-y-san-agustin"
+  "id": "piura-colegio-santa-monica-y-san-agustin",
+  "img": ""
  },
  {
   "name": "Colegio Turicará",
@@ -941,7 +945,8 @@
   "maps": "https://maps.google.com/?cid=17655470361893155742",
   "pitch": "Colegio de varones, hermano de Vallesol.",
   "zone": "Norte",
-  "id": "piura-colegio-turicara"
+  "id": "piura-colegio-turicara",
+  "img": ""
  },
  {
   "name": "Colegio Vallesol",
@@ -956,7 +961,8 @@
   "hours": "Lun a vie 7:00 a 18:00",
   "pitch": "Colegio de mujeres, hermano de Turicará.",
   "zone": "Norte",
-  "id": "piura-colegio-vallesol"
+  "id": "piura-colegio-vallesol",
+  "img": ""
  },
  {
   "name": "Colegio Villarreal",
@@ -994,7 +1000,8 @@
   "hours": "Lun a vie 7:00 a 16:00",
   "pitch": "Cadena: la alimentación probablemente se decide en Lima.",
   "zone": "Norte",
-  "id": "piura-innova-schools-los-ejidos"
+  "id": "piura-innova-schools-los-ejidos",
+  "img": "https://www.innovaschools.edu.pe/sites/default/files/2026-06/OpenGraph-Innova-Schools.webp"
  },
  {
   "name": "Innova Schools Progreso",
@@ -1009,7 +1016,8 @@
   "hours": "Lun a vie 7:00 a 16:00",
   "pitch": "Cadena; el teléfono es la central de Lima.",
   "zone": "Sur",
-  "id": "piura-innova-schools-progreso"
+  "id": "piura-innova-schools-progreso",
+  "img": "https://www.innovaschools.edu.pe/sites/default/files/2026-06/OpenGraph-Innova-Schools.webp"
  },
  {
   "name": "Madre del Buen Consejo",
@@ -1050,7 +1058,8 @@
   "rating": "4,6 (115)",
   "pitch": "De los colegios de mujeres mejor valorados de la ciudad.",
   "zone": "Centro-oeste",
-  "id": "piura-our-lady-of-lourdes-school"
+  "id": "piura-our-lady-of-lourdes-school",
+  "img": "https://static.wixstatic.com/media/233bcb_f8c5760f8851437cb5fbbf0138df29d4.png/v1/fit/w_2500,h_1330,al_c/233bcb_f8c5760f8851437cb5fbbf0138df29d4.png"
  },
  {
   "name": "Parroquial Niño Jesús de Praga",
@@ -1089,7 +1098,8 @@
   "rating": "4,6 (97)",
   "pitch": "Del Arzobispado, muy bien valorado.",
   "zone": "Centro-oeste",
-  "id": "piura-san-jose-obrero"
+  "id": "piura-san-jose-obrero",
+  "img": ""
  },
  {
   "name": "Colegio México Nuevo Campus Puebla",
