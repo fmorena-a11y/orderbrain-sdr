@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FAFAFA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)">
+<title>OrderBrain SDR</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='%23FF4AA5'/><stop offset='1' stop-color='%23FF160E'/></linearGradient></defs><rect width='64' height='64' rx='16' fill='url(%23g)'/><circle cx='32' cy='32' r='13' fill='none' stroke='white' stroke-width='6'/><circle cx='32' cy='32' r='3.5' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<section id="login" class="login" hidden>
+  <div class="login-card">
+    <div class="logo-mark lg" aria-hidden="true"></div>
+    <h1>OrderBrain <span>SDR</span></h1>
+    <p>Tu día de prospección en un solo lugar: a quién llamar, qué decir y todo guardado en Pipedrive.</p>
+    <div id="gbtn"></div>
+    <button class="btn primary block" id="devLogin" hidden>Entrar en modo desarrollo</button>
+    <p class="err" id="loginErr" role="alert"></p>
+  </div>
+</section>
+
+<div class="shell" id="app" hidden>
+  <nav class="rail" aria-label="Secciones">
+    <div class="rail-brand"><div class="logo-mark" aria-hidden="true"></div><span>OrderBrain</span></div>
+    <button class="search-trigger" id="openPalette" aria-label="Buscar (Ctrl K)"><span data-icon="search"></span><span class="lbl">Buscar colegio</span><kbd>Ctrl K</kbd></button>
+    <div class="nav" id="nav"></div>
+    <div class="rail-foot">
+      <button class="nav-item" id="assistBtn" hidden><span data-icon="sparkles"></span><span class="lbl">Asistente</span></button>
+      <div class="me" id="me"></div>
+    </div>
+  </nav>
+  <main class="main" id="main" tabindex="-1"></main>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Ficha del colegio" hidden></aside>
+
+<aside class="assistant" id="assistant" aria-label="Asistente de ventas" hidden>
+  <header>
+    <div class="ah"><span class="spark" data-icon="sparkles"></span><div><h2>Asistente de ventas</h2><small>Agenda, notas, guiones y a quién llamar</small></div></div>
+    <button class="icon-btn" id="assistClose" aria-label="Cerrar"><span data-icon="x"></span></button>
+  </header>
+  <div class="msgs" id="msgs" aria-live="polite"></div>
+  <div class="sugs" id="sugs"></div>
+  <form class="compose" id="compose"><textarea id="chatIn" rows="1" placeholder="Pedile algo: «agendá una demo con Vallesol el jueves a las 10»" aria-label="Mensaje"></textarea><button class="btn primary icon-only" id="chatSend" aria-label="Enviar"><span data-icon="send"></span></button></form>
+</aside>
+
+<div class="palette" id="palette" hidden role="dialog" aria-modal="true" aria-label="Buscar">
+  <div class="palette-box">
+    <div class="palette-in"><span data-icon="search"></span><input id="palIn" placeholder="Buscar colegio, ciudad o acción" autocomplete="off" aria-label="Buscar"><kbd>Esc</kbd></div>
+    <div class="palette-list" id="palList" role="listbox"></div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script type="module" src="/js/app.js"></script>
+</body>
+</html>
