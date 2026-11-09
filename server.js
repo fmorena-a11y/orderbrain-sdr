@@ -16,6 +16,8 @@ const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || "";
 const DOMAIN = (process.env.ALLOWED_EMAIL_DOMAIN || "").toLowerCase();
 const DEV_EMAIL = process.env.DEV_LOGIN_EMAIL || "";
 const PROD = process.env.NODE_ENV === "production";
+// En modo demo (Pipedrive de prueba) se permite entrar sin Google aunque sea producción: no hay datos reales.
+const DEV_OK = !!DEV_EMAIL && (!PROD || pd.DEMO);
 const google = GOOGLE_CLIENT_ID ? new OAuth2Client(GOOGLE_CLIENT_ID) : null;
 
 if (!process.env.SESSION_SECRET) console.warn("⚠ Falta SESSION_SECRET: las sesiones no son seguras.");
@@ -35,7 +37,7 @@ async function attachPipedriveUser(email) {
   try { const m = await pd.meta(); const u = m.users.find(x => x.email === email.toLowerCase()); return u ? { pdUserId: u.id, pdName: u.name } : {}; }
   catch { return {}; }
 }
-app.get("/auth/config", (req, res) => res.json({ googleClientId: GOOGLE_CLIENT_ID, devLogin: !!DEV_EMAIL && !PROD, demo: pd.DEMO }));
+app.get("/auth/config", (req, res) => res.json({ googleClientId: GOOGLE_CLIENT_ID, devLogin: DEV_OK, demo: pd.DEMO }));
 app.post("/auth/google", async (req, res) => {
   try {
     if (!google) return res.status(500).json({ error: "El login con Google no está configurado (GOOGLE_CLIENT_ID)." });
@@ -48,7 +50,7 @@ app.post("/auth/google", async (req, res) => {
   } catch { res.status(401).json({ error: "No se pudo validar el login de Google." }); }
 });
 app.post("/auth/dev", async (req, res) => {
-  if (!DEV_EMAIL || PROD) return res.status(404).end();
+  if (!DEV_OK) return res.status(404).end();
   const pdu = await attachPipedriveUser(DEV_EMAIL);
   req.session.user = { email: DEV_EMAIL.toLowerCase(), name: pdu.pdName || DEV_EMAIL.split("@")[0], ...pdu };
   res.json({ user: req.session.user });
@@ -155,6 +157,8 @@ app.post("/api/proposals/:id/discard", auth, (req, res) => { ai.dropProposal(req
 // ---------- frontend
 const pub = path.join(path.dirname(fileURLToPath(import.meta.url)), "public");
 app.use(express.static(pub, { extensions: ["html"], maxAge: PROD ? "5m" : 0 }));
-app.get("*", (req, res) => res.sendFile(path.join(pub, "index.html")));
+app.get("*", (req, res) => res.sendFile(path.join(pub, "index.html"), err => err && res.redirect("/")));
 
-app.listen(PORT, () => console.log(`OrderBrain SDR en http://localhost:${PORT}`));
+// En Vercel la app se exporta como función; en cualquier otro lado levanta su propio servidor.
+if (!process.env.VERCEL) app.listen(PORT, () => console.log(`OrderBrain SDR en http://localhost:${PORT}`));
+export default app;

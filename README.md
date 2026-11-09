@@ -90,6 +90,16 @@ Sin `ANTHROPIC_API_KEY` todo funciona igual con el playbook fijo: lo único que 
 
 Las actividades se asignan al usuario de Pipedrive cuyo email coincide con el de Google. Si alguien entra con un email que no está en Pipedrive, la app se lo avisa.
 
+## Publicarlo en Vercel
+
+1. En Vercel: Add New → Project → importá `orderbrain-sdr`. No hace falta tocar la configuración de build: Vercel detecta Express (`server.js` exporta la app y `vercel.json` incluye la lista de colegios).
+2. En Settings → Environment Variables cargá `PIPEDRIVE_API_TOKEN`, `PIPEDRIVE_DOMAIN`, `GOOGLE_CLIENT_ID`, `ALLOWED_EMAIL_DOMAIN`, `SESSION_SECRET` y, si querés IA, `ANTHROPIC_API_KEY`. Después hacé Redeploy.
+3. Agregá la URL de Vercel (por ejemplo `https://orderbrain-sdr.vercel.app`) como origen autorizado en el cliente OAuth de Google.
+
+Para mirarla sin datos reales: `DEMO_MODE=1`, `DEV_LOGIN_EMAIL=tu-email@ordereat.com` y `SESSION_SECRET`, sin `PIPEDRIVE_API_TOKEN`. Aparece el botón «Entrar en modo desarrollo».
+
+Limitación de Vercel: no tiene disco persistente. El cruce con Pipedrive se recalcula solo, pero el registro local de contactos (meta diaria, ranking y cadencia) se reinicia cada tanto. Lo que se guarda en Pipedrive no se pierde. Para conservarlo, conviene un servidor con disco (abajo) o sumar una base de datos.
+
 ## Publicarlo (DigitalOcean App Platform)
 
 1. En DigitalOcean: Create → App → elegí este repo. Detecta Node solo (`npm start`).

@@ -1,0 +1,4 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": { "server.js": { "includeFiles": "data/schools.json", "maxDuration": 60 } }
+}
