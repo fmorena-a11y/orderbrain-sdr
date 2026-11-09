@@ -491,3 +491,10 @@ details.obj p { margin: 0 0 12px; color: var(--ink-2); }
 .study-progress .spin { margin-top: 3px; color: var(--accent); }
 .study-progress p { margin: 4px 0 0; font-size: 14px; }
 a.chip { text-decoration: none; }
+@media (max-width: 720px) {
+  .hero { gap: 14px 16px; padding: 18px; }
+  .hero .ring { width: 76px; height: 76px; }
+  .kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; }
+  .kpi b { font-size: 18px; }
+}
+@media (max-width: 860px) { #themeBtn .lbl { font-size: 0; } #themeBtn .lbl::after { content: "Tema"; font-size: 11.5px; } }

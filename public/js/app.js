@@ -1,5 +1,5 @@
 // OrderBrain SDR · arranque, navegación, búsqueda rápida y atajos.
-import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, closeMenu } from "./core.js";
+import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, closeMenu, isDark, applyTheme, save } from "./core.js";
 import { renderToday } from "./today.js";
 import { renderExplore } from "./explore.js";
 import { renderAgenda } from "./agenda.js";
@@ -43,6 +43,8 @@ setUnauthorized(() => showLogin());
 async function enterApp() {
   $("login").hidden = true; $("app").hidden = false;
   hydrateIcons();
+  drawThemeBtn();
+  $("themeBtn").onclick = toggleTheme;
   $("assistBtn").hidden = !S.ai;
   $("assistBtn").onclick = () => openAssistant();
   $("me").innerHTML = `<div class="av">${S.me.picture ? `<img src="${esc(S.me.picture)}" alt="">` : initials(S.me.name)}</div><div class="who"><b>${esc(S.me.name)}</b><small>${S.me.pdUserId ? "Conectado a Pipedrive" : "Sin usuario en Pipedrive"}</small></div><button class="icon-btn" id="logout" aria-label="Salir" title="Salir">${icon("logout")}</button>`;
@@ -53,6 +55,17 @@ async function enterApp() {
   route();
 }
 
+// ---------- modo claro / oscuro
+function drawThemeBtn() {
+  const dark = isDark();
+  $("themeBtn").innerHTML = `${icon(dark ? "sun" : "moon")}<span class="lbl">${dark ? "Modo claro" : "Modo oscuro"}</span>`;
+  $("themeBtn").setAttribute("aria-label", dark ? "Cambiar a modo claro" : "Cambiar a modo oscuro");
+}
+function toggleTheme() {
+  const next = isDark() ? "light" : "dark";
+  applyTheme(next); save("theme", next); drawThemeBtn();
+  if (S.view === "prospectar") route(); // el mapa cambia de estilo
+}
 // ---------- navegación
 function renderNav(badges = {}) {
   $("nav").innerHTML = Object.entries(VIEWS).map(([k, v]) => `<button class="nav-item" data-v="${k}" ${S.view === k ? 'aria-current="page"' : ""}>${icon(v.icon)}<span class="lbl">${v.label}</span>${badges[k] ? `<span class="badge">${badges[k]}</span>` : ""}</button>`).join("");
@@ -87,6 +100,7 @@ function renderPalette() {
     { label: "Empezar sesión de llamadas", sub: "Los mejores prospectos de tu territorio, uno tras otro", ic: "play", fn: () => startSession() },
     { label: "Prospectar en el mapa", sub: "Colegios por país y ciudad", ic: "map", fn: () => go("prospectar") },
     { label: "Mi agenda", sub: "Actividades pendientes en Pipedrive", ic: "calendar", fn: () => go("agenda") },
+    { label: isDark() ? "Modo claro" : "Modo oscuro", sub: "Cambiar el tema de la app", ic: isDark() ? "sun" : "moon", fn: toggleTheme },
     { label: "Radar de colegios", sub: "Lo que encontró el agente que recorre todas las ciudades", ic: "target", fn: () => go("radar") },
     { label: "Ranking del equipo", sub: "Contactos y demos de la semana", ic: "users", fn: () => go("equipo") },
     ...(S.ai ? [{ label: "Abrir asistente", sub: "Pedile que agende, cargue notas o arme un guion", ic: "sparkles", fn: () => openAssistant() }] : []),
