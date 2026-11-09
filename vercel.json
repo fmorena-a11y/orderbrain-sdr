@@ -1,4 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "functions": { "server.js": { "includeFiles": "data/schools.json", "maxDuration": 60 } }
+  "framework": null,
+  "buildCommand": "",
+  "outputDirectory": "public",
+  "rewrites": [{ "source": "/(api|auth)/(.*)", "destination": "/api/index" }],
+  "functions": { "api/index.js": { "includeFiles": "data/schools.json", "maxDuration": 60 } }
 }

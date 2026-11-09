@@ -4,7 +4,7 @@ import { OAuth2Client } from "google-auth-library";
 import path from "path";
 import { fileURLToPath } from "url";
 import * as pd from "./lib/pipedrive.js";
-import { schools, byId } from "./lib/store.js";
+import { schools, byId, sync, flush, kvEnabled } from "./lib/store.js";
 import * as sales from "./lib/sales.js";
 import * as ai from "./lib/ai.js";
 import { MARKETS, LOST_REASONS, TYPE_LABEL, DAILY_GOAL } from "./lib/config.js";
@@ -31,6 +31,15 @@ app.use(cookieSession({
   name: "obsdr", keys: [process.env.SESSION_SECRET || "dev-only-secret"], maxAge: 14 * 864e5,
   sameSite: "lax", secure: PROD, httpOnly: true,
 }));
+if (process.env.VERCEL && !kvEnabled) console.warn("⚠ Sin Redis (KV_REST_API_URL): en Vercel la meta, el ranking y la cadencia se reinician cada tanto.");
+// Antes de responder, espera que se guarden las escrituras pendientes (en Vercel la función se congela después).
+app.use((req, res, next) => {
+  const json = res.json.bind(res);
+  res.json = body => { flush().then(() => json(body), () => json(body)); return res; };
+  next();
+});
+// Trae de Redis lo que registraron otras instancias.
+app.use("/api", (req, res, next) => { sync().then(() => next(), () => next()); });
 
 // ---------- auth
 async function attachPipedriveUser(email) {
@@ -129,11 +138,16 @@ app.post("/api/chat", auth, wrap(async (req, res) => {
   if (!messages.length) return res.status(400).json({ error: "Mensaje vacío" });
   res.json(await ai.chat({ user: req.session.user, messages, focus: byId.has(req.body.focus) ? req.body.focus : null, tz: req.tz }));
 }));
-app.post("/api/proposals/:id/confirm", auth, wrap(async (req, res) => {
-  const p = ai.getProposal(req.params.id);
+app.post("/api/proposals/confirm", auth, wrap(async (req, res) => {
+  const token = String(req.body?.id || "");
+  const p = ai.getProposal(token);
   if (!p) return res.status(404).json({ error: "La propuesta venció. Pedila de nuevo en el chat." });
   if (p.requestedBy !== req.session.user.email) return res.status(403).json({ error: "Esta propuesta es de otra persona." });
-  if (p.done) return res.json({ ok: true, already: true, orgUrl: p.orgUrl });
+  if (!(await ai.claimProposal(token))) return res.json({ ok: true, already: true, orgUrl: p.orgId ? `${pd.PD_WEB}/organization/${p.orgId}` : pd.PD_WEB });
+  try { res.json(await confirmProposal(p, req)); }
+  catch (e) { await ai.releaseProposal(token); throw e; }
+}));
+async function confirmProposal(p, req) {
   let orgId = p.orgId, dealId = p.dealId;
   if (!orgId && p.schoolId) { const rec = await sales.ensureOrg(p.schoolId); orgId = rec.orgId; dealId = dealId || rec.openDealId; }
   if (!orgId) {
@@ -149,10 +163,13 @@ app.post("/api/proposals/:id/confirm", auth, wrap(async (req, res) => {
     const esc = s => String(s).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
     await pd.addNote({ content: `<b>Nota desde el asistente</b><br>${esc(p.text).replace(/\n/g, "<br>")}<br><br><i>Cargado por ${esc(by)} desde OrderBrain SDR</i>`, orgId, dealId });
   }
-  p.done = true; p.orgUrl = `${pd.PD_WEB}/organization/${orgId}`;
-  res.json({ ok: true, orgUrl: p.orgUrl });
+  return { ok: true, orgUrl: `${pd.PD_WEB}/organization/${orgId}` };
+}
+app.post("/api/proposals/discard", auth, wrap(async (req, res) => {
+  const token = String(req.body?.id || "");
+  if (ai.getProposal(token)?.requestedBy === req.session.user.email) await ai.claimProposal(token);
+  res.json({ ok: true });
 }));
-app.post("/api/proposals/:id/discard", auth, (req, res) => { ai.dropProposal(req.params.id); res.json({ ok: true }); });
 
 // ---------- frontend
 const pub = path.join(path.dirname(fileURLToPath(import.meta.url)), "public");

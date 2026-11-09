@@ -39,12 +39,12 @@ function propCard(p) {
     d.querySelector("[data-ok]")?.addEventListener("click", async () => {
       draw("busy");
       try {
-        const r = await api(`/api/proposals/${p.id}/confirm`, { body: {} }); draw("done", r.orgUrl); S.today = null; S.agenda = null;
+        const r = await api("/api/proposals/confirm", { body: { id: p.id } }); draw("done", r.orgUrl); S.today = null; S.agenda = null;
         toast(p.kind === "activity" ? "Actividad creada en Pipedrive" : "Nota guardada en Pipedrive");
         C.turns.push({ role: "user", content: `(Confirmé: ${p.kind === "activity" ? `${p.typeLabel} "${p.subject}" el ${p.date} para ${p.owner.name}` : "la nota"} en ${p.colegio}.)` }, { role: "assistant", content: "Listo, quedó en Pipedrive." });
       } catch (e) { draw("err", e.message); }
     });
-    d.querySelector("[data-no]")?.addEventListener("click", () => { api(`/api/proposals/${p.id}/discard`, { body: {} }).catch(() => {}); draw("no"); C.turns.push({ role: "user", content: `(Descarté la propuesta para ${p.colegio}.)` }, { role: "assistant", content: "Entendido." }); });
+    d.querySelector("[data-no]")?.addEventListener("click", () => { api("/api/proposals/discard", { body: { id: p.id } }).catch(() => {}); draw("no"); C.turns.push({ role: "user", content: `(Descarté la propuesta para ${p.colegio}.)` }, { role: "assistant", content: "Entendido." }); });
   };
   draw("pending"); $("msgs").scrollTop = 1e9;
 }

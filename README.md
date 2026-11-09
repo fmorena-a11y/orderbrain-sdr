@@ -81,7 +81,8 @@ Para probar sin configurar Google, poné `DEV_LOGIN_EMAIL=tu-email@ordereat.com`
 | `ALLOWED_EMAIL_DOMAIN` | Dominio permitido para entrar (ej. `ordereat.com`) | |
 | `SESSION_SECRET` | Texto largo y aleatorio | `openssl rand -hex 32` |
 | `DAILY_GOAL` | Meta diaria de contactos por SDR (por defecto 40) | |
-| `DATA_DIR` | Carpeta para el cruce con Pipe y el registro de contactos | Un disco persistente en producción |
+| `DATA_DIR` | Carpeta para el cruce con Pipe y el registro de contactos (si no hay Redis) | Un disco persistente en producción |
+| `KV_REST_API_URL`, `KV_REST_API_TOKEN` | Redis de Upstash para guardar cruce y contactos | Vercel → Storage → Upstash for Redis (se cargan solas) |
 | `SALES_PIPELINES` | Opcional: embudo y etapa de entrada por país en JSON | Ver `.env.example` |
 
 Los IDs de embudos, etapas y campos personalizados de la cuenta de OrderEAT están en `lib/config.js`. Si cambian en Pipedrive, se actualizan ahí (o con `SALES_PIPELINES` y `DEAL_FIELDS`).
@@ -92,13 +93,12 @@ Las actividades se asignan al usuario de Pipedrive cuyo email coincide con el de
 
 ## Publicarlo en Vercel
 
-1. En Vercel: Add New → Project → importá `orderbrain-sdr`. No hace falta tocar la configuración de build: Vercel detecta Express (`server.js` exporta la app y `vercel.json` incluye la lista de colegios).
-2. En Settings → Environment Variables cargá `PIPEDRIVE_API_TOKEN`, `PIPEDRIVE_DOMAIN`, `GOOGLE_CLIENT_ID`, `ALLOWED_EMAIL_DOMAIN`, `SESSION_SECRET` y, si querés IA, `ANTHROPIC_API_KEY`. Después hacé Redeploy.
-3. Agregá la URL de Vercel (por ejemplo `https://orderbrain-sdr.vercel.app`) como origen autorizado en el cliente OAuth de Google.
+1. En Vercel: Add New → Project → importá `orderbrain-sdr`. No hace falta tocar nada del build: `vercel.json` ya dice que los archivos de `public/` se sirven directo y que `/api` y `/auth` corren en la función `api/index.js`.
+2. **Base de datos (recomendado):** en el proyecto, Storage → Create Database → **Upstash for Redis** (plan gratis) → Connect. Vercel carga solo `KV_REST_API_URL` y `KV_REST_API_TOKEN`. Ahí se guardan la meta diaria, el ranking, la cadencia y el cruce con Pipedrive. Sin esto la app anda igual, pero esos datos se reinician cada tanto.
+3. En Settings → Environment Variables cargá `PIPEDRIVE_API_TOKEN`, `PIPEDRIVE_DOMAIN`, `GOOGLE_CLIENT_ID`, `ALLOWED_EMAIL_DOMAIN`, `SESSION_SECRET` y, si querés IA, `ANTHROPIC_API_KEY`. Después, Deployments → Redeploy.
+4. Agregá la URL de Vercel (por ejemplo `https://orderbrain-sdr.vercel.app`) como origen autorizado en el cliente OAuth de Google.
 
 Para mirarla sin datos reales: `DEMO_MODE=1`, `DEV_LOGIN_EMAIL=tu-email@ordereat.com` y `SESSION_SECRET`, sin `PIPEDRIVE_API_TOKEN`. Aparece el botón «Entrar en modo desarrollo».
-
-Limitación de Vercel: no tiene disco persistente. El cruce con Pipedrive se recalcula solo, pero el registro local de contactos (meta diaria, ranking y cadencia) se reinicia cada tanto. Lo que se guarda en Pipedrive no se pierde. Para conservarlo, conviene un servidor con disco (abajo) o sumar una base de datos.
 
 ## Publicarlo (DigitalOcean App Platform)
 
@@ -113,13 +113,14 @@ También funciona en Render o Railway, o con el `Dockerfile` incluido.
 
 ```
 server.js              Express: login, API y archivos estáticos
+api/index.js           Entrada para Vercel (reexporta la app)
 lib/config.js          Mercados por país, embudos, campos personalizados y motivos de pérdida
 lib/playbook.js        Resultados de contacto, cadencia, guion, objeciones, plantillas y prioridad
 lib/pipedrive.js       Cliente de la API de Pipedrive (v1 y v2) y cruce colegio ↔ organización
 lib/pipedrive-demo.js  Pipedrive de prueba en memoria (DEMO_MODE=1)
 lib/sales.js           Ficha, registro de contactos, cola de prioridad, agenda y métricas
 lib/ai.js              Claude: notas, brief de llamada, mensajes y asistente con herramientas
-lib/store.js           Colegios, cache del cruce y registro de contactos (DATA_DIR)
+lib/store.js           Colegios, cache del cruce y registro de contactos (Redis o DATA_DIR)
 lib/time.js            Zonas horarias y días hábiles
 public/                Frontend sin build: HTML, CSS y módulos JS (mapa con Leaflet)
 ```
