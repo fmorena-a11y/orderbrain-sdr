@@ -199,7 +199,7 @@ export function callWindow(s, now = new Date()) {
 }
 export const callPill = s => { const w = callWindow(s); return w ? `<span class="cw ${w.ok ? "ok" : ""}" title="Horario habitual de oficina escolar en ${esc(s.country)} (no es un dato del colegio), hora local: ${esc(w.span)}">${icon("clock", "sm")}${esc([w.label, w.local].filter(Boolean).join(" · "))}</span>` : ""; };
 // La cola de Hoy en el orden en que se muestra y se llama: los nuevos (primero los que están en horario de oficina, orden estable) y después los de reactivar
-export const callQueue = queue => { const rv = q => q.status === "lost" || q.status === "stalled", off = q => callWindow(q)?.ok ? 0 : 1; return [...queue.filter(q => !rv(q)).sort((a, b) => off(a) - off(b)), ...queue.filter(rv)]; };
+export const callQueue = (queue, now = new Date()) => { const rv = q => q.status === "lost" || q.status === "stalled", off = q => callWindow(q, now)?.ok ? 0 : 1; return [...queue.filter(q => !rv(q)).sort((a, b) => off(a) - off(b)), ...queue.filter(rv)]; };
 export const ago = t => {
   if (!t) return ""; const d = (Date.now() - new Date(t)) / 864e5;
   if (d < 1 / 48) return "recién"; if (d < 1 / 24) return `hace ${Math.round(d * 1440)} min`; if (d < 1) return `hace ${Math.round(d * 24)} h`;

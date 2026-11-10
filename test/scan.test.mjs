@@ -34,7 +34,7 @@ test("classify: si el nombre dice privado o particular, el número no lo vuelve 
   assert.equal(classify({ name: "Instituto Privado N° 45" })?.private, "seguro");
 });
 test("classify: «Sede N° 2» es número de sede, no de escuela pública", () => assert.equal(classify({ name: "Colegio San Ignacio Sede N° 2", "operator:type": "private" })?.private, "seguro"));
-test("classify: el número de sede no se toma como nivel (ISCED 2 = Secundaria)", { todo: "classify lee «\\b2\\b» del nombre como isced:level 2: «Colegio San Ignacio Sede N° 2» queda con levels [\"Secundaria\"] sin ningún dato de nivel" }, () => {
+test("classify: el número de sede no se toma como nivel (ISCED 2 = Secundaria)", () => {
   assert.deepEqual(classify({ name: "Colegio San Ignacio Sede N° 2", "operator:type": "private" }).levels, []);
 });
 test("classify: operador público o del gobierno no entra", () => {
