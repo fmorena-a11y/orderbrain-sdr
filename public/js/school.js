@@ -1,5 +1,5 @@
 // Ficha del colegio: preparar el contacto, registrar el resultado e historial. Incluye el modo sesión.
-import { $, S, api, esc, icon, pill, statusPill, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, ago, TYPE_ICON,
+import { $, S, api, esc, icon, pill, statusPill, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, workOrder, ago, TYPE_ICON,
   telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile } from "./core.js";
 const coarse = () => matchMedia("(pointer: coarse)").matches;
 
@@ -212,17 +212,23 @@ async function load(opts = {}) {
 }
 
 // ---------- sesión de llamadas
-export async function startSession(ids, label = "tu territorio") {
+// Sesión de llamadas. Sin ids: lo tuyo de hoy primero, después lo vencido y después los mejores prospectos de la cola.
+// acts: actividades (con su fecha local) que se trabajan en ese orden; extra: colegios nuevos que van después.
+export async function startSession(ids, label = "tu territorio", { acts = null, extra = [] } = {}) {
   pauseToast?.remove(); pauseToast = null; S.lastSession = null;
-  if (!ids) {
+  if (!ids && !acts) {
     if (!S.today) { try { const { loadToday } = await import("./today.js"); await loadToday(); } catch (e) { return toast(e.message, { type: "err" }); } }
-    const t = today(), acts = (S.today.activities.items || []).map(a => ({ ...a, ...localAct(a) })).filter(a => (a.schoolId || a.record) && a.date <= t);
+    const t = today();
+    acts = workOrder((S.today.activities.items || []).map(a => ({ ...a, ...localAct(a) })).filter(a => a.date <= t), t);
+    extra = S.today.queue.slice(0, 25).map(q => q.id);
+  }
+  S.session = { ids: [], i: 0, label, acts: {}, done: 0 };
+  if (acts) {
     const seen = new Set(); ids = [];
-    S.session = { ids: [], i: 0, label, acts: {}, done: 0 };
-    for (const a of acts) { const k = a.schoolId || a.record; if (!seen.has(k)) { seen.add(k); ids.push(k); S.session.acts[k] = a.id; } }
-    for (const q of S.today.queue.slice(0, 25)) if (!seen.has(q.id)) { seen.add(q.id); ids.push(q.id); }
-  } else S.session = { ids: [], i: 0, label, acts: {}, done: 0 };
-  if (!ids.length) { S.session = null; return toast("No hay colegios para esta sesión. Sumá países a tu territorio.", { type: "err" }); }
+    for (const a of acts) { const k = a.schoolId || a.record; if (k && !seen.has(k)) { seen.add(k); ids.push(k); S.session.acts[k] = a.id; } }
+    for (const id of extra) if (!seen.has(id)) { seen.add(id); ids.push(id); }
+  }
+  if (!ids.length) { S.session = null; return toast("No hay colegios para esta sesión.", { type: "err" }); }
   S.session.ids = ids;
   openAt(S.session, 0);
   prefetch();

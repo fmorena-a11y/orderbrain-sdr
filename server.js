@@ -306,6 +306,13 @@ app.get("/api/today", auth, wrap(async (req, res) => {
   const busyOrgs = new Set(mine.items.map(a => a.orgId).filter(Boolean));
   res.json({ stats: sales.stats(req.session.user, req.tz), activities: mine, queue: sales.prospectQueue({ countries, limit: 60, excludeOrgIds: busyOrgs, userId: req.session.user.pdUserId || null }) });
 }));
+// Cola de prospectos nuevos de una zona («hoy quiero trabajar Puebla»). El navegador manda las organizaciones que ya tienen
+// actividad tuya (exclude) para no repetirlas; la regla del dueño la aplica prospectQueue igual.
+app.get("/api/queue", auth, wrap(async (req, res) => {
+  const zone = String(req.query.zone || "").trim().slice(0, 80); if (!zone) return res.status(400).json({ error: "Falta la zona." });
+  const exclude = new Set(String(req.query.exclude || "").split(",").slice(0, 2000).map(Number).filter(Boolean));
+  res.json({ zone, queue: sales.prospectQueue({ zone, limit: 60, excludeOrgIds: exclude, userId: req.session.user.pdUserId || null }) });
+}));
 app.get("/api/my-activities", auth, wrap(async (req, res) => res.json(await sales.myActivities(req.session.user))));
 app.post("/api/activities/:id/done", auth, wrap(async (req, res) => { await ownActivity(req.session.user, req.params.id); await pd.updateActivity(Number(req.params.id), { done: true }); res.json({ ok: true }); }));
 app.post("/api/activities/:id/undone", auth, wrap(async (req, res) => { await ownActivity(req.session.user, req.params.id); await pd.updateActivity(Number(req.params.id), { done: false }); res.json({ ok: true }); }));

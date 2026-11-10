@@ -1,5 +1,5 @@
 // Hoy: meta del día, agenda propia y a quién contactar ahora.
-import { S, api, esc, icon, save, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg } from "./core.js";
+import { S, api, esc, icon, save, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg, matchZone, zoneOptions, ZONE_KIND, workOrder, norm } from "./core.js";
 import { openSchool, openRecord, startSession, resumeSession } from "./school.js";
 import { setBadge, baseErrorCallout } from "./app.js";
 
@@ -47,14 +47,14 @@ function draw() {
   const { stats, activities, queue } = S.today;
   const t = today();
   const acts = (activities.items || []).map(a => ({ ...a, ...localAct(a) }));
-  const late = acts.filter(a => a.date < t), now = acts.filter(a => a.date === t), soon = acts.filter(a => a.date > t && a.date <= addDays(t, 7));
+  const late = acts.filter(a => a.date < t).sort((a, b) => (b.date + b.time).localeCompare(a.date + a.time)), now = acts.filter(a => a.date === t), soon = acts.filter(a => a.date > t && a.date <= addDays(t, 7));
   const pct = Math.min(100, Math.round(stats.todayTouches / Math.max(1, stats.goal) * 100));
   const fresh = queue.filter(q => q.status !== "lost" && q.status !== "stalled"), revive = queue.filter(q => q.status === "lost" || q.status === "stalled");
   const sk = new Set([...late, ...now].map(a => a.schoolId || a.record).filter(Boolean)), sessionCount = sk.size + queue.slice(0, 25).filter(q => !sk.has(q.id)).length;
   const left = Math.max(0, stats.goal - stats.todayTouches);
   const msg = !left ? "Meta cumplida. Lo que sumes ahora es extra."
-    : late.length ? `Empezá por ${late.length === 1 ? "la actividad vencida" : `las ${late.length} actividades vencidas`}: son compromisos que ya tomaste.`
-    : now.length ? `Tenés ${now.length} ${now.length === 1 ? "actividad" : "actividades"} para hoy. Te faltan ${left} contactos para la meta.`
+    : now.length ? `Empezá por ${now.length === 1 ? "tu actividad de hoy" : `tus ${now.length} actividades de hoy`}.${late.length ? ` Después siguen ${late.length === 1 ? "la vencida" : `las ${late.length} vencidas`} y los colegios nuevos.` : ` Te faltan ${left} contactos para la meta.`}`
+    : late.length ? `Lo de hoy está al día. Seguí con ${late.length === 1 ? "la actividad vencida" : `las ${late.length} vencidas`}, de la más reciente a la más vieja.`
     : `Agenda al día. Te faltan ${left} contactos para la meta.`;
   const rate = stats.weekTouches ? `${Math.round(stats.weekConnected / stats.weekTouches * 100)}%` : "—";
   const resume = S.lastSession && S.lastSession.i < S.lastSession.ids.length - 1;
@@ -78,12 +78,13 @@ function draw() {
         </div>
       </div>
       <div class="hero-cta">${resume ? `<button class="btn primary lg" id="resume">${icon("play")} Retomar sesión · ${S.lastSession.i + 1} de ${S.lastSession.ids.length}</button><button class="btn ghost sm" id="go">Empezar una nueva</button>`
-        : `<button class="btn primary lg" id="go" ${sessionCount ? "" : "disabled"}>${icon("play")} Empezar sesión · ${sessionCount}</button>`}</div>
+        : `<button class="btn primary lg" id="go" ${sessionCount ? "" : "disabled"}>${icon("play")} Empezar sesión · ${sessionCount}</button>`}
+        <button class="btn ghost sm" id="zoneGo" aria-haspopup="dialog" data-focus-key="zoneGo">${icon("map", "sm")} Trabajar una zona o evento</button></div>
     </section>
     <div class="today-grid">
       <section class="card" aria-labelledby="hAg">
         <div class="card-h"><h2 id="hAg">${icon("calendar")} Tu agenda</h2><span class="sub">${acts.length} pendientes</span></div>
-        <div class="card-b">${late.length + now.length + soon.length ? group("Vencidas", late, "late") + group("Hoy", now) + group("Próximos 7 días", soon) : `<div class="empty">${icon("checkCircle")}<b>Sin pendientes</b><span>Lo que agendes desde una ficha aparece acá.</span></div>`}</div>
+        <div class="card-b">${late.length + now.length + soon.length ? group("Hoy", now) + group("Vencidas", late, "late") + group("Próximos 7 días", soon) : `<div class="empty">${icon("checkCircle")}<b>Sin pendientes</b><span>Lo que agendes desde una ficha aparece acá.</span></div>`}</div>
       </section>
       <div class="stack" id="right">
         <section class="card" aria-labelledby="hQ">
@@ -100,12 +101,49 @@ function draw() {
   host.querySelector("#go")?.addEventListener("click", () => { S.lastSession = null; startSession(); });
   host.querySelector("#resume")?.addEventListener("click", () => resumeSession());
   host.querySelector("#terr").onclick = territoryPicker;
+  host.querySelector("#zoneGo")?.addEventListener("click", zoneSession);
   host.querySelector("#more")?.addEventListener("click", () => { showAll = !showAll; draw(); });
   host.querySelectorAll("[data-school]").forEach(b => b.onclick = () => openSchool(b.dataset.school, { activityId: b.dataset.act ? Number(b.dataset.act) : null }));
   host.querySelectorAll("[data-record]").forEach(b => b.onclick = () => openRecord(b.dataset.record, { activityId: Number(b.dataset.act) || null }));
   host.querySelectorAll("[data-done]").forEach(b => b.onclick = () => markDone(Number(b.dataset.done)));
   host.querySelectorAll("[data-move]").forEach(b => b.onclick = () => moveMenu(b, Number(b.dataset.move)));
   if (focusKey) host.querySelector(`[data-focus-key="${focusKey}"]`)?.focus();
+}
+
+// Sesión especial por zona o evento («hoy quiero trabajar Puebla»): primero tus actividades de ahí (hoy, después vencidas)
+// y después los colegios nuevos de esa ciudad que no tienen dueño ni actividad tuya.
+function zoneSession() {
+  const t = today(), acts = (S.today?.activities.items || []).map(a => ({ ...a, ...localAct(a) })).filter(a => a.date <= t && (a.schoolId || a.record));
+  const sug = zoneOptions(acts).slice(0, 12);
+  const m = modal(`<h3>Trabajar una zona o evento</h3>
+    <p class="muted" style="margin:0">Primero van tus actividades de esa zona (las de hoy y después las vencidas). Al terminar siguen los colegios nuevos de esa ciudad.</p>
+    <label class="field"><span>Zona o evento</span><input class="inp" id="zsQ" list="zsL" placeholder="Puebla, Pachuca, EduExperience…" autocomplete="off">
+      <datalist id="zsL">${sug.map(z => `<option value="${esc(z.label)}">`).join("")}</datalist></label>
+    ${sug.length ? `<div class="zs-sug">${sug.map(z => `<button class="chip" data-z="${esc(z.key)}" data-l="${esc(z.label)}" title="${esc(ZONE_KIND[z.k])}">${esc(z.label)} <b>${z.n}</b></button>`).join("")}</div>` : ""}
+    <div class="zs-prev muted" id="zsP" aria-live="polite"></div>
+    <div class="row"><button class="btn ghost" id="zsNo">Cancelar</button><button class="btn primary" id="zsGo" disabled>${icon("play", "sm")} Empezar sesión</button></div>`, { onClose: () => host?.querySelector("#zoneGo")?.focus() });
+  const inp = m.querySelector("#zsQ"), prev = m.querySelector("#zsP"), go = m.querySelector("#zsGo");
+  let plan = null, seq = 0, tm, key = "";
+  const preview = async () => {
+    const z = inp.value.trim(), my = ++seq; plan = null; go.disabled = true;
+    if (norm(z).length < 3) { prev.textContent = ""; return; }
+    // un chip filtra por su clave exacta (la ciudad «Mendoza» no trae el evento de Mendoza); lo escrito, por palabras
+    const mine = workOrder(acts.filter(a => matchZone(a, key || z)), t);
+    prev.textContent = `${mine.length} ${mine.length === 1 ? "actividad tuya" : "actividades tuyas"}. Buscando colegios nuevos…`;
+    const ex = [...new Set((S.today?.activities.items || []).map(a => a.orgId).filter(Boolean))].join(",");
+    const r = key.startsWith("e:") ? { queue: [] } : await api(`/api/queue?zone=${encodeURIComponent(z)}&exclude=${ex}`).catch(() => null);
+    if (my !== seq) return;
+    const taken = new Set(mine.map(a => a.schoolId).filter(Boolean)), fresh = (r?.queue || []).filter(q => !taken.has(q.id) && !["client", "open", "churn"].includes(q.status)).map(q => q.id);
+    plan = { z, mine, fresh };
+    prev.textContent = !mine.length && !fresh.length ? `No encontré actividades tuyas ni colegios nuevos en «${z}».`
+      : `${mine.length} ${mine.length === 1 ? "actividad tuya" : "actividades tuyas"} y ${fresh.length} ${fresh.length === 1 ? "colegio nuevo" : "colegios nuevos"}${r ? "" : " (no pude traer los nuevos)"}.`;
+    go.disabled = !(mine.length + fresh.length);
+  };
+  inp.addEventListener("input", () => { key = ""; clearTimeout(tm); tm = setTimeout(preview, 400); });
+  m.querySelectorAll("[data-z]").forEach(b => b.onclick = () => { inp.value = b.dataset.l; key = b.dataset.z; clearTimeout(tm); preview(); });
+  m.querySelector("#zsNo").onclick = () => m.close();
+  go.onclick = () => { if (!plan) return; m.close(); S.lastSession = null; startSession(null, plan.z, { acts: plan.mine, extra: plan.fresh }); };
+  inp.focus();
 }
 
 // Territorio: un solo botón que abre la lista de países (ninguno elegido = todos).
@@ -137,7 +175,7 @@ export function actRow(a, late) {
   const what = s ? a.subject.replace(new RegExp(`\\s*·\\s*${s.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*$`), "") : a.subject;
   // sin colegio de la base: el nombre del prospecto, la persona o la organización de Pipedrive
   const title = s ? s.name : a.who || a.subject;
-  const sub = `${s ? `${what} · ` : a.who ? `${a.subject}${a.kind ? ` · ${a.kind.toLowerCase()}` : ""} · ` : ""}${when}${s ? ` · ${s.city}` : ""}${!s && a.note ? ` · «${a.note}»` : ""}`;
+  const sub = `${s ? `${what} · ` : a.who ? `${a.subject}${a.kind ? ` · ${a.kind.toLowerCase()}` : ""} · ` : ""}${when}${s ? ` · ${s.city}` : a.city ? ` · ${a.city}` : ""}${!s && a.note ? ` · «${a.note}»` : ""}`;
   return `<div class="act"><span class="ty ${a.type}" role="img" aria-label="${esc(a.typeLabel)}" title="${esc(a.typeLabel)}">${icon(TYPE_ICON[a.type] || "check")}</span>
     ${s ? `<button class="t" data-school="${esc(s.id)}" data-act="${a.id}"><b>${esc(title)}</b><small class="${late ? "late" : ""}">${esc(sub)}</small></button>`
       : a.record ? `<button class="t" data-record="${esc(a.record)}" data-act="${a.id}" title="Abrir la ficha"><b>${esc(title)}</b><small class="${late ? "late" : ""}">${esc(sub)}</small></button>`

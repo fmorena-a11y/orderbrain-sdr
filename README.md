@@ -11,6 +11,10 @@ La herramienta de prospección del equipo de ventas de OrderEAT. Le dice a cada 
 5. **Registrar.** Canal, resultado y, según el resultado, decisor, calificación, demo o motivo de pérdida. La app sugiere el próximo paso con criterio de cadencia (por ejemplo: «intento 1 sin respuesta: mandá un WhatsApp hoy»; «pidió info: mail hoy y llamada en 2 días hábiles»).
 6. **Guardar en Pipedrive** (Ctrl + Enter) y pasar al siguiente.
 
+## Agenda por fecha, zona o evento
+
+La Agenda filtra por fecha (hoy, vencidas, ayer, próximos 7 días o un rango), por zona o evento y por tipo. Lo filtrado se trabaja como sesión con un toque. El evento sale del título del prospecto, por ejemplo «(EduExperience Mendoza 2026)». La ciudad sale de la base, de los campos del prospecto o de la dirección de la organización. En Hoy, la sesión arranca por lo de hoy, sigue con lo vencido y después con los colegios nuevos. «Trabajar una zona o evento» arma una sesión especial, por ejemplo Puebla.
+
 ## Qué se escribe en Pipedrive
 
 Cada registro hace, según el caso:

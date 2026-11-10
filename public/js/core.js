@@ -138,6 +138,34 @@ export const dotColor = (s, colors) => s.phase && PH[s.phase] ? PH[s.phase].dot 
 // ---------- fechas
 const fmtDay = new Intl.DateTimeFormat("es", { weekday: "long", day: "numeric", month: "long" });
 const fmtShort = new Intl.DateTimeFormat("es", { weekday: "short", day: "numeric", month: "short" });
+// ---------- zona y evento de una actividad (el servidor manda city, region, country y event, solo si Pipedrive o la base los dicen)
+export const actZones = a => [a.event && ["e", a.event], a.city && ["c", a.city], a.region && ["r", a.region], a.country && ["p", a.country]].filter(Boolean);
+export const zoneKey = (k, v) => `${k}:${norm(v)}`;
+export const ZONE_KIND = { e: "Eventos", c: "Ciudades", r: "Estados y provincias", p: "Países" };
+// z: una clave de la lista («c:puebla») o texto libre. El texto se compara por palabras con el evento, la ciudad, el estado y el país
+// («Puebla» encuentra «Puebla de Zaragoza»). El nombre solo cuenta si la actividad no tiene zona, o con loose (el buscador).
+const hasWords = (v, q) => ` ${norm(v)} `.includes(` ${q} `);
+export function matchZone(a, z, { loose = false } = {}) {
+  if (!z) return true;
+  if (/^[ecrp]:/.test(z)) return actZones(a).some(([k, v]) => zoneKey(k, v) === z);
+  const q = norm(z); if (!q) return true;
+  const sch = a.schoolId && S.byId.get(a.schoolId), zone = [a.event, a.city, a.region, a.country, sch?.city].filter(Boolean);
+  if (zone.some(v => hasWords(v, q))) return true;
+  return (loose || !a.event && !a.city) && [a.who, a.subject, sch?.name].some(v => loose ? norm(v).includes(q) : hasWords(v, q));
+}
+// opciones de zona para elegir (los estados no van: los colegios de la base no traen ese dato y quedarían afuera)
+export function zoneOptions(items) {
+  const m = new Map();
+  for (const a of items) for (const [k, v] of actZones(a)) { if (k === "r") continue; const key = zoneKey(k, v); const o = m.get(key) || { key, k, label: v, n: 0 }; o.n++; m.set(key, o); }
+  return [...m.values()].sort((a, b) => b.n - a.n || a.label.localeCompare(b.label));
+}
+// Orden para trabajar: primero lo de hoy (por hora), después lo vencido (lo más reciente primero) y al final lo que viene.
+export function workOrder(acts, t = today()) {
+  const k = a => a.date + (a.time || "99:99");
+  return [...acts.filter(a => a.date === t).sort((a, b) => k(a).localeCompare(k(b))),
+    ...acts.filter(a => a.date < t).sort((a, b) => k(b).localeCompare(k(a))),
+    ...acts.filter(a => a.date > t).sort((a, b) => k(a).localeCompare(k(b)))];
+}
 export const dayLabel = d => { const t = today(); if (d === t) return "Hoy"; if (d === addDays(t, 1)) return "Mañana"; if (d === addDays(t, -1)) return "Ayer"; return cap(fmtDay.format(new Date(d + "T12:00:00"))); };
 export const shortDay = d => { const t = today(); if (d === t) return "hoy"; if (d === addDays(t, 1)) return "mañana"; if (d === addDays(t, -1)) return "ayer"; return fmtShort.format(new Date(d + "T12:00:00")); };
 export const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
