@@ -26,6 +26,35 @@ export function applyTheme(t) {
 }
 applyTheme(load("theme", ""));
 export function setSchools(list) { S.schools = list; S.byId = new Map(list.map(s => [s.id, s])); }
+// Fila que se corre de costado (países, filtros): flechas con mouse, rueda vertical → horizontal,
+// bordes difuminados que avisan que hay más, y la opción elegida siempre a la vista.
+export function scroller(el) {
+  if (!el || el.parentElement?.classList.contains("scroller")) return;
+  const w = document.createElement("div"); w.className = "scroller";
+  el.before(w); w.appendChild(el);
+  const btn = dir => {
+    const b = document.createElement("button"); b.type = "button"; b.className = `sc-btn ${dir}`; b.tabIndex = -1;
+    b.setAttribute("aria-hidden", "true"); b.innerHTML = icon(dir === "l" ? "chevL" : "chevR");
+    b.onclick = () => el.scrollBy({ left: (dir === "l" ? -1 : 1) * Math.max(160, el.clientWidth * 0.7), behavior: "smooth" });
+    return b;
+  };
+  w.append(btn("l"), btn("r"));
+  const upd = () => { const max = el.scrollWidth - el.clientWidth; w.classList.toggle("can-l", el.scrollLeft > 2); w.classList.toggle("can-r", el.scrollLeft < max - 2); };
+  const reveal = () => {
+    const sel = el.querySelector('[aria-pressed="true"]'); const key = sel?.textContent || "";
+    if (!sel || el.dataset.sel === key) return; el.dataset.sel = key;
+    const a = el.getBoundingClientRect(), b = sel.getBoundingClientRect();
+    if (b.left < a.left + 32) el.scrollLeft -= a.left - b.left + 40; else if (b.right > a.right - 32) el.scrollLeft += b.right - a.right + 40;
+  };
+  el.addEventListener("scroll", upd, { passive: true });
+  el.addEventListener("wheel", e => {
+    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX) || el.scrollWidth <= el.clientWidth) return;
+    e.preventDefault(); el.scrollLeft += e.deltaY;
+  }, { passive: false });
+  new ResizeObserver(upd).observe(el);
+  new MutationObserver(() => { reveal(); upd(); }).observe(el, { childList: true, subtree: true, attributes: true, attributeFilter: ["aria-pressed"] });
+  requestAnimationFrame(() => { reveal(); upd(); });
+}
 export function patchSchool(s) { if (!s?.id) return; const cur = S.byId.get(s.id); if (cur) Object.assign(cur, s); else { S.schools.push(s); S.byId.set(s.id, s); } }
 
 // ---------- API
@@ -56,6 +85,8 @@ const P = {
   checkCircle: '<circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/>',
   clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
   arrowRight: '<path d="M5 12h14M12 5l7 7-7 7"/>',
+  chevL: '<path d="m15 18-6-6 6-6"/>',
+  chevR: '<path d="m9 18 6-6-6-6"/>',
   arrowLeft: '<path d="M19 12H5M12 19l-7-7 7-7"/>',
   external: '<path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
   copy: '<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>',

@@ -260,6 +260,26 @@ textarea.inp { min-height: 88px; resize: vertical; line-height: 1.45; }
 .scroll-row::-webkit-scrollbar { display: none; }
 .scroll-row .chip { flex: none; }
 .scroll-row:empty, .crumb:empty { display: none; }
+.scroller { position: relative; min-width: 0; }
+.scroller:has(.scroll-row:empty) { display: none; }
+/* bordes difuminados: avisan que la fila sigue */
+.scroller::before, .scroller::after { content: ""; position: absolute; top: -4px; bottom: -4px; width: 44px; pointer-events: none; opacity: 0; transition: opacity .15s; z-index: 1; }
+.scroller::before { left: -16px; background: linear-gradient(to right, var(--surface) 30%, transparent); }
+.scroller::after { right: -16px; background: linear-gradient(to left, var(--surface) 30%, transparent); }
+.scroller.can-l::before, .scroller.can-r::after { opacity: 1; }
+.sc-btn { position: absolute; top: 50%; z-index: 2; width: 32px; height: 32px; margin-top: -16px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--ink); box-shadow: var(--shadow); display: none; place-items: center; cursor: pointer; padding: 0; }
+.sc-btn.l { left: -6px; } .sc-btn.r { right: -6px; }
+.sc-btn:hover { background: var(--surface-2, var(--surface)); }
+@media (hover: hover) and (pointer: fine) {
+  .scroller.can-l .sc-btn.l, .scroller.can-r .sc-btn.r { display: grid; }
+  /* barra fina para arrastrar con el mouse */
+  .scroller .scroll-row { scrollbar-width: thin; scrollbar-color: var(--surface-3) transparent; padding-bottom: 8px; }
+  .scroller .scroll-row:hover { scrollbar-color: var(--faint) transparent; }
+  .scroller .scroll-row::-webkit-scrollbar { display: block; height: 6px; }
+  .scroller .scroll-row::-webkit-scrollbar-thumb { background: var(--surface-3); border-radius: 3px; }
+  .scroller .scroll-row:hover::-webkit-scrollbar-thumb { background: var(--faint); }
+  .scroller .sc-btn { margin-top: -20px; }
+}
 .explore-scroll { overflow: auto; flex: 1; padding: 6px 10px 20px; min-height: 0; }
 .explore-foot { display: flex; gap: 8px; padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: var(--surface); }
 .explore-foot #sess { flex: 1; }

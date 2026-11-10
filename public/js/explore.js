@@ -1,5 +1,5 @@
 // Prospectar: lista por país y ciudad + mapa, con cruce contra Pipedrive y sesión de llamadas.
-import { S, api, esc, norm, icon, pill, ST, cssVar, patchSchool, toast, ago, shortDay } from "./core.js";
+import { S, api, esc, norm, icon, pill, ST, cssVar, patchSchool, toast, ago, shortDay, scroller } from "./core.js";
 import { openSchool, startSession } from "./school.js";
 import { baseErrorCallout } from "./app.js";
 
@@ -54,6 +54,7 @@ export function renderExplore(el) {
     </section>
     <div class="mapwrap"><div id="map" role="region" aria-label="Mapa de colegios"></div></div>
   </div>`;
+  el.querySelectorAll(".scroll-row").forEach(scroller);
   const q = el.querySelector("#q");
   q.oninput = () => { E.q = q.value; E.place = null; shown = PAGE; drawAll(); toTop(); };
   // Enter o el botón: ubica la búsqueda en el mapa (si no es un colegio de la base)
