@@ -237,7 +237,7 @@ function draw() {
       <section class="card" aria-labelledby="hFd"><div class="card-h"><h2 id="hFd">${icon("clock")} Actividad reciente</h2></div><div class="card-b">${feed}</div></section>
     </div>
     ${S.profile?.leader ? `<section class="card" style="margin-top:16px" aria-labelledby="hFw"><div class="card-h"><h2 id="hFw">${icon("user")} Seguimiento del equipo</h2><span class="sub">solo lo ven los líderes</span></div>
-      <div class="card-b" id="followBox" aria-live="polite"></div></section>
+      <div class="card-b"><p class="faint" style="margin:0;font-size:13.5px">Próximamente. Lo vamos a mostrar cuando los números coincidan uno a uno con Pipedrive; mientras tanto, mejor nada que un dato equivocado.</p></div></section>
     <section class="card" style="margin-top:16px" aria-labelledby="hAc"><div class="card-h"><h2 id="hAc">${icon("user")} Accesos del equipo</h2><span class="sub">cada persona entra con su email y su código personal</span></div>
       <div class="card-b" id="codes">${codes ? codesHtml(codes) : '<div class="skel" style="margin:14px 0"></div>'.repeat(3)}</div></section>
     <section class="card" style="margin-top:16px" aria-labelledby="hSy"><div class="card-h"><h2 id="hSy">${icon("refresh")} Sincronizar con Pipedrive</h2><span class="sub">cruza toda la base de colegios de una vez</span></div>
@@ -248,7 +248,6 @@ function draw() {
   host.querySelectorAll("[data-retry]").forEach(b => b.onclick = () => { S.team7 = null; draw(); refresh(); });
   if (S.profile?.leader && !codes) loadCodes();
   if (S.profile?.leader) { drawSync(); if (!syncing) loadSync(); }
-  if (S.profile?.leader) { drawFollow(); if (Date.now() - followAt > 60e3) loadFollow(); }
   if (S.profile?.leader) { drawWd(); if (!wdBusy && Date.now() - wdAt > 20e3) loadWd(); }
   host.querySelectorAll("[data-invite]").forEach(b => b.onclick = () => {
     const u = codes.users.find(x => String(x.id) === b.dataset.invite); if (!u) return;
