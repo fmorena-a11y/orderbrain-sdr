@@ -1,6 +1,6 @@
 // Ficha del colegio: preparar el contacto, registrar el resultado e historial. Incluye el modo sesión.
 import { $, S, api, esc, icon, pill, statusPill, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, ago, TYPE_ICON,
-  telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink } from "./core.js";
+  telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile } from "./core.js";
 const coarse = () => matchMedia("(pointer: coarse)").matches;
 
 const D = { id: null, data: null, tab: "prep", form: null, activityId: null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null };
@@ -47,10 +47,19 @@ const newForm = () => ({ channel: "call", outcome: null, contact: { name: "", ro
 // ---------- abrir / cerrar
 // Abre la ficha de un prospecto (lead) o de una organización de Pipedrive que no está en la base ("lead:…" / "org:…").
 export async function openRecord(ref, opts = {}) {
-  const [kind, rid] = String(ref).split(/:(.*)/s);
-  try { const r = await api(`/api/records/${kind}/${encodeURIComponent(rid)}`); patchSchool(r); return openSchool(r.id, opts); }
-  catch (e) { toast(e.message, { type: "err" }); }
+  const [kind, rid] = String(ref).split(/:(.*)/s), ss = S.session;
+  try {
+    const r = await api(`/api/records/${kind}/${encodeURIComponent(rid)}`); patchSchool(r);
+    if (opts.keepSession && (S.session !== ss || ss?.ids[ss.i] !== ref)) return; // la sesión siguió mientras cargaba
+    return openSchool(r.id, opts);
+  } catch (e) {
+    if (opts.keepSession && ss && S.session === ss && ss.ids[ss.i] === ref) { toast(`No pude abrir una tarea de la sesión (${e.message}), la salteé`, { type: "err" }); return sessionGo(1); }
+    toast(e.message, { type: "err" });
+  }
 }
+// En la sesión, las tareas de prospectos u organizaciones fuera de la base van como "lead:…" / "org:…".
+const isRef = id => /^(lead|org):/.test(id);
+const openAt = (ss, i) => (isRef(ss.ids[i]) ? openRecord : openSchool)(ss.ids[i], { keepSession: true, activityId: ss.acts[ss.ids[i]] || null, tab: "prep" });
 export async function openSchool(id, { activityId = null, tab = null, keepSession = false } = {}) {
   if (!S.byId.has(id)) return toast("Colegio inexistente", { type: "err" });
   if (!keepSession) S.session = null;
@@ -115,7 +124,15 @@ function gallery(s) {
 }
 function bindGallery(s) {
   const g = $("drawer").querySelector("#gallery"); if (!g) return;
-  g.querySelectorAll("img").forEach(img => img.addEventListener("error", () => { img.closest(".ph")?.remove(); if (!g.querySelector(".ph")) g.remove(); }));
+  // la satelital nunca se borra: prueba un tamaño menor y la tesela; si todo falla, queda el botón para abrirla
+  g.querySelectorAll("img").forEach(img => {
+    const sat = img.closest(".ph.sat"), alt = sat ? [satLink(s, { w: 320, h: 200 }), satTile(s)] : [];
+    img.addEventListener("error", () => {
+      if (alt.length) return void (img.src = alt.shift());
+      if (sat) return void img.replaceWith(Object.assign(document.createElement("span"), { className: "ph-fail", innerHTML: `${icon("map")}<span>Ver satélite</span>` }));
+      img.closest(".ph")?.remove();
+    });
+  });
   g.querySelectorAll("[data-ph]").forEach(b => b.onclick = () => lightbox(s, +b.dataset.ph));
 }
 function lightbox(s, start) {
@@ -128,7 +145,7 @@ function lightbox(s, start) {
   let tries = [], seq = 0;
   const show = () => {
     const p = list[i], my = ++seq;
-    tries = p.kind === "sat" ? [satLink(s, { w: 1200, h: 750 }), satLink(s, { w: 1024, h: 640 }), satLink(s, { w: 800, h: 480 }), satLink(s, { w: 480, h: 300 })] : [p.url];
+    tries = p.kind === "sat" ? [satLink(s, { w: 1200, h: 750 }), satLink(s, { w: 1024, h: 640 }), satLink(s, { w: 800, h: 480 }), satLink(s, { w: 480, h: 300 }), satTile(s)] : [p.url];
     fail.hidden = true; img.hidden = false; img.classList.add("loading");
     img.onload = () => { if (my === seq) img.classList.remove("loading"); };
     img.onerror = () => {
@@ -178,7 +195,7 @@ export function resumeSession() {
   const ss = S.lastSession; if (!ss) return;
   pauseToast?.remove(); pauseToast = null;
   S.lastSession = null; S.session = ss;
-  openSchool(ss.ids[ss.i], { keepSession: true, activityId: ss.acts[ss.ids[ss.i]] || null, tab: "prep" });
+  openAt(ss, ss.i);
 }
 async function load(opts = {}) {
   const id = D.id;
@@ -188,7 +205,7 @@ async function load(opts = {}) {
     else d = await api(`/api/schools/${id}${opts.refresh ? "?refresh=1" : ""}`);
     if (D.id !== id) return;
     D.data = d; D.err = null; patchSchool(d.school);
-    const why = S.session && !opts.refresh && opts.match === undefined && skipReason(d.school);
+    const why = S.session && !opts.refresh && opts.match === undefined && skipReason(d.school, !!D.activityId && myDeal(d.match));
     if (why) { toast(`${d.school.name}: ${why}, lo salteé`); return sessionGo(1); }
   } catch (e) { if (D.id === id) D.err = e.message; }
   if (D.id === id) draw();
@@ -199,15 +216,15 @@ export async function startSession(ids, label = "tu territorio") {
   pauseToast?.remove(); pauseToast = null; S.lastSession = null;
   if (!ids) {
     if (!S.today) { try { const { loadToday } = await import("./today.js"); await loadToday(); } catch (e) { return toast(e.message, { type: "err" }); } }
-    const t = today(), acts = (S.today.activities.items || []).map(a => ({ ...a, ...localAct(a) })).filter(a => a.schoolId && a.date <= t);
+    const t = today(), acts = (S.today.activities.items || []).map(a => ({ ...a, ...localAct(a) })).filter(a => (a.schoolId || a.record) && a.date <= t);
     const seen = new Set(); ids = [];
     S.session = { ids: [], i: 0, label, acts: {}, done: 0 };
-    for (const a of acts) if (!seen.has(a.schoolId)) { seen.add(a.schoolId); ids.push(a.schoolId); S.session.acts[a.schoolId] = a.id; }
+    for (const a of acts) { const k = a.schoolId || a.record; if (!seen.has(k)) { seen.add(k); ids.push(k); S.session.acts[k] = a.id; } }
     for (const q of S.today.queue.slice(0, 25)) if (!seen.has(q.id)) { seen.add(q.id); ids.push(q.id); }
   } else S.session = { ids: [], i: 0, label, acts: {}, done: 0 };
   if (!ids.length) { S.session = null; return toast("No hay colegios para esta sesión. Sumá países a tu territorio.", { type: "err" }); }
   S.session.ids = ids;
-  openSchool(ids[0], { keepSession: true, activityId: S.session.acts[ids[0]] || null, tab: "prep" });
+  openAt(S.session, 0);
   prefetch();
 }
 function sessionGo(delta) {
@@ -216,7 +233,7 @@ function sessionGo(delta) {
   if (i >= ss.ids.length) { ss.i = ss.ids.length - 1; return closeSchool(); }
   if (i < 0) return;
   ss.i = i;
-  openSchool(ss.ids[i], { keepSession: true, activityId: ss.acts[ss.ids[i]] || null, tab: "prep" });
+  openAt(ss, i);
   prefetch();
 }
 // Revisa en Pipedrive los próximos colegios de la sesión para no perder tiempo con clientes.
@@ -227,16 +244,19 @@ function prefetch() {
   api("/api/check", { body: { ids } }).then(r => {
     Object.values(r).forEach(v => !v.error && patchSchool(v));
     if (S.session !== ss) return;
-    const skip = new Set(Object.values(r).filter(v => !v.error && skipReason(v)).map(v => v.id));
+    // con tarea tuya y trato abierto no se saca acá: load() mira de quién es el trato al abrirlo
+    const skip = new Set(Object.values(r).filter(v => !v.error && skipReason(v, !!ss.acts[v.id])).map(v => v.id));
     if (skip.size) ss.ids = ss.ids.filter((id, k) => k <= ss.i || !skip.has(id));
   }).catch(() => {});
 }
 
 // En una sesión de llamadas no se llama a clientes, ex clientes, tratos abiertos ni organizaciones de otra persona.
-function skipReason(v) {
+// El trato abierto solo no se saltea si el colegio entró por una tarea tuya y el trato es tuyo (si no se sabe de quién es, se saltea).
+const myDeal = m => m?.openDealOwnerId ? m.openDealOwnerId === S.me.pdUserId : !!(m?.openDealOwner && S.me.pdName && m.openDealOwner === S.me.pdName);
+function skipReason(v, mine = false) {
   if (v.status === "client") return "ya es cliente";
   if (v.status === "churn") return "es ex cliente";
-  if (v.status === "open") return "tiene un trato abierto";
+  if (v.status === "open" && !mine) return "tiene un trato abierto";
   if (v.ownerId && S.me.pdUserId && v.ownerId !== S.me.pdUserId) return `es de ${v.ownerName || "otra persona"}`;
   return "";
 }
@@ -292,7 +312,7 @@ async function runProspect(s, task) {
     if (D.prospecting === s.id) D.prospecting = false;
     const f = r.found || {};
     const html = `<div class="modal-h"><h3>${icon("checkCircle")} Prospecto creado · ${esc(s.name)}</h3><button class="icon-btn" id="cpX" aria-label="Cerrar">${icon("x")}</button></div>
-      <ul class="writes">${r.done.map(x => `<li>${icon("check", "sm")}<span>${x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.label)}</a>` : esc(x.label)}</span></li>`).join("")}</ul>
+      <ul class="writes">${r.done.map(x => `<li${x.warn ? ' class="warn"' : ""}>${icon(x.warn ? "alert" : "check", "sm")}<span>${x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.label)}</a>` : esc(x.label)}</span></li>`).join("")}</ul>
       ${task ? "" : `<p class="callout warn" style="margin:0">${icon("alert")}<span>Quedó sin tarea a futuro. Agendá un próximo paso para que no se pierda de vista.</span></p>`}
       <div class="sub-h">A quién contactar</div>
       ${f.decisores?.length ? `<ul class="ticks">${f.decisores.map(d => `<li>${icon("user", "sm")}<span><b>${esc(d.nombre)}</b> · ${esc(d.cargo)}</span></li>`).join("")}</ul>` : `<p class="muted" style="margin:0">Todavía no tenemos el nombre del decisor. Preguntá en recepción quién maneja la cafetería${S.ai ? " o hacé el estudio del colegio" : ""}.</p>`}
@@ -642,7 +662,7 @@ async function saveLog(s, d) {
   D.saving = true; redrawLog();
   const body = {
     outcome: f.outcome, channel: f.channel, text: f.text, ai: f.ai, country: f.country || undefined,
-    contact: f.contact.name ? f.contact : null, qual: f.qual,
+    contact: f.contact.name || f.contact.phone || f.contact.email ? f.contact : null, qual: f.qual,
     demo: f.outcome === "demo" ? { ...f.demo, ownerId: f.demo.ownerId ? Number(f.demo.ownerId) : undefined } : null,
     next: f.next.type ? { type: f.next.type, date: f.next.date, time: f.next.time || undefined, ownerId: f.next.ownerId ? Number(f.next.ownerId) : undefined, subject: f.next.subject || undefined } : null,
     lost: f.lostReason ? { reason: f.lostReason } : null,
@@ -667,7 +687,7 @@ async function saveComment(s) {
   D.saving = true; redrawLog();
   try {
     const task = f.next.type && f.next.date ? { type: f.next.type, date: f.next.date, time: f.next.time || undefined, ownerId: f.next.ownerId ? Number(f.next.ownerId) : undefined, subject: f.next.subject || undefined } : null;
-    const r = await api(`/api/schools/${s.id}/comment`, { body: { text: f.text, task } });
+    const r = await api(`/api/schools/${s.id}/comment`, { body: { text: f.text, task, completeActivityId: D.activityId && f.completeAct ? D.activityId : null } });
     if (D.id !== s.id) return;
     D.result = { ...r, form: JSON.parse(JSON.stringify(f)) };
     if (r.school) patchSchool(r.school);
@@ -689,7 +709,7 @@ function resultBody(s, d) {
   return `<div class="sec done-card">
     <div class="big">${icon("check")}</div>
     <h3>Guardado en Pipedrive</h3>
-    <ul class="writes">${r.done.map(x => `<li>${icon("check", "sm")}<span>${x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.label)}</a>` : esc(x.label)}</span></li>`).join("")}</ul>
+    <ul class="writes">${r.done.map(x => `<li${x.warn ? ' class="warn"' : ""}>${icon(x.warn ? "alert" : "check", "sm")}<span>${x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.label)}</a>` : esc(x.label)}</span></li>`).join("")}</ul>
     ${extra.length ? `<div class="d-actions" style="justify-content:center;margin:6px 0 0">${extra.join("")}</div>` : ""}
     <div class="d-actions" style="justify-content:center">
       ${ss ? `<button class="btn primary lg" id="nextSchool">Siguiente colegio ${icon("arrowRight")}</button>` : `<button class="btn primary" id="closeD">Listo</button>`}

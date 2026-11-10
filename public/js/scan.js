@@ -18,19 +18,21 @@ export function openScanDialog(prefill = "") {
     <p class="muted" style="margin:-6px 0 0">País, provincia, ciudad o barrio. Busco los colegios privados que todavía no están, los verifico uno por uno y los sumo al mapa.</p>
     <form id="sxF" class="scan-form"><input class="inp" id="sxQ" placeholder="Ej: España, Madrid, Bogotá" value="${esc(prefill)}" autocomplete="off" aria-label="Zona"><button class="btn primary" id="sxGo">Buscar</button></form>
     <div class="chips" id="sxEx">${EXAMPLES.map(x => `<button class="chip" type="button" data-x="${esc(x)}">${esc(x)}</button>`).join("")}</div>
-    <div id="sxOut" aria-live="polite"></div>`);
+    <div id="sxOut" aria-live="polite"></div>`, { onClose: () => { seq++; ctl?.abort(); } });
   const q = m.querySelector("#sxQ"), out = m.querySelector("#sxOut");
-  let seq = 0;
+  // cerrar el diálogo (o buscar otra zona) corta lo que se estaba armando
+  let seq = 0, ctl = null;
   m.querySelector("#sxX").onclick = () => m.close();
   m.querySelectorAll("[data-x]").forEach(b => b.onclick = () => { q.value = b.dataset.x; m.querySelector("#sxF").requestSubmit(); });
   m.querySelector("#sxF").onsubmit = async e => {
     e.preventDefault();
     const my = ++seq, go = m.querySelector("#sxGo"); go.disabled = true;
+    ctl?.abort(); ctl = new AbortController(); const { signal } = ctl;
     out.innerHTML = `<p class="muted"><span class="spin"></span> Buscando «${esc(q.value)}»…</p>`;
     try {
-      const place = await api("/api/scan/resolve", { body: { q: q.value } });
+      const place = await api("/api/scan/resolve", { body: { q: q.value }, signal });
       if (my !== seq) return;
-      const plan = await planFor(place, msg => { if (my === seq) out.innerHTML = `<p class="muted"><span class="spin"></span> ${esc(msg)}</p>`; });
+      const plan = await planFor(place, msg => { if (my === seq) out.innerHTML = `<p class="muted"><span class="spin"></span> ${esc(msg)}</p>`; }, signal);
       if (my !== seq) return;
       out.innerHTML = summary(place, plan);
       m.querySelector("#sxStart").onclick = () => { m.close(); if (job?.running) return busyMsg(); start(place, plan); };
@@ -57,6 +59,7 @@ async function planFor(place, progress = () => {}, signal) {
     // cada país de la región, ciudad por ciudad
     const steps = [];
     for (const cc of place.codes || []) {
+      signal?.throwIfAborted();
       progress(`${place.label}: armando la lista de ciudades (${cc})…`);
       const { cities } = await api("/api/scan/cities", { body: { cc }, signal });
       steps.push(...cities.map(c => ({ city: c, cc })));
@@ -110,15 +113,16 @@ async function start(place, plan, j = null) {
   try {
     for (; j.i < j.steps.length && !signal.aborted; j.i++) {
       const st = j.steps[j.i];
-      drawJob();
+      j.stage = "map"; drawJob();
       let r = null;
       for (let attempt = 0; attempt < 2 && !r && !signal.aborted; attempt++) {
+        if (attempt) { j.stage = "retry"; drawJob(); }
         try { r = await api("/api/scan/city", { body: { cc: st.cc || place.cc, country: st.cc ? countryOf(st.cc) : place.country, ...st }, signal }); }
         catch (e) { if (aborted(e)) throw e; if (attempt) { j.errors++; j.lastError = e.message; } else await wait(4000, signal); }
       }
       // una provincia entera no respondió de una vez: se recorre por sus ciudades, siempre dentro del contorno
       if (!r && st.whole && place.kind === "region" && !j.fellBack && !signal.aborted) {
-        j.fellBack = true;
+        j.fellBack = true; j.stage = "cities"; drawJob();
         try {
           const { cities } = await api("/api/scan/cities", { body: { areaId: place.areaId }, signal });
           if (cities.length) { j.steps.push(...cities.map(c => ({ city: c, areaId: place.areaId }))); j.errors = Math.max(0, j.errors - 1); }
@@ -133,7 +137,7 @@ async function start(place, plan, j = null) {
       const have = new Set(S.schools.map(s => s.osm).filter(Boolean));
       const cands = r.candidates.filter(c => !c.rec.osm || !have.has(c.rec.osm));
       j.total += cands.length; j.truncated = (j.truncated || 0) + (r.truncated || 0);
-      j.stepTotal = cands.length; j.stepVerified = 0;
+      j.stepTotal = cands.length; j.stepVerified = 0; j.stage = "verify";
       // verificación por tandas: recién entra a la base lo que pasa el control
       for (let k = 0; k < cands.length && !signal.aborted; k += BATCH) {
         drawJob();
@@ -192,15 +196,17 @@ function drawJob() {
   const pct = j.preparing ? 3 : Math.round(Math.min(n, j.i + (j.stepTotal ? j.stepVerified / j.stepTotal : 0)) / n * 100);
   const step = j.steps[Math.min(j.i, n - 1)];
   const where = j.steps.length > 1 ? `${step?.city?.name || ""} · ${fmt(Math.min(j.i + 1, n))}/${fmt(n)} ciudades · ` : "";
-  const verifying = j.total ? `verificados ${fmt(j.verified)}/${fmt(j.total)} · ` : "";
   const drop = j.dropped.length ? ` · ${fmt(j.dropped.length)} descartados` : "";
+  // mientras trabaja se ve la etapa en curso; lo sumado aparece recién cuando hay algo
+  const stage = { map: "Buscando en el mapa…", retry: "No respondió, reintento…", cities: "Buscando las ciudades de la provincia…", verify: `Verificando ${fmt(j.stepVerified)}/${fmt(j.stepTotal)}…` }[j.stage] || "Buscando en el mapa…";
+  const tally = `${j.added ? ` · ${fmt(j.added)} nuevo${j.added === 1 ? "" : "s"}` : ""}${drop}`;
   el.querySelector(".sj-bar span").style.width = `${j.running ? pct : 100}%`;
   const ic = el.querySelector(".sj-ic"), want = j.running ? "run" : j.cancel ? "x" : "ok";
   if (ic.dataset.k !== want) { ic.dataset.k = want; ic.innerHTML = j.running ? `<span class="spin"></span>` : icon(j.cancel ? "x" : "checkCircle"); }
   el.querySelector(".sj-t b").textContent = j.running ? (j.preparing ? `Preparando ${j.label}…` : `Buscando en ${j.label}`) : j.cancel ? `${j.label}: cancelado` : `${j.label}: listo`;
   const sub = el.querySelector(".sj-sub");
   const trunc = j.truncated ? ` · ${fmt(j.truncated)} sin revisar: la zona es muy grande, buscá por ciudad` : "";
-  sub.textContent = j.running ? (j.preparing ? "Armando la lista de lugares" : `${where}${verifying}${fmt(j.added)} nuevos${drop}`) : `${fmt(j.added)} colegios nuevos verificados${drop}${j.errors ? ` · ${fmt(j.errors)} sin respuesta` : ""}${trunc}`;
+  sub.textContent = j.running ? (j.preparing ? "Armando la lista de lugares…" : `${where}${stage}${tally}`) : `${fmt(j.added)} colegios nuevos verificados${drop}${j.errors ? ` · ${fmt(j.errors)} sin respuesta` : ""}${trunc}`;
   sub.title = j.dropped.slice(0, 12).map(d => `${d.name}: ${d.why}`).join("\n");
   el.querySelector(".warn-t").hidden = j.running || !j.temporary;
   el.querySelector("#sjStop").hidden = !j.running;

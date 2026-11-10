@@ -416,6 +416,7 @@ details.obj p { margin: 0 0 12px; color: var(--ink-2); }
 .writes { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; font-size: 13.5px; }
 .writes li { display: flex; gap: 8px; align-items: flex-start; }
 .writes li .ico { color: var(--ok); margin-top: 1px; }
+.writes li.warn, .writes li.warn .ico { color: var(--warn); }
 .toggle { display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--muted); cursor: pointer; }
 .toggle input { accent-color: var(--accent); width: 16px; height: 16px; }
 .done-card { text-align: center; padding: 28px 20px; display: grid; gap: 12px; justify-items: center; }
@@ -550,6 +551,7 @@ button.feed-item { cursor: pointer; border-radius: 0; }
 .ph:hover img { transform: scale(1.03); }
 .ph .cap { position: absolute; left: 8px; bottom: 8px; font-size: 11.5px; font-weight: 600; color: #fff; background: rgb(0 0 0 / .55); padding: 2px 8px; border-radius: 999px; }
 .ph.skel { cursor: default; border: 0; }
+.ph-fail { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; width: 100%; height: 100%; font-size: 13px; font-weight: 600; color: var(--ink-2); }
 @media (max-width: 560px) { .ph, .ph:first-child { width: 46vw; height: 104px; } }
 .modal-box.wide { width: min(1100px, 100%); padding: 10px; }
 .lb img { width: 100%; max-height: calc(100vh - 140px); object-fit: contain; border-radius: 10px; background: #000; display: block; }
@@ -673,7 +675,9 @@ details.agent summary .sub { order: 3; }
 @media (max-width: 599px) {
   body:has(.explore-foot) .toasts { bottom: calc(140px + env(safe-area-inset-bottom)); }
   .explore-top { position: sticky; top: 0; z-index: 2; }
-  .explore.focused { grid-template-rows: minmax(100px, 16dvh) minmax(0, 1fr); }
+  .explore.focused { grid-template-rows: minmax(150px, 26dvh) minmax(0, 1fr); }
+  .map-toggle.leaflet-control { padding: 0 10px; min-height: 36px; justify-content: center; }
+  .map-toggle.leaflet-control .mt-l, .map-toggle.leaflet-control .mt-legend { display: none; }
 }
 @media (max-width: 560px) {
   .rank { grid-template-columns: 24px minmax(0, 1fr) repeat(3, 36px); gap: 6px; }

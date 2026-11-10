@@ -1,5 +1,5 @@
 // Prospectar: lista por país y ciudad + mapa, con cruce contra Pipedrive y sesión de llamadas.
-import { S, api, esc, norm, icon, pill, statusPill, dotColor, PH, ST, cssVar, patchSchool, toast, ago, shortDay, scroller } from "./core.js";
+import { S, api, esc, norm, icon, pill, statusPill, dotColor, PH, ST, cssVar, patchSchool, toast, ago, shortDay, scroller, brainStaleMsg } from "./core.js";
 import { openSchool, startSession } from "./school.js";
 import { baseErrorCallout } from "./app.js";
 
@@ -325,11 +325,11 @@ async function loadBrain() {
 function paintBrainBtn() {
   if (!brainBtn) return;
   const n = (S.brain?.sites || []).length;
-  brainBtn.setAttribute("aria-pressed", showBrain);
+  brainBtn.setAttribute("aria-pressed", showBrain); brainBtn.setAttribute("aria-label", `Clientes OrderEAT en el mapa: ${n}`);
   brainBtn.title = S.brain?.error ? `OrderBrain: ${S.brain.error}` : "Mostrar u ocultar los colegios que ya son clientes de OrderEAT (World Dominion)";
   const c = { activo: 0, onboarding: 0, cerrado: 0, churn: 0 };
   for (const x of S.brain?.sites || []) c[x.churn ? "churn" : { Active: "activo", Onboarding: "onboarding", Closed: "cerrado" }[x.status] || "activo"]++;
-  brainBtn.innerHTML = `<span class="mt-h"><i class="ob-dot"></i>Clientes OrderEAT <b>${fmt(n)}</b>${S.brain?.demo ? ` <em class="demo-t">demo</em>` : ""}${S.brain?.error ? ` ${icon("alert", "sm")}` : ""}</span>
+  brainBtn.innerHTML = `<span class="mt-h"><i class="ob-dot"></i><span class="mt-l">Clientes OrderEAT</span> <b>${fmt(n)}</b>${S.brain?.demo ? ` <em class="demo-t">demo</em>` : ""}${S.brain?.error ? ` ${icon("alert", "sm")}` : ""}</span>
     <span class="mt-legend">${Object.entries(c).filter(([, v]) => v).map(([k, v]) => `<span><i style="background:${PH[k].dot}"></i>${PH[k].l} ${fmt(v)}</span>`).join("")}</span>`;
 }
 function toggleBrain() {
@@ -385,4 +385,4 @@ function csv() {
 // fit:false = no mover el mapa (por ejemplo, mientras corre una búsqueda en segundo plano).
 export function refreshExplore({ fit = true } = {}) { if (host?.isConnected) drawAll({ fit }); }
 // Aviso de OrderBrain caído (sin datos de clientes): los clientes pueden aparecer para llamar.
-export const brainWarn = () => S.brainDown || S.brain?.down ? `<div class="callout warn">${icon("alert")}<span>No pudimos leer los clientes de World Dominion (${esc(S.brain?.error || "OrderBrain no respondió")}). Hasta que vuelva, revisá en Pipedrive antes de llamar.</span></div>` : "";
+export const brainWarn = () => S.brainDown || S.brain?.down ? `<div class="callout warn">${icon("alert")}<span>No pudimos leer los clientes de World Dominion (${esc(S.brain?.error || "OrderBrain no respondió")}). Hasta que vuelva, revisá en Pipedrive antes de llamar.</span></div>` : brainStaleMsg() ? `<div class="callout warn">${icon("alert")}<span>${esc(brainStaleMsg())}</span></div>` : "";

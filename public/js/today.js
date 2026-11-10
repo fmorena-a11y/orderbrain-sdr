@@ -1,5 +1,5 @@
 // Hoy: meta del día, agenda propia y a quién contactar ahora.
-import { S, api, esc, icon, save, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap } from "./core.js";
+import { S, api, esc, icon, save, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg } from "./core.js";
 import { openSchool, openRecord, startSession, resumeSession } from "./school.js";
 import { setBadge, baseErrorCallout } from "./app.js";
 
@@ -50,7 +50,7 @@ function draw() {
   const late = acts.filter(a => a.date < t), now = acts.filter(a => a.date === t), soon = acts.filter(a => a.date > t && a.date <= addDays(t, 7));
   const pct = Math.min(100, Math.round(stats.todayTouches / Math.max(1, stats.goal) * 100));
   const fresh = queue.filter(q => q.status !== "lost" && q.status !== "stalled"), revive = queue.filter(q => q.status === "lost" || q.status === "stalled");
-  const sessionCount = new Set([...late, ...now].filter(a => a.schoolId).map(a => a.schoolId)).size + Math.min(queue.length, 25);
+  const sk = new Set([...late, ...now].map(a => a.schoolId || a.record).filter(Boolean)), sessionCount = sk.size + queue.slice(0, 25).filter(q => !sk.has(q.id)).length;
   const left = Math.max(0, stats.goal - stats.todayTouches);
   const msg = !left ? "Meta cumplida. Lo que sumes ahora es extra."
     : late.length ? `Empezá por ${late.length === 1 ? "la actividad vencida" : `las ${late.length} actividades vencidas`}: son compromisos que ya tomaste.`
@@ -65,6 +65,7 @@ function draw() {
     ${baseErrorCallout()}
     ${S.demo ? `<div class="callout warn" style="margin-bottom:16px">${icon("alert")}<span><b>Modo demo.</b> Pipedrive todavía no está conectado: la agenda, los tratos y las notas que ves son de prueba. Los colegios y los clientes de World Dominion sí son reales.</span></div>` : ""}
     ${S.brainDown || S.brain?.down ? `<div class="callout warn" style="margin-bottom:16px">${icon("alert")}<span>No pudimos leer los clientes de World Dominion: algún cliente puede aparecer en tu cola. Revisá en Pipedrive antes de llamar.</span></div>` : ""}
+    ${brainStaleMsg() ? `<div class="callout warn" style="margin-bottom:16px">${icon("alert")}<span>${esc(brainStaleMsg())}</span></div>` : ""}
     <div class="page-head"><div><h1>${greeting()}, ${esc(firstName())}</h1><p>${esc(cap(new Intl.DateTimeFormat("es", { weekday: "long", day: "numeric", month: "long" }).format(new Date())))}</p></div></div>
     ${!S.me.pdUserId ? `<div class="callout warn" style="margin-bottom:16px">${icon("alert")}<span>Tu email (${esc(S.me.email)}) no coincide con ningún usuario de Pipedrive, así que no vemos tu agenda. Pedí que te den de alta con ese email.</span></div>` : ""}
     <section class="card hero" aria-label="Tu día">

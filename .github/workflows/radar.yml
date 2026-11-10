@@ -17,7 +17,7 @@ on:
         default: ""
   push:
     branches: [main]
-    paths: ["scripts/radar.mjs", "lib/scan.js", "lib/study.js", ".github/workflows/radar.yml"]
+    paths: ["scripts/radar.mjs", "lib/scan.js", "lib/enrich.js", "lib/study.js", ".github/workflows/radar.yml"]
 
 concurrency:
   group: radar

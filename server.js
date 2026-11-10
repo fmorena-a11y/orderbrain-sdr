@@ -5,7 +5,7 @@ import { OAuth2Client } from "google-auth-library";
 import path from "path";
 import { fileURLToPath } from "url";
 import * as pd from "./lib/pipedrive.js";
-import { kv, key as kvKey, schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId, hiddenOsm, getProfile, setProfile, getProfiles, ROLES } from "./lib/store.js";
+import { kv, key as kvKey, schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId, hiddenOsm, dropOsm, getProfile, setProfile, getProfiles, ROLES } from "./lib/store.js";
 import * as scan from "./lib/scan.js";
 import { ensureBrain, brainState, brainDown } from "./lib/brain.js";
 import { verifyCandidates, enrichSources } from "./lib/enrich.js";
@@ -140,6 +140,16 @@ const wrap = fn => (req, res) => fn(req, res).catch(e => {
   if (status >= 500) console.error(e);
   res.status(status).json({ error: e instanceof pd.PipedriveError ? `Pipedrive: ${e.message}` : e.message });
 });
+// Cada uno cambia solo sus actividades (marcar hecha, deshacer, reprogramar); un líder puede con todas.
+async function ownActivity(user, id, { missingOk } = {}) {
+  const a = await pd.getActivity(Number(id));
+  if (!a && missingOk) return null;
+  if (!a) throw Object.assign(new Error("No encontré esa actividad en Pipedrive."), { status: 404 });
+  const owner = a.owner_id ?? a.user_id ?? a.assigned_to_user_id ?? null;
+  if (owner && user.pdUserId && Number(owner) === Number(user.pdUserId)) return a;
+  if (await isLeader(user.email)) return a;
+  throw Object.assign(new Error("Esa actividad es de otra persona en Pipedrive: no la podés cambiar."), { status: 403 });
+}
 // las fichas de Pipedrive (prospectos y organizaciones fuera de la base) se rearman si esta instancia no las tiene
 const schoolParam = (req, res, next) => {
   const go = () => { req.params.id = canonicalId(req.params.id); next(); };
@@ -209,7 +219,13 @@ app.post("/api/schools/:id/match", auth, schoolParam, wrap(async (req, res) => {
 }));
 app.get("/api/schools/:id/next", auth, schoolParam, (req, res) => res.json(sales.nextFor(req.params.id, req.query.outcome, req.query.channel, req.tz) || {}));
 app.post("/api/schools/:id/log", auth, schoolParam, wrap(async (req, res) => {
-  res.json(await sales.logContact(req.params.id, req.session.user, req.body || {}, req.tz));
+  const body = { ...(req.body || {}) };
+  // si la actividad a completar ya no está en Pipedrive, el contacto se registra igual
+  const gone = !!body.completeActivityId && !(await ownActivity(req.session.user, body.completeActivityId, { missingOk: true }));
+  if (gone) delete body.completeActivityId;
+  const r = await sales.logContact(req.params.id, req.session.user, body, req.tz);
+  if (gone) r.done.push({ label: "La actividad ya no está en Pipedrive.", warn: true });
+  res.json(r);
 }));
 const escHtml = v => String(v).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 // Comentario suelto: queda como nota en la organización de Pipedrive, sin registrar un contacto.
@@ -221,10 +237,13 @@ app.post("/api/schools/:id/comment", auth, schoolParam, wrap(async (req, res) =>
   if (t && !task) return res.status(400).json({ error: "Elegí el tipo y el día de la tarea." });
   if (task?.time && !/^\d{2}:\d{2}$/.test(task.time)) return res.status(400).json({ error: "Hora inválida." });
   if (!text && !task) return res.status(400).json({ error: "Escribí el comentario o elegí una tarea." });
+  let doneId = Number(req.body?.completeActivityId) || null;
+  const gone = !!doneId && !(await ownActivity(user, doneId, { missingOk: true }));
+  if (gone) doneId = null;
   const s = byId.get(req.params.id), by = sales.signer(user);
   const m = await pd.meta(), owner = task?.ownerId ? m.users.find(u => u.id === Number(task.ownerId)) : null;
   if (task?.ownerId && !owner) return res.status(400).json({ error: "Esa persona no está en el equipo." });
-  const rec = s.leadOnly ? null : await sales.ensureOrg(req.params.id, user.pdUserId || null);
+  const rec = s.leadOnly ? null : await sales.ensureOrg(req.params.id, user.pdUserId);
   const target = s.leadOnly ? { leadId: s.leadId } : { orgId: rec.orgId, dealId: rec.openDealId || undefined };
   const url = s.leadOnly ? `${pd.PD_WEB}/leads/inbox/${s.leadId}` : `${pd.PD_WEB}/organization/${rec.orgId}`;
   const done = [];
@@ -236,6 +255,8 @@ app.post("/api/schools/:id/comment", auth, schoolParam, wrap(async (req, res) =>
   const taskLine = task ? `<br><b>Tarea:</b> ${escHtml(TYPE_LABEL[task.type])} el ${escHtml(task.date)}${task.time ? " " + escHtml(task.time) : ""} para ${escHtml(owner?.name || by)}` : "";
   await pd.addNote({ content: `<b>Comentario</b>${text ? "<br>" + escHtml(text).replace(/\n/g, "<br>") : ""}${taskLine}<br><br><i>Cargado por ${escHtml(by)} desde OrderBrain SDR</i>`, ...target });
   done.push({ label: s.leadOnly ? "Comentario en el prospecto" : "Comentario en Pipedrive", url });
+  if (doneId) await pd.updateActivity(doneId, { done: true }).then(() => done.push({ label: "Actividad pendiente marcada como hecha" }), () => done.push({ label: "No pude marcar la actividad como hecha: hacelo desde la agenda.", warn: true }));
+  if (gone) done.push({ label: "La actividad ya no está en Pipedrive.", warn: true });
   res.json({ done, school: sales.schoolSummary(s), orgUrl: url });
 }));
 app.get("/api/schools/:id/photos", auth, schoolParam, wrap(async (req, res) => {
@@ -268,7 +289,7 @@ app.post("/api/schools/:id/study/note", auth, schoolParam, wrap(async (req, res)
     await pd.addNote({ content: studyToHtml(s, st), leadId: s.leadId });
     return res.json({ ok: true, orgUrl: `${pd.PD_WEB}/leads/inbox/${s.leadId}` });
   }
-  const rec = await sales.ensureOrg(req.params.id, req.session.user.pdUserId || null);
+  const rec = await sales.ensureOrg(req.params.id, req.session.user.pdUserId);
   await pd.addNote({ content: studyToHtml(s, st), orgId: rec.orgId, dealId: rec.openDealId });
   res.json({ ok: true, orgUrl: `${pd.PD_WEB}/organization/${rec.orgId}` });
 }));
@@ -286,11 +307,12 @@ app.get("/api/today", auth, wrap(async (req, res) => {
   res.json({ stats: sales.stats(req.session.user, req.tz), activities: mine, queue: sales.prospectQueue({ countries, limit: 60, excludeOrgIds: busyOrgs, userId: req.session.user.pdUserId || null }) });
 }));
 app.get("/api/my-activities", auth, wrap(async (req, res) => res.json(await sales.myActivities(req.session.user))));
-app.post("/api/activities/:id/done", auth, wrap(async (req, res) => { await pd.updateActivity(Number(req.params.id), { done: true }); res.json({ ok: true }); }));
-app.post("/api/activities/:id/undone", auth, wrap(async (req, res) => { await pd.updateActivity(Number(req.params.id), { done: false }); res.json({ ok: true }); }));
+app.post("/api/activities/:id/done", auth, wrap(async (req, res) => { await ownActivity(req.session.user, req.params.id); await pd.updateActivity(Number(req.params.id), { done: true }); res.json({ ok: true }); }));
+app.post("/api/activities/:id/undone", auth, wrap(async (req, res) => { await ownActivity(req.session.user, req.params.id); await pd.updateActivity(Number(req.params.id), { done: false }); res.json({ ok: true }); }));
 app.post("/api/activities/:id/move", auth, wrap(async (req, res) => {
   const { date, time } = req.body || {};
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date || "")) return res.status(400).json({ error: "Fecha inválida" });
+  await ownActivity(req.session.user, req.params.id);
   const u = toUtc(date, time && /^\d{2}:\d{2}$/.test(time) ? time : "", req.tz);
   await pd.updateActivity(Number(req.params.id), { due_date: u.date, ...(u.time ? { due_time: u.time } : {}) });
   res.json({ ok: true });
@@ -339,7 +361,7 @@ app.post("/api/scan/resolve", auth, wrap(async (req, res) => {
   }
   // se busca en los países donde trabaja el equipo, con prioridad para el país elegido en la app
   const prefer = /^[A-Z]{2}$/.test(req.body?.cc || "") ? req.body.cc : "";
-  const k = `place3:${prefer}:${nq}`;
+  const k = `place4:${prefer}:${nq}`;
   const cached = await cacheGet(k);
   const place = cached || await scan.resolvePlace(q, { codes: Object.values(MARKETS).map(m => m.code).filter(c => /^[A-Z]{2}$/.test(c)), prefer });
   if (!place) return res.status(404).json({ error: `No encontré «${q}». Probá con otro nombre.` });
@@ -410,6 +432,8 @@ app.post("/api/scan/verify", auth, wrap(async (req, res) => {
   const { keep, drop, cancelled } = await verifyCandidates(fresh, signal);
   if (cancelled || signal.aborted) return; // canceló: no se guarda nada de esta tanda
   const added = addSchools(keep);
+  // lo descartado no vuelve a salir como candidato (ni se paga otra vez por verificarlo)
+  dropOsm(fresh.filter(r => !keep.includes(r)).map(r => r.osm));
   // sin Redis en Vercel lo sumado vive en la memoria de una instancia: el navegador lo avisa
   res.json({ added: added.map(sales.schoolListItem), dropped: drop, sources: enrichSources(), temporary: !kvEnabled && !!process.env.VERCEL });
 }));
@@ -417,12 +441,14 @@ app.post("/api/scan/verify", auth, wrap(async (req, res) => {
 // Radar: lo que encontró el agente de prospección (scripts/radar.mjs).
 // Se lee en cada pedido (es chico): así refleja la última corrida aunque el servidor siga vivo.
 const RADAR_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), "data", "radar", "state.json");
+const regionNames = new Intl.DisplayNames("es", { type: "region" });
+const regionName = cc => { try { return regionNames.of(cc) || cc; } catch { return cc; } };
 function radarState() { try { return JSON.parse(fs.readFileSync(RADAR_FILE, "utf8")); } catch { return { cities: {}, scanned: {}, runs: [] }; } }
 app.get("/api/radar", auth, (req, res) => {
   const st = radarState();
   const countries = {};
   for (const [cc, list] of Object.entries(st.cities || {})) {
-    const name = { MX: "México", PE: "Perú", AR: "Argentina", CL: "Chile", UY: "Uruguay", GT: "Guatemala", CR: "Costa Rica" }[cc] || cc;
+    const name = Object.entries(MARKETS).find(([, m]) => m.code === cc)?.[0] || regionName(cc);
     const scanned = list.filter(c => st.scanned?.[`${cc}|${c.id ? "n" + c.id : c.name}`] || st.scanned?.[`${cc}|${c.name}`]).length;
     countries[name] = { cities: list.length, scanned, schools: schools.filter(s => s.country === name).length, found: schools.filter(s => s.country === name && s.src === "osm").length };
   }
@@ -469,11 +495,11 @@ async function confirmProposal(p, req) {
   let orgId = p.orgId, dealId = p.dealId, leadId = null;
   const vs = p.schoolId && byId.get(p.schoolId);
   if (vs?.leadOnly) leadId = vs.leadId; // ficha de un prospecto sin organización: se escribe en el prospecto
-  else if (!orgId && p.schoolId) { const rec = await sales.ensureOrg(p.schoolId, user.pdUserId || null); orgId = rec.orgId; dealId = dealId || rec.openDealId; }
+  else if (!orgId && p.schoolId) { const rec = await sales.ensureOrg(p.schoolId, user.pdUserId); orgId = rec.orgId; dealId = dealId || rec.openDealId; }
   if (!orgId && !leadId) {
     const hits = await pd.searchOrganizations(p.colegio, 5);
     const exact = hits.find(h => pd.norm(h.name) === pd.norm(p.colegio));
-    orgId = exact ? exact.id : (await pd.createOrganization({ name: p.colegio, ownerId: user.pdUserId || undefined })).id;
+    orgId = exact ? exact.id : (await pd.createOrganization({ name: p.colegio, ownerId: user.pdUserId })).id;
   }
   // cada uno trabaja lo suyo: una organización de otra persona solo admite agendarle una demo (o lo hace un líder)
   if (orgId && !(p.kind === "activity" && p.type === "meeting") && user.role !== "lider") {

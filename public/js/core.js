@@ -179,6 +179,18 @@ export function satLink(s, { w = 800, h = 480, span = 0.0035 } = {}) {
   const dLng = span / 2, dLat = (span * h / w) / 2 * Math.cos(s.lat * Math.PI / 180);
   return `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/export?bbox=${s.lng - dLng},${s.lat - dLat},${s.lng + dLng},${s.lat + dLat}&bboxSR=4326&imageSR=3857&size=${w},${h}&format=jpg&f=image`;
 }
+// Tesela de World Imagery que contiene al colegio (si el export falla, esta suele andar igual).
+export function satTile(s, z = 17) {
+  const n = 2 ** z, r = s.lat * Math.PI / 180;
+  return `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${Math.floor((1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2 * n)}/${Math.floor((s.lng + 180) / 360 * n)}`;
+}
+// Copia vieja de World Dominion (OrderBrain no respondió y se usan los últimos datos que hay): se avisa con su fecha.
+export function brainStaleMsg() {
+  const b = S.brain; if (!b?.stale || b.down || S.brainDown) return "";
+  const d = b.updatedAt ? new Date(b.updatedAt) : null, ok = d && !isNaN(d);
+  const when = !ok ? "" : d.toLocaleDateString("sv") === today() ? ` de hoy a las ${d.toLocaleTimeString("es", { hour: "2-digit", minute: "2-digit" })}` : ` al ${d.getDate()}/${d.getMonth() + 1}`;
+  return `Clientes de World Dominion${when || " de una copia guardada"}: puede faltar alguno nuevo. Revisá en Pipedrive antes de llamar.`;
+}
 export const mapsSearch = s => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + " " + s.city)}`;
 
 // ---------- piezas de interfaz

@@ -5,7 +5,7 @@
 // Fuentes:
 //  - OpenStreetMap (Overpass): ciudades por país y colegios alrededor de cada ciudad. Gratis, sin clave.
 //  - Google Places (opcional, GOOGLE_MAPS_API_KEY): rating, teléfono, web y fotos de los colegios nuevos.
-//  - Web del colegio: imagen de portada (og:image).
+//  - Web del colegio (lib/enrich.js): teléfono, WhatsApp, mail e imagen de portada (og:image).
 //  - Claude (opcional, ANTHROPIC_API_KEY): encaje con OrderEAT y ángulo de venta de cada colegio nuevo.
 //
 // Escribe data/schools.json (base de colegios de la app) y data/radar/state.json (ciudades, cobertura y corridas).
@@ -24,7 +24,7 @@ const MINUTES = Math.min(Math.max(Number(arg("minutes", env.RADAR_MINUTES || 20)
 const MIN_POP = Number(env.RADAR_MIN_POP || 40000);
 const RESCAN_DAYS = Number(env.RADAR_RESCAN_DAYS || 30);
 const PLACES_MAX = Number(env.RADAR_PLACES_MAX || 150);
-const WEB_MAX = Number(env.RADAR_WEB_MAX || 150);
+const WEB_MAX = Number(env.RADAR_WEB_MAX || 60);
 const AI_MAX = Number(env.RADAR_AI_MAX || 120);
 const STUDY_MAX = Number(env.RADAR_STUDY_MAX || 8);
 const STUDY_DIR = path.join(ROOT, "data", "studies");
@@ -40,6 +40,7 @@ export const COUNTRIES = {
 };
 import { notSchool, norm, slug, sleep, km, titleCase, overpass as overpassRaw, citiesFor as citiesForRaw, radiusKm, classify, fromOsm as fromOsmRaw, keyTokens, matchExisting, buildIndex, addTo } from "../lib/scan.js";
 export { norm, slug, km, radiusKm, classify };
+import { webInfo } from "../lib/enrich.js";
 // En el radar, Overpass nunca pasa el tiempo de la corrida.
 const overpass = (q, o = {}) => overpassRaw(q, { ...o, deadline: T0 + MINUTES * 60e3 });
 const citiesFor = cc => citiesForRaw(cc, { minPop: MIN_POP, deadline: T0 + MINUTES * 60e3 });
@@ -66,16 +67,6 @@ async function placesLookup(s) {
     return theirs.filter(w => mine.includes(w)).length / mine.length >= 0.5;
   });
   return p || null;
-}
-// Devuelve la URL, "" si la página cargó y no tiene imagen, o lanza error si no se pudo leer (se reintenta otro día).
-async function ogImage(url) {
-  const r = await fetch(url, { signal: AbortSignal.timeout(8000), redirect: "follow", headers: { "user-agent": "Mozilla/5.0 (compatible; OrderBrain-Radar/1.0)", accept: "text/html" } });
-  if (!r.ok) throw new Error(`web ${r.status}`);
-  if (!/html/.test(r.headers.get("content-type") || "")) return "";
-  const html = (await r.text()).slice(0, 300000);
-  const m = html.match(/<meta[^>]+(?:property|name)=["'](?:og:image|og:image:url|twitter:image)["'][^>]*content=["']([^"']+)["']/i) || html.match(/<meta[^>]+content=["']([^"']+)["'][^>]*(?:property|name)=["'](?:og:image|twitter:image)["']/i);
-  if (!m) return "";
-  try { const u = new URL(m[1].replace(/&amp;/g, "&"), r.url); return /^https:/.test(u.href) ? u.href : ""; } catch { return ""; }
 }
 // Evaluación rápida de colegios nuevos (encaje, si es privado y ángulo), con salida estructurada.
 async function aiAssess(batch) {
@@ -105,7 +96,7 @@ async function main() {
   let state = { cities: {}, citiesAt: {}, scanned: {}, failed: {}, runs: [] };
   try { state = { ...state, ...JSON.parse(fs.readFileSync(STATE_FILE, "utf8")) }; } catch {}
   const idx = buildIndex(schools);
-  const run = { at: new Date().toISOString(), cities: [], added: 0, enriched: 0, photos: 0, ai: 0, studies: 0, errors: [] };
+  const run = { at: new Date().toISOString(), cities: [], added: 0, enriched: 0, photos: 0, contacts: 0, ai: 0, studies: 0, errors: [] };
   const added = [];
   let citiesFetched = 0;
   // guarda lo hecho; también si GitHub corta la corrida (SIGTERM)
@@ -215,12 +206,22 @@ async function main() {
     }
   }
 
-  // 5. imagen de la web del colegio
+  // 5. web del colegio: contactos e imagen, sin pisar lo que ya hay. Primero los que no tienen teléfono.
+  //    Si la web no se pudo leer, se reintenta a los 14 días.
   const retryOk = s => !s.imgTry || (Date.now() - Date.parse(s.imgTry)) / 864e5 > 14;
-  const webTodo = schools.filter(s => s.web && s.img === undefined && retryOk(s)).slice(0, WEB_MAX);
+  const webTodo = schools.filter(s => s.web && !s.webAt && retryOk(s)).sort((a, b) => !!a.phone - !!b.phone).slice(0, WEB_MAX);
   for (const s of webTodo) {
     if (timeLeft() < 45e3) break;
-    try { s.img = await ogImage(s.web); delete s.imgTry; if (s.img) run.photos++; } catch { s.imgTry = today; }
+    try {
+      const w = await webInfo(s.web, AbortSignal.timeout(15000));
+      if (s.img === undefined) { s.img = w.image || ""; if (s.img) run.photos++; }
+      let ch = false;
+      if (w.phone && !s.phone) { s.phone = w.phone; ch = true; }
+      if (w.whatsapp && !s.whatsapp) { s.whatsapp = w.whatsapp; if (!s.phone) s.phone = w.whatsapp; ch = true; }
+      if (w.email && !s.email) { s.email = w.email; ch = true; }
+      if (ch) run.contacts++;
+      s.webAt = today; delete s.imgTry;
+    } catch { s.imgTry = today; }
   }
 
   // 6. evaluación con IA de los nuevos
@@ -268,7 +269,7 @@ async function main() {
   }
 
   // 8. guardar
-  log(`fin: ${run.added} nuevos, ${run.enriched} enriquecidos con Google, ${run.photos} fotos, ${run.ai} evaluados con IA, ${run.studies} estudios, ${run.errors.length} errores.`);
+  log(`fin: ${run.added} nuevos, ${run.enriched} enriquecidos con Google, ${run.photos} fotos, ${run.contacts} con contactos de su web, ${run.ai} evaluados con IA, ${run.studies} estudios, ${run.errors.length} errores.`);
   save();
 }
 
@@ -276,7 +277,7 @@ async function main() {
 // (la usa el workflow antes de hacer push, para no pisar ediciones hechas a mano mientras corría el radar).
 // Nunca pisa un dato que ya existe: solo suma colegios nuevos y completa campos vacíos.
 // Campos que solo escribe el radar: ahí manda la versión de la corrida.
-const RADAR_OWNED = ["private", "fit", "studied", "img", "imgTry", "gplace"];
+const RADAR_OWNED = ["private", "fit", "studied", "img", "imgTry", "webAt", "gplace"];
 function mergeFrom(dir) {
   const mine = JSON.parse(fs.readFileSync(path.join(dir, "schools.json"), "utf8"));
   const latest = JSON.parse(fs.readFileSync(SCHOOLS_FILE, "utf8"));
