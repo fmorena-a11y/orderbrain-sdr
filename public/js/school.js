@@ -1,6 +1,6 @@
 // Ficha del colegio: preparar el contacto, registrar el resultado e historial. Incluye el modo sesión.
 import { $, S, api, esc, icon, pill, statusPill, stageTag, potTag, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, workOrder, ago, TYPE_ICON,
-  telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile, callQueue, callGuess, demoDue } from "./core.js";
+  telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile, callQueue, callGuess, demoDue, archivedRef } from "./core.js";
 // «la cafetería», «el casino», «el bar escolar»
 const laEsp = mk => `${/^(casino|bar)\b/.test(mk?.espacio || "") ? "el" : "la"} ${mk?.espacio || "cafetería"}`, delaEsp = mk => laEsp(mk).replace(/^el /, "del ").replace(/^la /, "de la ");
 const coarse = () => matchMedia("(pointer: coarse)").matches;
@@ -416,7 +416,7 @@ export async function startSession(ids, label = "tu territorio", { acts = null, 
     for (const a of acts) { const k = a.schoolId || a.record; if (k && !seen.has(k)) { seen.add(k); ids.push(k); S.session.acts[k] = a.id; } }
     for (const id of extra) if (!seen.has(id)) { seen.add(id); ids.push(id); }
   }
-  ids = ids.filter(id => !isArchived(id)); // los archivados no entran en ninguna sesión
+  ids = ids.filter(id => !archivedRef(id)); // los archivados no entran en ninguna sesión
   if (!ids.length) { S.session = null; return toast("No hay colegios para esta sesión.", { type: "err" }); }
   S.session.ids = ids;
   openAt(S.session, 0);
@@ -456,8 +456,6 @@ function skipReason(v, mine = false) {
   if (v.ownerId && S.me.pdUserId && v.ownerId !== S.me.pdUserId) return `es de ${v.ownerName || "otra persona"}`;
   return "";
 }
-// archivado en la app (los "lead:…"/"org:…" de la agenda son las fichas pd-lead-…/pd-org-…)
-const isArchived = id => S.byId.get(isRef(id) ? String(id).replace(/^(lead|org):/, "pd-$1-") : id)?.status === "archived";
 // ---------- render
 const focusKey = el => el && (el.id ? `#${el.id}` : ["tab", "oc", "ch", "f", "caf", "niv", "nd", "ph"].map(k => el.dataset?.[k] !== undefined ? `[data-${k}="${el.dataset[k]}"]` : "").find(Boolean));
 // «Lo voy a contactar»: se puede crear el prospecto si no es cliente, no tiene trato abierto ni prospecto, y no es de otra persona
@@ -559,7 +557,7 @@ const ddmmOf = iso => { const t = new Date(iso); return isNaN(t) ? "?" : `${Stri
 const archBox = a => `<div class="arch-box">${icon("archive")}<span>Archivado por <b>${esc(a.byName || "?")}</b> el ${ddmmOf(a.at)}: ${esc(a.reason)}${a.text ? ` — ${esc(a.text)}` : ""}</span>${canUnarchive(a) ? `<button class="btn sm" id="aUnarch">${D.archiving ? `<span class="spin"></span> Desarchivando…` : "Desarchivar"}</button>` : ""}</div>`;
 async function afterArchive(s, r) {
   if (r.school) patchSchool(r.school);
-  toast(r.done.map(x => x.label).join(" · "), r.done.some(x => x.warn) ? { type: "info" } : {});
+  toast(r.done.map(x => x.label).join(" · "), r.done.some(x => x.warn) ? { type: "info", ms: 10000 } : {});
   if (D.id === s.id) { D.data = await api(`/api/schools/${encodeURIComponent(s.id)}`).catch(() => D.data); }
   S.today = null; S.agenda = null;
   import("./explore.js").then(x => x.refreshExplore({ fit: false }));

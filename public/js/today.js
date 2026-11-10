@@ -1,5 +1,5 @@
 // Hoy: meta del día, agenda propia y a quién contactar ahora.
-import { S, api, esc, icon, potTag, save, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg, brainTokenCallout, matchZone, zoneOptions, ZONE_KIND, workOrder, norm, callPill, callQueue, hotRows, demoDue } from "./core.js";
+import { S, api, esc, icon, potTag, save, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg, brainTokenCallout, matchZone, zoneOptions, ZONE_KIND, workOrder, norm, callPill, callQueue, hotRows, demoDue, archivedRef } from "./core.js";
 import { openSchool, openRecord, startSession, resumeSession } from "./school.js";
 import { setBadge, baseErrorCallout } from "./app.js";
 
@@ -64,7 +64,7 @@ function draw() {
   const resume = S.lastSession && S.lastSession.i < S.lastSession.ids.length - 1;
   const terr = S.territory.length ? (S.territory.length <= 2 ? S.territory.join(", ") : `${S.territory.length} países`) : "Todos los países";
   const list = showAll ? fresh : fresh.slice(0, 6);
-  const hot = hotRows(activities.items || [], hotLeads || [], t), hotList = hotAll ? hot : hot.slice(0, 6);
+  const hot = hotRows((activities.items || []).filter(a => !archivedRef(a.schoolId || a.record)), (hotLeads || []).filter(l => !archivedRef(l.schoolId || l.record)), t), hotList = hotAll ? hot : hot.slice(0, 6);
 
   host.innerHTML = `<div class="page">
     ${baseErrorCallout()}

@@ -10,13 +10,22 @@
     }
   ],
   "crons": [
-    { "path": "/api/cron/sync", "schedule": "17 8 * * *" }
+    {
+      "path": "/api/cron/sync",
+      "schedule": "17 8 * * *"
+    }
   ],
   "functions": {
     "api/index.js": {
       "includeFiles": "data/**",
       "maxDuration": 300,
       "supportsCancellation": true
+    }
+  },
+  "git": {
+    "deploymentEnabled": {
+      "app-sdr": false,
+      "colores": false
     }
   }
 }
