@@ -750,3 +750,4 @@ details.agent summary .sub { order: 3; }
 .code-login { width: 100%; display: grid; gap: 12px; text-align: left; }
 .code-login[hidden] { display: none; }
 .login-card p.err { color: var(--err); font-weight: 500; }
+.demo-note { margin-bottom: 14px; }

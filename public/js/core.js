@@ -225,13 +225,14 @@ export function openMenu(anchor, items) {
 }
 
 // Modal simple. Devuelve el elemento; close() lo cierra.
-export function modal(html, { onClose } = {}) {
+// locked: no se cierra con Esc ni tocando afuera (por ejemplo, el perfil obligatorio de la primera vez)
+export function modal(html, { onClose, locked = false } = {}) {
   const m = document.createElement("div"); m.className = "modal"; m.setAttribute("role", "dialog"); m.setAttribute("aria-modal", "true");
   m.innerHTML = `<div class="modal-box">${html}</div>`;
   const close = () => { m.remove(); document.removeEventListener("keydown", key); onClose?.(); };
   // Esc cierra el modal, salvo que la búsqueda esté abierta encima
-  const key = e => { if (e.key === "Escape" && document.getElementById("palette").hidden) { e.stopPropagation(); close(); } };
-  m.addEventListener("pointerdown", e => { if (e.target === m) close(); });
+  const key = e => { if (!locked && e.key === "Escape" && document.getElementById("palette").hidden) { e.stopPropagation(); close(); } };
+  m.addEventListener("pointerdown", e => { if (!locked && e.target === m) close(); });
   document.addEventListener("keydown", key);
   document.body.appendChild(m);
   m.close = close;

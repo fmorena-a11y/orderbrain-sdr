@@ -5,7 +5,7 @@ import { OAuth2Client } from "google-auth-library";
 import path from "path";
 import { fileURLToPath } from "url";
 import * as pd from "./lib/pipedrive.js";
-import { schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId, hiddenOsm } from "./lib/store.js";
+import { schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId, hiddenOsm, getProfile, setProfile, getProfiles, ROLES } from "./lib/store.js";
 import * as scan from "./lib/scan.js";
 import { ensureBrain, brainState, brainDown } from "./lib/brain.js";
 import { verifyCandidates, enrichSources } from "./lib/enrich.js";
@@ -118,12 +118,29 @@ const wrap = fn => (req, res) => fn(req, res).catch(e => {
 const schoolParam = (req, res, next) => { if (!byId.has(req.params.id)) return res.status(404).json({ error: "Colegio inexistente" }); req.params.id = canonicalId(req.params.id); next(); };
 
 // ---------- API
-app.get("/api/me", auth, (req, res) => res.json({
-  user: req.session.user, ai: ai.aiEnabled(), study: studyEnabled(), demo: pd.DEMO, goal: DAILY_GOAL, pdWeb: pd.PD_WEB,
+// Perfil: nombre completo y rol. Si la persona ya lo cargó, manda sobre el nombre que viene de Google o Pipedrive.
+const withProfile = (u, pr) => pr ? { ...u, name: pr.name, role: pr.role, roleLabel: ROLES[pr.role] || "" } : u;
+app.get("/api/me", auth, wrap(async (req, res) => {
+  const pr = await getProfile(req.session.user.email);
+  req.session.user = withProfile(req.session.user, pr);
+  res.json({
+  user: req.session.user, profile: { complete: !!(pr?.name && pr?.role), suggested: req.session.user.pdName || "", roles: ROLES }, ai: ai.aiEnabled(), study: studyEnabled(), demo: pd.DEMO, goal: DAILY_GOAL, pdWeb: pd.PD_WEB,
   countries: [...new Set(schools.map(s => s.country))].sort(), markets: MARKETS, outcomes: sales.OUTCOMES, lostReasons: LOST_REASONS, types: TYPE_LABEL,
+  });
+}));
+app.post("/api/me/profile", auth, wrap(async (req, res) => {
+  const name = String(req.body?.name || "").replace(/\s+/g, " ").trim().slice(0, 80), role = String(req.body?.role || "");
+  if (name.split(" ").filter(w => w.length > 1).length < 2) return res.status(400).json({ error: "Escribí tu nombre y apellido." });
+  if (!ROLES[role]) return res.status(400).json({ error: "Elegí tu rol en el equipo." });
+  const pr = await setProfile(req.session.user.email, { name, role });
+  req.session.user = withProfile(req.session.user, pr);
+  res.json({ user: req.session.user });
 }));
 app.get("/api/schools", auth, (req, res) => res.json(schools.map(sales.schoolListItem)));
-app.get("/api/team", auth, wrap(async (req, res) => { const m = await pd.meta(); res.json(m.users.map(u => ({ id: u.id, name: u.name }))); }));
+app.get("/api/team", auth, wrap(async (req, res) => {
+  const [m, prs] = await Promise.all([pd.meta(), getProfiles()]);
+  res.json(m.users.map(u => { const pr = prs[u.email]; return { id: u.id, name: pr?.name || u.name, role: pr ? ROLES[pr.role] : "" }; }));
+}));
 
 // Revisa varios colegios contra Pipedrive (de a 3 en paralelo).
 app.post("/api/check", auth, wrap(async (req, res) => {

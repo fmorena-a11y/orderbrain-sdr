@@ -1,5 +1,5 @@
 // OrderBrain SDR · arranque, navegación, cuenta, búsqueda rápida y atajos.
-import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, statusPill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo } from "./core.js";
+import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, statusPill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo, modal, toast } from "./core.js";
 import { renderToday } from "./today.js";
 import { renderExplore } from "./explore.js";
 import { renderAgenda } from "./agenda.js";
@@ -21,8 +21,10 @@ const show = id => { for (const x of ["boot", "login", "app"]) $(x).hidden = x !
 async function start() {
   try {
     const me = await api("/api/me");
-    Object.assign(S, { me: me.user, ai: me.ai, demo: me.demo, goal: me.goal, pdWeb: me.pdWeb, countries: me.countries, markets: me.markets, outcomes: me.outcomes, lostReasons: me.lostReasons, types: me.types });
+    Object.assign(S, { me: me.user, profile: me.profile, ai: me.ai, demo: me.demo, goal: me.goal, pdWeb: me.pdWeb, countries: me.countries, markets: me.markets, outcomes: me.outcomes, lostReasons: me.lostReasons, types: me.types });
     enterApp();
+    // la primera vez: nombre completo y rol en el equipo (se usa en saludos, firmas y en Equipo)
+    if (!me.profile?.complete) profileDialog({ required: true });
   } catch { showLogin(); }
 }
 async function showLogin() {
@@ -104,9 +106,33 @@ function accountMenu(anchor) {
   openMenu(anchor, [
     { head: S.me.email, cls: "plain" },
     { label: S.me.pdUserId ? "Conectado a Pipedrive" : "Sin usuario en Pipedrive", sub: S.me.pdUserId ? "Tus actividades y notas se guardan a tu nombre" : "Pedí que te den de alta con este email", fn: () => S.pdWeb && window.open(S.pdWeb, "_blank", "noopener") },
+    { label: "Tu perfil", sub: `${S.me.name}${S.me.roleLabel ? " · " + S.me.roleLabel : ""}`, fn: () => profileDialog() },
     { label: isDark() ? "Modo claro" : "Modo oscuro", sub: "Cambiar el tema", fn: toggleTheme },
     { label: "Salir", sub: "Cerrar sesión en este dispositivo", fn: async () => { await api("/auth/logout", { body: {} }).catch(() => {}); location.reload(); } },
   ]);
+}
+function profileDialog({ required = false } = {}) {
+  const roles = S.profile?.roles || { sdr: "SDR", ae: "Account Executive", lider: "Líder" };
+  const cur = S.me.role || "", name = S.profile?.complete ? S.me.name : (S.profile?.suggested || "");
+  const m = modal(`<div class="modal-h"><h3>${required ? "Contanos quién sos" : "Tu perfil"}</h3>${required ? "" : `<button class="icon-btn" id="pfX" aria-label="Cerrar">${icon("x")}</button>`}</div>
+    ${required ? `<p class="muted" style="margin:-6px 0 0">Se usa en los saludos, en la firma de tus mensajes y en Equipo.</p>` : ""}
+    <form id="pfF" class="stack" style="gap:14px">
+      <label class="field"><span>Nombre y apellido</span><input class="inp" id="pfName" value="${esc(name)}" autocomplete="name" placeholder="Ej: Javiera Tejos" required></label>
+      <div class="field"><span>Rol en el equipo</span><div class="seg" role="radiogroup" aria-label="Rol en el equipo">${Object.entries(roles).map(([k, l]) => `<button type="button" role="radio" data-role="${k}" aria-checked="${cur === k}" aria-pressed="${cur === k}">${esc(l)}</button>`).join("")}</div></div>
+      <p class="err" id="pfErr" role="alert" style="margin:0;color:var(--err)"></p>
+      <button class="btn primary block" id="pfGo">Guardar</button>
+    </form>`, { locked: required });
+  let role = cur;
+  m.querySelectorAll("[data-role]").forEach(b => b.onclick = () => { role = b.dataset.role; m.querySelectorAll("[data-role]").forEach(x => { const on = x === b; x.setAttribute("aria-pressed", on); x.setAttribute("aria-checked", on); }); });
+  m.querySelector("#pfX")?.addEventListener("click", () => m.close());
+  m.querySelector("#pfF").onsubmit = async e => {
+    e.preventDefault(); const go = m.querySelector("#pfGo"); go.disabled = true;
+    try {
+      const r = await api("/api/me/profile", { body: { name: m.querySelector("#pfName").value, role } });
+      S.me = r.user; S.profile = { ...(S.profile || {}), complete: true }; m.close(); drawMe(); route();
+      toast(required ? `Listo, ${S.me.name.split(" ")[0]}` : "Perfil guardado");
+    } catch (x) { m.querySelector("#pfErr").textContent = x.message; go.disabled = false; }
+  };
 }
 function toggleTheme() {
   const next = isDark() ? "light" : "dark";
