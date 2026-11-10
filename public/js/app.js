@@ -1,5 +1,5 @@
-// OrderBrain SDR · arranque, navegación, búsqueda rápida y atajos.
-import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, closeMenu, isDark, applyTheme, save } from "./core.js";
+// OrderBrain SDR · arranque, navegación, cuenta, búsqueda rápida y atajos.
+import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo } from "./core.js";
 import { renderToday } from "./today.js";
 import { renderExplore } from "./explore.js";
 import { renderAgenda } from "./agenda.js";
@@ -15,6 +15,7 @@ const VIEWS = {
   radar: { label: "Radar", icon: "target", render: renderRadar },
   equipo: { label: "Equipo", icon: "users", render: renderTeam },
 };
+const show = id => { for (const x of ["boot", "login", "app"]) $(x).hidden = x !== id; };
 
 // ---------- login
 async function start() {
@@ -25,96 +26,160 @@ async function start() {
   } catch { showLogin(); }
 }
 async function showLogin() {
-  $("app").hidden = true; $("assistant").hidden = true; $("login").hidden = false;
-  const cfg = await api("/auth/config").catch(() => ({}));
-  if (cfg.devLogin) { $("devLogin").hidden = false; $("devLogin").onclick = () => api("/auth/dev", { body: {} }).then(start).catch(e => ($("loginErr").textContent = e.message)); }
-  if (!cfg.googleClientId) { if (!cfg.devLogin) $("loginErr").textContent = "El login con Google todavía no está configurado en el servidor."; return; }
+  show("login"); $("assistant").hidden = true;
+  const cfg = await api("/auth/config").catch(() => null);
+  const err = $("loginErr");
+  if (!cfg) { $("gbtn").innerHTML = ""; err.innerHTML = `No pudimos conectar con el servidor. <button class="linkbtn" id="loginRetry">Reintentar</button>`; $("loginRetry").onclick = () => { err.textContent = ""; showLogin(); }; return; }
+  if (cfg.devLogin) {
+    const b = $("devLogin"); b.hidden = false;
+    b.onclick = async () => {
+      b.disabled = true; b.textContent = "Entrando…";
+      try { await api("/auth/dev", { body: {} }); start(); }
+      catch (e) { err.textContent = e.message; b.disabled = false; b.textContent = "Entrar en modo desarrollo"; }
+    };
+  }
+  if (!cfg.googleClientId) { $("gbtn").innerHTML = ""; if (!cfg.devLogin) err.textContent = "El login con Google todavía no está configurado en el servidor."; return; }
   const init = () => {
     if (!window.google?.accounts?.id) return setTimeout(init, 200);
+    $("gbtn").innerHTML = "";
     google.accounts.id.initialize({ client_id: cfg.googleClientId, callback: async r => {
-      try { await api("/auth/google", { body: { credential: r.credential } }); start(); } catch (e) { $("loginErr").textContent = e.message; }
+      try { await api("/auth/google", { body: { credential: r.credential } }); start(); } catch (e) { err.textContent = e.message; }
     } });
-    google.accounts.id.renderButton($("gbtn"), { theme: "outline", size: "large", text: "signin_with", locale: "es", shape: "pill" });
+    google.accounts.id.renderButton($("gbtn"), { theme: isDark() ? "filled_black" : "outline", size: "large", text: "signin_with", locale: "es", shape: "pill" });
   };
   init();
 }
 setUnauthorized(() => showLogin());
 
 async function enterApp() {
-  $("login").hidden = true; $("app").hidden = false;
+  show("app");
   hydrateIcons();
-  drawThemeBtn();
-  $("themeBtn").onclick = toggleTheme;
-  $("assistBtn").hidden = !S.ai;
-  $("assistBtn").onclick = () => openAssistant();
-  $("me").innerHTML = `<div class="av">${S.me.picture ? `<img src="${esc(S.me.picture)}" alt="">` : initials(S.me.name)}</div><div class="who"><b>${esc(S.me.name)}</b><small>${S.me.pdUserId ? "Conectado a Pipedrive" : "Sin usuario en Pipedrive"}</small></div><button class="icon-btn" id="logout" aria-label="Salir" title="Salir">${icon("logout")}</button>`;
-  $("logout").onclick = async () => { await api("/auth/logout", { body: {} }).catch(() => {}); location.reload(); };
+  $("demoPill").hidden = $("demoPill2").hidden = !S.demo;
+  $("assistBtn").hidden = $("topAssist").hidden = !S.ai;
+  $("assistBtn").onclick = $("topAssist").onclick = () => openAssistant();
+  $("topSearch").onclick = $("openPalette").onclick = openPalette;
+  drawMe();
+  $("me").onclick = $("topMe").onclick = e => accountMenu(e.currentTarget);
   renderNav();
-  const [schools, team] = await Promise.all([api("/api/schools"), api("/api/team").catch(() => [])]);
-  setSchools(schools); S.team = team;
+  route(); // las vistas muestran su propio estado de carga
+  await loadBase();
+}
+// Colegios y equipo: si fallan, se avisa y se puede reintentar sin recargar.
+async function loadBase() {
+  try {
+    const [schools, team] = await Promise.all([api("/api/schools"), api("/api/team").catch(() => [])]);
+    setSchools(schools); S.team = team; S.baseError = null;
+  } catch (e) { S.baseError = e.message; }
   route();
 }
+export function baseErrorCallout() {
+  if (!S.baseError) return "";
+  setTimeout(() => document.getElementById("baseRetry")?.addEventListener("click", () => { S.baseError = null; loadBase(); }));
+  return `<div class="callout err" style="margin-bottom:16px">${icon("alert")}<span>No pudimos cargar los colegios: ${esc(S.baseError)}. <button class="linkbtn" id="baseRetry">Reintentar</button></span></div>`;
+}
 
-// ---------- modo claro / oscuro
-function drawThemeBtn() {
-  const dark = isDark();
-  $("themeBtn").innerHTML = `${icon(dark ? "sun" : "moon")}<span class="lbl">${dark ? "Modo claro" : "Modo oscuro"}</span>`;
-  $("themeBtn").setAttribute("aria-label", dark ? "Cambiar a modo claro" : "Cambiar a modo oscuro");
+// ---------- cuenta: tema, estado de Pipedrive y salir
+function avatar() {
+  return `<span class="av">${S.me.picture ? `<img src="${esc(S.me.picture)}" alt="">` : initials(S.me.name)}<span class="dot-status ${S.me.pdUserId ? "" : "off"}"></span></span>`;
+}
+function drawMe() {
+  const off = !S.me.pdUserId;
+  $("me").innerHTML = `${avatar()}<span class="who"><b>${esc(S.me.name)}</b>${off ? "<small>Sin usuario en Pipedrive</small>" : ""}</span>`;
+  $("me").title = off ? "Tu email no coincide con un usuario de Pipedrive" : `${S.me.name} · conectado a Pipedrive`;
+  $("topMe").innerHTML = avatar();
+}
+function accountMenu(anchor) {
+  openMenu(anchor, [
+    { head: S.me.email, cls: "plain" },
+    { label: S.me.pdUserId ? "Conectado a Pipedrive" : "Sin usuario en Pipedrive", sub: S.me.pdUserId ? "Tus actividades y notas se guardan a tu nombre" : "Pedí que te den de alta con este email", fn: () => S.pdWeb && window.open(S.pdWeb, "_blank", "noopener") },
+    { label: isDark() ? "Modo claro" : "Modo oscuro", sub: "Cambiar el tema", fn: toggleTheme },
+    { label: "Salir", sub: "Cerrar sesión en este dispositivo", fn: async () => { await api("/auth/logout", { body: {} }).catch(() => {}); location.reload(); } },
+  ]);
 }
 function toggleTheme() {
   const next = isDark() ? "light" : "dark";
-  applyTheme(next); save("theme", next); drawThemeBtn();
+  applyTheme(next); save("theme", next);
   if (S.view === "prospectar") route(); // el mapa cambia de estilo
 }
+
 // ---------- navegación
-function renderNav(badges = {}) {
-  $("nav").innerHTML = Object.entries(VIEWS).map(([k, v]) => `<button class="nav-item" data-v="${k}" ${S.view === k ? 'aria-current="page"' : ""}>${icon(v.icon)}<span class="lbl">${v.label}</span>${badges[k] ? `<span class="badge">${badges[k]}</span>` : ""}</button>`).join("");
-  $("nav").querySelectorAll("[data-v]").forEach(b => b.onclick = () => go(b.dataset.v));
+function renderNav() {
+  $("nav").innerHTML = Object.entries(VIEWS).map(([k, v], i) => `<button class="nav-item" data-v="${k}" title="${v.label} (${i + 1})" aria-keyshortcuts="${i + 1}" ${S.view === k ? 'aria-current="page"' : ""}>${icon(v.icon)}<span class="lbl">${v.label}</span></button>`).join("");
+  $("nav").querySelectorAll("[data-v]").forEach(b => b.onclick = () => { go(b.dataset.v); $("main").focus({ preventScroll: true }); });
 }
-export function setBadge(view, n) { const b = $("nav").querySelector(`[data-v="${view}"]`); if (!b) return; b.querySelector(".badge")?.remove(); if (n) b.insertAdjacentHTML("beforeend", `<span class="badge">${n > 99 ? "99+" : n}</span>`); }
+export function setBadge(view, n) {
+  const b = $("nav").querySelector(`[data-v="${view}"]`); if (!b) return;
+  b.querySelector(".badge")?.remove();
+  if (n) b.insertAdjacentHTML("beforeend", `<span class="badge" aria-label="${n} pendientes">${n > 99 ? "99+" : n}</span>`);
+}
 export function go(view) { if (location.hash !== "#/" + view) location.hash = "#/" + view; else route(); }
 function route() {
+  closeMenu();
   const v = (location.hash.match(/^#\/(\w+)/) || [])[1];
   S.view = VIEWS[v] ? v : "hoy";
   $("nav").querySelectorAll("[data-v]").forEach(b => { if (b.dataset.v === S.view) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
+  document.title = `${VIEWS[S.view].label} · OrderBrain SDR`;
   const main = $("main");
-  main.innerHTML = S.demo ? `<div class="demo-banner">Modo demo: Pipedrive de prueba, nada se guarda en la cuenta real.</div>` : "";
-  const host = document.createElement("div"); host.style.height = S.view === "prospectar" ? (S.demo ? "calc(100% - 37px)" : "100%") : ""; main.appendChild(host);
+  main.innerHTML = "";
+  const host = document.createElement("div"); if (S.view === "prospectar") host.style.height = "100%"; main.appendChild(host);
   VIEWS[S.view].render(host);
   main.scrollTop = 0;
 }
 addEventListener("hashchange", route);
 export function rerender() { route(); }
 
-// ---------- búsqueda rápida (Ctrl K)
-const PAL = { items: [], sel: 0 };
+// ---------- búsqueda rápida (Ctrl K, / o la lupa)
+// Vacía: recientes y los siguientes de la cola. Al escribir: colegios y acciones.
+const PAL = { items: [], sel: 0, ret: null };
+export function rememberSchool(id) { const r = [id, ...loadPref("recent", []).filter(x => x !== id)].slice(0, 6); save("recent", r); }
 function openPalette() {
   closeMenu();
+  PAL.ret = document.activeElement;
+  $("app").inert = true; document.querySelector(".skip").inert = true;
   $("palette").hidden = false; $("palIn").value = ""; renderPalette(); $("palIn").focus();
 }
-function closePalette() { $("palette").hidden = true; }
+function closePalette(picked = false) {
+  $("palette").hidden = true;
+  $("app").inert = drawerOpen(); document.querySelector(".skip").inert = drawerOpen();
+  if (!picked) PAL.ret?.focus?.();
+}
 function renderPalette() {
-  const q = norm($("palIn").value);
-  const actions = [
-    { label: "Ir a Hoy", sub: "Tu agenda y a quién llamar", ic: "sun", fn: () => go("hoy") },
-    { label: "Empezar sesión de llamadas", sub: "Los mejores prospectos de tu territorio, uno tras otro", ic: "play", fn: () => startSession() },
-    { label: "Prospectar en el mapa", sub: "Colegios por país y ciudad", ic: "map", fn: () => go("prospectar") },
-    { label: "Mi agenda", sub: "Actividades pendientes en Pipedrive", ic: "calendar", fn: () => go("agenda") },
-    { label: isDark() ? "Modo claro" : "Modo oscuro", sub: "Cambiar el tema de la app", ic: isDark() ? "sun" : "moon", fn: toggleTheme },
-    { label: "Radar de colegios", sub: "Lo que encontró el agente que recorre todas las ciudades", ic: "target", fn: () => go("radar") },
-    { label: "Ranking del equipo", sub: "Contactos y demos de la semana", ic: "users", fn: () => go("equipo") },
-    ...(S.ai ? [{ label: "Abrir asistente", sub: "Pedile que agende, cargue notas o arme un guion", ic: "sparkles", fn: () => openAssistant() }] : []),
-  ].filter(a => !q || norm(a.label + " " + a.sub).includes(q));
-  const schools = q.length >= 2 ? S.schools.filter(s => norm(`${s.name} ${s.city} ${s.country}`).includes(q)).slice(0, 8) : [];
-  PAL.items = [...schools.map(s => ({ school: s, fn: () => openSchool(s.id) })), ...actions];
+  const raw = $("palIn").value, q = norm(raw);
+  const row = (i, ic, title, sub, right = "") => `<button class="pal-item" role="option" data-i="${i}" aria-selected="${i === 0}">${icon(ic)}<span class="t"><b>${esc(title)}</b><small>${esc(sub)}</small></span>${right}</button>`;
+  const sections = [];
+  if (!q) {
+    const recent = loadPref("recent", []).map(id => S.byId.get(id)).filter(Boolean);
+    const next = (S.today?.queue || []).filter(s => !recent.some(r => r.id === s.id)).slice(0, 4).map(s => S.byId.get(s.id) || s);
+    if (recent.length) sections.push(["Recientes", recent.map(s => ({ s }))]);
+    if (next.length) sections.push(["Siguientes en tu cola", next.map(s => ({ s }))]);
+    sections.push(["Acciones", [{ a: { label: "Empezar sesión de llamadas", sub: "Los mejores prospectos de tu territorio, uno tras otro", ic: "play", fn: () => startSession() } },
+      ...(S.ai ? [{ a: { label: "Abrir asistente", sub: "Que agende, cargue notas o arme un guion", ic: "sparkles", fn: () => openAssistant() } }] : [])]]);
+  } else {
+    const schools = q.length >= 2 ? S.schools.filter(s => norm(`${s.name} ${s.city} ${s.country}`).includes(q)).slice(0, 8) : [];
+    const actions = [
+      ...Object.entries(VIEWS).filter(([k]) => k !== S.view).map(([k, v]) => ({ label: `Ir a ${v.label}`, sub: "", ic: v.icon, fn: () => go(k) })),
+      { label: "Empezar sesión de llamadas", sub: "", ic: "play", fn: () => startSession() },
+      { label: isDark() ? "Modo claro" : "Modo oscuro", sub: "Tema", ic: isDark() ? "sun" : "moon", fn: toggleTheme },
+      ...(S.ai ? [{ label: "Abrir asistente", sub: "", ic: "sparkles", fn: () => openAssistant() }] : []),
+    ].filter(a => norm(a.label + " " + a.sub).includes(q));
+    if (schools.length) sections.push(["Colegios", schools.map(s => ({ s }))]);
+    if (actions.length) sections.push(["Acciones", actions.map(a => ({ a }))]);
+  }
+  PAL.items = []; let html = "";
+  for (const [h, list] of sections) {
+    html += `<div class="pal-h">${h}</div>`;
+    for (const it of list) {
+      const i = PAL.items.length;
+      if (it.s) { PAL.items.push({ fn: () => openSchool(it.s.id) }); html += row(i, "building", it.s.name, `${it.s.city}, ${it.s.country}`, it.s.status ? pill(it.s.status) : ""); }
+      else { PAL.items.push(it.a); html += row(i, it.a.ic, it.a.label, it.a.sub); }
+    }
+  }
   PAL.sel = 0;
-  $("palList").innerHTML = (schools.length ? `<div class="pal-h">Colegios</div>` + schools.map((s, i) => `<button class="pal-item" role="option" data-i="${i}" aria-selected="${i === 0}">${icon("building")}<span class="t"><b>${esc(s.name)}</b><small>${esc(s.city)}, ${esc(s.country)}</small></span>${pill(s.status)}</button>`).join("") : "")
-    + (actions.length ? `<div class="pal-h">Acciones</div>` + actions.map((a, j) => { const i = schools.length + j; return `<button class="pal-item" role="option" data-i="${i}" aria-selected="${i === 0}">${icon(a.ic)}<span class="t"><b>${esc(a.label)}</b><small>${esc(a.sub)}</small></span></button>`; }).join("") : "")
-    || `<div class="empty">Nada coincide con «${esc($("palIn").value)}».</div>`;
+  $("palList").innerHTML = html || `<div class="empty">Nada coincide con «${esc(raw)}».</div>`;
   $("palList").querySelectorAll("[data-i]").forEach(b => { b.onclick = () => pick(+b.dataset.i); b.onmousemove = () => setSel(+b.dataset.i); });
 }
 function setSel(i) { PAL.sel = i; $("palList").querySelectorAll("[data-i]").forEach(b => b.setAttribute("aria-selected", +b.dataset.i === i)); $("palList").querySelector(`[data-i="${i}"]`)?.scrollIntoView({ block: "nearest" }); }
-function pick(i) { const it = PAL.items[i]; if (!it) return; closePalette(); it.fn(); }
+function pick(i) { const it = PAL.items[i]; if (!it) return; closePalette(true); it.fn(); }
 $("palIn").addEventListener("input", renderPalette);
 $("palIn").addEventListener("keydown", e => {
   if (e.key === "ArrowDown") { e.preventDefault(); setSel(Math.min(PAL.sel + 1, PAL.items.length - 1)); }
@@ -122,24 +187,27 @@ $("palIn").addEventListener("keydown", e => {
   if (e.key === "Enter") { e.preventDefault(); pick(PAL.sel); }
 });
 $("palette").addEventListener("pointerdown", e => { if (e.target === $("palette")) closePalette(); });
-$("openPalette").onclick = openPalette;
 
 // ---------- atajos de teclado
 addEventListener("keydown", e => {
   if ($("app").hidden) return;
-  const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName) || document.activeElement?.isContentEditable;
-  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); $("palette").hidden ? openPalette() : closePalette(); return; }
+  const el = document.activeElement;
+  const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(el?.tagName) || el?.isContentEditable;
+  const overlay = document.querySelector(".modal, .menu");
+  // Deshacer lo último (por ejemplo, «marcar como hecha») mientras el aviso está visible
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z" && !typing && lastUndo) { e.preventDefault(); lastUndo.fn(); return; }
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); if (overlay) return; $("palette").hidden ? openPalette() : closePalette(); return; }
   if (e.key === "Escape") {
     if (!$("palette").hidden) return closePalette();
-    if (document.querySelector(".modal") || document.querySelector(".menu")) return;
+    if (overlay) return;
+    // en un campo de la ficha, Esc solo sale del campo (no cierra la ficha ni pierde lo escrito)
+    if (drawerOpen() && typing) { el.blur(); return; }
     if (drawerOpen()) return closeSchool();
     if (!$("assistant").hidden) return closeAssistant();
   }
-  if (typing || e.ctrlKey || e.metaKey || e.altKey) return;
+  if (typing || overlay || e.ctrlKey || e.metaKey || e.altKey) return;
   if (e.key === "/") { e.preventDefault(); openPalette(); }
-  if (!drawerOpen()) {
-    const k = { 1: "hoy", 2: "prospectar", 3: "agenda", 4: "radar", 5: "equipo" }[e.key]; if (k) go(k);
-  }
+  if (!drawerOpen()) { const k = { 1: "hoy", 2: "prospectar", 3: "agenda", 4: "radar", 5: "equipo" }[e.key]; if (k) { go(k); $("main").focus({ preventScroll: true }); } }
 });
 
 start();
