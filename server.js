@@ -134,7 +134,8 @@ const auth = (req, res, next) => {
   req.tz = safeTz(req.get("x-tz"));
   next();
 };
-// READ_ONLY=1: nada se escribe en Pipedrive (para probar contra la cuenta real sin tocarla)
+// READ_ONLY=1: nada se escribe en Pipedrive (para probar contra la cuenta real sin tocarla).
+// activities/ cubre marcar hecha, deshacer, mover y el resultado de una demo (demo-result, demo-rebook).
 if (process.env.READ_ONLY === "1") app.use((req, res, next) => req.method === "POST" && /^\/api\/(schools\/[^/]+\/(match|log|comment|prospect|convert|study\/note|enrich|deals\/|persons)|activities\/|proposals\/confirm)/.test(req.path) ? res.status(403).json({ error: "Modo solo lectura: no se escribe en Pipedrive." }) : next());
 const wrap = fn => (req, res) => fn(req, res).catch(e => {
   if (res.writableEnded || res.destroyed) return; // el navegador ya cortó (canceló): no hay a quién responder
@@ -216,6 +217,13 @@ app.get("/api/team", auth, wrap(async (req, res) => {
   res.json(m.users.map(u => { const pr = prs[u.email]; return { id: u.id, name: pr?.name || u.name, role: pr ? ROLES[pr.role] : "" }; }));
 }));
 
+// Demos de la semana (todos): las agendadas en Pipedrive, quién la agendó, quién la da y el resultado. Sin ranking.
+app.get("/api/team/demos", auth, wrap(async (req, res) => res.json(await sales.teamDemos(req.tz))));
+// Métricas de demos (solo líderes): 30 o 90 días, por país
+app.get("/api/team/demo-metrics", auth, wrap(async (req, res) => {
+  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Solo un líder ve las métricas de demos." });
+  res.json(await sales.teamDemoMetrics(req.tz, { days: Number(req.query.days) === 90 ? 90 : 30, country: String(req.query.country || "").slice(0, 60) }));
+}));
 // ---------- sincronización masiva con Pipedrive (lib/sync.js). Solo lee de Pipedrive: corre también con READ_ONLY=1.
 // Cuántos colegios hay en cada estado (lo mismo que ve la lista: World Dominion manda, «unk» = sin revisar)
 const stateCounts = () => { const c = {}; for (const s of schools) { const st = sales.schoolListItem(s).status; c[st] = (c[st] || 0) + 1; } return c; };
@@ -398,6 +406,17 @@ app.post("/api/activities/:id/move", auth, wrap(async (req, res) => {
   // si es una demo, el recordatorio para confirmarla se mueve con ella
   const done = await sales.demoMoved(a, req.session.user, { date, time: tm }, req.tz, await isLeader(req.session.user.email)).catch(e => [{ label: `No pude mover el recordatorio para confirmar la demo: ${e.message}`, warn: true }]);
   res.json({ ok: true, done });
+}));
+// Resultado de una demo (tuya, o cualquiera si sos líder): se hizo, no se presentó, se reprogramó o se canceló.
+// Queda escrito en la nota de la actividad con una línea fija; si no se presentó, se puede reagendar (otra demo).
+const signName = async user => (await getProfile(user.email).catch(() => null))?.name || "";
+app.post("/api/activities/:id/demo-result", auth, wrap(async (req, res) => {
+  const a = await ownActivity(req.session.user, req.params.id), b = req.body || {};
+  res.json(await sales.markDemo(a, req.session.user, { result: String(b.result || ""), date: b.date, time: b.time, by: await signName(req.session.user) }, req.tz, await isLeader(req.session.user.email)));
+}));
+app.post("/api/activities/:id/demo-rebook", auth, wrap(async (req, res) => {
+  const a = await ownActivity(req.session.user, req.params.id), b = req.body || {};
+  res.json(await sales.rebookDemo(a, req.session.user, { date: b.date, time: b.time, by: await signName(req.session.user) }, req.tz));
 }));
 // ---------- buscador de zonas: «prospectá España», «Bogotá», «Provincia de Córdoba», «Pocitos»
 // 1) /resolve ubica el lugar con su contorno. 2) /city trae de OpenStreetMap los colegios de una ciudad o de un

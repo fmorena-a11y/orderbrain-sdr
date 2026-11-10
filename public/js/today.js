@@ -1,5 +1,5 @@
 // Hoy: meta del día, agenda propia y a quién contactar ahora.
-import { S, api, esc, icon, potTag, save, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg, brainTokenCallout, matchZone, zoneOptions, ZONE_KIND, workOrder, norm, callPill, callQueue, hotRows } from "./core.js";
+import { S, api, esc, icon, potTag, save, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg, brainTokenCallout, matchZone, zoneOptions, ZONE_KIND, workOrder, norm, callPill, callQueue, hotRows, demoDue } from "./core.js";
 import { openSchool, openRecord, startSession, resumeSession } from "./school.js";
 import { setBadge, baseErrorCallout } from "./app.js";
 
@@ -116,6 +116,7 @@ function draw() {
   host.querySelectorAll("[data-record]").forEach(b => b.onclick = () => openRecord(b.dataset.record, { activityId: Number(b.dataset.act) || null }));
   host.querySelectorAll("[data-done]").forEach(b => b.onclick = () => markDone(Number(b.dataset.done)));
   host.querySelectorAll("[data-move]").forEach(b => b.onclick = () => moveMenu(b, Number(b.dataset.move)));
+  host.querySelectorAll("[data-demo]").forEach(b => b.onclick = () => demoResultMenu(b, { id: Number(b.dataset.demo), time: b.dataset.time }));
   if (focusKey) host.querySelector(`[data-focus-key="${focusKey}"]`)?.focus();
 }
 
@@ -190,7 +191,7 @@ export function actRow(a, late) {
       : a.record ? `<button class="t" data-record="${esc(a.record)}" data-act="${a.id}" title="Abrir la ficha"><b>${esc(title)}</b><small class="${late ? "late" : ""}">${esc(sub)}</small></button>`
       : a.url ? `<a class="t" href="${esc(a.url)}" target="_blank" rel="noopener" title="Abrir en Pipedrive"><b>${esc(title)} ${icon("external", "sm")}</b><small class="${late ? "late" : ""}">${esc(sub)}</small></a>`
       : `<div class="t"><b>${esc(title)}</b><small class="${late ? "late" : ""}">${esc(sub)}</small></div>`}
-    <div class="ops"><button class="icon-btn" data-done="${a.id}" data-focus-key="done-${a.id}" title="Marcar como hecha" aria-label="Marcar como hecha">${icon("check")}</button><button class="icon-btn" data-move="${a.id}" title="Reprogramar" aria-label="Reprogramar">${icon("clock")}</button></div></div>`;
+    <div class="ops">${a.type === "meeting" && demoDue(a) ? `<button class="btn sm" data-demo="${a.id}" data-date="${esc(a.date)}" data-time="${esc(a.time || "")}">¿Se hizo la demo?</button>` : ""}<button class="icon-btn" data-done="${a.id}" data-focus-key="done-${a.id}" title="Marcar como hecha" aria-label="Marcar como hecha">${icon("check")}</button><button class="icon-btn" data-move="${a.id}" title="Reprogramar" aria-label="Reprogramar">${icon("clock")}</button></div></div>`;
 }
 // Fila de la bandeja caliente: abre la ficha (colegio o prospecto) y dice por qué está ahí.
 function hotRow(r) {
@@ -251,6 +252,34 @@ export function moveMenu(anchor, id, after) {
       m.querySelector("#mvX").onclick = () => m.close();
       m.querySelector("#mvOk").onclick = () => { const d = m.querySelector("#mvD").value; if (!d) return; m.close(); done(d, m.querySelector("#mvT").value); };
     } }]);
+}
+
+// ¿Se hizo la demo? (tuya, o de cualquiera si sos líder). Queda escrito en la actividad de Pipedrive con una línea fija.
+// No se presentó: se propone reagendarla (otra demo). after: redibujar la vista que la abrió.
+const RES_TOAST = { done: "Listo: la demo se hizo", noshow: "Listo: no se presentó", canceled: "Listo: la demo se canceló" };
+export function demoResultMenu(anchor, a, after) {
+  const send = async (result, extra = {}) => {
+    let r; try { r = await api(`/api/activities/${a.id}/demo-result`, { body: { result, ...extra } }); } catch (e) { return toast(e.message, { type: "err" }); }
+    toast([RES_TOAST[result] || `Demo reprogramada para ${shortDay(extra.date)}${extra.time ? ` a las ${extra.time}` : ""}`, ...(r.done || []).map(x => x.label)].join(". "), r.done?.some(x => x.warn) ? { type: "err" } : undefined);
+    await loadToday().catch(() => {}); after ? after() : draw();
+    if (result === "noshow") pickDemoDate(anchor, "No se presentó. ¿La reagendamos?", a.time, async (d, tm) => {
+      let x; try { x = await api(`/api/activities/${a.id}/demo-rebook`, { body: { date: d, time: tm } }); } catch (e) { return toast(e.message, { type: "err" }); }
+      toast((x.done || []).map(y => y.label).join(". "), x.done?.some(y => y.warn) ? { type: "err" } : undefined);
+      await loadToday().catch(() => {}); after ? after() : draw();
+    }, { needTime: true, ok: "Reagendar", skip: () => toast("Quedó sin demo nueva: acordate de volver a contactarlo.", { type: "err" }) });
+  };
+  openMenu(anchor, [{ head: "¿Se hizo la demo?" }, { label: "Se hizo", fn: () => send("done") }, { label: "No se presentó (no-show)", sub: "Te proponemos reagendarla", fn: () => send("noshow") },
+    { label: "Se reprogramó…", sub: "Elegís la fecha nueva", fn: () => pickDemoDate(anchor, "¿Para cuándo se reprogramó?", a.time, (d, tm) => send("moved", { date: d, time: tm }), { ok: "Reprogramar" }) },
+    { label: "Se canceló", fn: () => send("canceled") }]);
+}
+function pickDemoDate(anchor, title, time, fn, { needTime = false, ok = "Listo", skip = null } = {}) {
+  const t = today(), m = modal(`<h3>${esc(title)}</h3><div class="grid2"><label class="field"><span>Día</span><input class="inp" type="date" id="dmD" min="${t}" value="${nextBusinessDay(t)}"></label><label class="field"><span>Hora${needTime ? "" : ' <span class="faint">opcional</span>'}</span><input class="inp" type="time" id="dmT" step="900" value="${esc(time || "")}"></label></div><p class="callout err" id="dmE" hidden></p><div class="row"><button class="btn ghost" id="dmX">${skip ? "Ahora no" : "Cancelar"}</button><button class="btn primary" id="dmOk">${esc(ok)}</button></div>`, { onClose: () => anchor?.isConnected && anchor.focus() });
+  m.querySelector("#dmX").onclick = () => { m.close(); skip?.(); };
+  m.querySelector("#dmOk").onclick = async () => {
+    const d = m.querySelector("#dmD").value, tm = m.querySelector("#dmT").value, e = m.querySelector("#dmE");
+    if (!d || (needTime && !tm)) { e.hidden = false; e.textContent = needTime ? "Poné el día y la hora." : "Poné el día."; return; }
+    m.close(); await fn(d, tm);
+  };
 }
 
 function skeleton() {

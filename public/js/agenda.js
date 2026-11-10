@@ -1,6 +1,6 @@
 // Agenda: actividades pendientes propias en Pipedrive, con filtros de fecha, zona o evento y tipo.
 import { S, api, esc, icon, today, addDays, localAct, dayLabel, shortDay, norm, save, matchZone, zoneOptions, ZONE_KIND, workOrder } from "./core.js";
-import { actRow, markDone, moveMenu } from "./today.js";
+import { actRow, markDone, moveMenu, demoResultMenu } from "./today.js";
 import { openSchool, openRecord, startSession } from "./school.js";
 
 let host, error = null, loading = false;
@@ -111,6 +111,7 @@ function draw() {
   host.querySelectorAll("[data-done]").forEach(b => b.onclick = () => { b.disabled = true; b.closest(".act")?.setAttribute("aria-busy", "true"); markDone(Number(b.dataset.done), draw); });
   // al reprogramar se actualiza en el momento y se revalida atrás, sin vaciar la lista
   host.querySelectorAll("[data-move]").forEach(b => b.onclick = () => moveMenu(b, Number(b.dataset.move), () => { draw(); refresh(); }));
+  host.querySelectorAll("[data-demo]").forEach(b => b.onclick = () => demoResultMenu(b, { id: Number(b.dataset.demo), time: b.dataset.time }, () => { draw(); refresh(); }));
   if (focusKey && focusKey !== "q") host.querySelector(`[data-focus-key="${focusKey}"]`)?.focus();
 }
 function inWhenK(a, t, k) { const w = F.when; F.when = k; const r = inWhen(a, t); F.when = w; return r; }

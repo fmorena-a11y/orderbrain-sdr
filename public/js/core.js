@@ -117,6 +117,9 @@ const P = {
 };
 export const icon = (n, cls = "") => `<svg class="ico ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[n] || ""}</svg>`;
 export function hydrateIcons(root = document) { root.querySelectorAll("[data-icon]").forEach(e => { if (!e.firstChild) e.innerHTML = icon(e.dataset.icon); }); }
+// Demos: una ya vencida (fecha y hora locales) pregunta «¿Se hizo la demo?»; el resultado sale de Pipedrive (sin marca: «?»)
+export const demoDue = (l, now = new Date()) => { const t = today(); return l.date < t || (l.date === t && (!l.time || l.time <= now.toTimeString().slice(0, 5))); };
+export const DEMO_RES = { done: "Se hizo", noshow: "No-show", moved: "Reprogramada", canceled: "Cancelada" };
 export const TYPE_ICON = { call: "phone", meeting: "video", deadline: "whatsapp", task: "mail", contacto_decisor: "user" };
 
 // ---------- estados de colegio
