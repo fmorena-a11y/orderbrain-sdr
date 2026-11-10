@@ -6823,16 +6823,53 @@
   "CO|n298024011": "2026-11-10T09:10:19.596Z",
   "EC|n9911249241": "2026-11-10T09:11:00.025Z",
   "CO|n312257491": "2026-11-10T09:11:27.770Z",
-  "MX|Ciudad López Mateos": "2026-11-10T09:12:10.517Z"
+  "MX|Ciudad López Mateos": "2026-11-10T09:12:10.517Z",
+  "MX|Cuautitlán Izcalli": "2026-11-10T11:27:23.183Z",
+  "ES|n260380069": "2026-11-10T11:35:01.659Z"
  },
  "failed": {
   "PY|n1437475089": {
    "n": 1,
    "at": "2026-11-10T09:24:07.382Z",
    "error": "Overpass 504"
+  },
+  "CO|n8448168093": {
+   "n": 1,
+   "at": "2026-11-10T11:46:00.662Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-10T11:26:53.213Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Cuautitlán Izcalli",
+     "found": 2,
+     "updated": 0,
+     "osm": 290
+    },
+    {
+     "cc": "ES",
+     "city": "Murcia",
+     "found": 141,
+     "updated": 0,
+     "osm": 285
+    }
+   ],
+   "added": 143,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "CO|n8448168093: The operation was aborted due to timeout"
+   ],
+   "minutes": 19.3,
+   "total": 13675
+  },
   {
    "at": "2026-11-10T09:08:58.853Z",
    "cities": [
