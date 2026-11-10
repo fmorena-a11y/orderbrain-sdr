@@ -12,12 +12,13 @@ import { ensureBrain, brainState, brainDown, brainAdmin, saveBrainToken, brainTo
 import { verifyCandidates, enrichSources } from "./lib/enrich.js";
 import { research, studyEnabled, studyToHtml } from "./lib/study.js";
 import * as sales from "./lib/sales.js";
+import * as sessions from "./lib/sessions.js";
 import * as ai from "./lib/ai.js";
 import * as psync from "./lib/sync.js";
 import { photosFor, googleEnabled } from "./lib/photos.js";
 import fs from "fs";
 import { MARKETS, LOST_REASONS, TYPE_LABEL, DAILY_GOAL } from "./lib/config.js";
-import { safeTz, toUtc } from "./lib/time.js";
+import { safeTz, toUtc, todayIn } from "./lib/time.js";
 import { composeMessage, templates } from "./lib/playbook.js";
 
 const app = express();
@@ -42,6 +43,9 @@ if (!ai.aiEnabled()) console.warn("⚠ Falta ANTHROPIC_API_KEY: el asistente, lo
 
 app.set("trust proxy", 1);
 app.use(express.json({ limit: "200kb" }));
+// lo que no pasa del lector de JSON también se contesta en JSON (no con la página de error de Express)
+app.use((err, req, res, next) => err?.type === "entity.too.large" ? res.status(413).json({ error: "Es demasiado para mandar de una vez." })
+  : err?.type === "entity.parse.failed" ? res.status(400).json({ error: "No entendí lo que mandó el navegador." }) : next(err));
 app.use(cookieSession({
   name: "obsdr", keys: [process.env.SESSION_SECRET || "dev-only-secret"], maxAge: 14 * 864e5,
   sameSite: "lax", secure: PROD, httpOnly: true,
@@ -182,7 +186,7 @@ app.get("/api/me", auth, wrap(async (req, res) => {
   req.session.user = withProfile(req.session.user, pr, leader);
   const roles = leader ? { lider: ROLES.lider } : { sdr: ROLES.sdr, ae: ROLES.ae };
   res.json({
-  user: req.session.user, profile: { complete: !!(pr?.name && (pr?.role || leader)), suggested: req.session.user.pdName || "", roles, leader }, ai: ai.aiEnabled(), study: studyEnabled(), demo: pd.DEMO, goal: DAILY_GOAL, pdWeb: pd.PD_WEB,
+  user: req.session.user, profile: { complete: !!(pr?.name && (pr?.role || leader)), suggested: req.session.user.pdName || "", roles, leader }, ai: ai.aiEnabled(), study: studyEnabled(), demo: pd.DEMO, goal: DAILY_GOAL, pdWeb: pd.PD_WEB, sessionMax: sessions.MAX_ITEMS,
   countries: [...new Set(schools.map(s => s.country))].sort(), markets: MARKETS, outcomes: sales.OUTCOMES, lostReasons: LOST_REASONS, archiveReasons: ARCHIVE_REASONS, types: TYPE_LABEL,
   });
 }));
@@ -285,8 +289,22 @@ app.post("/api/schools/:id/log", auth, schoolParam, wrap(async (req, res) => {
   if (gone) delete body.completeActivityId;
   const r = await sales.logContact(req.params.id, req.session.user, body, req.tz);
   if (gone) r.done.push({ label: "La actividad ya no está en Pipedrive.", warn: true });
+  const o = sales.OUTCOMES.find(x => x.id === body.outcome);
+  await inSession(req, r, sessions.contactStep(req.body?.session?.ref, { channel: body.channel, outcome: body.outcome, connected: o?.connected, next: r.next, demo: r.demo, contact: body.contact, ...stepBy(req) }));
   res.json(r);
 }));
+// Contacto o comentario hecho dentro de una sesión de trabajo ({ session: { id, ref } }): queda anotado en la sesión de quien lo
+// registró, después de guardarlo en Pipedrive. Si el colegio está en otras sesiones abiertas suyas (o se registró sin sesión),
+// queda anotado ahí como hecho fuera de la sesión (r.sessions). Si no se puede anotar, el registro igual vale (se avisa).
+const stepBy = req => ({ by: req.session.user.email, byName: req.session.user.name || sales.signer(req.session.user), schoolId: req.params.id });
+async function inSession(req, r, step) {
+  const ss = req.body?.session, email = req.session.user.email, sid = ss?.id && ss.ref ? String(ss.id) : null;
+  try {
+    if (sid) { const v = await sessions.recordFor(email, sid, step); if (v) r.session = v; }
+    const others = await sessions.recordOutside(email, req.params.id, step, { except: sid });
+    if (others.length) r.sessions = others;
+  } catch (e) { console.warn("No se pudo anotar en la sesión:", e.message); r.done.push({ label: "No pude anotarlo en tu sesión de trabajo (en Pipedrive quedó guardado).", warn: true }); }
+}
 const escHtml = v => String(v).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 // Comentario suelto: queda como nota en la organización de Pipedrive, sin registrar un contacto.
 app.post("/api/schools/:id/prospect", auth, schoolParam, wrap(async (req, res) => res.json(await sales.createProspect(req.params.id, req.session.user, req.body?.task || null, req.tz))));
@@ -319,7 +337,9 @@ app.post("/api/schools/:id/comment", auth, schoolParam, wrap(async (req, res) =>
   done.push({ label: s.leadOnly ? "Comentario en el prospecto" : "Comentario en Pipedrive", url });
   if (doneId) await pd.updateActivity(doneId, { done: true }).then(() => done.push({ label: "Actividad pendiente marcada como hecha" }), () => done.push({ label: "No pude marcar la actividad como hecha: hacelo desde la agenda.", warn: true }));
   if (gone) done.push({ label: "La actividad ya no está en Pipedrive.", warn: true });
-  res.json({ done, school: sales.schoolSummary(s), orgUrl: url });
+  const out = { done, school: sales.schoolSummary(s), orgUrl: url };
+  await inSession(req, out, sessions.commentStep(req.body?.session?.ref, { next: task ? { ...task, ownerId: owner?.id || user.pdUserId } : null, ...stepBy(req) }));
+  res.json(out);
 }));
 // Tratos desde la ficha: { action: "stage", stageId } (propuesta enviada u otra etapa de su embudo), { action: "won" } o { action: "lost", reason }
 app.post("/api/schools/:id/deals/:dealId", auth, schoolParam, wrap(async (req, res) => {
@@ -396,6 +416,13 @@ app.get("/api/today", auth, wrap(async (req, res) => {
   const busyOrgs = new Set(mine.items.map(a => a.orgId).filter(Boolean));
   res.json({ stats: sales.stats(req.session.user, req.tz), activities: mine, queue: sales.prospectQueue({ countries, limit: 60, excludeOrgIds: busyOrgs, userId: req.session.user.pdUserId || null }) });
 }));
+// Sesiones de trabajo guardadas (Sesiones activas de Hoy): cada uno ve y cambia solo las suyas (van por su email).
+// la lista lleva solo los resúmenes; el detalle (colegios y pasos) va por /api/sessions/:sid
+app.get("/api/sessions", auth, wrap(async (req, res) => res.json(await sessions.listFor(req.session.user.email, Date.now(), todayIn(req.tz)))));
+app.get("/api/sessions/:sid", auth, wrap(async (req, res) => res.json({ session: await sessions.getFor(req.session.user.email, req.params.sid) })));
+app.post("/api/sessions", auth, wrap(async (req, res) => res.json(await sessions.createFor(req.session.user.email, req.body || {}, Date.now(), todayIn(req.tz)))));
+app.patch("/api/sessions/:sid", auth, wrap(async (req, res) => res.json(await sessions.updateFor(req.session.user.email, req.params.sid, req.body || {}))));
+app.delete("/api/sessions/:sid", auth, wrap(async (req, res) => res.json(await sessions.deleteFor(req.session.user.email, req.params.sid))));
 // Bandeja caliente de Hoy: los prospectos nuevos para vos (solo los tuyos). Va aparte para no frenar la carga de Hoy.
 app.get("/api/hot", auth, wrap(async (req, res) => res.json(await sales.newForMe(req.session.user))));
 // Cola de prospectos nuevos de una zona («hoy quiero trabajar Puebla»). El navegador manda las organizaciones que ya tienen

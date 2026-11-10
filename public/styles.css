@@ -868,3 +868,41 @@ details.agent summary .sub { order: 3; }
 .follow .num { text-align: right; font-variant-numeric: tabular-nums; }
 .follow-alert { padding: 6px 0; border-top: 1px solid var(--line); font-size: 14px; }
 .follow-alert ul { margin: 6px 0 0; padding-left: 20px; line-height: 1.6; }
+
+/* Sesiones activas (Hoy): cada sesión guardada con su avance, cómo se contactó y qué falta */
+.ss-card { margin-bottom: 20px; }
+.ss { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 14px 4px; border-top: 1px solid var(--line); }
+.ss-card .card-b > .ss:first-child { border-top: 0; padding-top: 6px; }
+.ss-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.ss-t { min-width: 0; flex: 1 1 auto; }
+.ss-t b { display: block; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ss-t small { display: block; color: var(--muted); font-size: 12.5px; }
+.ss-bar { display: flex; align-items: center; gap: 4px 10px; flex-wrap: wrap; font-size: 13px; }
+.ss-bar .progress { flex: 1 1 160px; min-width: 120px; height: 6px; border-radius: 999px; background: var(--surface-3); overflow: hidden; }
+.ss-bar .progress span { display: block; height: 100%; border-radius: inherit; background: var(--accent); }
+.ss-sum { font-size: 13.5px; color: var(--ink-2); }
+.ss-ops { display: flex; gap: 6px; flex-wrap: wrap; }
+.ss-empty { margin: 2px 0 4px; font-size: 14px; }
+.ss-modal { width: min(680px, 100%); }
+.ss-dh { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.ss-dh h3 { min-width: 0; overflow-wrap: anywhere; }
+.ss-items .sub-h:first-child { margin-top: 2px; }
+.sub-h .n { font-weight: 500; color: var(--faint); }
+.ss-it .t small { display: block; line-height: 1.45; white-space: normal; overflow: visible; }
+.ss-list { display: grid; }
+.btn.danger { color: var(--err); border-color: var(--err); }
+.ell { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hero-cta #resume { max-width: 100%; }
+.hero-cta #resume .nw { flex: none; white-space: nowrap; }
+/* tarjeta de Hoy: filas cortas (nombre; avance, lo registrado y cuándo), Retomar y «⋯» */
+.ss-c { grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 4px 6px; padding: 10px 2px; }
+.ss-c small { display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.4; }
+.ss-n { color: var(--ink-2); font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ss-c .progress { display: block; height: 3px; margin-top: 6px; border-radius: 999px; background: var(--surface-3); overflow: hidden; }
+.ss-c .progress span { display: block; height: 100%; border-radius: inherit; background: var(--accent); }
+.ss-links { display: flex; flex-wrap: wrap; gap: 6px 18px; padding: 8px 2px 2px; font-size: 13.5px; }
+.ss-card .card-b { padding-bottom: 12px; }
+/* el detalle es largo: el título y los botones quedan a la vista */
+.ss-modal .ss-dh { position: sticky; top: -20px; z-index: 1; margin: -20px -20px 0; padding: 16px 20px 6px; background: var(--surface); }
+.ss-modal > .row:last-child { position: sticky; bottom: -20px; z-index: 1; margin: 0 -20px -20px; padding: 12px 20px; background: var(--surface); border-top: 1px solid var(--line); }
+.ss-modal > .row:last-child:empty { display: none; }

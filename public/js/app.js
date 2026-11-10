@@ -21,7 +21,7 @@ const show = id => { for (const x of ["boot", "login", "app"]) $(x).hidden = x !
 async function start() {
   try {
     const me = await api("/api/me");
-    Object.assign(S, { me: me.user, profile: me.profile, ai: me.ai, study: me.study, demo: me.demo, goal: me.goal, pdWeb: me.pdWeb, countries: me.countries, markets: me.markets, outcomes: me.outcomes, lostReasons: me.lostReasons, archiveReasons: me.archiveReasons || [], types: me.types });
+    Object.assign(S, { me: me.user, profile: me.profile, ai: me.ai, study: me.study, demo: me.demo, goal: me.goal, pdWeb: me.pdWeb, sessionMax: me.sessionMax || 300, countries: me.countries, markets: me.markets, outcomes: me.outcomes, lostReasons: me.lostReasons, archiveReasons: me.archiveReasons || [], types: me.types });
     enterApp();
     // la primera vez: nombre completo y rol en el equipo (se usa en saludos, firmas y en Equipo)
     if (!me.profile?.complete) profileDialog({ required: true });
@@ -77,7 +77,9 @@ async function enterApp() {
   await loadBase();
 }
 // Colegios y equipo: si fallan, se avisa y se puede reintentar sin recargar.
-async function loadBase() {
+// S.baseP: se resuelve cuando terminó de cargar (bien o mal); una sesión que se retoma apenas entrás la espera
+function loadBase() { return (S.baseP = readBase()); }
+async function readBase() {
   try {
     // clientes de World Dominion: se piden junto con la base (el mapa y Hoy los usan)
     S.brainP ??= api("/api/brain").catch(() => ({ enabled: false }));

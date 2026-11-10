@@ -2,12 +2,14 @@
 import { S, api, esc, icon, potTag, save, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg, brainTokenCallout, matchZone, zoneOptions, ZONE_KIND, workOrder, norm, callPill, callQueue, hotRows, demoDue, archivedRef, archivedAct } from "./core.js";
 import { openSchool, openRecord, startSession, resumeSession } from "./school.js";
 import { setBadge, baseErrorCallout } from "./app.js";
+import { loadSessions, sessionsCard, bindSessionsCard } from "./sessions.js";
 
 let host = null, showAll = false, hotLeads = null, hotAll = false;
 const STATUS_REASONS = /^(Nunca contactado|Sin revisar|En Pipe sin trato)$/;
 
 export async function loadToday() {
-  S.today = await api(`/api/today?countries=${encodeURIComponent(S.territory.join(","))}`);
+  // las sesiones guardadas se leen junto (si fallan, Hoy sigue sin la tarjeta)
+  [S.today] = await Promise.all([api(`/api/today?countries=${encodeURIComponent(S.territory.join(","))}`), loadSessions().catch(() => null)]);
   syncBadge();
   verifyQueue();
   return S.today;
@@ -61,7 +63,9 @@ function draw() {
     : late.length ? `Lo de hoy está al día. Seguí con ${late.length === 1 ? "la actividad vencida" : `las ${late.length} vencidas`}, de la más reciente a la más vieja.`
     : `Agenda al día. Te faltan ${left} contactos para la meta.`;
   const rate = stats.weekTouches ? `${Math.round(stats.weekConnected / stats.weekTouches * 100)}%` : "—";
-  const resume = S.lastSession && S.lastSession.i < S.lastSession.ids.length - 1;
+  // El botón grande retoma la sesión más reciente con algo pendiente, solo si se movió hoy y no es la «Tu día» de otro día
+  // (esa la termina el servidor al cambiar el día). A la mañana vuelve a mandar «Empezar sesión»; las demás están en la tarjeta.
+  const last = (S.sessions?.open || []).find(v => v.resume >= 0 && new Date(v.lastAt).toLocaleDateString("sv") === t && !(v.origin?.kind === "today" && v.origin.key !== `today:${t}`)), resume = !!last;
   const terr = S.territory.length ? (S.territory.length <= 2 ? S.territory.join(", ") : `${S.territory.length} países`) : "Todos los países";
   const list = showAll ? fresh : fresh.slice(0, 6);
   const hot = hotRows((activities.items || []).filter(a => !archivedAct(a)), (hotLeads || []).filter(l => !archivedRef(l.schoolId || l.record)), t), hotList = hotAll ? hot : hot.slice(0, 6);
@@ -85,10 +89,11 @@ function draw() {
           <div class="kpi" title="${stats.weekConnected} conversaciones de ${stats.weekTouches} contactos"><b>${rate}</b><span>tasa de contacto</span></div>
         </div>
       </div>
-      <div class="hero-cta">${resume ? `<button class="btn primary lg" id="resume">${icon("play")} Retomar sesión · ${S.lastSession.i + 1} de ${S.lastSession.ids.length}</button><button class="btn ghost sm" id="go">Empezar una nueva</button>`
+      <div class="hero-cta">${resume ? `<button class="btn primary lg" id="resume" aria-label="Retomar «${esc(last.name)}» · faltan ${last.stats.pending}" title="Retomar «${esc(last.name)}»: ${last.stats.handled} de ${last.stats.total}">${icon("play")} <span class="ell">Retomar «${esc(last.name)}»</span><span class="nw">· faltan ${last.stats.pending}</span></button><button class="btn ghost sm" id="go">Empezar una nueva</button>`
         : `<button class="btn primary lg" id="go" ${sessionCount ? "" : "disabled"}>${icon("play")} Empezar sesión · ${sessionCount}</button>`}
         <button class="btn ghost sm" id="zoneGo" aria-haspopup="dialog" data-focus-key="zoneGo">${icon("map", "sm")} Trabajar una zona o evento</button></div>
     </section>
+    ${sessionsCard()}
     <div class="today-grid">
       <section class="card" aria-labelledby="hAg">
         <div class="card-h"><h2 id="hAg">${icon("calendar")} Tu agenda</h2><span class="sub">${acts.length} pendientes</span></div>
@@ -106,8 +111,9 @@ function draw() {
       </div>
     </div></div>`;
 
-  host.querySelector("#go")?.addEventListener("click", () => { S.lastSession = null; startSession(); });
-  host.querySelector("#resume")?.addEventListener("click", () => resumeSession());
+  host.querySelector("#go")?.addEventListener("click", () => startSession());
+  host.querySelector("#resume")?.addEventListener("click", () => resumeSession(last.id));
+  bindSessionsCard(host, () => host?.isConnected && draw());
   host.querySelector("#terr").onclick = territoryPicker;
   host.querySelector("#zoneGo")?.addEventListener("click", zoneSession);
   host.querySelector("#more")?.addEventListener("click", () => { showAll = !showAll; draw(); });
@@ -144,7 +150,7 @@ function zoneSession() {
     const r = key.startsWith("e:") ? { queue: [] } : await api(`/api/queue?zone=${encodeURIComponent(z)}&exclude=${ex}`).catch(() => null);
     if (my !== seq) return;
     const taken = new Set(mine.map(a => a.schoolId).filter(Boolean)), fresh = (r?.queue || []).filter(q => !taken.has(q.id) && !["client", "open", "churn"].includes(q.status)).map(q => q.id);
-    plan = { z, mine, fresh };
+    plan = { z, key, mine, fresh };
     prev.textContent = !mine.length && !fresh.length ? `No encontré actividades tuyas ni colegios nuevos en «${z}».`
       : `${mine.length} ${mine.length === 1 ? "actividad tuya" : "actividades tuyas"} y ${fresh.length} ${fresh.length === 1 ? "colegio nuevo" : "colegios nuevos"}${r ? "" : " (no pude traer los nuevos)"}.`;
     go.disabled = !(mine.length + fresh.length);
@@ -152,7 +158,7 @@ function zoneSession() {
   inp.addEventListener("input", () => { key = ""; clearTimeout(tm); tm = setTimeout(preview, 400); });
   m.querySelectorAll("[data-z]").forEach(b => b.onclick = () => { inp.value = b.dataset.l; key = b.dataset.z; clearTimeout(tm); preview(); });
   m.querySelector("#zsNo").onclick = () => m.close();
-  go.onclick = () => { if (!plan) return; m.close(); S.lastSession = null; startSession(null, plan.z, { acts: plan.mine, extra: plan.fresh }); };
+  go.onclick = () => { if (!plan) return; m.close(); startSession(null, plan.z, { acts: plan.mine, extra: plan.fresh, origin: { kind: "zone", key: `zone:${plan.key || norm(plan.z)}`, filters: { zona: plan.z } } }); };
   inp.focus();
 }
 

@@ -56,5 +56,5 @@ function draw(r) {
   host.querySelectorAll("[data-school]").forEach(b => b.onclick = () => openSchool(b.dataset.school));
   host.querySelector("#moreOp")?.addEventListener("click", () => { all = !all; draw(r); });
   host.querySelectorAll("[data-city]").forEach(b => b.onclick = () => { openCityFromOutside(b.dataset.country, b.dataset.city); go("prospectar"); });
-  host.querySelector("#sessNew")?.addEventListener("click", () => startSession(withPhone.map(q => q.id), "nuevos del radar"));
+  host.querySelector("#sessNew")?.addEventListener("click", () => startSession(withPhone.map(q => q.id), "nuevos del radar", { origin: { kind: "radar", key: `radar:${new Date().toLocaleDateString("sv")}` } }));
 }

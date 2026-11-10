@@ -1,6 +1,6 @@
 // Ficha del colegio: preparar el contacto, registrar el resultado e historial. Incluye el modo sesión.
 import { $, S, api, esc, icon, pill, statusPill, stageTag, potTag, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, workOrder, ago, TYPE_ICON,
-  telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile, callQueue, callGuess, demoDue, archivedRef, archivedAct } from "./core.js";
+  telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile, callQueue, callGuess, demoDue, archivedRef, archivedAct, norm, cap } from "./core.js";
 // «la cafetería», «el casino», «el bar escolar»
 const laEsp = mk => `${/^(casino|bar)\b/.test(mk?.espacio || "") ? "el" : "la"} ${mk?.espacio || "cafetería"}`, delaEsp = mk => laEsp(mk).replace(/^el /, "del ").replace(/^la /, "de la ");
 const coarse = () => matchMedia("(pointer: coarse)").matches;
@@ -55,20 +55,34 @@ export async function openRecord(ref, opts = {}) {
     if (opts.keepSession && (S.session !== ss || ss?.ids[ss.i] !== ref)) return; // la sesión siguió mientras cargaba
     return openSchool(r.id, opts);
   } catch (e) {
-    if (opts.keepSession && ss && S.session === ss && ss.ids[ss.i] === ref) { toast(`No pude abrir una tarea de la sesión (${e.message}), la salteé`, { type: "err" }); return sessionGo(1); }
+    if (opts.keepSession && ss && S.session === ss && ss.ids[ss.i] === ref) { toast(`No pude abrir una tarea de la sesión (${e.message}), la salteé`, { type: "err" }); markSkip(ss, ref, "missing", e.message); return sessionGo(1); }
     toast(e.message, { type: "err" });
   }
 }
 // En la sesión, las tareas de prospectos u organizaciones fuera de la base van como "lead:…" / "org:…".
 const isRef = id => /^(lead|org):/.test(id);
-const openAt = (ss, i) => (isRef(ss.ids[i]) ? openRecord : openSchool)(ss.ids[i], { keepSession: true, activityId: ss.acts[ss.ids[i]] || null, tab: "prep" });
-export async function openSchool(id, { activityId = null, tab = null, keepSession = false } = {}) {
+// sref: el colegio de la sesión que se está trabajando (lo que se registre en la ficha queda anotado ahí)
+// Un colegio que ya no está en la base (un extra que se sacó, un id viejo) se saltea anotado, como la tarea que no se pudo abrir;
+// si la base todavía no cargó (Retomar apenas entrás), se espera.
+function openAt(ss, i) {
+  ss.i = i; savePos(ss); const r = ss.ids[i];
+  if (isRef(r) || S.byId.has(r)) return (isRef(r) ? openRecord : openSchool)(r, { keepSession: true, sref: r, activityId: ss.acts[r] || null, tab: "prep" });
+  if (!S.schools.length && !S.baseError && S.baseP) {
+    toast("Cargando colegios…", { type: "info" });
+    return S.baseP.then(() => { if (S.session === ss && ss.i === i) openAt(ss, i); });
+  }
+  if (!S.schools.length) { if (!drawerOpen()) S.session = null; return toast(`No pude cargar los colegios${S.baseError ? `: ${S.baseError}` : ""}. Probá de nuevo en un rato.`, { type: "err" }); }
+  toast(`${ss.items[i]?.name || "Un colegio de la sesión"} ya no está en la base, lo salteé`, { type: "info" });
+  markSkip(ss, r, "missing", "ya no está en la base");
+  return sessionGo(1);
+}
+export async function openSchool(id, { activityId = null, tab = null, keepSession = false, sref = null } = {}) {
   if (!S.byId.has(id)) return toast("Colegio inexistente", { type: "err" });
   if (!keepSession) S.session = null;
   if ($("drawer").hidden) { D.opener = document.activeElement; history.pushState({ ...(history.state || {}), drawer: id }, ""); }
   import("./app.js").then(m => m.rememberSchool(id));
   const draft = drafts.get(id); drafts.delete(id);
-  Object.assign(D, { inCall: false, call: null, id, data: null, form: draft?.form || newForm(), activityId: activityId ?? draft?.activityId ?? null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null, tab: draft ? "log" : tab || (activityId ? "log" : "prep") });
+  Object.assign(D, { sref: keepSession ? sref || id : null, inCall: false, call: null, id, data: null, form: draft?.form || newForm(), activityId: activityId ?? draft?.activityId ?? null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null, tab: draft ? "log" : tab || (activityId ? "log" : "prep") });
   if (draft) toast("Recuperé lo que estabas cargando", { type: "info" });
   $("drawer").hidden = false; $("scrim").hidden = false;
   $("scrim").onclick = closeSchool;
@@ -183,22 +197,54 @@ export function closeSchool({ fromPop = false } = {}) {
   $("app").inert = false; document.querySelector(".skip").inert = false;
   pauseToast?.remove(); pauseToast = null;
   const ss = S.session; S.session = null;
-  if (ss) {
-    const n = ss.done, left = ss.ids.length - ss.i - 1;
-    if (left > 0) { S.lastSession = ss; pauseToast = toast(`Sesión en pausa: ${n} contacto${n === 1 ? "" : "s"} registrado${n === 1 ? "" : "s"}, faltan ${left}`, { action: { label: "Retomar", fn: resumeSession } }); }
-    else { S.lastSession = null; toast(`Sesión terminada: ${n} contacto${n === 1 ? "" : "s"} registrado${n === 1 ? "" : "s"}`); }
-  }
-  // el foco vuelve a la fila del colegio (aunque la vista se haya redibujado) o al contenido
+  if (ss) leaveSession(ss);
+  // el foco vuelve a la fila del colegio (aunque la vista se haya redibujado) o al contenido. Hoy vuelve a leer las
+  // sesiones al redibujarse (loadToday), después de lo que se esté guardando (S.sessSaving).
   import("./app.js").then(m => (S.view === "hoy" || S.view === "agenda") && m.rerender()).then(() => {
     const target = D.opener?.isConnected ? D.opener : document.querySelector(`#main [data-school="${closedId}"], #main [data-id="${closedId}"]`);
     (target || $("main")).focus({ preventScroll: !target });
   });
 }
-export function resumeSession() {
-  const ss = S.lastSession; if (!ss) return;
+// Lo registrado en la sesión, como en la tarjeta de Hoy: «3 llamadas · 1 WhatsApp · 1 comentario · 2 salteados»
+const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+export function sessionSummary(ss) {
+  const c = { call: 0, whatsapp: 0, mail: 0, visit: 0 }; let demos = 0, comments = 0;
+  for (const x of ss.steps || []) { if (x.kind === "contact") { c[x.channel] = (c[x.channel] || 0) + 1; if (x.outcome === "demo") demos++; } else if (x.kind === "comment") comments++; }
+  const skipped = (ss.items || []).filter(x => x.state === "skipped").length;
+  return [c.call && plural(c.call, "llamada", "llamadas"), c.whatsapp && `${c.whatsapp} WhatsApp`, c.mail && plural(c.mail, "mail", "mails"), c.visit && plural(c.visit, "visita", "visitas"),
+    demos && plural(demos, "demo agendada", "demos agendadas"), comments && plural(comments, "comentario", "comentarios"), skipped && plural(skipped, "salteado", "salteados")].filter(Boolean).join(" · ");
+}
+// Al salir de la sesión (se cerró la ficha o se llegó al final): guarda por dónde iba, avisa lo hecho y qué falta, y si no
+// falta nada la deja en terminadas.
+function leaveSession(ss) {
   pauseToast?.remove(); pauseToast = null;
-  S.lastSession = null; S.session = ss;
-  openAt(ss, ss.i);
+  let saved = flushPos(ss);
+  const left = pendingOf(ss), sum = sessionSummary(ss);
+  if (left > 0) pauseToast = toast(`Sesión en pausa: ${[sum, `faltan ${left}`].filter(Boolean).join(" · ")}`, { action: { label: "Retomar", fn: () => resumeSession(ss.id ? ss.id : ss) } });
+  else {
+    if (ss.id) saved = saved.then(() => api(`/api/sessions/${ss.id}`, { method: "PATCH", body: { status: "done", reason: "completa" } })).then(r => import("./sessions.js").then(m => m.cacheSession(r.session))).catch(() => {});
+    toast(sum ? `Sesión terminada: ${sum}` : "Sesión terminada");
+  }
+  S.sessSaving = saved;
+}
+// Retomar: la sesión guardada (por id; sin id, la abierta más reciente que tenga algo pendiente) desde el colegio donde
+// quedó, salteando lo ya trabajado. at: un colegio puntual de la sesión (desde «Ver detalle»). Se lee de nuevo del
+// servidor por si se trabajó desde otro dispositivo. Una sesión que no se pudo guardar se retoma desde memoria.
+export async function resumeSession(id, { at = null } = {}) {
+  pauseToast?.remove(); pauseToast = null;
+  if (id && typeof id === "object") { const ss = id; if (pendingOf(ss) || at != null) { S.session = ss; openAt(ss, at ?? firstPending(ss)); } return; }
+  const open = S.sessions?.open || [];
+  id = id || (open.find(v => v.resume >= 0) || open[0])?.id;
+  if (!id) return toast("No tenés sesiones abiertas.", { type: "err" });
+  const sm = await import("./sessions.js");
+  let v = sm.cachedSession(id); // la lista trae solo resúmenes: la sesión entera se lee de nuevo (o la última que respondió)
+  try { v = (await api(`/api/sessions/${encodeURIComponent(id)}`)).session; sm.cacheSession(v); }
+  catch (e) { if (!v) return toast(e.message, { type: "err" }); }
+  const i = at ?? v.resume;
+  if (i == null || i < 0) return toast("Ya trabajaste todos los colegios de esta sesión.");
+  S.session = useSession(v);
+  openAt(S.session, i);
+  prefetch();
 }
 async function load(opts = {}) {
   const id = D.id;
@@ -208,8 +254,11 @@ async function load(opts = {}) {
     else d = await api(`/api/schools/${id}${opts.refresh ? "?refresh=1" : ""}`);
     if (D.id !== id) return;
     D.data = d; D.err = null; patchSchool(d.school);
-    const why = S.session && !opts.refresh && opts.match === undefined && skipReason(d.school, !!D.activityId && myDeal(d.match));
-    if (why) { toast(`${d.school.name}: ${why}, lo salteé`); return sessionGo(1); }
+    // en la sesión no se trabaja un cliente, un trato abierto ajeno ni algo de otra persona: se saltea aunque ya figure
+    // salteado (la revisión de adelante pudo anotarlo mientras la ficha se abría); lo ya trabajado no se toca
+    const ss = S.session, cur = ss && D.sref && ss.items.find(x => x.ref === D.sref);
+    const why = cur && cur.state !== "worked" && !opts.refresh && opts.match === undefined && skipReason(d.school, !!D.activityId && myDeal(d.match));
+    if (why) { toast(`${d.school.name}: ${why.text}, lo salteé`); markSkip(ss, D.sref, why.code, why.text); return sessionGo(1); }
     loadSedes(id); loadEnrich(id); loadHistory(id, d);
   } catch (e) { if (D.id === id) D.err = e.message; }
   if (D.id === id) draw();
@@ -400,37 +449,122 @@ function sedesSec(s) {
 }
 
 // ---------- sesión de llamadas
-// Sesión de llamadas. Sin ids: lo tuyo de hoy primero, después lo vencido y después los mejores prospectos de la cola.
+// Se guarda en el servidor (/api/sessions, lib/sessions.js): sobrevive a recargar la página y se retoma desde otro dispositivo.
+// S.session es la que está abierta en la ficha: items (colegios en orden, con su actividad y su estado: pending, worked o
+// skipped), steps (lo que pasó con cada uno) e i (por dónde va). ids y acts se derivan de items.
+export function useSession(v) {
+  return { ...v, items: v.items.map(x => ({ ...x })), steps: [...(v.steps || [])], i: v.pos || 0, ids: v.items.map(x => x.ref), acts: Object.fromEntries(v.items.filter(x => x.act).map(x => [x.ref, x.act])) };
+}
+const pendingOf = ss => ss.items.filter(x => x.state === "pending").length;
+const firstPending = ss => { const n = ss.items.length; for (let k = 0; k < n; k++) { const i = (ss.i + k) % n; if (ss.items[i].state === "pending") return i; } return ss.i; };
+// lo que responde el servidor: se toma si no es más viejo que lo que ya hay (los pasos solo crecen)
+function mergeSession(ss, v) {
+  if (!ss || !v || v.id !== ss.id || (v.steps?.length || 0) < (ss.steps?.length || 0)) return;
+  const st = new Map(v.items.map(x => [x.ref, x.state]));
+  ss.items.forEach(x => { if (st.has(x.ref)) x.state = st.get(x.ref); });
+  Object.assign(ss, { steps: [...v.steps], stats: v.stats, summary: v.summary, updatedAt: v.updatedAt, lastAt: v.lastAt, status: v.status });
+  import("./sessions.js").then(m => m.cacheSession(v));
+}
+// Algo registrado en la ficha dentro de la sesión. Si el servidor no lo anotó (sesión sin guardar o falló), se anota acá.
+// sr: la sesión y el colegio de cuando se mandó (la ficha pudo cambiar mientras se guardaba)
+function sessionLogged(r, step, sr) {
+  // otras sesiones abiertas tuyas con este colegio: el servidor lo anotó ahí como hecho fuera de la sesión
+  if (r.sessions?.length) import("./sessions.js").then(m => r.sessions.forEach(m.cacheSession));
+  const ss = S.session; if (!ss || !sr || ss.id !== sr.id) return;
+  if (r.session) mergeSession(ss, r.session);
+  const it = ss.items.find(x => x.ref === sr.ref); if (!it || (r.session && it.state === "worked")) return;
+  it.state = "worked"; ss.steps = [...ss.steps, { ref: sr.ref, at: new Date().toISOString(), ...step }];
+}
+const sessionRef = () => (S.session && D.sref ? { id: S.session.id, ref: D.sref } : undefined);
+// Saltear (cliente, archivado, de otra persona, a mano…): queda anotado con el motivo. Lo ya trabajado no se saltea.
+export function markSkip(ss, ref, reason, why = "") {
+  const it = ss?.items.find(x => x.ref === ref); if (!it || it.state !== "pending") return;
+  it.state = "skipped"; ss.steps = [...ss.steps, { ref, kind: "skip", reason, ...(why ? { why } : {}), at: new Date().toISOString() }];
+  if (ss.id) api(`/api/sessions/${ss.id}`, { method: "PATCH", body: { skip: { ref, reason, why } } }).then(r => mergeSession(ss, r.session)).catch(() => {});
+}
+// Por dónde va: se guarda al moverse (con un respiro, por los salteos seguidos) y al cerrar la ficha.
+let posTimer = null, posFor = null;
+function savePos(ss) { if (!ss.id) return; clearTimeout(posTimer); posFor = ss; posTimer = setTimeout(() => flushPos(ss), 400); }
+function flushPos(ss) {
+  if (posFor !== ss || !ss.id) return Promise.resolve();
+  clearTimeout(posTimer); posFor = null;
+  return api(`/api/sessions/${ss.id}`, { method: "PATCH", body: { pos: ss.i } }).then(r => mergeSession(ss, r.session)).catch(() => {});
+}
+// Sin ids: lo tuyo de hoy primero, después lo vencido y después los mejores prospectos de la cola.
 // acts: actividades (con su fecha local) que se trabajan en ese orden; extra: colegios nuevos que van después.
-export async function startSession(ids, label = "tu territorio", { acts = null, extra = [] } = {}) {
-  pauseToast?.remove(); pauseToast = null; S.lastSession = null;
+// origin: de dónde salió ({ kind, key, filters }): si ya hay una sesión abierta con el mismo, se ofrece retomarla.
+export async function startSession(ids, label = "tu territorio", { acts = null, extra = [], origin = null } = {}) {
+  pauseToast?.remove(); pauseToast = null;
   if (!ids && !acts) {
     if (!S.today) { try { const { loadToday } = await import("./today.js"); await loadToday(); } catch (e) { return toast(e.message, { type: "err" }); } }
     const t = today();
     acts = workOrder((S.today.activities.items || []).map(a => ({ ...a, ...localAct(a) })).filter(a => a.date <= t), t);
     extra = callQueue(S.today.queue).slice(0, 25).map(q => q.id); // en el mismo orden que la lista de Hoy
+    label = `Tu día · ${new Intl.DateTimeFormat("es", { weekday: "short", day: "numeric", month: "short" }).format(new Date()).replace(",", "")}`;
+    origin = origin || { kind: "today", key: `today:${t}`, filters: S.territory.length ? { territorio: S.territory } : null };
   }
-  S.session = { ids: [], i: 0, label, acts: {}, done: 0 };
-  if (acts) {
-    const seen = new Set(); ids = [];
-    for (const a of acts) { const k = a.schoolId || a.record; if (k && !archivedAct(a) && !seen.has(k)) { seen.add(k); ids.push(k); S.session.acts[k] = a.id; } }
-    for (const id of extra) if (!seen.has(id)) { seen.add(id); ids.push(id); }
+  const items = [], seen = new Set(), add = (ref, a = null) => {
+    if (!ref || seen.has(ref) || archivedRef(ref) || (a && archivedAct(a))) return; // los archivados no entran en ninguna sesión
+    seen.add(ref);
+    const sc = S.byId.get(ref) || (a?.schoolId && S.byId.get(a.schoolId));
+    items.push({ ref, act: a?.id || null, type: a?.type || null, name: sc?.name || a?.who || a?.subject || null, city: sc?.city || a?.city || null });
+  };
+  if (acts) { for (const a of acts) add(a.schoolId || a.record, a); for (const id of extra) add(id); }
+  else for (const id of ids || []) add(id);
+  if (!items.length) return toast("No hay colegios para esta sesión.", { type: "err" });
+  // tope de colegios por sesión: se avisa cuántos entran (el servidor guarda hasta S.sessionMax)
+  const max = S.sessionMax || 300;
+  if (items.length > max) { toast(`La sesión toma los primeros ${max.toLocaleString("es-MX")} de ${items.length.toLocaleString("es-MX")}.`, { type: "info" }); items.length = max; }
+  const body = { name: cap(String(label)), origin: origin || { kind: "list", key: `list:${norm(label)}` }, items };
+  let r;
+  try { r = await api("/api/sessions", { body }); }
+  catch (e) {
+    // sin servidor la sesión funciona igual en esta pestaña (si recargás, se pierde)
+    toast(`No pude guardar la sesión (${e.message}). Funciona igual, pero si recargás la página se pierde.`, { type: "err" });
+    return beginSession({ session: { ...body, id: null, pos: 0, steps: [], items: items.map(x => ({ ...x, state: "pending" })) } });
   }
-  ids = ids.filter(id => !archivedRef(id)); // los archivados no entran en ninguna sesión
-  if (!ids.length) { S.session = null; return toast("No hay colegios para esta sesión.", { type: "err" }); }
-  S.session.ids = ids;
+  if (r.existing) return askExisting(r.existing, body);
+  beginSession(r);
+}
+function beginSession(r) {
+  if (r.truncated) toast(`La sesión toma los primeros ${r.session.items.length.toLocaleString("es-MX")} de ${(r.session.items.length + r.truncated).toLocaleString("es-MX")}.`, { type: "info" });
+  if (r.bumped?.length) toast(`Terminé «${r.bumped.map(b => b.name).join("», «")}», la sesión con menos movimiento: podés tener hasta 12 abiertas.`, { type: "info" });
+  if (r.session.id) import("./sessions.js").then(m => m.cacheSession(r.session));
+  S.session = useSession(r.session);
   openAt(S.session, 0);
   prefetch();
 }
+// Ya hay una abierta con el mismo origen (la misma zona, el mismo día…): retomarla o empezar de cero (la vieja queda en terminadas).
+function askExisting(v, body) {
+  const st = v.stats, m = modal(`<h3>Ya tenés esta sesión abierta</h3>
+    <p style="margin:0"><b>${esc(v.name)}</b>: ${st.handled} de ${st.total} · faltan ${st.pending} · última actividad ${esc(ago(v.lastAt))}.</p>
+    ${v.summary ? `<p class="muted" style="margin:0">${esc(v.summary)}</p>` : ""}
+    <p class="muted" style="margin:0">Si empezás de cero, la anterior queda en terminadas.</p>
+    <div class="row"><button class="btn ghost" id="exNo">Cancelar</button><button class="btn" id="exNew">Empezar de cero</button><button class="btn primary" id="exGo" ${v.resume < 0 ? "disabled" : ""}>${icon("play", "sm")} Retomarla</button></div>`);
+  m.querySelector("#exNo").onclick = () => m.close();
+  m.querySelector("#exGo").onclick = () => { m.close(); resumeSession(v.id); };
+  m.querySelector("#exNew").onclick = async () => {
+    m.close();
+    try { beginSession(await api("/api/sessions", { body: { ...body, replace: v.id } })); } catch (e) { toast(e.message, { type: "err" }); }
+  };
+}
+// Avanza al próximo colegio sin trabajar ni saltear (para atrás, al anterior, sea cual sea). Al final, cierra la ficha.
 function sessionGo(delta) {
   const ss = S.session; if (!ss) return;
-  const i = ss.i + delta;
-  if (i >= ss.ids.length) { ss.i = ss.ids.length - 1; return closeSchool(); }
+  let i = ss.i + delta;
+  if (delta > 0) while (i < ss.ids.length && ss.items[i].state !== "pending") i++;
+  if (i >= ss.ids.length) {
+    if (drawerOpen()) return closeSchool();
+    // se salteó lo último sin llegar a abrir la ficha (por ejemplo, un colegio que ya no está)
+    S.session = null; leaveSession(ss);
+    return import("./app.js").then(m => S.view === "hoy" && m.rerender());
+  }
   if (i < 0) return;
-  ss.i = i;
   openAt(ss, i);
   prefetch();
 }
+// «Saltar» a mano: lo que ya se trabajó no queda como salteado
+function skipCurrent() { const ss = S.session; if (ss) markSkip(ss, ss.ids[ss.i], "manual"); sessionGo(1); }
 // Revisa en Pipedrive los próximos colegios de la sesión para no perder tiempo con clientes.
 function prefetch() {
   const ss = S.session; if (!ss) return;
@@ -439,9 +573,9 @@ function prefetch() {
   api("/api/check", { body: { ids } }).then(r => {
     Object.values(r).forEach(v => !v.error && patchSchool(v));
     if (S.session !== ss) return;
-    // con tarea tuya y trato abierto no se saca acá: load() mira de quién es el trato al abrirlo
-    const skip = new Set(Object.values(r).filter(v => !v.error && skipReason(v, !!ss.acts[v.id])).map(v => v.id));
-    if (skip.size) ss.ids = ss.ids.filter((id, k) => k <= ss.i || !skip.has(id));
+    // solo lo que está adelante de donde va ahora: el colegio abierto lo decide load() con su ficha (si la ficha ya se movió
+    // a uno de estos, anotarlo acá lo dejaría abierto y marcado). Con tarea tuya y trato abierto tampoco: load() mira de quién es.
+    for (const [id, v] of Object.entries(r)) { const why = !v.error && ss.ids.indexOf(id) > ss.i && skipReason(v, !!ss.acts[id]); if (why) markSkip(ss, id, why.code, why.text); }
   }).catch(() => {});
 }
 
@@ -449,12 +583,12 @@ function prefetch() {
 // El trato abierto solo no se saltea si el colegio entró por una tarea tuya y el trato es tuyo (si no se sabe de quién es, se saltea).
 const myDeal = m => m?.openDealOwnerId ? m.openDealOwnerId === S.me.pdUserId : !!(m?.openDealOwner && S.me.pdName && m.openDealOwner === S.me.pdName);
 function skipReason(v, mine = false) {
-  if (v.status === "client") return "ya es cliente";
-  if (v.status === "churn") return "es ex cliente";
-  if (v.status === "archived") return "está archivado";
-  if (v.status === "open" && !mine) return "tiene un trato abierto";
-  if (v.ownerId && S.me.pdUserId && v.ownerId !== S.me.pdUserId) return `es de ${v.ownerName || "otra persona"}`;
-  return "";
+  if (v.status === "client") return { code: "client", text: "ya es cliente" };
+  if (v.status === "churn") return { code: "churn", text: "es ex cliente" };
+  if (v.status === "archived") return { code: "archived", text: "está archivado" };
+  if (v.status === "open" && !mine) return { code: "open", text: "tiene un trato abierto" };
+  if (v.ownerId && S.me.pdUserId && v.ownerId !== S.me.pdUserId) return { code: "owner", text: `es de ${v.ownerName || "otra persona"}` };
+  return null;
 }
 // ---------- render
 const focusKey = el => el && (el.id ? `#${el.id}` : ["tab", "oc", "ch", "f", "caf", "niv", "nd", "ph"].map(k => el.dataset?.[k] !== undefined ? `[data-${k}="${el.dataset[k]}"]` : "").find(Boolean));
@@ -612,7 +746,7 @@ function draw() {
   const notReady = !d ? `disabled title="${D.err ? "No se pudo cargar la ficha" : "Cargando la ficha…"}"` : "";
   el.innerHTML = `
   ${ss ? `<div class="d-session"><span class="progress" aria-hidden="true"><span style="width:${(ss.i + 1) / ss.ids.length * 100}%"></span></span>
-    <span class="lbl">${icon("play", "sm")} <span><b>${ss.i + 1}</b>/${ss.ids.length}<span class="hide-sm"> · sesión</span></span></span>
+    <span class="lbl">${icon("play", "sm")} <span class="ell"><b>${ss.i + 1}</b>/${ss.ids.length}<span class="hide-sm"> · ${esc(ss.name || "sesión")}</span></span></span>
     <button class="btn sm ghost" id="prev" ${ss.i ? "" : "disabled"} aria-label="Colegio anterior">${icon("arrowLeft", "sm")}</button><button class="btn sm" id="skip">${icon("skip", "sm")} Saltar</button></div>` : ""}
   <div class="d-top">
     <div class="d-title"><div class="tt"><h2 id="dTitle">${esc(s.name)}</h2><div class="sub">${esc([s.addr, s.city, s.country].filter(Boolean).join(", "))}</div></div>
@@ -674,7 +808,7 @@ function bindTop(s, d) {
   el.querySelector("#dClose").onclick = closeSchool;
   el.querySelector("#retry")?.addEventListener("click", () => { D.err = null; draw(); load(); });
   el.querySelector("#prev")?.addEventListener("click", () => sessionGo(-1));
-  el.querySelector("#skip")?.addEventListener("click", () => sessionGo(1));
+  el.querySelector("#skip")?.addEventListener("click", skipCurrent);
   const tabs = [...el.querySelectorAll("[data-tab]")];
   tabs.forEach((b, k) => {
     b.onclick = () => goTab(b.dataset.tab);
@@ -963,14 +1097,15 @@ async function saveLog(s, d) {
     next: f.next.type ? { type: f.next.type, date: f.next.date, time: f.next.time || undefined, ownerId: f.next.ownerId ? Number(f.next.ownerId) : undefined, subject: f.next.subject || undefined } : null,
     lost: f.lostReason ? { reason: f.lostReason } : null,
     completeActivityId: D.activityId && f.completeAct ? D.activityId : null,
+    session: sessionRef(),
   };
   try {
     const r = await api(`/api/schools/${s.id}/log`, { body });
+    sessionLogged(r, { kind: "contact", channel: f.channel, outcome: f.outcome }, body.session);
     if (D.id !== s.id) return;
     D.result = { ...r, form: JSON.parse(JSON.stringify(f)) }; D.inCall = false; D.call = null;
     patchSchool(r.school);
     S.today = null; S.agenda = null;
-    if (S.session) S.session.done++;
     import("./explore.js").then(m => m.refreshExplore());
     D.saving = false; draw(); toTabs();
     // refresca la ficha en segundo plano para que Historial muestre lo nuevo
@@ -983,7 +1118,8 @@ async function saveComment(s) {
   D.saving = true; redrawLog();
   try {
     const task = f.next.type && f.next.date ? { type: f.next.type, date: f.next.date, time: f.next.time || undefined, ownerId: f.next.ownerId ? Number(f.next.ownerId) : undefined, subject: f.next.subject || undefined } : null;
-    const r = await api(`/api/schools/${s.id}/comment`, { body: { text: f.text, task, completeActivityId: D.activityId && f.completeAct ? D.activityId : null } });
+    const sr = sessionRef(), r = await api(`/api/schools/${s.id}/comment`, { body: { text: f.text, task, completeActivityId: D.activityId && f.completeAct ? D.activityId : null, session: sr } });
+    sessionLogged(r, { kind: "comment" }, sr);
     if (D.id !== s.id) return;
     D.result = { ...r, form: JSON.parse(JSON.stringify(f)) };
     if (r.school) patchSchool(r.school);
@@ -1011,7 +1147,7 @@ function resultBody(s, d) {
       ${ss ? `<button class="btn primary lg" id="nextSchool">Siguiente colegio ${icon("arrowRight")}</button>` : `<button class="btn primary" id="closeD">Listo</button>`}
       <button class="btn ghost" id="again">Registrar otro contacto</button>
     </div>
-    ${ss ? `<p class="faint" style="margin:0;font-size:13px">${ss.ids.length - ss.i - 1} colegios restantes en la sesión</p>` : ""}
+    ${ss ? `<p class="faint" style="margin:0;font-size:13px">${pendingOf(ss) ? `Faltan ${pendingOf(ss)} en la sesión` : "Es el último de la sesión"}</p>` : ""}
   </div>`;
 }
 function bindResult(s, d) {
