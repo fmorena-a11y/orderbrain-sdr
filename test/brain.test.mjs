@@ -12,9 +12,11 @@ const SITES = [
   { id: "s1", name: "Colegio Falso Uno", clientId: "c1", status: "Active", country: "Mexico", city: "Puebla", latitude: 19.04, longitude: -98.2 },
   { id: "s2", name: "Colegio Falso Dos", clientId: "c1", status: "ChurnOnActive", country: "Peru", city: "Lima", latitude: -12.1, longitude: -77.03 },
 ];
-// OrderBrain falso: solo acepta GOOD; con «vacio» responde una lista vacía y con «html» una página
+// OrderBrain falso: solo acepta GOOD (mientras accept); con «vacio» responde una lista vacía y con «html» una página
+let accept = true;
 const srv = http.createServer((req, res) => {
   const tok = String(req.headers.authorization || "").replace(/^Bearer /, "");
+  if (!accept) { res.writeHead(401); return res.end(); }
   if (tok === "html") { res.writeHead(200, { "content-type": "text/html" }); return res.end("<html>login</html>"); }
   if (tok === "vacio") { res.writeHead(200, { "content-type": "application/json" }); return res.end("[]"); }
   if (tok !== GOOD) { res.writeHead(401); return res.end(); }
@@ -99,4 +101,16 @@ test("token que anda: se guarda, se usan los sitios al instante y nunca vuelve e
   // otra lectura del estado (relee el token guardado) sigue igual
   const again = await brain.brainAdmin();
   assert.equal(again.source, "app"); assert.equal(again.sites, 2);
+});
+test("el token deja de andar: sigue con la copia, avisa a quién le toca y la última lectura queda fallida", async () => {
+  accept = false;
+  const realNow = Date.now;
+  Date.now = () => realNow() + 16 * 60e3; // pasaron los 15 min de la copia
+  try {
+    const st = await brain.brainAdmin(); // espera la lectura que dispara el vencimiento de la copia
+    assert.equal(st.sites, 2); assert.equal(st.stale, true);
+    assert.match(st.error, /rechazó el token.*Un líder puede cargar uno nuevo en Equipo/);
+    assert.equal(st.lastRead.ok, false); assert.equal(st.lastRead.error, st.error);
+    assert.equal(brain.brainDown(), false); // hay copia: no se cae, queda vieja
+  } finally { Date.now = realNow; accept = true; }
 });

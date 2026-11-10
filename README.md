@@ -99,7 +99,7 @@ El indicador de abajo muestra el avance (verificados, nuevos y descartados con e
 
 ## Clientes de OrderEAT (World Dominion)
 
-Con `BRAIN_TOKEN` la app lee los sitios de World Dominion en OrderBrain general (`brain.ordereat.com/api/sites` y `/api/clients`) cada 15 minutos (`lib/brain.js`) y los cruza con la base: mismo Google Place, mismo predio (menos de 60 m) o nombre parecido a menos de 300 m.
+Con un token de brain.ordereat.com la app lee los sitios de World Dominion en OrderBrain general (`brain.ordereat.com/api/sites` y `/api/clients`) cada 15 minutos (`lib/brain.js`) y los cruza con la base: mismo Google Place, mismo predio (menos de 60 m) o nombre parecido a menos de 300 m.
 
 - Cada colegio lleva una **fase** con color: Activo (verde), Onboarding (amarillo), Cerrado (azul: firmó y no arrancó), Churn (rojo) y Propuesta enviada (violeta). Manda World Dominion; si no está ahí, sale de Pipedrive (embudo ONBOARDING, embudos de clientes, etapas Churn/DROPPED y la etapa de propuesta de los embudos de venta).
 - Los sitios en estado Cerrado, Onboarding o Activo quedan como **Cliente**: salen de «Para llamar», de la cola de llamadas y de las sugerencias del asistente, y la ficha avisa que no hay que prospectarlos. Esto pasa aunque Pipedrive no tenga el trato bien cargado.
@@ -107,6 +107,8 @@ Con `BRAIN_TOKEN` la app lee los sitios de World Dominion en OrderBrain general 
 - En el mapa de Prospectar, los clientes aparecen como rombos azules y los ex clientes con borde rojo. El botón «Clientes OrderEAT» los muestra u oculta.
 
 Si el token vence, el botón muestra un aviso y la app sigue con la última copia. En modo demo sin token se marcan unos colegios de prueba.
+
+**Token desde la app.** Un líder pega el token (el JWT de sesión de brain.ordereat.com) en Equipo → World Dominion. El servidor lo prueba contra `/api/sites` antes de guardarlo: si OrderBrain lo rechaza o no devuelve sitios, no se guarda y se dice por qué. Si anda, queda en Redis (`ob:brain:token`; sin Redis, en `DATA_DIR/brain-token.json`), manda sobre `BRAIN_TOKEN` y los sitios se actualizan al instante; las otras instancias lo toman en menos de un minuto, desde la copia compartida. El token nunca vuelve al navegador ni va a los logs: Equipo muestra quién lo cargó y cuándo, cuándo vence (el `exp` del JWT; si no es JWT, «sin fecha de vencimiento»), un aviso si venció o vence en menos de 3 días, cuántos sitios hay, de cuándo son los datos y cómo anduvo la última lectura. Si el cargado desde la app venció y el de `BRAIN_TOKEN` no, se usa el de `BRAIN_TOKEN`. Rutas (solo líderes): `GET` y `POST /api/admin/brain`.
 
 ## Fotos de cada colegio
 
@@ -166,7 +168,7 @@ Con `CRON_SECRET` en Vercel, el cron diario (`vercel.json`, 08:17 UTC) sigue una
 | `KV_REST_API_URL`, `KV_REST_API_TOKEN` | Redis de Upstash para guardar cruce y contactos | Vercel → Storage → Upstash for Redis (se cargan solas) |
 | `TEAM_ACCESS_CODE` | Código de entrada para líderes | Texto que elijas; rotarlo si se compartió |
 | `LEADER_EMAILS` | Emails de líderes separados por coma | |
-| `BRAIN_TOKEN` | Token de World Dominion (brain.ordereat.com) para saber clientes activos, onboarding y churn | |
+| `BRAIN_TOKEN` | Token de World Dominion (brain.ordereat.com) para saber clientes activos, onboarding y churn. Opcional si un líder lo carga en Equipo (ese manda) | |
 | `GOOGLE_MAPS_API_KEY` | Fotos, teléfono, horario y reseñas de Google Maps (Places API New), con tope de gasto | Google Cloud → APIs y servicios |
 | `SLACK_BOT_TOKEN`, `SLACK_CHANNEL_ID` | Mensajes del canal de colegios lanzados en «Qué pasó con OrderEAT» (scopes `channels:history` y `users:read`; el bot tiene que estar en el canal) | api.slack.com/apps |
 | `FREE_OWNER_IDS` | Cuentas generales de Pipedrive cuyos colegios están libres (por defecto «OrderEAT» y «Contacto OrderEAT») | |

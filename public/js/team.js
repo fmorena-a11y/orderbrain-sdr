@@ -93,8 +93,9 @@ function wdHtml() {
   if (wd.expiry === "expired") notes.push(["err", `${which} venció el ${fWhen(wd.exp)}. Pegá uno nuevo abajo.`]);
   else if (wd.expiry === "soon") notes.push(["warn", `${which} vence ${until(wd.exp)} (${fWhen(wd.exp)}). Conviene cargar uno nuevo antes.`]);
   if (wd.loaded && !wd.loaded.inUse) notes.push(["warn", `El token que cargó ${wd.loaded.by || "un líder"} venció: se usa el de Vercel.`]);
-  if (lr && !lr.ok) notes.push(["err", `La última lectura falló (${ago(lr.at)}): ${lr.error}`]);
-  else if (!lr && wd.error) notes.push(["err", wd.error]);
+  const here = t => String(t || "").replace(/ Un líder puede cargar uno nuevo en Equipo\.$/, ""); // ya está en Equipo
+  if (lr && !lr.ok) notes.push(["err", `La última lectura falló (${ago(lr.at)}): ${here(lr.error)}`]);
+  else if (!lr && wd.error) notes.push(["err", here(wd.error)]);
   if (!wd.source && !wd.demo) notes.push(["warn", "Sin token: la app no sabe qué colegios ya son clientes. Pegá uno abajo."]);
   const tokTxt = wd.source === "app" ? `Token cargado por <b>${esc(wd.loaded.by || "un líder")}</b> el ${esc(fDay(wd.loaded.at))}`
     : wd.source === "env" ? "Token de Vercel (BRAIN_TOKEN)" : "";
@@ -105,9 +106,9 @@ function wdHtml() {
     ${tokTxt ? `<p class="faint" style="margin:0 0 4px;font-size:13.5px">${tokTxt}${expTxt}</p>` : ""}
     ${lr?.ok ? `<p class="faint" style="margin:0 0 4px;font-size:13.5px">Última lectura ${esc(ago(lr.at))}: anduvo${lr.n != null ? ` (${fmt(lr.n)} sitios)` : ""}.</p>` : ""}
     <div class="field" style="margin-top:14px"><span><label for="wdTok">${wd.source ? "Cambiar el token" : "Cargar el token"}</label></span>
-      <div class="scan-form"><input class="inp" id="wdTok" type="password" autocomplete="off" spellcheck="false" placeholder="Pegá el token de sesión de ${esc(wd.host || "brain.ordereat.com")}" aria-describedby="wdHelp">
+      <div class="scan-form"><input class="inp" id="wdTok" type="password" autocomplete="off" spellcheck="false" placeholder="Pegá el token acá" aria-describedby="wdHelp">
       <button class="btn primary" id="wdSave">Probar y guardar</button></div>
-      <small class="faint" id="wdHelp">Lo probamos contra World Dominion antes de guardarlo. Después no se muestra más.</small>
+      <small class="faint" id="wdHelp">Es el token de sesión de ${esc(wd.host || "brain.ordereat.com")}. Lo probamos antes de guardarlo y después no se muestra más.</small>
       <div id="wdMsg" role="alert"></div></div>`;
 }
 function drawWd() {
