@@ -254,6 +254,15 @@ function cancelOnClose(req, res) {
   res.on("close", () => { if (!res.writableFinished) { console.log(`buscador: ${req.path} cancelado por el usuario`); ac.abort(new Error("cancelado por el usuario")); } });
   return ac.signal;
 }
+const LATAM = Object.values(MARKETS).map(m => m.code).filter(c => /^[A-Z]{2}$/.test(c) && c !== "ES");
+const CONTINENTS = [
+  { re: /^(latinoamerica|latam|america latina|iberoamerica|hispanoamerica)$/, name: "Latinoamérica", codes: LATAM, lat: -8, lng: -70, bbox: [[-56, -118], [33, -34]] },
+  { re: /^(sudamerica|suramerica|america del sur|sur america)$/, name: "Sudamérica", codes: ["AR", "BO", "CL", "CO", "EC", "PE", "PY", "UY", "VE"], lat: -20, lng: -62, bbox: [[-56, -82], [13, -34]] },
+  { re: /^(centroamerica|america central|centro america)$/, name: "Centroamérica", codes: ["GT", "HN", "SV", "NI", "CR", "PA"], lat: 12.5, lng: -85.5, bbox: [[7, -93], [18.5, -77]] },
+  { re: /^(caribe|el caribe)$/, name: "Caribe", codes: ["DO", "PR"], lat: 18.6, lng: -68.5, bbox: [[17.4, -72.1], [19.95, -65.2]] },
+  { re: /^(norteamerica|america del norte)$/, name: "Norteamérica (México)", codes: ["MX"], lat: 23.6, lng: -102.5, bbox: [[14.5, -118.5], [32.7, -86.7]] },
+  { re: /^(europa)$/, name: "Europa (España)", codes: ["ES"], lat: 40.2, lng: -3.7, bbox: [[35.9, -9.4], [43.8, 4.4]] },
+];
 const appCountry = place => { const known = Object.entries(MARKETS).find(([, m]) => m.code === place.cc); if (known) place.country = known[0]; return place; };
 app.post("/api/scan/resolve", auth, wrap(async (req, res) => {
   const osm = String(req.body?.osm || "");
@@ -266,6 +275,12 @@ app.post("/api/scan/resolve", auth, wrap(async (req, res) => {
   }
   const q = String(req.body?.q || "").trim().slice(0, 120), nq = scan.norm(q);
   if (nq.length < 2) return res.status(400).json({ error: "Escribí un país, una provincia, una ciudad o un barrio." });
+  // continentes y regiones grandes: los países del equipo que caen ahí
+  const cont = CONTINENTS.find(c => c.re.test(nq));
+  if (cont) {
+    const names = Object.entries(MARKETS).filter(([, m]) => cont.codes.includes(m.code)).map(([n]) => n);
+    return res.json({ kind: "continent", name: cont.name, label: cont.name, countries: names, codes: cont.codes, lat: cont.lat, lng: cont.lng, bbox: cont.bbox, city: { name: cont.name, lat: cont.lat, lng: cont.lng, pop: 0 }, alts: [] });
+  }
   // se busca en los países donde trabaja el equipo, con prioridad para el país elegido en la app
   const prefer = /^[A-Z]{2}$/.test(req.body?.cc || "") ? req.body.cc : "";
   const k = `place3:${prefer}:${nq}`;

@@ -39,8 +39,10 @@ function placeList() {
   if (pm.p === p && pm.n === S.schools.length) return pm.list;
   const c = center(p), bb = p.geo && p.bbox;
   const list = [];
+  const inCountries = p.kind === "continent" ? new Set(p.countries || []) : null;
   for (const s of S.schools) {
     if (s.lat == null) continue;
+    if (inCountries) { if (inCountries.has(s.country)) { s._d = kmTo(s, c); list.push(s); } continue; }
     if (p.geo) {
       const mine = p.areaId && s.area === p.areaId; // lo trajo la búsqueda de este mismo lugar
       if (!mine && bb && (s.lat < bb[0][0] || s.lat > bb[1][0] || s.lng < bb[0][1] || s.lng > bb[1][1])) continue;
@@ -54,7 +56,7 @@ function placeList() {
   return list;
 }
 // provincia o país con muchos colegios: se agrupan por ciudad (como la vista general)
-const placeGrouped = () => placeMode() && (E.place.kind === "country" || E.place.kind === "region") && placeList().length > 150;
+const placeGrouped = () => placeMode() && ["country", "region", "continent"].includes(E.place.kind) && placeList().length > 150;
 const base = () => placeMode() ? placeList() : E.q ? searchList() : scope();
 const visible = () => placeMode() ? applyFilter(placeList()) : sortS(applyFilter(E.q ? searchList() : scope()));
 const callable = () => visible().filter(s => canCall(s) && s.phone);
@@ -130,8 +132,8 @@ function drawPlace() {
   const box = host.querySelector("#placeBox"), p = E.place;
   if (!p) { box.innerHTML = ""; return; }
   const n = placeList().length;
-  const where = p.geo ? `en ${esc(placeName(p))}` : `a menos de ${String(p.radius || 3).replace(".", ",")} km`;
-  const kind = { country: "País", region: "Provincia o estado", city: "Ciudad", spot: p.geo || /suburb|neighbourhood|quarter|city_district|borough/.test(p.type || "") ? "Barrio" : /road|street|highway/.test(p.type || "") ? "Calle" : "Dirección" }[p.kind] || "";
+  const where = p.kind === "continent" ? `en ${fmt((p.countries || []).length)} país${(p.countries || []).length === 1 ? "" : "es"}` : p.geo ? `en ${esc(placeName(p))}` : `a menos de ${String(p.radius || 3).replace(".", ",")} km`;
+  const kind = { continent: "Región del mundo", country: "País", region: "Provincia o estado", city: "Ciudad", spot: p.geo || /suburb|neighbourhood|quarter|city_district|borough/.test(p.type || "") ? "Barrio" : /road|street|highway/.test(p.type || "") ? "Calle" : "Dirección" }[p.kind] || "";
   box.innerHTML = `<div class="place-card"><span class="pin">${icon("nav", "sm")}</span><div class="t"><b>${esc(p.label)}</b><small>${kind ? `${kind} · ` : ""}${fmt(n)} colegio${n === 1 ? "" : "s"} ${where}</small></div>
     <button class="btn sm" id="pScan" title="Buscar colegios privados nuevos en esta zona y verificarlos">${icon("refresh", "sm")} ${n ? "Buscar más" : "Buscar colegios"}</button><button class="icon-btn" id="pX" aria-label="Quitar ubicación">${icon("x")}</button></div>
     ${p.alts?.length ? `<div class="place-alts"><span class="faint">¿Buscabas otro?</span>${p.alts.map(a => `<button class="chip sm" data-osm="${esc(a.osm)}">${esc(a.label)}</button>`).join("")}</div>` : ""}`;
@@ -277,20 +279,26 @@ function drawMap({ fit = true } = {}) {
       pts.push([s.lat, s.lng]);
     });
   }
+  if (E.place?.kind === "continent") {
+    // un continente: se encuadra la región y se ven los colegios agrupados por ciudad (sin contorno propio)
+    if (refit && E.place.bbox) map.flyToBounds(E.place.bbox, { padding: [20, 20], duration: 0.8 });
+    return;
+  }
   if (E.place) {
     const p = E.place, accent = cssVar("--accent");
     // el contorno real del lugar (o el círculo, si es un punto)
-    // contorno rojo bien marcado (con un borde claro debajo para que se lea sobre cualquier mapa) y el resto del
-    // mapa oscurecido: así se ve dónde termina el lugar y dónde empiezan los vecinos
+    // la ciudad (o zona) como una capa del rojo de OrderEAT: relleno muy suave y semitransparente, contorno del mismo
+    // rojo con un borde claro debajo, y afuera apenas más tenue para que se lea el límite con los vecinos
+    const BRAND = "#E0153F", dark = document.documentElement.dataset.theme === "dark" || (!document.documentElement.dataset.theme && matchMedia("(prefers-color-scheme: dark)").matches);
     if (p.geo) {
       const polys = p.geo.type === "Polygon" ? [p.geo.coordinates] : p.geo.coordinates;
       const holes = polys.map(poly => poly[0].map(([x, y]) => [y, x]));
-      L.polygon([[[-89, -360], [-89, 360], [89, 360], [89, -360]], ...holes], { stroke: false, fillColor: "#000", fillOpacity: 0.28, interactive: false }).addTo(layer);
-      L.geoJSON(p.geo, { interactive: false, style: { color: "#fff", weight: 6, opacity: 0.55, fill: false } }).addTo(layer);
+      L.polygon([[[-89, -360], [-89, 360], [89, 360], [89, -360]], ...holes], { stroke: false, fillColor: dark ? "#000" : "#fff", fillOpacity: dark ? 0.16 : 0.22, interactive: false }).addTo(layer);
+      L.geoJSON(p.geo, { interactive: false, style: { color: "#fff", weight: 5, opacity: dark ? 0.25 : 0.7, fill: false } }).addTo(layer);
     }
     const shape = p.geo
-      ? L.geoJSON(p.geo, { interactive: false, style: { color: "#E0153F", weight: 3, opacity: 1, fillColor: "#E0153F", fillOpacity: 0.05 } })
-      : L.circle([center(p).lat, center(p).lng], { radius: (p.radius || 3) * 1000, color: "#E0153F", weight: 3, dashArray: "8 6", fillColor: "#E0153F", fillOpacity: 0.06, interactive: false });
+      ? L.geoJSON(p.geo, { interactive: false, style: { color: BRAND, weight: 2.5, opacity: 0.95, fillColor: BRAND, fillOpacity: dark ? 0.16 : 0.1, lineJoin: "round" } })
+      : L.circle([center(p).lat, center(p).lng], { radius: (p.radius || 3) * 1000, color: BRAND, weight: 2.5, dashArray: "8 6", fillColor: BRAND, fillOpacity: dark ? 0.16 : 0.1, interactive: false });
     shape.addTo(layer);
     if (!p.geo || p.kind === "spot") L.marker([p.lat, p.lng], { icon: L.divIcon({ className: "", iconSize: [30, 40], iconAnchor: [15, 38], html: `<div class="place-pin" aria-hidden="true"></div>` }), zIndexOffset: 2000, title: p.label, keyboard: false }).bindTooltip(esc(p.label)).addTo(layer);
     if (refit) { const bb = shape.getBounds(); if (bb.isValid()) map.flyToBounds(bb, { padding: [30, 30], maxZoom: 16, duration: 0.8 }); }

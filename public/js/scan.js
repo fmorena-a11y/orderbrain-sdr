@@ -53,6 +53,17 @@ function summary(place, plan) {
 // Qué recorrer: un barrio, una ciudad o una provincia con contorno se buscan enteros (exacto);
 // un país se recorre ciudad por ciudad; un punto, en un círculo chico.
 async function planFor(place, progress = () => {}, signal) {
+  if (place.kind === "continent") {
+    // cada país de la región, ciudad por ciudad
+    const steps = [];
+    for (const cc of place.codes || []) {
+      progress(`${place.label}: armando la lista de ciudades (${cc})…`);
+      const { cities } = await api("/api/scan/cities", { body: { cc }, signal });
+      steps.push(...cities.map(c => ({ city: c, cc })));
+    }
+    if (!steps.length) throw new Error(`No encontré ciudades de más de 40.000 habitantes en ${place.label}.`);
+    return { whole: false, steps };
+  }
   if (place.kind === "country") {
     progress(`${place.label}: armando la lista de ciudades (puede tardar un minuto la primera vez)…`);
     const { cities } = await api("/api/scan/cities", { body: { cc: place.cc }, signal });
@@ -88,11 +99,12 @@ export async function scanPlace(place) {
 }
 
 // ---------- la búsqueda en segundo plano
+const countryOf = cc => Object.entries(S.markets).find(([, m]) => m.code === cc)?.[0] || cc;
 const aborted = e => e?.name === "AbortError" || /aborted/i.test(e?.message || "");
 async function start(place, plan, j = null) {
   if (!j) j = job = { label: place.label, place, i: 0, added: 0, dropped: [], queue: [], verified: 0, total: 0, errors: 0, running: true, ctl: new AbortController() };
   j.steps = plan.steps; j.preparing = false;
-  if (!S.countries.includes(place.country)) { S.countries.push(place.country); S.countries.sort(); }
+  for (const c of place.kind === "continent" ? place.countries || [] : [place.country]) if (c && !S.countries.includes(c)) { S.countries.push(c); S.countries.sort(); }
   const { signal } = j.ctl;
   drawJob();
   try {
@@ -101,7 +113,7 @@ async function start(place, plan, j = null) {
       drawJob();
       let r = null;
       for (let attempt = 0; attempt < 2 && !r && !signal.aborted; attempt++) {
-        try { r = await api("/api/scan/city", { body: { cc: place.cc, country: place.country, ...st }, signal }); }
+        try { r = await api("/api/scan/city", { body: { cc: st.cc || place.cc, country: st.cc ? countryOf(st.cc) : place.country, ...st }, signal }); }
         catch (e) { if (aborted(e)) throw e; if (attempt) { j.errors++; j.lastError = e.message; } else await wait(4000, signal); }
       }
       // una provincia entera no respondió de una vez: se recorre por sus ciudades, siempre dentro del contorno
