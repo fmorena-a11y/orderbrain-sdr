@@ -22,8 +22,11 @@ import fs from "fs";
 import { MARKETS, LOST_REASONS, TYPE_LABEL, DAILY_GOAL } from "./lib/config.js";
 import { safeTz, toUtc } from "./lib/time.js";
 import { composeMessage, templates } from "./lib/playbook.js";
+import * as gmail from "./lib/gmail.js";
+import { setMailPrefs, once, release, bump } from "./lib/store.js";
 
 const app = express();
+const escHtml = v => String(v).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const PORT = process.env.PORT || 3000;
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || "";
 // Código de equipo: alternativa al login con Google. Entra quien tenga un email del dominio, sea usuario de
@@ -109,6 +112,8 @@ app.post("/auth/code", async (req, res) => {
   if (MODE === "live" && !pdu.pdUserId) return res.status(403).json({ error: "Ese email no es usuario del Pipedrive de OrderEAT." });
   req.session.user = { email, name: pdu.pdName || email.split("@")[0], ...pdu };
   req.session.mode = MODE;
+  // con un código no se probó ser dueño de la cuenta de Google: para mandar mails hay que conectar Gmail en esta sesión
+  req.session.gmailOk = null;
   res.json({ user: req.session.user });
 });
 app.post("/auth/google", async (req, res) => {
@@ -120,6 +125,7 @@ app.post("/auth/google", async (req, res) => {
     if (DOMAIN && !p.email.toLowerCase().endsWith("@" + DOMAIN)) return res.status(403).json({ error: `Solo pueden entrar cuentas @${DOMAIN}.` });
     req.session.user = { email: p.email.toLowerCase(), name: p.name || p.email, picture: p.picture || "", ...(await attachPipedriveUser(p.email)) };
     req.session.mode = MODE;
+    req.session.gmailOk = p.email.toLowerCase(); // Google probó que es su cuenta: puede enviar con el Gmail que conectó
     res.json({ user: req.session.user });
   } catch { res.status(401).json({ error: "No se pudo validar el login de Google." }); }
 });
@@ -128,6 +134,7 @@ app.post("/auth/dev", async (req, res) => {
   const pdu = await attachPipedriveUser(DEV_EMAIL);
   req.session.user = { email: DEV_EMAIL.toLowerCase(), name: pdu.pdName || DEV_EMAIL.split("@")[0], ...pdu };
   req.session.mode = MODE;
+  req.session.gmailOk = null;
   res.json({ user: req.session.user });
 });
 app.post("/auth/logout", (req, res) => { req.session = null; res.json({ ok: true }); });
@@ -144,7 +151,9 @@ const wrap = fn => (req, res) => fn(req, res).catch(e => {
   if (res.writableEnded || res.destroyed) return; // el navegador ya cortó (canceló): no hay a quién responder
   const status = e.status && e.status < 600 ? (e instanceof pd.PipedriveError && e.status >= 500 ? 502 : e.status) : 500;
   if (status >= 500) console.error(e);
-  res.status(status).json({ error: e instanceof pd.PipedriveError ? `Pipedrive: ${e.message}` : e.message });
+  // code: un identificador corto para que el navegador sepa qué hacer (gmail_reauth, gmail_unknown…); nunca datos
+  const code = typeof e.code === "string" && /^[a-z][a-z_]{1,40}$/.test(e.code) ? { code: e.code } : {};
+  res.status(status).json({ error: e instanceof pd.PipedriveError ? `Pipedrive: ${e.message}` : e.message, ...code });
 });
 // Cada uno cambia solo sus actividades (marcar hecha, deshacer, reprogramar); un líder puede con todas.
 async function ownActivity(user, id, { missingOk } = {}) {
@@ -198,6 +207,70 @@ app.post("/api/me/profile", auth, wrap(async (req, res) => {
   req.session.user = withProfile(req.session.user, pr, leader);
   res.json({ user: req.session.user });
 }));
+// ---------- Gmail de cada persona (lib/gmail.js): conectar una vez, firma y estado. Nada de esto devuelve tokens.
+// El redirect tiene que ser exactamente el que está cargado en el cliente OAuth de Google (GMAIL_REDIRECT_URI lo fija).
+const gmailRedirect = req => process.env.GMAIL_REDIRECT_URI || `${req.protocol}://${req.get("host")}/auth/gmail/callback`;
+const gmailName = async user => (await signName(user)) || sales.signer(user);
+// El Gmail guardado es de un email, pero solo lo usa una sesión que probó ser de esa persona ante Google: conectó Gmail
+// en esta sesión (finishConnect) o entró con Google. Con el código personal (que un líder ve) no alcanza para mandar desde
+// su casilla, cambiar su firma ni desconectarlo: en cada dispositivo nuevo se conecta una vez.
+const gmailProven = req => !!req.session?.gmailOk && req.session.gmailOk === String(req.session.user?.email || "").toLowerCase();
+const gmailProof = (req, res, next) => gmailProven(req) ? next() : res.status(409).json({ error: "Conectá tu Gmail en este dispositivo.", code: "gmail_reauth" });
+// Límite de mails por persona por hora (MAIL_PER_HOUR, 60 por defecto)
+const MAIL_PER_HOUR = Math.max(1, Number(process.env.MAIL_PER_HOUR) || 60);
+app.get("/api/gmail", auth, wrap(async (req, res) => res.json({ ...(await gmail.status(req.session.user.email, await gmailName(req.session.user))), verified: gmailProven(req), readOnly: process.env.READ_ONLY === "1" })));
+// La ventana de Google termina en esta página: le avisa a la app (BroadcastChannel y, si sigue el vínculo, postMessage) y se
+// cierra. Si no se abrió en otra ventana (el navegador la bloqueó), vuelve a la app con ?gmail=…
+// En la dirección de vuelta va solo un código (state|mismatch|denied|scope|config|session|other): el navegador lo traduce
+// a un texto fijo, así nadie arma un link que muestre su propio texto dentro de la app.
+const GMAIL_CODES = { gmail_state: "state", gmail_mismatch: "mismatch", gmail_scope: "scope" };
+const gmailCode = e => GMAIL_CODES[e?.code] || (e?.status === 404 ? "config" : "other");
+function gmailDone(res, r, popup = false) {
+  const data = JSON.stringify({ type: "ob-gmail", ok: !!r.ok, ...(r.ok ? { email: r.email } : { code: r.code || "other", error: r.error || "" }) }).replace(/</g, "\\u003c");
+  const back = `/?gmail=${r.ok ? "ok" : "error"}${r.ok ? "" : `&m=${encodeURIComponent(r.code || "other")}`}`;
+  const msg = r.ok ? `Gmail conectado como ${r.email}.${popup ? " Ya podés cerrar esta ventana." : ""}` : r.error || "No se pudo conectar Gmail.";
+  res.set("cache-control", "no-store").type("html").send(`<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gmail · OrderBrain SDR</title>
+<style>body{font:15px/1.5 system-ui,sans-serif;margin:0;min-height:100vh;display:grid;place-items:center;background:#FAFAFA;color:#18181b;padding:16px;box-sizing:border-box;text-align:center}@media (prefers-color-scheme:dark){body{background:#111214;color:#ececec}}a{color:inherit}</style></head>
+<body><p>${escHtml(msg)}<br><a href="${escHtml(back)}">Volver a la app</a></p>
+<script>(function(){var r=${data};try{var c=new BroadcastChannel("ob-gmail");c.postMessage(r);c.close()}catch(e){}try{if(window.opener&&!window.opener.closed)window.opener.postMessage(r,location.origin)}catch(e){}
+${popup ? "setTimeout(function(){window.close()},400)" : `location.replace(${JSON.stringify(back)})`}})()</script></body></html>`);
+}
+app.get("/auth/gmail/start", async (req, res) => {
+  const user = req.session?.user;
+  if (!user || req.session.mode !== MODE) return res.redirect("/");
+  const popup = req.query.popup === "1";
+  try {
+    req.session.gmailNonce = gmail.newNonce(); req.session.gmailPopup = popup;
+    // demo: ?as= simula conectar otra cuenta (para probar el rechazo); con Google real no se usa
+    const demoAs = pd.DEMO ? String(req.query.as || "").slice(0, 120) : "";
+    const r = await gmail.startConnect({ email: user.email, nonce: req.session.gmailNonce, redirectUri: gmailRedirect(req), demoAs });
+    if (r.url) return res.redirect(r.url);
+    const fin = await gmail.finishConnect({ email: user.email, nonce: req.session.gmailNonce, demoAs: r.gmailEmail });
+    req.session.gmailNonce = null; req.session.gmailOk = String(user.email).toLowerCase();
+    gmailDone(res, { ok: true, email: fin.email }, popup);
+  } catch (e) { req.session.gmailNonce = null; gmailDone(res, { ok: false, error: e.message, code: gmailCode(e) }, popup); }
+});
+app.get("/auth/gmail/callback", async (req, res) => {
+  const user = req.session?.user, popup = !!req.session?.gmailPopup;
+  if (!user || req.session.mode !== MODE) return gmailDone(res, { ok: false, error: "Iniciá sesión en la app y conectá Gmail de nuevo.", code: "session" });
+  const nonce = req.session.gmailNonce; req.session.gmailNonce = null; req.session.gmailPopup = null;
+  if (req.query.error) return gmailDone(res, req.query.error === "access_denied" ? { ok: false, error: "No diste permiso: el mail no se puede enviar desde acá. Podés seguir con «Abrir en Gmail».", code: "denied" } : { ok: false, error: "Google no completó la conexión. Probá de nuevo.", code: "other" }, popup);
+  try {
+    const fin = await gmail.finishConnect({ email: user.email, nonce, state: String(req.query.state || ""), code: String(req.query.code || ""), redirectUri: gmailRedirect(req) });
+    req.session.gmailOk = String(user.email).toLowerCase(); // probó ante Google que la cuenta es suya: esta sesión puede enviar
+    gmailDone(res, { ok: true, email: fin.email }, popup);
+  } catch (e) { if ((e.status || 500) >= 500) console.warn("Gmail:", e.message); gmailDone(res, { ok: false, error: e.message, code: gmailCode(e) }, popup); }
+});
+app.post("/api/gmail/disconnect", auth, gmailProof, wrap(async (req, res) => { await gmail.disconnect(req.session.user.email); res.json({ ...(await gmail.status(req.session.user.email, await gmailName(req.session.user))), verified: gmailProven(req) }); }));
+// Firma propia (la misma que usás en Pipedrive): texto o HTML, se guarda saneada y manda sobre la de Gmail. Vacía = la de Gmail.
+app.post("/api/gmail/signature", auth, gmailProof, wrap(async (req, res) => {
+  const raw = String(req.body?.signature ?? ""); if (raw.length > 20000) return res.status(400).json({ error: "La firma es muy larga." });
+  const html = gmail.sanitizeSignature(raw);
+  if (raw.trim() && !html) return res.status(400).json({ error: "No quedó nada de esa firma después de limpiarla. Pegá el texto o un HTML simple." });
+  await setMailPrefs(req.session.user.email, { signature: html });
+  res.json({ ...(await gmail.status(req.session.user.email, await gmailName(req.session.user))), verified: gmailProven(req) });
+}));
+
 // ficha de un prospecto (lead) o de una organización de Pipedrive que no está en la base
 app.get("/api/records/:kind/:rid", auth, wrap(async (req, res) => {
   if (!["lead", "org"].includes(req.params.kind)) return res.status(400).json({ error: "Ficha inválida" });
@@ -323,7 +396,51 @@ app.post("/api/schools/:id/log", auth, schoolParam, wrap(async (req, res) => {
   if (gone) r.done.push({ label: "La actividad ya no está en Pipedrive.", warn: true });
   res.json(r);
 }));
-const escHtml = v => String(v).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+// Mail desde la ficha con el Gmail de quien escribe (lib/gmail.js) y registro en Pipedrive (sales.sendMail).
+// key: la que arma el navegador para cada envío; si el pedido se repite (la red), no se manda dos veces.
+// Antes de la cuenta de 5 s, el modal pregunta si se puede (archivado, cliente, de otra persona): así no se ofrece «Enviar»
+// donde después va a fallar. No escribe nada. El envío vuelve a comprobar todo.
+app.get("/api/schools/:id/mail/check", auth, schoolParam, wrap(async (req, res) => {
+  try { await sales.mailGuard(req.params.id, req.session.user); res.json({ ok: true }); }
+  catch (e) { if ((e.status || 500) >= 500) throw e; res.json({ ok: false, error: e.message }); }
+}));
+app.post("/api/schools/:id/mail", auth, gmailProof, schoolParam, wrap(async (req, res) => {
+  const user = req.session.user, b = req.body || {};
+  const k = /^[A-Za-z0-9_-]{8,64}$/.test(b.key || "") ? `mail:${user.email}:${b.key}` : null;
+  if (k && !(await once(k, 1800))) return res.status(409).json({ error: "Ese mail ya se mandó (o se está mandando). Mirá Historial antes de mandarlo de nuevo.", code: "mail_dup" });
+  if ((await bump(`mailrate:${user.email}`, 3600)) > MAIL_PER_HOUR) { if (k) await release(k); return res.status(429).json({ error: `Llegaste a ${MAIL_PER_HOUR} mails en una hora desde la app. Esperá un rato o usá «Abrir en Gmail».` }); }
+  try {
+    let doneId = Number(b.completeActivityId) || null;
+    if (doneId && !(await ownActivity(user, doneId, { missingOk: true }))) doneId = null;
+    const name = await gmailName(user);
+    res.json(await sales.sendMail(req.params.id, user, { to: b.to, subject: b.subject, text: b.text, completeActivityId: doneId }, req.tz,
+      { send: m => gmail.send(user.email, { ...m, fromName: name }), by: name }));
+  } catch (e) {
+    // la clave se libera solo si es seguro que no salió (antes de llamar a Gmail, o Gmail lo rechazó con 4xx).
+    // sent = "maybe" (red, tiempo o 5xx de Gmail) o true (salió y falló algo después): no se libera, no se manda dos veces
+    if (k && !e.sent) await release(k);
+    throw e;
+  }
+}));
+app.post("/api/schools/:id/mail/next", auth, gmailProof, schoolParam, wrap(async (req, res) => {
+  const b = req.body || {}, n = b.next, user = req.session.user;
+  const next = n && n.type ? { type: String(n.type), date: String(n.date || ""), time: n.time ? String(n.time) : "", ownerId: n.ownerId ? Number(n.ownerId) : undefined, subject: n.subject ? String(n.subject) : "" } : null;
+  // mover una actividad pendiente (la automática o una tuya ya agendada) en vez de crear otra; marcar hecha la de la agenda
+  let moveId = Number(b.moveActivityId) || null, doneId = Number(b.completeActivityId) || null;
+  if (moveId && !(await ownActivity(user, moveId, { missingOk: true }))) moveId = null;
+  if (doneId && !(await ownActivity(user, doneId, { missingOk: true }))) doneId = null;
+  res.json(await sales.mailNext(req.params.id, user, { mailId: String(b.mailId || ""), next, moveActivityId: moveId, completeActivityId: doneId }, req.tz));
+}));
+// Demo: lo que quedó en el Pipedrive de prueba y en la bandeja de Gmail simulada para este colegio (para comprobar el envío)
+if (pd.DEMO) app.get("/api/demo/mail/:id", auth, schoolParam, wrap(async (req, res) => {
+  const m = sales.allMatches()[req.params.id] || {}, s = byId.get(req.params.id), where = s.leadOnly ? { leadId: s.leadId } : m.orgId ? { orgId: m.orgId } : null;
+  const acts = where ? [...await pd.activities({ ...where, done: true, limit: 50 }), ...await pd.activities({ ...where, done: false, limit: 50 })] : [];
+  const notes = where ? await (where.leadId ? pd.notesForLead(where.leadId, 20) : pd.notesForOrg(where.orgId, 20)) : [];
+  res.json({ where, activities: acts.map(a => ({ id: a.id, subject: a.subject, type: a.type, done: !!a.done, due: a.due_date, orgId: a.org_id || null, dealId: a.deal_id || null, leadId: a.lead_id || null, personId: a.person_id || null, owner: a.owner_id, note: a.note || "" })),
+    notes: notes.map(n => ({ id: n.id, orgId: n.org_id || null, dealId: n.deal_id || null, leadId: n.lead_id || null, personId: n.person_id || null, content: n.content })),
+    outbox: gmail.demoOutbox().map(x => ({ id: x.id, at: x.at, from: x.from, to: x.to, bcc: x.bcc, ...gmail.parseMime(x.mime) })) });
+}));
 // Comentario suelto: queda como nota en la organización de Pipedrive, sin registrar un contacto.
 app.post("/api/schools/:id/prospect", auth, schoolParam, wrap(async (req, res) => res.json(await sales.createProspect(req.params.id, req.session.user, req.body?.task || null, req.tz))));
 // prospecto → trato (conversión de Pipedrive). Solo el dueño del prospecto o un líder.

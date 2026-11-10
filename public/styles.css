@@ -409,6 +409,7 @@ textarea.inp { min-height: 88px; resize: vertical; line-height: 1.45; }
 .d-body { flex: 1; overflow: auto; padding: 18px 20px 40px; min-height: 0; }
 .d-foot { flex: none; background: var(--surface); border-top: 1px solid var(--line); padding: 12px 20px calc(12px + env(safe-area-inset-bottom)); display: flex; gap: 12px; align-items: center; z-index: 3; }
 .d-foot .sum { flex: 1; font-size: 13px; color: var(--muted); min-width: 0; }
+.d-foot #save { flex: none; }
 @media (max-width: 899px) { .drawer { width: 100vw; box-shadow: none; } .scrim { display: none; } }
 @media (max-width: 899px), (max-height: 699px) {
   .drawer { overflow-y: auto; overscroll-behavior: contain; }
@@ -828,13 +829,14 @@ details.agent summary .sub { order: 3; }
 .map-legend[open] summary::after { content: "▴"; }
 .map-legend ul { list-style: none; margin: 0; padding: 0 10px 8px; display: flex; flex-wrap: wrap; gap: 5px 12px; }
 .map-legend li { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+/* el punto de cada referencia (.lgd: no confundir con .btn.lg) */
 .map-legend li b { font-weight: 600; color: var(--muted); }
-.lg { width: 10px; height: 10px; flex: none; display: inline-block; border-radius: 50%; background: var(--pd); box-shadow: 0 0 0 1.5px #fff, 0 0 0 2.5px rgb(0 0 0 / .18); }
-.lg.big { width: 12px; height: 12px; }
-.lg.sh-q { border-radius: 1.5px; } .lg.sh-d { border-radius: 1.5px; transform: rotate(45deg) scale(.92); }
-.lg.sh-ring { background: var(--surface) !important; box-shadow: inset 0 0 0 2.5px var(--pd), 0 0 0 1.5px #fff; }
-.lg.sh-dr { border-radius: 1.5px; transform: rotate(45deg) scale(.92); background: var(--surface) !important; box-shadow: inset 0 0 0 2.5px var(--pd), 0 0 0 1.5px #fff, 0 0 0 2.5px rgb(0 0 0 / .18); }
-.lg.sh-x { border-radius: 0; box-shadow: none; background: linear-gradient(45deg, transparent 38%, var(--pd) 38% 62%, transparent 62%), linear-gradient(-45deg, transparent 38%, var(--pd) 38% 62%, transparent 62%) !important; }
+.lgd { width: 10px; height: 10px; flex: none; display: inline-block; border-radius: 50%; background: var(--pd); box-shadow: 0 0 0 1.5px #fff, 0 0 0 2.5px rgb(0 0 0 / .18); }
+.lgd.big { width: 12px; height: 12px; }
+.lgd.sh-q { border-radius: 1.5px; } .lgd.sh-d { border-radius: 1.5px; transform: rotate(45deg) scale(.92); }
+.lgd.sh-ring { background: var(--surface) !important; box-shadow: inset 0 0 0 2.5px var(--pd), 0 0 0 1.5px #fff; }
+.lgd.sh-dr { border-radius: 1.5px; transform: rotate(45deg) scale(.92); background: var(--surface) !important; box-shadow: inset 0 0 0 2.5px var(--pd), 0 0 0 1.5px #fff, 0 0 0 2.5px rgb(0 0 0 / .18); }
+.lgd.sh-x { border-radius: 0; box-shadow: none; background: linear-gradient(45deg, transparent 38%, var(--pd) 38% 62%, transparent 62%), linear-gradient(-45deg, transparent 38%, var(--pd) 38% 62%, transparent 62%) !important; }
 /* en el celular el mapa es bajo: la lista de referencias abierta no pasa de ~3 renglones (se desplaza) y deja libre el botón de clientes */
 @media (max-width: 600px) {
   .map-legend { max-width: calc(100vw - 150px); font-size: 11.5px; }
@@ -1009,3 +1011,35 @@ details.agent summary .sub { order: 3; }
 .dup-b small { color: var(--muted); font-size: 12.5px; overflow-wrap: anywhere; }
 .dup-b small.dup-why { display: flex; gap: 6px; align-items: flex-start; color: var(--warn); }
 .dup-why .ico { flex: none; margin-top: 2px; }
+
+/* ---------- mail desde la ficha (Gmail) */
+.mact { gap: 8px; }
+.send-bar { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 12px; background: var(--accent-soft); color: var(--accent-ink); font-size: 14.5px; }
+.send-bar > span:not(.spin) { flex: 1; }
+.send-bar b { font-variant-numeric: tabular-nums; }
+.send-bar .btn { background: var(--surface); }
+.mail-how { display: flex; gap: 6px; align-items: flex-start; margin: 0; font-size: 12.5px; color: var(--ok); }
+.mail-how .ico { flex: none; margin-top: 1px; }
+.mail-note { margin: 0; font-size: 12.5px; }
+/* «Desde acá no se envía»: el motivo (de otra persona, cliente, archivado) en lugar de «Enviar» */
+.mail-block { display: flex; gap: 6px; align-items: flex-start; margin: 0; padding: 8px 10px; border-radius: 10px; background: var(--warn-soft); color: var(--warn); font-size: 13.5px; }
+.mail-block .ico { flex: none; margin-top: 2px; }
+details.gm-sig summary { cursor: pointer; font-size: 12.5px; color: var(--muted); }
+/* la firma se ve como va a salir: sobre blanco, como en el mail (también en modo oscuro) */
+.sig-prev { margin-top: 6px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: #222; font: 13px/1.45 Arial, Helvetica, sans-serif; max-height: 180px; overflow: auto; overflow-wrap: anywhere; }
+.sig-prev a { color: #1a5fb4; }
+.sig-prev img { max-width: 100%; height: auto; }
+.sig-prev table { border-collapse: collapse; max-width: 100%; }
+.gm-box { display: grid; gap: 8px; }
+.gm-st { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; font-size: 14px; }
+.gm-st .ico { color: var(--ok); vertical-align: -2px; }
+.tl-mail .ic { background: var(--accent-soft); color: var(--accent-ink); }
+.tl-sub { font-size: 14px; font-weight: 500; color: var(--ink); margin-top: 2px; overflow-wrap: anywhere; }
+.tl-meta { font-size: 12.5px; margin-top: 2px; }
+details.tl-body summary { cursor: pointer; font-size: 13px; color: var(--accent-ink); margin-top: 4px; width: fit-content; }
+details.tl-body p { margin: 6px 0 0; padding: 10px 12px; border-radius: 10px; background: var(--surface-2); white-space: pre-wrap; font-size: 14px; color: var(--ink-2); overflow-wrap: anywhere; }
+@media (max-width: 599px) {
+  /* en el celular, Enviar (o Conectar) va primero y a lo ancho */
+  .mact .row #mSend, .mact .row #mConnect { flex: 1 1 100%; order: -1; justify-content: center; }
+  .mact .row .btn { flex: 1 1 auto; justify-content: center; }
+}
