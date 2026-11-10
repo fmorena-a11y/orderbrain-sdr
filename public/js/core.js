@@ -124,17 +124,24 @@ export const DEMO_RES = { done: "Se hizo", noshow: "No-show", moved: "Reprograma
 export const TYPE_ICON = { call: "phone", meeting: "video", deadline: "whatsapp", task: "mail", contacto_decisor: "user" };
 
 // ---------- estados de colegio
+// c: variable CSS del color de la marca en el mapa (styles.css, claro y oscuro). sh: forma en el mapa y en el puntito de la pastilla:
+// c = círculo (prospecto), q = cuadrado (trato en proceso), d = rombo (cliente), dr = rombo hueco (churn: era cliente),
+// ring = aro hueco (sin revisar), x = cruz chica (archivado: descartado, no se llama).
 export const ST = {
-  new: { l: "Nunca contactado", c: "--st-new" }, org: { l: "En Pipe sin trato", c: "--st-org" },
-  lead: { l: "Prospecto en Pipe", c: "--st-org" }, churn: { l: "Churn", c: "--st-churn" }, lost: { l: "Perdido", c: "--st-lost" }, stalled: { l: "Contactado sin avance", c: "--st-stalled" }, open: { l: "En proceso", c: "--st-open" },
-  client: { l: "Cliente", c: "--st-client" }, unk: { l: "Sin revisar", c: "--st-unk" }, archived: { l: "Archivado", c: "--st-arch" },
+  new: { l: "Nunca contactado", c: "--st-new", sh: "c" }, org: { l: "En Pipe sin trato", c: "--st-org", sh: "c" },
+  lead: { l: "Prospecto en Pipe", c: "--st-org", sh: "c" }, churn: { l: "Churn", c: "--st-churn", sh: "dr" }, lost: { l: "Perdido", c: "--st-lost", sh: "c" }, stalled: { l: "Contactado sin avance", c: "--st-stalled", sh: "c" }, open: { l: "En proceso", c: "--st-open", sh: "q" },
+  client: { l: "Cliente", c: "--st-client", sh: "d" }, unk: { l: "Sin revisar", c: "--st-unk", sh: "ring" },
+  // reservado: el estado «archivado» todavía no existe en el servidor; ya tiene color (gris) y forma propia (cruz chica)
+  archived: { l: "Archivado", c: "--st-archived", sh: "x" },
 };
 export const cssVar = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 export const pill = st => `<span class="pill ${st}">${ST[st]?.l || st}</span>`;
 // Fase comercial (World Dominion o Pipedrive): pisa a la pastilla de estado porque dice más.
+// Clientes (activo, onboarding, cerrado) van en rombo, como los sitios de World Dominion; churn en rombo hueco (ya no es cliente:
+// así no se confunde con «Activo» aunque se vean parecidos con daltonismo); la propuesta enviada es un trato: cuadrado.
 export const PH = {
-  activo: { l: "Activo", dot: "#16A34A" }, onboarding: { l: "Onboarding", dot: "#EAB308" }, cerrado: { l: "Cerrado", dot: "#2563EB" },
-  churn: { l: "Churn", dot: "#DC2626" }, propuesta: { l: "Propuesta enviada", dot: "#7C3AED" },
+  activo: { l: "Activo", c: "--ph-activo", sh: "d" }, onboarding: { l: "Onboarding", c: "--ph-onboarding", sh: "d" }, cerrado: { l: "Cerrado", c: "--ph-cerrado", sh: "d" },
+  churn: { l: "Churn", c: "--ph-churn", sh: "dr" }, propuesta: { l: "Propuesta enviada", c: "--ph-propuesta", sh: "q" },
 };
 export const statusPill = s => s?.phase && PH[s.phase] ? `<span class="pill ph-${s.phase}">${s.phase === "churn" && s.ob?.label ? s.ob.label : PH[s.phase].l}</span>` : pill(s?.status);
 // etiqueta chica de dónde está en Pipedrive: «Prospecto» (tiene prospecto abierto) o «Trato» (tiene trato abierto)
@@ -145,7 +152,9 @@ export const stageTag = s => s?.status === "open" ? `<span class="stage-tag deal
 // fichas de Pipedrive que no están en la base); el resto, por el colegio cargado (S.byId).
 export const archivedRef = id => !!id && S.byId.get(String(id).replace(/^(lead|org):/, "pd-$1-"))?.status === "archived";
 export const archivedAct = a => !!a?.archived || archivedRef(a?.schoolId || a?.record);
-export const dotColor = (s, colors) => s.phase && PH[s.phase] ? PH[s.phase].dot : colors[s.status];
+// cómo se pinta un colegio en el mapa: la fase manda sobre el estado. Devuelve { k, l, c, sh } (k: clave para la leyenda)
+export const markOf = s => s?.phase && PH[s.phase] ? { k: "ph-" + s.phase, ...PH[s.phase] } : { k: ST[s?.status] ? s.status : "unk", ...(ST[s?.status] || ST.unk) };
+export const dotColor = (s, colors) => colors[markOf(s).k];
 
 // ---------- fechas
 const fmtDay = new Intl.DateTimeFormat("es", { weekday: "long", day: "numeric", month: "long" });
