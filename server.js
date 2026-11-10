@@ -9,7 +9,7 @@ import { research, studyEnabled, studyToHtml } from "./lib/study.js";
 import * as sales from "./lib/sales.js";
 import * as ai from "./lib/ai.js";
 import { photosFor, googleEnabled } from "./lib/photos.js";
-import { createRequire } from "module";
+import fs from "fs";
 import { MARKETS, LOST_REASONS, TYPE_LABEL, DAILY_GOAL } from "./lib/config.js";
 import { safeTz, toUtc } from "./lib/time.js";
 
@@ -168,23 +168,26 @@ app.post("/api/activities/:id/move", auth, wrap(async (req, res) => {
   res.json({ ok: true });
 }));
 // Radar: lo que encontró el agente de prospección (scripts/radar.mjs).
-function radarState() { try { return createRequire(import.meta.url)("./data/radar/state.json"); } catch { return { cities: {}, scanned: {}, runs: [] }; } }
+// Se lee en cada pedido (es chico): así refleja la última corrida aunque el servidor siga vivo.
+const RADAR_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), "data", "radar", "state.json");
+function radarState() { try { return JSON.parse(fs.readFileSync(RADAR_FILE, "utf8")); } catch { return { cities: {}, scanned: {}, runs: [] }; } }
 app.get("/api/radar", auth, (req, res) => {
   const st = radarState();
   const countries = {};
   for (const [cc, list] of Object.entries(st.cities || {})) {
     const name = { MX: "México", PE: "Perú", AR: "Argentina", CL: "Chile", UY: "Uruguay", GT: "Guatemala", CR: "Costa Rica" }[cc] || cc;
-    const scanned = list.filter(c => st.scanned?.[`${cc}|${c.name}`]).length;
+    const scanned = list.filter(c => st.scanned?.[`${cc}|${c.id ? "n" + c.id : c.name}`] || st.scanned?.[`${cc}|${c.name}`]).length;
     countries[name] = { cities: list.length, scanned, schools: schools.filter(s => s.country === name).length, found: schools.filter(s => s.country === name && s.src === "osm").length };
   }
   const weekAgo = new Date(Date.now() - 7 * 864e5).toISOString().slice(0, 10);
   const fresh = schools.filter(s => s.found && s.found >= weekAgo);
   const top = fresh.map(s => ({ s, r: sales.scoreFor(s) })).filter(x => x.r).sort((a, b) => b.r.score - a.r.score).slice(0, 40)
     .map(({ s, r }) => ({ ...sales.schoolListItem(s), score: r.score, reasons: r.reasons, opp: s.opp || [], found: s.found }));
-  const byCity = {};
-  for (const s of fresh) { const k = `${s.city}, ${s.country}`; byCity[k] = (byCity[k] || 0) + 1; }
+  const byCity = new Map();
+  for (const s of fresh) { const k = `${s.city}|${s.country}`; byCity.set(k, (byCity.get(k) || 0) + 1); }
   res.json({ runs: (st.runs || []).slice(0, 12), countries, total: schools.length, fromRadar: schools.filter(s => s.src === "osm").length, weekNew: fresh.length,
-    topCities: Object.entries(byCity).sort((a, b) => b[1] - a[1]).slice(0, 12), top, google: googleEnabled(), ai: ai.aiEnabled() });
+    weekPhone: fresh.filter(s => s.phone).length,
+    topCities: [...byCity].sort((a, b) => b[1] - a[1]).slice(0, 10).map(([k, n]) => { const [city, country] = k.split("|"); return { city, country, n }; }), top, google: googleEnabled(), ai: ai.aiEnabled() });
 });
 app.get("/api/feed", auth, wrap(async (req, res) => res.json(await sales.teamFeed())));
 app.get("/api/stats", auth, (req, res) => res.json(sales.stats(req.session.user, req.tz)));
