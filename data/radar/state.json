@@ -2,1332 +2,1554 @@
  "cities": {
   "MX": [
    {
+    "id": 62270270,
     "name": "Ciudad de México",
     "lat": 19.43263,
     "lng": -99.13318,
     "pop": 9209944
    },
    {
+    "id": 4145201092,
     "name": "Tijuana",
     "lat": 32.53648,
     "lng": -117.03712,
     "pop": 1810645
    },
    {
+    "id": 2750067513,
     "name": "Ecatepec de Morelos",
     "lat": 19.59941,
     "lng": -99.04873,
     "pop": 1645352
    },
    {
+    "id": 273601416,
     "name": "León",
     "lat": 21.12196,
     "lng": -101.68298,
     "pop": 1579803
    },
    {
+    "id": 245792117,
     "name": "Puebla de Zaragoza",
     "lat": 19.0438,
     "lng": -98.19815,
     "pop": 1542232
    },
    {
+    "id": 4145208823,
     "name": "Ciudad Juárez",
     "lat": 31.73897,
     "lng": -106.48321,
     "pop": 1501551
    },
    {
+    "id": 1663173902,
     "name": "Guadalajara",
     "lat": 20.67204,
     "lng": -103.3384,
     "pop": 1385621
    },
    {
+    "id": 273587922,
     "name": "Chihuahua",
     "lat": 28.63687,
     "lng": -106.07675,
     "pop": 925762
    },
    {
+    "id": 269908858,
     "name": "Mérida",
     "lat": 20.96708,
     "lng": -89.62374,
     "pop": 921771
    },
    {
+    "id": 5876942206,
     "name": "Cancún",
     "lat": 21.15275,
     "lng": -86.84258,
     "pop": 888797
    },
    {
+    "id": 611897092,
     "name": "Saltillo",
     "lat": 25.42304,
     "lng": -100.99275,
     "pop": 864431
    },
    {
+    "id": 4392412822,
     "name": "Aguascalientes",
     "lat": 21.88049,
     "lng": -102.29672,
     "pop": 863893
    },
    {
+    "id": 273589239,
     "name": "Hermosillo",
     "lat": 29.09482,
     "lng": -110.96922,
     "pop": 855563
    },
    {
+    "id": 213601095,
     "name": "Mexicali",
     "lat": 32.63925,
     "lng": -115.47473,
     "pop": 854186
    },
    {
+    "id": 269905839,
     "name": "San Luis Potosí",
     "lat": 22.15165,
     "lng": -100.9764,
     "pop": 845941
    },
    {
+    "id": 273590692,
     "name": "Culiacán",
     "lat": 24.7979,
     "lng": -107.39339,
     "pop": 808416
    },
    {
+    "id": 269905615,
     "name": "Santiago de Querétaro",
     "lat": 20.5923,
     "lng": -100.39174,
     "pop": 794789
    },
    {
+    "id": 269914489,
     "name": "Morelia",
     "lat": 19.70271,
     "lng": -101.19238,
     "pop": 743275
    },
    {
+    "id": 273615025,
     "name": "Reynosa",
     "lat": 26.09284,
     "lng": -98.27795,
     "pop": 691557
    },
    {
+    "id": 4143719537,
     "name": "Torreón",
     "lat": 25.5427,
     "lng": -103.41051,
     "pop": 690193
    },
    {
+    "id": 269913250,
     "name": "Acapulco",
     "lat": 16.86805,
     "lng": -99.89402,
     "pop": 658609
    },
    {
+    "id": 1038661889,
     "name": "Guadalupe",
     "lat": 25.67511,
     "lng": -100.21518,
     "pop": 635862
    },
    {
+    "id": 4145210488,
     "name": "Monterrey",
     "lat": 25.6802,
     "lng": -100.31526,
     "pop": 630000
    },
    {
+    "id": 288369855,
     "name": "Durango",
     "lat": 24.02201,
     "lng": -104.65474,
     "pop": 616068
    },
    {
+    "id": 847104759,
     "name": "Chimalhuacán",
     "lat": 19.43393,
     "lng": -98.95801,
     "pop": 612383
    },
    {
+    "id": 269911529,
     "name": "Tuxtla Gutiérrez",
     "lat": 16.7538,
     "lng": -93.11596,
     "pop": 578830
    },
    {
+    "id": 1038490154,
     "name": "Apodaca",
     "lat": 25.78165,
     "lng": -100.18875,
     "pop": 536436
    },
    {
+    "id": 296889512,
     "name": "Matamoros",
     "lat": 25.88102,
     "lng": -97.50649,
     "pop": 510739
    },
    {
+    "id": 4431771365,
     "name": "Ciudad López Mateos",
     "lat": 19.5734,
     "lng": -99.24395,
     "pop": 489160
    },
    {
+    "id": 3470563337,
     "name": "Cuautitlán Izcalli",
     "lat": 19.65314,
     "lng": -99.2145,
     "pop": 484573
    },
    {
+    "id": 1043929307,
     "name": "General Escobedo",
     "lat": 25.80852,
     "lng": -100.32243,
     "pop": 454967
    },
    {
+    "id": 269907341,
     "name": "Irapuato",
     "lat": 20.67588,
     "lng": -101.35211,
     "pop": 452090
    },
    {
+    "id": 959618169,
     "name": "Xalapa-Enríquez",
     "lat": 19.54083,
     "lng": -96.91464,
     "pop": 443063
    },
    {
+    "id": 3120750874,
     "name": "Tonalá",
     "lat": 20.62414,
     "lng": -103.24213,
     "pop": 442440
    },
    {
+    "id": 2530998038,
     "name": "Mazatlán",
     "lat": 23.20358,
     "lng": -106.42084,
     "pop": 441975
    },
    {
+    "id": 5869111795,
     "name": "Nuevo Laredo",
     "lat": 27.49339,
     "lng": -99.50625,
     "pop": 416055
    },
    {
+    "id": 472255714,
     "name": "Veracruz",
     "lat": 19.20034,
     "lng": -96.13836,
     "pop": 405952
    },
    {
+    "id": 2378060232,
     "name": "Celaya",
     "lat": 20.52179,
     "lng": -100.81405,
     "pop": 378143
    },
    {
+    "id": 6307339597,
     "name": "Tepic",
     "lat": 21.51192,
     "lng": -104.89159,
     "pop": 371387
    },
    {
+    "id": 6131847349,
     "name": "Uruapan",
     "lat": 19.41473,
     "lng": -102.05226,
     "pop": 356786
    },
    {
+    "id": 2777743655,
     "name": "Xico",
     "lat": 19.28215,
     "lng": -98.94161,
     "pop": 356352
    },
    {
+    "id": 59058448,
     "name": "Cuernavaca",
     "lat": 18.92183,
     "lng": -99.23423,
     "pop": 341029
    },
    {
+    "id": 269908777,
     "name": "Villahermosa",
     "lat": 17.98847,
     "lng": -92.93663,
     "pop": 340060
    },
    {
+    "id": 292479580,
     "name": "Ciudad Victoria",
     "lat": 23.73898,
     "lng": -99.14414,
     "pop": 332100
    },
    {
+    "id": 122136160,
     "name": "Ensenada",
     "lat": 31.86589,
     "lng": -116.60298,
     "pop": 330652
    },
    {
+    "id": 273589866,
     "name": "Ciudad Obregón",
     "lat": 27.48466,
     "lng": -109.93378,
     "pop": 329404
    },
    {
+    "id": 529125757,
     "name": "Ixtapaluca",
     "lat": 19.31293,
     "lng": -98.88405,
     "pop": 322271
    },
    {
+    "id": 1043929303,
     "name": "Benito Juárez",
     "lat": 25.6467,
     "lng": -100.09078,
     "pop": 308285
    },
    {
+    "id": 279948657,
     "name": "Playa del Carmen",
     "lat": 20.64628,
     "lng": -87.08079,
     "pop": 304942
    },
    {
+    "id": 1038661887,
     "name": "Santa Catarina",
     "lat": 25.67451,
     "lng": -100.46164,
     "pop": 304052
    },
    {
+    "id": 4143719536,
     "name": "Gómez Palacio",
     "lat": 25.57325,
     "lng": -103.49478,
     "pop": 301742
    },
    {
+    "id": 273590361,
     "name": "Los Mochis",
     "lat": 25.79281,
     "lng": -108.99019,
     "pop": 298009
    },
    {
+    "id": 272109451,
     "name": "Pachuca",
     "lat": 20.11654,
     "lng": -98.74135,
     "pop": 297848
    },
    {
+    "id": 273584290,
     "name": "Tampico",
     "lat": 22.21576,
     "lng": -97.85777,
     "pop": 297562
    },
    {
+    "id": 448088952,
     "name": "Tehuacán",
     "lat": 18.45999,
     "lng": -97.39036,
     "pop": 293825
    },
    {
+    "id": 6177074841,
     "name": "Ciudad Nicolás Romero",
     "lat": 19.61842,
     "lng": -99.30355,
     "pop": 281799
    },
    {
+    "id": 316791163,
     "name": "Heroica Nogales",
     "lat": 31.32851,
     "lng": -110.94505,
     "pop": 261137
    },
    {
+    "id": 269912387,
     "name": "Oaxaca de Juárez",
     "lat": 17.06047,
     "lng": -96.72536,
     "pop": 258913
    },
    {
+    "id": 266478791,
     "name": "La Paz",
     "lat": 24.16199,
     "lng": -110.31585,
     "pop": 250141
    },
    {
+    "id": 269908857,
     "name": "San Francisco de Campeche",
     "lat": 19.84368,
     "lng": -90.53675,
     "pop": 249623
    },
    {
+    "id": 747101009,
     "name": "Monclova",
     "lat": 26.9,
     "lng": -101.41712,
     "pop": 237169
    },
    {
+    "id": 1305142475,
     "name": "García",
     "lat": 25.81219,
     "lng": -100.5931,
     "pop": 234698
    },
    {
+    "id": 269913428,
     "name": "Chilpancingo de los Bravo",
     "lat": 17.55421,
     "lng": -99.50484,
     "pop": 225728
    },
    {
+    "id": 2052329081,
     "name": "Puerto Vallarta",
     "lat": 20.64072,
     "lng": -105.22031,
     "pop": 224166
    },
    {
+    "id": 269914302,
     "name": "Toluca",
     "lat": 19.29255,
     "lng": -99.6569,
     "pop": 223876
    },
    {
+    "id": 273602251,
     "name": "Silao",
     "lat": 20.94373,
     "lng": -101.42704,
     "pop": 221793
    },
    {
+    "id": 324351668,
     "name": "Tapachula",
     "lat": 14.90429,
     "lng": -92.26093,
     "pop": 217550
    },
    {
+    "id": 1168572324,
     "name": "Coatzacoalcos",
     "lat": 18.1405,
     "lng": -94.4344,
     "pop": 212540
    },
    {
+    "id": 5894788591,
     "name": "Buenavista",
     "lat": 19.60224,
     "lng": -99.16638,
     "pop": 206081
    },
    {
+    "id": 303079568,
     "name": "Cabo San Lucas",
     "lat": 22.89389,
     "lng": -109.92006,
     "pop": 202694
    },
    {
+    "id": 3402675838,
     "name": "Ciudad del Carmen",
     "lat": 18.65174,
     "lng": -91.81492,
     "pop": 191238
    },
    {
+    "id": 269911011,
     "name": "San Cristóbal",
     "lat": 16.73538,
     "lng": -92.63873,
     "pop": 183509
    },
    {
+    "id": 472255717,
     "name": "Poza Rica",
     "lat": 20.53209,
     "lng": -97.45364,
     "pop": 180057
    },
    {
+    "id": 14088619438,
     "name": "San Juan del Río",
     "lat": 20.39529,
     "lng": -99.98565,
     "pop": 177719
    },
    {
+    "id": 333132844,
     "name": "San Luis Río Colorado",
     "lat": 32.43933,
     "lng": -114.77209,
     "pop": 176685
    },
    {
+    "id": 690544622,
     "name": "Chalco de Díaz Covarrubias",
     "lat": 19.26122,
     "lng": -98.89584,
     "pop": 174704
    },
    {
+    "id": 310612049,
     "name": "Jiutepec",
     "lat": 18.88172,
     "lng": -99.1767,
     "pop": 174629
    },
    {
+    "id": 297154255,
     "name": "Piedras Negras",
     "lat": 28.69134,
     "lng": -100.54034,
     "pop": 173959
    },
    {
+    "id": 2322620350,
     "name": "Guadalupe",
     "lat": 22.74704,
     "lng": -102.5162,
     "pop": 170029
    },
    {
+    "id": 269910244,
     "name": "Chetumal",
     "lat": 18.50244,
     "lng": -88.29579,
     "pop": 169028
    },
    {
+    "id": 5924966614,
     "name": "Miramar",
     "lat": 22.33317,
     "lng": -97.87104,
     "pop": 161820
    },
    {
+    "id": 269907342,
     "name": "Salamanca",
     "lat": 20.57136,
     "lng": -101.19244,
     "pop": 160682
    },
    {
+    "id": 299207656,
     "name": "Ciudad Acuña",
     "lat": 29.32143,
     "lng": -100.9595,
     "pop": 160225
    },
    {
+    "id": 1966018591,
     "name": "Manzanillo",
     "lat": 19.05063,
     "lng": -104.316,
     "pop": 159853
    },
    {
+    "id": 4906686556,
     "name": "Cuautla",
     "lat": 18.82901,
     "lng": -98.94322,
     "pop": 157336
    },
    {
+    "id": 273611686,
     "name": "Zamora",
     "lat": 19.98289,
     "lng": -102.28363,
     "pop": 154546
    },
    {
+    "id": 2829948098,
     "name": "Villa de Álvarez",
     "lat": 19.26514,
     "lng": -103.73601,
     "pop": 147496
    },
    {
+    "id": 290746327,
     "name": "Fresnillo",
     "lat": 23.18113,
     "lng": -102.87291,
     "pop": 143281
    },
    {
+    "id": 2056386985,
     "name": "Kanasín",
     "lat": 20.93505,
     "lng": -89.55772,
     "pop": 139753
    },
    {
+    "id": 1946188374,
     "name": "Hacienda Santa Fe",
     "lat": 20.51814,
     "lng": -103.37863,
     "pop": 139174
    },
    {
+    "id": 472255718,
     "name": "Córdoba",
     "lat": 18.89447,
     "lng": -96.93529,
     "pop": 139075
    },
    {
+    "id": 269906564,
     "name": "Zacatecas",
     "lat": 22.77539,
     "lng": -102.57227,
     "pop": 138444
    },
    {
+    "id": 292474264,
     "name": "Ciudad Valles",
     "lat": 21.99166,
     "lng": -99.0103,
     "pop": 136351
    },
    {
+    "id": 5245034192,
     "name": "San José del Cabo",
     "lat": 23.05984,
     "lng": -109.70251,
     "pop": 136285
    },
    {
+    "id": 297172944,
     "name": "Cuauhtémoc",
     "lat": 28.40096,
     "lng": -106.86653,
     "pop": 135586
    },
    {
+    "id": 273607050,
     "name": "Iguala",
     "lat": 18.34664,
     "lng": -99.53769,
     "pop": 132854
    },
    {
+    "id": 1038661890,
     "name": "San Pedro Garza García",
     "lat": 25.66518,
     "lng": -100.40183,
     "pop": 132169
    },
    {
+    "id": 291755065,
     "name": "Delicias",
     "lat": 28.19119,
     "lng": -105.4696,
     "pop": 128548
    },
    {
+    "id": 1735301651,
     "name": "Navojoa",
     "lat": 27.07219,
     "lng": -109.44382,
     "pop": 120926
    },
    {
+    "id": 472255719,
     "name": "Orizaba",
     "lat": 18.84974,
     "lng": -97.10601,
     "pop": 120500
    },
    {
+    "id": 1609397904,
     "name": "Matamoros",
     "lat": 25.52929,
     "lng": -103.232,
     "pop": 118337
    },
    {
+    "id": 273589697,
     "name": "Guaymas",
     "lat": 27.92164,
     "lng": -110.89941,
     "pop": 117253
    },
    {
+    "id": 875025568,
     "name": "El Pueblito",
     "lat": 20.53979,
     "lng": -100.44107,
     "pop": 115264
    },
    {
+    "id": 808722217,
     "name": "Ramos Arizpe",
     "lat": 25.54079,
     "lng": -100.94667,
     "pop": 114010
    },
    {
+    "id": 293525857,
     "name": "Hidalgo del Parral",
     "lat": 26.92872,
     "lng": -105.66741,
     "pop": 113843
    },
    {
+    "id": 1698247348,
     "name": "Comitán",
     "lat": 16.25236,
     "lng": -92.13542,
     "pop": 113479
    },
    {
+    "id": 294996953,
     "name": "Ciudad Guzmán",
     "lat": 19.70016,
     "lng": -103.46394,
     "pop": 111975
    },
    {
+    "id": 296372203,
     "name": "Lagos de Moreno",
     "lat": 21.35673,
     "lng": -101.93529,
     "pop": 111569
    },
    {
+    "id": 1139762556,
     "name": "Río Bravo",
     "lat": 25.98898,
     "lng": -98.09458,
     "pop": 111314
    },
    {
+    "id": 294110984,
     "name": "La Piedad de Cabadas",
     "lat": 20.34299,
     "lng": -102.03112,
     "pop": 106490
    },
    {
+    "id": 272109623,
     "name": "Tulancingo",
     "lat": 20.08396,
     "lng": -98.36354,
     "pop": 106163
    },
    {
+    "id": 3369871167,
     "name": "Temoaya",
     "lat": 19.4695,
     "lng": -99.59496,
     "pop": 105766
    },
    {
+    "id": 5357623246,
     "name": "Texcoco de Mora",
     "lat": 19.51443,
     "lng": -98.88213,
     "pop": 105165
    },
    {
+    "id": 310616396,
     "name": "Temixco",
     "lat": 18.84494,
     "lng": -99.22364,
     "pop": 104461
    },
    {
+    "id": 458608675,
     "name": "Tuxtepec",
     "lat": 18.08168,
     "lng": -96.11828,
     "pop": 103609
    },
    {
+    "id": 5321069248,
     "name": "Tepexpan",
     "lat": 19.6144,
     "lng": -98.93602,
     "pop": 102667
    },
    {
+    "id": 759183129,
     "name": "Apatzingán",
     "lat": 19.09138,
     "lng": -102.35374,
     "pop": 102362
    },
    {
+    "id": 11481189994,
     "name": "Cholula",
     "lat": 19.06782,
     "lng": -98.31063,
     "pop": 102260
    },
    {
+    "id": 472255720,
     "name": "Minatitlán",
     "lat": 17.99277,
     "lng": -94.55671,
     "pop": 101336
    },
    {
+    "id": 3602376339,
     "name": "Rosarito",
     "lat": 32.36517,
     "lng": -117.05579,
     "pop": 100660
    },
    {
+    "id": 790684840,
     "name": "Tepatitlán",
     "lat": 20.81515,
     "lng": -102.75881,
     "pop": 98842
    },
    {
+    "id": 4143721270,
     "name": "Ciudad Lerdo",
     "lat": 25.53664,
     "lng": -103.52525,
     "pop": 96243
    },
    {
+    "id": 273611139,
     "name": "Ocotlán",
     "lat": 20.35145,
     "lng": -102.76881,
     "pop": 94978
    },
    {
+    "id": 2962910196,
     "name": "Tesistán",
     "lat": 20.79892,
     "lng": -103.47676,
     "pop": 91631
    },
    {
+    "id": 299491891,
     "name": "Agua Prieta",
     "lat": 31.32675,
     "lng": -109.54635,
     "pop": 91029
    },
    {
+    "id": 472257682,
     "name": "Tuxpan",
     "lat": 20.95184,
     "lng": -97.40454,
     "pop": 89557
    },
    {
+    "id": 325692399,
     "name": "Tecomán",
     "lat": 18.91092,
     "lng": -103.87341,
     "pop": 88337
    },
    {
+    "id": 458608677,
     "name": "Juchitán",
     "lat": 16.43333,
     "lng": -95.01944,
     "pop": 88280
    },
    {
+    "id": 273608650,
     "name": "Zitácuaro",
     "lat": 19.4344,
     "lng": -100.35531,
     "pop": 86901
    },
    {
+    "id": 448081493,
     "name": "Atlixco",
     "lat": 18.90889,
     "lng": -98.43778,
     "pop": 86690
    },
    {
+    "id": 291728489,
     "name": "Matehuala",
     "lat": 23.64648,
     "lng": -100.64354,
     "pop": 86686
    },
    {
+    "id": 253071476,
     "name": "San Miguel de Cozumel",
     "lat": 20.50143,
     "lng": -86.94359,
     "pop": 84915
    },
    {
+    "id": 1601416419,
     "name": "Linares",
     "lat": 24.85957,
     "lng": -99.56831,
     "pop": 84666
    },
    {
+    "id": 2777552596,
     "name": "Los Reyes Acaquilpan",
     "lat": 19.35851,
     "lng": -98.97607,
     "pop": 84298
    },
    {
+    "id": 293980795,
     "name": "Lázaro Cárdenas",
     "lat": 17.95948,
     "lng": -102.19866,
     "pop": 83637
    },
    {
+    "id": 3280130361,
     "name": "Tecate",
     "lat": 32.56538,
     "lng": -116.62988,
     "pop": 81059
    },
    {
+    "id": 273586814,
     "name": "Cárdenas",
     "lat": 17.98868,
     "lng": -93.37674,
     "pop": 80454
    },
    {
+    "id": 2606132094,
     "name": "Altamira",
     "lat": 22.39216,
     "lng": -97.9363,
     "pop": 79824
    },
    {
+    "id": 273601685,
     "name": "San Francisco del Rincón",
     "lat": 21.01667,
     "lng": -101.85462,
     "pop": 79772
    },
    {
+    "id": 292471189,
     "name": "Ciudad Mante",
     "lat": 22.74113,
     "lng": -98.97141,
     "pop": 79515
    },
    {
+    "id": 297683490,
     "name": "Amozoc de Mota",
     "lat": 19.04464,
     "lng": -98.04407,
     "pop": 77106
    },
    {
+    "id": 458608676,
     "name": "Salina Cruz",
     "lat": 16.1825,
     "lng": -95.19583,
     "pop": 76660
    },
    {
+    "id": 1601416427,
     "name": "Cadereyta Jiménez",
     "lat": 25.5877,
     "lng": -100.00125,
     "pop": 75721
    },
    {
+    "id": 448081495,
     "name": "Texmelucan",
     "lat": 19.28404,
     "lng": -98.4346,
     "pop": 75518
    },
    {
+    "id": 9020700385,
     "name": "Valle de Santiago",
     "lat": 20.39166,
     "lng": -101.19366,
     "pop": 72633
    },
    {
+    "id": 269907735,
     "name": "San Miguel de Allende",
     "lat": 20.91422,
     "lng": -100.74378,
     "pop": 72452
    },
    {
+    "id": 5050076074,
     "name": "Guasave",
     "lat": 25.5738,
     "lng": -108.46747,
     "pop": 71196
    },
    {
+    "id": 269907416,
     "name": "Guanajuato",
     "lat": 21.01588,
     "lng": -101.25284,
     "pop": 70068
    },
    {
+    "id": 4038533311,
     "name": "Temascalcingo",
     "lat": 19.91577,
     "lng": -100.00353,
     "pop": 70000
    },
    {
+    "id": 273602604,
     "name": "Cortazar",
     "lat": 20.48018,
     "lng": -100.96058,
     "pop": 69351
    },
    {
+    "id": 2291986243,
     "name": "San Mateo Atenco",
     "lat": 19.26377,
     "lng": -99.53011,
     "pop": 67890
    },
    {
+    "id": 325654014,
     "name": "Zihuatanejo",
     "lat": 17.64686,
     "lng": -101.55189,
     "pop": 67408
    },
    {
+    "id": 1941959590,
     "name": "Dolores Hidalgo",
     "lat": 21.1575,
     "lng": -100.9342,
     "pop": 67101
    },
    {
+    "id": 5893911237,
     "name": "Tultepec",
     "lat": 19.68683,
     "lng": -99.12834,
     "pop": 65338
    },
    {
+    "id": 273611330,
     "name": "Sahuayo de Morelos",
     "lat": 20.05712,
     "lng": -102.72235,
     "pop": 64431
    },
    {
+    "id": 1105499210,
     "name": "Jesús María",
     "lat": 21.96149,
     "lng": -102.34449,
     "pop": 63805
    },
    {
+    "id": 273590460,
     "name": "Guamúchil",
     "lat": 25.45755,
     "lng": -108.07554,
     "pop": 63743
    },
    {
+    "id": 472257684,
     "name": "San Andrés Tuxtla",
     "lat": 18.44587,
     "lng": -95.21346,
     "pop": 61719
    },
    {
+    "id": 6254514011,
     "name": "Uriangato",
     "lat": 20.13796,
     "lng": -101.17858,
     "pop": 61494
    },
    {
+    "id": 273609025,
     "name": "Ciudad Hidalgo",
     "lat": 19.69192,
     "lng": -100.55569,
     "pop": 60542
    },
    {
+    "id": 472257687,
     "name": "Martínez de la Torre",
     "lat": 20.06152,
     "lng": -97.05454,
     "pop": 60074
    },
    {
+    "id": 333132849,
     "name": "Heroica Caborca",
     "lat": 30.7166,
     "lng": -112.15626,
     "pop": 59922
    },
    {
+    "id": 354744153,
     "name": "Huamantla",
     "lat": 19.31343,
     "lng": -97.92302,
     "pop": 59871
    },
    {
+    "id": 9938388455,
     "name": "Huauchinango",
     "lat": 20.17391,
     "lng": -98.05067,
     "pop": 58957
    },
    {
+    "id": 6177063539,
     "name": "Teziutlán",
     "lat": 19.81703,
     "lng": -97.36012,
     "pop": 58699
    },
    {
+    "id": 333154553,
     "name": "Puerto Peñasco",
     "lat": 31.31709,
     "lng": -113.53182,
     "pop": 56756
    },
    {
+    "id": 752916631,
     "name": "Acámbaro",
     "lat": 20.0291,
     "lng": -100.72333,
     "pop": 56597
    },
    {
+    "id": 1668100219,
     "name": "Valladolid",
     "lat": 20.69025,
     "lng": -88.2017,
     "pop": 56494
    },
    {
+    "id": 287021318,
     "name": "Umán",
     "lat": 20.88137,
     "lng": -89.74619,
     "pop": 56409
    },
    {
+    "id": 458608695,
     "name": "Huajuapan",
     "lat": 17.80885,
     "lng": -97.77806,
     "pop": 56163
    },
    {
+    "id": 269911211,
     "name": "Chiapa de Corzo",
     "lat": 16.70752,
     "lng": -93.0115,
     "pop": 55931
    },
    {
+    "id": 296376831,
     "name": "Nuevo Casas Grandes",
     "lat": 30.41545,
     "lng": -107.90588,
     "pop": 55553
    },
    {
+    "id": 269914565,
     "name": "Pátzcuaro",
     "lat": 19.51368,
     "lng": -101.60996,
     "pop": 55298
    },
    {
+    "id": 1653951467,
     "name": "Zacapu",
     "lat": 19.81841,
     "lng": -101.79251,
     "pop": 55287
    },
    {
+    "id": 298252745,
     "name": "Sabinas",
     "lat": 27.8524,
     "lng": -101.11838,
     "pop": 54905
    },
    {
+    "id": 1922033560,
     "name": "San Miguel Zinacantepec",
     "lat": 19.28449,
     "lng": -99.73504,
     "pop": 54220
    },
    {
+    "id": 472257698,
     "name": "Coatepec",
     "lat": 19.45431,
     "lng": -96.95964,
     "pop": 53621
    },
    {
+    "id": 472257693,
     "name": "Papantla de Olarte",
     "lat": 20.44675,
     "lng": -97.32279,
     "pop": 53546
    },
    {
+    "id": 1223946773,
     "name": "San Juan de los Lagos",
     "lat": 21.24518,
     "lng": -102.33486,
     "pop": 53539
    },
    {
+    "id": 299677634,
     "name": "Rioverde",
     "lat": 21.93186,
     "lng": -99.99286,
     "pop": 53128
    },
    {
+    "id": 289795051,
     "name": "Tizimín",
     "lat": 21.14289,
     "lng": -88.15247,
     "pop": 52593
    },
    {
+    "id": 273606737,
     "name": "Taxco",
     "lat": 18.55654,
     "lng": -99.60528,
     "pop": 52217
    },
    {
+    "id": 867681908,
     "name": "Arandas",
     "lat": 20.70587,
     "lng": -102.34791,
     "pop": 52175
    },
    {
+    "id": 816733963,
     "name": "San Luis de la Paz",
     "lat": 21.29705,
     "lng": -100.51627,
     "pop": 51984
    },
    {
+    "id": 472257695,
     "name": "Acayucan",
     "lat": 17.94879,
     "lng": -94.91458,
     "pop": 50934
    },
    {
+    "id": 691815910,
     "name": "Zumpango",
     "lat": 19.79729,
     "lng": -99.10073,
     "pop": 50742
    },
    {
+    "id": 4424508399,
     "name": "Los Reyes de Salgado",
     "lat": 19.58942,
     "lng": -102.47419,
     "pop": 49940
    },
    {
+    "id": 354744145,
     "name": "Apizaco",
     "lat": 19.41556,
     "lng": -98.14,
     "pop": 49506
    },
    {
+    "id": 4645818858,
     "name": "San Agustín",
     "lat": 20.54639,
     "lng": -103.46686,
     "pop": 49402
    },
    {
+    "id": 1654958638,
     "name": "San Pedro de las Colonias",
     "lat": 25.75899,
     "lng": -102.98407,
     "pop": 48746
    },
    {
+    "id": 1139626165,
     "name": "Valle Hermoso",
     "lat": 25.6697,
     "lng": -97.81356,
     "pop": 48172
    },
    {
+    "id": 1964992806,
     "name": "Xalisco",
     "lat": 21.4516,
     "lng": -104.8988,
     "pop": 48170
    },
    {
+    "id": 1821596481,
     "name": "Pesquería",
     "lat": 25.78514,
     "lng": -100.05206,
     "pop": 48069
    },
    {
+    "id": 354744151,
     "name": "Santa Ana Chiautempan",
     "lat": 19.31389,
     "lng": -98.1925,
     "pop": 48030
    },
    {
+    "id": 3994393614,
     "name": "Tierra Blanca",
     "lat": 18.44751,
     "lng": -96.36098,
     "pop": 47824
    },
    {
+    "id": 575156427,
     "name": "Ocosingo",
     "lat": 16.9057,
     "lng": -92.09278,
     "pop": 47688
    },
    {
+    "id": 849915801,
     "name": "Tlapa de Comonfort",
     "lat": 17.54333,
     "lng": -98.57861,
     "pop": 46975
    },
    {
+    "id": 320858898,
     "name": "Jerez",
     "lat": 22.64944,
     "lng": -102.99003,
     "pop": 46132
    },
    {
+    "id": 1361090971,
     "name": "Autlán de Navarro",
     "lat": 19.77034,
     "lng": -104.36427,
     "pop": 45382
    },
    {
+    "id": 1601416420,
     "name": "Montemorelos",
     "lat": 25.18866,
     "lng": -99.82935,
     "pop": 45108
    },
    {
+    "id": 2870746320,
     "name": "Tlajomulco",
     "lat": 20.47373,
     "lng": -103.44697,
     "pop": 44103
    },
    {
+    "id": 4072096511,
     "name": "Santa Isabel",
     "lat": 32.63051,
     "lng": -115.57035,
     "pop": 43981
    },
    {
+    "id": 278820637,
     "name": "Ciudad Constitución",
     "lat": 25.03211,
     "lng": -111.65805,
     "pop": 43805
    },
    {
+    "id": 459391796,
     "name": "Tizayuca",
     "lat": 19.84125,
     "lng": -98.98156,
     "pop": 43250
    },
    {
+    "id": 296125806,
     "name": "Comalcalco",
     "lat": 18.26151,
     "lng": -93.22315,
     "pop": 43035
    },
    {
+    "id": 448081499,
     "name": "Izúcar",
     "lat": 18.60222,
     "lng": -98.46577,
     "pop": 43006
    },
    {
+    "id": 273595362,
     "name": "Palenque",
     "lat": 17.50919,
     "lng": -91.98092,
     "pop": 42947
    },
    {
+    "id": 273569070,
     "name": "Yautepec",
     "lat": 18.88585,
     "lng": -99.06466,
     "pop": 42731
    },
    {
+    "id": 472257705,
     "name": "Las Choapas",
     "lat": 17.91,
     "lng": -94.09278,
     "pop": 42693
    },
    {
+    "id": 385592200,
     "name": "Cintalapa",
     "lat": 16.69054,
     "lng": -93.72576,
     "pop": 42467
    },
    {
+    "id": 6045375791,
     "name": "Juventino Rosas",
     "lat": 20.64366,
     "lng": -100.99267,
     "pop": 42264
    },
    {
+    "id": 4710095032,
     "name": "Nuevo México",
     "lat": 20.76153,
     "lng": -103.43942,
     "pop": 42226
    },
    {
+    "id": 5106410039,
     "name": "Santo Domingo Tehuantepec",
     "lat": 16.31726,
     "lng": -95.2468,
     "pop": 42082
    },
    {
+    "id": 1930669146,
     "name": "Camargo",
     "lat": 27.67843,
     "lng": -105.1715,
     "pop": 42019
    },
    {
+    "id": 269909227,
     "name": "Progreso",
     "lat": 21.28221,
     "lng": -89.66366,
     "pop": 41965
    },
    {
+    "id": 448081501,
     "name": "Xicotepec de Juárez",
     "lat": 20.27671,
     "lng": -97.9607,
     "pop": 41455
    },
    {
+    "id": 5039503425,
     "name": "San Miguel Topilejo",
     "lat": 19.20122,
     "lng": -99.14124,
     "pop": 41087
    },
    {
+    "id": 303540371,
     "name": "Pánuco",
     "lat": 22.0563,
     "lng": -98.18282,
     "pop": 40754
    },
    {
+    "id": 472257708,
     "name": "Río Blanco",
     "lat": 18.83836,
     "lng": -97.13727,
     "pop": 40611
    },
    {
+    "id": 294112445,
     "name": "Pénjamo",
     "lat": 20.43138,
     "lng": -101.72412,
     "pop": 40070
    },
    {
+    "id": 459391777,
     "name": "Huejutla de Reyes",
     "lat": 21.14011,
     "lng": -98.41522,
     "pop": 40015
    },
    {
+    "id": 4783834226,
     "name": "San Juan de Ocotán",
     "lat": 20.71045,
     "lng": -103.45409,
@@ -1336,270 +1558,315 @@
   ],
   "PE": [
    {
+    "id": 4289361265,
     "name": "Lima",
     "lat": -12.04598,
     "lng": -77.03059,
     "pop": 9989369
    },
    {
+    "id": 253855157,
     "name": "Arequipa",
     "lat": -16.39887,
     "lng": -71.53696,
     "pop": 1008290
    },
    {
+    "id": 272377981,
     "name": "Trujillo",
     "lat": -8.11168,
     "lng": -79.02877,
     "pop": 919899
    },
    {
+    "id": 320100077,
     "name": "Chiclayo",
     "lat": -6.77161,
     "lng": -79.83872,
     "pop": 524442
    },
    {
+    "id": 272379571,
     "name": "Piura",
     "lat": -5.19711,
     "lng": -80.62666,
     "pop": 473025
    },
    {
+    "id": 27434277,
     "name": "Iquitos",
     "lat": -3.74937,
     "lng": -73.24441,
     "pop": 465817
    },
    {
+    "id": 59115290,
     "name": "Cuzco",
     "lat": -13.51709,
     "lng": -71.97854,
     "pop": 428450
    },
    {
+    "id": 268127318,
     "name": "Huancayo",
     "lat": -12.0681,
     "lng": -75.2101,
     "pop": 403033
    },
    {
+    "id": 287844737,
     "name": "Chimbote",
     "lat": -9.0745,
     "lng": -78.59361,
     "pop": 354544
    },
    {
+    "id": 2875442305,
     "name": "Pucallpa",
     "lat": -8.38207,
     "lng": -74.53875,
     "pop": 326040
    },
    {
+    "id": 4590192817,
     "name": "Tacna",
     "lat": -18.01386,
     "lng": -70.2511,
     "pop": 286240
    },
    {
+    "id": 258064159,
     "name": "Ica",
     "lat": -14.0641,
     "lng": -75.72909,
     "pop": 282407
    },
    {
+    "id": 253905310,
     "name": "Juliaca",
     "lat": -15.49323,
     "lng": -70.13562,
     "pop": 270340
    },
    {
+    "id": 4022842869,
     "name": "Chosica",
     "lat": -11.93677,
     "lng": -76.69691,
     "pop": 240814
    },
    {
+    "id": 272029209,
     "name": "Ayacucho",
     "lat": -13.16043,
     "lng": -74.2257,
     "pop": 216444
    },
    {
+    "id": 272378756,
     "name": "Cajamarca",
     "lat": -7.15667,
     "lng": -78.51731,
     "pop": 201329
    },
    {
+    "id": 272401474,
     "name": "Huánuco",
     "lat": -9.92933,
     "lng": -76.23948,
     "pop": 196627
    },
    {
+    "id": 304296640,
     "name": "Sullana",
     "lat": -4.89006,
     "lng": -80.68736,
     "pop": 184910
    },
    {
+    "id": 384942308,
     "name": "Chincha Alta",
     "lat": -13.41763,
     "lng": -76.13264,
     "pop": 181524
    },
    {
+    "id": 272400894,
     "name": "Tarapoto",
     "lat": -6.48772,
     "lng": -76.35987,
     "pop": 176000
    },
    {
+    "id": 7370403825,
     "name": "Nuevo Chimbote",
     "lat": -9.12212,
     "lng": -78.53097,
     "pop": 158385
    },
    {
+    "id": 1041817224,
     "name": "Huacho",
     "lat": -11.10852,
     "lng": -77.61033,
     "pop": 132122
    },
    {
+    "id": 59043304,
     "name": "Puno",
     "lat": -15.84075,
     "lng": -70.02841,
     "pop": 128637
    },
    {
+    "id": 272367389,
     "name": "Huaraz",
     "lat": -9.52985,
     "lng": -77.529,
     "pop": 118836
    },
    {
+    "id": 338539511,
     "name": "Tumbes",
     "lat": -3.57079,
     "lng": -80.45965,
     "pop": 96946
    },
    {
+    "id": 409705339,
     "name": "Talara",
     "lat": -4.57969,
     "lng": -81.27119,
     "pop": 91444
    },
    {
+    "id": 268582528,
     "name": "Andahuaylas",
     "lat": -13.65641,
     "lng": -73.38995,
     "pop": 88177
    },
    {
+    "id": 268802158,
     "name": "Puerto Maldonado",
     "lat": -12.59386,
     "lng": -69.18668,
     "pop": 83602
    },
    {
+    "id": 6486650875,
     "name": "Paita",
     "lat": -5.08516,
     "lng": -81.11368,
     "pop": 81163
    },
    {
+    "id": 5502413435,
     "name": "Huaral",
     "lat": -11.49549,
     "lng": -77.20704,
     "pop": 81026
    },
    {
+    "id": 278074020,
     "name": "Jaén",
     "lat": -5.70861,
     "lng": -78.80759,
     "pop": 80553
    },
    {
+    "id": 253909180,
     "name": "Pisco",
     "lat": -13.70998,
     "lng": -76.20298,
     "pop": 73671
    },
    {
+    "id": 268599713,
     "name": "Abancay",
     "lat": -13.63735,
     "lng": -72.87887,
     "pop": 72277
    },
    {
+    "id": 271351213,
     "name": "Yurimaguas",
     "lat": -5.89517,
     "lng": -76.10465,
     "pop": 71609
    },
    {
+    "id": 705042151,
     "name": "Ilo",
     "lat": -17.64588,
     "lng": -71.3452,
     "pop": 70555
    },
    {
+    "id": 1815856037,
     "name": "Moquegua",
     "lat": -17.1938,
     "lng": -70.93456,
     "pop": 69882
    },
    {
+    "id": 347387631,
     "name": "Lambayeque",
     "lat": -6.70303,
     "lng": -79.90651,
     "pop": 65766
    },
    {
+    "id": 411804007,
     "name": "Moyobamba",
     "lat": -6.03473,
     "lng": -76.97468,
     "pop": 55109
    },
    {
+    "id": 287355649,
     "name": "Barranca",
     "lat": -10.75412,
     "lng": -77.76094,
     "pop": 54621
    },
    {
+    "id": 1910490675,
     "name": "Huamachuco",
     "lat": -7.81547,
     "lng": -78.04871,
     "pop": 51122
    },
    {
+    "id": 320109749,
     "name": "Catacaos",
     "lat": -5.26548,
     "lng": -80.67608,
     "pop": 48188
    },
    {
+    "id": 262945603,
     "name": "Sicuani",
     "lat": -14.27293,
     "lng": -71.22653,
     "pop": 44981
    },
    {
+    "id": 6278825377,
     "name": "El Pedregal",
     "lat": -16.36199,
     "lng": -72.19088,
     "pop": 44264
    },
    {
+    "id": 320030135,
     "name": "Chulucanas",
     "lat": -5.09651,
     "lng": -80.16092,
     "pop": 42984
    },
    {
+    "id": 276523895,
     "name": "Tarma",
     "lat": -11.41999,
     "lng": -75.68771,
@@ -1608,960 +1875,1120 @@
   ],
   "AR": [
    {
+    "id": 81590481,
     "name": "Buenos Aires",
     "lat": -34.60956,
     "lng": -58.38879,
     "pop": 3121707
    },
    {
+    "id": 2466067279,
     "name": "Córdoba",
     "lat": -31.41669,
     "lng": -64.18342,
     "pop": 1655481
    },
    {
+    "id": 198417773,
     "name": "Rosario",
     "lat": -32.95936,
     "lng": -60.6617,
     "pop": 1030069
    },
    {
+    "id": 198403560,
     "name": "Mendoza",
     "lat": -32.88942,
     "lng": -68.84462,
     "pop": 937154
    },
    {
+    "id": 247782633,
     "name": "La Plata",
     "lat": -34.92068,
     "lng": -57.95376,
     "pop": 799523
    },
    {
+    "id": 198402188,
     "name": "Mar del Plata",
     "lat": -37.99762,
     "lng": -57.54821,
     "pop": 664892
    },
    {
+    "id": 198418541,
     "name": "Salta",
     "lat": -24.78929,
     "lng": -65.41032,
     "pop": 535303
    },
    {
+    "id": 198422334,
     "name": "San Miguel de Tucumán",
     "lat": -26.83037,
     "lng": -65.20381,
     "pop": 527607
    },
    {
+    "id": 198421467,
     "name": "San Juan",
     "lat": -31.53709,
     "lng": -68.52518,
     "pop": 522029
    },
    {
+    "id": 4705256502,
     "name": "Corrientes",
     "lat": -27.4687,
     "lng": -58.8312,
     "pop": 430170
    },
    {
+    "id": 198423933,
     "name": "Santa Fe",
     "lat": -31.6187,
     "lng": -60.70196,
     "pop": 404910
    },
    {
+    "id": 1617730500,
     "name": "Resistencia",
     "lat": -27.45111,
     "lng": -58.98652,
     "pop": 385726
    },
    {
+    "id": 198439791,
     "name": "Bahía Blanca",
     "lat": -38.71765,
     "lng": -62.26549,
     "pop": 301572
    },
    {
+    "id": 198406387,
     "name": "Neuquén",
     "lat": -38.95197,
     "lng": -68.05917,
     "pop": 288896
    },
    {
+    "id": 198411639,
     "name": "Posadas",
     "lat": -27.36648,
     "lng": -55.89429,
     "pop": 277564
    },
    {
+    "id": 198425012,
     "name": "Santiago del Estero",
     "lat": -27.78771,
     "lng": -64.25951,
     "pop": 252192
    },
    {
+    "id": 198455541,
     "name": "Gregorio de Laferrere",
     "lat": -34.75048,
     "lng": -58.58464,
     "pop": 248522
    },
    {
+    "id": 198409278,
     "name": "Paraná",
     "lat": -31.73301,
     "lng": -60.52985,
     "pop": 247863
    },
    {
+    "id": 198450537,
     "name": "Formosa",
     "lat": -26.1853,
     "lng": -58.1745,
     "pop": 234354
    },
    {
+    "id": 198453659,
     "name": "José C. Paz",
     "lat": -34.51191,
     "lng": -58.77768,
     "pop": 232030
    },
    {
+    "id": 198423279,
     "name": "San Salvador de Jujuy",
     "lat": -24.18526,
     "lng": -65.29948,
     "pop": 231229
    },
    {
+    "id": 198451982,
     "name": "Gualeguaychú",
     "lat": -33.00789,
     "lng": -58.51099,
     "pop": 209461
    },
    {
+    "id": 1961985643,
     "name": "San Luis",
     "lat": -33.30207,
     "lng": -66.33696,
     "pop": 204019
    },
    {
+    "id": 224430003,
     "name": "Comodoro Rivadavia",
     "lat": -45.8632,
     "lng": -67.47526,
     "pop": 201228
    },
    {
+    "id": 198451864,
     "name": "González Catán",
     "lat": -34.76925,
     "lng": -58.64803,
     "pop": 190097
    },
    {
+    "id": 198453095,
     "name": "Isidro Casanova",
     "lat": -34.70369,
     "lng": -58.58624,
     "pop": 186000
    },
    {
+    "id": 2005851353,
     "name": "Virrey del Pino",
     "lat": -34.85886,
     "lng": -58.66434,
     "pop": 180526
    },
    {
+    "id": 198457801,
     "name": "La Rioja",
     "lat": -29.41274,
     "lng": -66.85588,
     "pop": 180219
    },
    {
+    "id": 1215663604,
     "name": "Moreno",
     "lat": -34.63966,
     "lng": -58.78983,
     "pop": 169506
    },
    {
+    "id": 198440788,
     "name": "Berazategui",
     "lat": -34.76327,
     "lng": -58.21166,
     "pop": 167498
    },
    {
+    "id": 198420062,
     "name": "San Fernando del Valle de Catamarca",
     "lat": -28.46888,
     "lng": -65.77906,
     "pop": 160058
    },
    {
+    "id": 198416817,
     "name": "Río Cuarto",
     "lat": -33.12376,
     "lng": -64.34898,
     "pop": 158298
    },
    {
+    "id": 198445828,
     "name": "Concordia",
     "lat": -31.39725,
     "lng": -58.01733,
     "pop": 149450
    },
    {
+    "id": 198404846,
     "name": "Monte Grande",
     "lat": -34.81927,
     "lng": -58.46643,
     "pop": 140420
    },
    {
+    "id": 198419670,
     "name": "San Carlos de Bariloche",
     "lat": -41.13348,
     "lng": -71.31015,
     "pop": 135755
    },
    {
+    "id": 198403651,
     "name": "Merlo",
     "lat": -34.6605,
     "lng": -58.73217,
     "pop": 134581
    },
    {
+    "id": 198422475,
     "name": "San Nicolás de los Arroyos",
     "lat": -33.32771,
     "lng": -60.21659,
     "pop": 133602
    },
    {
+    "id": 5923277020,
     "name": "Maipú",
     "lat": -32.98462,
     "lng": -68.7882,
     "pop": 127657
    },
    {
+    "id": 1999027898,
     "name": "Santa María",
     "lat": -34.56589,
     "lng": -58.74328,
     "pop": 123651
    },
    {
+    "id": 198405191,
     "name": "Morón",
     "lat": -34.65105,
     "lng": -58.62174,
     "pop": 122642
    },
    {
+    "id": 1232489086,
     "name": "Florencio Varela",
     "lat": -34.80444,
     "lng": -58.27832,
     "pop": 120678
    },
    {
+    "id": 198422869,
     "name": "San Rafael",
     "lat": -34.6126,
     "lng": -68.33051,
     "pop": 118850
    },
    {
+    "id": 198428780,
     "name": "Tandil",
     "lat": -37.32829,
     "lng": -59.1357,
     "pop": 116917
    },
    {
+    "id": 198424676,
     "name": "Santa Rosa",
     "lat": -36.62035,
     "lng": -64.29058,
     "pop": 116083
    },
    {
+    "id": 198416899,
     "name": "Río Gallegos",
     "lat": -51.62153,
     "lng": -69.21504,
     "pop": 115585
    },
    {
+    "id": 3823036227,
     "name": "Villa Mercedes",
     "lat": -33.67458,
     "lng": -65.46176,
     "pop": 111391
    },
    {
+    "id": 198429197,
     "name": "Temperley",
     "lat": -34.77588,
     "lng": -58.39712,
     "pop": 111179
    },
    {
+    "id": 198451606,
     "name": "General Roca",
     "lat": -39.02683,
     "lng": -67.57547,
     "pop": 108680
    },
    {
+    "id": 1216961535,
     "name": "Trujui",
     "lat": -34.5986,
     "lng": -58.75161,
     "pop": 108019
    },
    {
+    "id": 198454502,
     "name": "La Banda",
     "lat": -27.73571,
     "lng": -64.24344,
     "pop": 106441
    },
    {
+    "id": 297981881,
     "name": "Trelew",
     "lat": -43.25312,
     "lng": -65.30944,
     "pop": 106214
    },
    {
+    "id": 198444250,
     "name": "Cipolletti",
     "lat": -38.93134,
     "lng": -67.99059,
     "pop": 105482
    },
    {
+    "id": 198410145,
     "name": "Pergamino",
     "lat": -33.89749,
     "lng": -60.57505,
     "pop": 104086
    },
    {
+    "id": 259299116,
     "name": "Ituzaingó",
     "lat": -34.65833,
     "lng": -58.66714,
     "pop": 104000
    },
    {
+    "id": 198407463,
     "name": "Olavarría",
     "lat": -36.89388,
     "lng": -60.32317,
     "pop": 102907
    },
    {
+    "id": 198413971,
     "name": "Puerto Madryn",
     "lat": -42.76734,
     "lng": -65.03659,
     "pop": 102143
    },
    {
+    "id": 198453938,
     "name": "Junín",
     "lat": -34.59344,
     "lng": -60.94617,
     "pop": 101500
    },
    {
+    "id": 1598916455,
     "name": "Rafaela",
     "lat": -31.25269,
     "lng": -61.49168,
     "pop": 101471
    },
    {
+    "id": 198449765,
     "name": "Berisso",
     "lat": -34.86886,
     "lng": -57.88287,
     "pop": 101123
    },
    {
+    "id": 198412412,
     "name": "Presidencia Roque Sáenz Peña",
     "lat": -26.79117,
     "lng": -60.4411,
     "pop": 101086
    },
    {
+    "id": 198397213,
     "name": "Libertad",
     "lat": -34.70037,
     "lng": -58.68349,
     "pop": 100324
    },
    {
+    "id": 198441233,
     "name": "Burzaco",
     "lat": -34.8259,
     "lng": -58.39505,
     "pop": 98859
    },
    {
+    "id": 198437342,
     "name": "Zárate",
     "lat": -34.09547,
     "lng": -59.02451,
     "pop": 98522
    },
    {
+    "id": 198416920,
     "name": "Río Grande",
     "lat": -53.78583,
     "lng": -67.70186,
     "pop": 98443
    },
    {
+    "id": 198451927,
     "name": "Grand Bourg",
     "lat": -34.48852,
     "lng": -58.72653,
     "pop": 95045
    },
    {
+    "id": 198451608,
     "name": "General Rodríguez",
     "lat": -34.60823,
     "lng": -58.95222,
     "pop": 87491
    },
    {
+    "id": 198441525,
     "name": "Campana",
     "lat": -34.16366,
     "lng": -58.95868,
     "pop": 86860
    },
    {
+    "id": 198400743,
     "name": "Luján",
     "lat": -34.56617,
     "lng": -59.11526,
     "pop": 86653
    },
    {
+    "id": 1455377378,
     "name": "Reconquista",
     "lat": -29.14435,
     "lng": -59.64377,
     "pop": 84940
    },
    {
+    "id": 302607905,
     "name": "Concepción del Uruguay",
     "lat": -32.48518,
     "lng": -58.23202,
     "pop": 82729
    },
    {
+    "id": 198400754,
     "name": "Luján de Cuyo",
     "lat": -33.03914,
     "lng": -68.87999,
     "pop": 82615
    },
    {
+    "id": 198423067,
     "name": "San Ramón de la Nueva Orán",
     "lat": -23.12863,
     "lng": -64.32143,
     "pop": 82413
    },
    {
+    "id": 198432657,
     "name": "Venado Tuerto",
     "lat": -33.74559,
     "lng": -61.96861,
     "pop": 81969
    },
    {
+    "id": 198410665,
     "name": "Pilar",
     "lat": -34.45709,
     "lng": -58.91416,
     "pop": 81120
    },
    {
+    "id": 198435074,
     "name": "Villa María",
     "lat": -32.41062,
     "lng": -63.24358,
     "pop": 80006
    },
    {
+    "id": 198451652,
     "name": "Glew",
     "lat": -34.88844,
     "lng": -58.38456,
     "pop": 80000
    },
    {
+    "id": 198459470,
     "name": "Guernica",
     "lat": -34.91621,
     "lng": -58.38111,
     "pop": 80000
    },
    {
+    "id": 198428967,
     "name": "Tartagal",
     "lat": -22.51945,
     "lng": -63.79863,
     "pop": 79990
    },
    {
+    "id": 198432092,
     "name": "Ushuaia",
     "lat": -54.80731,
     "lng": -68.30841,
     "pop": 79538
    },
    {
+    "id": 198451904,
     "name": "Goya",
     "lat": -29.1444,
     "lng": -59.26498,
     "pop": 77349
    },
    {
+    "id": 198425455,
     "name": "Santo Tomé",
     "lat": -31.66305,
     "lng": -60.76183,
     "pop": 74910
    },
    {
+    "id": 6165375590,
     "name": "Villa Ciudad Jardín El Libertador",
     "lat": -34.54928,
     "lng": -58.59196,
     "pop": 74115
    },
    {
+    "id": 198441088,
     "name": "Boulogne Sur Mer",
     "lat": -34.49902,
     "lng": -58.57511,
     "pop": 73496
    },
    {
+    "id": 198440734,
     "name": "Bella Vista",
     "lat": -34.56841,
     "lng": -58.68949,
     "pop": 72000
    },
    {
+    "id": 198422654,
     "name": "San Pedro de Jujuy",
     "lat": -24.23163,
     "lng": -64.86788,
     "pop": 71000
    },
    {
+    "id": 198420042,
     "name": "San Fernando",
     "lat": -34.44719,
     "lng": -58.57015,
     "pop": 69110
    },
    {
+    "id": 198444310,
     "name": "Ciudad Evita",
     "lat": -34.71768,
     "lng": -58.52956,
     "pop": 68650
    },
    {
+    "id": 298931650,
     "name": "San Miguel",
     "lat": -34.54301,
     "lng": -58.71197,
     "pop": 68129
    },
    {
+    "id": 198451585,
     "name": "General Pico",
     "lat": -35.65911,
     "lng": -63.75761,
     "pop": 67138
    },
    {
+    "id": 198407151,
     "name": "Oberá",
     "lat": -27.48498,
     "lng": -55.1203,
     "pop": 66112
    },
    {
+    "id": 198402672,
     "name": "Martínez",
     "lat": -34.49397,
     "lng": -58.51035,
     "pop": 65859
    },
    {
+    "id": 198451029,
     "name": "Garín",
     "lat": -34.42411,
     "lng": -58.74076,
     "pop": 65335
    },
    {
+    "id": 2279472008,
     "name": "Don Torcuato",
     "lat": -34.48866,
     "lng": -58.62665,
     "pop": 64867
    },
    {
+    "id": 198447930,
     "name": "Eldorado",
     "lat": -26.40486,
     "lng": -54.62621,
     "pop": 63931
    },
    {
+    "id": 2293179022,
     "name": "San Francisco Solano",
     "lat": -34.77793,
     "lng": -58.3079,
     "pop": 63684
    },
    {
+    "id": 1998954652,
     "name": "Villa Tesei",
     "lat": -34.62077,
     "lng": -58.63843,
     "pop": 63164
    },
    {
+    "id": 198433616,
     "name": "Villa Carlos Paz",
     "lat": -31.41838,
     "lng": -64.4937,
     "pop": 62750
    },
    {
+    "id": 198438541,
     "name": "Alta Gracia",
     "lat": -31.65789,
     "lng": -64.43386,
     "pop": 60373
    },
    {
+    "id": 198452446,
     "name": "Hurlingham",
     "lat": -34.59334,
     "lng": -58.63784,
     "pop": 60275
    },
    {
+    "id": 198408681,
     "name": "Palpalá",
     "lat": -24.25549,
     "lng": -65.2094,
     "pop": 60126
    },
    {
+    "id": 198425646,
     "name": "San Vicente",
     "lat": -35.02485,
     "lng": -58.42411,
     "pop": 59708
    },
    {
+    "id": 198448499,
     "name": "El Palomar",
     "lat": -34.62252,
     "lng": -58.59557,
     "pop": 59031
    },
    {
+    "id": 198440627,
     "name": "Béccar",
     "lat": -34.46354,
     "lng": -58.53434,
     "pop": 58811
    },
    {
+    "id": 3799258579,
     "name": "San Francisco",
     "lat": -31.42498,
     "lng": -62.08403,
     "pop": 58588
    },
    {
+    "id": 198414697,
     "name": "Punta Alta",
     "lat": -38.88047,
     "lng": -62.0744,
     "pop": 58315
    },
    {
+    "id": 1071681548,
     "name": "Chivilcoy",
     "lat": -34.89696,
     "lng": -60.01905,
     "pop": 58152
    },
    {
+    "id": 198415522,
     "name": "Rafael Calzada",
     "lat": -34.7916,
     "lng": -58.35072,
     "pop": 56419
    },
    {
+    "id": 198441453,
     "name": "Caleta Olivia",
     "lat": -46.44212,
     "lng": -67.51751,
     "pop": 56298
    },
    {
+    "id": 198403614,
     "name": "Mercedes",
     "lat": -34.65067,
     "lng": -59.43172,
     "pop": 56116
    },
    {
+    "id": 1309067410,
     "name": "Azul",
     "lat": -36.77749,
     "lng": -59.86344,
     "pop": 55728
    },
    {
+    "id": 2539225070,
     "name": "El Jagüel",
     "lat": -34.83735,
     "lng": -58.49114,
     "pop": 55296
    },
    {
+    "id": 198440395,
     "name": "Barranqueras",
     "lat": -27.4851,
     "lng": -58.93088,
     "pop": 54715
    },
    {
+    "id": 198440636,
     "name": "Belén de Escobar",
     "lat": -34.34532,
     "lng": -58.79507,
     "pop": 54678
    },
    {
+    "id": 198434215,
     "name": "9 de Abril",
     "lat": -34.75536,
     "lng": -58.48538,
     "pop": 54502
    },
    {
+    "id": 198402383,
     "name": "Mariano Acosta",
     "lat": -34.72362,
     "lng": -58.79228,
     "pop": 53460
    },
    {
+    "id": 198399924,
     "name": "Los Polvorines",
     "lat": -34.51064,
     "lng": -58.69907,
     "pop": 53354
    },
    {
+    "id": 198417148,
     "name": "Río Tercero",
     "lat": -32.17677,
     "lng": -64.11299,
     "pop": 53166
    },
    {
+    "id": 198432984,
     "name": "Viedma",
     "lat": -40.80843,
     "lng": -62.99472,
     "pop": 52789
    },
    {
+    "id": 198444486,
     "name": "Clorinda",
     "lat": -25.29003,
     "lng": -57.71259,
     "pop": 52591
    },
    {
+    "id": 198433736,
     "name": "Villa Constitución",
     "lat": -33.22721,
     "lng": -60.32982,
     "pop": 52204
    },
    {
+    "id": 2043890684,
     "name": "Plottier",
     "lat": -38.95231,
     "lng": -68.22702,
     "pop": 52190
    },
    {
+    "id": 198412419,
     "name": "Presidente Derqui",
     "lat": -34.49284,
     "lng": -58.83872,
     "pop": 51757
    },
    {
+    "id": 2005745956,
     "name": "Bosques",
     "lat": -34.82016,
     "lng": -58.2305,
     "pop": 51663
    },
    {
+    "id": 198421733,
     "name": "San Lorenzo",
     "lat": -32.74549,
     "lng": -60.74309,
     "pop": 50719
    },
    {
+    "id": 198402142,
     "name": "Marcos Paz",
     "lat": -34.78233,
     "lng": -58.83777,
     "pop": 50460
    },
    {
+    "id": 198445781,
     "name": "Concepción",
     "lat": -27.34592,
     "lng": -65.59272,
     "pop": 49782
    },
    {
+    "id": 198422022,
     "name": "San Martín",
     "lat": -33.0804,
     "lng": -68.47053,
     "pop": 49491
    },
    {
+    "id": 2005758856,
     "name": "Gobernador Julio A. Costa",
     "lat": -34.81005,
     "lng": -58.31784,
     "pop": 49151
    },
    {
+    "id": 198410156,
     "name": "Perico",
     "lat": -24.37619,
     "lng": -65.11816,
     "pop": 49125
    },
    {
+    "id": 198434570,
     "name": "Villaguay",
     "lat": -31.86763,
     "lng": -59.02702,
     "pop": 48965
    },
    {
+    "id": 198442921,
     "name": "Centenario",
     "lat": -38.83014,
     "lng": -68.12152,
     "pop": 48721
    },
    {
+    "id": 4467094951,
     "name": "Ezeiza",
     "lat": -34.85489,
     "lng": -58.52584,
     "pop": 48451
    },
    {
+    "id": 2294265284,
     "name": "Longchamps",
     "lat": -34.85803,
     "lng": -58.38815,
     "pop": 47622
    },
    {
+    "id": 198422806,
     "name": "San Pedro",
     "lat": -33.67581,
     "lng": -59.66272,
     "pop": 47452
    },
    {
+    "id": 3935583583,
     "name": "Libertador General San Martín",
     "lat": -23.80934,
     "lng": -64.79217,
     "pop": 47041
    },
    {
+    "id": 198430798,
     "name": "Tres Arroyos",
     "lat": -38.377,
     "lng": -60.27557,
     "pop": 46867
    },
    {
+    "id": 198451092,
     "name": "Garupá",
     "lat": -27.48371,
     "lng": -55.82966,
     "pop": 46759
    },
    {
+    "id": 198443272,
     "name": "Chajarí",
     "lat": -30.76038,
     "lng": -57.98527,
     "pop": 45848
    },
    {
+    "id": 1714533203,
     "name": "La Calera",
     "lat": -31.34915,
     "lng": -64.33875,
     "pop": 45600
    },
    {
+    "id": 198449844,
     "name": "Esperanza",
     "lat": -31.44899,
     "lng": -60.9304,
     "pop": 45433
    },
    {
+    "id": 198435907,
     "name": "Villa Rosa",
     "lat": -34.41658,
     "lng": -58.87285,
     "pop": 45000
    },
    {
+    "id": 198425506,
     "name": "San Vicente",
     "lat": -26.99327,
     "lng": -54.48664,
     "pop": 44999
    },
    {
+    "id": 198451921,
     "name": "Granadero Baigorria",
     "lat": -32.85478,
     "lng": -60.70741,
     "pop": 44098
    },
    {
+    "id": 198442790,
     "name": "Caucete",
     "lat": -31.6515,
     "lng": -68.28203,
     "pop": 44047
    },
    {
+    "id": 3729914071,
     "name": "Hudson",
     "lat": -34.79057,
     "lng": -58.15591,
     "pop": 43769
    },
    {
+    "id": 198449270,
     "name": "El Talar",
     "lat": -34.4703,
     "lng": -58.65416,
     "pop": 43420
    },
    {
+    "id": 4497212986,
     "name": "Paso de los Libres",
     "lat": -29.71406,
     "lng": -57.08622,
     "pop": 43251
    },
    {
+    "id": 198451972,
     "name": "Gualeguay",
     "lat": -33.15043,
     "lng": -59.31068,
     "pop": 43009
    },
    {
+    "id": 198413761,
     "name": "Puerto Iguazú",
     "lat": -25.61075,
     "lng": -54.57642,
     "pop": 42849
    },
    {
+    "id": 198431493,
     "name": "Tristán Suárez",
     "lat": -34.89076,
     "lng": -58.56669,
     "pop": 41918
    },
    {
+    "id": 198441934,
     "name": "Cañuelas",
     "lat": -35.05402,
     "lng": -58.76174,
     "pop": 41801
    },
    {
+    "id": 198433254,
     "name": "Villa Ángela",
     "lat": -27.57682,
     "lng": -60.71121,
     "pop": 41403
    },
    {
+    "id": 9326757097,
     "name": "Tortuguitas",
     "lat": -34.47051,
     "lng": -58.75871,
     "pop": 41390
    },
    {
+    "id": 198437098,
     "name": "Yerba Buena",
     "lat": -26.81216,
     "lng": -65.29817,
     "pop": 41245
    },
    {
+    "id": 198459427,
     "name": "Maquinista Savio",
     "lat": -34.40564,
     "lng": -58.76832,
     "pop": 41092
    },
    {
+    "id": 198419239,
     "name": "San Antonio de Padua",
     "lat": -34.66745,
     "lng": -58.69866,
     "pop": 40698
    },
    {
+    "id": 198437304,
     "name": "Zapala",
     "lat": -38.90062,
     "lng": -70.06686,
     "pop": 40472
    },
    {
+    "id": 198446799,
     "name": "Cutral Có",
     "lat": -38.93788,
     "lng": -69.22937,
     "pop": 40344
    },
    {
+    "id": 198397537,
     "name": "Llavallol",
     "lat": -34.79657,
     "lng": -58.43018,
     "pop": 40272
    },
    {
+    "id": 2495673121,
     "name": "City Bell",
     "lat": -34.86704,
     "lng": -58.04752,
@@ -2570,300 +2997,350 @@
   ],
   "CL": [
    {
+    "id": 50016356,
     "name": "Santiago",
     "lat": -33.4377,
     "lng": -70.65107,
     "pop": 6139087
    },
    {
+    "id": 214220794,
     "name": "Antofagasta",
     "lat": -23.64637,
     "lng": -70.398,
     "pop": 348517
    },
    {
+    "id": 50026147,
     "name": "Viña del Mar",
     "lat": -33.02445,
     "lng": -71.55176,
     "pop": 332875
    },
    {
+    "id": 3298545361,
     "name": "Valparaíso",
     "lat": -33.04585,
     "lng": -71.61967,
     "pop": 251177
    },
    {
+    "id": 1515015048,
     "name": "Temuco",
     "lat": -38.73589,
     "lng": -72.59054,
     "pop": 235509
    },
    {
+    "id": 214204892,
     "name": "Rancagua",
     "lat": -34.17024,
     "lng": -70.74072,
     "pop": 231370
    },
    {
+    "id": 330756068,
     "name": "Concepción",
     "lat": -36.82707,
     "lng": -73.05021,
     "pop": 217537
    },
    {
+    "id": 50028181,
     "name": "Talca",
     "lat": -35.42653,
     "lng": -71.66603,
     "pop": 206069
    },
    {
+    "id": 50022255,
     "name": "Coquimbo",
     "lat": -29.95319,
     "lng": -71.33795,
     "pop": 204068
    },
    {
+    "id": 3444930202,
     "name": "Arica",
     "lat": -18.47853,
     "lng": -70.32114,
     "pop": 202131
    },
    {
+    "id": 50020503,
     "name": "La Serena",
     "lat": -29.90271,
     "lng": -71.25196,
     "pop": 195382
    },
    {
+    "id": 214203803,
     "name": "Iquique",
     "lat": -20.21407,
     "lng": -70.15246,
     "pop": 188003
    },
    {
+    "id": 84466877,
     "name": "Puerto Montt",
     "lat": -41.4718,
     "lng": -72.93959,
     "pop": 169736
    },
    {
+    "id": 214189449,
     "name": "Chillán",
     "lat": -36.60666,
     "lng": -72.10332,
     "pop": 164270
    },
    {
+    "id": 214213958,
     "name": "Calama",
     "lat": -22.46239,
     "lng": -68.92722,
     "pop": 157575
    },
    {
+    "id": 214229792,
     "name": "Copiapó",
     "lat": -27.36647,
     "lng": -70.33228,
     "pop": 150804
    },
    {
+    "id": 3956170554,
     "name": "Valdivia",
     "lat": -39.81413,
     "lng": -73.24599,
     "pop": 150048
    },
    {
+    "id": 214217708,
     "name": "Quilpué",
     "lat": -33.04981,
     "lng": -71.44153,
     "pop": 147991
    },
    {
+    "id": 1888417070,
     "name": "Talcahuano",
     "lat": -36.71449,
     "lng": -73.11411,
     "pop": 147831
    },
    {
+    "id": 214200129,
     "name": "Osorno",
     "lat": -40.5737,
     "lng": -73.13581,
     "pop": 147666
    },
    {
+    "id": 214202817,
     "name": "Los Ángeles",
     "lat": -37.47075,
     "lng": -72.35169,
     "pop": 143023
    },
    {
+    "id": 1825646130,
     "name": "San Pedro de la Paz",
     "lat": -36.84142,
     "lng": -73.10399,
     "pop": 131521
    },
    {
+    "id": 214180445,
     "name": "Curicó",
     "lat": -34.98537,
     "lng": -71.23937,
     "pop": 125275
    },
    {
+    "id": 214215141,
     "name": "Villa Alemana",
     "lat": -33.04419,
     "lng": -71.37255,
     "pop": 125140
    },
    {
+    "id": 181356942,
     "name": "Punta Arenas",
     "lat": -53.16257,
     "lng": -70.90782,
     "pop": 123403
    },
    {
+    "id": 214215898,
     "name": "Coronel",
     "lat": -37.01647,
     "lng": -73.1562,
     "pop": 112057
    },
    {
+    "id": 214234430,
     "name": "Alto Hospicio",
     "lat": -20.27005,
     "lng": -70.10092,
     "pop": 105065
    },
    {
+    "id": 1235426142,
     "name": "Hualpén",
     "lat": -36.79276,
     "lng": -73.09434,
     "pop": 90704
    },
    {
+    "id": 214209024,
     "name": "Colina",
     "lat": -33.20247,
     "lng": -70.67491,
     "pop": 88858
    },
    {
+    "id": 2430625428,
     "name": "San Antonio",
     "lat": -33.58086,
     "lng": -71.61324,
     "pop": 86239
    },
    {
+    "id": 214196277,
     "name": "Chiguayante",
     "lat": -36.92925,
     "lng": -73.02371,
     "pop": 85633
    },
    {
+    "id": 214186333,
     "name": "Peñaflor",
     "lat": -33.60586,
     "lng": -70.87853,
     "pop": 82959
    },
    {
+    "id": 214226485,
     "name": "Ovalle",
     "lat": -30.60308,
     "lng": -71.20299,
     "pop": 75864
    },
    {
+    "id": 214211178,
     "name": "Linares",
     "lat": -35.84529,
     "lng": -71.59772,
     "pop": 73602
    },
    {
+    "id": 214203217,
     "name": "Quillota",
     "lat": -32.88,
     "lng": -71.24736,
     "pop": 73261
    },
    {
+    "id": 214203676,
     "name": "Melipilla",
     "lat": -33.68551,
     "lng": -71.21458,
     "pop": 72212
    },
    {
+    "id": 214223155,
     "name": "Buin",
     "lat": -33.73197,
     "lng": -70.74196,
     "pop": 65607
    },
    {
+    "id": 214190118,
     "name": "San Felipe",
     "lat": -32.75069,
     "lng": -70.72527,
     "pop": 64120
    },
    {
+    "id": 214195569,
     "name": "Los Andes",
     "lat": -32.83369,
     "lng": -70.59816,
     "pop": 59388
    },
    {
+    "id": 214204398,
     "name": "San Fernando",
     "lat": -34.58379,
     "lng": -70.98912,
     "pop": 58367
    },
    {
+    "id": 3887001450,
     "name": "Talagante",
     "lat": -33.66444,
     "lng": -70.93028,
     "pop": 56878
    },
    {
+    "id": 214210491,
     "name": "Coyhaique",
     "lat": -45.57118,
     "lng": -72.06849,
     "pop": 49667
    },
    {
+    "id": 214186122,
     "name": "Machalí",
     "lat": -34.18245,
     "lng": -70.65116,
     "pop": 48667
    },
    {
+    "id": 214195857,
     "name": "Angol",
     "lat": -37.79879,
     "lng": -72.70861,
     "pop": 48608
    },
    {
+    "id": 214192695,
     "name": "La Calera",
     "lat": -32.78898,
     "lng": -71.20355,
     "pop": 47072
    },
    {
+    "id": 300482000,
     "name": "Penco",
     "lat": -36.73858,
     "lng": -72.99377,
     "pop": 46718
    },
    {
+    "id": 214224795,
     "name": "Vallenar",
     "lat": -28.57504,
     "lng": -70.76164,
     "pop": 45298
    },
    {
+    "id": 214194166,
     "name": "Lota",
     "lat": -37.09445,
     "lng": -73.1564,
     "pop": 43272
    },
    {
+    "id": 214210109,
     "name": "Tomé",
     "lat": -36.61708,
     "lng": -72.9575,
     "pop": 42312
    },
    {
+    "id": 513541253,
     "name": "Alerce",
     "lat": -41.39418,
     "lng": -72.91456,
@@ -2872,72 +3349,84 @@
   ],
   "UY": [
    {
+    "id": 296140043,
     "name": "Montevideo",
     "lat": -34.90589,
     "lng": -56.19131,
     "pop": 1302954
    },
    {
+    "id": 332268980,
     "name": "Salto",
     "lat": -31.38889,
     "lng": -57.96089,
     "pop": 114043
    },
    {
+    "id": 1987919961,
     "name": "Ciudad de la Costa",
     "lat": -34.82558,
     "lng": -55.95896,
     "pop": 113252
    },
    {
+    "id": 302611004,
     "name": "Maldonado",
     "lat": -34.90872,
     "lng": -54.95827,
     "pop": 102000
    },
    {
+    "id": 886601234,
     "name": "Rivera",
     "lat": -30.90006,
     "lng": -55.54082,
     "pop": 84775
    },
    {
+    "id": 302608039,
     "name": "Paysandú",
     "lat": -32.32173,
     "lng": -58.08921,
     "pop": 81489
    },
    {
+    "id": 422918346,
     "name": "Las Piedras",
     "lat": -34.72749,
     "lng": -56.2165,
     "pop": 61246
    },
    {
+    "id": 302666274,
     "name": "Tacuarembó",
     "lat": -31.71102,
     "lng": -55.97888,
     "pop": 60581
    },
    {
+    "id": 617428620,
     "name": "Melo",
     "lat": -32.36808,
     "lng": -54.16971,
     "pop": 55985
    },
    {
+    "id": 416470120,
     "name": "Artigas",
     "lat": -30.39841,
     "lng": -56.46381,
     "pop": 43843
    },
    {
+    "id": 332598161,
     "name": "Mercedes",
     "lat": -33.24842,
     "lng": -58.02987,
     "pop": 43528
    },
    {
+    "id": 416492912,
     "name": "Durazno",
     "lat": -33.38012,
     "lng": -56.5225,
@@ -2946,160 +3435,66 @@
   ],
   "GT": [
    {
+    "id": 472114145,
     "name": "Ciudad de Guatemala",
     "lat": 14.64161,
     "lng": -90.51328,
     "pop": 2450212
    },
    {
+    "id": 6481581224,
     "name": "Villa Nueva",
     "lat": 14.53088,
     "lng": -90.59633,
     "pop": 618397
    },
    {
+    "id": 1039835702,
     "name": "Santa Cruz Barillas",
     "lat": 15.80438,
     "lng": -91.31545,
     "pop": 150000
    },
    {
+    "id": 1039835308,
     "name": "Concepción Tutuapa",
     "lat": 15.2397,
     "lng": -91.84427,
     "pop": 59063
    },
    {
+    "id": 1073096924,
     "name": "Sumpango",
     "lat": 14.64709,
     "lng": -90.73716,
     "pop": 46082
    }
   ],
-  "CR": [
-   {
-    "name": "San José",
-    "lat": 9.93274,
-    "lng": -84.07967,
-    "pop": 342188
-   },
-   {
-    "name": "Heredia",
-    "lat": 9.99843,
-    "lng": -84.11712,
-    "pop": 117000
-   },
-   {
-    "name": "Cartago",
-    "lat": 9.8645,
-    "lng": -83.92067,
-    "pop": 110000
-   },
-   {
-    "name": "Limón",
-    "lat": 9.99316,
-    "lng": -83.02976,
-    "pop": 70000
-   },
-   {
-    "name": "Puntarenas",
-    "lat": 9.97733,
-    "lng": -84.83464,
-    "pop": 70000
-   },
-   {
-    "name": "San Isidro de El General",
-    "lat": 9.37062,
-    "lng": -83.70464,
-    "pop": 50000
-   },
-   {
-    "name": "Alajuela",
-    "lat": 10.01651,
-    "lng": -84.21387,
-    "pop": 50000
-   },
-   {
-    "name": "Liberia",
-    "lat": 10.63198,
-    "lng": -85.43932,
-    "pop": 46000
-   },
-   {
-    "name": "Siquirres",
-    "lat": 10.098,
-    "lng": -83.50757,
-    "pop": 45000
-   },
-   {
-    "name": "Quesada",
-    "lat": 10.32567,
-    "lng": -84.43003,
-    "pop": 42000
-   },
-   {
-    "name": "Guápiles",
-    "lat": 10.21544,
-    "lng": -83.79136,
-    "pop": 40000
-   }
-  ]
+  "CR": []
  },
  "citiesAt": {
-  "MX": "2026-11-09T23:46:45.342Z",
-  "PE": "2026-11-09T23:47:17.843Z",
-  "AR": "2026-11-09T23:48:02.821Z",
-  "CL": "2026-11-09T23:48:53.326Z",
-  "UY": "2026-11-09T23:49:40.681Z",
-  "GT": "2026-11-09T23:53:40.155Z",
-  "CR": "2026-11-09T23:56:47.695Z"
+  "MX": "2026-11-10T00:08:57.501Z",
+  "PE": "2026-11-10T00:09:33.505Z",
+  "AR": "2026-11-10T00:10:25.959Z",
+  "CL": "2026-11-10T00:11:15.007Z",
+  "UY": "2026-11-10T00:11:53.014Z",
+  "GT": "2026-11-10T00:17:34.552Z",
+  "CR": "2026-11-09T23:44:41.365Z"
  },
- "scanned": {
-  "PE|Lima": "2026-11-09T23:57:25.294Z",
-  "MX|Ciudad de México": "2026-11-09T23:58:05.657Z",
-  "CL|Santiago": "2026-11-09T23:58:47.609Z",
-  "AR|Buenos Aires": "2026-11-09T23:59:34.714Z"
- },
+ "scanned": {},
+ "failed": {},
  "runs": [
   {
-   "at": "2026-11-09T23:45:58.438Z",
-   "cities": [
-    {
-     "cc": "PE",
-     "city": "Lima",
-     "found": 555,
-     "updated": 14,
-     "osm": 6170
-    },
-    {
-     "cc": "MX",
-     "city": "Ciudad de México",
-     "found": 531,
-     "updated": 16,
-     "osm": 3330
-    },
-    {
-     "cc": "CL",
-     "city": "Santiago",
-     "found": 1323,
-     "updated": 49,
-     "osm": 3373
-    },
-    {
-     "cc": "AR",
-     "city": "Buenos Aires",
-     "found": 1183,
-     "updated": 59,
-     "osm": 4122
-    }
-   ],
-   "added": 3592,
+   "at": "2026-11-10T00:03:17.068Z",
+   "cities": [],
+   "added": 0,
    "enriched": 0,
-   "photos": 40,
+   "photos": 0,
    "ai": 0,
+   "studies": 0,
    "errors": [],
-   "minutes": 17.1,
-   "total": 3731
+   "minutes": 14.5,
+   "total": 139
   },
   {
    "at": "2026-11-09T23:39:12.203Z",
