@@ -5047,8 +5047,8 @@
   "CO": "2026-11-10T00:27:13.139Z",
   "EC": "2026-11-10T00:38:47.950Z",
   "BO": "2026-11-10T00:39:18.395Z",
-  "PY": "2026-11-10T01:09:12.135Z",
-  "VE": "2026-11-10T01:13:14.735Z"
+  "PY": "2026-11-10T01:28:41.222Z",
+  "VE": "2026-11-10T01:29:17.946Z"
  },
  "scanned": {
   "PE|Lima": "2026-11-09T23:57:25.294Z",
@@ -5060,14 +5060,29 @@
   "EC|n58950371": "2026-11-10T00:41:11.884Z",
   "GT|Ciudad de Guatemala": "2026-11-10T00:47:45.101Z",
   "CO|n344799743": "2026-11-10T00:55:15.692Z",
-  "VE|n914310439": "2026-11-10T01:17:12.425Z",
-  "VE|n7179881094": "2026-11-10T01:17:48.557Z",
-  "CO|n274021463": "2026-11-10T01:23:51.193Z"
+  "VE|n914310439": "2026-11-10T01:29:52.492Z",
+  "VE|n7179881094": "2026-11-10T01:30:26.973Z",
+  "CO|n274021463": "2026-11-10T01:31:10.005Z",
+  "BO|n415163462": "2026-11-10T01:31:51.780Z",
+  "VE|n4556016892": "2026-11-10T01:32:30.974Z",
+  "MX|Tijuana": "2026-11-10T01:33:08.560Z",
+  "AR|Córdoba": "2026-11-10T01:33:45.710Z",
+  "MX|Ecatepec de Morelos": "2026-11-10T01:34:19.428Z",
+  "MX|León": "2026-11-10T01:34:58.739Z",
+  "MX|Puebla de Zaragoza": "2026-11-10T01:35:30.593Z",
+  "MX|Ciudad Juárez": "2026-11-10T01:36:10.496Z",
+  "VE|n333000089": "2026-11-10T01:36:46.095Z",
+  "MX|Guadalajara": "2026-11-10T01:37:16.707Z",
+  "CO|n5399542329": "2026-11-10T01:37:53.181Z",
+  "UY|Montevideo": "2026-11-10T01:38:28.259Z",
+  "AR|Rosario": "2026-11-10T01:39:00.830Z",
+  "CO|n266642215": "2026-11-10T01:39:33.337Z",
+  "PE|Arequipa": "2026-11-10T01:40:13.839Z"
  },
  "failed": {},
  "runs": [
   {
-   "at": "2026-11-10T01:08:35.710Z",
+   "at": "2026-11-10T01:28:02.166Z",
    "cities": [
     {
      "cc": "VE",
@@ -5086,19 +5101,126 @@
     {
      "cc": "CO",
      "city": "Cali",
-     "found": 132,
+     "found": 136,
      "updated": 0,
-     "osm": 297
+     "osm": 302
+    },
+    {
+     "cc": "BO",
+     "city": "Santa Cruz de la Sierra",
+     "found": 115,
+     "updated": 0,
+     "osm": 444
+    },
+    {
+     "cc": "VE",
+     "city": "Maracaibo",
+     "found": 37,
+     "updated": 0,
+     "osm": 103
+    },
+    {
+     "cc": "MX",
+     "city": "Tijuana",
+     "found": 193,
+     "updated": 1,
+     "osm": 1154
+    },
+    {
+     "cc": "AR",
+     "city": "Córdoba",
+     "found": 103,
+     "updated": 1,
+     "osm": 444
+    },
+    {
+     "cc": "MX",
+     "city": "Ecatepec de Morelos",
+     "found": 16,
+     "updated": 0,
+     "osm": 1107
+    },
+    {
+     "cc": "MX",
+     "city": "León",
+     "found": 21,
+     "updated": 0,
+     "osm": 93
+    },
+    {
+     "cc": "MX",
+     "city": "Puebla de Zaragoza",
+     "found": 99,
+     "updated": 2,
+     "osm": 479
+    },
+    {
+     "cc": "MX",
+     "city": "Ciudad Juárez",
+     "found": 35,
+     "updated": 0,
+     "osm": 166
+    },
+    {
+     "cc": "VE",
+     "city": "Maracay",
+     "found": 39,
+     "updated": 0,
+     "osm": 119
+    },
+    {
+     "cc": "MX",
+     "city": "Guadalajara",
+     "found": 332,
+     "updated": 8,
+     "osm": 2920
+    },
+    {
+     "cc": "CO",
+     "city": "Barranquilla",
+     "found": 112,
+     "updated": 0,
+     "osm": 414
+    },
+    {
+     "cc": "UY",
+     "city": "Montevideo",
+     "found": 121,
+     "updated": 2,
+     "osm": 608
+    },
+    {
+     "cc": "AR",
+     "city": "Rosario",
+     "found": 87,
+     "updated": 1,
+     "osm": 449
+    },
+    {
+     "cc": "CO",
+     "city": "Cartagena de Indias",
+     "found": 228,
+     "updated": 1,
+     "osm": 408
+    },
+    {
+     "cc": "PE",
+     "city": "Arequipa",
+     "found": 36,
+     "updated": 1,
+     "osm": 1009
     }
    ],
-   "added": 582,
+   "added": 2160,
    "enriched": 0,
-   "photos": 31,
+   "photos": 3,
    "ai": 0,
    "studies": 0,
-   "errors": [],
+   "errors": [
+    "AR|Mendoza: sin tiempo en esta corrida"
+   ],
    "minutes": 19.3,
-   "total": 6467
+   "total": 8045
   },
   {
    "at": "2026-11-10T00:38:16.286Z",
