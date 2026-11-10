@@ -118,7 +118,7 @@ async function locate(text, { osm } = {}) {
   const seq = ++locSeq, box = host.querySelector("#placeBox");
   box.innerHTML = `<p class="muted place-msg"><span class="spin"></span> Ubicando «${esc(text)}»…</p>`;
   try {
-    const place = await api("/api/scan/resolve", { body: osm ? { osm } : { q: text } });
+    const place = await api("/api/scan/resolve", { body: osm ? { osm } : { q: text, cc: S.markets[E.country]?.code || "" } });
     // si mientras tanto escribió otra cosa o pidió otro lugar, esta respuesta ya no sirve
     if (!host.isConnected || seq !== locSeq) return;
     E.place = place; E.q = ""; E.city = null; E.filter = "prospect"; shown = PAGE; host.querySelector("#q").value = "";
@@ -280,9 +280,17 @@ function drawMap({ fit = true } = {}) {
   if (E.place) {
     const p = E.place, accent = cssVar("--accent");
     // el contorno real del lugar (o el círculo, si es un punto)
+    // contorno rojo bien marcado (con un borde claro debajo para que se lea sobre cualquier mapa) y el resto del
+    // mapa oscurecido: así se ve dónde termina el lugar y dónde empiezan los vecinos
+    if (p.geo) {
+      const polys = p.geo.type === "Polygon" ? [p.geo.coordinates] : p.geo.coordinates;
+      const holes = polys.map(poly => poly[0].map(([x, y]) => [y, x]));
+      L.polygon([[[-89, -360], [-89, 360], [89, 360], [89, -360]], ...holes], { stroke: false, fillColor: "#000", fillOpacity: 0.28, interactive: false }).addTo(layer);
+      L.geoJSON(p.geo, { interactive: false, style: { color: "#fff", weight: 6, opacity: 0.55, fill: false } }).addTo(layer);
+    }
     const shape = p.geo
-      ? L.geoJSON(p.geo, { interactive: false, style: { color: accent, weight: 2.5, opacity: 0.9, fillColor: accent, fillOpacity: 0.06 } })
-      : L.circle([center(p).lat, center(p).lng], { radius: (p.radius || 3) * 1000, color: accent, weight: 2, dashArray: "6 6", fillOpacity: 0.05, interactive: false });
+      ? L.geoJSON(p.geo, { interactive: false, style: { color: "#E0153F", weight: 3, opacity: 1, fillColor: "#E0153F", fillOpacity: 0.05 } })
+      : L.circle([center(p).lat, center(p).lng], { radius: (p.radius || 3) * 1000, color: "#E0153F", weight: 3, dashArray: "8 6", fillColor: "#E0153F", fillOpacity: 0.06, interactive: false });
     shape.addTo(layer);
     if (!p.geo || p.kind === "spot") L.marker([p.lat, p.lng], { icon: L.divIcon({ className: "", iconSize: [30, 40], iconAnchor: [15, 38], html: `<div class="place-pin" aria-hidden="true"></div>` }), zIndexOffset: 2000, title: p.label, keyboard: false }).bindTooltip(esc(p.label)).addTo(layer);
     if (refit) { const bb = shape.getBounds(); if (bb.isValid()) map.flyToBounds(bb, { padding: [30, 30], maxZoom: 16, duration: 0.8 }); }

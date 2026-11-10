@@ -266,9 +266,11 @@ app.post("/api/scan/resolve", auth, wrap(async (req, res) => {
   }
   const q = String(req.body?.q || "").trim().slice(0, 120), nq = scan.norm(q);
   if (nq.length < 2) return res.status(400).json({ error: "Escribí un país, una provincia, una ciudad o un barrio." });
-  const k = "place2:" + nq;
+  // se busca en los países donde trabaja el equipo, con prioridad para el país elegido en la app
+  const prefer = /^[A-Z]{2}$/.test(req.body?.cc || "") ? req.body.cc : "";
+  const k = `place3:${prefer}:${nq}`;
   const cached = await cacheGet(k);
-  const place = cached || await scan.resolvePlace(q);
+  const place = cached || await scan.resolvePlace(q, { codes: Object.values(MARKETS).map(m => m.code).filter(c => /^[A-Z]{2}$/.test(c)), prefer });
   if (!place) return res.status(404).json({ error: `No encontré «${q}». Probá con otro nombre.` });
   // si el contorno falló por un error pasajero, se guarda solo unos minutos para reintentar pronto
   if (!cached) await cacheSet(k, place, place.boundaryFailed ? 600 : 30 * 864e2);
