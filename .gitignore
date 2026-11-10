@@ -5,3 +5,4 @@ data/touches.json
 .vercel
 .env*
 data/extra-schools.json
+data/brain-token.json

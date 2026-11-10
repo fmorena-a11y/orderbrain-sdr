@@ -144,6 +144,12 @@ Cada persona entra con su **código personal** (o con Google si está configurad
 
 Para probar contra la cuenta real sin escribir nada, usá `READ_ONLY=1`: todas las escrituras a Pipedrive se bloquean.
 
+## Sincronización con Pipedrive
+
+Equipo → «Sincronizar con Pipedrive» (solo líderes) cruza toda la base de una vez, con las mismas reglas que la ficha (`lib/sync.js`): lee todas las organizaciones y todos los tratos de a páginas de 500, los guarda compactos en Redis y al final elige la organización de cada colegio (mismo puntaje, 0.67 para elegir y 0.95 para confirmar). Cada pedido trabaja ~40 s y el navegador lo repite hasta terminar; se puede pausar y seguir. No pisa los cruces elegidos a mano, lo revisado por una ficha en la última hora ni el «no es esta organización». Solo lee de Pipedrive, así que funciona con `READ_ONLY=1`.
+
+Con `CRON_SECRET` en Vercel, el cron diario (`vercel.json`, 08:17 UTC) sigue una sincronización a medias o trae solo lo cambiado desde la última. Sin `CRON_SECRET`, `/api/cron/sync` no existe.
+
 ## Variables de entorno
 
 | Variable | Qué es | Dónde se saca |
@@ -165,6 +171,8 @@ Para probar contra la cuenta real sin escribir nada, usá `READ_ONLY=1`: todas l
 | `SLACK_BOT_TOKEN`, `SLACK_CHANNEL_ID` | Mensajes del canal de colegios lanzados en «Qué pasó con OrderEAT» (scopes `channels:history` y `users:read`; el bot tiene que estar en el canal) | api.slack.com/apps |
 | `FREE_OWNER_IDS` | Cuentas generales de Pipedrive cuyos colegios están libres (por defecto «OrderEAT» y «Contacto OrderEAT») | |
 | `READ_ONLY` | `1` bloquea las escrituras a Pipedrive (para probar) | |
+| `CRON_SECRET` | Activa el cron diario de sincronización con Pipedrive (Vercel lo manda como `Authorization: Bearer …`) | `openssl rand -hex 32` |
+| `SYNC_STEP_SECONDS`, `SYNC_CRON_SECONDS` | Opcional: segundos por paso de sincronización desde Equipo (40) y desde el cron (50), hasta 280 | |
 | `SALES_PIPELINES` | Opcional: embudo y etapa de entrada por país en JSON | Ver `.env.example` |
 
 Los IDs de embudos, etapas y campos personalizados de la cuenta de OrderEAT están en `lib/config.js`. Si cambian en Pipedrive, se actualizan ahí (o con `SALES_PIPELINES` y `DEAL_FIELDS`).

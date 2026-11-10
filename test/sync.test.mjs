@@ -15,6 +15,8 @@ const sync = await import("../lib/sync.js");
 // todas las organizaciones del demo, por las páginas (como la sincronización)
 async function allOrgs() { const out = new Map(); let cursor = null; do { const r = await pd.orgsPage({ cursor, limit: 500 }); r.items.forEach(o => out.set(o.id, o)); cursor = r.next; } while (cursor); return out; }
 const sample = (list, n) => list.filter((_, i) => i % Math.ceil(list.length / n) === 0);
+// ¿se cortó alguna de las búsquedas de findOrgCandidates (10 por término)?
+const truncated = async s => { const base = pd.tokens(s.name); return (await Promise.all([base.join(" "), base.slice(0, 2).join(" "), s.name].map(t => pd.searchOrganizations(t, 11)))).some(r => r.length > 10); };
 const KEYS = ["status", "detail", "phase", "orgId", "orgName", "ownerId", "ownerName", "confirmed", "openDealId", "openDealOwnerId", "lostReason", "lostAt", "dealCount"];
 const pick = r => Object.fromEntries(KEYS.map(k => [k, r?.[k] ?? null]));
 
@@ -26,25 +28,35 @@ test("scoreOrg: el puntaje de siempre (palabras propias en común + 0.15 por la 
   assert.equal(pd.scoreOrg({ name: "Colegio Particular", city: "Lima" }, { name: "Colegio Particular" }), 0);
 });
 
+// La búsqueda de Pipedrive devuelve como mucho 10 por término: si se cortó, la sincronización (que ve todas las
+// organizaciones) puede encontrar una mejor. Sin corte, tienen que elegir exactamente la misma.
 test("candidatesFor elige lo mismo que findOrgCandidates (misma organización y mismo puntaje)", async () => {
-  const orgs = await allOrgs(), list = sample(store.schools, 400);
+  const orgs = await allOrgs(), list = sample(store.schools, 600);
   const bulk = sync.candidatesFor(list, orgs);
-  let chosen = 0;
+  let chosen = 0, same = 0, cut = 0;
   for (const [i, s] of list.entries()) {
     const one = pd.pickOrg(await pd.findOrgCandidates(s)), many = pd.pickOrg(bulk[i]);
-    assert.equal(many?.id ?? null, one?.id ?? null, `${s.id} ${s.name}`);
-    assert.equal(many?.score ?? null, one?.score ?? null, `${s.id} ${s.name}`);
-    if (one) chosen++;
+    if (one) { chosen++; assert.ok(many && many.score >= one.score, `${s.id}: la masiva no puede elegir peor`); }
+    if ((many?.id ?? null) === (one?.id ?? null)) { same++; continue; }
+    assert.ok(await truncated(s), `${s.id} ${s.name}: ${one?.id} vs ${many?.id} sin búsqueda cortada`);
+    cut++;
   }
   assert.ok(chosen > 100, `se eligió organización en ${chosen} colegios`);
+  assert.ok(same / list.length > 0.9, `iguales ${same} de ${list.length} (cortadas ${cut})`);
 });
 
-test("candidatesFor: de mayor a menor, empate por la organización más vieja, tope y piso", () => {
+test("candidatesFor: de mayor a menor, empate por la más parecida y después la más vieja; tope y piso", () => {
   const orgs = new Map([[30, { id: 30, name: "San Martín" }], [10, { id: 10, name: "Colegio San Martín" }], [20, { id: 20, name: "San Martín de Porres" }], [40, { id: 40, name: "Martín" }], [50, { id: 50, name: "Otra cosa" }]]);
   const [c] = sync.candidatesFor([{ name: "Colegio San Martín", city: "Lima" }], orgs, { top: 3 });
-  assert.deepEqual(c.map(x => x.id), [10, 20, 30]);
+  assert.deepEqual(c.map(x => x.id), [10, 30, 20]);
+  assert.deepEqual(sync.candidatesFor([{ name: "Colegio San Martín", city: "Lima" }], orgs, { top: 2 })[0].map(x => x.id), [10, 30]);
+  // «Martín» solo no compite: la búsqueda pide «san martin» (todas o las dos primeras palabras)
   const [d] = sync.candidatesFor([{ name: "Colegio San Martín", city: "Lima" }], orgs);
-  assert.deepEqual(d.map(x => [x.id, x.score]), [[10, 1], [20, 1], [30, 1], [40, 0.5]]);
+  assert.deepEqual(d.map(x => [x.id, x.score]), [[10, 1], [30, 1], [20, 1]]);
+  const [e] = sync.candidatesFor([{ name: "Colegio San Martín Tours", city: "Lima" }], orgs);
+  assert.deepEqual(e.map(x => [x.id, x.score]), [[10, 2 / 3], [30, 2 / 3], [20, 2 / 3]]);
+  assert.deepEqual(sync.candidatesFor([{ name: "Colegio San Martín Tours Bello", city: "Lima" }], orgs, { floor: 0.6 })[0], []); // 2/4 = 0.5, bajo el piso
+
 });
 
 const M = { users: [{ id: 7, name: "Ana" }], pipes: { 1: "ARG - SALES" }, stages: { 112: "SELLING", 111: "PROPOSAL SENT" } };
@@ -90,21 +102,35 @@ test("de punta a punta en el demo: se pausa y se sigue, y da lo mismo que checkS
   store.setMatch(manual.id, { status: "org", detail: "Existe en Pipe, sin tratos", orgId: org.id, orgName: org.name, confirmed: true, candidates: [] });
   // hace 2 horas: la sincronización lo puede recalcular, pero sin cambiar la organización
   store.allMatches()[manual.id].checkedAt = new Date(Date.now() - 2 * 3600e3).toISOString();
-  let r = await sync.step({ budgetMs: 1 }); // casi sin tiempo: queda a medias
-  assert.equal(r.running, true);
+  let r = await sync.step({ maxPages: 1 }); // una página y pausa: queda a medias
+  assert.equal(r.running, true); assert.equal(r.job.phase, "orgs"); assert.equal(r.job.orgs, 500);
   let steps = 1;
-  while (r.running && steps < 200) { r = await sync.step({ budgetMs: 300 }); steps++; assert.equal(r.error, null, r.error?.message); }
+  while (r.running && steps < 200) { r = await sync.step({ maxPages: 3 }); steps++; assert.equal(r.error, null, r.error?.message); }
   assert.equal(r.running, false); assert.ok(steps > 2, `pasos: ${steps}`);
   assert.equal(r.last.mode, "full"); assert.ok(r.last.written >= list.length - 5, `escritos ${r.last.written} de ${list.length}`);
   assert.equal(list.filter(s => sales.schoolListItem(s).status === "unk").length, 0);
   const mm = store.getMatch(manual.id); assert.equal(mm.orgId, org.id); assert.equal(mm.confirmed, true);
   // la misma respuesta que el cruce de a uno, en una muestra
-  for (const s of sample(list, 250)) {
-    if (s.id === manual.id) continue;
+  let compared = 0;
+  for (const s of sample(list, 300)) {
+    if (s.id === manual.id || (!store.getMatch(s.id)?.confirmed && await truncated(s))) continue;
+    compared++;
     const bulk = pick(store.getMatch(s.id)), one = pick(await sales.checkSchool(s.id, { force: true }));
     assert.deepEqual(bulk, one, `${s.id} ${s.name}`);
   }
-  // la segunda es incremental (nada cambió): no reescribe lo que está al día
+  assert.ok(compared > 250, `comparados ${compared}`);
+  // las siguientes son incrementales. La primera reescribe los confirmados por puntaje (≥ 0.95): como en checkSchool,
+  // un confirmado se recalcula con su organización y sin otros candidatos. Después, si nada cambió, no reescribe nada.
   r = await sync.step({ budgetMs: 30e3 });
   assert.equal(r.running, false); assert.equal(r.last.mode, "inc"); assert.equal(r.last.orgs, 0);
+  r = await sync.step({ budgetMs: 30e3 });
+  assert.equal(r.last.mode, "inc"); assert.equal(r.last.written, 0); assert.ok(r.last.same + r.last.skipped >= list.length - 5); assert.ok(r.last.skip.recent >= 250, "lo que se revisó recién por ficha no se toca");
+  // un trato nuevo en Pipedrive: la incremental lo trae y cambia el estado de ese colegio
+  const target = list.find(s => store.getMatch(s.id)?.status === "org" && store.getMatch(s.id)?.via === "sync");
+  const tm = store.getMatch(target.id);
+  await pd.createDeal({ title: "Prueba", org_id: tm.orgId, pipeline_id: 1, stage_id: 112, owner_id: 2 });
+  await new Promise(res => setTimeout(res, 1100)); // el demo guarda la hora al segundo
+  r = await sync.step({ budgetMs: 30e3 });
+  assert.equal(r.last.mode, "inc"); assert.equal(r.last.deals, 1);
+  assert.equal(store.getMatch(target.id).status, "open"); assert.equal(store.getMatch(target.id).openDealOwnerId, 2);
 });

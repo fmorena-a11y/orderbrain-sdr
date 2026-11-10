@@ -7,7 +7,7 @@ import { fileURLToPath } from "url";
 import * as pd from "./lib/pipedrive.js";
 import { kv, key as kvKey, schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId, hiddenOsm, dropOsm, getProfile, setProfile, getProfiles, ROLES } from "./lib/store.js";
 import * as scan from "./lib/scan.js";
-import { ensureBrain, brainState, brainDown } from "./lib/brain.js";
+import { ensureBrain, brainState, brainDown, brainAdmin, saveBrainToken } from "./lib/brain.js";
 import { verifyCandidates, enrichSources } from "./lib/enrich.js";
 import { research, studyEnabled, studyToHtml } from "./lib/study.js";
 import * as sales from "./lib/sales.js";
@@ -135,7 +135,7 @@ const auth = (req, res, next) => {
   next();
 };
 // READ_ONLY=1: nada se escribe en Pipedrive (para probar contra la cuenta real sin tocarla)
-if (process.env.READ_ONLY === "1") app.use((req, res, next) => req.method === "POST" && /^\/api\/(schools\/[^/]+\/(match|log|comment|prospect|study\/note|enrich|deals\/|persons)|activities\/|proposals\/confirm)/.test(req.path) ? res.status(403).json({ error: "Modo solo lectura: no se escribe en Pipedrive." }) : next());
+if (process.env.READ_ONLY === "1") app.use((req, res, next) => req.method === "POST" && /^\/api\/(schools\/[^/]+\/(match|log|comment|prospect|convert|study\/note|enrich|deals\/|persons)|activities\/|proposals\/confirm)/.test(req.path) ? res.status(403).json({ error: "Modo solo lectura: no se escribe en Pipedrive." }) : next());
 const wrap = fn => (req, res) => fn(req, res).catch(e => {
   if (res.writableEnded || res.destroyed) return; // el navegador ya cortó (canceló): no hay a quién responder
   const status = e.status && e.status < 600 ? (e instanceof pd.PipedriveError && e.status >= 500 ? 502 : e.status) : 500;
@@ -222,7 +222,7 @@ app.get("/api/admin/sync", auth, wrap(async (req, res) => {
 // Hace un paso (hasta ~40 s) y devuelve el progreso; el navegador lo repite hasta terminar.
 app.post("/api/admin/sync", auth, wrap(async (req, res) => {
   if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Solo un líder sincroniza con Pipedrive." });
-  res.json(await syncView(await psync.step({ budgetMs: 40e3, full: req.body?.full === true, by: req.session.user.name || req.session.user.email })));
+  res.json(await syncView(await psync.step({ budgetMs: Math.min(280, Math.max(5, Number(process.env.SYNC_STEP_SECONDS) || 40)) * 1e3, full: req.body?.full === true, by: req.session.user.name || req.session.user.email })));
 }));
 // Vercel Cron (vercel.json): manda «Authorization: Bearer $CRON_SECRET». Sin CRON_SECRET la ruta no existe.
 // Sigue una sincronización a medias o hace una incremental (lo cambiado desde la última).
@@ -233,6 +233,16 @@ app.get("/api/cron/sync", wrap(async (req, res) => {
   const secs = Math.min(280, Math.max(20, Number(process.env.SYNC_CRON_SECONDS) || 50));
   const r = await psync.step({ budgetMs: secs * 1e3, by: "cron" });
   res.json({ running: r.running, busy: !!r.busy, phase: r.job?.phase || null, last: r.last, error: r.error });
+}));
+// ---------- World Dominion (lib/brain.js): estado y token, solo líderes. El token entra acá y nunca vuelve al navegador.
+app.get("/api/admin/brain", auth, wrap(async (req, res) => {
+  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Solo un líder ve el estado de World Dominion." });
+  res.json(await brainAdmin());
+}));
+// Lo prueba contra OrderBrain antes de guardarlo; si falla, 400 con el motivo y no se guarda.
+app.post("/api/admin/brain", auth, wrap(async (req, res) => {
+  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Solo un líder carga el token de World Dominion." });
+  res.json(await saveBrainToken(req.body?.token, req.session.user.name || req.session.user.email));
 }));
 
 // Revisa varios colegios contra Pipedrive (de a 3 en paralelo).
@@ -265,6 +275,8 @@ app.post("/api/schools/:id/log", auth, schoolParam, wrap(async (req, res) => {
 const escHtml = v => String(v).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 // Comentario suelto: queda como nota en la organización de Pipedrive, sin registrar un contacto.
 app.post("/api/schools/:id/prospect", auth, schoolParam, wrap(async (req, res) => res.json(await sales.createProspect(req.params.id, req.session.user, req.body?.task || null, req.tz))));
+// prospecto → trato (conversión de Pipedrive). Solo el dueño del prospecto o un líder.
+app.post("/api/schools/:id/convert", auth, schoolParam, wrap(async (req, res) => res.json(await sales.convertToDeal(req.params.id, req.session.user, { leader: await isLeader(req.session.user.email), country: String(req.body?.country || "") }))));
 // Comentario y/o tarea para más adelante (para quien registra o para otra persona del equipo), sin registrar un contacto.
 app.post("/api/schools/:id/comment", auth, schoolParam, wrap(async (req, res) => {
   const text = String(req.body?.text || "").trim().slice(0, 5000), t = req.body?.task || null, user = req.session.user;

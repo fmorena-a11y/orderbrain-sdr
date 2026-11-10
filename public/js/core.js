@@ -133,6 +133,8 @@ export const PH = {
   churn: { l: "Churn", dot: "#DC2626" }, propuesta: { l: "Propuesta enviada", dot: "#7C3AED" },
 };
 export const statusPill = s => s?.phase && PH[s.phase] ? `<span class="pill ph-${s.phase}">${s.phase === "churn" && s.ob?.label ? s.ob.label : PH[s.phase].l}</span>` : pill(s?.status);
+// etiqueta chica de dónde está en Pipedrive: «Prospecto» (tiene prospecto abierto) o «Trato» (tiene trato abierto)
+export const stageTag = s => s?.status === "open" ? `<span class="stage-tag deal" title="Tiene un trato abierto en Pipedrive">Trato</span>` : s?.lead ? `<span class="stage-tag lead" title="Tiene un prospecto abierto en Pipedrive">Prospecto</span>` : "";
 export const dotColor = (s, colors) => s.phase && PH[s.phase] ? PH[s.phase].dot : colors[s.status];
 
 // ---------- fechas

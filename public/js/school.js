@@ -1,5 +1,5 @@
 // Ficha del colegio: preparar el contacto, registrar el resultado e historial. Incluye el modo sesión.
-import { $, S, api, esc, icon, pill, statusPill, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, workOrder, ago, TYPE_ICON,
+import { $, S, api, esc, icon, pill, statusPill, stageTag, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, workOrder, ago, TYPE_ICON,
   telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile, callQueue } from "./core.js";
 // «la cafetería», «el casino», «el bar escolar»
 const laEsp = mk => `${/^(casino|bar)\b/.test(mk?.espacio || "") ? "el" : "la"} ${mk?.espacio || "cafetería"}`, delaEsp = mk => laEsp(mk).replace(/^el /, "del ").replace(/^la /, "de la ");
@@ -454,6 +454,32 @@ function skipReason(v, mine = false) {
 // ---------- render
 const focusKey = el => el && (el.id ? `#${el.id}` : ["tab", "oc", "ch", "f", "caf", "niv", "nd", "ph"].map(k => el.dataset?.[k] !== undefined ? `[data-${k}="${el.dataset[k]}"]` : "").find(Boolean));
 // «Lo voy a contactar»: se puede crear el prospecto si no es cliente, no tiene trato abierto ni prospecto, y no es de otra persona
+// Prospecto → trato: si tiene un prospecto abierto tuyo (o sin dueño) y todavía no hay trato abierto
+function canConvert(s, d) {
+  if (!d || !S.me.pdUserId || d.match?.status === "open" || ["client", "churn"].includes(s.status)) return false;
+  if (s.leadOnly) return !s.ownerId || s.ownerId === S.me.pdUserId || S.profile?.leader;
+  return !!d.leads?.some(l => !l.ownerId || l.ownerId === S.me.pdUserId) || (!!S.profile?.leader && !!d.leads?.length);
+}
+function convertDeal(s) {
+  if (D.converting) return;
+  const needCountry = !s.country;
+  const m = modal(`<div class="modal-h"><h3>${icon("deal")} Convertir a trato</h3><button class="icon-btn" id="cvX" aria-label="Cerrar">${icon("x")}</button></div>
+    <p class="muted" style="margin:-6px 0 0">${esc(s.name)} pasa a trato en Pipedrive${s.country ? `, en el embudo de ${esc(s.country)}` : ""}. Las notas, actividades y mails del prospecto pasan al trato y el prospecto se cierra.</p>
+    ${needCountry ? `<label class="field"><span>País del colegio</span><select class="inp" id="cvC"><option value="">No sé (queda en LatAm)</option>${S.countries.map(c => `<option>${esc(c)}</option>`).join("")}</select></label>` : ""}
+    <div class="row"><button class="btn ghost" id="cvNo">Cancelar</button><button class="btn primary" id="cvGo">${icon("check")} Convertir</button></div>`);
+  m.querySelector("#cvX").onclick = m.querySelector("#cvNo").onclick = () => m.close();
+  m.querySelector("#cvGo").onclick = async () => {
+    const country = m.querySelector("#cvC")?.value || ""; m.close();
+    D.converting = s.id; draw();
+    try {
+      const r = await api(`/api/schools/${encodeURIComponent(s.id)}/convert`, { body: { country } });
+      if (r.school) patchSchool(r.school);
+      toast(r.done.map(x => x.label).join(" · "), { href: r.url, action: "Abrir trato" });
+      if (D.id === s.id) { D.data = await api(`/api/schools/${encodeURIComponent(s.id)}`).catch(() => D.data); }
+    } catch (e) { toast(e.message, { type: "err" }); }
+    D.converting = null; if (D.id === s.id) draw();
+  };
+}
 function canProspect(s, m) {
   if (s.virtual || !D.data || m?.leadId || D.data.leads?.length || !S.me.pdUserId) return false;
   if (["client", "open", "churn"].includes(s.status) || s.ob?.client) return false;
@@ -500,6 +526,8 @@ async function runProspect(s, task) {
   try {
     const r = await api(`/api/schools/${s.id}/prospect`, { body: { task } });
     patchSchool(r.school);
+    ENR.delete(s.id); loadEnrich(s.id); // la nota de «Enriquecer» pudo quedar guardada recién
+    if (D.id === s.id) api(`/api/schools/${encodeURIComponent(s.id)}`).then(nd => { if (D.id === s.id) { D.data = nd; draw(); } }).catch(() => {});
     if (D.prospecting === s.id) D.prospecting = false;
     const f = r.found || {};
     const html = `<div class="modal-h"><h3>${icon("checkCircle")} Prospecto creado · ${esc(s.name)}</h3><button class="icon-btn" id="cpX" aria-label="Cerrar">${icon("x")}</button></div>
@@ -541,7 +569,7 @@ function draw() {
     <div class="d-title"><div class="tt"><h2 id="dTitle">${esc(s.name)}</h2><div class="sub">${esc([s.addr, s.city, s.country].filter(Boolean).join(", "))}</div></div>
       <div class="d-tr">${statusPill(s)}${d?.orgUrl ? `<a class="icon-btn" href="${esc(d.orgUrl)}" target="_blank" rel="noopener" title="Abrir en Pipedrive" aria-label="Abrir en Pipedrive">${icon("external")}</a>` : ""}<button class="icon-btn" id="dClose" aria-label="Cerrar ficha" title="Cerrar (Esc)">${icon("x")}</button></div></div>
     <div class="d-meta">
-      ${statusPill(s)}
+      ${statusPill(s)}${stageTag({ ...s, status: m?.status === "open" ? "open" : s.status, lead: s.lead || !!d?.leads?.length || !!s.leadOnly })}
       ${mk.espacio ? `<span class="tag" title="Decí «${esc(mk.espacio)}» y tratá de ${mk.trato === "vos" ? "vos" : "tú"}">«${esc(mk.espacio)}» · ${mk.trato === "vos" ? "vos" : "tú"}</span>` : ""}
       ${s.hours ? `<span class="tag" title="Horario">${icon("clock", "sm")} ${esc(s.hours)}</span>` : ""}
       ${s.rating ? `<span class="tag" title="Reseñas en Google">★ ${esc(s.rating)}</span>` : ""}
@@ -556,6 +584,7 @@ function draw() {
       <button class="btn" id="aMail" ${notReady} aria-haspopup="menu">${icon("mail")} Mail</button>
       <button class="btn" id="aDemo" ${notReady} ${s.status === "client" ? `disabled title="Ya es cliente"` : ""}>${icon("video")} Demo</button>
       ${!s.virtual && d?.leads?.length ? `<a class="btn" href="${esc(d.leads[0].url)}" target="_blank" rel="noopener" title="${esc(d.leads.length > 1 ? `Tiene ${d.leads.length} prospectos abiertos en Pipedrive` : `Ya tiene prospecto en Pipedrive${d.leads[0].owner ? ` (de ${d.leads[0].owner})` : ""}: no se crea otro`)}">${icon("lead")} Prospecto${d.leads.length > 1 ? `s (${d.leads.length})` : ""}${d.leads[0].ownerId && d.leads[0].ownerId !== S.me.pdUserId && d.leads[0].owner ? ` de ${esc(d.leads[0].owner.split(" ")[0])}` : ""}</a>` : ""}
+      ${canConvert(s, d) ? `<button class="btn" id="aConvert" title="Pasa el prospecto a trato en el embudo del país. Las notas y actividades pasan al trato.">${D.converting === s.id ? `<span class="spin"></span> Convirtiendo…` : `${icon("deal")} Convertir a trato`}</button>` : ""}
       ${canProspect(s, m) ? `<button class="btn" id="aProspect" title="Crear el prospecto (y la organización si falta) a tu nombre en Pipedrive y buscar a quién contactar">${D.prospecting === s.id ? `<span class="spin"></span> Creando…` : `${icon("plus")} Crear prospecto`}</button>` : ""}
       <button class="btn" id="aEnrich" ${notReady} title="Buscar todo lo que hay del colegio (Pipedrive, su web, Google Maps y sedes) y dejarlo en una nota en Pipedrive">${enriching.has(s.id) ? `<span class="spin"></span> Buscando…` : `${icon("sparkles")} Enriquecer`}</button>
       <button class="btn icon-only" id="aMore" aria-haspopup="menu" aria-label="Más: mapa, web y buscar al decisor" title="Mapa, web y buscar al decisor">${icon("nav")}</button>
@@ -613,6 +642,7 @@ function bindTop(s, d) {
   el.querySelector("#aWa").onclick = e => templateMenu(e.currentTarget, s, d, "whatsapp");
   el.querySelector("#aMail").onclick = e => templateMenu(e.currentTarget, s, d, "mail");
   el.querySelector("#aProspect")?.addEventListener("click", () => createProspect(s));
+  el.querySelector("#aConvert")?.addEventListener("click", () => convertDeal(s));
   el.querySelector("#aEnrich")?.addEventListener("click", () => enrich(s));
   el.querySelector("#aDemo").onclick = () => {
     D.result = null; D.form.outcome = "demo"; suggest(s); goTab("log");
