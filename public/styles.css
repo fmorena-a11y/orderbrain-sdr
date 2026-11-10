@@ -114,6 +114,7 @@ textarea.inp { min-height: 88px; resize: vertical; line-height: 1.45; }
 .pill.client { color: var(--st-client); background: var(--st-client-bg); }
 .pill.unk { color: var(--st-unk); background: var(--st-unk-bg); }
 .pill.archived { color: var(--st-arch); background: var(--st-arch-bg); }
+.pill.res-ok { color: var(--ok); background: var(--ok-soft); }
 .arch-box { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 10px 0 0; padding: 10px 12px; border-radius: 10px; background: var(--st-arch-bg); color: var(--st-arch); font-size: 14px; }
 .arch-box span { flex: 1 1 220px; }
 .sync-count { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; }
@@ -247,6 +248,8 @@ textarea.inp { min-height: 88px; resize: vertical; line-height: 1.45; }
 .act .ops { display: flex; gap: 2px; }
 .act .ops .icon-btn { color: var(--muted); }
 .act button.t { border: 0; background: none; text-align: left; padding: 0; cursor: pointer; }
+/* «¿Se hizo la demo?» y «Marcar»: en pantallas chicas el botón con texto baja a otra línea y el título conserva el ancho */
+@media (max-width: 480px) { .act:has(.ops .btn) { grid-template-columns: auto minmax(0, 1fr); row-gap: 6px; } .act:has(.ops .btn) .ops { grid-column: 2; flex-wrap: wrap; align-items: center; gap: 6px; } }
 @media (hover: hover) { .act button.t:hover b { color: var(--accent-ink); } }
 .group-h { display: flex; align-items: center; gap: 8px; margin: 14px 6px 2px; font-size: 12.5px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
 .group-h.late { color: var(--err); }

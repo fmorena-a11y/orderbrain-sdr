@@ -215,29 +215,35 @@ function drawFollow() {
   box.innerHTML = followHtml();
   box.querySelector("#fwRetry")?.addEventListener("click", () => { follow = null; drawFollow(); loadFollow(); });
 }
-// Demos de la semana (todos): cuántas agendó cada uno y la lista, con quién la agendó, quién la da y qué pasó.
+// Demos (todos): cuántas agendó cada uno y la lista, con quién la agendó, quién la da y qué pasó.
 // El resultado es el que quedó marcado (desde la app o en Pipedrive); sin marca, «?».
-const RES_PILL = { done: "client", noshow: "lost", moved: "org", canceled: "stalled" };
-const resPill = (r, past) => r ? `<span class="pill ${RES_PILL[r]}">${esc(DEMO_RES[r])}</span>` : past ? `<span class="pill unk" title="Nadie marcó si se hizo">?</span>` : "";
+// «Se hizo» con el color de lo positivo (res-ok), para que no se confunda con el «?» gris.
+const RES_PILL = { done: "res-ok", noshow: "lost", moved: "org", canceled: "stalled" };
+const resPill = r => r.result ? `<span class="pill ${RES_PILL[r.result]}">${esc(DEMO_RES[r.result])}</span>`
+  : r.past ? `<span class="pill unk" title="${r.moved ? "Se reprogramó y la fecha nueva ya pasó: falta marcar qué pasó" : "Falta marcar qué pasó con la demo"}">?</span>` : "";
 const canMark = r => !!(r.ownerId && r.ownerId === S.me.pdUserId) || !!S.profile?.leader;
-function demoRow(r, past) {
+function demoRow(r) {
   const when = `${shortDay(r.date)}${r.time ? ` · ${r.time}` : ""}`, inner = `<b>${esc(r.name || "Colegio sin nombre")}</b><small style="white-space:normal">${esc(when)} · agendó ${esc(r.setter || "?")} · la da ${esc(r.owner || "?")}</small>`;
   const open = r.schoolId ? `<button class="t" data-dsch="${esc(r.schoolId)}">${inner}</button>` : r.record ? `<button class="t" data-drec="${esc(r.record)}" title="Abrir la ficha">${inner}</button>` : `<div class="t">${inner}</div>`;
-  const mark = past && (!r.result || r.result === "moved") && canMark(r) ? `<button class="btn sm" data-dres="${r.id}" data-time="${esc(r.time)}">Marcar</button>` : "";
-  return `<div class="act"><span class="ty meeting" role="img" aria-label="Demo">${icon("video")}</span>${open}<div class="ops">${resPill(r.result, past)}${mark}</div></div>`;
+  const mark = r.past && !r.result && canMark(r) ? `<button class="btn sm" data-dres="${r.id}" data-time="${esc(r.time)}">Marcar</button>` : "";
+  return `<div class="act"><span class="ty meeting" role="img" aria-label="Demo">${icon("video")}</span>${open}<div class="ops">${resPill(r)}${mark}</div></div>`;
 }
 function demosHtml(d) {
   const intro = `<p class="faint" style="margin:0 0 8px;font-size:13.5px">Por quién la agendó en Pipedrive (en las agendadas desde la app, quien dice la nota). Del ${esc(shortDay(d.from))} al ${esc(shortDay(d.to))}${d.at ? ` · leído ${esc(ago(d.at))}` : ""}.</p>`;
-  const ppl = d.people.length ? `<div class="follow-wrap"><table class="follow"><thead><tr><th scope="col">Agendó</th><th scope="col" class="num">Últimos 7 días</th><th scope="col" class="num">Próximas</th></tr></thead>
+  const ppl = d.people.length ? `<div class="follow-wrap"><table class="follow"><thead><tr><th scope="col">Agendó</th><th scope="col" class="num">Ya pasaron</th><th scope="col" class="num">Próximas</th></tr></thead>
     <tbody>${d.people.map(p => `<tr><th scope="row">${esc(p.name || "?")}${p.name === S.me.name ? " (vos)" : ""}</th><td class="num">${p.recent}</td><td class="num">${p.upcoming}</td></tr>`).join("")}</tbody></table></div>` : "";
-  const sec = (h, l, past) => `<h3 style="margin:14px 0 4px;font-size:14px">${h} <small class="faint">${l.length}</small></h3>${l.length ? l.map(r => demoRow(r, past)).join("") : `<p class="faint" style="margin:0;font-size:13.5px">Ninguna.</p>`}`;
+  const sec = (h, l) => `<h3 style="margin:14px 0 4px;font-size:14px">${h} <small class="faint">${l.length}</small></h3>${l.length ? l.map(demoRow).join("") : `<p class="faint" style="margin:0;font-size:13.5px">Ninguna.</p>`}`;
+  // las de antes de los 7 días que quedaron sin resultado: solo las que podés marcar (las tuyas; un líder, todas)
+  const pending = (d.pending || []).filter(canMark), unk = [...d.recent, ...pending].some(r => !r.result);
   return `${intro}${d.partial ? `<div class="callout warn" style="margin-bottom:10px">${icon("alert")}<span>Pipedrive devolvió demasiado: puede faltar alguna.</span></div>` : ""}${ppl}
-    ${sec("Próximas (14 días)", d.upcoming, false)}${sec("Últimos 7 días", d.recent, true)}`;
+    ${sec("Próximas", d.upcoming)}${sec("Ya pasaron (7 días)", d.recent)}${pending.length ? sec(`Falta marcar (desde el ${esc(shortDay(d.pendingFrom))})`, pending) : ""}
+    ${unk ? `<p class="faint" style="margin:10px 0 0;font-size:13px">«?»: falta marcar qué pasó con la demo. La marca quien la da (o un líder).</p>` : ""}`;
 }
 // Métricas de demos (solo líderes): 30 o 90 días, por país. La asistencia se calcula solo con las marcadas.
 let dm = null, dmAt = 0; const DMF = { days: 30, country: "" };
 async function loadDm() { dmAt = Date.now(); dm = null; drawDm(); try { dm = await api(`/api/team/demo-metrics?days=${DMF.days}&country=${encodeURIComponent(DMF.country)}`); } catch (e) { dm = { error: e.message }; } drawDm(); }
-const DCOLS = [["set", "Agendadas"], ["marked", "Con resultado"], ["done", "Se hicieron"], ["noshow", "No-show"], ["moved", "Reprogramadas"], ["canceled", "Canceladas"], ["unknown", "Sin resultado (?)"]];
+// «Se reprogramó» no es un resultado: si la fecha nueva ya pasó sin marca, la demo cuenta como «?». Aparte, cuántas se reprogramaron alguna vez.
+const DCOLS = [["set", "Agendadas"], ["marked", "Con resultado"], ["done", "Se hicieron"], ["noshow", "No-show"], ["canceled", "Canceladas"], ["unknown", "Sin resultado (?)"], ["movedEver", "Se reprogramaron alguna vez"]];
 const pct = v => v == null ? "?" : `${v}%`;
 function dmHtml() {
   const filters = `<div style="display:flex;flex-wrap:wrap;gap:8px 14px;align-items:end;margin:0 0 12px"><div class="chips" role="group" aria-label="Período">${[30, 90].map(n => `<button class="chip" data-dmd="${n}" aria-pressed="${DMF.days === n}">${n} días</button>`).join("")}</div>
@@ -246,7 +252,7 @@ function dmHtml() {
   if (dm.error) return filters + `<div class="callout err">${icon("alert")}<span>No pudimos cargar las métricas: ${esc(dm.error)}</span><button class="btn sm" id="dmRetry">Reintentar</button></div>`;
   const T = dm.totals, D = dm.deals, base = T.done + T.noshow;
   const kpis = `<div class="kpis" style="margin:0 0 6px">${DCOLS.map(([k, l]) => `<div class="kpi"><b>${T[k]}</b><span>${l}</span></div>`).join("")}<div class="kpi"><b>${pct(T.attendance)}</b><span>Asistencia</span></div></div>
-    <p class="faint" style="margin:0 0 12px;font-size:13.5px">Demos con fecha del ${esc(shortDay(dm.from))} a hoy que ya pasaron. La asistencia es sobre las ${base} marcadas como «se hizo» o «no se presentó»; las ${T.unknown} sin resultado no cuentan.${T.movedEver ? ` ${T.movedEver === 1 ? "Una se reprogramó" : `${T.movedEver} se reprogramaron`} alguna vez.` : ""}</p>`;
+    <p class="faint" style="margin:0 0 12px;font-size:13.5px">Demos con fecha del ${esc(shortDay(dm.from))} a hoy que ya pasaron. La asistencia es sobre las ${base} marcadas como «se hizo» o «no se presentó»; las ${T.unknown} sin resultado no cuentan (una reprogramada cuya fecha nueva ya pasó sin marca también es «?»).</p>`;
   const deals = `<h3 style="margin:14px 0 6px;font-size:14px">De las ${T.done} que se hicieron: el trato</h3>
     <div class="kpis" style="margin:0 0 6px">${[["won", "Ganado"], ["proposal", "Propuesta enviada"], ["open", "Abierto, antes de la propuesta"], ["lost", "Perdido"], ["none", "Sin trato"], ["unknown", "No se sabe (?)"]].map(([k, l]) => `<div class="kpi"><b>${D[k]}</b><span>${l}</span></div>`).join("")}</div>
     ${D.lostReasons.length ? `<p style="margin:4px 0;font-size:13.5px">Motivos de pérdida: ${D.lostReasons.map(r => `${esc(r.reason)} (${r.n})`).join(", ")}</p>` : ""}
@@ -277,9 +283,9 @@ function draw() {
     }).join("") : `<div class="empty">${icon("note")}<span>Sin actividad todavía.</span></div>`;
   }
   host.innerHTML = `<div class="page">
-    <div class="page-head"><div><h1>Equipo</h1><p>Últimos 7 días</p></div></div>
+    <div class="page-head"><div><h1>Equipo</h1><p>Demos y actividad reciente</p></div></div>
     <div class="two">
-      <section class="card" aria-labelledby="hRk"><div class="card-h"><h2 id="hRk">${icon("video")} Demos de la semana</h2><span class="sub">agendadas en Pipedrive</span></div><div class="card-b">${rank}</div></section>
+      <section class="card" aria-labelledby="hRk"><div class="card-h"><h2 id="hRk">${icon("video")} Demos</h2><span class="sub">últimos 7 días y próximas 2 semanas</span></div><div class="card-b">${rank}</div></section>
       <section class="card" aria-labelledby="hFd"><div class="card-h"><h2 id="hFd">${icon("clock")} Actividad reciente</h2></div><div class="card-b">${feed}</div></section>
     </div>
     ${S.profile?.leader ? `<section class="card" style="margin-top:16px" aria-labelledby="hDm"><div class="card-h"><h2 id="hDm">${icon("video")} Métricas de demos</h2><span class="sub">solo lo ven los líderes</span></div>

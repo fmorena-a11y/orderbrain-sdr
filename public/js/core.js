@@ -141,8 +141,10 @@ export const statusPill = s => s?.phase && PH[s.phase] ? `<span class="pill ph-$
 // distintivo «Alto potencial» (datos reales del colegio; los motivos van al pasar el mouse)
 export const potTag = s => s?.pot?.length ? `<span class="pot-tag" title="${esc("Alto potencial: " + s.pot.join(" · "))}">${icon("flame", "sm")} Alto potencial</span>` : "";
 export const stageTag = s => s?.status === "open" ? `<span class="stage-tag deal" title="Tiene un trato abierto en Pipedrive">Trato</span>` : s?.lead ? `<span class="stage-tag lead" title="Tiene un prospecto abierto en Pipedrive">Prospecto</span>` : "";
-// archivado en la app (los "lead:…"/"org:…" de la agenda son las fichas pd-lead-…/pd-org-…): fuera de sesiones y de la bandeja caliente
+// archivado en la app: fuera de sesiones y de la bandeja caliente. Las actividades lo traen del servidor (archived: también las
+// fichas de Pipedrive que no están en la base); el resto, por el colegio cargado (S.byId).
 export const archivedRef = id => !!id && S.byId.get(String(id).replace(/^(lead|org):/, "pd-$1-"))?.status === "archived";
+export const archivedAct = a => !!a?.archived || archivedRef(a?.schoolId || a?.record);
 export const dotColor = (s, colors) => s.phase && PH[s.phase] ? PH[s.phase].dot : colors[s.status];
 
 // ---------- fechas

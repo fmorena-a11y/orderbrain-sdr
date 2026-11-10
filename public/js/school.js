@@ -1,6 +1,6 @@
 // Ficha del colegio: preparar el contacto, registrar el resultado e historial. Incluye el modo sesión.
 import { $, S, api, esc, icon, pill, statusPill, stageTag, potTag, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, workOrder, ago, TYPE_ICON,
-  telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile, callQueue, callGuess, demoDue, archivedRef } from "./core.js";
+  telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile, callQueue, callGuess, demoDue, archivedRef, archivedAct } from "./core.js";
 // «la cafetería», «el casino», «el bar escolar»
 const laEsp = mk => `${/^(casino|bar)\b/.test(mk?.espacio || "") ? "el" : "la"} ${mk?.espacio || "cafetería"}`, delaEsp = mk => laEsp(mk).replace(/^el /, "del ").replace(/^la /, "de la ");
 const coarse = () => matchMedia("(pointer: coarse)").matches;
@@ -413,7 +413,7 @@ export async function startSession(ids, label = "tu territorio", { acts = null, 
   S.session = { ids: [], i: 0, label, acts: {}, done: 0 };
   if (acts) {
     const seen = new Set(); ids = [];
-    for (const a of acts) { const k = a.schoolId || a.record; if (k && !seen.has(k)) { seen.add(k); ids.push(k); S.session.acts[k] = a.id; } }
+    for (const a of acts) { const k = a.schoolId || a.record; if (k && !archivedAct(a) && !seen.has(k)) { seen.add(k); ids.push(k); S.session.acts[k] = a.id; } }
     for (const id of extra) if (!seen.has(id)) { seen.add(id); ids.push(id); }
   }
   ids = ids.filter(id => !archivedRef(id)); // los archivados no entran en ninguna sesión
@@ -550,11 +550,15 @@ async function runProspect(s, task) {
     import("./explore.js").then(x => x.refreshExplore({ fit: false }));
   } catch (e) { if (D.prospecting === s.id) D.prospecting = false; if (D.id === s.id) draw(); toast(e.message, { type: "err" }); }
 }
-// ---------- archivar en la app: no clientes ni tratos abiertos de otra persona (salvo un líder). Desarchiva quien archivó o un líder.
-const canArchive = (s, d) => !!d && !d.archive && s.status !== "client" && !s.ob?.client && !(d.match?.status === "open" && !myDeal(d.match) && !S.profile?.leader);
-const canUnarchive = a => !!a && (!!S.profile?.leader || String(a.by || "").toLowerCase() === String(S.me.email || "").toLowerCase());
+// ---------- archivar en la app: no clientes ni lo de otra persona (trato abierto, organización o prospecto; salvo un líder).
+// Desarchiva quien archivó, quien lo tiene en Pipedrive o un líder. El servidor revisa lo mismo.
+const theirs = id => !!id && id !== S.me.pdUserId;
+const othersOwn = (s, d) => theirs(s.ownerId) || !!d.leads?.some(l => theirs(l.ownerId)) || (!!s.leadOnly && (!("leadOwnerId" in d) || theirs(d.leadOwnerId)));
+const ownsIt = (s, d) => !!S.me.pdUserId && (s.ownerId === S.me.pdUserId || !!d?.leads?.some(l => l.ownerId === S.me.pdUserId) || d?.leadOwnerId === S.me.pdUserId);
+const canArchive = (s, d) => !!d && !d.archive && s.status !== "client" && !s.ob?.client && (!!S.profile?.leader || (!(d.match?.status === "open" && !myDeal(d.match)) && !othersOwn(s, d)));
+const canUnarchive = (a, s, d) => !!a && (!!S.profile?.leader || String(a.by || "").toLowerCase() === String(S.me.email || "").toLowerCase() || ownsIt(s, d));
 const ddmmOf = iso => { const t = new Date(iso); return isNaN(t) ? "?" : `${String(t.getDate()).padStart(2, "0")}/${String(t.getMonth() + 1).padStart(2, "0")}`; };
-const archBox = a => `<div class="arch-box">${icon("archive")}<span>Archivado por <b>${esc(a.byName || "?")}</b> el ${ddmmOf(a.at)}: ${esc(a.reason)}${a.text ? ` — ${esc(a.text)}` : ""}</span>${canUnarchive(a) ? `<button class="btn sm" id="aUnarch">${D.archiving ? `<span class="spin"></span> Desarchivando…` : "Desarchivar"}</button>` : ""}</div>`;
+const archBox = (a, s, d) => `<div class="arch-box">${icon("archive")}<span>Archivado por <b>${esc(a.byName || "?")}</b> el ${ddmmOf(a.at)}: ${esc(a.reason)}${a.text ? ` — ${esc(a.text)}` : ""}</span>${canUnarchive(a, s, d) ? `<button class="btn sm" id="aUnarch">${D.archiving ? `<span class="spin"></span> Desarchivando…` : "Desarchivar"}</button>` : ""}</div>`;
 async function afterArchive(s, r) {
   if (r.school) patchSchool(r.school);
   toast(r.done.map(x => x.label).join(" · "), r.done.some(x => x.warn) ? { type: "info", ms: 10000 } : {});
@@ -600,6 +604,7 @@ function draw() {
   const el = $("drawer"); if (!D.id) return;
   const fk = el.contains(document.activeElement) ? focusKey(document.activeElement) : null;
   const s = S.byId.get(D.id), d = D.data, m = d?.match, ss = S.session;
+  if (d?.archive && D.tab === "log") D.tab = "prep"; // archivado: no se registran contactos (primero se desarchiva)
   const here = sedesOf(s.id).find(z => z.here), sedePhones = sedesOf(s.id).filter(z => sedeCallable(z).length).length;
   const phone = s.phone || (here && sedeCallable(here)[0]) || "";
   const mk = d?.market || S.markets[s.country] || {};
@@ -622,12 +627,12 @@ function draw() {
       ${s.lastTouch ? `<span class="tag">Último: ${esc(s.lastTouch.outcome.toLowerCase())} ${esc(ago(s.lastTouch.at))}</span>` : ""}
       ${m?.openDealOwner ? `<span class="tag">${icon("deal", "sm")} Trato de ${esc(m.openDealOwner)}</span>` : ""}
     </div>
-    ${d?.archive ? archBox(d.archive) : ""}
+    ${d?.archive ? archBox(d.archive, s, d) : ""}
     <div class="d-actions">
       ${phone ? `<a class="btn primary" id="aCall" href="${esc(telLink(phone))}">${icon("phone")} Llamar <span class="num">${esc(phone)}</span></a>` : sedePhones ? `<button class="btn primary" id="aSedes">${icon("phone")} Teléfonos de ${sedePhones} sede${sedePhones > 1 ? "s" : ""}</button>` : `<span class="btn" aria-disabled="true" title="No hay teléfono publicado">${icon("phone")} Sin teléfono</span>`}
       <button class="btn wa" id="aWa" ${notReady} aria-haspopup="menu">${icon("whatsapp")} WhatsApp</button>
       <button class="btn" id="aMail" ${notReady} aria-haspopup="menu">${icon("mail")} Mail</button>
-      <button class="btn" id="aDemo" ${notReady} ${s.status === "client" ? `disabled title="Ya es cliente"` : ""}>${icon("video")} Demo</button>
+      <button class="btn" id="aDemo" ${notReady} ${s.status === "client" ? `disabled title="Ya es cliente"` : d?.archive ? `disabled title="Está archivado: desarchivalo para registrar"` : ""}>${icon("video")} Demo</button>
       ${!s.virtual && d?.leads?.length ? `<a class="btn" href="${esc(d.leads[0].url)}" target="_blank" rel="noopener" title="${esc(d.leads.length > 1 ? `Tiene ${d.leads.length} prospectos abiertos en Pipedrive` : `Ya tiene prospecto en Pipedrive${d.leads[0].owner ? ` (de ${d.leads[0].owner})` : ""}: no se crea otro`)}">${icon("lead")} Prospecto${d.leads.length > 1 ? `s (${d.leads.length})` : ""}${d.leads[0].ownerId && d.leads[0].ownerId !== S.me.pdUserId && d.leads[0].owner ? ` de ${esc(d.leads[0].owner.split(" ")[0])}` : ""}</a>` : ""}
       ${canConvert(s, d) ? `<button class="btn" id="aConvert" title="Pasa el prospecto a trato en el embudo del país. Las notas y actividades pasan al trato.">${D.converting === s.id ? `<span class="spin"></span> Convirtiendo…` : `${icon("deal")} Convertir a trato`}</button>` : ""}
       ${canProspect(s, m) ? `<button class="btn" id="aProspect" title="Crear el prospecto (y la organización si falta) a tu nombre en Pipedrive y buscar a quién contactar">${D.prospecting === s.id ? `<span class="spin"></span> Creando…` : `${icon("plus")} Crear prospecto`}</button>` : ""}
@@ -635,10 +640,10 @@ function draw() {
       ${canArchive(s, d) ? `<button class="btn" id="aArchive" title="No es un colegio, cerró, duplicado…: sale de la cola y de las sesiones">${D.archiving === s.id ? `<span class="spin"></span> Archivando…` : `${icon("archive")} Archivar`}</button>` : ""}
       <button class="btn icon-only" id="aMore" aria-haspopup="menu" aria-label="Más: mapa, web y buscar al decisor" title="Mapa, web y buscar al decisor">${icon("nav")}</button>
     </div>
-    ${D.inCall && D.tab !== "log" ? `<button class="call-banner" id="toLog">${icon("phone", "sm")} ¿Cortaste? Registrá cómo te fue ${icon("arrowRight", "sm")}</button>` : ""}
+    ${D.inCall && D.tab !== "log" && !d?.archive ? `<button class="call-banner" id="toLog">${icon("phone", "sm")} ¿Cortaste? Registrá cómo te fue ${icon("arrowRight", "sm")}</button>` : ""}
   </div>
   <div class="tabs" role="tablist" aria-label="Secciones de la ficha">
-    ${[["prep", "Preparar"], ["log", "Registrar"], ["hist", "Historial"]].map(([k, l]) => `<button class="tab" role="tab" id="tab-${k}" data-tab="${k}" aria-selected="${D.tab === k}" aria-controls="dBody" tabindex="${D.tab === k ? 0 : -1}">${l}${k === "hist" && nHist ? `<span class="n">${nHist}</span>` : ""}</button>`).join("")}
+    ${[["prep", "Preparar"], ["log", "Registrar"], ["hist", "Historial"]].filter(([k]) => k !== "log" || !d?.archive).map(([k, l]) => `<button class="tab" role="tab" id="tab-${k}" data-tab="${k}" aria-selected="${D.tab === k}" aria-controls="dBody" tabindex="${D.tab === k ? 0 : -1}">${l}${k === "hist" && nHist ? `<span class="n">${nHist}</span>` : ""}</button>`).join("")}
   </div>
   <div class="d-body" id="dBody" role="tabpanel" aria-labelledby="tab-${D.tab}" aria-busy="${!d && !D.err}">${S.demo ? `<div class="callout warn demo-note">${icon("alert")}<span><b>Datos de prueba.</b> Pipedrive todavía no está conectado: los tratos, notas y personas de esta ficha son inventados y no son los de tu cuenta.</span></div>` : ""}${D.err ? `<div class="callout err">${icon("alert")}<span>No se pudo cargar la ficha: ${esc(D.err)}</span><button class="btn sm" id="retry">Reintentar</button></div>` : !d ? loadingBody() : D.tab === "prep" ? prepBody(s, d) : D.tab === "log" ? (D.result ? resultBody(s, d) : logBody(s, d)) : histBody(s, d)}</div>
   ${D.tab === "log" && d && !D.result ? `<div class="d-foot"><div class="sum" id="sum">${summary(s, d)}</div><button class="btn primary lg" id="save" ${saveDisabled(s) ? "disabled" : ""}>${D.saving ? `<span class="spin"></span> Guardando…` : saveLabel()}</button></div>` : ""}`;
@@ -1035,7 +1040,7 @@ function histBody(s, d) {
   return `<div class="stack">
     ${d.persons?.length || canAddPerson(s) ? `<div class="sec"><h3><span class="l">${icon("users")} Contactos</span>${canAddPerson(s) ? `<button class="btn sm ghost" id="addDec">${icon("plus", "sm")} Agregar decisor</button>` : ""}</h3>${d.persons?.length ? "" : `<p class="muted" style="margin:0">Todavía no hay contactos cargados.</p>`}${(d.persons || []).map(p => `<div class="person"><div class="av" style="width:34px;height:34px;border-radius:50%;background:var(--surface-3);display:grid;place-items:center;font-weight:600;font-size:13px">${initials(p.name)}</div><div class="t"><b>${esc(p.name)}</b><small>${esc([p.phone, p.email].filter(Boolean).join(" · ") || "Sin datos")}</small></div>
       ${p.phone ? `<a class="icon-btn" href="${esc(telLink(p.phone))}" aria-label="Llamar">${icon("phone")}</a><button class="icon-btn" data-pwa="${esc(p.phone)}" data-pname="${esc(p.name)}" aria-label="WhatsApp">${icon("whatsapp")}</button>` : ""}${p.email ? `<button class="icon-btn" data-pmail="${esc(p.email)}" data-pname="${esc(p.name)}" aria-label="Mail">${icon("mail")}</button>` : ""}</div>`).join("")}</div>` : ""}
-    ${d.activities?.length ? `<div class="sec"><h3><span class="l">${icon("calendar")} Pendientes</span></h3>${d.activities.map(a => { const l = localAct(a); return `<div class="act"><span class="ty ${a.type}">${icon(TYPE_ICON[a.type] || "check")}</span><div class="t"><b>${esc(a.subject)}</b><small class="${l.date < today() ? "late" : ""}">${esc(a.typeLabel)} · ${esc(dayLabel(l.date))}${l.time ? ` ${l.time}` : ""} · ${esc(a.owner)}</small></div><div class="ops">${a.type === "meeting" && demoDue(l) && (a.ownerId === S.me.pdUserId || S.profile?.leader) ? `<button class="btn sm" data-hdemo="${a.id}" data-time="${esc(l.time)}">¿Se hizo la demo?</button>` : ""}${a.ownerId === S.me.pdUserId ? `<button class="icon-btn" data-hdone="${a.id}" aria-label="Marcar como hecha" title="Marcar como hecha">${icon("check")}</button>` : ""}</div></div>`; }).join("")}</div>` : ""}
+    ${d.activities?.length ? `<div class="sec"><h3><span class="l">${icon("calendar")} Pendientes</span></h3>${d.activities.map(a => { const l = localAct(a); return `<div class="act"><span class="ty ${a.type}">${icon(TYPE_ICON[a.type] || "check")}</span><div class="t"><b>${esc(a.subject)}</b><small class="${l.date < today() ? "late" : ""}">${esc(a.typeLabel)} · ${esc(dayLabel(l.date))}${l.time ? ` ${l.time}` : ""} · ${esc(a.owner)}</small></div><div class="ops">${a.type === "meeting" && demoDue(l) ? (a.ownerId === S.me.pdUserId || S.profile?.leader ? `<button class="btn sm" data-hdemo="${a.id}" data-time="${esc(l.time)}">¿Se hizo la demo?</button>` : "") : a.ownerId === S.me.pdUserId ? `<button class="icon-btn" data-hdone="${a.id}" aria-label="Marcar como hecha" title="Marcar como hecha">${icon("check")}</button>` : ""}</div></div>`; }).join("")}</div>` : ""}
     ${d.deals?.length ? `<div class="sec"><h3><span class="l">${icon("deal")} Tratos</span></h3>${d.deals.map(x => `<div class="act"><span class="ty">${icon("deal")}</span><div class="t"><b><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a></b><small>${esc(x.pipeline)} · ${esc(x.stage)} · ${x.status === "won" ? "ganado" : x.status === "lost" ? "perdido" + (x.lostReason ? ` (${esc(x.lostReason)})` : "") : "abierto"}${x.owner ? ` · ${esc(x.owner)}` : ""} · ${esc(x.updated)}</small>${dealOpsHtml(x)}</div></div>`).join("")}</div>` : ""}
     <div class="sec"><h3><span class="l">${icon("clock")} Historial</span>${m.checkedAt ? `<button class="btn sm ghost" id="refresh">${icon("refresh", "sm")} Actualizar</button>` : ""}</h3>
       ${items.length ? `<div class="timeline">${items.map(i => `<div class="tl"><span class="ic">${icon(i.ic)}</span><div><div class="h">${i.h} · ${esc(ago(i.at))}</div>${i.p ? `<p>${esc(i.p)}</p>` : ""}</div></div>`).join("")}</div>` : `<div class="empty">${icon("note")}<span>Todavía no hay contactos ni notas. Lo que registres aparece acá y en Pipedrive.</span></div>`}

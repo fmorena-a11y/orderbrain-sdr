@@ -1,5 +1,5 @@
 // Hoy: meta del día, agenda propia y a quién contactar ahora.
-import { S, api, esc, icon, potTag, save, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg, brainTokenCallout, matchZone, zoneOptions, ZONE_KIND, workOrder, norm, callPill, callQueue, hotRows, demoDue, archivedRef } from "./core.js";
+import { S, api, esc, icon, potTag, save, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg, brainTokenCallout, matchZone, zoneOptions, ZONE_KIND, workOrder, norm, callPill, callQueue, hotRows, demoDue, archivedRef, archivedAct } from "./core.js";
 import { openSchool, openRecord, startSession, resumeSession } from "./school.js";
 import { setBadge, baseErrorCallout } from "./app.js";
 
@@ -64,7 +64,7 @@ function draw() {
   const resume = S.lastSession && S.lastSession.i < S.lastSession.ids.length - 1;
   const terr = S.territory.length ? (S.territory.length <= 2 ? S.territory.join(", ") : `${S.territory.length} países`) : "Todos los países";
   const list = showAll ? fresh : fresh.slice(0, 6);
-  const hot = hotRows((activities.items || []).filter(a => !archivedRef(a.schoolId || a.record)), (hotLeads || []).filter(l => !archivedRef(l.schoolId || l.record)), t), hotList = hotAll ? hot : hot.slice(0, 6);
+  const hot = hotRows((activities.items || []).filter(a => !archivedAct(a)), (hotLeads || []).filter(l => !archivedRef(l.schoolId || l.record)), t), hotList = hotAll ? hot : hot.slice(0, 6);
 
   host.innerHTML = `<div class="page">
     ${baseErrorCallout()}
@@ -191,7 +191,10 @@ export function actRow(a, late) {
       : a.record ? `<button class="t" data-record="${esc(a.record)}" data-act="${a.id}" title="Abrir la ficha"><b>${esc(title)}</b><small class="${late ? "late" : ""}">${esc(sub)}</small></button>`
       : a.url ? `<a class="t" href="${esc(a.url)}" target="_blank" rel="noopener" title="Abrir en Pipedrive"><b>${esc(title)} ${icon("external", "sm")}</b><small class="${late ? "late" : ""}">${esc(sub)}</small></a>`
       : `<div class="t"><b>${esc(title)}</b><small class="${late ? "late" : ""}">${esc(sub)}</small></div>`}
-    <div class="ops">${a.type === "meeting" && demoDue(a) ? `<button class="btn sm" data-demo="${a.id}" data-date="${esc(a.date)}" data-time="${esc(a.time || "")}">¿Se hizo la demo?</button>` : ""}<button class="icon-btn" data-done="${a.id}" data-focus-key="done-${a.id}" title="Marcar como hecha" aria-label="Marcar como hecha">${icon("check")}</button><button class="icon-btn" data-move="${a.id}" title="Reprogramar" aria-label="Reprogramar">${icon("clock")}</button></div></div>`;
+    <div class="ops">${a.type === "meeting" && demoDue(a)
+      // demo vencida: solo «¿Se hizo la demo?» (incluye «Se reprogramó…»), para que no se cierre ni se mueva sin resultado
+      ? `<button class="btn sm" data-demo="${a.id}" data-date="${esc(a.date)}" data-time="${esc(a.time || "")}">¿Se hizo la demo?</button>`
+      : `<button class="icon-btn" data-done="${a.id}" data-focus-key="done-${a.id}" title="Marcar como hecha" aria-label="Marcar como hecha">${icon("check")}</button><button class="icon-btn" data-move="${a.id}" title="Reprogramar" aria-label="Reprogramar">${icon("clock")}</button>`}</div></div>`;
 }
 // Fila de la bandeja caliente: abre la ficha (colegio o prospecto) y dice por qué está ahí.
 function hotRow(r) {

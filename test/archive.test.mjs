@@ -36,7 +36,20 @@ test("archivePlan: en Pipedrive solo lo tuyo o lo libre", () => {
   assert.equal(p.orgNote, false); assert.equal(p.orgOthers, true);
   assert.equal(archivePlan({ me: 7, org: { id: 1, ownerId: null } }).orgNote, true);
   assert.equal(archivePlan({ me: 7, org: { id: 1, ownerId: 7 } }).orgNote, true);
-  assert.deepEqual(archivePlan({ me: 7 }), { archive: [], others: [], orgNote: false, orgOthers: false });
+  assert.deepEqual(archivePlan({ me: 7 }), { archive: [], others: [], orgNote: false, orgOthers: false, otherOwner: null });
+});
+test("archivePlan.otherOwner y archiveError: lo de otra persona (organización, prospecto o cruce) solo lo archiva un líder", () => {
+  assert.equal(archivePlan({ me: 7, leads: [{ id: "a", ownerId: 8 }], org: { id: 1, ownerId: 7 } }).otherOwner, 8);
+  assert.equal(archivePlan({ me: 7, org: { id: 1, ownerId: 9 } }).otherOwner, 9);
+  assert.equal(archivePlan({ me: 7, ownerId: 5 }).otherOwner, 5);
+  assert.equal(archivePlan({ me: 7, leads: [{ id: "a", ownerId: 8, archived: true }] }).otherOwner, 8); // un prospecto sin organización ya archivado en Pipedrive sigue siendo suyo
+  assert.equal(archivePlan({ me: 7, leads: [{ id: "a", ownerId: null }], org: { id: 1, ownerId: 7 } }).otherOwner, null);
+  assert.equal(archivePlan({ me: null, org: { id: 1, ownerId: 7 } }).otherOwner, 7); // sin usuario de Pipedrive: todo lo que tiene dueño es ajeno
+  const e = archiveError({ status: "org", reason: "Cerró", me: 7, othersOwner: "Juan Diego" });
+  assert.equal(e.status, 403); assert.equal(e.msg, "Es de Juan Diego: hablalo con esa persona o con un líder.");
+  assert.equal(archiveError({ status: "new", reason: "Cerró", othersOwner: true }).msg, "Es de otra persona: hablalo con esa persona o con un líder.");
+  assert.equal(archiveError({ status: "org", reason: "Cerró", me: 7, othersOwner: "Juan Diego", leader: true }), null);
+  assert.equal(archiveError({ status: "org", reason: "Cerró", me: 7, othersOwner: null }), null);
 });
 test("canUnarchive: quien archivó (sin importar mayúsculas) o un líder", () => {
   const rec = { by: "ana@ordereat.com" };
@@ -44,6 +57,7 @@ test("canUnarchive: quien archivó (sin importar mayúsculas) o un líder", () =
   assert.equal(canUnarchive(rec, "juan@ordereat.com"), false);
   assert.equal(canUnarchive(rec, "juan@ordereat.com", true), true);
   assert.equal(canUnarchive(null, "ana@ordereat.com", true), false);
+  assert.equal(canUnarchive(rec, "juan@ordereat.com", false, true), true); // lo tiene en Pipedrive
 });
 test("scoreSchool y playbook: un archivado no se puntúa y lo dice", () => {
   assert.equal(scoreSchool({ name: "X", phone: "1" }, { status: "archived" }, []), null);
@@ -65,6 +79,22 @@ test("un archivado no entra en la cola ni en el alto potencial, y la lista lo mu
   await setArchived(s.id, null);
   assert.equal(getArchived(s.id), null);
   assert.ok(sales.prospectQueue({ limit: 1e6 }).some(x => x.id === s.id));
+});
+test("logContact: un archivado no registra contactos (primero se desarchiva), como al crear el prospecto", async () => {
+  const s = schools.find(x => !x.virtual);
+  await setArchived(s.id, { by: "ana@ordereat.com", byName: "Ana Pérez", at: new Date().toISOString(), reason: "Cerró", text: "", leadIds: [] });
+  await assert.rejects(sales.logContact(s.id, { email: "ana@ordereat.com", pdUserId: 7 }, { outcome: "no_answer", channel: "call" }, "UTC"),
+    e => e.status === 409 && /desarchivalo para registrar/.test(e.message));
+  await setArchived(s.id, null);
+});
+test("archivedRef: el colegio, el prospecto o la organización de Pipedrive (las actividades lo traen como archived)", async () => {
+  await setArchived("pd-org-555", { by: "ana@ordereat.com", reason: "Duplicado", leadIds: [] });
+  await setArchived("pd-lead-abc", { by: "ana@ordereat.com", reason: "Cerró", leadIds: [] });
+  assert.equal(sales.archivedRef({ leadId: "zzz", orgId: 555 }), true); // prospecto con organización: se archiva como su organización
+  assert.equal(sales.archivedRef({ leadId: "abc" }), true);
+  assert.equal(sales.archivedRef({ leadId: "zzz", orgId: 556 }), false);
+  assert.equal(sales.archivedRef({}), false);
+  await setArchived("pd-org-555", null); await setArchived("pd-lead-abc", null);
 });
 test("freshLeads: los archivados en la app quedan fuera de la bandeja caliente", () => {
   const now = Date.now(), L = id => ({ id, ownerId: 7, archived: false, addTime: new Date(now - 3600e3).toISOString() });
