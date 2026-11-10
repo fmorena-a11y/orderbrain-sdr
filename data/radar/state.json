@@ -6842,7 +6842,15 @@
   "MX|Nuevo Laredo": "2026-11-10T15:15:22.160Z",
   "DO|n2322572886": "2026-11-10T15:15:57.339Z",
   "MX|Veracruz": "2026-11-10T15:16:28.974Z",
-  "AR|Santa Fe": "2026-11-10T15:17:07.080Z"
+  "AR|Santa Fe": "2026-11-10T15:17:07.080Z",
+  "CO|n309303769": "2026-11-10T17:02:32.713Z",
+  "AR|Resistencia": "2026-11-10T17:03:08.522Z",
+  "MX|Celaya": "2026-11-10T17:03:53.546Z",
+  "VE|n333675723": "2026-11-10T17:04:25.810Z",
+  "MX|Tepic": "2026-11-10T17:05:04.236Z",
+  "CO|n703168221": "2026-11-10T17:05:39.314Z",
+  "CO|n3377581135": "2026-11-10T17:12:02.250Z",
+  "MX|Uruapan": "2026-11-10T17:12:32.393Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -6862,6 +6870,78 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-10T17:01:27.748Z",
+   "cities": [
+    {
+     "cc": "CO",
+     "city": "Pasto",
+     "found": 125,
+     "updated": 4,
+     "osm": 239
+    },
+    {
+     "cc": "AR",
+     "city": "Resistencia",
+     "found": 62,
+     "updated": 0,
+     "osm": 262
+    },
+    {
+     "cc": "MX",
+     "city": "Celaya",
+     "found": 26,
+     "updated": 1,
+     "osm": 67
+    },
+    {
+     "cc": "VE",
+     "city": "Cumaná",
+     "found": 10,
+     "updated": 0,
+     "osm": 42
+    },
+    {
+     "cc": "MX",
+     "city": "Tepic",
+     "found": 45,
+     "updated": 0,
+     "osm": 349
+    },
+    {
+     "cc": "CO",
+     "city": "Buenaventura",
+     "found": 3,
+     "updated": 0,
+     "osm": 13
+    },
+    {
+     "cc": "CO",
+     "city": "Neiva",
+     "found": 18,
+     "updated": 0,
+     "osm": 58
+    },
+    {
+     "cc": "MX",
+     "city": "Uruapan",
+     "found": 14,
+     "updated": 0,
+     "osm": 36
+    }
+   ],
+   "added": 303,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 32,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "MX|Xico: sin tiempo en esta corrida"
+   ],
+   "minutes": 19.3,
+   "total": 14456
+  },
   {
    "at": "2026-11-10T15:14:52.750Z",
    "cities": [

@@ -44051,7 +44051,8 @@
   "src": "osm",
   "osm": "w966324739",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-santiago-quilicura",
@@ -44127,7 +44128,8 @@
   "src": "osm",
   "osm": "w971201818",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-liceo-politecnico-particular-sagrado-corazon",
@@ -44197,7 +44199,7 @@
   "lat": -33.45066,
   "lng": -70.662322,
   "addr": "Vergara 275",
-  "phone": "",
+  "phone": "+56 22 676 8601",
   "web": "https://psicologia.udp.cl/",
   "email": "",
   "levels": [
@@ -44211,7 +44213,8 @@
   "src": "osm",
   "osm": "w1006202443",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-amankay-batuco",
@@ -44375,7 +44378,7 @@
   "lat": -33.36974,
   "lng": -70.724721,
   "addr": "Ramón Rosales 785",
-  "phone": "",
+  "phone": "+56935943936",
   "web": "https://colegiosantabarbara.cl/",
   "email": "santabarbarahs@hotmail.com",
   "levels": [],
@@ -44386,7 +44389,9 @@
   "src": "osm",
   "osm": "w1072884587",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+56935943936",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-crisol-la-florida",
@@ -44473,9 +44478,9 @@
   "lat": -33.520502,
   "lng": -70.625162,
   "addr": "Avenida Padre Esteban Gumucio Vives 0381",
-  "phone": "",
+  "phone": "+56979050926",
   "web": "https://ceas.cl/colegio-padre-esteban-gumucio/",
-  "email": "",
+  "email": "colegiopeg@ceas.cl",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)",
@@ -44485,7 +44490,8 @@
   "src": "osm",
   "osm": "w1099765348",
   "found": "2026-11-09",
-  "img": "https://ceas.cl/wp-content/uploads/2026/08/titulo-peg3.webp"
+  "img": "https://ceas.cl/wp-content/uploads/2026/08/titulo-peg3.webp",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-inacap-la-granja",
@@ -44516,7 +44522,7 @@
   "lat": -33.497052,
   "lng": -70.616906,
   "addr": "Avenida Vicuña Mackenna 4685",
-  "phone": "",
+  "phone": "+566004501500",
   "web": "https://www.aiep.cl/sede/san-joaquin/8/",
   "email": "",
   "levels": [],
@@ -44528,7 +44534,8 @@
   "src": "osm",
   "osm": "w1100958331",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-san-alberto",
@@ -44623,7 +44630,8 @@
   "src": "osm",
   "osm": "w1117410891",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-betterland-school",
@@ -45274,7 +45282,8 @@
   "src": "osm",
   "osm": "w1146766541",
   "found": "2026-11-09",
-  "img": "https://www.jorgealessandri.cl/wp-content/uploads/2023/01/GOOGLE-REFERENCE-SCHOOL-3-300x93.png"
+  "img": "https://www.jorgealessandri.cl/wp-content/uploads/2023/01/GOOGLE-REFERENCE-SCHOOL-3-300x93.png",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-trigales-del-maipo",
@@ -46008,16 +46017,17 @@
   "lat": -33.257935,
   "lng": -70.719076,
   "addr": "Lo pinto 7",
-  "phone": "",
+  "phone": "+56972441008",
   "web": "https://kimenmontessori.cl/",
-  "email": "",
+  "email": "info@kimenmontessori.cl",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w1198165317",
   "found": "2026-11-09",
-  "img": "https://kimenmontessori.cl/wp-content/uploads/2025/07/001_19-copia.webp"
+  "img": "https://kimenmontessori.cl/wp-content/uploads/2025/07/001_19-copia.webp",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-monte-de-asis",
@@ -46275,16 +46285,17 @@
   "lat": -33.4685,
   "lng": -70.560031,
   "addr": "Calle 20 6928",
-  "phone": "",
+  "phone": "222923197",
   "web": "https://fwh.cl/penalolen/",
-  "email": "",
+  "email": "contacto@colegiohooverpenalolen.cl",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w1201729186",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-san-rafael-arcangel",
@@ -46650,7 +46661,8 @@
   "src": "osm",
   "osm": "w1228126504",
   "found": "2026-11-09",
-  "img": "https://i0.wp.com/johnandrews.cl/wp-content/uploads/2026/10/jaaa1-copy-1-480x270-1.jpg"
+  "img": "https://i0.wp.com/johnandrews.cl/wp-content/uploads/2026/10/jaaa1-copy-1-480x270-1.jpg",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-escuela-particular-jose-antonio-lecaros",
@@ -46991,7 +47003,8 @@
   "src": "osm",
   "osm": "w1229196047",
   "found": "2026-11-09",
-  "img": "https://colegiosanmarcelo.cl/wp-content/uploads/2022/01/cropped-cropped-logo.png"
+  "img": "https://colegiosanmarcelo.cl/wp-content/uploads/2022/01/cropped-cropped-logo.png",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-liceo-de-adultos-jorge-alessandri-rodriguez",
@@ -47228,7 +47241,7 @@
   "lat": -33.451573,
   "lng": -70.71107,
   "addr": "Pedro de Córdova 5817",
-  "phone": "",
+  "phone": "+56227275010",
   "web": "https://casap.educacionadventista.com/",
   "email": "",
   "levels": [],
@@ -47239,7 +47252,8 @@
   "src": "osm",
   "osm": "w1236947545",
   "found": "2026-11-09",
-  "img": "https://casap.educacionadventista.com/assets/images/fachada-padrao.jpg"
+  "img": "https://casap.educacionadventista.com/assets/images/fachada-padrao.jpg",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-parque-de-innovacion-universidad-de-chile",
@@ -47262,7 +47276,8 @@
   "src": "osm",
   "osm": "w1238627902",
   "found": "2026-11-09",
-  "img": "https://ctecinnovacion.cl/wp-content/themes/ctec-theme_v3.0/images/"
+  "img": "https://ctecinnovacion.cl/wp-content/themes/ctec-theme_v3.0/images/",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-icel-para-adultos",
@@ -47331,14 +47346,15 @@
   "addr": "El Pinar 135",
   "phone": "",
   "web": "https://institutodelasordera.cl/instituto/",
-  "email": "",
+  "email": "info@yourdomain.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w1270763544",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-liceo-gabriela-mistral",
@@ -48156,7 +48172,8 @@
   "src": "osm",
   "osm": "w1352037829",
   "found": "2026-11-09",
-  "img": "https://dglb26w8rx2ld.cloudfront.net/000_clients/560397/file/logopng-c0df92.png"
+  "img": "https://dglb26w8rx2ld.cloudfront.net/000_clients/560397/file/logopng-c0df92.png",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-escuela-basica-particular-mary-anne-school",
@@ -48263,7 +48280,7 @@
   "lat": -33.266026,
   "lng": -70.654416,
   "addr": "Avenida José Rabat",
-  "phone": "",
+  "phone": "+56 9 4074 8076",
   "web": "https://www.pedregales.cl/",
   "email": "",
   "levels": [],
@@ -48272,7 +48289,9 @@
   "src": "osm",
   "osm": "w1442692535",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+56967682175",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-san-juan-de-lampa",
@@ -48311,7 +48330,8 @@
   "src": "osm",
   "osm": "w1485840478",
   "found": "2026-11-09",
-  "img": "https://df6f31f434.clvaw-cdnwnd.com/39ac75ad8b5cfb12db87277ca28f3d3f/200000093-c033cc033e/700/20260807_103251.jpeg?ph=df6f31f434"
+  "img": "https://df6f31f434.clvaw-cdnwnd.com/39ac75ad8b5cfb12db87277ca28f3d3f/200000093-c033cc033e/700/20260807_103251.jpeg?ph=df6f31f434",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-franciscano-maria-reina",
@@ -48448,7 +48468,8 @@
   "src": "osm",
   "osm": "w1509094000",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-saint-paul-montessori-school",
@@ -48586,7 +48607,7 @@
   "lat": -33.445007,
   "lng": -70.662321,
   "addr": "Avenida Libertador Bernardo O'Higgins 1850",
-  "phone": "",
+  "phone": "+56226920200",
   "web": "https://www.uahurtado.cl/la-universidad/campus/campus-patrimonial/",
   "email": "",
   "levels": [
@@ -48600,7 +48621,9 @@
   "src": "osm",
   "osm": "r12809916",
   "found": "2026-11-09",
-  "img": "https://www.uahurtado.cl/wp-content/uploads/2023/06/acreditacion.jpg"
+  "img": "https://www.uahurtado.cl/wp-content/uploads/2023/06/acreditacion.jpg",
+  "whatsapp": "+56934552723",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-universidad-mayor-campus-santo-domingo",
@@ -48794,9 +48817,9 @@
   "lat": -34.606544,
   "lng": -58.375001,
   "addr": "Florida 165",
-  "phone": "",
+  "phone": "5491141910918",
   "web": "https://www.ibl.com.ar/",
-  "email": "",
+  "email": "info@ibl.com.ar",
   "levels": [],
   "opp": [
    "Bilingüe o internacional"
@@ -48805,7 +48828,9 @@
   "src": "osm",
   "osm": "n961544799",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+5491141910918",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-instituto-jose-manuel-estrada",
@@ -49098,9 +49123,9 @@
   "lat": -34.597256,
   "lng": -58.389103,
   "addr": "Paraguay 1401",
-  "phone": "",
+  "phone": "+541148149292",
   "web": "http://www.uces.edu.ar/",
-  "email": "",
+  "email": "ingreso@uces.edu.ar",
   "levels": [
    "Universidad"
   ],
@@ -49111,7 +49136,9 @@
   "src": "osm",
   "osm": "n1215523485",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+5491123458237",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-instituto-comunidad-santalucina",
@@ -49746,7 +49773,8 @@
   "src": "osm",
   "osm": "n2137872262",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-instituto-winter-garden",
@@ -49770,7 +49798,8 @@
   "src": "osm",
   "osm": "n2177218015",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-colegio-san-fernando",
@@ -50256,7 +50285,7 @@
   "lat": -34.59267,
   "lng": -58.627241,
   "addr": "Teniente General Pablo Richieri 961",
-  "phone": "",
+  "phone": "541152638300",
   "web": "https://culturalroca.edu.ar/",
   "email": "",
   "levels": [],
@@ -50267,7 +50296,9 @@
   "src": "osm",
   "osm": "n2983766117",
   "found": "2026-11-09",
-  "img": "https://dam.uvcoding.com.ar/upload/PNG1747971857240.png"
+  "img": "https://dam.uvcoding.com.ar/upload/PNG1747971857240.png",
+  "whatsapp": "+541150213498",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-instituto-jose-ingenieros",
@@ -50858,7 +50889,8 @@
   "src": "osm",
   "osm": "n3705831659",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-colegio-racing-club",
@@ -51696,9 +51728,9 @@
   "lat": -34.459143,
   "lng": -58.56409,
   "addr": "Francisco Pracánico 3120",
-  "phone": "",
+  "phone": "+5491160326405",
   "web": "https://colegioleopoldolugones.com/",
-  "email": "",
+  "email": "info@colegioleopoldolugones.com",
   "levels": [
    "Primaria",
    "Secundaria"
@@ -51711,7 +51743,9 @@
   "src": "osm",
   "osm": "n4090587316",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+5491160326405",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-instituto-san-agustin",
@@ -63262,7 +63296,7 @@
   "addr": "Avenida Hipólito Yrigoyen 2746",
   "phone": "",
   "web": "https://www.eccsf.com.ar/",
-  "email": "",
+  "email": "secretariasecundaria@eccsf.com.ar",
   "levels": [
    "Secundaria"
   ],
@@ -63274,7 +63308,8 @@
   "src": "osm",
   "osm": "n10007244918",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-lomas-high-school",
@@ -65009,7 +65044,8 @@
   "src": "osm",
   "osm": "n11772914750",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-instituto-de-nanosistemas",
@@ -65077,14 +65113,15 @@
   "addr": "",
   "phone": "",
   "web": "https://ac6deoctubre.ar/",
-  "email": "",
+  "email": "isft223@abc.gob.ar",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "n12198375460",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-colegio-del-parque",
@@ -67077,9 +67114,9 @@
   "lat": -34.44818,
   "lng": -58.540184,
   "addr": "Avenida del Libertador 2645",
-  "phone": "",
+  "phone": "11-5352-8000",
   "web": "http://www.institutosanluis.com.ar/",
-  "email": "",
+  "email": "info@colegiosanluis.edu.ar",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -67088,7 +67125,8 @@
   "src": "osm",
   "osm": "w339058214",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-instituto-tecnico-monte-grande",
@@ -67172,7 +67210,8 @@
   "src": "osm",
   "osm": "w372539266",
   "found": "2026-11-09",
-  "img": "https://www.argentina.gob.ar/sites/default/files/argentina-fb.png"
+  "img": "https://www.argentina.gob.ar/sites/default/files/argentina-fb.png",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-colegio-secundario-madre-teresa",
@@ -67670,7 +67709,7 @@
   "lat": -34.509516,
   "lng": -58.574466,
   "addr": "Junín 550",
-  "phone": "",
+  "phone": "+541122769265",
   "web": "https://institutomg.edu.ar",
   "email": "",
   "levels": [
@@ -67684,7 +67723,9 @@
   "src": "osm",
   "osm": "w447988844",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+541122769265",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-belgrano-day-school",
@@ -68098,7 +68139,7 @@
   "lat": -34.775696,
   "lng": -58.391683,
   "addr": "Almirante Brown 3342",
-  "phone": "",
+  "phone": "+5491169838626",
   "web": "https://colegioeccleston.org.ar/",
   "email": "",
   "levels": [],
@@ -68107,7 +68148,9 @@
   "src": "osm",
   "osm": "w468814058",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+5491169838626",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-colegio-chaltel",
@@ -69130,7 +69173,7 @@
   "addr": "Miguel de Azcuénaga 1870",
   "phone": "",
   "web": "http://www.msl.gejho.org/",
-  "email": "",
+  "email": "administracion@gejho.org",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -69139,7 +69182,8 @@
   "src": "osm",
   "osm": "w507085220",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-colegio-santa-ethnea",
@@ -69160,7 +69204,8 @@
   "src": "osm",
   "osm": "w507087373",
   "found": "2026-11-09",
-  "img": "https://colegiosantaethnea.com.ar/wp-content/uploads/revslider/video-media/web-loop-prueba_1.jpeg"
+  "img": "https://colegiosantaethnea.com.ar/wp-content/uploads/revslider/video-media/web-loop-prueba_1.jpeg",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-colegio-san-andres",
@@ -69203,7 +69248,8 @@
   "src": "osm",
   "osm": "w507090884",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-colegio-highlands",
@@ -69240,7 +69286,8 @@
   "src": "osm",
   "osm": "w507857395",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-colegio-st-nicholas-primaria",
@@ -69261,7 +69308,8 @@
   "src": "osm",
   "osm": "w507857403",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-colegio-franco-argentino",
@@ -69271,9 +69319,9 @@
   "lat": -34.478278,
   "lng": -58.496594,
   "addr": "Lavalle 1067",
-  "phone": "",
+  "phone": "+5491131262284",
   "web": "https://www.cfam.edu.ar/",
-  "email": "",
+  "email": "secretaria@cfam.edu.ar",
   "levels": [
    "Preescolar",
    "Primaria",
@@ -69286,7 +69334,9 @@
   "src": "osm",
   "osm": "w507857406",
   "found": "2026-11-09",
-  "img": "https://www.cfam.edu.ar/wp-content/uploads/2026/01/78ab47436350a8d25c0d1d3c7f3cf4d563a9f320-scaled.jpg"
+  "img": "https://www.cfam.edu.ar/wp-content/uploads/2026/01/78ab47436350a8d25c0d1d3c7f3cf4d563a9f320-scaled.jpg",
+  "whatsapp": "+5491131262284",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-colegio-todos-los-santos",
@@ -69334,14 +69384,15 @@
   "addr": "Avenida Uruguay 2820",
   "phone": "",
   "web": "https://elbuenayre.apdes.edu.ar/",
-  "email": "",
+  "email": "hola.elbuenayre@apdes.edu.ar",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w508453886",
   "found": "2026-11-09",
-  "img": "https://elbuenayre.apdes.edu.ar/wp-content/uploads/sites/5/2020/08/ESCUDOS-BSAS-LAPOSTA-36-1.png"
+  "img": "https://elbuenayre.apdes.edu.ar/wp-content/uploads/sites/5/2020/08/ESCUDOS-BSAS-LAPOSTA-36-1.png",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-instituto-superior-de-formacion-docente-y-tecnica-24-dr-bernardo-houss",
@@ -69968,9 +70019,9 @@
   "lat": -34.599135,
   "lng": -58.405836,
   "addr": "Ecuador 931",
-  "phone": "",
+  "phone": "+5491138325424",
   "web": "https://www.palermo.edu/",
-  "email": "",
+  "email": "informes@palermo.edu",
   "levels": [
    "Universidad"
   ],
@@ -69981,7 +70032,9 @@
   "src": "osm",
   "osm": "w627905819",
   "found": "2026-11-09",
-  "img": "https://www.palermo.edu/Archivos_content/2023/tops/top-mobile-home-up.jpg"
+  "img": "https://www.palermo.edu/Archivos_content/2023/tops/top-mobile-home-up.jpg",
+  "whatsapp": "+5491138325424",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-instituto-jose-manuel-estrada-5",
@@ -70238,7 +70291,7 @@
   "lat": -34.617923,
   "lng": -58.370708,
   "addr": "Doctor José M. Giuffra 330",
-  "phone": "",
+  "phone": "+5491162777775",
   "web": "https://ucine.edu.ar/",
   "email": "",
   "levels": [
@@ -70251,7 +70304,9 @@
   "src": "osm",
   "osm": "w670142785",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+5491162777775",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-centro-cultural-brasil-argentina",
@@ -70500,7 +70555,8 @@
   "src": "osm",
   "osm": "w829463285",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-universidad-provincial-de-ezeiza",
@@ -70690,7 +70746,8 @@
   "src": "osm",
   "osm": "w868917919",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-universidad-de-buenos-aires",
@@ -72638,9 +72695,9 @@
   "lat": -34.669994,
   "lng": -58.372899,
   "addr": "Adolfo Alsina 834",
-  "phone": "",
+  "phone": "4229-7600",
   "web": "https://clubaindependiente.com.ar/institucion/centroeducativo",
-  "email": "",
+  "email": "centroeducativo@clubaindependiente.com.ar",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -72649,7 +72706,9 @@
   "src": "osm",
   "osm": "w1267590994",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+5491131327987",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-instituto-evangelico-americano",
@@ -72659,7 +72718,7 @@
   "lat": -34.60731,
   "lng": -58.562733,
   "addr": "606 - General Manuel Belgrano 4720",
-  "phone": "",
+  "phone": "+5491123852407",
   "web": "https://www.ieacaseros.edu.ar",
   "email": "",
   "levels": [],
@@ -72671,7 +72730,9 @@
   "src": "osm",
   "osm": "w1279254176",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+5491123852407",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-complejo-educativo-sede-secundaria",
@@ -72681,9 +72742,9 @@
   "lat": -34.559647,
   "lng": -58.547952,
   "addr": "71 - América 3576",
-  "phone": "",
+  "phone": "+5491122993266",
   "web": "https://complejoeducativo.com.ar/",
-  "email": "",
+  "email": "administracion@complejoeducativo.com.ar",
   "levels": [
    "Secundaria"
   ],
@@ -72694,7 +72755,9 @@
   "src": "osm",
   "osm": "w1287890924",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+5491122993266",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-colegio-nuestra-senora-del-carmen",
@@ -72767,16 +72830,18 @@
   "lat": -34.698124,
   "lng": -58.31246,
   "addr": "",
-  "phone": "",
+  "phone": "+5491128729267",
   "web": "http://www.colegiokennedywilde.edu.ar/",
-  "email": "",
+  "email": "info@colegiokennedywilde.edu.ar",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w1303389063",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+5491128729267",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-instituto-maria-reina-2",
@@ -72851,9 +72916,9 @@
   "lat": -34.508004,
   "lng": -58.532874,
   "addr": "",
-  "phone": "",
+  "phone": "08002223340",
   "web": "https://www.kennedy.edu.ar/",
-  "email": "",
+  "email": "posgrados@kennedy.edu.ar",
   "levels": [
    "Universidad"
   ],
@@ -72864,7 +72929,8 @@
   "src": "osm",
   "osm": "w1395376838",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-colegio-padre-faustino-m-mennel",
@@ -73232,7 +73298,8 @@
   "src": "osm",
   "osm": "w1526649266",
   "found": "2026-11-09",
-  "img": "https://sites.google.com/sitesv-images-rt/APXyLQdC4vqlsQdRwm0NqKSCrazDKuZ9j6Ass13ihFZFeHZ1OyOzH4oHan3xsWLbgBpxWSUdUyQyK2aOKuNIpIy66ZZ_9yNuMMPt0uLmfCjFp-HMMOPGtS_Z0Ifk4UYPw4mK-bRIUNZgB2iFcccW9fxKLocVG93chNirMYO1taMbaQmVJarxLvZt-TtAp1JHyzM=w16383"
+  "img": "https://sites.google.com/sitesv-images-rt/APXyLQdC4vqlsQdRwm0NqKSCrazDKuZ9j6Ass13ihFZFeHZ1OyOzH4oHan3xsWLbgBpxWSUdUyQyK2aOKuNIpIy66ZZ_9yNuMMPt0uLmfCjFp-HMMOPGtS_Z0Ifk4UYPw4mK-bRIUNZgB2iFcccW9fxKLocVG93chNirMYO1taMbaQmVJarxLvZt-TtAp1JHyzM=w16383",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-instituto-san-miguel",
@@ -73280,7 +73347,8 @@
   "src": "osm",
   "osm": "w1532904564",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-instituto-nuestra-senora-de-la-misericordia-4",
@@ -73581,7 +73649,7 @@
   "lat": -34.532459,
   "lng": -58.497186,
   "addr": "Ignacio Warnes 1357",
-  "phone": "",
+  "phone": "+5491139856780",
   "web": "https://colegiosteiner.edu.ar/",
   "email": "",
   "levels": [],
@@ -73590,7 +73658,8 @@
   "src": "osm",
   "osm": "r2295425",
   "found": "2026-11-09",
-  "img": "https://colegiosteiner.edu.ar/web22/wp-content/uploads/2022/11/logo-steiner-color.svg"
+  "img": "https://colegiosteiner.edu.ar/web22/wp-content/uploads/2022/11/logo-steiner-color.svg",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-pilgrims-college",
@@ -73629,7 +73698,8 @@
   "src": "osm",
   "osm": "r3633604",
   "found": "2026-11-09",
-  "img": "https://www.sanandres.esc.edu.ar/wp-content/uploads/2023/10/Kinder-1.jpg"
+  "img": "https://www.sanandres.esc.edu.ar/wp-content/uploads/2023/10/Kinder-1.jpg",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-centro-educativo-de-las-fuerzas-armadas",
@@ -73675,7 +73745,8 @@
   "src": "osm",
   "osm": "r7447545",
   "found": "2026-11-09",
-  "img": "https://images.udesa.edu.ar/sites/default/files/2025-10/udesa-campus-victoria.jpg"
+  "img": "https://images.udesa.edu.ar/sites/default/files/2025-10/udesa-campus-victoria.jpg",
+  "webAt": "2026-11-10"
  },
  {
   "id": "buenos-aires-colegio-lincoln-campo-de-deportes-del-colegio-lincoln",
@@ -74379,9 +74450,9 @@
   "lat": 4.634726,
   "lng": -74.073631,
   "addr": "CARRERA 22 No. 46 - 15",
-  "phone": "",
+  "phone": "+576012450830",
   "web": "https://www.colamericano.edu.co/",
-  "email": "",
+  "email": "contacto@colamericano.edu.co",
   "levels": [],
   "opp": [
    "Bilingüe o internacional"
@@ -74390,7 +74461,9 @@
   "src": "osm",
   "osm": "n1230757063",
   "found": "2026-11-10",
-  "img": "https://colamericano.edu.co/wp-content/uploads/2026/09/cropped-image.png"
+  "img": "https://colamericano.edu.co/wp-content/uploads/2026/09/cropped-image.png",
+  "whatsapp": "+573183596176",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-liceo-los-alcazares",
@@ -74734,7 +74807,7 @@
   "lat": 4.658533,
   "lng": -74.062478,
   "addr": "",
-  "phone": "",
+  "phone": "+573502057933",
   "web": "https://www.colegiogimnasioamericano.edu.co/",
   "email": "",
   "levels": [],
@@ -74745,7 +74818,9 @@
   "src": "osm",
   "osm": "n2410324781",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+573502057933",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-gimnasio-antonio-narino-bachillerato",
@@ -286776,6 +286851,6218 @@
   "private": "probable",
   "src": "osm",
   "osm": "r7948976",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-universidad-cooperativa-de-colombia",
+  "name": "Universidad Cooperativa de Colombia",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.229758,
+  "lng": -77.289898,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n613326076",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colegio-san-francisco-javier-bachillerato",
+  "name": "Colegio San Francisco Javier - Bachillerato",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.215376,
+  "lng": -77.276937,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n614675162",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colegio-filipense",
+  "name": "Colegio Filipense",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.207012,
+  "lng": -77.293807,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n616854817",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-liceo-la-merded-maridiaz",
+  "name": "Liceo La Merded Maridíaz",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.221729,
+  "lng": -77.282917,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n872009142",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colegio-la-inmaculada",
+  "name": "Colegio La Inmaculada",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.203676,
+  "lng": -77.27558,
+  "addr": "",
+  "phone": "219917",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n886248918",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colsup-instituto-tecnico-de-informatica-y-sistemas",
+  "name": "Colsup, Instituto técnico de Informática y Sistemas",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.2192,
+  "lng": -77.280011,
+  "addr": "Carrera 29A 18",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1997308083",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colegio-san-felipe-neri",
+  "name": "colegio San Felipe Neri",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.206075,
+  "lng": -77.295721,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2035846584",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-instituto-champagnat",
+  "name": "Instituto Champagnat",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.203262,
+  "lng": -77.276472,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2736702464",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-institucion-educativa-municipal-obonuco",
+  "name": "Institución Educativa Municipal Obonuco",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.193744,
+  "lng": -77.305573,
+  "addr": "",
+  "phone": "+57 602 7220802",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246252",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colegio-francisco-jose-de-caldas",
+  "name": "Colegio Francisco José de Caldas",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.230569,
+  "lng": -77.250687,
+  "addr": "",
+  "phone": "+57 602 7201808",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246253",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colegio-de-bachillerato-colsup",
+  "name": "Colegio de Bachillerato Colsup",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.219251,
+  "lng": -77.280113,
+  "addr": "",
+  "phone": "+57 602 7313163",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246352",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-el-secreto-de-los-ninos",
+  "name": "Centro Educativo El Secreto de Los Niños",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.193597,
+  "lng": -77.274844,
+  "addr": "",
+  "phone": "+57 602 7213041",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246353",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-el-jardin-del-nino-dios",
+  "name": "El Jardin Del Niño Dios",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.214032,
+  "lng": -77.284309,
+  "addr": "",
+  "phone": "+57 313 6658589",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246355",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-zarabanda",
+  "name": "Centro Educativo Zarabanda",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.228648,
+  "lng": -77.267511,
+  "addr": "",
+  "phone": "+57 315 8586999",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246356",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-harvard",
+  "name": "Jardín Infantil Harvard",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.20478,
+  "lng": -77.253377,
+  "addr": "",
+  "phone": "+57 602 7302454",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246357",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-institucion-educ-simon-bolivar",
+  "name": "Institución Educ Simon Bolívar",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.200255,
+  "lng": -77.261362,
+  "addr": "",
+  "phone": "+57 602 7302435",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246358",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-cent-de-educ-inf-exploradores-de-talentos",
+  "name": "Centro Educativo Cent de Educ Inf Exploradores de Talentos",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.202294,
+  "lng": -77.277153,
+  "addr": "",
+  "phone": "+57 602 7202795",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246359",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-gimnasio-inf-san-juan-de-pasto",
+  "name": "Gimnasio Inf San Juan de Pasto",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.211455,
+  "lng": -77.284891,
+  "addr": "",
+  "phone": "+57 602 7238517",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246360",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-colores-de-paz",
+  "name": "Centro Educativo Colores de Paz",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.198955,
+  "lng": -77.26621,
+  "addr": "",
+  "phone": "+57 602 7304872",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246361",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-cent-pedag-y-ludico-artistico-maria-de-la-paz",
+  "name": "Centro Educativo Cent Pedag y Ludico Artistico María de la Paz",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.219353,
+  "lng": -77.287491,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246362",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-sasay",
+  "name": "Jardín Infantil Sasay",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.234242,
+  "lng": -77.285069,
+  "addr": "",
+  "phone": "+57 602 7314815",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246363",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-arte-de-crecer",
+  "name": "Jardín Infantil Arte de Crecer",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.204863,
+  "lng": -77.271063,
+  "addr": "",
+  "phone": "+57 602 7218464",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246364",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-cent-ludico-pedag-mi-carita-feliz",
+  "name": "Centro Educativo Cent Ludico Pedag Mi Carita Feliz",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.205396,
+  "lng": -77.285854,
+  "addr": "",
+  "phone": "+57 602 7290383",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246365",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colegio-inf-panamericano",
+  "name": "Colegio Inf Panamericano",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.204029,
+  "lng": -77.271383,
+  "addr": "",
+  "phone": "+57 602 7201729",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246366",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-miniaturas",
+  "name": "Jardín Infantil Miniaturas",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.214671,
+  "lng": -77.286103,
+  "addr": "",
+  "phone": "+57 602 7220444",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246367",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-cent-de-educ-preesc-personitas-creativas",
+  "name": "Centro Educativo Cent de Educ Preesc Personitas Creativas",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.228018,
+  "lng": -77.257716,
+  "addr": "",
+  "phone": "+57 602 7205022",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246368",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-sala-maternal-y-jardin-inf-andy-panda",
+  "name": "Sala Maternal y Jardín Inf Andy Panda",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.215128,
+  "lng": -77.292001,
+  "addr": "",
+  "phone": "+57 602 7226563",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246369",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-liceo-pedag-casita-magica",
+  "name": "Liceo Pedag Casita Magica",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.201516,
+  "lng": -77.279365,
+  "addr": "",
+  "phone": "+57 602 7217483",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246370",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-san-marcos",
+  "name": "Jardín Infantil San Marcos",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.200778,
+  "lng": -77.258698,
+  "addr": "",
+  "phone": "+57 602 7300284",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246371",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-cent-de-educ-preesc-plaza-sesamo",
+  "name": "Centro Educativo Cent de Educ Preesc Plaza Sesamo",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.226641,
+  "lng": -77.29549,
+  "addr": "",
+  "phone": "+57 602 7227506",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246372",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-cent-de-estimulacion-inf-nenys-bebys",
+  "name": "Centro Educativo Cent de Estimulación Inf Nenys Bebys",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.22774,
+  "lng": -77.282515,
+  "addr": "",
+  "phone": "+57 602 7310483",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246373",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-bosquecito-encantado",
+  "name": "Jardín Infantil Bosquecito Encantado",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.204633,
+  "lng": -77.278386,
+  "addr": "",
+  "phone": "+57 602 7210270",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246374",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-casita-de-suenos",
+  "name": "Jardín Infantil Casita de Sueños",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.215095,
+  "lng": -77.283094,
+  "addr": "",
+  "phone": "+57 602 7230839",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246375",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-cent-estimulacion-inf-bamban",
+  "name": "Centro Educativo Cent Estimulación Inf Bamban",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.193174,
+  "lng": -77.265328,
+  "addr": "",
+  "phone": "+57 602 7320770",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246376",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-genios-del-manana",
+  "name": "Jardín Infantil Genios del Manana",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.209318,
+  "lng": -77.273768,
+  "addr": "",
+  "phone": "+57 602 7214155",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246377",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-institucion-educativa-luiseg",
+  "name": "Institución Educativa Luiseg",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.2174,
+  "lng": -77.280425,
+  "addr": "",
+  "phone": "+57 602 7314217",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246378",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colegio-para-adultos-comfamiliar-de-narino",
+  "name": "Colegio Para Adultos Comfamiliar de Nariño",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.19522,
+  "lng": -77.267431,
+  "addr": "",
+  "phone": "+57 602 7303122",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246379",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-bachillerato-moderno-para-adultos-externado",
+  "name": "Bachillerato Moderno Para Adultos Externado",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.21552,
+  "lng": -77.27875,
+  "addr": "",
+  "phone": "+57 602 7229226",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246380",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-institucion-jorge-eliecer-gaitan",
+  "name": "Institución Jorge Eliecer Gaitan",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.211622,
+  "lng": -77.279635,
+  "addr": "",
+  "phone": "+57 602 7229022",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246381",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-inf-creadores-de-futuro",
+  "name": "Centro Educativo Inf Creadores de Futuro",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.214042,
+  "lng": -77.288494,
+  "addr": "",
+  "phone": "+57 602 7237673",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246382",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-cent-de-estimulacion-integ-pequenos-sabios",
+  "name": "Centro Educativo Cent de Estimulación Integ Pequeños Sabios",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.214548,
+  "lng": -77.288471,
+  "addr": "",
+  "phone": "+57 602 7291657",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246383",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-liceo-pedag-carrusel-del-saber",
+  "name": "Liceo Pedag Carrusel del Saber",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.209088,
+  "lng": -77.280108,
+  "addr": "",
+  "phone": "+57 602 7201161",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246384",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-alegre-despertar",
+  "name": "Jardín Infantil Alegre Despertar",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.209941,
+  "lng": -77.260981,
+  "addr": "",
+  "phone": "+57 602 7308747",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246385",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centt-pedg-inf-jardin-malanie-klein",
+  "name": "Centt Pedg Inf Jardín Malanie Klein",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.219009,
+  "lng": -77.283668,
+  "addr": "",
+  "phone": "+57 602 7222377",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246386",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-col-estudiar-aula-sin-fronteras",
+  "name": "Col Estudiar Aula Sin Fronteras",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.216152,
+  "lng": -77.282312,
+  "addr": "",
+  "phone": "+57 602 7293285",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246387",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colegio-insuca",
+  "name": "Colegio Insuca",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.217791,
+  "lng": -77.280087,
+  "addr": "",
+  "phone": "+57 602 7292481",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246388",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-preesc-biling-los-angeles",
+  "name": "Preesc Biling Los Angeles",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.200008,
+  "lng": -77.265334,
+  "addr": "",
+  "phone": "+57 602 7325852",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246389",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-cent-de-estimulacion-integ-pininos",
+  "name": "Centro Educativo Cent de Estimulación Integ Pininos",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.229203,
+  "lng": -77.282493,
+  "addr": "",
+  "phone": "+57 602 7313853",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246390",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-pequenos-talentos",
+  "name": "Centro Educativo Pequeños Talentos",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.208564,
+  "lng": -77.261119,
+  "addr": "",
+  "phone": "+57 602 7216413",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246391",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-cent-de-estimulacion-adecuada-pilosos",
+  "name": "Centro Educativo Cent de Estimulación Adecuada Pilosos",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.228116,
+  "lng": -77.283353,
+  "addr": "",
+  "phone": "+57 602 7314209",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246392",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-cent-de-des-y-creatividad-infantil",
+  "name": "Centro Educativo Cent de Des y Creatividad Infantil",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.22235,
+  "lng": -77.287775,
+  "addr": "",
+  "phone": "+57 602 7235490",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246393",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-principe-de-paz",
+  "name": "Centro Educativo Principe de Paz",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.212267,
+  "lng": -77.282059,
+  "addr": "",
+  "phone": "+57 602 7226195",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246394",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-sala-maternal-y-jardin-especializado-el-recreo",
+  "name": "Sala Maternal y Jardín Especializado El Recreo",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.204617,
+  "lng": -77.284865,
+  "addr": "",
+  "phone": "+57 602 7225678",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246395",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-cent-de-estim-temprana-y-prees-nenitos-creati",
+  "name": "Centro Educativo Cent de Estim Temprana y Prees Nenitos Creati",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.200772,
+  "lng": -77.265927,
+  "addr": "",
+  "phone": "+57 602 7304224",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246396",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-colombo-suizo",
+  "name": "Centro Educativo Colombo Suizo",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.219339,
+  "lng": -77.285112,
+  "addr": "",
+  "phone": "+57 602 7231550",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246397",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colegio-gimn-betel",
+  "name": "Colegio Gimn Betel",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.215953,
+  "lng": -77.281776,
+  "addr": "",
+  "phone": "+57 602 7232769",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246398",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-mi-pequena-u",
+  "name": "Jardín Infantil Mi Pequeña U",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.21268,
+  "lng": -77.298543,
+  "addr": "",
+  "phone": "+57 602 7293631",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246399",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-semillitas-del-saber",
+  "name": "Centro Educativo Semillitas del Saber",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.196608,
+  "lng": -77.262496,
+  "addr": "",
+  "phone": "+57 602 7307749",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246400",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-liceo-inf-ronditas-de-san-juan",
+  "name": "Liceo Inf Ronditas de San Juan",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.201442,
+  "lng": -77.257964,
+  "addr": "",
+  "phone": "+57 602 7309159",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246403",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-la-ciudad-de-los-nilos",
+  "name": "Jardín Infantil La Ciudad de Los Nilos",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.216439,
+  "lng": -77.270876,
+  "addr": "",
+  "phone": "205738",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246404",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-institucion-de-educ-gimn-bolivariano",
+  "name": "Institución de Educ Gimn Bolivariano",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.196885,
+  "lng": -77.266373,
+  "addr": "",
+  "phone": "+57 602 7307760",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246405",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-mi-nuevo-amanecer",
+  "name": "Centro Educativo Mi Nuevo Amanecer",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.193075,
+  "lng": -77.268125,
+  "addr": "",
+  "phone": "+57 602 7306151",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246406",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-el-pais-de-las-maravillas",
+  "name": "Jardín Infantil El Pais de Las Maravillas",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.224923,
+  "lng": -77.286662,
+  "addr": "",
+  "phone": "+57 602 7234588",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246407",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-preesc-y-prim-ternuras",
+  "name": "Preesc y Prim Ternuras",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.201235,
+  "lng": -77.273115,
+  "addr": "",
+  "phone": "+57 602 7211622",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246408",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-divino-nino",
+  "name": "Jardín Infantil Divino Niño",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.216225,
+  "lng": -77.271301,
+  "addr": "",
+  "phone": "+57 602 7204071",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246409",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-liceo-rafael-pombo",
+  "name": "Liceo Rafael Pombo",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.203448,
+  "lng": -77.294057,
+  "addr": "",
+  "phone": "+57 602 7294443",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246410",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-cent-estud-sto-domingo-de-guzman",
+  "name": "Centro Educativo Cent Estud Sto Domingo de Guzman",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.216864,
+  "lng": -77.277193,
+  "addr": "",
+  "phone": "+57 602 7232591",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246411",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-preesc-el-castillo-del-saber",
+  "name": "Centro Educativo Preesc El Castillo del Saber",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.212412,
+  "lng": -77.280434,
+  "addr": "",
+  "phone": "221755",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246412",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colegio-gimn-los-andes",
+  "name": "Colegio Gimn Los Andes",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.237146,
+  "lng": -77.299952,
+  "addr": "",
+  "phone": "+57 602 7313356",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246413",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-mis-amigos-y-yo",
+  "name": "Jardín Infantil Mis Amigos y Yo",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.219745,
+  "lng": -77.288485,
+  "addr": "",
+  "phone": "+57 602 7225267",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246414",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-psicopedag-personitas-del-manana",
+  "name": "Jardín Infantil Psicopedag Personitas del Mañana",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.219899,
+  "lng": -77.293988,
+  "addr": "",
+  "phone": "233577",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246416",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colegio-musical-britanico",
+  "name": "Colegio Musical Britanico",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.207326,
+  "lng": -77.222564,
+  "addr": "",
+  "phone": "+57 602 7307807",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246418",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colegio-nuestra-senora-del-carmen",
+  "name": "Colegio Nuestra Señora del Carmen",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.216466,
+  "lng": -77.282066,
+  "addr": "Calle 16 Car 28 16",
+  "phone": "235811",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246419",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-cent-de-prom-integ-trab-comunit-corazon-maria",
+  "name": "Centro Educativo Cent de Prom Integ Trab Comunit Corazon María",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.21025,
+  "lng": -77.293778,
+  "addr": "",
+  "phone": "+57 602 7223388",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246420",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colegio-nuestra-senora-de-las-lajas",
+  "name": "Colegio Nuestra Señora de Las Lajas",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.210415,
+  "lng": -77.293049,
+  "addr": "",
+  "phone": "+57 602 7238165",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246421",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colegio-sagrado-corazon-de-jesus",
+  "name": "Colegio Sagrado Corazon de Jesus",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.225242,
+  "lng": -77.29078,
+  "addr": "",
+  "phone": "+57 602 7232545",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria",
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246422",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colegio-filipense-nuestra-senora-de-la-esperanza",
+  "name": "Colegio Filipense Nuestra Señora de la Esperanza",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.206639,
+  "lng": -77.293766,
+  "addr": "",
+  "phone": "233676",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246423",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-liceo-la-presentacion",
+  "name": "Liceo La Presentación",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.200617,
+  "lng": -77.265234,
+  "addr": "",
+  "phone": "+57 602 7302006",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246425",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-liceo-de-la-merced-maridiaz-hermanas-franciscanas-secundaria",
+  "name": "Liceo de la Merced Maridíaz - Hermanas Franciscanas - Secundaria",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.222222,
+  "lng": -77.28231,
+  "addr": "",
+  "phone": "+57 602 7312093",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246426",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-liceo-santa-teresita",
+  "name": "Liceo Santa Teresita",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.216174,
+  "lng": -77.279726,
+  "addr": "",
+  "phone": "232199",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246427",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-centro-de-estimulacion-tecnologica-artistica-y-musica",
+  "name": "CENTRO EDUCATIVO CENTRO DE ESTIMULACIÓN TECNOLÓGICA ARTÍSTICA y MUSICAL GALI y L",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.197323,
+  "lng": -77.284612,
+  "addr": "",
+  "phone": "+57 300 3333302",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246521",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-casita-de-heroes",
+  "name": "Jardín Infantil Casita de Heroes",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.207264,
+  "lng": -77.292471,
+  "addr": "",
+  "phone": "+57 318 4471659",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246522",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-amukan",
+  "name": "Jardín Infantil Amukan",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.21408,
+  "lng": -77.289986,
+  "addr": "",
+  "phone": "+57 316 3774552",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246523",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-bilingue-brigth-kids",
+  "name": "Jardin Infantil Bilingüe Brigth Kids",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.21643,
+  "lng": -77.290489,
+  "addr": "",
+  "phone": "+57 318 4576069",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246524",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-granja-escuela-leche-y-miel",
+  "name": "Granja Escuela Leche y Miel",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.24053,
+  "lng": -77.3042,
+  "addr": "",
+  "phone": "+57 302 3764668",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246525",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-heroes-increibles",
+  "name": "Jardín Infantil Heroes Increibles",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.219363,
+  "lng": -77.286386,
+  "addr": "",
+  "phone": "+57 320 6406427",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246526",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-acandes",
+  "name": "Centro Educativo Acandes",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.215674,
+  "lng": -77.278503,
+  "addr": "",
+  "phone": "+57 602 7293952",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246527",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-san-nicolas",
+  "name": "Centro Educativo San Nicolás",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.20553,
+  "lng": -77.266585,
+  "addr": "",
+  "phone": "+57 602 7247026",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246529",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-y-sala-maternal-la-casa-de-mikey-mouse",
+  "name": "Jardín Infantil y Sala Maternal La Casa de Mikey Mouse",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.222876,
+  "lng": -77.287419,
+  "addr": "",
+  "phone": "+57 311 7200818",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246530",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-centro-de-estimulacion-y-jarin-infantil-dulces-tesori",
+  "name": "Centro Educativo Centro de Estimulación y Jarin Infantil Dulces Tesoritos",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.203075,
+  "lng": -77.269217,
+  "addr": "",
+  "phone": "+57 312 7818750",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246531",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-centro-ludico-pedagogico-jardin-infantil-aprender-jug",
+  "name": "Centro Educativo Centro Ludico Pedagogico Jardín Infantil Aprender Jugando",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.207553,
+  "lng": -77.272724,
+  "addr": "",
+  "phone": "+57 310 6937166",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246532",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-pilatunas",
+  "name": "Jardín Infantil Pilatunas",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.204313,
+  "lng": -77.257403,
+  "addr": "",
+  "phone": "+57 300 2763460",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246533",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-sala-maternal-ninos-felices",
+  "name": "Jardin Infantil Sala Maternal Niños Felices",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.208984,
+  "lng": -77.262039,
+  "addr": "",
+  "phone": "+57 316 3608349",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246534",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-centro-de-estimulacion-integral-genio-aventuras",
+  "name": "Centro Educativo Centro de Estimulación Integral Genio Aventuras",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.206224,
+  "lng": -77.277524,
+  "addr": "",
+  "phone": "+57 317 8651679",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246535",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-picasso-el-arte-de-aprender",
+  "name": "Jardín Infantil Picasso El Arte de Aprender",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.216703,
+  "lng": -77.289951,
+  "addr": "",
+  "phone": "+57 310 3689356",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246537",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-de-snoopy-y-sus-amigos",
+  "name": "Jardín de Snoopy y Sus Amigos",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.197202,
+  "lng": -77.2886,
+  "addr": "",
+  "phone": "+57 313 6187898",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246538",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-centro-de-estimulacion-infantil-constructores-del-man",
+  "name": "Centro Educativo Centro De Estimulacion Infantil Constructores Del Mañana",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.213925,
+  "lng": -77.274371,
+  "addr": "",
+  "phone": "+57 315 5958163",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246539",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-y-sala-maternal-futurines",
+  "name": "Jardín Infantil y Sala Maternal Futurines",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.217293,
+  "lng": -77.28561,
+  "addr": "",
+  "phone": "+57 304 3622568",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246540",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-establecimiento-educativo-transformadores-del-saber",
+  "name": "Establecimiento Educativo Transformadores del Saber",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.207165,
+  "lng": -77.259759,
+  "addr": "",
+  "phone": "+57 314 6979209",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246541",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-institucion-de-formacion-santander",
+  "name": "Institución de Formación Santander",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.218758,
+  "lng": -77.278858,
+  "addr": "",
+  "phone": "+57 316 5142050",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246542",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-institucion-politecnico-de-los-andes",
+  "name": "Institución Politecnico de Los Andes",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.210595,
+  "lng": -77.277494,
+  "addr": "",
+  "phone": "+57 312 5654655",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246543",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-institucion-tecnico-sistematizado-de-narino-intesnar",
+  "name": "Institucion Tecnico Sistematizado De Nariño Intesnar",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.214206,
+  "lng": -77.281762,
+  "addr": "",
+  "phone": "+57 317 5141967",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246544",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-institucion-politecnico-sur-andino",
+  "name": "Institución Politecnico Sur Andino",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.203215,
+  "lng": -77.273086,
+  "addr": "",
+  "phone": "+57 316 6765789",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246545",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-gimnasio-infantil-mi-mundo-feliz",
+  "name": "Gimnasio Infantil Mi Mundo Feliz",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.223209,
+  "lng": -77.286304,
+  "addr": "",
+  "phone": "+57 602 7224922",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246546",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-sala-maternal-y-jardin-infantil-montessori",
+  "name": "Sala Maternal y Jardín Infantil Montessori",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.218042,
+  "lng": -77.289503,
+  "addr": "",
+  "phone": "+57 602 7296791",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246547",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-talentos-1",
+  "name": "Jardín Infantil Talentos 1",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.211429,
+  "lng": -77.284021,
+  "addr": "",
+  "phone": "+57 602 7367885",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246548",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-institucion-gran-colombiano-jose-mutis",
+  "name": "Institución Gran Colombiano José Mutis",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.216323,
+  "lng": -77.28172,
+  "addr": "",
+  "phone": "+57 607 2333974",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246549",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-acuarela-educacion-y-desarrollo-infantil-sas",
+  "name": "Acuarela Educación y Desarrollo Infantil Sas",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.223341,
+  "lng": -77.284513,
+  "addr": "",
+  "phone": "+57 321 7708850",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246550",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-centro-de-desarrollo-y-creatividad-infantil-tesoritos",
+  "name": "Centro Educativo Centro de Desarrollo y Creatividad Infantil Tesoritos",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.21441,
+  "lng": -77.293227,
+  "addr": "",
+  "phone": "+57 316 5888046",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246551",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-centro-ludico-pedagogico-creciendo-juntos",
+  "name": "Centro Educativo Centro Ludico Pedagogico Creciendo Juntos",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.216684,
+  "lng": -77.271612,
+  "addr": "",
+  "phone": "+57 602 7209709",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246552",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-institucion-educativa-del-sur-inesur",
+  "name": "Institución Educativa del Sur Inesur",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.216019,
+  "lng": -77.28014,
+  "addr": "",
+  "phone": "+57 602 7367447",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246553",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-jardin-infantil-promesas-del-futuro",
+  "name": "Jardín Infantil Promesas del Futuro",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.212827,
+  "lng": -77.286078,
+  "addr": "",
+  "phone": "+57 602 7364410",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246554",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-centro-educativo-bolivariano",
+  "name": "Centro Educativo Bolivariano",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.217884,
+  "lng": -77.279322,
+  "addr": "",
+  "phone": "+57 315 4822860",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246555",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-institucion-educ-alberto-quijano-vodniza",
+  "name": "Institución Educ Alberto Quijano Vodniza",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.215882,
+  "lng": -77.283031,
+  "addr": "",
+  "phone": "+57 602 7221402",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246556",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-establecimiento-educ-estrellitas-exploradoras",
+  "name": "Establecimiento Educ Estrellitas Exploradoras",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.203513,
+  "lng": -77.273404,
+  "addr": "",
+  "phone": "+57 314 6049507",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246557",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-sena-centro-internacional-de-produccion-limpia-lope",
+  "name": "SENA - Centro Internacional de Producción Limpia Lope",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.206465,
+  "lng": -77.254446,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13272239677",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colegio-san-juan-bosco",
+  "name": "Colegio San Juan Bosco",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.206359,
+  "lng": -77.27566,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w115232136",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colegio-maria-goretti",
+  "name": "Colegio María Goretti",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.208459,
+  "lng": -77.278708,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w115235261",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-universidad-de-narino",
+  "name": "Universidad de Nariño",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.232587,
+  "lng": -77.293426,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.udenar.edu.co/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w172082237",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-liceo-de-la-universidad-de-narino",
+  "name": "Liceo de la Universidad de Nariño",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.2137,
+  "lng": -77.291838,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w518969102",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-universidad-antonio-narino-sede-pasto",
+  "name": "Universidad Antonio Nariño - Sede Pasto",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.200857,
+  "lng": -77.289754,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.uan.edu.co/pasto",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w551242214",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-colegio-san-francisco-javier",
+  "name": "Colegio San Francisco Javier",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.218202,
+  "lng": -77.287303,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w654320815",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-universidad-mariana",
+  "name": "Universidad Mariana",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.223558,
+  "lng": -77.283093,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w654328359",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-instituto-educativo-agustin-nieto-caballero",
+  "name": "Instituto Educativo Agustín Nieto Caballero",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.204278,
+  "lng": -77.27317,
+  "addr": "",
+  "phone": "+57 316 3268925",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1436570198",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pasto-instituto-san-francisco-de-asis",
+  "name": "Instituto San Francisco de Asis",
+  "city": "Pasto",
+  "country": "Colombia",
+  "lat": 1.210153,
+  "lng": -77.282304,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r1345345",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-instituto-adventista",
+  "name": "Instituto Adventista",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.44228,
+  "lng": -58.986761,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1589504176",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-instituto-privado-lo-se-todo",
+  "name": "Instituto Privado Lo Sé Todo",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.442039,
+  "lng": -58.983119,
+  "addr": "Santiago de Liniers 798",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n1589504195",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-instituto-superior-educacion-y-trabajo",
+  "name": "Instituto Superior Educacion y Trabajo",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.44497,
+  "lng": -58.986206,
+  "addr": "Entre Ríos 362",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n1589583475",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-centro-educativo-terapeutico-sol",
+  "name": "Centro Educativo terapéutico Sol",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.446697,
+  "lng": -58.978499,
+  "addr": "Pellegrini 755",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n1589584063",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-instituto-chaqueno-de-formacion-en-moda",
+  "name": "Instituto Chaqueño de Formación en Moda",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.466796,
+  "lng": -58.975733,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2228862158",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-15-instituto-privado-chaco",
+  "name": "Unidad Educativa de Gestión Privada 15 Instituto Privado Chaco",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.438833,
+  "lng": -58.997756,
+  "addr": "Raúl B. Díaz 150",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n2321918030",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-instituto-de-formacion-artistica-y-profesional-skot-s",
+  "name": "Instituto de Formación Artística y Profesional Skot's",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.4555,
+  "lng": -58.996145,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2350127481",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-instituto-privado-cristiano",
+  "name": "Instituto Privado Cristiano",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.465323,
+  "lng": -58.989874,
+  "addr": "San Lorenzo 1099",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n2358842291",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-23-los-girasoles",
+  "name": "Unidad Educativa de Gestión Privada 23 Los Girasoles",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.439321,
+  "lng": -58.970872,
+  "addr": "Avenida Padre Rissione 155",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n2375585853",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-escuela-de-ingles",
+  "name": "Escuela de Inglés",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.476056,
+  "lng": -58.9869,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2397297247",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-27-emilio-lamarca",
+  "name": "Unidad Educativa de Gestión Privada 27 Emilio Lamarca",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.453149,
+  "lng": -58.966239,
+  "addr": "Juan Ramon Lestani 1285 Villa Prosperidad Villa Prosperidad",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n2447765189",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-isdel-instituto-superior-de-educacion-laboral",
+  "name": "Isdel (Instituto Superior de Educación Laboral)",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.451553,
+  "lng": -58.983296,
+  "addr": "Pellegrini 168",
+  "phone": "+54 362 4573616",
+  "web": "https://www.isdel.com.ar/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3070451782",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-instituto-dan",
+  "name": "Instituto DAN",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.44286,
+  "lng": -58.999142,
+  "addr": "Juan Domingo Perón 1210",
+  "phone": "+54 362 5181116",
+  "web": "https://www.facebook.com/inst.dan",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n4870496921",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-colegio-jose-manuel-estrada",
+  "name": "Colegio José Manuel Estrada",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.457817,
+  "lng": -58.991883,
+  "addr": "Arturo Frondizi 735",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n6877864592",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-218-fundacion-sarmiento",
+  "name": "Unidad Educativa De Gestion Privada 218 Fundación Sarmiento",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.442891,
+  "lng": -59.013407,
+  "addr": "Avenida Carlos María de Alvear 1977",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10299620436",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-42-instituto-adventista-de-resiste",
+  "name": "Unidad Educativa De Gestion Privada 42 Instituto Adventista De Resistencia",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.441964,
+  "lng": -58.987753,
+  "addr": "Avenida Rivadavia 660",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10299620443",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-41-instituto-educativo-bilingue-am",
+  "name": "Unidad Educativa de Gestión Privada 41 Instituto Educativo Bilingüe Amici",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.447168,
+  "lng": -58.980676,
+  "addr": "Saavedra 134",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10300762225",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-4-rayos-de-luz",
+  "name": "Unidad Educativa de Gestión Privada 4 Rayos de Luz",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.443241,
+  "lng": -58.970546,
+  "addr": "Asunción 415 Villa San Martín",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10301025495",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-10-instituto-educativo-privado-2-s",
+  "name": "Unidad Educativa de Gestión Privada 10 Instituto Educativo Privado 2 SRL",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.458034,
+  "lng": -58.985196,
+  "addr": "Avenida San Martín 377",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10301025496",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-48-luis-federico-leloir",
+  "name": "Unidad Educativa de Gestión Privada 48 Luis Federico Leloir",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.452434,
+  "lng": -58.992942,
+  "addr": "Necochea 455",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10301560649",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-58-instituto-superior-almafuerte",
+  "name": "Unidad Educativa de Gestión Privada 58 Instituto Superior Almafuerte",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.452404,
+  "lng": -58.978935,
+  "addr": "Av. Italia 350 1º Piso",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10305109241",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-19-don-bosco",
+  "name": "Unidad Educativa de Gestión Privada 19 Don Bosco",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.452571,
+  "lng": -58.979099,
+  "addr": "Avenida Italia 350",
+  "phone": "+54 362 442-7311",
+  "web": "https://donboscoresistencia.edu.ar",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10305109242",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-75-mundo-de-colores",
+  "name": "Unidad Educativa de Gestión Privada 75 Mundo De Colores",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.449286,
+  "lng": -58.981875,
+  "addr": "Ayacucho 144",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10308950515",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-78-fe-y-alegria-argentina",
+  "name": "Unidad Educativa de Gestión Privada 78 Fe Y Alegria Argentina",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.480287,
+  "lng": -58.982686,
+  "addr": "Av.Edison 2020 13 De Diciembre Bº 13 De Diciembre",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10311774365",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-91-instituto-de-atencion-a-la-dive",
+  "name": "Unidad Educativa de Gestión Privada 91 Instituto De Atención A La Diversidad",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.444674,
+  "lng": -58.980005,
+  "addr": "Avenida Lavalle 37",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10312040500",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-instituto-educativo-peniel",
+  "name": "Instituto Educativo Peniel",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.444411,
+  "lng": -58.981066,
+  "addr": "Bartolomé Mitre 743",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10312327816",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-asociacion-para-el-desarrollo-de-la-educacion-especial-y-la-integracio",
+  "name": "Asociación para el Desarrollo de la Educación Especial y la Integración",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.445773,
+  "lng": -58.983499,
+  "addr": "Avenida Rivadavia 178",
+  "phone": "",
+  "web": "https://adeeichaco.blogspot.com/",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10312997042",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-instituto-superior-dardo-rocha",
+  "name": "Instituto Superior Dardo Rocha",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.454735,
+  "lng": -58.988972,
+  "addr": "Arturo Frondizi 376",
+  "phone": "",
+  "web": "https://www.iesdr.edu.ar/index.php",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10315955570",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-instituto-superior-de-nivel-terciario",
+  "name": "Instituto Superior De Nivel Terciario",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.455535,
+  "lng": -58.984699,
+  "addr": "Colón 188",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10315955572",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-instituto-superior-de-especializacion-profesional-13-de-julio",
+  "name": "Instituto Superior De Especialización Profesional 13 de Julio",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.452898,
+  "lng": -58.975481,
+  "addr": "Avenida Paraguay 743",
+  "phone": "",
+  "web": "https://fundaluz21.org/formacion-superior-isep/isep-13-de-julio-sede-chaco/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10315955573",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-132-instituto-superior-de-diseno",
+  "name": "Unidad Educativa de Gestión Privada 132 Instituto Superior De Diseño",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.447573,
+  "lng": -58.980981,
+  "addr": "Güemes 529",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10351253317",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-centro-educativo-terapeutico-instituto-barrilete",
+  "name": "Centro Educativo Terapéutico Instituto Barrilete",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.454981,
+  "lng": -59.030397,
+  "addr": "Montevideo",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10401053151",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-134-juan-manuel-de-rosas",
+  "name": "Unidad Educativa de Gestión Privada 134 Juan Manuel de Rosas",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.45251,
+  "lng": -58.992841,
+  "addr": "Necochea 455",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10550587013",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-escuela-de-servicio-social",
+  "name": "Escuela De Servicio Social",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.461347,
+  "lng": -58.975382,
+  "addr": "Avenida 9 de Julio 1260",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10552766088",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-149",
+  "name": "Unidad Educativa de Gestión Privada 149",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.436495,
+  "lng": -58.99848,
+  "addr": "Coronel Falcón 199",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10553350066",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-paulo-freire-fundacion-compromiso-ciudadano-del-nea",
+  "name": "Paulo Freire Fundación Compromiso Ciudadano Del Nea",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.448304,
+  "lng": -58.980665,
+  "addr": "Avenida Paraguay 165",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10553739426",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-172-gobernador-deolindo-felipe-bit",
+  "name": "Unidad Educativa de Gestión Privada 172 Gobernador Deolindo Felipe Bittel",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.461798,
+  "lng": -59.006562,
+  "addr": "Miguel Cané 451",
+  "phone": "",
+  "web": "http://uegp172chaco.edu.ar/nuestra-institucion/",
+  "email": "uep172.chaco@gmail.com",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10554845016",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-instituto-superior-de-neuropsicologia",
+  "name": "Instituto Superior De Neuropsicología",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.467223,
+  "lng": -58.996082,
+  "addr": "Avenida San Martín 1544",
+  "phone": "+54 362 4571457",
+  "web": "https://institutoneuropsicologia.com/",
+  "email": "cernnea@gmail.com",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10554845018",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-171-enrique-pichon-reviere-psicolo",
+  "name": "Unidad Educativa de Gestión Privada 171 Enrique pichón reviere psicología social",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.457892,
+  "lng": -58.991802,
+  "addr": "Arturo Frondizi 735",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10554845019",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-173-enfermero-carlos-catalino-rome",
+  "name": "Unidad Educativa de Gestión Privada 173 Enfermero Carlos Catalino Romero U.P.C.P.",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.455415,
+  "lng": -58.979711,
+  "addr": "Hipólito Yrigoyen 669",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10554845020",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-175",
+  "name": "Unidad Educativa de Gestión Privada 175",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.445202,
+  "lng": -58.986043,
+  "addr": "Entre Ríos 362",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10554845021",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-220",
+  "name": "Unidad Educativa de Gestión Privada 220",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.482713,
+  "lng": -58.973977,
+  "addr": "Doctor Antonio de Grandi 1270",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10558458027",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-155-origenes",
+  "name": "Unidad Educativa de Gestión Privada 155 Origenes",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.444462,
+  "lng": -58.981518,
+  "addr": "Catamarca 140",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10558458079",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-161",
+  "name": "Unidad Educativa de Gestión Privada 161",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.495537,
+  "lng": -58.962522,
+  "addr": "Carlos Hardy 4225",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10559718594",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-instituto-educativo-bilingue-amici",
+  "name": "Instituto Educativo Bilingüe AMICI",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.448338,
+  "lng": -58.981976,
+  "addr": "Saavedra 134",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10559832929",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-colegio-de-nivel-secundario-paul-broca",
+  "name": "Colegio De Nivel Secundario Paul Broca",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.467152,
+  "lng": -58.996159,
+  "addr": "Avenida San Martín 1544",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10559832930",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-instituto-superior-arandu",
+  "name": "Instituto Superior Arandu",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.447624,
+  "lng": -58.980261,
+  "addr": "Saavedra 134",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10560596659",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-224-jacinto-amaro-sampayo",
+  "name": "Unidad Educativa de Gestión Privada 224 Jacinto Amaro Sampayo",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.460311,
+  "lng": -58.981136,
+  "addr": "General Obligado 899",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10582922522",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-pimpollos",
+  "name": "Pimpollos",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.440692,
+  "lng": -58.994158,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10926536337",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-universidad-popular",
+  "name": "Universidad Popular",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.449178,
+  "lng": -58.985646,
+  "addr": "Bartolomé Mitre 192",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w114332928",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-21-maria-auxiliadora",
+  "name": "Unidad Educativa de Gestión Privada 21 María Auxiliadora",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.460646,
+  "lng": -58.976737,
+  "addr": "Lisandro de la Torre 87",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w210687247",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-instituto-superior-educacion-y-trabajo-2",
+  "name": "Instituto Superior Educacion Y Trabajo",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.461283,
+  "lng": -58.975433,
+  "addr": "Avenida 9 de Julio 1260",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w212813917",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-1-instituto-educativo-privado",
+  "name": "Unidad Educativa De Gestion Privada 1 Instituto Educativo Privado",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.464962,
+  "lng": -58.97389,
+  "addr": "Arturo Umberto Illia 1599",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w212823972",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-san-jose-obrero",
+  "name": "San José Obrero",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.454801,
+  "lng": -59.000341,
+  "addr": "Felipe Molina 565",
+  "phone": "",
+  "web": "https://sjoresistencia.edu.ar/",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w226439753",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-crecer-con-todos",
+  "name": "Crecer con Todos",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.420223,
+  "lng": -59.005444,
+  "addr": "Ruta Nº 11-Km Nº 1007",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w243008558",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-72-escuela-bilingue-intercultural-",
+  "name": "Unidad Educativa de Gestión Privada 72 Escuela Bilingüe Intercultural Cacique Pelayo",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.422019,
+  "lng": -59.033251,
+  "addr": "Avenida Carlos María de Alvear 4220",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w294888834",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-18-nuestra-senora-de-itati",
+  "name": "Unidad Educativa de Gestión Privada 18 Nuestra Señora de Itatí",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.44565,
+  "lng": -58.990021,
+  "addr": "Avenida Wilde 161",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w563732244",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-instituto-de-atencion-a-la-diversidad",
+  "name": "Instituto de Atención a la Diversidad",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.419035,
+  "lng": -58.968548,
+  "addr": "Avenida Sabín 3050",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w780322561",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-colegio-lopez-piacentini",
+  "name": "Colegio López Piacentini",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.42006,
+  "lng": -58.956979,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.integralpiacentini.com/",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1054219208",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-colegio-san-roque",
+  "name": "Colegio San Roque",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.444839,
+  "lng": -58.999711,
+  "addr": "Salta 1117",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1060268957",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-unidad-educativa-de-gestion-privada-44-fe-y-alegria",
+  "name": "Unidad Educativa de Gestión Privada 44 Fe y Alegría",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.480779,
+  "lng": -58.979025,
+  "addr": "Seitor Villa Elisa Mz.64-Pc.2-Ch.203-Villa Elisa",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1131765024",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "resistencia-instituto-terciario-san-fernando",
+  "name": "Instituto Terciario San Fernando",
+  "city": "Resistencia",
+  "country": "Argentina",
+  "lat": -27.46651,
+  "lng": -58.984574,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r3076303",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-preparatoria-oficial",
+  "name": "preparatoria oficial",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.523477,
+  "lng": -100.823772,
+  "addr": "Calle Manuel Doblado 501, Santo Cristo",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2374471009",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-instituto-isaac-newton",
+  "name": "Instituto Isaac Newton",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.518976,
+  "lng": -100.847009,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3251594629",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-upn-112-universidad-pedagogica-nacional",
+  "name": "UPN 112 Universidad Pedagogica Nacional",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.536882,
+  "lng": -100.809122,
+  "addr": "Avenida Irrigación 144, Alfredo Vazquez Bonfil",
+  "phone": "",
+  "web": "https://upncelaya.edu.mx",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13535906635",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-westminster-royal-college",
+  "name": "Westminster Royal College",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.538207,
+  "lng": -100.788307,
+  "addr": "Avenida Irrigación",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13782240277",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-universidad-de-guanajuato-campus-celaya-salvatierra",
+  "name": "Universidad de Guanajuato Campus Celaya - Salvatierra",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.492979,
+  "lng": -100.836623,
+  "addr": "Av. Ing. Javier Barros Sierra 201",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13963421765",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-colegio-margarita",
+  "name": "Colegio Margarita",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.531944,
+  "lng": -100.806314,
+  "addr": "Calle Héroe de Nacozari 402, Alaneda",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n14345450870",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-universidad-de-celaya",
+  "name": "Universidad de Celaya",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.518276,
+  "lng": -100.783069,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w230171072",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-universidad-latina",
+  "name": "Universidad Latina",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.514727,
+  "lng": -100.794542,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w230623616",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-colegio-mexico",
+  "name": "Colegio Mexico",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.527512,
+  "lng": -100.826777,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w230625683",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-universidad-latina-de-mexico",
+  "name": "Universidad Latina de Mexico",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.510744,
+  "lng": -100.781218,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w232354447",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-universidad-continente-americano",
+  "name": "Universidad Continente Americano",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.535451,
+  "lng": -100.790552,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Bilingüe o internacional",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w248181447",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-universidad-del-sabes",
+  "name": "Universidad del SABES",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.545405,
+  "lng": -100.816474,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w502937064",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-prepa-tec",
+  "name": "Prepa Tec",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.547566,
+  "lng": -100.884452,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa",
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w548441956",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-colegio-manuel-m-concha",
+  "name": "Colegio Manuel M. Concha",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.53716,
+  "lng": -100.82062,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w548448087",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-colegio-ing-arturo-nieto-pina",
+  "name": "Colegio Ing. Arturo Nieto Piña",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.526897,
+  "lng": -100.833649,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w549370708",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-colegio-magno-sc",
+  "name": "Colegio Magno SC",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.539725,
+  "lng": -100.834046,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w549758318",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-universidad-de-guanajuato",
+  "name": "Universidad de Guanajuato",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.541005,
+  "lng": -100.833338,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w549759970",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-colegio-arturo-rosenblueth-campus-ii",
+  "name": "Colegio Arturo Rosenblueth campus II",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.550878,
+  "lng": -100.86349,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w550048161",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-universidad-tecnologica-del-centro-de-mexico-campus-celaya-irrigacion",
+  "name": "Universidad Tecnológica del Centro de México - Campus Celaya Irrigación",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.537456,
+  "lng": -100.792714,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w551129866",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-colegio-andersen",
+  "name": "Colegio Andersen",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.535541,
+  "lng": -100.787543,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w551152124",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-instituto-cumbres-celaya",
+  "name": "Instituto Cumbres Celaya",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.537374,
+  "lng": -100.784721,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w551154088",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-instituto-educativo-oxford",
+  "name": "Instituto Educativo Oxford",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.536896,
+  "lng": -100.782299,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w551157291",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-universidad-tecnologica-del-centro-de-mexico",
+  "name": "Universidad Tecnologica del Centro de Mexico",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.535297,
+  "lng": -100.813912,
+  "addr": "Calle Gaspar de Almanza 100, Exelaris",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w617685712",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-colegio-nuevo-continente",
+  "name": "Colegio Nuevo Continente",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.517796,
+  "lng": -100.7988,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w691733616",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-the-swissland-international-institute",
+  "name": "The Swissland International Institute",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.514491,
+  "lng": -100.793006,
+  "addr": "",
+  "phone": "",
+  "web": "https://swisscollege.mx/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w691747681",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "celaya-instituto-celayense-seccion-basica",
+  "name": "Instituto Celayense Sección Básica",
+  "city": "Celaya",
+  "country": "México",
+  "lat": 20.513922,
+  "lng": -100.793973,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w691747682",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cumana-liceo-ramon-sucre",
+  "name": "Liceo Ramón Sucre",
+  "city": "Cumaná",
+  "country": "Venezuela",
+  "lat": 10.461616,
+  "lng": -64.170311,
+  "addr": "Calle Badaracco Bermúdez",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7988828042",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cumana-universidad-catolica-santa-rosa",
+  "name": "Universidad Católica Santa Rosa",
+  "city": "Cumaná",
+  "country": "Venezuela",
+  "lat": 10.46398,
+  "lng": -64.172505,
+  "addr": "Calle Catedral",
+  "phone": "",
+  "web": "https://www.facebook.com/ucsarcna/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9784069015",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cumana-liceo-rafael-castro-machado",
+  "name": "Liceo Rafael Castro Machado",
+  "city": "Cumaná",
+  "country": "Venezuela",
+  "lat": 10.467775,
+  "lng": -64.162863,
+  "addr": "Calle Bolívar",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w374424226",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cumana-universidad-de-oriente",
+  "name": "Universidad de Oriente",
+  "city": "Cumaná",
+  "country": "Venezuela",
+  "lat": 10.432704,
+  "lng": -64.195939,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w457739525",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cumana-unidad-educativa-bolivariana-la-inmaculada",
+  "name": "Unidad Educativa \"Bolivariana\" La Inmaculada",
+  "city": "Cumaná",
+  "country": "Venezuela",
+  "lat": 10.472351,
+  "lng": -64.148888,
+  "addr": "Avenida Gran Mariscal",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w673665055",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cumana-liceo-luis-graterol-bolivar",
+  "name": "Liceo Luis Graterol Bolívar",
+  "city": "Cumaná",
+  "country": "Venezuela",
+  "lat": 10.454266,
+  "lng": -64.187702,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w696034552",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cumana-universidad-nororiental-privada-gran-mariscal-de-ayacucho",
+  "name": "Universidad Nororiental Privada \"Gran Mariscal de Ayacucho\"",
+  "city": "Cumaná",
+  "country": "Venezuela",
+  "lat": 10.478604,
+  "lng": -64.171827,
+  "addr": "Avenida Perimetral, Parcelamiento Miranda",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w789330916",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cumana-unidad-educativa-colegio-nuestra-senora-del-carmen",
+  "name": "Unidad educativa Colegio Nuestra señora del Carmen",
+  "city": "Cumaná",
+  "country": "Venezuela",
+  "lat": 10.463697,
+  "lng": -64.172677,
+  "addr": "Calle Catedral",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1065352355",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cumana-liceo-corazon-de-jesus",
+  "name": "Liceo Corazón de Jesús",
+  "city": "Cumaná",
+  "country": "Venezuela",
+  "lat": 10.472839,
+  "lng": -64.176173,
+  "addr": "Avenida Araya",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1067627341",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cumana-liceo-pedro-arnal",
+  "name": "Liceo Pedro Arnal",
+  "city": "Cumaná",
+  "country": "Venezuela",
+  "lat": 10.449888,
+  "lng": -64.182807,
+  "addr": "Avenida Universidad",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1067640632",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-colegio-alexander-von-humboldt",
+  "name": "Colegio Alexander Von Humboldt",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.482543,
+  "lng": -104.876847,
+  "addr": "Privada Maria Curie Num. 15",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802763828",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-colegio-cervantes",
+  "name": "Colegio Cervantes",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.505377,
+  "lng": -104.897781,
+  "addr": "Avenida Insurgentes Num. 160 Poniente",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802763841",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-colegio-da-vinci",
+  "name": "Colegio Da Vinci",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.455796,
+  "lng": -104.894267,
+  "addr": "Boulevard Tepic Xalisco Num. 13",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802763843",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-colegio-dra-margarita-gomez-palacio",
+  "name": "Colegio Dra. Margarita Gomez Palacio",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.496813,
+  "lng": -104.897056,
+  "addr": "Boulevard Xalisco Num. 97",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802763848",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-colegio-internacional-postmoderno-andy-hargreaves",
+  "name": "Colegio Internacional Postmoderno Andy Hargreaves",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.485954,
+  "lng": -104.884564,
+  "addr": "Avenida de la Cultura Num. 82",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802763859",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-colegio-juan-jacobo-rousseau",
+  "name": "Colegio Juan Jacobo Rousseau",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.485225,
+  "lng": -104.883099,
+  "addr": "Avenida de la Cultura Num. 92",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802763860",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-colegio-libanes",
+  "name": "Colegio Libanes",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.489017,
+  "lng": -104.88709,
+  "addr": "Genova Num. 198",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802763862",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-colegio-patria",
+  "name": "Colegio Patria",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.510065,
+  "lng": -104.890145,
+  "addr": "Zaragoza Num. 103 Ote.",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802763878",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-colegio-tompas-de-aquino",
+  "name": "Colegio Tompas de Aquino",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.51651,
+  "lng": -104.907302,
+  "addr": "Praxedis Guerrero Num. 22 Norte",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802763884",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-colegio-vizcaya",
+  "name": "Colegio Vizcaya",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.502719,
+  "lng": -104.895248,
+  "addr": "Avenida Mexico Num. 253 Sur",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802763887",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-colegio-de-ciencias-y-letras-de-tepic",
+  "name": "Colegio de Ciencias y Letras de Tepic",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.496678,
+  "lng": -104.896898,
+  "addr": "Boulevard Tepic Xalisco Num. 103",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802763894",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-escuela-consorcio-de-profesionistas-en-informatica-e-ingles",
+  "name": "Escuela Consorcio de Profesionistas en Informatica E Inglés",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.512214,
+  "lng": -104.891052,
+  "addr": "Amado Nervo Num. 13",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802765458",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-escuela-preparatoria-mexico",
+  "name": "Escuela Preparatoria Mexico",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.502441,
+  "lng": -104.883182,
+  "addr": "Avenida Independencia Num. 245 Oriente Fracc Simancas",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802765477",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-escuela-de-ingles-america",
+  "name": "Escuela de Ingles America",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.509778,
+  "lng": -104.896044,
+  "addr": "Avenida Allende Num. 189 Poniente",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802765514",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-instituto-alexander-graham-bell",
+  "name": "Instituto Alexander Graham Bell",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.51583,
+  "lng": -104.894826,
+  "addr": "Leon Num. 112 30",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802768774",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-instituto-cultural-fray-junipero-serra",
+  "name": "Instituto Cultural Fray Junipero Serra",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.512082,
+  "lng": -104.886359,
+  "addr": "Avenida Victoria Num. 194 Oriente",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802768775",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-instituto-integral-de-belleza-maria-elena",
+  "name": "Instituto Integral de Belleza Maria Elena",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.508905,
+  "lng": -104.887104,
+  "addr": "Prisciliano Sanchez Num. 154 Norte",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802768783",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-instituto-las-americas-de-nayarit-s-c",
+  "name": "Instituto Las Americas de Nayarit, S. C.",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.499142,
+  "lng": -104.917405,
+  "addr": "Mar Rojo Num. 45",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802768786",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-instituto-mercurio-a-c",
+  "name": "Instituto Mercurio, A. C.",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.506802,
+  "lng": -104.88853,
+  "addr": "Avenida Allende Num. 234 Oriente",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802768789",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-instituto-mexico",
+  "name": "Instituto Mexico",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.505583,
+  "lng": -104.890175,
+  "addr": "Avenida Jua�Rez Num. 180 a Oriente",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802768792",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-instituto-tecnologico-y-de-estudios-superiores-de-nayarit",
+  "name": "Instituto Tecnologico y de Estudios Superiores de Nayarit",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.478475,
+  "lng": -104.890824,
+  "addr": "Avenida 1 Num. 2016",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802768804",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-instituto-universitario-metropolitano-s-c",
+  "name": "Instituto Universitario Metropolitano, S. C.",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.506471,
+  "lng": -104.895563,
+  "addr": "Arquitecto Antonio Rivas Mercado Num. 68",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802768805",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-instituto-de-estudios-tecnologicos-y-superiores-matatipac",
+  "name": "Instituto de Estudios Tecnologicos y Superiores Matatipac",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.533641,
+  "lng": -104.869949,
+  "addr": "Bugambilias Num. 124",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802768813",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-liceo-del-valle",
+  "name": "Liceo del Valle",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.506907,
+  "lng": -104.904115,
+  "addr": "Cipres Esquina Con Country Club",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802769629",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-preparatoria-benito-juarez",
+  "name": "Preparatoria Benito Juárez",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.511552,
+  "lng": -104.890927,
+  "addr": "Avenida Uno Num. 2016",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802772425",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-preparatoria-univer-tepic",
+  "name": "Preparatoria Univer Tepic",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.503904,
+  "lng": -104.890165,
+  "addr": "Arq. Antonio Rivas Mercado Num. 206 Oriente",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802772434",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-preparatoria-del-valle",
+  "name": "Preparatoria del Valle",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.486591,
+  "lng": -104.886466,
+  "addr": "Avenida de la Cultura Num. 30",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802772437",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-universidad-marista-de-nayarit-cristobal-colon",
+  "name": "Universidad Marista de Nayarit Cristobal Colon",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.478025,
+  "lng": -104.893292,
+  "addr": "Puerto Rico Num. 35",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802779426",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-universidad-univer-plantel-nayarit",
+  "name": "Universidad Univer Plantel Nayarit",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.503964,
+  "lng": -104.888724,
+  "addr": "Calzada del Panteon Num. 3 Tercer Piso",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802779431",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-universidad-vizcaya-de-las-americas",
+  "name": "Universidad Vizcaya de Las Americas",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.505751,
+  "lng": -104.894502,
+  "addr": "Antonio Rivas Mercado Num. 7",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802779432",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-universidad-del-alica",
+  "name": "Universidad del Alica",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.498043,
+  "lng": -104.909434,
+  "addr": "Desdre Num. 101",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802779434",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-universidad-del-valle-de-atemajac",
+  "name": "Universidad del Valle de Atemajac",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.507035,
+  "lng": -104.892543,
+  "addr": "Zacatecas Num. 83 Sur",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802779435",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-universidad-del-valle-de-matatipac-s-c",
+  "name": "Universidad del Valle de Matatipac, S. C.",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.486591,
+  "lng": -104.886466,
+  "addr": "Avenida de la Cultura Num. 30",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802779437",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-colegio-da-vinci-a-c",
+  "name": "Colegio Da Vinci, A. C.",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.447994,
+  "lng": -104.897939,
+  "addr": "Boulevard Tepic Xalisco Num. 13",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4587982000",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-colegio-ciencias-y-letras-plantel-bonaterra",
+  "name": "Colegio Ciencias y Letras Plantel Bonaterra",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.466556,
+  "lng": -104.849247,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11109035301",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-universidad-nueva-galicia",
+  "name": "Universidad Nueva Galicia",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.502813,
+  "lng": -104.884468,
+  "addr": "Avenida Benito Juárez 456",
+  "phone": "+52 311 133 9090",
+  "web": "https://www.ung.edu.mx/",
+  "email": "infotpc@ung.edu.mx",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12839288126",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-colegio-nayar-de-educacion-integral",
+  "name": "Colegio Nayar de Educacion Integral",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.523026,
+  "lng": -104.883081,
+  "addr": "Justo Sierra Num. 100",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w379856994",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-universidad-infantil-colibri",
+  "name": "Universidad Infantil Colibri",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.447728,
+  "lng": -104.895295,
+  "addr": "Calle Niños Héroes 9",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w381408907",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-instituto-martires-20-de-febrero",
+  "name": "Instituto Mártires 20 de Febrero",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.495828,
+  "lng": -104.890376,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w383144742",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-preparatoria-uno",
+  "name": "Preparatoria Uno",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.49548,
+  "lng": -104.892495,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w383144744",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-escuela-presidente-aleman",
+  "name": "Escuela Presidente Alemán",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.508586,
+  "lng": -104.894124,
+  "addr": "Veracruz S/N",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w383373215",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-preparatoria-cristobal-colon",
+  "name": "Preparatoria Cristobal Colon",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.477938,
+  "lng": -104.893693,
+  "addr": "Calle Puerto Rico 35",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w595734201",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-colegio-valladolid",
+  "name": "Colegio Valladolid",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.521252,
+  "lng": -104.921146,
+  "addr": "Calle 7 Num. 30",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w885444921",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-instituto-estatal-de-educacion-normal-de-nayarit",
+  "name": "Instituto Estatal de Educacion Normal de Nayarit",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.496938,
+  "lng": -104.891489,
+  "addr": "12 de Octubre y Republica de Colombia",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1419898606",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "tepic-colegio-valladolid-2",
+  "name": "Colegio Valladolid",
+  "city": "Tepic",
+  "country": "México",
+  "lat": 21.497423,
+  "lng": -104.827391,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1576918887",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "buenaventura-universidad-del-pacifico",
+  "name": "Universidad del Pacifico",
+  "city": "Buenaventura",
+  "country": "Colombia",
+  "lat": 3.875185,
+  "lng": -77.009912,
+  "addr": "Diagonal 3B 54-90",
+  "phone": "",
+  "web": "http://www.unipacifico.edu.co:8095/web3.0/inicio.jsp",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n8060585129",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "buenaventura-colegio-naval-jose-prudencio-padilla",
+  "name": "Colegio Naval Jose Prudencio Padilla",
+  "city": "Buenaventura",
+  "country": "Colombia",
+  "lat": 3.891108,
+  "lng": -77.07641,
+  "addr": "Calle 8 3-99",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1303971772",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "buenaventura-liceo-del-pacifico",
+  "name": "Liceo Del Pacifico",
+  "city": "Buenaventura",
+  "country": "Colombia",
+  "lat": 3.880211,
+  "lng": -77.009419,
+  "addr": "Avenida Simón Bolívar",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1313053550",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "neiva-colegio-guipas-y-chavos",
+  "name": "Colegio Güipas y Chavos",
+  "city": "Neiva",
+  "country": "Colombia",
+  "lat": 2.937369,
+  "lng": -75.288717,
+  "addr": "Carrera 7 19 54/64",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4174245289",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "neiva-universidad-antonio-narino-sede-buganviles",
+  "name": "Universidad Antonio Nariño Sede Buganviles",
+  "city": "Neiva",
+  "country": "Colombia",
+  "lat": 2.939345,
+  "lng": -75.256821,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.uan.edu.co/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w39363980",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "neiva-colegio-maria-auxiiadora",
+  "name": "Colegio Maria Auxiiadora",
+  "city": "Neiva",
+  "country": "Colombia",
+  "lat": 2.926194,
+  "lng": -75.281324,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w39644547",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "neiva-colegio-salesiano",
+  "name": "Colegio Salesiano",
+  "city": "Neiva",
+  "country": "Colombia",
+  "lat": 2.926076,
+  "lng": -75.279558,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w39644683",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "neiva-universidad-surcolombiana-sede-central",
+  "name": "Universidad Surcolombiana Sede Central",
+  "city": "Neiva",
+  "country": "Colombia",
+  "lat": 2.943024,
+  "lng": -75.300384,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w218671480",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "neiva-colegio-claretiano",
+  "name": "Colegio Claretiano",
+  "city": "Neiva",
+  "country": "Colombia",
+  "lat": 2.952432,
+  "lng": -75.296425,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w312029237",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "neiva-colegio-colombo-ingles",
+  "name": "Colegio Colombo - Inglés",
+  "city": "Neiva",
+  "country": "Colombia",
+  "lat": 2.939223,
+  "lng": -75.254869,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w313456189",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "neiva-colegio-empresarial-de-los-andes",
+  "name": "Colegio Empresarial de Los Andes",
+  "city": "Neiva",
+  "country": "Colombia",
+  "lat": 2.939262,
+  "lng": -75.267482,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w313485622",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "neiva-instituto-tecnico-y-academico-scout-jose-marti",
+  "name": "Instituto Técnico y Académico Scout José Martí",
+  "city": "Neiva",
+  "country": "Colombia",
+  "lat": 2.906618,
+  "lng": -75.267072,
+  "addr": "Calle 22 Sur 34A - 01",
+  "phone": "",
+  "web": "https://institutoscoutjosemarti.edu.co/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w314284195",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "neiva-colegio-santa-clara-de-hungria",
+  "name": "Colegio Santa Clara de Hungría",
+  "city": "Neiva",
+  "country": "Colombia",
+  "lat": 2.933245,
+  "lng": -75.253801,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w338072486",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "neiva-colegio-san-miguel-arcangel",
+  "name": "Colegio San Miguel Arcángel",
+  "city": "Neiva",
+  "country": "Colombia",
+  "lat": 2.950224,
+  "lng": -75.298654,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.bienestarpolicia.gov.co/index.php?idcategoria=2708",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w338901371",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "neiva-colegio-cooperativo-utrahuilca",
+  "name": "Colegio Cooperativo Utrahuilca",
+  "city": "Neiva",
+  "country": "Colombia",
+  "lat": 2.935613,
+  "lng": -75.292981,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w383819826",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "neiva-colegio-piaget",
+  "name": "Colegio Piaget",
+  "city": "Neiva",
+  "country": "Colombia",
+  "lat": 2.94192,
+  "lng": -75.252113,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w545584368",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "neiva-aspaen-gimnasio-yumana",
+  "name": "ASPAEN Gimnasio Yumaná",
+  "city": "Neiva",
+  "country": "Colombia",
+  "lat": 2.936629,
+  "lng": -75.242952,
+  "addr": "Carrera 55 #8-108",
+  "phone": "",
+  "web": "http://www.yumana.edu.co",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w746405775",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "neiva-colombus-american-school",
+  "name": "Colombus American School",
+  "city": "Neiva",
+  "country": "Colombia",
+  "lat": 2.854716,
+  "lng": -75.284094,
+  "addr": "Via Neiva - Campoalegre",
+  "phone": "",
+  "web": "https://colombus.edu.co/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w746407787",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "neiva-gimnasio-kid-explorer-s",
+  "name": "Gimnasio Kid Explorer's",
+  "city": "Neiva",
+  "country": "Colombia",
+  "lat": 2.938574,
+  "lng": -75.267567,
+  "addr": "Carrera 31 17A - 48",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1117831210",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "neiva-colegio-gimnasio-moderno",
+  "name": "Colegio Gimnasio Moderno",
+  "city": "Neiva",
+  "country": "Colombia",
+  "lat": 2.937527,
+  "lng": -75.26915,
+  "addr": "",
+  "phone": "+57 316 5780020",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1121046666",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "neiva-colegio-aspaen-la-fragua",
+  "name": "Colegio Aspaen La Fragua",
+  "city": "Neiva",
+  "country": "Colombia",
+  "lat": 2.888266,
+  "lng": -75.274548,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1260637439",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "uruapan-universidad-interamericana-para-el-desarrollo-sede-uruapan",
+  "name": "Universidad Interamericana para el Desarrollo Sede Uruapan",
+  "city": "Uruapan",
+  "country": "México",
+  "lat": 19.425784,
+  "lng": -102.044724,
+  "addr": "Carr. Uruapan - Pátzcuaro 1390",
+  "phone": "014525233037",
+  "web": "https://www.unid.edu.mx/",
+  "email": "uruapan@unid.mx",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4294836592",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "uruapan-colegio-nelson-mandela-primera",
+  "name": "Colegio Nelson Mandela Primera",
+  "city": "Uruapan",
+  "country": "México",
+  "lat": 19.420544,
+  "lng": -102.040933,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.facebook.com/pg/Colegio-Mandela-de-Uruapan-874047862707473/about/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7413779160",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "uruapan-universidad-don-vasco",
+  "name": "Universidad Don Vasco",
+  "city": "Uruapan",
+  "country": "México",
+  "lat": 19.427114,
+  "lng": -102.04706,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w357282530",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "uruapan-instituto-tecnologico-superior-de-uruapan",
+  "name": "Instituto Tecnológico Superior de Uruapan",
+  "city": "Uruapan",
+  "country": "México",
+  "lat": 19.47727,
+  "lng": -102.074697,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w357282564",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "uruapan-colegio-hidalgo-de-michoacan",
+  "name": "Colegio Hidalgo de Michoacán",
+  "city": "Uruapan",
+  "country": "México",
+  "lat": 19.415253,
+  "lng": -102.032225,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w358374106",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "uruapan-escuela-preparatoria-lazaro-cardenas",
+  "name": "Escuela Preparatoria Lázaro Cárdenas",
+  "city": "Uruapan",
+  "country": "México",
+  "lat": 19.414068,
+  "lng": -102.046059,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w358374111",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "uruapan-escuela-preparatoria-licenciado-eduardo-ruiz",
+  "name": "Escuela Preparatoria Licenciado Eduardo Ruiz",
+  "city": "Uruapan",
+  "country": "México",
+  "lat": 19.414516,
+  "lng": -102.04789,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w358374112",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "uruapan-colegio-salesiano",
+  "name": "Colegio Salesiano",
+  "city": "Uruapan",
+  "country": "México",
+  "lat": 19.404038,
+  "lng": -102.052668,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w358374116",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "uruapan-colegio-la-paz",
+  "name": "Colegio La Paz",
+  "city": "Uruapan",
+  "country": "México",
+  "lat": 19.400047,
+  "lng": -102.04727,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w358374117",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "uruapan-instituto-morelos",
+  "name": "Instituto Morelos",
+  "city": "Uruapan",
+  "country": "México",
+  "lat": 19.409059,
+  "lng": -102.055844,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w358374119",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "uruapan-instituto-santa-maria",
+  "name": "Instituto Santa María",
+  "city": "Uruapan",
+  "country": "México",
+  "lat": 19.410218,
+  "lng": -102.061868,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w358374121",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "uruapan-colegio-casa-del-nino",
+  "name": "Colegio Casa del Niño",
+  "city": "Uruapan",
+  "country": "México",
+  "lat": 19.405619,
+  "lng": -102.065247,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w358374123",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "uruapan-universidad-michoacana-de-san-nicolas-de-hidalgo",
+  "name": "Universidad Michoacana de San Nicolás de Hidalgo",
+  "city": "Uruapan",
+  "country": "México",
+  "lat": 19.395147,
+  "lng": -102.058463,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w445055913",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "uruapan-universidad-pedagogica-nacional-unidad-163-uruapan",
+  "name": "Universidad Pedagógica Nacional Unidad 163 Uruapan",
+  "city": "Uruapan",
+  "country": "México",
+  "lat": 19.432129,
+  "lng": -102.030986,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w464796989",
   "found": "2026-11-10"
  }
 ]
