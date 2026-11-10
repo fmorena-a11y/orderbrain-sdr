@@ -6857,7 +6857,8 @@
   "CO|n4323485991": "2026-11-10T21:03:57.668Z",
   "CL|Antofagasta": "2026-11-10T21:04:46.608Z",
   "CR|San José": "2026-11-10T21:05:28.131Z",
-  "MX|Cuernavaca": "2026-11-10T21:06:03.549Z"
+  "MX|Cuernavaca": "2026-11-10T21:06:03.549Z",
+  "CL|Viña del Mar": "2026-11-10T22:59:28.006Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -6884,9 +6885,37 @@
    "n": 1,
    "at": "2026-11-10T21:16:01.357Z",
    "error": "Overpass 504"
+  },
+  "MX|Ciudad Victoria": {
+   "n": 1,
+   "at": "2026-11-10T23:13:15.021Z",
+   "error": "Overpass 502"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-10T22:57:40.207Z",
+   "cities": [
+    {
+     "cc": "CL",
+     "city": "Viña del Mar",
+     "found": 206,
+     "updated": 1,
+     "osm": 389
+    }
+   ],
+   "added": 206,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 32,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "MX|Ciudad Victoria: Overpass 502"
+   ],
+   "minutes": 17.2,
+   "total": 14924
+  },
   {
    "at": "2026-11-10T21:01:37.801Z",
    "cities": [
