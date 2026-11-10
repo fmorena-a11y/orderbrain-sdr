@@ -6859,9 +6859,30 @@
    "n": 1,
    "at": "2026-11-10T15:28:37.372Z",
    "error": "Overpass 504"
+  },
+  "CO|n309303769": {
+   "n": 1,
+   "at": "2026-11-10T17:31:13.341Z",
+   "error": "Overpass 504"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-10T17:21:02.808Z",
+   "cities": [],
+   "added": 0,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 6,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "CO|n309303769: Overpass 504",
+    "AR|Resistencia: sin tiempo en esta corrida"
+   ],
+   "minutes": 19.3,
+   "total": 14153
+  },
   {
    "at": "2026-11-10T15:14:52.750Z",
    "cities": [
