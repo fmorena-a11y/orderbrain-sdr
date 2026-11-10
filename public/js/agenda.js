@@ -1,7 +1,7 @@
 // Agenda: actividades pendientes propias en Pipedrive, agrupadas por día.
 import { S, api, esc, icon, today, localAct, dayLabel } from "./core.js";
 import { actRow, markDone, moveMenu } from "./today.js";
-import { openSchool } from "./school.js";
+import { openSchool, openRecord } from "./school.js";
 
 let host, filter = "all", error = null, loading = false;
 const PLURAL = { all: "Todas", call: "Llamadas", meeting: "Demos", deadline: "WhatsApp", task: "Mails", contacto_decisor: "Decisores" };
@@ -55,6 +55,7 @@ function draw() {
   host.querySelector("#retry")?.addEventListener("click", refresh);
   host.querySelectorAll("[data-t]").forEach(b => b.onclick = () => { filter = b.dataset.t; draw(); host.querySelector(`[data-t="${filter}"]`)?.focus(); });
   host.querySelectorAll("[data-school]").forEach(b => b.onclick = () => openSchool(b.dataset.school, { activityId: Number(b.dataset.act) }));
+  host.querySelectorAll("[data-record]").forEach(b => b.onclick = () => openRecord(b.dataset.record, { activityId: Number(b.dataset.act) || null }));
   host.querySelectorAll("[data-done]").forEach(b => b.onclick = () => { b.disabled = true; b.closest(".act")?.setAttribute("aria-busy", "true"); markDone(Number(b.dataset.done), draw); });
   // al reprogramar se actualiza en el momento y se revalida atrás, sin vaciar la lista
   host.querySelectorAll("[data-move]").forEach(b => b.onclick = () => moveMenu(b, Number(b.dataset.move), () => { draw(); refresh(); }));

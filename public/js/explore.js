@@ -6,8 +6,8 @@ import { baseErrorCallout } from "./app.js";
 const E = S.explore;
 // «Para llamar»: todo lo que no es cliente ni está en proceso (incluye los que todavía no se cruzaron con Pipe).
 const CALLABLE = ["new", "org", "stalled", "lost", "unk"];
-const FILTERS = [["prospect", "Para llamar"], ["new", "Nunca contactado"], ["org", "En Pipe sin trato"], ["stalled", "Contactado sin avance"], ["lost", "Perdido"], ["unk", "Sin revisar"], ["open", "En proceso"], ["client", "Cliente"], ["all", "Todos"]];
-const RANK = { new: 0, org: 1, stalled: 2, lost: 3, unk: 4, open: 5, client: 6 };
+const FILTERS = [["prospect", "Para llamar"], ["new", "Nunca contactado"], ["org", "En Pipe sin trato"], ["stalled", "Contactado sin avance"], ["lost", "Perdido"], ["unk", "Sin revisar"], ["open", "En proceso"], ["churn", "Churn"], ["client", "Cliente"], ["all", "Todos"]];
+const RANK = { new: 0, org: 1, stalled: 2, lost: 3, unk: 4, open: 5, churn: 6, client: 7 };
 // Colores fijos para los círculos de ciudad: el número en blanco se lee igual en modo claro y oscuro.
 const CITY = { pros: "#00813A", unk: "#6B6B73", none: "#3F3F46" };
 const PAGE = 150;
@@ -17,7 +17,10 @@ let showBrain = (() => { try { return localStorage.getItem("ob.brain") !== "0"; 
 
 const scope = () => S.schools.filter(s => (!E.country || s.country === E.country) && (!E.city || s.city === E.city));
 const searchList = () => { const q = norm(E.q); return S.schools.filter(s => (!E.country || s.country === E.country) && norm(`${s.name} ${s.city} ${s.addr || ""}`).includes(q)); };
-const applyFilter = a => E.filter === "prospect" ? a.filter(s => CALLABLE.includes(s.status)) : E.filter === "all" ? a : a.filter(s => s.status === E.filter);
+// de otra persona: la organización en Pipedrive tiene otro dueño (cada uno trabaja lo suyo)
+export const othersOwn = s => !!(s.ownerId && S.me?.pdUserId && s.ownerId !== S.me.pdUserId);
+const canCall = s => CALLABLE.includes(s.status) && !othersOwn(s);
+const applyFilter = a => E.filter === "prospect" ? a.filter(canCall) : E.filter === "all" ? a : a.filter(s => s.status === E.filter);
 const sortS = a => a.sort((x, y) => RANK[x.status] - RANK[y.status] || (x.attempts || 0) - (y.attempts || 0) || x.name.localeCompare(y.name));
 // Lugar buscado (país, provincia, ciudad, barrio o dirección): la lista y el mapa muestran solo lo que está ADENTRO
 // de su contorno real (o de un círculo chico si el lugar es un punto), del más cercano al más lejano.
@@ -54,7 +57,7 @@ function placeList() {
 const placeGrouped = () => placeMode() && (E.place.kind === "country" || E.place.kind === "region") && placeList().length > 150;
 const base = () => placeMode() ? placeList() : E.q ? searchList() : scope();
 const visible = () => placeMode() ? applyFilter(placeList()) : sortS(applyFilter(E.q ? searchList() : scope()));
-const callable = () => visible().filter(s => CALLABLE.includes(s.status) && s.phone);
+const callable = () => visible().filter(s => canCall(s) && s.phone);
 const placeName = p => p.kind === "spot" && !p.geo ? p.label.split(",")[0] : p.name || p.label.split(",")[0];
 function citiesOf(list) {
   const m = new Map();
@@ -152,7 +155,7 @@ function drawFilters() {
   const b = base();
   if ((!E.city && !E.q && !placeMode()) || !b.length || placeGrouped()) { f.innerHTML = ""; return; }
   const cnt = {}; b.forEach(s => cnt[s.status] = (cnt[s.status] || 0) + 1);
-  cnt.prospect = CALLABLE.reduce((a, k) => a + (cnt[k] || 0), 0); cnt.all = b.length;
+  cnt.prospect = b.filter(canCall).length; cnt.all = b.length;
   f.innerHTML = FILTERS.filter(([k]) => k === "prospect" || k === "all" || cnt[k]).map(([k, l]) => `<button class="chip" data-f="${k}" aria-pressed="${E.filter === k}">${ST[k] ? `<span class="sdot" style="background:var(${ST[k].c})"></span>` : ""}${l} <b>${fmt(cnt[k] || 0)}</b></button>`).join("");
   f.querySelectorAll("button").forEach(b => b.onclick = () => { E.filter = b.dataset.f; shown = PAGE; drawAll(); toTop(); });
 }
@@ -168,7 +171,7 @@ function schoolRow(s) {
   if (s.attempts) bits.push(`${s.attempts} intento${s.attempts > 1 ? "s" : ""}`);
   if (!s.phone) bits.push("sin teléfono");
   const single = E.filter !== "prospect" && E.filter !== "all";
-  return `<button class="school-row" data-id="${esc(s.id)}"><span class="t"><b>${esc(s.name)}</b>${bits.length ? `<small>${esc(bits.join(" · "))}</small>` : ""}</span>${single && !s.phase ? `<span class="sdot" title="${ST[s.status].l}" style="background:var(${ST[s.status].c})"></span>` : statusPill(s)}</button>`;
+  return `<button class="school-row" data-id="${esc(s.id)}"><span class="t"><b>${esc(s.name)}</b>${bits.length ? `<small>${esc(bits.join(" · "))}</small>` : ""}</span>${othersOwn(s) ? `<span class="pill owner" title="Su organización en Pipedrive es de ${esc(s.ownerName || "otra persona")}">De ${esc((s.ownerName || "otra persona").split(" ")[0])}</span>` : single && !s.phase ? `<span class="sdot" title="${ST[s.status].l}" style="background:var(${ST[s.status].c})"></span>` : statusPill(s)}</button>`;
 }
 function checkCallout(list) {
   const unk = list.filter(s => s.status === "unk").length;
@@ -185,7 +188,7 @@ function drawList() {
     const list = placeMode() ? placeList() : scope(), cs = citiesOf(list);
     L.innerHTML = brainWarn() + `<div class="list-h"><span>${fmt(cs.length)} ciudades · ${fmt(list.length)} colegios</span><span class="legend"><i style="background:${CITY.pros}"></i>para llamar <i style="background:${CITY.unk}"></i>sin revisar</span></div>` + checkCallout(list) + cs.map(c => {
       const n = c.items.length, k = {}; c.items.forEach(s => k[s.status] = (k[s.status] || 0) + 1);
-      const pros = CALLABLE.reduce((a, x) => a + (k[x] || 0), 0);
+      const pros = c.items.filter(canCall).length;
       const allUnk = k.unk === n;
       return `<button class="city-row" data-city="${esc(c.city)}" data-country="${esc(c.country)}"><span class="t"><b>${esc(c.city)}</b><small>${E.country || placeMode() ? "" : esc(c.country) + " · "}${fmt(n)} colegios · ${fmt(pros)} para llamar</small>${allUnk ? "" : `<span class="bar" aria-hidden="true">${Object.keys(ST).map(x => k[x] ? `<span data-st="${x}" style="width:${k[x] / n * 100}%;background:var(${ST[x].c})"></span>` : "").join("")}</span>`}</span>${allUnk ? `<span class="tag">Sin revisar</span>` : icon("arrowRight", "faint")}</button>`;
     }).join("");
@@ -260,7 +263,7 @@ function drawMap({ fit = true } = {}) {
   if ((!E.city && !E.q && !placeMode()) || grouped) {
     citiesOf(grouped ? placeList() : scope()).forEach(c => {
       const lat = c.items.reduce((a, s) => a + s.lat, 0) / c.items.length, lng = c.items.reduce((a, s) => a + s.lng, 0) / c.items.length;
-      const pros = c.items.filter(s => ["new", "org", "stalled", "lost"].includes(s.status)).length, unk = c.items.filter(s => s.status === "unk").length;
+      const pros = c.items.filter(s => ["new", "org", "stalled", "lost"].includes(s.status) && !othersOwn(s)).length, unk = c.items.filter(s => s.status === "unk").length;
       const n = pros || unk || c.items.length, col = pros ? CITY.pros : unk ? CITY.unk : CITY.none, size = Math.min(56, 24 + Math.sqrt(n) * 3);
       L.marker([lat, lng], { icon: L.divIcon({ className: "", iconSize: [size, size], html: `<div class="citydot" style="width:${size}px;height:${size}px;background:${col}">${n > 999 ? Math.round(n / 1000) + "k" : n}</div>` }), title: c.city, keyboard: true })
         .on("click", () => openCity(c.country, c.city)).bindTooltip(esc(`${c.city}: ${pros ? `${pros} para llamar` : unk ? `${unk} sin revisar` : "sin colegios para llamar"}`)).addTo(layer);

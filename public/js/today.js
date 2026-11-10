@@ -1,6 +1,6 @@
 // Hoy: meta del día, agenda propia y a quién contactar ahora.
-import { S, api, esc, icon, save, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap } from "./core.js";
-import { openSchool, startSession, resumeSession } from "./school.js";
+import { S, api, esc, icon, save, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap } from "./core.js";
+import { openSchool, openRecord, startSession, resumeSession } from "./school.js";
 import { setBadge, baseErrorCallout } from "./app.js";
 
 let host = null, showAll = false;
@@ -9,7 +9,22 @@ const STATUS_REASONS = /^(Nunca contactado|Sin revisar|En Pipe sin trato)$/;
 export async function loadToday() {
   S.today = await api(`/api/today?countries=${encodeURIComponent(S.territory.join(","))}`);
   syncBadge();
+  verifyQueue();
   return S.today;
+}
+// Los primeros de la cola que todavía no se cruzaron con Pipedrive se revisan atrás: si su organización es de
+// otra persona (o ya es cliente o tiene trato), salen de la cola. Así nunca se propone algo que no es tuyo.
+let verifying = false;
+async function verifyQueue() {
+  const unk = (S.today?.queue || []).slice(0, 15).filter(q => q.status === "unk").map(q => q.id);
+  if (verifying || !unk.length) return;
+  verifying = true;
+  try {
+    const r = await api("/api/check", { body: { ids: unk } });
+    const out = new Set(Object.entries(r).filter(([, v]) => !v.error && ((v.ownerId && v.ownerId !== S.me.pdUserId) || ["client", "open"].includes(v.status))).map(([id]) => id));
+    Object.values(r).forEach(v => { if (!v.error) patchSchool(v); });
+    if (S.today) { S.today.queue = S.today.queue.filter(q => !out.has(q.id)).map(q => r[q.id] && !r[q.id].error ? { ...q, status: r[q.id].status, detail: r[q.id].detail } : q); if (host?.isConnected) draw(); }
+  } catch {} finally { verifying = false; }
 }
 function syncBadge() { const t = today(); setBadge("hoy", (S.today?.activities.items || []).filter(a => localAct(a).date <= t).length); }
 
@@ -86,6 +101,7 @@ function draw() {
   host.querySelector("#terr").onclick = territoryPicker;
   host.querySelector("#more")?.addEventListener("click", () => { showAll = !showAll; draw(); });
   host.querySelectorAll("[data-school]").forEach(b => b.onclick = () => openSchool(b.dataset.school, { activityId: b.dataset.act ? Number(b.dataset.act) : null }));
+  host.querySelectorAll("[data-record]").forEach(b => b.onclick = () => openRecord(b.dataset.record, { activityId: Number(b.dataset.act) || null }));
   host.querySelectorAll("[data-done]").forEach(b => b.onclick = () => markDone(Number(b.dataset.done)));
   host.querySelectorAll("[data-move]").forEach(b => b.onclick = () => moveMenu(b, Number(b.dataset.move)));
   if (focusKey) host.querySelector(`[data-focus-key="${focusKey}"]`)?.focus();
@@ -118,10 +134,13 @@ export function actRow(a, late) {
   const s = a.schoolId && S.byId.get(a.schoolId);
   const when = `${late ? `Vencida ${shortDay(a.date)}` : shortDay(a.date)}${a.time ? ` · ${a.time}` : ""}`;
   const what = s ? a.subject.replace(new RegExp(`\\s*·\\s*${s.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*$`), "") : a.subject;
-  const title = s ? s.name : a.subject;
-  const sub = `${s ? `${what} · ` : ""}${when}${s ? ` · ${s.city}` : ""}`;
+  // sin colegio de la base: el nombre del prospecto, la persona o la organización de Pipedrive
+  const title = s ? s.name : a.who || a.subject;
+  const sub = `${s ? `${what} · ` : a.who ? `${a.subject}${a.kind ? ` · ${a.kind.toLowerCase()}` : ""} · ` : ""}${when}${s ? ` · ${s.city}` : ""}${!s && a.note ? ` · «${a.note}»` : ""}`;
   return `<div class="act"><span class="ty ${a.type}" role="img" aria-label="${esc(a.typeLabel)}" title="${esc(a.typeLabel)}">${icon(TYPE_ICON[a.type] || "check")}</span>
     ${s ? `<button class="t" data-school="${esc(s.id)}" data-act="${a.id}"><b>${esc(title)}</b><small class="${late ? "late" : ""}">${esc(sub)}</small></button>`
+      : a.record ? `<button class="t" data-record="${esc(a.record)}" data-act="${a.id}" title="Abrir la ficha"><b>${esc(title)}</b><small class="${late ? "late" : ""}">${esc(sub)}</small></button>`
+      : a.url ? `<a class="t" href="${esc(a.url)}" target="_blank" rel="noopener" title="Abrir en Pipedrive"><b>${esc(title)} ${icon("external", "sm")}</b><small class="${late ? "late" : ""}">${esc(sub)}</small></a>`
       : `<div class="t"><b>${esc(title)}</b><small class="${late ? "late" : ""}">${esc(sub)}</small></div>`}
     <div class="ops"><button class="icon-btn" data-done="${a.id}" data-focus-key="done-${a.id}" title="Marcar como hecha" aria-label="Marcar como hecha">${icon("check")}</button><button class="icon-btn" data-move="${a.id}" title="Reprogramar" aria-label="Reprogramar">${icon("clock")}</button></div></div>`;
 }

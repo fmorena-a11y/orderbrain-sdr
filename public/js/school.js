@@ -26,6 +26,12 @@ const newForm = () => ({ channel: "call", outcome: null, contact: { name: "", ro
   demo: { date: nextBusinessDay(today()), time: "10:00", duration: 30, ownerId: "" }, next: { type: "", date: "", time: "", ownerId: "" }, lostReason: "", text: "", ai: true, completeAct: true, nextTouched: false, why: "" });
 
 // ---------- abrir / cerrar
+// Abre la ficha de un prospecto (lead) o de una organización de Pipedrive que no está en la base ("lead:…" / "org:…").
+export async function openRecord(ref, opts = {}) {
+  const [kind, rid] = String(ref).split(/:(.*)/s);
+  try { const r = await api(`/api/records/${kind}/${encodeURIComponent(rid)}`); patchSchool(r); return openSchool(r.id, opts); }
+  catch (e) { toast(e.message, { type: "err" }); }
+}
 export async function openSchool(id, { activityId = null, tab = null, keepSession = false } = {}) {
   if (!S.byId.has(id)) return toast("Colegio inexistente", { type: "err" });
   if (!keepSession) S.session = null;
@@ -69,6 +75,7 @@ async function loadStudy(id, { refresh = false } = {}) {
 // Redibuja sin perder el scroll (en celular scrollea toda la ficha; en escritorio, el cuerpo).
 function keepScroll(fn) { const dr = $("drawer"), b = dr.querySelector("#dBody"); const t1 = dr.scrollTop, t2 = b?.scrollTop || 0; fn(); dr.scrollTop = t1; const nb = dr.querySelector("#dBody"); if (nb) nb.scrollTop = t2; }
 async function loadPhotos(id) {
+  if (/^pd-(org|lead)-/.test(id)) { D.photos = []; return; } // prospecto de Pipedrive: sin ubicación ni fotos
   let list = [];
   try { list = (await api(`/api/schools/${id}/photos`)).photos || []; } catch {}
   if (D.id !== id) return;
@@ -211,6 +218,7 @@ function prefetch() {
 // ---------- render
 const focusKey = el => el && (el.id ? `#${el.id}` : ["tab", "oc", "ch", "f", "caf", "niv", "nd", "ph"].map(k => el.dataset?.[k] !== undefined ? `[data-${k}="${el.dataset[k]}"]` : "").find(Boolean));
 function clientWarn(s, m) {
+  if (s.ownerId && S.me.pdUserId && s.ownerId !== S.me.pdUserId && s.status !== "client") return `Esta organización es de ${s.ownerName || "otra persona"} en Pipedrive. No la contactes: si te interesa, hablalo con esa persona.`;
   if (s.status === "client") return s.ob && !s.ob.churn ? `Ya es cliente de OrderEAT en OrderBrain (${s.ob.label}${s.ob.client && s.ob.client !== s.name ? `, ${s.ob.client}` : ""}). No lo prospectes: si hay algo, avisale al equipo de cuentas.` : "Ya es cliente de OrderEAT. No lo prospectes: si hay algo, avisale al equipo de cuentas.";
   if (s.ob?.churn || s.phase === "churn") return "Ex cliente de OrderEAT (churn). Antes de contactar, hablá con el equipo de cuentas para saber por qué se fue.";
   if (s.status === "open") return `Tiene un trato abierto${m?.openDealOwner ? ` de ${m.openDealOwner}` : ""}. Coordiná con esa persona antes de contactar.`;
@@ -305,7 +313,7 @@ function bindTop(s, d) {
     date?.closest(".step")?.scrollIntoView({ block: "start" }); date?.focus();
   };
   el.querySelector("#aMore").onclick = e => openMenu(e.currentTarget, [
-    { label: "Cómo llegar", sub: "Google Maps con la ruta", fn: () => open(mapsDir(s)) },
+    ...(s.lat == null ? [] : [{ label: "Cómo llegar", sub: "Google Maps con la ruta", fn: () => open(mapsDir(s)) }]),
     { label: "Ver en Google Maps", sub: "Fotos, reseñas y horarios", fn: () => open(mapsSearch(s)) },
     ...(s.web ? [{ label: "Sitio web", sub: s.web.replace(/^https?:\/\/(www\.)?/, ""), fn: () => open(s.web) }] : []),
     { label: "Buscar al decisor en Google", sub: `Director o administración de ${s.name}`, fn: () => open(`https://www.google.com/search?q=${encodeURIComponent(`"${s.name}" ${s.city} director OR administración OR cafetería`)}`) },
@@ -360,7 +368,7 @@ function prepBody(s, d) {
   const cands = !m.confirmed ? (m.candidates || []) : [];
   return `<div class="stack">
     ${warn ? `<div class="callout warn">${icon("alert")}<span>${esc(warn)}</span></div>` : ""}
-    ${gallery(s)}
+    ${s.lat == null ? "" : gallery(s)}
     <section class="sec"><h3><span class="l">${icon("phone")} Primeros 15 segundos</span></h3>
       <div class="say">${esc(apertura)}<button class="icon-btn" data-copy="${esc(apertura)}" aria-label="Copiar apertura">${icon("copy")}</button></div>
       <p class="muted" style="margin:10px 0 0;font-size:13.5px">${decisor ? `Preguntá por <b>${esc(decisor.nombre)}</b> (${esc(decisor.cargo)}).` : `Si atiende recepción, pedí el nombre de quien maneja la ${esc(d.market.espacio)} y su mejor horario.`}</p>
@@ -375,7 +383,7 @@ function prepBody(s, d) {
     </section>
     <section class="sec"><h3><span class="l">${icon("alert")} Si te dice…</span></h3>${objeciones.map((o, i) => `<details class="obj" ${i === 0 ? "open" : ""}><summary>${esc(o.o)}</summary><p>${esc(o.r)}</p></details>`).join("")}</section>
     <section class="sec"><h3><span class="l">${icon("video")} Cierre</span></h3><div class="say">${esc(cierre)}<button class="icon-btn" data-copy="${esc(cierre)}" aria-label="Copiar cierre">${icon("copy")}</button></div></section>
-    ${studyCard(s)}
+    ${s.lat == null ? "" : studyCard(s)}
   </div>`;
 }
 function bindPrep(s, d) {
@@ -414,7 +422,8 @@ function redrawLog() { keepScroll(draw); }
 function logBody(s, d) {
   const f = D.form, o = S.outcomes.find(x => x.id === f.outcome);
   const team = S.team || [];
-  const ownerOpts = sel => `<option value="">Para mí</option>${team.filter(u => u.id !== S.me.pdUserId).map(u => `<option value="${u.id}" ${String(sel) === String(u.id) ? "selected" : ""}>Para ${esc(u.name)}</option>`).join("")}`;
+  // el próximo paso es tuyo (cada uno trabaja lo suyo); un líder puede asignarlo a otra persona. La demo sí la puede dar otro.
+  const ownerOpts = (sel, any = S.me.role === "lider") => `<option value="">Para mí</option>${any ? team.filter(u => u.id !== S.me.pdUserId).map(u => `<option value="${u.id}" ${String(sel) === String(u.id) ? "selected" : ""}>Para ${esc(u.name)}</option>`).join("") : ""}`;
   const act = D.activityId && d.activities?.find(a => a.id === D.activityId);
   const connected = CONNECTED.includes(f.outcome), qualify = QUALIFY.includes(f.outcome);
   const lostish = ["not_now", "not_interested"].includes(f.outcome) || (f.outcome === "no_answer" && f.lostReason);
@@ -438,7 +447,7 @@ function logBody(s, d) {
       <div class="grid3"><label class="field"><span>Día</span><input class="inp" type="date" data-f="demo.date" value="${esc(f.demo.date)}" min="${t}"></label>
       <label class="field"><span>Hora (tu hora local)</span><input class="inp" type="time" data-f="demo.time" value="${esc(f.demo.time)}" step="900"></label>
       <label class="field"><span>Duración</span><select class="inp" data-f="demo.duration">${[20, 30, 45, 60].map(m => `<option value="${m}" ${+f.demo.duration === m ? "selected" : ""}>${m} min</option>`).join("")}</select></label></div>
-      <label class="field"><span>¿Quién da la demo?</span><select class="inp" data-f="demo.ownerId">${ownerOpts(f.demo.ownerId).replace("Para mí", "Yo")}</select></label>
+      <label class="field"><span>¿Quién da la demo?</span><select class="inp" data-f="demo.ownerId">${ownerOpts(f.demo.ownerId, true).replace("Para mí", "Yo")}</select></label>
       <p class="muted" style="margin:0;font-size:13.5px">${d.match.openDealId ? "Se agenda en el trato abierto." : `Se crea el trato en <b>${esc(pipeName(s))}</b> con fuente «Outbound - Cold Calling» y vos como SDR.`}</p></div>` : ""}
     ${connected ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>${f.outcome === "gatekeeper" ? "¿Quién es el decisor?" : "¿Con quién hablaste?"} <span class="faint" style="font-weight:400;font-size:13px">opcional, se crea como contacto</span></div>
       <div class="grid2"><label class="field"><span>Nombre</span><input class="inp" data-f="contact.name" value="${esc(f.contact.name)}" placeholder="Ej: Laura Gómez" autocomplete="off"></label>

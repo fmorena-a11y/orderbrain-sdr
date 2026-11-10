@@ -109,13 +109,20 @@ const auth = (req, res, next) => {
   req.tz = safeTz(req.get("x-tz"));
   next();
 };
+// READ_ONLY=1: nada se escribe en Pipedrive (para probar contra la cuenta real sin tocarla)
+if (process.env.READ_ONLY === "1") app.use((req, res, next) => req.method === "POST" && /^\/api\/(schools\/[^/]+\/(match|log|comment|study\/note)|activities\/|proposals\/confirm)/.test(req.path) ? res.status(403).json({ error: "Modo solo lectura: no se escribe en Pipedrive." }) : next());
 const wrap = fn => (req, res) => fn(req, res).catch(e => {
   if (res.writableEnded || res.destroyed) return; // el navegador ya cortó (canceló): no hay a quién responder
   const status = e.status && e.status < 600 ? (e instanceof pd.PipedriveError && e.status >= 500 ? 502 : e.status) : 500;
   if (status >= 500) console.error(e);
   res.status(status).json({ error: e instanceof pd.PipedriveError ? `Pipedrive: ${e.message}` : e.message });
 });
-const schoolParam = (req, res, next) => { if (!byId.has(req.params.id)) return res.status(404).json({ error: "Colegio inexistente" }); req.params.id = canonicalId(req.params.id); next(); };
+// las fichas de Pipedrive (prospectos y organizaciones fuera de la base) se rearman si esta instancia no las tiene
+const schoolParam = (req, res, next) => {
+  const go = () => { req.params.id = canonicalId(req.params.id); next(); };
+  if (byId.has(req.params.id)) return go();
+  sales.ensureRecord(req.params.id).then(ok => ok ? go() : res.status(404).json({ error: "Colegio inexistente" }), () => res.status(404).json({ error: "Colegio inexistente" }));
+};
 
 // ---------- API
 // Perfil: nombre completo y rol. Si la persona ya lo cargó, manda sobre el nombre que viene de Google o Pipedrive.
@@ -135,6 +142,11 @@ app.post("/api/me/profile", auth, wrap(async (req, res) => {
   const pr = await setProfile(req.session.user.email, { name, role });
   req.session.user = withProfile(req.session.user, pr);
   res.json({ user: req.session.user });
+}));
+// ficha de un prospecto (lead) o de una organización de Pipedrive que no está en la base
+app.get("/api/records/:kind/:rid", auth, wrap(async (req, res) => {
+  if (!["lead", "org"].includes(req.params.kind)) return res.status(400).json({ error: "Ficha inválida" });
+  res.json(await sales.openRecord(req.params.kind, req.params.rid));
 }));
 app.get("/api/schools", auth, (req, res) => res.json(schools.map(sales.schoolListItem)));
 app.get("/api/team", auth, wrap(async (req, res) => {
@@ -214,7 +226,7 @@ app.get("/api/today", auth, wrap(async (req, res) => {
   const countries = String(req.query.countries || "").split(",").filter(Boolean);
   const mine = await sales.myActivities(req.session.user).catch(e => ({ warning: e.message, items: [] }));
   const busyOrgs = new Set(mine.items.map(a => a.orgId).filter(Boolean));
-  res.json({ stats: sales.stats(req.session.user, req.tz), activities: mine, queue: sales.prospectQueue({ countries, limit: 60, excludeOrgIds: busyOrgs }) });
+  res.json({ stats: sales.stats(req.session.user, req.tz), activities: mine, queue: sales.prospectQueue({ countries, limit: 60, excludeOrgIds: busyOrgs, userId: req.session.user.pdUserId || null }) });
 }));
 app.get("/api/my-activities", auth, wrap(async (req, res) => res.json(await sales.myActivities(req.session.user))));
 app.post("/api/activities/:id/done", auth, wrap(async (req, res) => { await pd.updateActivity(Number(req.params.id), { done: true }); res.json({ ok: true }); }));

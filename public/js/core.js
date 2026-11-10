@@ -55,7 +55,8 @@ export function scroller(el) {
   new MutationObserver(() => { reveal(); upd(); }).observe(el, { childList: true, subtree: true, attributes: true, attributeFilter: ["aria-pressed"] });
   requestAnimationFrame(() => { reveal(); upd(); });
 }
-export function patchSchool(s) { if (!s?.id) return; const cur = S.byId.get(s.id); if (cur) Object.assign(cur, s); else { S.schools.push(s); S.byId.set(s.id, s); } }
+// las fichas de Pipedrive que no son colegios de la base (pd-lead-…, pd-org-…) van solo al índice, no a listas ni al mapa
+export function patchSchool(s) { if (!s?.id) return; const cur = S.byId.get(s.id); if (cur) Object.assign(cur, s); else { if (!/^pd-(org|lead)-/.test(s.id)) S.schools.push(s); S.byId.set(s.id, s); } }
 
 // ---------- API
 let onUnauthorized = () => {};
@@ -120,7 +121,7 @@ export const TYPE_ICON = { call: "phone", meeting: "video", deadline: "whatsapp"
 // ---------- estados de colegio
 export const ST = {
   new: { l: "Nunca contactado", c: "--st-new" }, org: { l: "En Pipe sin trato", c: "--st-org" },
-  lost: { l: "Perdido", c: "--st-lost" }, stalled: { l: "Contactado sin avance", c: "--st-stalled" }, open: { l: "En proceso", c: "--st-open" },
+  lead: { l: "Prospecto en Pipe", c: "--st-org" }, churn: { l: "Churn", c: "--st-churn" }, lost: { l: "Perdido", c: "--st-lost" }, stalled: { l: "Contactado sin avance", c: "--st-stalled" }, open: { l: "En proceso", c: "--st-open" },
   client: { l: "Cliente", c: "--st-client" }, unk: { l: "Sin revisar", c: "--st-unk" },
 };
 export const cssVar = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
