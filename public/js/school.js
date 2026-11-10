@@ -121,7 +121,7 @@ function photoList(s) {
 const KIND = { google: "Google Maps", web: "Web del colegio", study: "Web", sat: "Satélite" };
 function gallery(s) {
   const list = photoList(s);
-  return `<div class="gallery" id="gallery" aria-label="Fotos del colegio">${list.map((p, i) => `<button class="ph ${p.kind}" data-ph="${i}" aria-label="Ver foto ${i + 1} (${KIND[p.kind]})"><img src="${esc(p.kind === "sat" ? satLink(s, { w: 480, h: 300 }) : p.url)}" alt="" loading="lazy" referrerpolicy="no-referrer"><span class="cap">${esc(KIND[p.kind])}</span></button>`).join("")}${D.photos === null ? `<div class="ph skel" aria-hidden="true"></div>` : ""}</div>`;
+  return `<div class="gallery" id="gallery" aria-label="Fotos del colegio">${list.map((p, i) => `<button class="ph ${p.kind}" data-ph="${i}" aria-label="Ver foto ${i + 1} (${KIND[p.kind]})"><img src="${esc(p.kind === "sat" ? satLink(s, { w: 480, h: 300 }) : p.url)}" alt="" loading="lazy" referrerpolicy="no-referrer">${p.kind === "sat" ? `<span class="sat-pin" title="El colegio está acá"></span>` : ""}<span class="cap">${esc(KIND[p.kind])}</span></button>`).join("")}${D.photos === null ? `<div class="ph skel" aria-hidden="true"></div>` : ""}</div>`;
 }
 function bindGallery(s) {
   const g = $("drawer").querySelector("#gallery"); if (!g) return;
@@ -129,7 +129,8 @@ function bindGallery(s) {
   g.querySelectorAll("img").forEach(img => {
     const sat = img.closest(".ph.sat"), alt = sat ? [satLink(s, { w: 320, h: 200 }), satTile(s)] : [];
     img.addEventListener("error", () => {
-      if (alt.length) return void (img.src = alt.shift());
+      // la tesela no está centrada en el colegio: ahí no va el punto
+      if (alt.length) { img.src = alt.shift(); if (!/\/export\?/.test(img.src)) sat?.querySelector(".sat-pin")?.remove(); return; }
       if (sat) return void img.replaceWith(Object.assign(document.createElement("span"), { className: "ph-fail", innerHTML: `${icon("map")}<span>Ver satélite</span>` }));
       img.closest(".ph")?.remove();
     });
@@ -138,17 +139,18 @@ function bindGallery(s) {
 }
 function lightbox(s, start) {
   const list = photoList(s); let i = start;
-  const m = modal(`<div class="lb"><img id="lbImg" alt="Foto del colegio" referrerpolicy="no-referrer"><div class="lb-fail" id="lbFail" hidden>${icon("alert")}<span>No se pudo cargar esta foto. Abrila con el botón de abajo.</span></div><div class="lb-bar"><span id="lbCap" class="faint"></span><span class="lb-nav"><a class="btn sm" id="lbExt" target="_blank" rel="noopener">${icon("external", "sm")} <span>Abrir</span></a>${list.length > 1 ? `<button class="icon-btn" id="lbPrev" aria-label="Anterior">${icon("arrowLeft")}</button><button class="icon-btn" id="lbNext" aria-label="Siguiente">${icon("arrowRight")}</button>` : ""}<button class="icon-btn" id="lbClose" aria-label="Cerrar">${icon("x")}</button></span></div></div>`, { onClose: () => $("drawer").querySelector(`[data-ph="${i}"]`)?.focus() });
+  const m = modal(`<div class="lb"><div class="lb-wrap"><img id="lbImg" alt="Foto del colegio" referrerpolicy="no-referrer"><span class="sat-pin lg" id="lbPin" hidden title="El colegio está acá"></span></div><div class="lb-fail" id="lbFail" hidden>${icon("alert")}<span>No se pudo cargar esta foto. Abrila con el botón de abajo.</span></div><div class="lb-bar"><span id="lbCap" class="faint"></span><span class="lb-nav"><a class="btn sm" id="lbExt" target="_blank" rel="noopener">${icon("external", "sm")} <span>Abrir</span></a>${list.length > 1 ? `<button class="icon-btn" id="lbPrev" aria-label="Anterior">${icon("arrowLeft")}</button><button class="icon-btn" id="lbNext" aria-label="Siguiente">${icon("arrowRight")}</button>` : ""}<button class="icon-btn" id="lbClose" aria-label="Cerrar">${icon("x")}</button></span></div></div>`, { onClose: () => $("drawer").querySelector(`[data-ph="${i}"]`)?.focus() });
   m.querySelector(".modal-box").classList.add("wide");
   // La foto grande nunca queda rota: si una versión falla (el servicio satelital a veces devuelve error en ciertos
   // tamaños), prueba la siguiente; al final queda la misma de la miniatura o un aviso con el enlace para abrirla afuera.
-  const img = m.querySelector("#lbImg"), fail = m.querySelector("#lbFail"), ext = m.querySelector("#lbExt");
+  const img = m.querySelector("#lbImg"), fail = m.querySelector("#lbFail"), ext = m.querySelector("#lbExt"), pin = m.querySelector("#lbPin");
   let tries = [], seq = 0;
   const show = () => {
     const p = list[i], my = ++seq;
     tries = p.kind === "sat" ? [satLink(s, { w: 1200, h: 750 }), satLink(s, { w: 1024, h: 640 }), satLink(s, { w: 800, h: 480 }), satLink(s, { w: 480, h: 300 }), satTile(s)] : [p.url];
-    fail.hidden = true; img.hidden = false; img.classList.add("loading");
-    img.onload = () => { if (my === seq) img.classList.remove("loading"); };
+    fail.hidden = true; img.hidden = false; img.classList.add("loading"); pin.hidden = true;
+    // el punto rojo marca el colegio: la foto satelital está centrada en su ubicación (salvo la tesela de respaldo)
+    img.onload = () => { if (my === seq) { img.classList.remove("loading"); pin.hidden = !(p.kind === "sat" && /\/export\?/.test(img.src)); } };
     img.onerror = () => {
       if (my !== seq) return;
       if (tries.length) { img.src = tries.shift(); return; }
@@ -157,7 +159,7 @@ function lightbox(s, start) {
     img.src = tries.shift();
     ext.href = p.kind === "sat" ? `https://www.google.com/maps/@${s.lat},${s.lng},180m/data=!3m1!1e3` : p.url;
     ext.querySelector("span").textContent = p.kind === "sat" ? "Abrir en Google Maps" : "Abrir la foto";
-    m.querySelector("#lbCap").textContent = `${i + 1} de ${list.length} · ${p.credit || KIND[p.kind]}`;
+    m.querySelector("#lbCap").textContent = `${i + 1} de ${list.length} · ${p.kind === "sat" ? "El punto rojo es el colegio · " : ""}${p.credit || KIND[p.kind]}`;
   };
   const go = d => { i = (i + d + list.length) % list.length; show(); };
   m.querySelector("#lbPrev")?.addEventListener("click", () => go(-1));

@@ -94,7 +94,7 @@ export function renderExplore(el) {
   q.oninput = () => { E.q = q.value; E.place = null; locSeq++; shown = PAGE; drawAll(); toTop(); };
   // Enter: si el texto coincide con colegios de la base, se queda en esa lista; si no, ubica el lugar en el mapa.
   // El botón de la flecha siempre ubica.
-  el.querySelector("#qf").onsubmit = e => { e.preventDefault(); if (!E.q.trim() || !searchList().length) locate(q.value); };
+  el.querySelector("#qf").onsubmit = e => { e.preventDefault(); if (!E.q.trim() || looksLikePlace(q.value) || !searchList().length) locate(q.value); };
   el.querySelector("#locate").onclick = () => locate(q.value);
   el.querySelector("#sess").onclick = () => {
     const ids = callable().map(s => s.id);
@@ -114,13 +114,31 @@ function drawAll({ fit = true } = {}) {
 }
 
 // ---------- ubicar en el mapa
+// ¿lo escrito es un lugar? «Puebla», «México, Puebla», «Palermo, Buenos Aires»: con coma, o igual a una ciudad o un país
+// de la base («Puebla» también es «Puebla de Zaragoza»). Entonces Enter ubica y contornea en vez de buscar por nombre.
+let CITY_SET = null;
+function looksLikePlace(text) {
+  const t = norm(text); if (!t) return false;
+  if (/,/.test(text)) return true;
+  CITY_SET ||= new Set(S.schools.map(x => norm(x.city)).filter(Boolean));
+  return S.countries.some(c => norm(c) === t) || CITY_SET.has(t) || [...CITY_SET].some(c => c.startsWith(t + " de "));
+}
+// «México, Puebla» → busca «Puebla» en México (el país se usa para elegir, no como parte del nombre)
+function splitCountry(text) {
+  const parts = String(text).split(",").map(x => x.trim()).filter(Boolean);
+  const i = parts.findIndex(x => S.countries.some(c => norm(c) === norm(x)));
+  if (i < 0 || parts.length < 2) return { q: text, cc: "" };
+  const c = S.countries.find(c => norm(c) === norm(parts[i]));
+  return { q: parts.filter((_, j) => j !== i).join(", "), cc: S.markets[c]?.code || "" };
+}
 let locSeq = 0;
 async function locate(text, { osm } = {}) {
   text = String(text || "").trim(); if (!osm && text.length < 2) return;
   const seq = ++locSeq, box = host.querySelector("#placeBox");
   box.innerHTML = `<p class="muted place-msg"><span class="spin"></span> Ubicando «${esc(text)}»…</p>`;
   try {
-    const place = await api("/api/scan/resolve", { body: osm ? { osm } : { q: text, cc: S.markets[E.country]?.code || "" } });
+    const sc = splitCountry(text);
+    const place = await api("/api/scan/resolve", { body: osm ? { osm } : { q: sc.q, cc: sc.cc || S.markets[E.country]?.code || "" } });
     // si mientras tanto escribió otra cosa o pidió otro lugar, esta respuesta ya no sirve
     if (!host.isConnected || seq !== locSeq) return;
     E.place = place; E.q = ""; E.city = null; E.filter = "prospect"; shown = PAGE; host.querySelector("#q").value = "";

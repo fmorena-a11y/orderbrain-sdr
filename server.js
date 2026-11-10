@@ -262,7 +262,9 @@ app.post("/api/schools/:id/comment", auth, schoolParam, wrap(async (req, res) =>
 }));
 app.get("/api/schools/:id/photos", auth, schoolParam, wrap(async (req, res) => {
   res.set("cache-control", "private, max-age=3600");
-  res.json({ photos: await photosFor(req.params.id, { refresh: req.query.refresh === "1" }), google: googleEnabled() });
+  // sin web en la base, la que encontró «Enriquecer» (de Pipedrive o de una sede), con su fuente
+  const e = byId.get(req.params.id)?.web ? null : await sales.getEnrich(req.params.id).catch(() => null);
+  res.json({ photos: await photosFor(req.params.id, { refresh: req.query.refresh === "1", web: e?.web || "", webSrc: e?.webSrc || "" }), google: googleEnabled() });
 }));
 // Estudio de prospección: se genera solo la primera vez que alguien abre el colegio.
 const studying = new Map();
