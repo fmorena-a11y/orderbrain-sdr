@@ -1,6 +1,8 @@
 // Ficha del colegio: preparar el contacto, registrar el resultado e historial. Incluye el modo sesión.
 import { $, S, api, esc, icon, pill, statusPill, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, workOrder, ago, TYPE_ICON,
   telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile } from "./core.js";
+// «la cafetería», «el casino», «el bar escolar»
+const laEsp = mk => `${/^(casino|bar)\b/.test(mk?.espacio || "") ? "el" : "la"} ${mk?.espacio || "cafetería"}`, delaEsp = mk => laEsp(mk).replace(/^el /, "del ").replace(/^la /, "de la ");
 const coarse = () => matchMedia("(pointer: coarse)").matches;
 
 const D = { id: null, data: null, tab: "prep", form: null, activityId: null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null };
@@ -205,11 +207,54 @@ async function load(opts = {}) {
     else d = await api(`/api/schools/${id}${opts.refresh ? "?refresh=1" : ""}`);
     if (D.id !== id) return;
     D.data = d; D.err = null; patchSchool(d.school);
-    loadSedes(id);
     const why = S.session && !opts.refresh && opts.match === undefined && skipReason(d.school, !!D.activityId && myDeal(d.match));
     if (why) { toast(`${d.school.name}: ${why}, lo salteé`); return sessionGo(1); }
+    loadSedes(id); loadEnrich(id);
   } catch (e) { if (D.id === id) D.err = e.message; }
   if (D.id === id) draw();
+}
+
+// ---------- Enriquecer: juntar todo lo que hay del colegio y dejarlo en Pipedrive
+const ENR = new Map();
+async function loadEnrich(id) {
+  if (ENR.has(id)) return;
+  ENR.set(id, null);
+  try { const r = await api(`/api/schools/${encodeURIComponent(id)}/enrich`); ENR.set(id, r.data || null); } catch { ENR.delete(id); return; }
+  if (D.id === id && ENR.get(id) && D.tab === "prep") keepScroll(draw);
+}
+async function enrich(s) {
+  if (D.enriching) return;
+  D.enriching = s.id; draw();
+  try {
+    const r = await api(`/api/schools/${encodeURIComponent(s.id)}/enrich`, { body: {} });
+    ENR.set(s.id, r.data); SEDES.delete(s.id);
+    if (D.id === s.id) { D.photos = r.photos || D.photos; if (D.tab !== "prep") goTab("prep"); }
+    const n = r.data.items.length + r.data.sedes.length + r.data.decisores.length;
+    toast(r.note.saved ? `Listo: ${n} dato${n === 1 ? "" : "s"} guardado${n === 1 ? "" : "s"} en una nota de Pipedrive` : `${n ? `Encontré ${n} dato${n === 1 ? "" : "s"}. ` : ""}${r.note.reason || ""}`, r.note.saved ? { href: r.note.url, action: "Abrir" } : { type: n ? "info" : "err" });
+    loadSedes(s.id);
+    if (S.study && !D.study && !D.studyWorking && S.byId.get(s.id)?.lat != null) loadStudy(s.id, { refresh: true }); // con IA, además el estudio (decisores)
+  } catch (e) { toast(e.message, { type: "err" }); }
+  D.enriching = null;
+  if (D.id === s.id) keepScroll(draw);
+}
+const KIND_E = { tel: ["phone", "Teléfonos"], wa: ["whatsapp", "WhatsApp"], mail: ["mail", "Mails"], web: ["external", "Web"], addr: ["map", "Dirección"] };
+function enrichSec(s) {
+  const e = ENR.get(s.id); if (!e) return "";
+  const row = x => {
+    const v = esc(x.value), src = `<span class="tag">${esc(x.src)}</span>`;
+    if (x.kind === "tel") return `<div class="sede-row"><a class="sede-tel" href="${esc(telLink(x.value))}">${v}</a>${x.value.replace(/\D/g, "").length >= 10 ? `<button class="linkbtn" data-sdwa="${v}">WhatsApp</button>` : `<span class="tag" title="Sin código de área">sin lada</span>`}${src}</div>`;
+    if (x.kind === "wa") return `<div class="sede-row"><button class="linkbtn" data-sdwa="${v}">${v}</button>${src}</div>`;
+    if (x.kind === "mail") return `<div class="sede-row"><button class="linkbtn" data-sdmail="${v}">${v}</button>${src}</div>`;
+    if (x.kind === "web") return `<div class="sede-row"><a href="${v}" target="_blank" rel="noopener">${esc(x.value.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, ""))}</a>${src}</div>`;
+    return `<div class="sede-row"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(x.value)}" target="_blank" rel="noopener">${v}</a>${src}</div>`;
+  };
+  const groups = Object.entries(KIND_E).map(([k, [ic, label]]) => [label, ic, e.items.filter(x => x.kind === k)]).filter(([, , l]) => l.length);
+  return `<section class="sec" id="enrichSec"><h3><span class="l">${icon("building")} Datos del colegio</span><span class="faint" style="font-size:12.5px;font-weight:500">${esc(new Intl.DateTimeFormat("es", { day: "numeric", month: "numeric" }).format(new Date(e.at)))} · ${esc(e.by)}</span></h3>
+    ${groups.length ? `<div class="enr">${groups.map(([label, ic, l]) => `<div class="enr-g"><div class="sub-h">${icon(ic, "sm")} ${esc(label)}</div>${l.map(row).join("")}</div>`).join("")}</div>` : `<p class="muted" style="margin:0">No encontré teléfonos, mails ni web nuevos.</p>`}
+    ${e.rating ? `<p class="muted" style="margin:8px 0 0">Google Maps: ${esc(String(e.rating.value))}★ · ${esc(String(e.rating.count))} reseñas</p>` : ""}
+    ${e.decisores.length ? `<div class="sub-h" style="margin-top:10px">Decisores</div>${e.decisores.map(d => `<div class="sede-row"><b>${esc(d.nombre)}</b>${d.cargo ? `<span class="muted">${esc(d.cargo)}</span>` : ""}</div>`).join("")}` : ""}
+    <p class="faint" style="margin:8px 0 0;font-size:12.5px">Fuentes: web ${esc(e.sources.web)} · Google Maps ${esc(e.sources.google)} · estudio ${esc(e.sources.estudio)}${e.photos ? ` · ${e.photos} foto${e.photos === 1 ? "" : "s"}` : ""}</p>
+  </section>`;
 }
 
 // ---------- sedes del colegio (planteles): se piden aparte para no demorar la ficha
@@ -222,20 +267,26 @@ async function loadSedes(id) {
   if (D.id === id && SEDES.get(id)?.v?.sedes?.length) keepScroll(draw);
 }
 const sedesOf = id => SEDES.get(id)?.v?.sedes || [];
+// una sede es de otra persona si su organización o su prospecto abierto está a nombre de alguien más en Pipedrive
+const sedeAjena = z => !!(z.ownerId && z.ownerId !== S.me.pdUserId);
+// teléfonos que sirven para llamar (los locales sin lada no)
+const sedeCallable = z => sedeAjena(z) ? [] : z.phones.filter(p => !p.short).map(p => p.n);
 function sedesSec(s) {
   const L = sedesOf(s.id); if (!L.length) return "";
   const link = (u, t) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a>`;
   return `<section class="sec" id="sedes"><h3><span class="l">${icon("building")} ${L.length} sedes</span></h3>
     <div class="sedes">${L.map(z => `<div class="sede${z.here ? " here" : ""}">
       <div class="sede-h"><b>${esc(z.name)}</b>${z.here ? `<span class="tag">esta ficha</span>` : ""}${z.ownerId && z.ownerId !== S.me.pdUserId ? `<span class="tag">de ${esc(z.owner || "otra persona")}</span>` : ""}</div>
-      ${z.phones.map(p => `<div class="sede-row"><a class="sede-tel" href="${esc(telLink(p))}">${icon("phone", "sm")} ${esc(p)}</a>${p.replace(/\D/g, "").length >= 10 ? `<button class="linkbtn" data-sdwa="${esc(p)}">WhatsApp</button>` : ""}</div>`).join("")}
-      ${z.emails.map(e => `<div class="sede-row"><button class="linkbtn" data-sdmail="${esc(e)}">${icon("mail", "sm")} ${esc(e)}</button></div>`).join("")}
+      ${sedeAjena(z) ? `<div class="sede-row faint">Es de ${esc(z.owner || "otra persona")} en Pipedrive: hablalo con esa persona antes de contactar.</div>` : ""}
+      ${z.phones.map(p => `<div class="sede-row">${p.short || sedeAjena(z) ? `<span class="sede-tel">${icon("phone", "sm")} ${esc(p.n)}</span>${p.short ? `<span class="tag" title="La web lo publica sin código de área">sin lada</span>` : ""}`
+        : `<a class="sede-tel" href="${esc(telLink(p.n))}">${icon("phone", "sm")} ${esc(p.n)}</a>${p.lada ? `<span class="tag" title="La web publica ${esc(p.raw)}; la lada ${esc(p.lada)} es la de los otros números de la red">lada de la red</span>` : ""}${p.n.replace(/\D/g, "").length >= 10 ? `<button class="linkbtn" data-sdwa="${esc(p.n)}">WhatsApp</button>` : ""}`}</div>`).join("")}
+      ${z.emails.map(e => `<div class="sede-row">${sedeAjena(z) ? `<span>${icon("mail", "sm")} ${esc(e)}</span>` : `<button class="linkbtn" data-sdmail="${esc(e)}">${icon("mail", "sm")} ${esc(e)}</button>`}</div>`).join("")}
       ${z.addr ? `<div class="sede-row"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(z.addr)}" target="_blank" rel="noopener">${icon("map", "sm")} ${esc(z.addr)}</a></div>` : ""}
       ${!z.phones.length && !z.emails.length && !z.addr ? `<div class="sede-row faint">Sin teléfono ni dirección cargados.</div>` : ""}
       <div class="sede-f">${[z.url && link(z.url, "Organización en Pipedrive"), ...z.leads.map((l, i) => link(l.url, `Prospecto${z.leads.length > 1 ? ` ${i + 1}` : ""}${l.archived ? " (archivado)" : ""}`)),
         z.schoolId && !z.here ? `<button class="linkbtn" data-sdopen="${esc(z.schoolId)}">Abrir su ficha</button>` : "", `Fuente: ${esc(z.src.join(", "))}`].filter(Boolean).join(" · ")}</div>
     </div>`).join("")}</div>
-    ${L.some(z => z.src.includes("Web")) ? `<p class="faint" style="margin:8px 0 0;font-size:12.5px">Los números de la web van como los publica el colegio, sin código de área.</p>` : ""}
+    ${L.some(z => z.phones.some(p => p.short)) ? `<p class="faint" style="margin:8px 0 0;font-size:12.5px">«Sin lada»: la web lo publica sin código de área, así no se puede marcar. Pedilo o buscalo antes de llamar.</p>` : ""}
   </section>`;
 }
 
@@ -371,8 +422,8 @@ function draw() {
   const el = $("drawer"); if (!D.id) return;
   const fk = el.contains(document.activeElement) ? focusKey(document.activeElement) : null;
   const s = S.byId.get(D.id), d = D.data, m = d?.match, ss = S.session;
-  const here = sedesOf(s.id).find(z => z.here), sedePhones = sedesOf(s.id).filter(z => z.phones.length).length;
-  const phone = s.phone || here?.phones[0] || "";
+  const here = sedesOf(s.id).find(z => z.here), sedePhones = sedesOf(s.id).filter(z => sedeCallable(z).length).length;
+  const phone = s.phone || (here && sedeCallable(here)[0]) || "";
   const mk = d?.market || S.markets[s.country] || {};
   const nHist = d ? (d.notes?.length || 0) + (d.touches?.length || 0) : 0;
   const notReady = !d ? `disabled title="${D.err ? "No se pudo cargar la ficha" : "Cargando la ficha…"}"` : "";
@@ -399,6 +450,7 @@ function draw() {
       <button class="btn" id="aMail" ${notReady} aria-haspopup="menu">${icon("mail")} Mail</button>
       <button class="btn" id="aDemo" ${notReady} ${s.status === "client" ? `disabled title="Ya es cliente"` : ""}>${icon("video")} Demo</button>
       ${canProspect(s, m) ? `<button class="btn" id="aProspect" title="Crear el prospecto (y la organización si falta) a tu nombre en Pipedrive y buscar a quién contactar">${D.prospecting === s.id ? `<span class="spin"></span> Creando…` : `${icon("plus")} Crear prospecto`}</button>` : ""}
+      <button class="btn" id="aEnrich" ${notReady} title="Buscar todo lo que hay del colegio (Pipedrive, su web, Google Maps y sedes) y dejarlo en una nota en Pipedrive">${D.enriching === s.id ? `<span class="spin"></span> Buscando…` : `${icon("sparkles")} Enriquecer`}</button>
       <button class="btn icon-only" id="aMore" aria-haspopup="menu" aria-label="Más: mapa, web y buscar al decisor" title="Mapa, web y buscar al decisor">${icon("nav")}</button>
     </div>
     ${D.inCall && D.tab !== "log" ? `<button class="call-banner" id="toLog">${icon("phone", "sm")} ¿Cortaste? Registrá cómo te fue ${icon("arrowRight", "sm")}</button>` : ""}
@@ -454,6 +506,7 @@ function bindTop(s, d) {
   el.querySelector("#aWa").onclick = e => templateMenu(e.currentTarget, s, d, "whatsapp");
   el.querySelector("#aMail").onclick = e => templateMenu(e.currentTarget, s, d, "mail");
   el.querySelector("#aProspect")?.addEventListener("click", () => createProspect(s));
+  el.querySelector("#aEnrich")?.addEventListener("click", () => enrich(s));
   el.querySelector("#aDemo").onclick = () => {
     D.result = null; D.form.outcome = "demo"; suggest(s); goTab("log");
     const date = $("drawer").querySelector('[data-f="demo.date"]');
@@ -515,11 +568,12 @@ function prepBody(s, d) {
   const cands = !m.confirmed ? (m.candidates || []) : [];
   return `<div class="stack">
     ${warn ? `<div class="callout warn">${icon("alert")}<span>${esc(warn)}</span></div>` : ""}
-    ${sedesSec(s)}
     ${s.lat == null ? "" : gallery(s)}
+    ${enrichSec(s)}
+    ${sedesSec(s)}
     <section class="sec"><h3><span class="l">${icon("phone")} Primeros 15 segundos</span></h3>
       <div class="say">${esc(apertura)}<button class="icon-btn" data-copy="${esc(apertura)}" aria-label="Copiar apertura">${icon("copy")}</button></div>
-      <p class="muted" style="margin:10px 0 0;font-size:13.5px">${decisor ? `Preguntá por <b>${esc(decisor.nombre)}</b> (${esc(decisor.cargo)}).` : `Si atiende recepción, pedí el nombre de quien maneja la ${esc(d.market.espacio)} y su mejor horario.`}</p>
+      <p class="muted" style="margin:10px 0 0;font-size:13.5px">${decisor ? `Preguntá por <b>${esc(decisor.nombre)}</b> (${esc(decisor.cargo)}).` : `Si atiende recepción, pedí el nombre de quien maneja ${esc(laEsp(d.market))} y su mejor horario.`}</p>
     </section>
     <section class="sec"><h3><span class="l">${icon("target")} Situación</span></h3>
       <p style="margin:0">${esc(p.situacion)} <b>${esc(p.objetivo)}</b></p>
@@ -608,7 +662,7 @@ function logBody(s, d) {
       <label class="field"><span>Cargo</span><input class="inp" data-f="contact.role" value="${esc(f.contact.role)}" placeholder="Directora, administrador, concesionario" list="roles"></label>
       <label class="field"><span>Teléfono / WhatsApp</span><input class="inp" type="tel" data-f="contact.phone" value="${esc(f.contact.phone)}" placeholder="${esc(pre)}"></label>
       <label class="field"><span>Email</span><input class="inp" type="email" data-f="contact.email" value="${esc(f.contact.email)}" placeholder="nombre@colegio.edu"></label></div>
-      <datalist id="roles"><option>Director/a</option><option>Administrador/a</option><option>Concesionario/a de la ${esc(d.market.espacio)}</option><option>Coordinador/a de servicios</option><option>Dueño/a</option></datalist></div>` : ""}
+      <datalist id="roles"><option>Director/a</option><option>Administrador/a</option><option>Concesionario/a ${esc(delaEsp(d.market))}</option><option>Coordinador/a de servicios</option><option>Dueño/a</option></datalist></div>` : ""}
     ${qualify ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>Calificación <span class="faint" style="font-weight:400;font-size:13px">lo que sepas</span></div>
       <div class="field"><span>La ${esc(d.market.espacio)} es…</span><div class="seg">${["Propia", "Externa", "No tiene"].map(c => `<button data-caf="${c}" aria-pressed="${f.qual.cafeteria === c}">${c === "Externa" ? "Concesionada" : c}</button>`).join("")}</div></div>
       <div class="grid2"><label class="field"><span>Alumnos</span><input class="inp" type="number" min="0" step="10" data-f="qual.alumnos" value="${esc(f.qual.alumnos)}" placeholder="Ej: 600"></label>
@@ -741,7 +795,7 @@ function resultBody(s, d) {
   const tpl = id => d.templates.find(t => t.id === id);
   const extra = [];
   if (f.outcome === "demo") {
-    extra.push(`<a class="btn" href="${esc(gcalLink({ title: `Demo OrderEAT · ${s.name}`, date: f.demo.date, time: f.demo.time, minutes: +f.demo.duration || 30, details: `Demo de OrderEAT para la ${d.market.espacio} de ${s.name}.\nAgendada desde OrderBrain SDR.`, guests: contact?.email || "" }))}" target="_blank" rel="noopener">${icon("calendar")} Invitación en Google Calendar</a>`);
+    extra.push(`<a class="btn" href="${esc(gcalLink({ title: `Demo OrderEAT · ${s.name}`, date: f.demo.date, time: f.demo.time, minutes: +f.demo.duration || 30, details: `Demo de OrderEAT para ${laEsp(d.market)} de ${s.name}.\nAgendada desde OrderBrain SDR.`, guests: contact?.email || "" }))}" target="_blank" rel="noopener">${icon("calendar")} Invitación en Google Calendar</a>`);
     extra.push(`<button class="btn wa" data-tpl="confirm_demo">${icon("whatsapp")} Confirmar por WhatsApp</button>`);
   }
   if (f.outcome === "info") extra.push(`<button class="btn" data-tpl="mail_info">${icon("mail")} Mandar la info por mail</button>`, `<button class="btn wa" data-tpl="info">${icon("whatsapp")} Mandar por WhatsApp</button>`);
@@ -822,7 +876,7 @@ function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
   const isMail = t.channel === "mail";
   // para WhatsApp solo sirve un número completo (con código de área): uno local de 7 dígitos de la web no llega
   const full = p => String(p || "").replace(/\D/g, "").length >= 10;
-  const defPhone = phone || [...(d.persons || []).map(p => p.phone), s.phone, ...sedesOf(s.id).filter(z => z.here).flatMap(z => z.phones)].find(p => p && (isMail || full(p))) || "";
+  const defPhone = phone || [...(d.persons || []).map(p => p.phone), s.phone, ...sedesOf(s.id).filter(z => z.here).flatMap(sedeCallable)].find(p => p && (isMail || full(p))) || "";
   const defMail = email || d.persons?.find(p => p.email)?.email || D.study?.contacto?.emails?.[0] || s.email || "";
   const pre = S.markets[s.country]?.prefix ? `+${S.markets[s.country].prefix} …` : "Teléfono";
   const m = modal(`<div class="modal-h"><h3>${isMail ? icon("mail") : icon("whatsapp")} ${esc(t.label)}</h3><button class="icon-btn" id="mClose" aria-label="Cerrar">${icon("x")}</button></div>
@@ -847,12 +901,12 @@ function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
   // Armar el mensaje: con IA, con tu contexto + lo que sabe Pipedrive; sin IA, tu contexto en la plantilla de la casa
   q("#mAi").addEventListener("click", async e => {
     const b = e.currentTarget, ctx = q("#mCtx").value.trim(), cur = q("#mText").value.trim();
-    if (!ctx && !cur) { q("#mCtx").focus(); return toast("Escribí qué querés decirle y lo armo", { type: "err" }); }
+    if (!ctx && (!cur || !S.ai)) { q("#mCtx").focus(); return toast("Escribí qué querés decirle y lo armo", { type: "err" }); }
     b.disabled = true; b.innerHTML = `<span class="spin"></span> Armando…`;
     try {
       const r = await api(`/api/schools/${s.id}/draft`, { body: { channel: t.channel, purpose: t.label, contact: name || d.persons?.[0]?.name || "", base: t.text && cur === t.text.trim() && ctx ? "" : cur, context: ctx } });
-      if (r.text) q("#mText").value = r.text; if (r.subject && q("#mSub")) q("#mSub").value = r.subject;
-      q("#mAiNote").textContent = r.mode === "ia" ? "Listo. Revisalo antes de mandar." : "Armado con la plantilla de la casa. Revisalo antes de mandar (con la clave de IA queda redactado a medida).";
+      if (r.text) q("#mText").value = r.text; if (r.subject && q("#mSub") && !q("#mSub").value.trim()) q("#mSub").value = r.subject;
+      q("#mAiNote").textContent = r.note || (r.mode === "ia" ? "Listo. Revisalo antes de mandar." : "Armado con la plantilla de la casa. Revisalo antes de mandar.");
     } catch (err) { toast(err.message, { type: "err" }); }
     b.disabled = false; b.innerHTML = `${icon("sparkles", "sm")} Armar mensaje`;
   });

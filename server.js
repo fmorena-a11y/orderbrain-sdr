@@ -134,7 +134,7 @@ const auth = (req, res, next) => {
   next();
 };
 // READ_ONLY=1: nada se escribe en Pipedrive (para probar contra la cuenta real sin tocarla)
-if (process.env.READ_ONLY === "1") app.use((req, res, next) => req.method === "POST" && /^\/api\/(schools\/[^/]+\/(match|log|comment|prospect|study\/note)|activities\/|proposals\/confirm)/.test(req.path) ? res.status(403).json({ error: "Modo solo lectura: no se escribe en Pipedrive." }) : next());
+if (process.env.READ_ONLY === "1") app.use((req, res, next) => req.method === "POST" && /^\/api\/(schools\/[^/]+\/(match|log|comment|prospect|study\/note|enrich)|activities\/|proposals\/confirm)/.test(req.path) ? res.status(403).json({ error: "Modo solo lectura: no se escribe en Pipedrive." }) : next());
 const wrap = fn => (req, res) => fn(req, res).catch(e => {
   if (res.writableEnded || res.destroyed) return; // el navegador ya cortó (canceló): no hay a quién responder
   const status = e.status && e.status < 600 ? (e instanceof pd.PipedriveError && e.status >= 500 ? 502 : e.status) : 500;
@@ -295,15 +295,17 @@ app.post("/api/schools/:id/study/note", auth, schoolParam, wrap(async (req, res)
   res.json({ ok: true, orgUrl: `${pd.PD_WEB}/organization/${rec.orgId}` });
 }));
 app.get("/api/schools/:id/brief", auth, schoolParam, wrap(async (req, res) => res.json(await ai.brief(req.params.id, { user: req.session.user }))));
+app.get("/api/schools/:id/enrich", auth, schoolParam, wrap(async (req, res) => res.json({ data: await sales.getEnrich(req.params.id) })));
+app.post("/api/schools/:id/enrich", auth, schoolParam, wrap(async (req, res) => res.json(await sales.enrichSchool(req.params.id, req.session.user, (await getProfile(req.session.user.email).catch(() => null))?.name))));
 app.get("/api/schools/:id/sedes", auth, schoolParam, wrap(async (req, res) => res.json(await sales.sedesFor(req.params.id))));
 // Redactar un mensaje: con IA usa el contexto que escribe el SDR + lo que sabe Pipedrive; sin IA, la plantilla de la casa.
 app.post("/api/schools/:id/draft", auth, schoolParam, wrap(async (req, res) => {
   const b = req.body || {}, channel = b.channel === "mail" ? "mail" : "whatsapp", user = req.session.user;
   const p = { channel, purpose: String(b.purpose && b.purpose !== "Mensaje" ? b.purpose : "avanzar un paso: llegar al decisor o agendar una demo").slice(0, 200), contact: String(b.contact || "").slice(0, 80), base: String(b.base || "").slice(0, 3000), context: String(b.context || "").slice(0, 2000) };
   const s = byId.get(req.params.id), me = (await getProfile(user.email).catch(() => null))?.name || sales.signer(user);
-  if (!ai.aiEnabled()) return res.json({ ...composeMessage(s, { channel, context: p.context, contact: p.contact, me }), mode: "plantilla" });
+  if (!ai.aiEnabled()) return res.json({ ...composeMessage(s, { channel, context: p.context, contact: p.contact, me, base: p.base, ...sales.stateOf(req.params.id) }), mode: "plantilla" });
   const examples = templates(s, { me, contact: p.contact }).filter(t => t.channel === channel).slice(0, 3).map(t => t.text);
-  res.json({ ...await ai.draft(req.params.id, { ...p, pdContext: await sales.draftContext(req.params.id).catch(() => ""), examples, user: { ...user, name: me } }), mode: "ia" });
+  res.json({ ...await ai.draft(req.params.id, { ...p, pdContext: await sales.draftContext(req.params.id, user).catch(() => ""), examples, user: { ...user, name: me } }), mode: "ia" });
 }));
 
 // Hoy: métricas, agenda propia y a quién contactar.

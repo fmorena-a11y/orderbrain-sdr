@@ -21,7 +21,7 @@ const show = id => { for (const x of ["boot", "login", "app"]) $(x).hidden = x !
 async function start() {
   try {
     const me = await api("/api/me");
-    Object.assign(S, { me: me.user, profile: me.profile, ai: me.ai, demo: me.demo, goal: me.goal, pdWeb: me.pdWeb, countries: me.countries, markets: me.markets, outcomes: me.outcomes, lostReasons: me.lostReasons, types: me.types });
+    Object.assign(S, { me: me.user, profile: me.profile, ai: me.ai, study: me.study, demo: me.demo, goal: me.goal, pdWeb: me.pdWeb, countries: me.countries, markets: me.markets, outcomes: me.outcomes, lostReasons: me.lostReasons, types: me.types });
     enterApp();
     // la primera vez: nombre completo y rol en el equipo (se usa en saludos, firmas y en Equipo)
     if (!me.profile?.complete) profileDialog({ required: true });
