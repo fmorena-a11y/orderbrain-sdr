@@ -165,7 +165,7 @@ function route() {
   const v = (location.hash.match(/^#\/(\w+)/) || [])[1];
   S.view = VIEWS[v] ? v : "hoy";
   $("nav").querySelectorAll("[data-v]").forEach(b => { if (b.dataset.v === S.view) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
-  document.title = `${VIEWS[S.view].label} · OrderBrain SDR`;
+  document.title = `${VIEWS[S.view].label} · OrderBrain SDRs`;
   const main = $("main");
   main.innerHTML = "";
   const host = document.createElement("div"); if (S.view === "prospectar") host.style.height = "100%"; main.appendChild(host);
