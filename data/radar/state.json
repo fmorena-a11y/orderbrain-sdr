@@ -6838,7 +6838,11 @@
   "VE|n313507005": "2026-11-10T14:17:10.449Z",
   "DO|n3710926351": "2026-11-10T14:17:45.258Z",
   "AR|Corrientes": "2026-11-10T14:18:22.606Z",
-  "PE|Cuzco": "2026-11-10T14:19:02.254Z"
+  "PE|Cuzco": "2026-11-10T14:19:02.254Z",
+  "MX|Nuevo Laredo": "2026-11-10T15:15:22.160Z",
+  "DO|n2322572886": "2026-11-10T15:15:57.339Z",
+  "MX|Veracruz": "2026-11-10T15:16:28.974Z",
+  "AR|Santa Fe": "2026-11-10T15:17:07.080Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -6850,9 +6854,58 @@
    "n": 1,
    "at": "2026-11-10T11:46:00.662Z",
    "error": "The operation was aborted due to timeout"
+  },
+  "PE|Huancayo": {
+   "n": 1,
+   "at": "2026-11-10T15:28:37.372Z",
+   "error": "Overpass 504"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-10T15:14:52.750Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Nuevo Laredo",
+     "found": 6,
+     "updated": 0,
+     "osm": 43
+    },
+    {
+     "cc": "DO",
+     "city": "Santo Domingo Oeste",
+     "found": 1,
+     "updated": 0,
+     "osm": 337
+    },
+    {
+     "cc": "MX",
+     "city": "Veracruz",
+     "found": 59,
+     "updated": 2,
+     "osm": 476
+    },
+    {
+     "cc": "AR",
+     "city": "Santa Fe",
+     "found": 40,
+     "updated": 1,
+     "osm": 190
+    }
+   ],
+   "added": 106,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 32,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "PE|Huancayo: Overpass 504"
+   ],
+   "minutes": 15.4,
+   "total": 14153
+  },
   {
    "at": "2026-11-10T14:06:06.344Z",
    "cities": [

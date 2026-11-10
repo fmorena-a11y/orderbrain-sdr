@@ -24350,7 +24350,7 @@
   "lat": -33.490642,
   "lng": -70.669845,
   "addr": "Balakireff 4631",
-  "phone": "",
+  "phone": "+569225225128",
   "web": "https://www.escuelalaronda.cl/",
   "email": "sensapaz@yahoo.es",
   "levels": [],
@@ -24362,7 +24362,8 @@
   "src": "osm",
   "osm": "n906403106",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-padre-hurtado-de-pudahuel",
@@ -24640,7 +24641,7 @@
   "lat": -33.482431,
   "lng": -70.665366,
   "addr": "Enrique Matte 2150",
-  "phone": "",
+  "phone": "+56232685130",
   "web": "https://colegioalessandri.cl/",
   "email": "escuela30@terra.cl",
   "levels": [],
@@ -24651,7 +24652,8 @@
   "src": "osm",
   "osm": "n906407588",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-liceo-de-adultos-luis-gomez-catalan",
@@ -26440,7 +26442,7 @@
   "lat": -33.528564,
   "lng": -70.635221,
   "addr": "Avenida Santa Rosa 7766",
-  "phone": "",
+  "phone": "+569 5819 5443",
   "web": "https://www.hogardecristo.cl/sumate/colegio-betania/",
   "email": "sandra.diaz@fupal.cl",
   "levels": [],
@@ -26451,7 +26453,9 @@
   "src": "osm",
   "osm": "n906421396",
   "found": "2026-11-09",
-  "img": "https://hogardecristo.cl/sumate/wp-content/uploads/2026/10/Banner-Colegio-Betania-scaled-e1792761075435.jpg"
+  "img": "https://hogardecristo.cl/sumate/wp-content/uploads/2026/10/Banner-Colegio-Betania-scaled-e1792761075435.jpg",
+  "whatsapp": "+56953700444",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-escuela-particular-javiera-carrera",
@@ -26936,7 +26940,8 @@
   "src": "osm",
   "osm": "n906424217",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-el-encuentro",
@@ -27262,7 +27267,7 @@
   "lat": -33.454796,
   "lng": -70.630956,
   "addr": "Porvenir 56",
-  "phone": "",
+  "phone": "+56222224779",
   "web": "https://cap.educacionadventista.com/",
   "email": "colegio.porvenir@gmail.com",
   "levels": [],
@@ -27273,7 +27278,8 @@
   "src": "osm",
   "osm": "n906431470",
   "found": "2026-11-09",
-  "img": "https://cap.educacionadventista.com/assets/images/fachada-padrao.jpg"
+  "img": "https://cap.educacionadventista.com/assets/images/fachada-padrao.jpg",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-oratorio-don-bosco",
@@ -27531,7 +27537,8 @@
   "src": "osm",
   "osm": "n906435027",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-de-adultos-instituto-icel",
@@ -28192,7 +28199,7 @@
   "lat": -33.425879,
   "lng": -70.57196,
   "addr": "Avenida Isabel La Católica 4827",
-  "phone": "",
+  "phone": "56931080431",
   "web": "https://colegiowaldorfalexander.cl/",
   "email": "evelyn@colegioconcordia.cl",
   "levels": [],
@@ -28201,7 +28208,8 @@
   "src": "osm",
   "osm": "n906435674",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-tecnico-hoteleria-y-gastronomia-achiga-comeduc",
@@ -28769,7 +28777,8 @@
   "src": "osm",
   "osm": "n979570046",
   "found": "2026-11-09",
-  "img": "https://innova.utem.cl/wp-content/uploads/2025/12/logos-fusion-e1765466634771-1024x222.png"
+  "img": "https://innova.utem.cl/wp-content/uploads/2025/12/logos-fusion-e1765466634771-1024x222.png",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-liceo-rebeca-olivares",
@@ -28895,7 +28904,7 @@
   "lat": -33.452967,
   "lng": -70.660027,
   "addr": "Toesca 1783",
-  "phone": "",
+  "phone": "(2) 26762000",
   "web": "https://comunicacionyletras.udp.cl",
   "email": "",
   "levels": [
@@ -28908,7 +28917,8 @@
   "src": "osm",
   "osm": "n4448367818",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-maria-jesus",
@@ -29070,7 +29080,8 @@
   "src": "osm",
   "osm": "n5212643728",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-universidad-de-chile-escuela-de-postgrado",
@@ -29156,7 +29167,7 @@
   "lat": -33.438387,
   "lng": -70.647106,
   "addr": "Enrique Mac Iver 370",
-  "phone": "",
+  "phone": "+56229273400",
   "web": "https://www.umcervantes.cl/",
   "email": "",
   "levels": [
@@ -29169,7 +29180,8 @@
   "src": "osm",
   "osm": "n8741017842",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-nehuen",
@@ -29233,7 +29245,7 @@
   "lat": -33.45066,
   "lng": -70.667639,
   "addr": "República 180",
-  "phone": "",
+  "phone": "+56 22676 2701",
   "web": "https://faad.udp.cl",
   "email": "",
   "levels": [
@@ -29246,7 +29258,8 @@
   "src": "osm",
   "osm": "n9283422015",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-facultad-de-salud-y-odontologia-universidad-diego-portales",
@@ -29300,7 +29313,7 @@
   "lat": -33.45006,
   "lng": -70.660707,
   "addr": "Dieciocho 193",
-  "phone": "",
+  "phone": "+562 2676 2201",
   "web": "https://institutodefilosofia.udp.cl",
   "email": "",
   "levels": [
@@ -29313,7 +29326,8 @@
   "src": "osm",
   "osm": "n9301231482",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-sede-vitacura-universidad-adolfo-ibanez",
@@ -29323,7 +29337,7 @@
   "lat": -33.380318,
   "lng": -70.586201,
   "addr": "Avenida Santa María 5870",
-  "phone": "",
+  "phone": "+56223311000",
   "web": "https://www.uai.cl/campus-uai/sede-vitacura/",
   "email": "",
   "levels": [
@@ -29336,7 +29350,8 @@
   "src": "osm",
   "osm": "n9958298103",
   "found": "2026-11-09",
-  "img": "https://uai.cdn7pm.net/media/9450/sede_vitacura.jpg?fit=crop&crop=center,center"
+  "img": "https://uai.cdn7pm.net/media/9450/sede_vitacura.jpg?fit=crop&crop=center,center",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-liceo-estacion-central",
@@ -30446,7 +30461,7 @@
   "lat": -33.595337,
   "lng": -70.700082,
   "addr": "Avenida Covadonga 178",
-  "phone": "",
+  "phone": "+56264694969",
   "web": "https://www.media.csmaipo.cl/",
   "email": "",
   "levels": [],
@@ -30455,7 +30470,8 @@
   "src": "osm",
   "osm": "n11001955111",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-liceo-comercial-gabriela-mistral",
@@ -30505,7 +30521,7 @@
   "lat": -33.420231,
   "lng": -70.590824,
   "addr": "Gertrudis Echeñique 485",
-  "phone": "",
+  "phone": "+56223311000",
   "web": "https://www.uai.cl/",
   "email": "",
   "levels": [
@@ -30518,7 +30534,8 @@
   "src": "osm",
   "osm": "n11002001046",
   "found": "2026-11-09",
-  "img": "https://uai.cdn7pm.net/media/23323/captura-video-sede-home.jpg?fit=crop&crop=center,center"
+  "img": "https://uai.cdn7pm.net/media/23323/captura-video-sede-home.jpg?fit=crop&crop=center,center",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-escuela-particular-san-ignacio",
@@ -31715,7 +31732,8 @@
   "src": "osm",
   "osm": "n11938629591",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-industrial-vasco-nunez-de-balboa-2",
@@ -31755,7 +31773,8 @@
   "src": "osm",
   "osm": "n11963528616",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-montessori",
@@ -31767,14 +31786,15 @@
   "addr": "Avenida San José 419",
   "phone": "",
   "web": "https://www.colegio-montessori.cl",
-  "email": "",
+  "email": "colegio.montessori@cmontessori-sb.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "n11963733739",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-universidad-de-concepcion-campus-santiago",
@@ -31983,7 +32003,8 @@
   "src": "osm",
   "osm": "n12107132284",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-facultad-de-artes-de-la-universidad-de-chile",
@@ -32026,7 +32047,8 @@
   "src": "osm",
   "osm": "n14349721701",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-universidad-de-santiago-de-chile",
@@ -32081,7 +32103,7 @@
   "lat": -33.434083,
   "lng": -70.593979,
   "addr": "Avenida Pocuro 2801",
-  "phone": "",
+  "phone": "+56 2 2676 9700",
   "web": "https://www.sanignacio.cl/",
   "email": "ovaldene@sanignacio.cl",
   "levels": [],
@@ -32092,7 +32114,8 @@
   "src": "osm",
   "osm": "w23395403",
   "found": "2026-11-09",
-  "img": "https://sanignacio.cl/wp-content/uploads/2022/05/EducationSchool_Business-Schedule-school-education-study-calendar-times.png"
+  "img": "https://sanignacio.cl/wp-content/uploads/2022/05/EducationSchool_Business-Schedule-school-education-study-calendar-times.png",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-universidad-de-chile-campus-juan-gomez-millas",
@@ -32102,7 +32125,7 @@
   "lat": -33.467915,
   "lng": -70.594671,
   "addr": "Las Palmeras 3425",
-  "phone": "",
+  "phone": "+56229782000",
   "web": "https://uchile.cl/presentacion/campus/campus-juan-gomez-millas",
   "email": "",
   "levels": [
@@ -32115,7 +32138,8 @@
   "src": "osm",
   "osm": "w23591942",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-universidad-de-chile-facultad-de-economia-y-negocios",
@@ -32515,7 +32539,7 @@
   "addr": "Haendel 763",
   "phone": "",
   "web": "https://www.colegioelraco.cl/",
-  "email": "",
+  "email": "s.aguila@colegioelraco.cl",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -32524,7 +32548,8 @@
   "src": "osm",
   "osm": "w41350579",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-pontificia-universidad-catolica-de-chile-campus-san-joaquin",
@@ -32548,7 +32573,8 @@
   "src": "osm",
   "osm": "w41391280",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-universidad-central-centro-de-extension",
@@ -32607,7 +32633,8 @@
   "src": "osm",
   "osm": "w46818333",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-saint-gabriel-s-school",
@@ -32709,7 +32736,7 @@
   "lat": -33.377671,
   "lng": -70.577616,
   "addr": "Avenida Santa María 6400",
-  "phone": "",
+  "phone": "6000231000",
   "web": "https://www.utfsm.cl/",
   "email": "",
   "levels": [
@@ -32723,7 +32750,8 @@
   "src": "osm",
   "osm": "w56046493",
   "found": "2026-11-09",
-  "img": "https://usm.cl/wp-content/uploads/2020/12/logo.png"
+  "img": "https://usm.cl/wp-content/uploads/2020/12/logo.png",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-de-la-salle",
@@ -32954,7 +32982,8 @@
   "src": "osm",
   "osm": "w94810672",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-lincoln-international-academy",
@@ -33390,7 +33419,8 @@
   "src": "osm",
   "osm": "w107954376",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-de-miraflores-de-malloco",
@@ -34033,7 +34063,7 @@
   "lat": -33.442645,
   "lng": -70.637525,
   "addr": "Diagonal Paraguay 265",
-  "phone": "",
+  "phone": "+56229782000",
   "web": "https://uchile.cl/presentacion/campus/campus-andres-bello",
   "email": "",
   "levels": [
@@ -34046,7 +34076,8 @@
   "src": "osm",
   "osm": "w154548950",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-universidad-tecnica-federico-santa-maria-campus-san-joaquin",
@@ -34114,7 +34145,8 @@
   "src": "osm",
   "osm": "w157653811",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-wolfgang-amadeus-mozart",
@@ -34334,7 +34366,8 @@
   "src": "osm",
   "osm": "w170220297",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-pumahue",
@@ -34344,7 +34377,7 @@
   "lat": -33.357631,
   "lng": -70.662268,
   "addr": "Santa Rosa de Huechuraba 7201",
-  "phone": "",
+  "phone": "+562 2605 9003",
   "web": "https://www.pumahue.cl/huechuraba/",
   "email": "",
   "levels": [],
@@ -34353,7 +34386,8 @@
   "src": "osm",
   "osm": "w170702366",
   "found": "2026-11-09",
-  "img": "https://www.pumahue.cl/huechuraba/wp-content/uploads/sites/45/2025/02/cropped-logo_Pumahue_.png"
+  "img": "https://www.pumahue.cl/huechuraba/wp-content/uploads/sites/45/2025/02/cropped-logo_Pumahue_.png",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-michelangelo",
@@ -34487,7 +34521,7 @@
   "lat": -33.362199,
   "lng": -70.753083,
   "addr": "San Luis 650",
-  "phone": "",
+  "phone": "+56226281288",
   "web": "https://www.colegiossq.cl/",
   "email": "contacto@colegiossq.cl",
   "levels": [],
@@ -34498,7 +34532,8 @@
   "src": "osm",
   "osm": "w173387987",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-san-pedro-de-quilicura",
@@ -34655,7 +34690,8 @@
   "src": "osm",
   "osm": "w175663058",
   "found": "2026-11-09",
-  "img": "https://lafase.cl/wp-content/uploads/2026/10/Alianza-Francesa-Compartir.jpg"
+  "img": "https://lafase.cl/wp-content/uploads/2026/10/Alianza-Francesa-Compartir.jpg",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-seminario-pontificio-menor",
@@ -35302,7 +35338,7 @@
   "lat": -33.216531,
   "lng": -70.72951,
   "addr": "Avenida Santa Elena 215",
-  "phone": "",
+  "phone": "+562 2605 9001",
   "web": "https://www.pumahue.cl/chicureo/",
   "email": "",
   "levels": [],
@@ -35311,7 +35347,8 @@
   "src": "osm",
   "osm": "w210893648",
   "found": "2026-11-09",
-  "img": "https://www.pumahue.cl/chicureo/wp-content/uploads/sites/46/2025/02/cropped-logo_Pumahue_.png"
+  "img": "https://www.pumahue.cl/chicureo/wp-content/uploads/sites/46/2025/02/cropped-logo_Pumahue_.png",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-la-mision",
@@ -35389,7 +35426,8 @@
   "src": "osm",
   "osm": "w221517271",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "santiago-instituto-miguel-leon-prado",
@@ -35411,7 +35449,8 @@
   "src": "osm",
   "osm": "w221560127",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-universidad-andres-bello-facultad-de-negocios",
@@ -35497,7 +35536,7 @@
   "lat": -33.488414,
   "lng": -70.514474,
   "addr": "Diagonal Las Torres 2640",
-  "phone": "",
+  "phone": "+56223311000",
   "web": "https://www.uai.cl/",
   "email": "",
   "levels": [
@@ -35510,7 +35549,8 @@
   "src": "osm",
   "osm": "w229040812",
   "found": "2026-11-09",
-  "img": "https://uai.cdn7pm.net/media/23323/captura-video-sede-home.jpg?fit=crop&crop=center,center"
+  "img": "https://uai.cdn7pm.net/media/23323/captura-video-sede-home.jpg?fit=crop&crop=center,center",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-alma-mater",
@@ -35594,7 +35634,7 @@
   "lat": -33.446881,
   "lng": -70.636765,
   "addr": "Avenida Portugal 351",
-  "phone": "",
+  "phone": "6003281000",
   "web": "https://www.umayor.cl/um/santiago-campus-el-claustro",
   "email": "",
   "levels": [
@@ -35607,7 +35647,8 @@
   "src": "osm",
   "osm": "w231177041",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-santa-maria-de-la-cordillera",
@@ -35995,7 +36036,8 @@
   "src": "osm",
   "osm": "w256997456",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-instituto-profesional-escuela-de-contadores-auditores-de-santiago-camp",
@@ -36368,7 +36410,8 @@
   "src": "osm",
   "osm": "w282447194",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-manantiales",
@@ -36452,7 +36495,7 @@
   "lat": -33.437719,
   "lng": -70.607152,
   "addr": "Avenida Pedro de Valdivia 1509",
-  "phone": "",
+  "phone": "+56224207100",
   "web": "https://uft.cl/",
   "email": "",
   "levels": [
@@ -36465,7 +36508,8 @@
   "src": "osm",
   "osm": "w299949727",
   "found": "2026-11-09",
-  "img": "https://finis.cl/wp-content/uploads/2026/08/carreras.webp"
+  "img": "https://finis.cl/wp-content/uploads/2026/08/carreras.webp",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-universidad-gabriela-mistral",
@@ -36488,7 +36532,8 @@
   "src": "osm",
   "osm": "w300163305",
   "found": "2026-11-09",
-  "img": "https://www.ugm.cl/ugm/imag/universidad_gabriela_mistral_logo.jpg"
+  "img": "https://www.ugm.cl/ugm/imag/universidad_gabriela_mistral_logo.jpg",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-de-adultos-altazol",
@@ -36883,7 +36928,8 @@
   "src": "osm",
   "osm": "w337923843",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-universidad-bernardo-o-higgins",
@@ -37042,7 +37088,8 @@
   "src": "osm",
   "osm": "w345760358",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-escuela-particular-franz-liszt",
@@ -37613,7 +37660,8 @@
   "src": "osm",
   "osm": "w444927009",
   "found": "2026-11-09",
-  "img": "https://usek.cl/wp-content/uploads/2022/03/WhatsApp-Image-2022-03-08-at-17.12.07-2.jpeg"
+  "img": "https://usek.cl/wp-content/uploads/2022/03/WhatsApp-Image-2022-03-08-at-17.12.07-2.jpeg",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-maria-inmaculada",
@@ -37661,9 +37709,9 @@
   "lat": -33.259096,
   "lng": -70.617408,
   "addr": "Avenida Alemania 170",
-  "phone": "",
+  "phone": "56223078962",
   "web": "https://www.dsch.cl/",
-  "email": "",
+  "email": "secretariarectoria@dsch.cl",
   "levels": [],
   "opp": [
    "Bilingüe o internacional"
@@ -37672,7 +37720,9 @@
   "src": "osm",
   "osm": "w444963137",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+56959454860",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-maria-teresa-cancino-aguilar",
@@ -38809,7 +38859,7 @@
   "addr": "Avenida Andrés Bello 2365",
   "phone": "",
   "web": "https://www.cfe.cl/",
-  "email": "",
+  "email": "contacto@cfe.cl",
   "levels": [
    "Universidad"
   ],
@@ -38820,7 +38870,8 @@
   "src": "osm",
   "osm": "w448220429",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-universidad-de-chile-facultad-de-medicina-sur",
@@ -38888,7 +38939,7 @@
   "lat": -33.437062,
   "lng": -70.614806,
   "addr": "Avenida Antonio Varas 1073",
-  "phone": "",
+  "phone": "+569 4179 1061",
   "web": "https://campvs.cl/",
   "email": "webcollege@uamericas.cl",
   "levels": [],
@@ -38897,7 +38948,8 @@
   "src": "osm",
   "osm": "w448395751",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-boston-college-la-farfana",
@@ -40565,7 +40617,8 @@
   "src": "osm",
   "osm": "w508480272",
   "found": "2026-11-09",
-  "img": "https://lafase.cl/wp-content/uploads/2026/10/Alianza-Francesa-Compartir.jpg"
+  "img": "https://lafase.cl/wp-content/uploads/2026/10/Alianza-Francesa-Compartir.jpg",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-santa-cecilia",
@@ -40688,7 +40741,8 @@
   "src": "osm",
   "osm": "w543922586",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-instituto-de-humanidades-luis-campino",
@@ -40736,7 +40790,7 @@
   "lat": -33.348218,
   "lng": -70.727846,
   "addr": "Avenida Bernardo O'Higgins 526",
-  "phone": "",
+  "phone": "+56232785710",
   "web": "https://www.palmaresoriente.cl/",
   "email": "",
   "levels": [],
@@ -40745,7 +40799,8 @@
   "src": "osm",
   "osm": "w544030593",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-san-carlos-de-quilicura",
@@ -41083,7 +41138,7 @@
   "lat": -33.565083,
   "lng": -70.781725,
   "addr": "Avenida Parque Central Poniente 1751",
-  "phone": "",
+  "phone": "2 2584 6836",
   "web": "https://colegiolosalpes.cl/",
   "email": "losalpes2003@hotmail.com",
   "levels": [],
@@ -41092,7 +41147,8 @@
   "src": "osm",
   "osm": "w553152615",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-instituto-docencia",
@@ -42038,7 +42094,8 @@
   "src": "osm",
   "osm": "w607828504",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-liceo-particular-santa-teresita",
@@ -42143,14 +42200,15 @@
   "addr": "Santa Marta de Huechuraba 7051",
   "phone": "",
   "web": "https://lincolncollegehuechuraba.cl/",
-  "email": "",
+  "email": "admision2026@lchuechuraba.cl",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w611316303",
   "found": "2026-11-09",
-  "img": "https://www.lincolncollegehuechuraba.cl/assets/images/logo-blanco.webp"
+  "img": "https://www.lincolncollegehuechuraba.cl/assets/images/logo-blanco.webp",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-escuela-particular-adventista-buenaventura",
@@ -43035,7 +43093,8 @@
   "src": "osm",
   "osm": "w671671005",
   "found": "2026-11-09",
-  "img": "https://www.astoreca.cl/wp-content/uploads/2023/09/sanjoaquin-entrada.jpg"
+  "img": "https://www.astoreca.cl/wp-content/uploads/2023/09/sanjoaquin-entrada.jpg",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-the-greenland-school",
@@ -43045,7 +43104,7 @@
   "lat": -33.458284,
   "lng": -70.722384,
   "addr": "Oceánica 6300",
-  "phone": "",
+  "phone": "(+56)2 2 605 9017",
   "web": "https://www.thegreenlandschool.cl/",
   "email": "colegio@greenland.cl",
   "levels": [],
@@ -43054,7 +43113,8 @@
   "src": "osm",
   "osm": "w676084110",
   "found": "2026-11-09",
-  "img": "https://thegreenlandschool.cl/wp-content/uploads/sites/37/2024/12/logo1_TGS_color.png"
+  "img": "https://thegreenlandschool.cl/wp-content/uploads/sites/37/2024/12/logo1_TGS_color.png",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-universidad-del-desarrollo-campus-rector-ernesto-silva-bafalluy",
@@ -43104,7 +43164,7 @@
   "lat": -33.502355,
   "lng": -70.592603,
   "addr": "Avenida El Líbano 5524",
-  "phone": "",
+  "phone": "+56229781400",
   "web": "https://inta.uchile.cl/",
   "email": "",
   "levels": [
@@ -43117,7 +43177,8 @@
   "src": "osm",
   "osm": "w701396854",
   "found": "2026-11-09",
-  "img": "https://inta.uchile.cl/dam/jcr:0cd23e97-fafc-4a45-b173-e8ac0e16c6e7/img-inta.jpg"
+  "img": "https://inta.uchile.cl/dam/jcr:0cd23e97-fafc-4a45-b173-e8ac0e16c6e7/img-inta.jpg",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-terra-andina",
@@ -43237,7 +43298,8 @@
   "src": "osm",
   "osm": "w728815819",
   "found": "2026-11-09",
-  "img": "https://www.utem.cl/wp-content/themes/utem8oct/img/thumb.jpg"
+  "img": "https://www.utem.cl/wp-content/themes/utem8oct/img/thumb.jpg",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-swedenborg-college",
@@ -284523,6 +284585,2197 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1031992961",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "nuevo-laredo-instituto-de-ciencias-y-estudios-superiores-de-tamaulipas",
+  "name": "Instituto De Ciencias Y Estudios Superiores De Tamaulipas",
+  "city": "Nuevo Laredo",
+  "country": "México",
+  "lat": 27.456511,
+  "lng": -99.527202,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5721429070",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "nuevo-laredo-upn-universidad-pedagogica-nacional-unidad-284-de-nuevo-laredo",
+  "name": "UPN Universidad Pedagógica Nacional, Unidad 284 de Nuevo Laredo",
+  "city": "Nuevo Laredo",
+  "country": "México",
+  "lat": 27.487087,
+  "lng": -99.506135,
+  "addr": "",
+  "phone": "+52 867 712 4712",
+  "web": "http://www.lef.upn.mx/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5758616988",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "nuevo-laredo-preparatoria-municipal-de-nuevo-laredo-jose-vasconcelos",
+  "name": "Preparatoria Municipal de Nuevo Laredo José Vasconcelos",
+  "city": "Nuevo Laredo",
+  "country": "México",
+  "lat": 27.461802,
+  "lng": -99.540666,
+  "addr": "Boulevard Municipio Libre",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7192937685",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "nuevo-laredo-universidad-tecnologica-de-nuevo-laredo-tamaulipas",
+  "name": "Universidad Tecnológica de Nuevo Laredo Tamaulipas",
+  "city": "Nuevo Laredo",
+  "country": "México",
+  "lat": 27.462924,
+  "lng": -99.600747,
+  "addr": "",
+  "phone": "+52 867 890 0000",
+  "web": "http://www.utnuevolaredo.edu.mx/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w609105173",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "nuevo-laredo-new-land-elementary-school",
+  "name": "New Land Elementary School",
+  "city": "Nuevo Laredo",
+  "country": "México",
+  "lat": 27.494849,
+  "lng": -99.519229,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1182056071",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "nuevo-laredo-colegio-johann-gutemberg-a-c",
+  "name": "Colegio Johann Gutemberg A.C.",
+  "city": "Nuevo Laredo",
+  "country": "México",
+  "lat": 27.484783,
+  "lng": -99.509476,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1182074087",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santo-domingo-oeste-liceo-hato-dama",
+  "name": "Liceo  Hato Dama",
+  "city": "Santo Domingo Oeste",
+  "country": "República Dominicana",
+  "lat": 18.477764,
+  "lng": -70.108178,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w468790300",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-universidad-cristobal-colon",
+  "name": "Universidad Cristóbal Colón",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.155247,
+  "lng": -96.131327,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n499411497",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-valentin-ruiz-obregon-primaria",
+  "name": "Colegio Valentín Ruiz Obregón (Primaria)",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.193115,
+  "lng": -96.133584,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n499411535",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-universidad-de-las-naciones",
+  "name": "Universidad de las Naciones",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.19049,
+  "lng": -96.127027,
+  "addr": "16 de Septiembre 1498",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2029219772",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-rougier",
+  "name": "Colegio Rougier",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.180076,
+  "lng": -96.12465,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2364650808",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-instituto-america",
+  "name": "Instituto America",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.199934,
+  "lng": -96.134337,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6479206637",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-cesuver-universidad",
+  "name": "Cesuver Universidad",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.195475,
+  "lng": -96.131981,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6482574183",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-joaquin-fernandez-de-lizardi",
+  "name": "Colegio Joaquin Fernandez de Lizardi",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.174723,
+  "lng": -96.125341,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6486829112",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-bilingue-queen-elizabeth",
+  "name": "Colegio Bilingue Queen Elizabeth",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.174604,
+  "lng": -96.132285,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6486906134",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-saltillense",
+  "name": "Colegio Saltillense",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.110751,
+  "lng": -96.111933,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6489019930",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-jose-vasconselos",
+  "name": "Colegio Jose Vasconselos",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.110473,
+  "lng": -96.110224,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6489174793",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-jean-piaget",
+  "name": "Colegio Jean Piaget",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.187378,
+  "lng": -96.147185,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6509752149",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-ivea-instituto-veracruzano-de-educacion-adulta",
+  "name": "IVEA Instituto veracruzano de Educacion Adulta",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.204857,
+  "lng": -96.209727,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6530634662",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-la-salle-de-veracruz-ac",
+  "name": "Colegio La Salle de Veracruz AC",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.146853,
+  "lng": -96.112911,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6538504464",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-instituto-tecnologico-roosevelt",
+  "name": "Instituto Tecnologico Roosevelt",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.14929,
+  "lng": -96.129584,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6541113577",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-dr-gonzalo-aguirre-beltran",
+  "name": "Colegio Dr. Gonzalo Aguirre Beltran",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.171259,
+  "lng": -96.11984,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6543601933",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-universidad-tercer-milenio",
+  "name": "Universidad Tercer Milenio",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.170579,
+  "lng": -96.117809,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6543601936",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-instituto-terra-nova",
+  "name": "Instituto Terra Nova",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.177741,
+  "lng": -96.143483,
+  "addr": "Doctor Manuel Iglesias, Ortiz Rubio",
+  "phone": "+52 229 935 1155",
+  "web": "https://iterra.edu.mx/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6928905323",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-evergreen",
+  "name": "Colegio Evergreen",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.101464,
+  "lng": -96.151268,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7172969248",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-centro-educativo-lohman",
+  "name": "Centro educativo Lohman",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.104421,
+  "lng": -96.154597,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7172969249",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-justo-sierra-mendez",
+  "name": "Colegio Justo Sierra Mendez",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.109862,
+  "lng": -96.149453,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7172969257",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-universidad-veracruzana-difusion-cultural",
+  "name": "Universidad Veracruzana Difusión Cultural",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.198984,
+  "lng": -96.136512,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7287976732",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-instituto-panamericano",
+  "name": "Instituto Panamericano",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.19868,
+  "lng": -96.136522,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7287976733",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-instituto-franklin",
+  "name": "Instituto Franklin",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.187676,
+  "lng": -96.134492,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7288536233",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-hispano-mexicano",
+  "name": "colegio Hispano Mexicano",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.183518,
+  "lng": -96.134391,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7288536234",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-itag-instituto-de-tramitacion-aduanal",
+  "name": "ITAG Instituto de Tramitación Aduanal",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.183169,
+  "lng": -96.134251,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7288536235",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-academia-de-ciencias",
+  "name": "Academia de Ciencias",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.182577,
+  "lng": -96.131558,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7291243037",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-posta-zootecnica-torreon-del-molino-universidad-veracruzana",
+  "name": "Posta Zootecnica Torreón del Molino. Universidad Veracruzana",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.171423,
+  "lng": -96.210491,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7300767162",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-bilingue-paidos",
+  "name": "Colegio Bilingue Paidos",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.167052,
+  "lng": -96.129916,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7877040301",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-universidad-jean-piaget",
+  "name": "Universidad Jean Piaget",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.198249,
+  "lng": -96.142263,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7885202077",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-instituto-mexico",
+  "name": "Instituto Mexico",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.191057,
+  "lng": -96.134023,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7887996055",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-escuela-superior-de-comercio-internacional",
+  "name": "Escuela Superior de Comercio Internacional",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.187422,
+  "lng": -96.127441,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7888302296",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-hispano-mexicano-secundaria-y-bachillerato",
+  "name": "Colegio Hispano Mexicano (Secundaria y Bachillerato)",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.187064,
+  "lng": -96.1272,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7888302297",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-burdeos",
+  "name": "Colegio Burdeos",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.1518,
+  "lng": -96.11279,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7890814064",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-instituto-terra-nova-poniente",
+  "name": "Instituto Terra Nova Poniente",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.165872,
+  "lng": -96.221976,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n8518554659",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-universidad-veracruzana",
+  "name": "Universidad Veracruzana",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.160827,
+  "lng": -96.111335,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w113790462",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-ilustre-instituto-veracruzano",
+  "name": "Ilustre Instituto Veracruzano",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.162562,
+  "lng": -96.111194,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w155306254",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-instituto-leonardo-bravo",
+  "name": "Instituto Leonardo Bravo",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.166251,
+  "lng": -96.117957,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w469285979",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-jean-piaget-2",
+  "name": "Colegio Jean Piaget",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.165593,
+  "lng": -96.124645,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w646293638",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-la-paz-de-veracruz",
+  "name": "Colegio La Paz de Veracruz",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.159356,
+  "lng": -96.114478,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w653844606",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-la-salle",
+  "name": "Colegio La Salle",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.156142,
+  "lng": -96.11424,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w653844607",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-instituto-tegnologico-superior-de-alvarado",
+  "name": "Instituto Tegnologico superior de Alvarado",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.099907,
+  "lng": -96.158203,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w671753975",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-madrid-de-veracurz-norte",
+  "name": "Colegio Madrid de Veracurz Norte",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.188481,
+  "lng": -96.180805,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w692089588",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-villa-rica",
+  "name": "Colegio Villa Rica",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.148975,
+  "lng": -96.115847,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w696535752",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-universidad-femenina-de-veracruz-llave",
+  "name": "Universidad Femenina de Veracruz Llave",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.170849,
+  "lng": -96.119573,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w696788173",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-universidad-quetzalcoatl",
+  "name": "Universidad Quetzalcoatl",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.18427,
+  "lng": -96.127602,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w874019660",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-universidad-de-oriente",
+  "name": "Universidad de Oriente",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.133097,
+  "lng": -96.144,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1081885377",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-jardin-de-ninos-maria-montessori",
+  "name": "Jardín de Niños María Montessori",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.114586,
+  "lng": -96.105056,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1091032914",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-escuela-rafael-diaz-serdan-maternal-kinder-primaria-y-secundaria",
+  "name": "Escuela Rafael Díaz Serdán (Maternal, Kinder, Primaria y Secundaria)",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.153035,
+  "lng": -96.112536,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1091315470",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-ieu-universidad",
+  "name": "IEU Universidad",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.176247,
+  "lng": -96.12159,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1144369134",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-jardin-de-ninos-maria-montessori-2",
+  "name": "Jardín de Niños María Montessori",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.138693,
+  "lng": -96.136301,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1146673260",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-universidad-icesv",
+  "name": "Universidad ICESV",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.14019,
+  "lng": -96.110479,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1182600932",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-universidad-ceulver",
+  "name": "Universidad CEULVER",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.197216,
+  "lng": -96.132967,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1201506264",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-valentin-gomez-farias",
+  "name": "Colegio \"Valentín Gómez Farías\"",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.192474,
+  "lng": -96.130497,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1320821271",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-universidad-tecnologica-de-medellin",
+  "name": "Universidad Tecnológica de Medellín",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.101402,
+  "lng": -96.15563,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1353681894",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-de-estudios-cientificos-y-tecnologicos-del-estado-de-veracruz",
+  "name": "Colegio de Estudios Científicos y Tecnológicos del Estado de Veracruz",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.09919,
+  "lng": -96.165512,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1353684430",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-universidad-cristobal-colon-calasanz",
+  "name": "Universidad Cristóbal Colón (Calasanz)",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.124302,
+  "lng": -96.141561,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r16070239",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-calasancio-nuevo-veracruz",
+  "name": "Colegio Calasancio Nuevo Veracruz",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.176399,
+  "lng": -96.195735,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r16079836",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-los-encinos",
+  "name": "Colegio Los Encinos",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.149337,
+  "lng": -96.224111,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r16093710",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "veracruz-colegio-regional-de-mexico",
+  "name": "Colegio Regional De Mexico",
+  "city": "Veracruz",
+  "country": "México",
+  "lat": 19.221515,
+  "lng": -96.229183,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r16164366",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-particular-incorporada-1001-san-francisco",
+  "name": "Escuela Particular Incorporada 1001 San Francisco",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.660082,
+  "lng": -60.710205,
+  "addr": "San Martín 1326",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n1909481131",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-colegio-nuestra-senora-del-huerto",
+  "name": "Colegio Nuestra Señora del Huerto",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.650587,
+  "lng": -60.709309,
+  "addr": "San Jerónimo 2143",
+  "phone": "+54 342 4593906",
+  "web": "http://www.ntrasradelhuertosantafe.edu.ar/",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n3454090976",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-particular-incorporada-1224-nuestra-senora-de-itati",
+  "name": "Escuela Particular Incorporada 1224 \"Nuestra Señora de Itatí\"",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.669796,
+  "lng": -60.724731,
+  "addr": "Nicasio Oroño 340",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n4098140421",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-de-educacion-secundaria-orientada-3138-santa-lucia",
+  "name": "Escuela de Educación Secundaria Orientada 3138 Santa Lucía",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.648929,
+  "lng": -60.728803,
+  "addr": "Juan de Garay 4151",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n4214584747",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-antonia-maria-verna",
+  "name": "Antonia María Verna",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.61026,
+  "lng": -60.698167,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n4379996334",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-particular-incorporada-1196-santa-rosa-de-lima",
+  "name": "Escuela Particular Incorporada 1196 Santa Rosa de Lima",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.643756,
+  "lng": -60.734371,
+  "addr": "Pasaje Liniers 4649 Santa Rosa De Lima",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n4476025751",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-e-e-s-orientada-part-inc-nro-3071-la-inmaculada",
+  "name": "E.E.S. Orientada Part. Inc. Nro 3071 La Inmaculada",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.664307,
+  "lng": -60.767142,
+  "addr": "Saavedra 1964",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5196647721",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-instituto-1200-san-jose",
+  "name": "Instituto 1200 San Jose",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.664008,
+  "lng": -60.76713,
+  "addr": "Saavedra 1964 San Martín",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5196647726",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-secundaria-3186-alberto-monti",
+  "name": "Escuela Secundaria 3186 Alberto Monti",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.585685,
+  "lng": -60.72114,
+  "addr": "Bernardo de Irigoyen 3186",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5897220010",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-particular-incorporada-1305-nils-eber",
+  "name": "Escuela Particular Incorporada 1305 Nils Eber",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.584617,
+  "lng": -60.717395,
+  "addr": "Gorriti 4652",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5897238405",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-particular-incorporada-1441-alberto-monti",
+  "name": "Escuela Particular Incorporada 1441 Alberto Monti",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.585587,
+  "lng": -60.721866,
+  "addr": "Valentín Alsina 8250",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5900875900",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-colegio-nuestra-senora-del-calvario",
+  "name": "Colegio Nuestra Señora del Calvario",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.638426,
+  "lng": -60.711811,
+  "addr": "Salvador Caputo 3155",
+  "phone": "+54 342 453 3977",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5987329915",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-instituto-sol",
+  "name": "Instituto SOL",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.638037,
+  "lng": -60.714411,
+  "addr": "Salvador Caputo 3353",
+  "phone": "+54 342 452 5035",
+  "web": "https://www.institutosol.edu.ar/",
+  "email": "info@institutosol.edu.ar",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6480698316",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-instituto-superior-particular-incorporado-4033",
+  "name": "Instituto Superior Particular Incorporado 4033",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.65739,
+  "lng": -60.709657,
+  "addr": "San Martín 1540",
+  "phone": "+54 9 342 459-0611",
+  "web": "http://www.ispi4033santafe.edu.ar",
+  "email": "inst4033@gmail.com",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n6771847546",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-especial-particular-incorporada-1429-doctora-sara-faisal",
+  "name": "Escuela Especial Particular Incorporada 1429 Doctora Sara Faisal",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.662845,
+  "lng": -60.718559,
+  "addr": "Urquiza 957",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10731640097",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-de-educacion-secundaria-orientada-particular-incorporada-3083-",
+  "name": "Escuela de Educación Secundaria Orientada Particular Incorporada 3083 Dante Alighieri",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.651093,
+  "lng": -60.713169,
+  "addr": "4 de Enero 2044",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10731642458",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-particular-incorporada-1342-juan-marcos",
+  "name": "Escuela Particular Incorporada 1342 Juan Marcos",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.584829,
+  "lng": -60.735253,
+  "addr": "Matheu 6241 Aceria Estanislao López",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10731642601",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-de-educacion-secundaria-orientada-particular-incorporada-8150-",
+  "name": "Escuela De Educación Secundaria Orientada Particular Incorporada 8150 Nuestra Señora De Guadalupe",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.604996,
+  "lng": -60.671614,
+  "addr": "Patricio Cullen 7397",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10731893280",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-particular-incorporada-1341-santa-rita-de-casia",
+  "name": "Escuela Particular Incorporada 1341 Santa Rita De Casia",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.576339,
+  "lng": -60.724309,
+  "addr": "Florencio Fernández 5440",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10733235884",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-particular-incorporada-1205-jaim-najman-bialik",
+  "name": "Escuela Particular Incorporada 1205 Jaim Najman Bialik",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.64507,
+  "lng": -60.711672,
+  "addr": "4 de Enero 2539",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10735454931",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-particular-incorporada-1132-cristo-obrero",
+  "name": "Escuela Particular Incorporada 1132 Cristo Obrero",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.631092,
+  "lng": -60.720553,
+  "addr": "Padre Catena 4255",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10738320180",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-particular-incorporada-1502-san-martin-de-porres",
+  "name": "Escuela Particular Incorporada 1502 San Martín De Porres",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.59622,
+  "lng": -60.73935,
+  "addr": "Estanislao Zeballos 6202",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10739763524",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-particular-incorporada-1416-doctor-gilberto-beltramino",
+  "name": "Escuela Particular Incorporada 1416 Doctor Gilberto Beltramino",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.582791,
+  "lng": -60.734066,
+  "addr": "Viñas 8300 Loyola Sur",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10739808493",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-particular-incorporada-1259-dante-alighieri",
+  "name": "Escuela Particular Incorporada 1259 Dante Alighieri",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.646185,
+  "lng": -60.705878,
+  "addr": "25 de Mayo 2569",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10744194235",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-particular-incorporada-1287-san-luis-gonzaga",
+  "name": "Escuela Particular Incorporada 1287 San Luis Gonzaga",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.565233,
+  "lng": -60.747035,
+  "addr": "Fray Domingo de Oro",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10744194240",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-particular-incorporada-1147-nuestra-senora-de-guadalupe",
+  "name": "Escuela Particular Incorporada 1147 Nuestra Señora de Guadalupe",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.604946,
+  "lng": -60.671911,
+  "addr": "Patricio Cullen 7397",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10744194253",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-particular-incorporada-1133-francisco-ramos-mejia",
+  "name": "Escuela Particular Incorporada 1133 Francisco Ramos Mejia",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.642013,
+  "lng": -60.7094,
+  "addr": "1 de Mayo 2853",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10744194264",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-particular-incorporada-1408-colegio-vision-de-futuro",
+  "name": "Escuela Particular Incorporada 1408 Colegio Vision De Futuro",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.627419,
+  "lng": -60.717207,
+  "addr": "Pasaje Manuel Leiva 3856",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10744194269",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-primaria-particular-incorporada-n-1145",
+  "name": "Escuela Primaria Particular Incorporada Nº1145",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.618095,
+  "lng": -60.715412,
+  "addr": "Fray Cayetano Rodríguez 3858",
+  "phone": "+54 342 4896402",
+  "web": "http://primaria.nslourdes.edu.ar/",
+  "email": "primaria1145lourdes@nslourdes.edu.ar",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10749643627",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-de-educacion-secundaria-orientada-particular-incorporada-3131-",
+  "name": "Escuela De Educación Secundaria Orientada Particular Incorporada 3131 San Eugenio De Mazenod",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.612859,
+  "lng": -60.694456,
+  "addr": "Bernardino Rivadavia 6041",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10757838644",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-1412-nuestra-senora-de-la-paz",
+  "name": "Escuela 1412 Nuestra Señora De La Paz",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.678649,
+  "lng": -60.770459,
+  "addr": "Cornelio Saavedra 3485",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n11033323987",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-1298-senor-y-virgen-del-milagro",
+  "name": "Escuela 1298 Señor Y Virgen Del Milagro",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.657854,
+  "lng": -60.803537,
+  "addr": "San Martín 2665 Los Hornos Al Oeste",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n11033338228",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-la-salle-jobson",
+  "name": "La Salle Jobson",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.640153,
+  "lng": -60.693511,
+  "addr": "Pasaje Hermanos de La Salle 3251",
+  "phone": "",
+  "web": "https://www.lasallejobson.edu.ar/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w271928531",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-particular-incorporada-1414-san-arnoldo-janssen",
+  "name": "Escuela Particular Incorporada 1414 San Arnoldo Janssen",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.587478,
+  "lng": -60.710898,
+  "addr": "Avenida Vera Peñaloza 8200",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w349373814",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-complejo-educativo-luis-maria-monti",
+  "name": "Complejo Educativo \"Luis María Monti\"",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.661735,
+  "lng": -60.718928,
+  "addr": "Avenida Juan José Paso 3150",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w369745831",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-escuela-1304-paz-pan-y-trabajo",
+  "name": "Escuela 1304 Paz, pan y trabajo",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.659689,
+  "lng": -60.711687,
+  "addr": "San Jerónimo 1352",
+  "phone": "+54 342 4582471",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w422879603",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-colegio-don-bosco-santa-fe",
+  "name": "Colegio Don Bosco Santa Fe",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.603909,
+  "lng": -60.704043,
+  "addr": "Avenida Facundo Zuviría",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w454720886",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-podiatry-college-of-the-province-of-santa-fe",
+  "name": "Podiatry College of the Province of Santa Fe",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.646866,
+  "lng": -60.722039,
+  "addr": "Pasaje Liniers",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w557097418",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-colegio-ntra-sra-de-fatima",
+  "name": "Colegio Ntra Sra de Fátima",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.629567,
+  "lng": -60.709597,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w669636914",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-fe-universidad-catolica-de-santa-fe",
+  "name": "Universidad Catolica de Santa Fe",
+  "city": "Santa Fe",
+  "country": "Argentina",
+  "lat": -31.606681,
+  "lng": -60.671517,
+  "addr": "C. Echagüe 7151",
+  "phone": "",
+  "web": "https://www.ucsf.edu.ar/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r7948976",
   "found": "2026-11-10"
  }
 ]
