@@ -1,6 +1,7 @@
 // Ficha del colegio: preparar el contacto, registrar el resultado e historial. Incluye el modo sesión.
 import { $, S, api, esc, icon, pill, statusPill, stageTag, potTag, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, workOrder, ago, TYPE_ICON,
   telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile, callQueue, callGuess, demoDue, archivedRef, archivedAct, norm, cap } from "./core.js";
+import { loadGmail, connectGmail, gmailWaiting, sigPreview, sigLabel } from "./gmail.js";
 // «la cafetería», «el casino», «el bar escolar»
 const laEsp = mk => `${/^(casino|bar)\b/.test(mk?.espacio || "") ? "el" : "la"} ${mk?.espacio || "cafetería"}`, delaEsp = mk => laEsp(mk).replace(/^el /, "del ").replace(/^la /, "de la ");
 const coarse = () => matchMedia("(pointer: coarse)").matches;
@@ -193,6 +194,12 @@ export function closeSchool({ fromPop = false } = {}) {
   if (!fromPop && history.state?.drawer) history.back();
   const closedId = D.id, f = D.form;
   if (closedId && D.tab === "log" && !D.result && (f?.outcome || f?.text?.trim())) drafts.set(closedId, { form: f, activityId: D.activityId });
+  // después de un mail sin guardar el próximo paso: queda el borrador (al volver, sigue en Registrar). Si no quedó ninguna
+  // actividad (ni la automática ni una tuya), se avisa: el colegio se perdería de vista.
+  if (closedId && f?.mail && !D.result) {
+    drafts.set(closedId, { form: f, activityId: D.activityId });
+    if (!liveBase(f)) setTimeout(() => toast("No agendaste el próximo paso del mail", { type: "err", action: { label: "Agendar", fn: () => openSchool(closedId, { tab: "log" }) } }), 0);
+  }
   $("drawer").hidden = true; $("scrim").hidden = true; D.id = null;
   $("app").inert = false; document.querySelector(".skip").inert = false;
   pauseToast?.remove(); pauseToast = null;
@@ -744,7 +751,7 @@ function draw() {
   const here = sedesOf(s.id).find(z => z.here), sedePhones = sedesOf(s.id).filter(z => sedeCallable(z).length).length;
   const phone = s.phone || (here && sedeCallable(here)[0]) || "";
   const mk = d?.market || S.markets[s.country] || {};
-  const nHist = d ? (d.notes?.length || 0) + (d.touches?.length || 0) : 0;
+  const nHist = d ? histItems(d).length : 0;
   const notReady = !d ? `disabled title="${D.err ? "No se pudo cargar la ficha" : "Cargando la ficha…"}"` : "";
   el.innerHTML = `
   ${ss ? `<div class="d-session"><span class="progress" aria-hidden="true"><span style="width:${(ss.i + 1) / ss.ids.length * 100}%"></span></span>
@@ -1114,18 +1121,65 @@ async function suggest(s) {
 }
 function redrawLog() { keepScroll(draw); }
 
+// el próximo paso es tuyo (cada uno trabaja lo suyo); un líder puede asignarlo a otra persona. La demo sí la puede dar otro.
+const ownerOpts = (sel, any = true) => `<option value="">Para mí</option>${any ? (S.team || []).filter(u => u.id !== S.me.pdUserId).map(u => `<option value="${u.id}" ${String(sel) === String(u.id) ? "selected" : ""}>Para ${esc(u.name)}</option>`).join("") : ""}`;
+const quickDates = () => { const t = today(), nb = nextBusinessDay(t); return [["Hoy", t], ["Mañana", addDays(t, 1)], ...(nb !== addDays(t, 1) ? [["Próx. hábil", nb]] : []), ["En 1 semana", addDays(t, 7)], ["En 1 mes", addDays(t, 30)], ["En 3 meses", addDays(t, 90)]]; };
+// qué, para quién, día (mini calendario y atajos), hora y detalle del próximo paso (Registrar y después de un mail)
+function nextFields(f, none = "Sin tarea") {
+  const t = today();
+  return `<div class="grid2"><label class="field"><span>Qué</span><select class="inp" data-f="next.type" data-touch>${NEXT_TYPES.map(([k, l]) => `<option value="${k}" ${f.next.type === k ? "selected" : ""}>${k ? l : none}</option>`).join("")}</select></label>
+      <label class="field"><span>Para</span><select class="inp" data-f="next.ownerId" ${f.next.type ? "" : "disabled"}>${ownerOpts(f.next.ownerId)}</select></label></div>
+      ${f.next.type ? `<div class="next-when">${miniCal(f.next.date, t, false)}
+        <div class="next-side"><div class="chips">${quickDates().map(([l, v]) => `<button class="chip sm" data-nd="${v}" aria-pressed="${f.next.date === v}">${l}</button>`).join("")}</div>
+        <label class="field"><span>Hora <span class="faint">opcional</span></span><input class="inp" type="time" data-f="next.time" data-touch value="${esc(f.next.time)}" step="900"></label>
+        <label class="field"><span>Detalle <span class="faint">opcional</span></span><input class="inp" data-f="next.subject" value="${esc(f.next.subject || "")}" placeholder="Ej: llamar a la directora después de las 11" maxlength="140"></label>
+        <p class="muted" id="nextLine" style="margin:0;font-size:13px">${esc(nextLine(f))}</p></div></div>` : ""}`;
+}
+// Registrar después de enviar un mail desde la ficha: el contacto ya quedó (canal mail, «Mail enviado»); falta el próximo paso.
+// Siempre queda algo para hacer: la llamada automática que dejó el envío o la actividad tuya que ya estaba (base). Se
+// propone esa y, si la cambiás, se mueve esa misma (no se crea otra). Si la ficha se abrió desde una actividad de la agenda
+// (una llamada, por ejemplo), se ofrece marcarla como hecha; si era justo la base, se propone una nueva.
+const mailBase = f => f.mail?.autoNext || f.mail?.pendingNext || null;
+const baseGone = f => !!(f.mail?.act && f.completeAct && mailBase(f)?.id === f.mail.act.id);
+const liveBase = f => baseGone(f) ? null : mailBase(f);
+const kindOf = t => t === "meeting" ? "demo" : (S.types[t] || "tarea").toLowerCase();
+// «mañana», «el jueves, 12 de noviembre» (+ hora)
+const whenOf = b => { const l = dayLabel(b.date).toLowerCase(); return `${/^(hoy|mañana|ayer)$/.test(l) ? l : `el ${l}`}${b.time ? ` a las ${b.time}` : ""}`; };
+const baseDesc = (b, auto, art = "tu") => `${auto ? "la llamada automática" : `${art} ${kindOf(b.type)}`} ${whenOf(b)}`;
+// el próximo paso del formulario igual a la base (qué, día, hora, para vos y sin detalle): no se cambia nada
+const sameAsBase = f => { const b = liveBase(f), n = f.next; return !!b && n.type === b.type && n.date === b.date && (n.time || "") === (b.time || "") && !n.ownerId && !(n.subject || "").trim(); };
+// lo que se propone: la base tal cual; si la base se marca hecha (o no hay), una llamada en 2 días hábiles
+const mailDefaultNext = f => { const b = liveBase(f), fb = f.mail.fallback || { type: "call", date: nextBusinessDay(nextBusinessDay(today())) }; return b ? { type: b.type, date: b.date, time: b.time || "", ownerId: "", subject: "" } : { type: fb.type, date: fb.date, time: "", ownerId: "", subject: "" }; };
+function mailFollowBody(s, d) {
+  const f = D.form, ml = f.mail, warns = (ml.done || []).filter(x => x.warn), pdOk = ml.logged?.pipedrive !== false, histOk = ml.logged?.history !== false;
+  const b = liveBase(f), auto = !!b && b === ml.autoNext, act = ml.act;
+  const where = pdOk && histOk ? "Ya quedó en Pipedrive y en Historial." : !pdOk ? "En Pipedrive no quedó: registralo a mano." : "Quedó en Pipedrive; en el historial de la app no.";
+  return `<div class="stack">
+    <div class="callout ${pdOk ? "ok" : "warn"}">${icon(pdOk ? "checkCircle" : "alert")}<span><b>${pdOk ? "Mail enviado" : "Salió el mail"}</b> a ${esc(ml.to)} · «${esc(ml.subject)}». ${where}</span></div>
+    ${warns.map(x => `<div class="callout warn">${icon("alert")}<span>${esc(x.label)}</span></div>`).join("")}
+    <div class="sec step"><div class="step-h"><span class="n">1</span>¿Por dónde fue el contacto?</div>
+      <div class="seg" role="group">${CH.map(([k, l, ic]) => `<button aria-pressed="${k === "mail"}" disabled>${icon(ic, "sm")} ${l}</button>`).join("")}</div></div>
+    <div class="sec step"><div class="step-h"><span class="n">2</span>¿Qué pasó?</div>
+      <div class="outcomes"><button class="oc good" aria-pressed="true" disabled><b>Mail enviado</b><small>Ya está registrado. Si te responde, registralo como un contacto nuevo.</small></button></div>
+      <details class="obj"><summary>Lo que mandaste</summary><p style="white-space:pre-wrap">${esc(ml.body)}</p></details></div>
+    <div class="sec step"><div class="step-h"><span class="n">3</span>Próximo paso</div>
+      ${act ? `<label class="callout info toggle"><input type="checkbox" data-f="completeAct" ${f.completeAct ? "checked" : ""}> Marcar como hecha: <b>${esc(act.subject)}</b></label>` : ""}
+      ${b ? `<div class="callout info">${icon("calendar")}<span>${auto ? "Quedó" : "Ya tenés"} ${esc(baseDesc(b, auto, ["call", "meeting"].includes(b.type) ? "una" : "un"))}${!auto && ml.pendingNext?.count > 1 ? ` (y ${ml.pendingNext.count - 1} más)` : ""}. Si la cambiás, se mueve esa: no se crea otra.</span></div>`
+        : baseGone(f) ? `<div class="callout info">${icon("calendar")}<span>La de la agenda queda hecha: dejá la próxima.</span></div>` : ""}
+      ${!b && !baseGone(f) && f.why ? `<div class="callout">${icon("sparkles")}<span>${esc(f.why)}</span></div>` : ""}
+      ${!f.next.type && !b ? `<div class="callout warn">${icon("alert")}<span>Sin próximo paso este colegio se pierde de vista. Conviene dejar algo para hacer.</span></div>` : ""}
+      ${nextFields(f, b ? "Dejar como está" : "Sin próximo paso")}</div>
+  </div>`;
+}
 function logBody(s, d) {
   const f = D.form, o = S.outcomes.find(x => x.id === f.outcome);
-  const team = S.team || [];
-  // el próximo paso es tuyo (cada uno trabaja lo suyo); un líder puede asignarlo a otra persona. La demo sí la puede dar otro.
-  const ownerOpts = (sel, any = true) => `<option value="">Para mí</option>${any ? team.filter(u => u.id !== S.me.pdUserId).map(u => `<option value="${u.id}" ${String(sel) === String(u.id) ? "selected" : ""}>Para ${esc(u.name)}</option>`).join("") : ""}`;
+  if (f.mail) return mailFollowBody(s, d);
   const act = D.activityId && d.activities?.find(a => a.id === D.activityId);
   const connected = CONNECTED.includes(f.outcome), qualify = QUALIFY.includes(f.outcome);
   const lostish = ["not_now", "not_interested"].includes(f.outcome) || (f.outcome === "no_answer" && f.lostReason);
-  const t = today(), nb = nextBusinessDay(t);
+  const t = today();
   const warn = clientWarn(s, d.match);
   const pre = S.markets[s.country]?.prefix ? `+${S.markets[s.country].prefix} …` : "Teléfono";
-  const dates = [["Hoy", t], ["Mañana", addDays(t, 1)], ...(nb !== addDays(t, 1) ? [["Próx. hábil", nb]] : []), ["En 1 semana", addDays(t, 7)], ["En 1 mes", addDays(t, 30)], ["En 3 meses", addDays(t, 90)]];
   let n = 0;
   return `<div class="stack">
     ${warn ? `<div class="callout warn">${icon("alert")}<span>${esc(warn)}${HIST.get(s.id) ? ` <button class="linkbtn" data-see-hist>Ver qué pasó</button>` : ""}</span></div>` : ""}
@@ -1164,13 +1218,7 @@ function logBody(s, d) {
       ${f.outcome && f.why ? `<div class="callout">${icon("sparkles")}<span>${esc(f.why)}</span></div>` : ""}
       ${!f.next.type && f.outcome && !NO_NEXT.includes(f.outcome) && !d.match?.orgId && !s.leadOnly ? `<div class="callout info">${icon("calendar")}<span>Es la primera vez que se lo contacta: al guardar queda a tu nombre en Pipedrive y, si no elegís otro paso, con una llamada para el ${esc(dayLabel(nextBusinessDay(today())).toLowerCase())}.</span></div>`
         : !f.next.type && (f.outcome ? !NO_NEXT.includes(f.outcome) : !!f.text?.trim()) ? `<div class="callout warn">${icon("alert")}<span>Sin ${f.outcome ? "próximo paso" : "tarea a futuro"} este colegio se pierde de vista. Conviene dejar algo para hacer.</span></div>` : ""}
-      <div class="grid2"><label class="field"><span>Qué</span><select class="inp" data-f="next.type" data-touch>${NEXT_TYPES.map(([k, l]) => `<option value="${k}" ${f.next.type === k ? "selected" : ""}>${k ? l : f.outcome ? l : "Sin tarea"}</option>`).join("")}</select></label>
-      <label class="field"><span>Para</span><select class="inp" data-f="next.ownerId" ${f.next.type ? "" : "disabled"}>${ownerOpts(f.next.ownerId)}</select></label></div>
-      ${f.next.type ? `<div class="next-when">${miniCal(f.next.date, t, false)}
-        <div class="next-side"><div class="chips">${dates.map(([l, v]) => `<button class="chip sm" data-nd="${v}" aria-pressed="${f.next.date === v}">${l}</button>`).join("")}</div>
-        <label class="field"><span>Hora <span class="faint">opcional</span></span><input class="inp" type="time" data-f="next.time" data-touch value="${esc(f.next.time)}" step="900"></label>
-        <label class="field"><span>Detalle <span class="faint">opcional</span></span><input class="inp" data-f="next.subject" value="${esc(f.next.subject || "")}" placeholder="Ej: llamar a la directora después de las 11" maxlength="140"></label>
-        <p class="muted" id="nextLine" style="margin:0;font-size:13px">${esc(nextLine(f))}</p></div></div>` : ""}</div>` : ""}
+      ${nextFields(f, f.outcome ? "Sin próximo paso" : "Sin tarea")}</div>` : ""}
   </div>`;
 }
 // «Llamada el domingo, 20 de diciembre a las 11:30 · para Juan Diego»
@@ -1186,10 +1234,16 @@ function pipeName(s) { const mk = S.markets[s.country]; return mk ? `${{ MX: "MX
 const contactPending = () => D.inCall || D.form.sent;
 // comentario y/o tarea para más adelante, sin registrar un contacto
 const onlyComment = () => !D.form.outcome && !contactPending() && (!!D.form.text?.trim() || !!(D.form.next.type && D.form.next.date));
-const saveDisabled = s => D.saving || !(D.form.outcome || onlyComment()) || (s.status === "client" && D.form.outcome === "demo");
-const saveLabel = () => `${icon("check")} ${onlyComment() ? "Guardar comentario" : "Guardar en Pipedrive"}`;
+const saveDisabled = s => D.form.mail ? D.saving || (!!D.form.next.type && !D.form.next.date) : D.saving || !(D.form.outcome || onlyComment()) || (s.status === "client" && D.form.outcome === "demo");
+const saveLabel = () => `${icon("check")} ${D.form.mail ? (D.form.next.type && !sameAsBase(D.form) ? "Guardar próximo paso" : "Listo") : onlyComment() ? "Guardar comentario" : "Guardar en Pipedrive"}`;
 function summary(s, d) {
   const f = D.form;
+  if (f.mail) {
+    const b = liveBase(f), auto = !!b && b === f.mail.autoNext, pdOk = f.mail.logged?.pipedrive !== false;
+    const tail = pdOk ? "" : " El mail salió, pero no quedó en Pipedrive.";
+    if (f.next.type && f.next.date && !sameAsBase(f)) return `<b>Se guarda en Pipedrive:</b> ${esc(kindOf(f.next.type))} ${shortDay(f.next.date)}${f.next.time ? ` ${esc(f.next.time)}` : ""}${b ? auto ? " (cambia la automática)" : " (mueve la que ya tenías)" : ""}${f.mail.act && f.completeAct ? " y la de la agenda queda hecha" : ""}.${esc(tail)}<span class="kbd-hint faint"> · Ctrl + Enter</span>`;
+    return esc(`${b ? `Queda ${baseDesc(b, auto)}` : "Sin próximo paso"}${f.mail.act && f.completeAct ? " y la de la agenda queda hecha" : ""}.${tail}`);
+  }
   if (onlyComment()) return `<b>Se guarda en Pipedrive:</b> comentario${f.next.type && f.next.date ? ` + ${esc((S.types[f.next.type] || "tarea").toLowerCase())} ${shortDay(f.next.date)}${f.next.ownerId ? ` para ${esc((S.team || []).find(u => String(u.id) === String(f.next.ownerId))?.name || "")}` : ""}` : ""}, sin registrar contacto<span class="kbd-hint faint"> · Ctrl + Enter</span>`;
   if (!f.outcome) return contactPending() ? `Elegí qué pasó con ${D.form.sent ? "el mensaje" : "la llamada"} para guardar.` : "Elegí qué pasó o dejá un comentario.";
   if (s.status === "client" && f.outcome === "demo") return "Ya es cliente: no se crea un trato nuevo.";
@@ -1224,6 +1278,8 @@ function bindLog(s, d) {
       setPath(f, inp.dataset.f, inp.type === "checkbox" ? inp.checked : inp.value);
       if (inp.hasAttribute("data-touch")) f.nextTouched = true;
       if (inp.dataset.f === "next.type") { if (inp.value && !f.next.date) f.next.date = nextBusinessDay(today()); redrawLog(); }
+      // después de un mail: marcar hecha la actividad de la agenda cambia lo que se propone (si era la base, una nueva)
+      else if (inp.dataset.f === "completeAct" && f.mail) { if (!f.nextTouched) f.next = mailDefaultNext(f); redrawLog(); }
       else if (inp.dataset.f === "lostReason") redrawLog();
       // comentario suelto: al empezar a escribir se prende la tarea a futuro (llamada el próximo hábil, para vos)
       else if (inp.dataset.f === "text" && !f.outcome && !contactPending() && !f.nextTouched && !f.next.type && inp.value.trim()) { f.next.type = "call"; f.next.date = nextBusinessDay(today()); redrawLog(); }
@@ -1239,6 +1295,7 @@ function bindLog(s, d) {
 
 async function saveLog(s, d) {
   const f = D.form;
+  if (f.mail) return saveMailNext(s);
   if (onlyComment()) return saveComment(s);
   if (!f.outcome) return toast("Elegí qué pasó o dejá un comentario", { type: "err" });
   if (f.next.type && !f.next.date) return toast("Poné la fecha del próximo paso", { type: "err" });
@@ -1268,6 +1325,24 @@ async function saveLog(s, d) {
   } catch (e) { D.saving = false; redrawLog(); toast(e.message, { type: "err" }); }
 }
 
+// el próximo paso después de un mail enviado (si había llamada automática, se cambia esa)
+async function saveMailNext(s) {
+  const f = D.form;
+  if (f.next.type && !f.next.date) return toast("Poné la fecha del próximo paso", { type: "err" });
+  D.saving = true; redrawLog();
+  try {
+    const next = f.next.type ? { type: f.next.type, date: f.next.date, time: f.next.time || undefined, ownerId: f.next.ownerId ? Number(f.next.ownerId) : undefined, subject: f.next.subject || undefined } : null;
+    const b = liveBase(f), doneId = f.mail.act && f.completeAct ? f.mail.act.id : null;
+    const r = await api(`/api/schools/${s.id}/mail/next`, { body: { mailId: f.mail.id, next, moveActivityId: b?.id || null, completeActivityId: doneId } });
+    if (D.id !== s.id) return;
+    if (doneId) D.activityId = null;
+    D.result = { ...r, done: [{ label: `Mail enviado a ${f.mail.to} · «${f.mail.subject}»`, url: f.mail.url || undefined }, ...r.done], form: JSON.parse(JSON.stringify(f)) };
+    if (r.school) patchSchool(r.school);
+    S.today = null; S.agenda = null;
+    D.saving = false; draw(); toTabs();
+    api(`/api/schools/${s.id}`).then(nd => { if (D.id === s.id) { D.data = nd; if (D.tab !== "log") draw(); } }).catch(() => {});
+  } catch (e) { D.saving = false; redrawLog(); toast(e.message, { type: "err" }); }
+}
 async function saveComment(s) {
   const f = D.form;
   D.saving = true; redrawLog();
@@ -1321,12 +1396,28 @@ function bindResult(s, d) {
 }
 
 // ---------- Historial
-function histBody(s, d) {
-  const items = [
-    ...(d.touches || []).map(t => ({ at: t.at, ic: { call: "phone", whatsapp: "whatsapp", mail: "mail", visit: "user" }[t.channel] || "note", h: `<b>${esc(t.by)}</b> · ${esc(t.outcome)}`, p: t.text })),
+// La línea de tiempo: contactos registrados, mails enviados y notas de Pipedrive. Un mail enviado es una sola entrada
+// («Mail enviado»): no se repite como contacto registrado ni como la nota que dejó en Pipedrive.
+function histItems(d) {
+  const mails = d.mails || [], ids = new Set(mails.map(m => m.id));
+  const subjects = [...mails.map(m => m.subject), ...(d.touches || []).filter(t => t.mailId).map(t => t.text)].filter(Boolean);
+  const mailNote = n => /^Mail enviado\b/.test(n.text) && /OrderBrain SDR/.test(n.text) && subjects.some(x => n.text.includes(x));
+  return [
+    ...mails.map(m => ({ at: m.at, mail: m })),
+    ...(d.touches || []).filter(t => !(t.mailId && ids.has(t.mailId))).map(t => t.mailId ? { at: t.at, mail: { to: t.to, subject: t.text, by: t.by, body: "", at: t.at } }
+      : { at: t.at, ic: { call: "phone", whatsapp: "whatsapp", mail: "mail", visit: "user" }[t.channel] || "note", h: `<b>${esc(t.by)}</b> · ${esc(t.outcome)}`, p: t.text }),
     // las notas de «Registrar» ya se ven como contactos; los comentarios sueltos y las del asistente, no: esas se muestran
-    ...(d.notes || []).filter(n => !/OrderBrain SDR/.test(n.text) || /^(Comentario|Nota desde el asistente)\b/.test(n.text) || !(d.touches || []).length).map(n => ({ at: String(n.at).replace(" ", "T") + "Z", ic: "note", h: `<b>${esc(n.author)}</b> · nota${n.deal ? ` en ${esc(n.deal)}` : ""}`, p: n.text })),
+    ...(d.notes || []).filter(n => !mailNote(n) && (!/OrderBrain SDR/.test(n.text) || /^(Comentario|Nota desde el asistente)\b/.test(n.text) || !(d.touches || []).length)).map(n => ({ at: String(n.at).replace(" ", "T") + "Z", ic: "note", h: `<b>${esc(n.author)}</b> · nota${n.deal ? ` en ${esc(n.deal)}` : ""}`, p: n.text })),
   ].sort((a, b) => String(b.at).localeCompare(String(a.at)));
+}
+const whenFull = at => { const x = new Date(at); return isNaN(x) ? "" : x.toLocaleString("es", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }); };
+const mailItem = m => `<div class="tl tl-mail"><span class="ic">${icon("mail")}</span><div>
+    <div class="h"><b>Mail enviado</b> a ${esc(m.to)} · ${esc(ago(m.at))}</div>
+    <div class="tl-sub">«${esc(m.subject)}»</div>
+    <div class="faint tl-meta">${esc([m.by, whenFull(m.at)].filter(Boolean).join(" · "))}${m.next?.type ? ` · próximo paso: ${esc((S.types[m.next.type] || "tarea").toLowerCase())} ${esc(shortDay(m.next.date))}` : ""}</div>
+    ${m.body ? `<details class="tl-body"><summary>Ver el mail</summary><p>${esc(m.body)}</p></details>` : ""}</div></div>`;
+function histBody(s, d) {
+  const items = histItems(d);
   const m = d.match;
   return `<div class="stack">
     ${d.persons?.length || canAddPerson(s) ? `<div class="sec"><h3><span class="l">${icon("users")} Contactos</span>${canAddPerson(s) ? `<button class="btn sm ghost" id="addDec">${icon("plus", "sm")} Agregar decisor</button>` : ""}</h3>${d.persons?.length ? "" : `<p class="muted" style="margin:0">Todavía no hay contactos cargados.</p>`}${(d.persons || []).map(p => `<div class="person"><div class="av" style="width:34px;height:34px;border-radius:50%;background:var(--surface-3);display:grid;place-items:center;font-weight:600;font-size:13px">${initials(p.name)}</div><div class="t"><b>${esc(p.name)}</b><small>${esc([p.phone, p.email].filter(Boolean).join(" · ") || "Sin datos")}</small></div>
@@ -1334,7 +1425,7 @@ function histBody(s, d) {
     ${d.activities?.length ? `<div class="sec"><h3><span class="l">${icon("calendar")} Pendientes</span></h3>${d.activities.map(a => { const l = localAct(a); return `<div class="act"><span class="ty ${a.type}">${icon(TYPE_ICON[a.type] || "check")}</span><div class="t"><b>${esc(a.subject)}</b><small class="${l.date < today() ? "late" : ""}">${esc(a.typeLabel)} · ${esc(dayLabel(l.date))}${l.time ? ` ${l.time}` : ""} · ${esc(a.owner)}</small></div><div class="ops">${a.type === "meeting" && demoDue(l) ? (a.ownerId === S.me.pdUserId || S.profile?.leader ? `<button class="btn sm" data-hdemo="${a.id}" data-time="${esc(l.time)}">¿Se hizo la demo?</button>` : "") : a.ownerId === S.me.pdUserId ? `<button class="icon-btn" data-hdone="${a.id}" aria-label="Marcar como hecha" title="Marcar como hecha">${icon("check")}</button>` : ""}</div></div>`; }).join("")}</div>` : ""}
     ${d.deals?.length ? `<div class="sec"><h3><span class="l">${icon("deal")} Tratos</span></h3>${d.deals.map(x => `<div class="act"><span class="ty">${icon("deal")}</span><div class="t"><b><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a></b><small>${esc(x.pipeline)} · ${esc(x.stage)} · ${x.status === "won" ? "ganado" : x.status === "lost" ? "perdido" + (x.lostReason ? ` (${esc(x.lostReason)})` : "") : "abierto"}${x.owner ? ` · ${esc(x.owner)}` : ""} · ${esc(x.updated)}</small>${dealOpsHtml(x)}</div></div>`).join("")}</div>` : ""}
     <div class="sec"><h3><span class="l">${icon("clock")} Historial</span>${m.checkedAt ? `<button class="btn sm ghost" id="refresh">${icon("refresh", "sm")} Actualizar</button>` : ""}</h3>
-      ${items.length ? `<div class="timeline">${items.map(i => `<div class="tl"><span class="ic">${icon(i.ic)}</span><div><div class="h">${i.h} · ${esc(ago(i.at))}</div>${i.p ? `<p>${esc(i.p)}</p>` : ""}</div></div>`).join("")}</div>` : `<div class="empty">${icon("note")}<span>Todavía no hay contactos ni notas. Lo que registres aparece acá y en Pipedrive.</span></div>`}
+      ${items.length ? `<div class="timeline">${items.map(i => i.mail ? mailItem(i.mail) : `<div class="tl"><span class="ic">${icon(i.ic)}</span><div><div class="h">${i.h} · ${esc(ago(i.at))}</div>${i.p ? `<p>${esc(i.p)}</p>` : ""}</div></div>`).join("")}</div>` : `<div class="empty">${icon("note")}<span>Todavía no hay contactos ni notas. Lo que registres aparece acá y en Pipedrive.</span></div>`}
     </div>
     ${m.orgId && m.confirmed ? `<p class="faint" style="font-size:13px;margin:0">Vinculado a <a href="${esc(d.orgUrl)}" target="_blank" rel="noopener">${esc(m.orgName)}</a> en Pipedrive · <button class="linkbtn" id="unlink2">no es esta organización</button></p>` : ""}
   </div>`;
@@ -1375,32 +1466,55 @@ function templateMenu(anchor, s, d, channel, to = {}) {
     { label: "Mensaje en blanco", sub: "Escribir desde cero", fn: () => messageModal(s, d, { channel, label: "Mensaje", text: "", subject: "" }, { phone: to.phone, email: to.email, name: to.name, logAfter: true }) },
   ]);
 }
-function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
+// Mail con Gmail conectado: «Enviar» manda desde tu Gmail (con 5 s para deshacer) y queda en Pipedrive y en Historial.
+// Sin Gmail conectado: «Conectar Gmail» (una vez) y, mientras tanto, «Abrir en Gmail» como siempre.
+const MAIL_RE = /^[^@\s<>()[\]\\,;:"]+@[^@\s<>()[\]\\,;:"]+\.[a-z]{2,}$/i, PH_RE = /\[(d[ií]a|hora|tu nombre)\]/i, SEND_DELAY = 5;
+// Enviar: Gmail conectado y confirmado en esta sesión (verified: entraste con Google o lo conectaste acá). Conectado pero
+// sin confirmar (entraste con tu código en otro dispositivo): se confirma una vez con Google.
+const canSend = g => !!(g?.enabled && g.connected && g.verified && !g.readOnly && !g.config);
+const needsConfirm = g => !!(g?.enabled && g.connected && !g.verified && !g.readOnly && !g.config);
+const newKey = () => (crypto.randomUUID?.() || String(Math.random()).slice(2) + Date.now()).replace(/[^A-Za-z0-9]/g, "").slice(0, 40);
+// la despedida con tu nombre de la plantilla sobra si la firma ya lo dice
+const dropSignoff = text => { const n = String(S.me?.name || "").trim(); const re = n ? new RegExp(`\\n${n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\nOrderEAT\\s*$`) : /\n[^\n]{2,60}\nOrderEAT\s*$/; return re.test(text) ? text.replace(re, "") : text.replace(/\n[^\n]{2,60}\nOrderEAT\s*$/, ""); };
+// Por qué desde acá no se envía, con lo que ya trae la ficha (archivado, cliente, de otra persona). El servidor lo vuelve a
+// comprobar al abrir el modal (/mail/check: también el trato abierto de otra persona) y al enviar.
+function mailBlockLocal(s, d) {
+  const me = S.me?.pdUserId, m = d.match || {}, who = id => (S.team || []).find(u => u.id === id)?.name || "otra persona";
+  if (d.archive) return "Está archivado: desarchivalo para escribirle.";
+  if (s.status === "client") return "Ya es cliente de OrderEAT: no se prospecta. Si hay algo, avisale al equipo de cuentas.";
+  if (s.leadOnly) return d.leadOwnerId && me && d.leadOwnerId !== me ? `El prospecto es de ${who(d.leadOwnerId)} en Pipedrive. Hablalo con esa persona.` : "";
+  const owner = m.ownerId || s.ownerId;
+  if (owner && me && owner !== me) return `La organización es de ${m.ownerName || s.ownerName || who(owner)} en Pipedrive. Hablalo con esa persona.`;
+  return "";
+}
+async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
   const isMail = t.channel === "mail";
+  if (isMail) await loadGmail(!!(S.gmail?.problem || S.gmail?.failed));
   // para WhatsApp solo sirve un número completo (con código de área): uno local de 7 dígitos de la web no llega
   const full = p => String(p || "").replace(/\D/g, "").length >= 10;
   const defPhone = phone || [...(d.persons || []).map(p => p.phone), s.phone, ...sedesOf(s.id).filter(z => z.here).flatMap(sedeCallable)].find(p => p && (isMail || full(p))) || "";
-  const defMail = email || d.persons?.find(p => p.email)?.email || D.study?.contacto?.emails?.[0] || s.email || "";
+  const defMail = email || d.persons?.find(p => p.email)?.email || d.mails?.[0]?.to || D.study?.contacto?.emails?.[0] || s.email || "";
   const pre = S.markets[s.country]?.prefix ? `+${S.markets[s.country].prefix} …` : "Teléfono";
+  const text0 = isMail && canSend(S.gmail) && S.gmail.signature ? dropSignoff(t.text) : t.text;
+  // phase: edit · checking (comprobando en Pipedrive) · count (5 s para deshacer) · sending · unknown (no se sabe si salió)
+  let phase = "edit", left = SEND_DELAY, timer = null, finished = false, again = false;
+  // clave de un solo uso por envío: si el pedido se repite, el servidor no lo manda dos veces. «Mandar igual» usa otra.
+  let key = newKey();
   const m = modal(`<div class="modal-h"><h3>${isMail ? icon("mail") : icon("whatsapp")} ${esc(t.label)}</h3><button class="icon-btn" id="mClose" aria-label="Cerrar">${icon("x")}</button></div>
     <p class="muted" style="margin:-8px 0 0">${esc(s.name)}</p>
     <label class="field"><span>Para</span><input class="inp" id="mTo" type="${isMail ? "email" : "tel"}" value="${esc(isMail ? defMail : defPhone)}" placeholder="${isMail ? "email@colegio.edu" : esc(pre)}"></label>
-    ${isMail ? `<label class="field"><span>Asunto</span><input class="inp" id="mSub" value="${esc(t.subject || "")}"></label>` : ""}
-    <div class="field"><label for="mCtx"><span>¿Qué querés decirle?</span></label>
+    ${isMail ? `<label class="field"><span>Asunto</span><input class="inp" id="mSub" value="${esc(t.subject || "")}" maxlength="200"></label>` : ""}
+    <div class="field" id="mCtxBox"><label for="mCtx"><span>¿Qué querés decirle?</span></label>
       <textarea class="inp" id="mCtx" rows="2" placeholder="Ej: me pasó tu contacto el de sistemas; la concesionaria anterior dejó los planteles y quiero retomar"></textarea>
       <div class="row" style="justify-content:flex-start;margin-top:6px"><button class="btn sm" id="mAi">${icon("sparkles", "sm")} Armar mensaje</button><span class="faint" id="mAiNote" style="font-size:12.5px">${S.ai ? "Usa lo que escribas y lo que dice Pipedrive (notas, tratos, contactos)." : "Arma el mensaje con tu contexto y la forma de escribir de la casa."}</span></div></div>
-    <label class="field"><span>Mensaje</span><textarea class="inp" id="mText" rows="${isMail ? 12 : 8}">${esc(t.text)}</textarea></label>
-    ${/\[(día|hora|tu nombre)\]/.test(t.text) ? `<p class="callout warn" style="margin:0">${icon("alert")}<span>Completá lo que está entre corchetes antes de mandar.</span></p>` : ""}
-    <div class="row">
-      <button class="btn" id="mCopy">${icon("copy")} Copiar</button>
-      <button class="btn ${isMail ? "primary" : "wa"}" id="mGo">${isMail ? `${icon("mail")} Abrir en Gmail` : `${icon("whatsapp")} Abrir WhatsApp`}</button>
-    </div>
-    ${!isMail ? `<p class="faint" style="margin:0;font-size:12.5px">Se abre WhatsApp Web o la app. Si usás Volt, la conversación queda en el CRM automáticamente.</p>` : ""}`);
+    <label class="field"><span>Mensaje</span><textarea class="inp" id="mText" rows="${isMail ? 12 : 8}">${esc(text0)}</textarea></label>
+    ${/\[(día|hora|tu nombre)\]/.test(t.text) ? `<p class="callout warn" style="margin:0" id="mPh">${icon("alert")}<span>Completá lo que está entre corchetes antes de mandar.</span></p>` : ""}
+    <p class="callout err" id="mErr" role="alert" style="margin:0" hidden></p>
+    <div class="stack mact" id="mAct"></div>`, { onClose: () => { if (timer) { clearInterval(timer); timer = null; if (!finished) toast("No se envió: cerraste antes de que salga", { type: "info" }); } } });
   const q = sel => m.querySelector(sel);
+  const showErr = msg => { const e = q("#mErr"); e.innerHTML = `${icon("alert")}<span>${esc(msg)}</span>`; e.hidden = !msg; };
+  const editable = on => { ["#mTo", "#mSub", "#mText", "#mCtx"].forEach(x => { const el = q(x); if (el) el.readOnly = !on; }); const ai = q("#mAi"); if (ai) ai.disabled = !on; };
   q("#mClose").onclick = () => m.close();
-  // en el celular no se abre el teclado de entrada: el foco va a la acción principal
-  if (coarse()) setTimeout(() => q("#mGo").focus(), 0);
-  q("#mCopy").onclick = () => copy(q("#mText").value);
   // Armar el mensaje: con IA, con tu contexto + lo que sabe Pipedrive; sin IA, tu contexto en la plantilla de la casa
   q("#mAi").addEventListener("click", async e => {
     const b = e.currentTarget, ctx = q("#mCtx").value.trim(), cur = q("#mText").value.trim();
@@ -1408,18 +1522,135 @@ function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
     b.disabled = true; b.innerHTML = `<span class="spin"></span> Armando…`;
     try {
       const r = await api(`/api/schools/${s.id}/draft`, { body: { channel: t.channel, purpose: t.label, contact: name || d.persons?.[0]?.name || "", base: t.text && cur === t.text.trim() && ctx ? "" : cur, context: ctx } });
-      if (r.text) q("#mText").value = r.text; if (r.subject && q("#mSub") && !q("#mSub").value.trim()) q("#mSub").value = r.subject;
+      if (r.text) q("#mText").value = isMail && canSend(S.gmail) && S.gmail.signature ? dropSignoff(r.text) : r.text; if (r.subject && q("#mSub") && !q("#mSub").value.trim()) q("#mSub").value = r.subject;
       q("#mAiNote").textContent = r.note || (r.mode === "ia" ? "Listo. Revisalo antes de mandar." : "Armado con la plantilla de la casa. Revisalo antes de mandar.");
     } catch (err) { toast(err.message, { type: "err" }); }
     b.disabled = false; b.innerHTML = `${icon("sparkles", "sm")} Armar mensaje`;
   });
-  q("#mGo").onclick = () => {
-    const to = q("#mTo").value.trim(), text = q("#mText").value;
-    if (isMail) open(gmailLink({ to, subject: q("#mSub").value, body: text }));
-    else { if (!to) return toast("Poné el número", { type: "err" }); open(waLink(to, text, s.country)); }
-    m.close();
+  const afterOpen = () => {
     if (logAfter) { D.form.channel = isMail ? "mail" : "whatsapp"; D.tab = "log"; D.result = null; D.form.sent = true; if (!D.form.text) D.form.text = `Mandé ${isMail ? "mail" : "WhatsApp"}: ${t.label.toLowerCase()}.`; draw(); toast("Cuando tengas respuesta (o no), registralo acá"); }
   };
+  const openGmail = () => { open(gmailLink({ to: q("#mTo").value.trim(), subject: q("#mSub").value, body: q("#mText").value })); finished = true; m.close(); afterOpen(); };
+  // ¿se puede mandar desde acá? Lo que ya trae la ficha y, al abrir, el servidor (el mismo control que el envío, sin
+  // escribir nada). Si el servidor no responde, no se frena: el envío lo vuelve a comprobar.
+  let chk = null, checking = null;
+  const local = isMail ? mailBlockLocal(s, d) : "";
+  if (local) chk = { ok: false, error: local };
+  const check = () => chk ? Promise.resolve(chk) : (checking ||= api(`/api/schools/${s.id}/mail/check`).catch(() => ({ ok: true, soft: true })).then(r => { chk = r; checking = null; if (m.isConnected && phase === "edit") drawAct(); return r; }));
+  if (isMail && canSend(S.gmail)) check();
+  // el mail sale recién a los 5 s: hasta ahí se puede deshacer (o cerrar la ventana). Antes, se comprueba que se pueda.
+  const startSend = async () => {
+    const to = q("#mTo").value.trim(), subject = q("#mSub").value.replace(/\s+/g, " ").trim(), text = q("#mText").value;
+    const bad = !to ? ["#mTo", "Poné a quién le mandás el mail."] : !MAIL_RE.test(to) ? ["#mTo", "Ese email no parece válido. Revisalo."] : !subject ? ["#mSub", "Poné el asunto."]
+      : !text.trim() ? ["#mText", "El mensaje está vacío."] : PH_RE.test(subject) || PH_RE.test(text) ? [PH_RE.test(subject) ? "#mSub" : "#mText", "Completá lo que está entre corchetes ([día], [hora], [tu nombre]) antes de mandar."] : null;
+    if (bad) { showErr(bad[1]); q(bad[0]).focus(); return; }
+    showErr(""); note = ""; again = false;
+    if (!chk) { phase = "checking"; editable(false); drawAct(); await check(); if (!m.isConnected) return; phase = "edit"; editable(true); }
+    if (chk && !chk.ok) { drawAct(); return; }
+    editable(false); phase = "count"; left = SEND_DELAY; drawAct(); q("#mUndo")?.focus();
+    timer = setInterval(() => {
+      left--; if (left > 0) { const c = q("#mCount"); if (c) c.textContent = left; return; }
+      clearInterval(timer); timer = null; doSend({ to, subject, text });
+    }, 1000);
+  };
+  let note = "";
+  const undo = () => { clearInterval(timer); timer = null; phase = "edit"; note = "No se envió. Seguí editando y mandalo cuando quieras."; editable(true); drawAct(); q("#mSend")?.focus(); };
+  // si la ficha se abrió desde una tarea «Mail» de la agenda, se marca como hecha
+  const act = D.activityId && d.activities?.find(a => a.id === D.activityId), completeId = act?.type === "task" && D.form?.completeAct !== false ? act.id : null;
+  const doSend = async p => {
+    phase = "sending"; m.locked = true; drawAct();
+    try {
+      const r = await api(`/api/schools/${s.id}/mail`, { body: { ...p, key, completeActivityId: completeId, session: sessionRef() } });
+      finished = true; m.locked = false; m.close();
+      afterMailSent(s, r, { logAfter, completed: !!completeId });
+    } catch (e) {
+      m.locked = false; editable(true);
+      // no se sabe si salió (Gmail no respondió) o esa clave ya se usó: no se vuelve a ofrecer «Enviar» con la misma clave
+      if (e.code === "gmail_unknown" || e.code === "mail_dup") { phase = "unknown"; drawAct(); showErr(e.message); return; }
+      phase = "edit";
+      // cambió algo en Pipedrive (de otra persona, cliente, archivado): queda el motivo en lugar de «Enviar»
+      if (!e.code && [403, 404, 409].includes(e.status)) chk = { ok: false, error: e.message };
+      await loadGmail(true).catch(() => {}); // pudo vencer, desconectarse o pedir confirmar en este dispositivo
+      drawAct(); showErr(chk && !chk.ok ? "" : e.message);
+    }
+  };
+  function drawAct() {
+    const a = q("#mAct"), g = S.gmail;
+    if (!isMail) {
+      a.innerHTML = `<div class="row"><button class="btn" id="mCopy">${icon("copy")} Copiar</button><button class="btn wa" id="mGo">${icon("whatsapp")} Abrir WhatsApp</button></div>
+        <p class="faint" style="margin:0;font-size:12.5px">Se abre WhatsApp Web o la app. Si usás Volt, la conversación queda en el CRM automáticamente.</p>`;
+      q("#mCopy").onclick = () => copy(q("#mText").value);
+      q("#mGo").onclick = () => { const to = q("#mTo").value.trim(); if (!to) return toast("Poné el número", { type: "err" }); open(waLink(to, q("#mText").value, s.country)); finished = true; m.close(); afterOpen(); };
+      return;
+    }
+    if (phase === "count") { a.innerHTML = `<div class="send-bar" role="status" aria-live="polite">${icon("send")}<span>Enviando en <b id="mCount">${left}</b> s</span><button class="btn" id="mUndo">Deshacer</button></div>`; q("#mUndo").onclick = undo; return; }
+    q("#mClose").disabled = phase === "sending";
+    if (phase === "sending" || phase === "checking") { a.innerHTML = `<div class="send-bar" role="status"><span class="spin"></span><span>${phase === "sending" ? "Enviando desde tu Gmail…" : "Comprobando en Pipedrive…"}</span></div>`; return; }
+    if (phase === "unknown") {
+      a.innerHTML = `<div class="row"><a class="btn" href="https://mail.google.com/mail/#sent" target="_blank" rel="noopener">${icon("mail")} Ver Enviados</a>
+        ${again ? `<button class="btn" id="mNo">Cancelar</button><button class="btn primary" id="mAgain">Sí, mandarlo de nuevo</button>` : `<button class="btn" id="mAgain">Mandar igual</button>`}</div>
+        <p class="faint mail-note">${again ? "Si ya salió, le llega dos veces." : "Si salió, cerrá y registralo en Registrar. Si no está en Enviados, mandalo de nuevo."}</p>`;
+      q("#mNo")?.addEventListener("click", () => { again = false; drawAct(); });
+      q("#mAgain").onclick = () => { if (!again) { again = true; drawAct(); q("#mAgain")?.focus(); return; } key = newKey(); phase = "edit"; startSend(); };
+      return;
+    }
+    const send = canSend(g), confirm = needsConfirm(g), wait = gmailWaiting(), blocked = send && chk && !chk.ok;
+    a.innerHTML = `<div class="row"><button class="btn" id="mCopy">${icon("copy")} Copiar</button>
+      ${send && !blocked ? `<button class="btn ghost" id="mGo">Abrir en Gmail</button><button class="btn primary" id="mSend">${icon("send")} Enviar</button>`
+        : !blocked && g?.enabled && !g.readOnly && !g.config ? `<button class="btn" id="mGo">Abrir en Gmail</button><button class="btn primary" id="mConnect">${wait ? `<span class="spin"></span> Esperando a Google…` : confirm ? `${icon("mail")} Confirmar tu Gmail en este dispositivo` : `${icon("mail")} Conectar Gmail para enviar desde acá`}</button>`
+        : `<button class="btn primary" id="mGo">${icon("mail")} Abrir en Gmail</button>`}</div>
+      ${note ? `<p class="mail-note" role="status" style="color:var(--info)">${esc(note)}</p>` : ""}
+      ${blocked ? `<p class="mail-block" role="status">${icon("alert", "sm")}<span><b>Desde acá no se envía.</b> ${esc(chk.error)}</span></p>`
+        : send ? `<p class="mail-how">${icon("checkCircle", "sm")}<span>Sale de tu Gmail (${esc(g.email)}) y queda en Pipedrive y en el historial.</span></p>
+          ${g.signature ? `<details class="gm-sig"><summary>${esc(sigLabel(g))}</summary>${sigPreview(g.signature)}</details>` : `<p class="faint mail-note">Tu Gmail no tiene firma: sale sin firma. Podés pegar una en tu perfil.</p>`}`
+        : g?.readOnly ? `<p class="faint mail-note">Modo solo lectura: desde acá no se envía. Usá «Abrir en Gmail».</p>`
+        : g?.config ? `<p class="faint mail-note">Gmail está mal configurado en el servidor (avisale al administrador). Mientras, usá «Abrir en Gmail».</p>`
+        : confirm ? `<p class="faint mail-note">Tu Gmail (${esc(g.email)}) ya está conectado. En este dispositivo confirmalo una vez con Google y después mandás con un clic.</p>`
+        : g?.enabled ? `<p class="faint mail-note">${g.expired ? "Tu conexión con Gmail venció: conectalo de nuevo. " : ""}Lo conectás una vez y después mandás con un clic, con tu firma. Sale de tu Gmail y queda en Pipedrive y en el historial.</p>`
+        : `<p class="faint mail-note">Para enviar desde acá falta configurar Gmail (lo hace el administrador).</p>`}`;
+    q("#mCopy").onclick = () => copy(q("#mText").value);
+    q("#mGo").onclick = openGmail;
+    q("#mSend")?.addEventListener("click", startSend);
+    q("#mConnect")?.addEventListener("click", async () => {
+      const before = q("#mText").value;
+      const p = connectGmail({ quiet: true }); note = ""; drawAct();
+      const g2 = await p; if (!m.isConnected) return;
+      showErr(canSend(g2) ? "" : g2.error || "");
+      if (canSend(g2)) { note = `Gmail conectado como ${g2.email}. Ya podés enviar.`; check(); }
+      // con firma, la despedida con tu nombre sobra (solo si no la tocaste)
+      if (canSend(g2) && g2.signature && q("#mText").value === before) q("#mText").value = dropSignoff(before);
+      drawAct(); q("#mSend")?.focus();
+    });
+  }
+  drawAct();
+  // en el celular no se abre el teclado de entrada: el foco va a la acción principal
+  if (coarse()) setTimeout(() => (q("#mSend") || q("#mGo"))?.focus(), 0);
+}
+// Después de enviar: Registrar se abre con el mail ya registrado (canal mail y lo enviado) para elegir el próximo paso
+function afterMailSent(s, r, { logAfter, completed }) {
+  if (r.school) patchSchool(r.school);
+  S.today = null; S.agenda = null;
+  if (S.session) S.session.done++;
+  import("./explore.js").then(x => x.refreshExplore());
+  // si ya estabas cargando otro contacto en Registrar (con resultado o comentario), no se pisa: solo el aviso
+  const busy = D.id === s.id && !D.result && !D.form?.mail && (D.form?.outcome || (D.form?.text?.trim() && !D.form?.sent));
+  const warns = (r.done || []).filter(x => x.warn), here = D.id === s.id && logAfter && !busy, pdOk = r.logged?.pipedrive !== false;
+  // con Registrar abierto, lo dice ahí (el aviso flotante taparía el pie); si no, aviso
+  if (!here) { toast(`Mail enviado a ${r.mail.to}${pdOk ? ". Quedó en Pipedrive" : ""}`); if (warns.length) toast(warns.map(x => x.label).join(" "), { type: "err" }); }
+  if (D.id !== s.id) return;
+  if (completed) D.activityId = null;
+  if (here) {
+    // la actividad de la agenda desde la que se abrió la ficha (si el envío no la marcó hecha): se ofrece marcarla
+    const a = !completed && D.activityId ? (D.data?.activities || []).find(x => x.id === D.activityId) : null;
+    const f = newForm();
+    Object.assign(f, { channel: "mail", sent: true, text: `Mandé mail: ${r.mail.subject}`, why: !r.mail.autoNext && !r.mail.pendingNext ? r.suggest?.why || "" : "",
+      mail: { ...r.mail, done: r.done || [], logged: r.logged || null, fallback: r.fallback || null, act: a && a.type !== "meeting" ? { id: a.id, subject: a.subject, type: a.type } : null } });
+    f.completeAct = !!f.mail.act;
+    f.next = mailDefaultNext(f);
+    D.form = f; D.tab = "log"; D.result = null; draw(); toTabs();
+  }
+  // la ficha al día (Historial con el mail, pendientes con el próximo paso)
+  api(`/api/schools/${s.id}`).then(nd => { if (D.id === s.id) { D.data = nd; keepScroll(draw); } }).catch(() => {});
 }
 
 // Ctrl + Enter guarda; en la pantalla de resultado, Enter pasa al siguiente de la sesión. En escritorio, 1 a 8 eligen qué pasó (fuera de los campos de texto).

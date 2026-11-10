@@ -137,7 +137,7 @@ function doneList(redraw, anchor) {
 }
 
 // ---------- detalle: lo trabajado (colegio, cómo, cuándo, resultado, próximo paso), lo salteado y lo que falta
-const outcomeLabel = id => (S.outcomes || []).find(o => o.id === id)?.label || id;
+const outcomeLabel = id => (S.outcomes || []).find(o => o.id === id)?.label || (id === "sent" ? "Mail enviado" : id);
 const teamName = id => (S.team || []).find(u => Number(u.id) === Number(id))?.name || "";
 const lower = t => (t === "WhatsApp" ? t : t.toLowerCase());
 function nextText(n) {

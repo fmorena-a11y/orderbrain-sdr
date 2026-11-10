@@ -6,3 +6,6 @@ data/touches.json
 .env*
 data/extra-schools.json
 data/brain-token.json
+data/gmail.json
+data/mail-prefs.json
+data/mails.json
