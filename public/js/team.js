@@ -187,6 +187,33 @@ async function saveWd() {
     b.querySelector("#wdMsg").innerHTML = `<div class="callout err" style="margin-top:8px">${icon("alert")}<span>${esc(e.message)}</span></div>`;
   }
 }
+// Seguimiento del equipo (solo líderes): lo de cada persona en la semana según Pipedrive. Para acompañar, no para comparar:
+// orden alfabético, sin puestos ni colores de mejor o peor.
+let follow = null, followAt = 0;
+async function loadFollow() { followAt = Date.now(); try { follow = await api("/api/team/follow"); } catch (e) { follow = { error: e.message }; } drawFollow(); }
+const FCOLS = [["calls", "Llamadas"], ["whatsapp", "WhatsApp"], ["mails", "Mails"], ["demosSet", "Demos agendadas"], ["demosDone", "Demos hechas"], ["won", "Tratos ganados"], ["overdue", "Vencidas sin hacer"]];
+function followHtml() {
+  const f = follow;
+  if (!f) return '<div class="skel" style="margin:14px 0"></div>'.repeat(3);
+  if (f.error) return `<div class="callout err">${icon("alert")}<span>No pudimos cargar el seguimiento: ${esc(f.error)}</span><button class="btn sm" id="fwRetry">Reintentar</button></div>`;
+  const dd = d => `${d.slice(8, 10)}/${d.slice(5, 7)}`;
+  const intro = `<p class="faint" style="margin:0 0 10px;font-size:13.5px">Para acompañar a cada uno, no para comparar: va en orden alfabético. Del ${dd(f.from)} al ${dd(f.today)}, desde las actividades y tratos de Pipedrive${f.at ? ` (leído ${esc(ago(f.at))})` : ""}.</p>`;
+  if (!f.people.length) return intro + `<div class="empty">${icon("user")}<span>Nadie del equipo tiene perfil ni actividades esta semana.</span></div>`;
+  const pdLink = id => S.pdWeb ? `${S.pdWeb}/deal/${id}` : "";
+  const alerts = f.people.filter(p => p.noNext);
+  return `${intro}${f.partial ? `<div class="callout warn" style="margin-bottom:10px">${icon("alert")}<span>Pipedrive devolvió demasiado: algunos números pueden quedar cortos.</span></div>` : ""}
+    <div class="follow-wrap"><table class="follow"><thead><tr><th scope="col">Persona</th>${FCOLS.map(([, l]) => `<th scope="col" class="num">${l}</th>`).join("")}</tr></thead>
+      <tbody>${f.people.map(p => `<tr><th scope="row">${esc(p.name)}${p.role ? `<small>${esc(p.role)}</small>` : ""}</th>${FCOLS.map(([k]) => `<td class="num">${p[k]}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+    <h3 style="margin:16px 0 6px;font-size:14px">Tratos abiertos sin próxima actividad</h3>
+    ${alerts.length ? alerts.map(p => `<details class="follow-alert"><summary><b>${esc(p.name)}</b>: ${p.noNext} trato${p.noNext === 1 ? "" : "s"}</summary>
+      <ul>${p.deals.map(d => `<li>${pdLink(d.id) ? `<a href="${esc(pdLink(d.id))}" target="_blank" rel="noopener">${esc(d.title || "Trato " + d.id)}</a>` : esc(d.title || "Trato " + d.id)}${d.since ? ` <small class="faint">quieto desde el ${esc(dd(d.since))}</small>` : ""}</li>`).join("")}${p.noNext > p.deals.length ? `<li class="faint">y ${p.noNext - p.deals.length} más en Pipedrive</li>` : ""}</ul></details>`).join("")
+      : `<p class="faint" style="margin:0;font-size:13.5px">Todos los tratos abiertos tienen una próxima actividad.</p>`}`;
+}
+function drawFollow() {
+  const box = host?.isConnected && host.querySelector("#followBox"); if (!box) return;
+  box.innerHTML = followHtml();
+  box.querySelector("#fwRetry")?.addEventListener("click", () => { follow = null; drawFollow(); loadFollow(); });
+}
 function draw() {
   const t = S.team7;
   const err = (x, what) => `<div class="callout err">${icon("alert")}<span>No pudimos cargar ${what}: ${esc(x.error)}</span><button class="btn sm" data-retry>Reintentar</button></div>`;
@@ -209,7 +236,9 @@ function draw() {
       <section class="card" aria-labelledby="hRk"><div class="card-h"><h2 id="hRk">${icon("video")} Demos de la semana</h2><span class="sub">agendadas desde OrderBrain</span></div><div class="card-b" role="table" aria-label="Ranking del equipo">${rank}</div></section>
       <section class="card" aria-labelledby="hFd"><div class="card-h"><h2 id="hFd">${icon("clock")} Actividad reciente</h2></div><div class="card-b">${feed}</div></section>
     </div>
-    ${S.profile?.leader ? `<section class="card" style="margin-top:16px" aria-labelledby="hAc"><div class="card-h"><h2 id="hAc">${icon("user")} Accesos del equipo</h2><span class="sub">cada persona entra con su email y su código personal</span></div>
+    ${S.profile?.leader ? `<section class="card" style="margin-top:16px" aria-labelledby="hFw"><div class="card-h"><h2 id="hFw">${icon("user")} Seguimiento del equipo</h2><span class="sub">solo lo ven los líderes</span></div>
+      <div class="card-b" id="followBox" aria-live="polite"></div></section>
+    <section class="card" style="margin-top:16px" aria-labelledby="hAc"><div class="card-h"><h2 id="hAc">${icon("user")} Accesos del equipo</h2><span class="sub">cada persona entra con su email y su código personal</span></div>
       <div class="card-b" id="codes">${codes ? codesHtml(codes) : '<div class="skel" style="margin:14px 0"></div>'.repeat(3)}</div></section>
     <section class="card" style="margin-top:16px" aria-labelledby="hSy"><div class="card-h"><h2 id="hSy">${icon("refresh")} Sincronizar con Pipedrive</h2><span class="sub">cruza toda la base de colegios de una vez</span></div>
       <div class="card-b" id="syncBox" aria-live="polite"></div></section>
@@ -219,6 +248,7 @@ function draw() {
   host.querySelectorAll("[data-retry]").forEach(b => b.onclick = () => { S.team7 = null; draw(); refresh(); });
   if (S.profile?.leader && !codes) loadCodes();
   if (S.profile?.leader) { drawSync(); if (!syncing) loadSync(); }
+  if (S.profile?.leader) { drawFollow(); if (Date.now() - followAt > 60e3) loadFollow(); }
   if (S.profile?.leader) { drawWd(); if (!wdBusy && Date.now() - wdAt > 20e3) loadWd(); }
   host.querySelectorAll("[data-invite]").forEach(b => b.onclick = () => {
     const u = codes.users.find(x => String(x.id) === b.dataset.invite); if (!u) return;

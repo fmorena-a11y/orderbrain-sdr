@@ -262,6 +262,7 @@ export function satTile(s, z = 17) {
 export function brainStaleMsg() {
   const b = S.brain; if (!b?.stale || b.down || S.brainDown) return "";
   const d = b.updatedAt ? new Date(b.updatedAt) : null, ok = d && !isNaN(d);
+  if (ok && Date.now() - d.getTime() < 864e5) return ""; // copia de menos de un día: los clientes están al día, no hace falta avisar
   const when = !ok ? "" : d.toLocaleDateString("sv") === today() ? ` de hoy a las ${d.toLocaleTimeString("es", { hour: "2-digit", minute: "2-digit" })}` : ` al ${d.getDate()}/${d.getMonth() + 1}`;
   // si es porque OrderBrain rechazó el token, quién lo arregla (a los líderes se lo dice brainTokenMsg)
   const fix = b.auth && !b.token ? " Un líder tiene que cargar un token nuevo en Equipo." : "";

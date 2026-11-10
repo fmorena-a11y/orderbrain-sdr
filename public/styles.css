@@ -6,7 +6,7 @@
   --accent: #E0153F; --accent-hover: #C70F36; --accent-soft: #FFE8EC; --accent-ink: #B5102F;
   --brand-grad: linear-gradient(90deg, #FF4AA5 0%, #FF160E 100%);
   --ok: #00813A; --ok-soft: #E0F7E7; --warn: #8A5A00; --warn-soft: #FFF5DB; --err: #B91C1C; --err-soft: #FEECEC;
-  --st-new: #007535;   --st-new-bg: #E3F6EA;
+  --st-new: #0E7490;   --st-new-bg: #E0F4F8;
   --st-org: #1D4ED8;   --st-org-bg: #E6EEFF;
   --st-lost: #A15C00;  --st-lost-bg: #FFF1DC; --st-stalled: #4B5E78; --st-stalled-bg: #E7EDF5; --st-churn: #B91C1C; --st-churn-bg: #FEE2E2;
   --st-open: #6D28D9;  --st-open-bg: #F0E9FF;
@@ -26,7 +26,7 @@
     --line: #2A2B30; --line-2: #3A3B41;
     --accent: #E0153F; --accent-hover: #F02A52; --accent-soft: #3A1620; --accent-ink: #FF7A90;
     --ok: #4ADE80; --ok-soft: #12301D; --warn: #FBBF24; --warn-soft: #33270A; --err: #F87171; --err-soft: #3A1515;
-    --st-new: #4ADE80; --st-new-bg: #12301D; --st-org: #7AA2FF; --st-org-bg: #17213D;
+    --st-new: #22D3EE; --st-new-bg: #0B2A33; --st-org: #7AA2FF; --st-org-bg: #17213D;
     --st-lost: #FBBF24; --st-lost-bg: #33270A; --st-stalled: #9FB3CC; --st-stalled-bg: #1E2733; --st-churn: #F87171; --st-churn-bg: #3A1515; --st-open: #B794FF; --st-open-bg: #261A40;
     --st-client: #A1A1AA; --st-client-bg: #26272B; --st-unk: #8A8A93; --st-unk-bg: #222327;
     --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 8px 24px -8px rgb(0 0 0 / .6);
@@ -40,7 +40,7 @@
   --line: #2A2B30; --line-2: #3A3B41;
   --accent: #E0153F; --accent-hover: #F02A52; --accent-soft: #3A1620; --accent-ink: #FF7A90;
   --ok: #4ADE80; --ok-soft: #12301D; --warn: #FBBF24; --warn-soft: #33270A; --err: #F87171; --err-soft: #3A1515;
-  --st-new: #4ADE80; --st-new-bg: #12301D; --st-org: #7AA2FF; --st-org-bg: #17213D;
+  --st-new: #22D3EE; --st-new-bg: #0B2A33; --st-org: #7AA2FF; --st-org-bg: #17213D;
   --st-lost: #FBBF24; --st-lost-bg: #33270A; --st-stalled: #9FB3CC; --st-stalled-bg: #1E2733; --st-churn: #F87171; --st-churn-bg: #3A1515; --st-open: #B794FF; --st-open-bg: #261A40;
   --st-client: #A1A1AA; --st-client-bg: #26272B; --st-unk: #8A8A93; --st-unk-bg: #222327;
   --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 8px 24px -8px rgb(0 0 0 / .6);
@@ -851,3 +851,13 @@ details.agent summary .sub { order: 3; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pot-tag { color: #FCD34D; background: #3A2A06; border-color: #6B4E10; } }
 :root[data-theme="dark"] .pot-tag { color: #FCD34D; background: #3A2A06; border-color: #6B4E10; }
 .d-meta .pot-tag { margin-left: 0; }
+/* Equipo: seguimiento (solo líderes). La tabla se desplaza dentro de la tarjeta, no la página. */
+.follow-wrap { overflow-x: auto; margin: 0 -6px; }
+.follow { width: 100%; border-collapse: collapse; font-size: 14px; }
+.follow th, .follow td { padding: 8px 6px; border-top: 1px solid var(--line); text-align: left; vertical-align: top; }
+.follow thead th { border-top: 0; font-size: 12px; color: var(--muted); font-weight: 600; }
+.follow tbody th { font-weight: 600; min-width: 120px; }
+.follow tbody th small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
+.follow .num { text-align: right; font-variant-numeric: tabular-nums; }
+.follow-alert { padding: 6px 0; border-top: 1px solid var(--line); font-size: 14px; }
+.follow-alert ul { margin: 6px 0 0; padding-left: 20px; line-height: 1.6; }

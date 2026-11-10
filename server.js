@@ -206,6 +206,11 @@ app.get("/api/team/codes", auth, wrap(async (req, res) => {
   const m = await pd.meta();
   res.json({ url: `${req.protocol}://${req.get("host")}`, users: m.users.filter(u => u.email && (!DOMAIN || u.email.endsWith("@" + DOMAIN))).map(u => ({ id: u.id, name: u.name, email: u.email, code: personalCode(u.email) })) });
 }));
+// Seguimiento del equipo (solo líderes): qué hizo cada persona en la semana según Pipedrive, para acompañar (no es un ranking)
+app.get("/api/team/follow", auth, wrap(async (req, res) => {
+  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Solo un líder ve el seguimiento del equipo." });
+  res.json(await sales.teamFollow(req.tz));
+}));
 app.get("/api/team", auth, wrap(async (req, res) => {
   const [m, prs] = await Promise.all([pd.meta(), getProfiles()]);
   res.json(m.users.map(u => { const pr = prs[u.email]; return { id: u.id, name: pr?.name || u.name, role: pr ? ROLES[pr.role] : "" }; }));
