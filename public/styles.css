@@ -128,10 +128,8 @@ textarea.inp { min-height: 88px; resize: vertical; line-height: 1.45; }
 .login-card h1 span { background: var(--brand-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .login-card p { margin: 0; color: var(--muted); }
 .err { color: var(--err); min-height: 1em; font-size: 14px; }
-.logo-mark { width: 30px; height: 30px; border-radius: 9px; background: var(--brand-grad); position: relative; flex: none; }
-.logo-mark::after { content: ""; position: absolute; inset: 8px; border-radius: 50%; border: 3px solid #fff; }
-.logo-mark.lg { width: 56px; height: 56px; border-radius: 16px; }
-.logo-mark.lg::after { inset: 14px; border-width: 5px; }
+.logo-mark { width: 30px; height: 30px; background: url(/ordereat-isotipo.png) center / contain no-repeat; flex: none; }
+.logo-mark.lg { width: 56px; height: 56px; }
 
 /* ---------- estructura
    Escritorio (>1080): menú lateral completo. Tablet y celular apaisado: menú de íconos de 72 px.
@@ -143,7 +141,7 @@ textarea.inp { min-height: 88px; resize: vertical; line-height: 1.45; }
 .rail { grid-area: rail; display: flex; flex-direction: column; gap: 6px; padding: 16px 12px; border-right: 1px solid var(--line); background: var(--surface); min-height: 0; overflow-y: auto; }
 .main { grid-area: main; overflow: auto; min-width: 0; outline: none; }
 .topbar { display: none; }
-.rail-brand { display: flex; align-items: center; gap: 10px; padding: 4px 8px 12px; font-weight: 700; font-size: 17px; }
+.rail-brand { display: flex; align-items: center; gap: 10px; white-space: nowrap; padding: 4px 8px 12px; font-weight: 700; font-size: 17px; }
 .demo-pill { font-size: 11px; font-weight: 700; letter-spacing: .02em; padding: 2px 8px; border-radius: 999px; background: var(--warn-soft); color: var(--warn); cursor: help; }
 .search-trigger { display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 8px 10px; border: 1px solid var(--line-2); border-radius: 10px; background: var(--bg); color: var(--muted); cursor: pointer; margin-bottom: 8px; }
 .search-trigger .lbl { flex: 1; text-align: left; font-size: 14px; }
