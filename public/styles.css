@@ -6,7 +6,7 @@
   --accent: #E0153F; --accent-hover: #C70F36; --accent-soft: #FFE8EC; --accent-ink: #B5102F;
   --brand-grad: linear-gradient(90deg, #FF4AA5 0%, #FF160E 100%);
   --ok: #00813A; --ok-soft: #E0F7E7; --warn: #8A5A00; --warn-soft: #FFF5DB; --err: #B91C1C; --err-soft: #FEECEC;
-  --st-new: #0E7490;   --st-new-bg: #E0F4F8;
+  --st-new: #C026D3;   --st-new-bg: #FAE8FF; --st-new-ink: #A21CAF;
   --st-org: #1D4ED8;   --st-org-bg: #E6EEFF;
   --st-lost: #A15C00;  --st-lost-bg: #FFF1DC; --st-stalled: #4B5E78; --st-stalled-bg: #E7EDF5; --st-churn: #B91C1C; --st-churn-bg: #FEE2E2;
   --st-open: #6D28D9;  --st-open-bg: #F0E9FF;
@@ -27,7 +27,7 @@
     --line: #2A2B30; --line-2: #3A3B41;
     --accent: #E0153F; --accent-hover: #F02A52; --accent-soft: #3A1620; --accent-ink: #FF7A90;
     --ok: #4ADE80; --ok-soft: #12301D; --warn: #FBBF24; --warn-soft: #33270A; --err: #F87171; --err-soft: #3A1515;
-    --st-new: #22D3EE; --st-new-bg: #0B2A33; --st-org: #7AA2FF; --st-org-bg: #17213D;
+    --st-new: #E879F9; --st-new-bg: #3B0A45; --st-new-ink: #E879F9; --st-org: #7AA2FF; --st-org-bg: #17213D;
     --st-lost: #FBBF24; --st-lost-bg: #33270A; --st-stalled: #9FB3CC; --st-stalled-bg: #1E2733; --st-churn: #F87171; --st-churn-bg: #3A1515; --st-open: #B794FF; --st-open-bg: #261A40;
     --st-client: #A1A1AA; --st-client-bg: #26272B; --st-unk: #8A8A93; --st-unk-bg: #222327; --st-arch: #C9A27E; --st-arch-bg: #2E241B;
     --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 8px 24px -8px rgb(0 0 0 / .6);
@@ -41,7 +41,7 @@
   --line: #2A2B30; --line-2: #3A3B41;
   --accent: #E0153F; --accent-hover: #F02A52; --accent-soft: #3A1620; --accent-ink: #FF7A90;
   --ok: #4ADE80; --ok-soft: #12301D; --warn: #FBBF24; --warn-soft: #33270A; --err: #F87171; --err-soft: #3A1515;
-  --st-new: #22D3EE; --st-new-bg: #0B2A33; --st-org: #7AA2FF; --st-org-bg: #17213D;
+  --st-new: #E879F9; --st-new-bg: #3B0A45; --st-new-ink: #E879F9; --st-org: #7AA2FF; --st-org-bg: #17213D;
   --st-lost: #FBBF24; --st-lost-bg: #33270A; --st-stalled: #9FB3CC; --st-stalled-bg: #1E2733; --st-churn: #F87171; --st-churn-bg: #3A1515; --st-open: #B794FF; --st-open-bg: #261A40;
   --st-client: #A1A1AA; --st-client-bg: #26272B; --st-unk: #8A8A93; --st-unk-bg: #222327; --st-arch: #C9A27E; --st-arch-bg: #2E241B;
   --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 8px 24px -8px rgb(0 0 0 / .6);
@@ -106,7 +106,7 @@ textarea.inp { min-height: 88px; resize: vertical; line-height: 1.45; }
 
 .pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; font-size: 12.5px; font-weight: 600; white-space: nowrap; }
 .pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
-.pill.new { color: var(--st-new); background: var(--st-new-bg); }
+.pill.new { color: var(--st-new-ink, var(--st-new)); background: var(--st-new-bg); }
 .pill.org { color: var(--st-org); background: var(--st-org-bg); }
 .pill.lost { color: var(--st-lost); background: var(--st-lost-bg); }
 .pill.stalled { color: var(--st-stalled); background: var(--st-stalled-bg); }
