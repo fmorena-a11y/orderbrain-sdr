@@ -134,6 +134,8 @@ export const PH = {
 };
 export const statusPill = s => s?.phase && PH[s.phase] ? `<span class="pill ph-${s.phase}">${s.phase === "churn" && s.ob?.label ? s.ob.label : PH[s.phase].l}</span>` : pill(s?.status);
 // etiqueta chica de dónde está en Pipedrive: «Prospecto» (tiene prospecto abierto) o «Trato» (tiene trato abierto)
+// distintivo «Alto potencial» (datos reales del colegio; los motivos van al pasar el mouse)
+export const potTag = s => s?.pot?.length ? `<span class="pot-tag" title="${esc("Alto potencial: " + s.pot.join(" · "))}">${icon("flame", "sm")} Alto potencial</span>` : "";
 export const stageTag = s => s?.status === "open" ? `<span class="stage-tag deal" title="Tiene un trato abierto en Pipedrive">Trato</span>` : s?.lead ? `<span class="stage-tag lead" title="Tiene un prospecto abierto en Pipedrive">Prospecto</span>` : "";
 export const dotColor = (s, colors) => s.phase && PH[s.phase] ? PH[s.phase].dot : colors[s.status];
 
@@ -243,8 +245,23 @@ export function brainStaleMsg() {
   const b = S.brain; if (!b?.stale || b.down || S.brainDown) return "";
   const d = b.updatedAt ? new Date(b.updatedAt) : null, ok = d && !isNaN(d);
   const when = !ok ? "" : d.toLocaleDateString("sv") === today() ? ` de hoy a las ${d.toLocaleTimeString("es", { hour: "2-digit", minute: "2-digit" })}` : ` al ${d.getDate()}/${d.getMonth() + 1}`;
-  return `Clientes de World Dominion${when || " de una copia guardada"}: puede faltar alguno nuevo. Revisá en Pipedrive antes de llamar.`;
+  // si es porque OrderBrain rechazó el token, quién lo arregla (a los líderes se lo dice brainTokenMsg)
+  const fix = b.auth && !b.token ? " Un líder tiene que cargar un token nuevo en Equipo." : "";
+  return `Clientes de World Dominion${when || " de una copia guardada"}: puede faltar alguno nuevo. Revisá en Pipedrive antes de llamar.${fix}`;
 }
+// Aviso del token de World Dominion para líderes (/api/brain lo manda en token solo a ellos): [tipo, texto] o null
+export function brainTokenMsg() {
+  const t = S.brain?.token; if (!t) return null;
+  if (t.missing) return ["warn", "Falta el token de World Dominion: la app no sabe qué colegios ya son clientes. Cargalo en Equipo."];
+  if (t.rejected) return ["err", "World Dominion rechazó el token: cargá uno nuevo en Equipo."];
+  if (t.expiry === "expired") return ["err", "El token de World Dominion venció: cargá uno nuevo en Equipo."];
+  const h = (new Date(t.exp) - Date.now()) / 36e5, d = Math.round(h / 24);
+  return ["warn", `El token de World Dominion vence ${h < 1 ? "en menos de una hora" : h < 24 ? `en ${Math.round(h)} h` : `en ${d} día${d === 1 ? "" : "s"}`}: cargá uno nuevo en Equipo.`];
+}
+export const brainTokenCallout = (style = "margin-bottom:16px") => {
+  const m = brainTokenMsg(); if (!m) return "";
+  return `<div class="callout ${m[0]}" style="${style}">${icon("alert")}<span>${esc(m[1])} <a href="#/equipo">Ir a Equipo</a></span></div>`;
+};
 export const mapsSearch = s => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + " " + s.city)}`;
 
 // ---------- piezas de interfaz

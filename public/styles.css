@@ -557,6 +557,11 @@ button.feed-item { cursor: pointer; border-radius: 0; }
 @keyframes shimmer { to { background-position: -200% 0; } }
 .spin { width: 16px; height: 16px; border-radius: 50%; border: 2px solid currentColor; border-right-color: transparent; animation: rot .7s linear infinite; display: inline-block; }
 @keyframes rot { to { transform: rotate(360deg); } }
+/* barra de avance (sincronización): con total, el ancho; sin total, una franja que va y viene */
+.prog { height: 8px; border-radius: 99px; background: var(--surface-2); overflow: hidden; position: relative; }
+.prog > div { height: 100%; background: var(--accent); transition: width .4s; }
+.prog.ind > div { width: 35%; position: absolute; left: 0; animation: ind 1.4s ease-in-out infinite; }
+@keyframes ind { from { transform: translateX(-100%); } to { transform: translateX(290%); } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 
 /* ---------- fotos */
@@ -834,3 +839,10 @@ details.agent summary .sub { order: 3; }
 .stage-tag.deal { color: var(--st-open); }
 .stage-tag.lead { color: var(--st-org); }
 .d-meta .stage-tag { margin-left: 0; }
+
+/* alto potencial: se ve, pero no grita */
+.pot-tag { display: inline-flex; align-items: center; gap: 3px; vertical-align: middle; margin-left: 6px; padding: 1px 7px 1px 5px; border-radius: 999px; font-size: 11px; font-weight: 700; color: #9A5B00; background: #FFF3D6; border: 1px solid #F5D48A; cursor: help; }
+.pot-tag .ico { width: 12px; height: 12px; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pot-tag { color: #FCD34D; background: #3A2A06; border-color: #6B4E10; } }
+:root[data-theme="dark"] .pot-tag { color: #FCD34D; background: #3A2A06; border-color: #6B4E10; }
+.d-meta .pot-tag { margin-left: 0; }

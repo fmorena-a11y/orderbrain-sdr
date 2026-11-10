@@ -7,7 +7,7 @@ import { fileURLToPath } from "url";
 import * as pd from "./lib/pipedrive.js";
 import { kv, key as kvKey, schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId, hiddenOsm, dropOsm, getProfile, setProfile, getProfiles, ROLES } from "./lib/store.js";
 import * as scan from "./lib/scan.js";
-import { ensureBrain, brainState, brainDown, brainAdmin, saveBrainToken } from "./lib/brain.js";
+import { ensureBrain, brainState, brainDown, brainAdmin, saveBrainToken, brainTokenAlert } from "./lib/brain.js";
 import { verifyCandidates, enrichSources } from "./lib/enrich.js";
 import { research, studyEnabled, studyToHtml } from "./lib/study.js";
 import * as sales from "./lib/sales.js";
@@ -214,10 +214,11 @@ app.get("/api/team", auth, wrap(async (req, res) => {
 // ---------- sincronización masiva con Pipedrive (lib/sync.js). Solo lee de Pipedrive: corre también con READ_ONLY=1.
 // Cuántos colegios hay en cada estado (lo mismo que ve la lista: World Dominion manda, «unk» = sin revisar)
 const stateCounts = () => { const c = {}; for (const s of schools) { const st = sales.schoolListItem(s).status; c[st] = (c[st] || 0) + 1; } return c; };
-const syncView = async r => ({ ...r, counts: stateCounts(), total: schools.length });
+// cron: hay CRON_SECRET (el cron diario sigue lo que quede en pausa)
+const syncView = async r => ({ ...r, counts: stateCounts(), total: schools.length, cron: !!process.env.CRON_SECRET });
 app.get("/api/admin/sync", auth, wrap(async (req, res) => {
   if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Solo un líder sincroniza con Pipedrive." });
-  res.json(await syncView(await psync.status()));
+  res.json(await syncView(await psync.status(req.session.user.name || req.session.user.email)));
 }));
 // Hace un paso (hasta ~40 s) y devuelve el progreso; el navegador lo repite hasta terminar.
 app.post("/api/admin/sync", auth, wrap(async (req, res) => {
@@ -535,7 +536,12 @@ app.get("/api/radar", auth, (req, res) => {
     topCities: [...byCity].sort((a, b) => b[1] - a[1]).slice(0, 10).map(([k, n]) => { const [city, country] = k.split("|"); return { city, country, n }; }), top, google: googleEnabled(), ai: ai.aiEnabled() });
 });
 // OrderBrain general: sitios de World Dominion (clientes de OrderEAT) para el mapa.
-app.get("/api/brain", auth, (req, res) => res.json(brainState()));
+// a los líderes, además, si el token de World Dominion falta, venció, vence pronto o lo rechazaron (sin el token)
+app.get("/api/brain", auth, wrap(async (req, res) => {
+  const out = brainState();
+  if (await isLeader(req.session.user.email)) out.token = await brainTokenAlert();
+  res.json(out);
+}));
 app.get("/api/feed", auth, wrap(async (req, res) => res.json(await sales.teamFeed())));
 app.get("/api/stats", auth, (req, res) => res.json(sales.stats(req.session.user, req.tz)));
 

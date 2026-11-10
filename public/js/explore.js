@@ -1,12 +1,12 @@
 // Prospectar: lista por país y ciudad + mapa, con cruce contra Pipedrive y sesión de llamadas.
-import { S, api, esc, norm, icon, pill, statusPill, stageTag, dotColor, PH, ST, cssVar, patchSchool, toast, ago, shortDay, scroller, brainStaleMsg, callPill } from "./core.js";
+import { S, api, esc, norm, icon, pill, statusPill, stageTag, potTag, dotColor, PH, ST, cssVar, patchSchool, toast, ago, shortDay, scroller, brainStaleMsg, brainTokenCallout, callPill } from "./core.js";
 import { openSchool, startSession } from "./school.js";
 import { baseErrorCallout } from "./app.js";
 
 const E = S.explore;
 // «Para llamar»: todo lo que no es cliente ni está en proceso (incluye los que todavía no se cruzaron con Pipe).
 const CALLABLE = ["new", "org", "stalled", "lost", "unk"];
-const FILTERS = [["prospect", "Para llamar"], ["new", "Nunca contactado"], ["org", "En Pipe sin trato"], ["stalled", "Contactado sin avance"], ["lost", "Perdido"], ["unk", "Sin revisar"], ["open", "En proceso"], ["churn", "Churn"], ["client", "Cliente"], ["all", "Todos"]];
+const FILTERS = [["prospect", "Para llamar"], ["pot", "Alto potencial"], ["new", "Nunca contactado"], ["org", "En Pipe sin trato"], ["stalled", "Contactado sin avance"], ["lost", "Perdido"], ["unk", "Sin revisar"], ["open", "En proceso"], ["churn", "Churn"], ["client", "Cliente"], ["all", "Todos"]];
 const RANK = { new: 0, org: 1, stalled: 2, lost: 3, unk: 4, open: 5, churn: 6, client: 7 };
 // Colores fijos para los círculos de ciudad: el número en blanco se lee igual en modo claro y oscuro.
 const CITY = { pros: "#00813A", unk: "#6B6B73", none: "#3F3F46" };
@@ -20,8 +20,8 @@ const searchList = () => { const q = norm(E.q); return S.schools.filter(s => (!E
 // de otra persona: la organización en Pipedrive tiene otro dueño (cada uno trabaja lo suyo)
 export const othersOwn = s => !!(s.ownerId && S.me?.pdUserId && s.ownerId !== S.me.pdUserId);
 const canCall = s => CALLABLE.includes(s.status) && !othersOwn(s);
-const applyFilter = a => E.filter === "prospect" ? a.filter(canCall) : E.filter === "all" ? a : a.filter(s => s.status === E.filter);
-const sortS = a => a.sort((x, y) => RANK[x.status] - RANK[y.status] || (x.attempts || 0) - (y.attempts || 0) || x.name.localeCompare(y.name));
+const applyFilter = a => E.filter === "prospect" ? a.filter(canCall) : E.filter === "pot" ? a.filter(s => s.pot && canCall(s)) : E.filter === "all" ? a : a.filter(s => s.status === E.filter);
+const sortS = a => a.sort((x, y) => (canCall(y) && y.pot ? 1 : 0) - (canCall(x) && x.pot ? 1 : 0) || RANK[x.status] - RANK[y.status] || (x.attempts || 0) - (y.attempts || 0) || x.name.localeCompare(y.name));
 // Lugar buscado (país, provincia, ciudad, barrio o dirección): la lista y el mapa muestran solo lo que está ADENTRO
 // de su contorno real (o de un círculo chico si el lugar es un punto), del más cercano al más lejano.
 const kmTo = (a, b) => { const R = 6371, r = x => x * Math.PI / 180; const h = Math.sin(r(b.lat - a.lat) / 2) ** 2 + Math.cos(r(a.lat)) * Math.cos(r(b.lat)) * Math.sin(r(b.lng - a.lng) / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(h)); };
@@ -51,7 +51,8 @@ function placeList() {
     } else { const d = kmTo(s, c); if (d > (p.radius || 3)) continue; s._d = d; }
     list.push(s);
   }
-  list.sort((a, b) => a._d - b._d);
+  // primero los de alto potencial que se pueden llamar, después por cercanía
+  list.sort((a, b) => (canCall(b) && b.pot ? 1 : 0) - (canCall(a) && a.pot ? 1 : 0) || a._d - b._d);
   pm = { p, n: S.schools.length, list };
   return list;
 }
@@ -175,7 +176,7 @@ function drawFilters() {
   const b = base();
   if ((!E.city && !E.q && !placeMode()) || !b.length || placeGrouped()) { f.innerHTML = ""; return; }
   const cnt = {}; b.forEach(s => cnt[s.status] = (cnt[s.status] || 0) + 1);
-  cnt.prospect = b.filter(canCall).length; cnt.all = b.length;
+  cnt.prospect = b.filter(canCall).length; cnt.all = b.length; cnt.pot = b.filter(s => s.pot && canCall(s)).length;
   f.innerHTML = FILTERS.filter(([k]) => k === "prospect" || k === "all" || cnt[k]).map(([k, l]) => `<button class="chip" data-f="${k}" aria-pressed="${E.filter === k}">${ST[k] ? `<span class="sdot" style="background:var(${ST[k].c})"></span>` : ""}${l} <b>${fmt(cnt[k] || 0)}</b></button>`).join("");
   f.querySelectorAll("button").forEach(b => b.onclick = () => { E.filter = b.dataset.f; shown = PAGE; drawAll(); toTop(); });
 }
@@ -191,7 +192,7 @@ function schoolRow(s) {
   if (s.attempts) bits.push(`${s.attempts} intento${s.attempts > 1 ? "s" : ""}`);
   if (!s.phone) bits.push("sin teléfono");
   const single = E.filter !== "prospect" && E.filter !== "all";
-  return `<button class="school-row" data-id="${esc(s.id)}"><span class="t"><b>${esc(s.name)}${stageTag(s) ? ` ${stageTag(s)}` : ""}</b>${bits.length ? `<small>${esc(bits.join(" · "))}</small>` : ""}${CALLABLE.includes(s.status) && !othersOwn(s) && !s.phase ? callPill(s) : ""}</span>${othersOwn(s) && CALLABLE.includes(s.status) ? `<span class="pill owner" title="Su organización en Pipedrive es de ${esc(s.ownerName || "otra persona")}">De ${esc((s.ownerName || "otra persona").split(" ")[0])}</span>` : single && !s.phase ? `<span class="sdot" title="${ST[s.status].l}" style="background:var(${ST[s.status].c})"></span>` : statusPill(s)}</button>`;
+  return `<button class="school-row" data-id="${esc(s.id)}"><span class="t"><b>${esc(s.name)}${stageTag(s) ? ` ${stageTag(s)}` : ""}${canCall(s) && potTag(s) ? ` ${potTag(s)}` : ""}</b>${bits.length ? `<small>${esc(bits.join(" · "))}</small>` : ""}${CALLABLE.includes(s.status) && !othersOwn(s) && !s.phase ? callPill(s) : ""}</span>${othersOwn(s) && CALLABLE.includes(s.status) ? `<span class="pill owner" title="Su organización en Pipedrive es de ${esc(s.ownerName || "otra persona")}">De ${esc((s.ownerName || "otra persona").split(" ")[0])}</span>` : single && !s.phase ? `<span class="sdot" title="${ST[s.status].l}" style="background:var(${ST[s.status].c})"></span>` : statusPill(s)}</button>`;
 }
 function checkCallout(list) {
   const unk = list.filter(s => s.status === "unk").length;
@@ -403,4 +404,4 @@ function csv() {
 // fit:false = no mover el mapa (por ejemplo, mientras corre una búsqueda en segundo plano).
 export function refreshExplore({ fit = true } = {}) { if (host?.isConnected) drawAll({ fit }); }
 // Aviso de OrderBrain caído (sin datos de clientes): los clientes pueden aparecer para llamar.
-export const brainWarn = () => S.brainDown || S.brain?.down ? `<div class="callout warn">${icon("alert")}<span>No pudimos leer los clientes de World Dominion (${esc(S.brain?.error || "OrderBrain no respondió")}). Hasta que vuelva, revisá en Pipedrive antes de llamar.</span></div>` : brainStaleMsg() ? `<div class="callout warn">${icon("alert")}<span>${esc(brainStaleMsg())}</span></div>` : "";
+export const brainWarn = () => brainTokenCallout("") + (S.brainDown || S.brain?.down ? `<div class="callout warn">${icon("alert")}<span>No pudimos leer los clientes de World Dominion (${esc(S.brain?.error || "OrderBrain no respondió")}). Hasta que vuelva, revisá en Pipedrive antes de llamar.</span></div>` : brainStaleMsg() ? `<div class="callout warn">${icon("alert")}<span>${esc(brainStaleMsg())}</span></div>` : "");

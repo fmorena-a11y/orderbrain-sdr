@@ -1,5 +1,5 @@
 // OrderBrain SDR · arranque, navegación, cuenta, búsqueda rápida y atajos.
-import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, statusPill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo, modal, toast } from "./core.js";
+import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, statusPill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo, modal, toast, brainTokenMsg } from "./core.js";
 import { renderToday } from "./today.js";
 import { renderExplore } from "./explore.js";
 import { renderAgenda } from "./agenda.js";
@@ -81,7 +81,7 @@ async function loadBase() {
   try {
     // clientes de World Dominion: se piden junto con la base (el mapa y Hoy los usan)
     S.brainP ??= api("/api/brain").catch(() => ({ enabled: false }));
-    S.brainP.then(b => { S.brain = b; });
+    S.brainP.then(b => { S.brain = b; brainBadge(); });
     const [schools, team] = await Promise.all([api("/api/schools"), api("/api/team").catch(() => [])]);
     setSchools(schools); S.team = team; S.baseError = null;
   } catch (e) { S.baseError = e.message; }
@@ -151,11 +151,14 @@ function renderNav() {
   $("nav").innerHTML = Object.entries(VIEWS).map(([k, v], i) => `<button class="nav-item" data-v="${k}" title="${v.label} (${i + 1})" aria-keyshortcuts="${i + 1}" ${S.view === k ? 'aria-current="page"' : ""}>${icon(v.icon)}<span class="lbl">${v.label}</span></button>`).join("");
   $("nav").querySelectorAll("[data-v]").forEach(b => b.onclick = () => { go(b.dataset.v); $("main").focus({ preventScroll: true }); });
 }
-export function setBadge(view, n) {
+// n: cantidad pendiente, o "!" con label (un aviso)
+export function setBadge(view, n, label = "") {
   const b = $("nav").querySelector(`[data-v="${view}"]`); if (!b) return;
   b.querySelector(".badge")?.remove();
-  if (n) b.insertAdjacentHTML("beforeend", `<span class="badge" aria-label="${n} pendientes">${n > 99 ? "99+" : n}</span>`);
+  if (n) b.insertAdjacentHTML("beforeend", `<span class="badge" aria-label="${esc(label || `${n} pendientes`)}" title="${esc(label)}">${n > 99 ? "99+" : n}</span>`);
 }
+// a los líderes: un punto en Equipo si el token de World Dominion falta, vence o lo rechazaron
+export const brainBadge = () => setBadge("equipo", S.brain?.token ? "!" : 0, brainTokenMsg()?.[1] || "");
 export function go(view) { if (location.hash !== "#/" + view) location.hash = "#/" + view; else route(); }
 function route() {
   closeMenu();

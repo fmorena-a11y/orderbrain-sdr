@@ -1,6 +1,7 @@
 // Equipo: ranking de los últimos 7 días y actividad reciente.
 import { S, api, esc, icon, ago, copy, toast, pill, setSchools, ST } from "./core.js";
 import { openSchool } from "./school.js";
+import { brainBadge } from "./app.js";
 
 let host;
 const CH_ICON = { call: "phone", whatsapp: "whatsapp", mail: "mail", visit: "user" };
@@ -25,54 +26,84 @@ const codesHtml = c => c.error ? `<div class="callout err">${icon("alert")}<span
   : `<div class="codes">${c.users.map(u => `<div class="code-row"><span class="t"><b>${esc(u.name)}</b><small>${esc(u.email)}</small></span><code>${esc(u.code)}</code><button class="btn sm" data-invite="${u.id}">${icon("copy", "sm")} Copiar invitación</button></div>`).join("")}</div>`;
 // Sincronizar con Pipedrive (solo líderes): cruza toda la base de una vez. El servidor trabaja ~40 s por pedido y
 // el navegador repite hasta terminar; «Pausar» deja de pedir (lo hecho queda guardado y se sigue después).
-let sync = null, syncing = false, pausing = false;
+// Si la está siguiendo otra pestaña, otro líder o el cron (sync.active), no se ofrece «Seguir»: se mira cada 5 s.
+let sync = null, syncing = false, pausing = false, starting = false, askFull = false, pollT = 0;
 const fmt = n => Number(n || 0).toLocaleString("es-MX");
 const ORDER = ["unk", "new", "org", "stalled", "lost", "open", "churn", "client", "lead"];
-async function loadSync() { try { sync = await api("/api/admin/sync"); } catch (e) { sync = { error: { message: e.message } }; } drawSync(); }
+async function loadSync() {
+  try { sync = await api("/api/admin/sync"); } catch (e) { sync = { error: { message: e.message } }; }
+  drawSync();
+  clearTimeout(pollT);
+  if (sync?.active && !syncing) pollT = setTimeout(() => { if (host?.isConnected && !syncing) loadSync(); }, 5000);
+}
+// Sin total conocido (la primera completa, o una incremental) la barra va y viene: un % fijo parece trabado.
 function progress(j) {
-  if (j.phase === "orgs") return { text: `Leyendo organizaciones de Pipedrive: ${fmt(j.orgs)}${j.approxOrgs && j.mode === "full" ? ` de unas ${fmt(j.approxOrgs)}` : ""}`, pct: j.approxOrgs && j.mode === "full" ? Math.min(60, j.orgs / j.approxOrgs * 60) : null };
-  if (j.phase === "deals") return { text: `Leyendo tratos: ${fmt(j.deals)}`, pct: 65 };
+  if (j.phase === "orgs") { const tot = j.mode === "full" ? j.approxOrgs : null; return { text: `Leyendo organizaciones de Pipedrive: ${fmt(j.orgs)}${tot ? ` de unas ${fmt(tot)}` : ""}`, pct: tot ? Math.min(60, j.orgs / tot * 60) : null }; }
+  if (j.phase === "deals") { const tot = j.mode === "full" ? j.approxDeals : null; return { text: `Leyendo tratos: ${fmt(j.deals)}${tot ? ` de unos ${fmt(tot)}` : ""}`, pct: tot ? 60 + Math.min(10, j.deals / tot * 10) : null }; }
   return { text: `Cruzando colegios: ${fmt(j.done)} de ${fmt(j.total)}`, pct: 70 + Math.min(30, j.done / Math.max(1, j.total) * 30) };
+}
+// Qué dejó la última: lo que cambió de verdad (estado, organización o fase), lo revisado por primera vez y lo que no se tocó.
+// Las reescrituras de mantenimiento (para que el cruce no venza) no se cuentan.
+function lastHtml(last) {
+  const when = `Última: ${esc(ago(last.finishedAt))} (${last.mode === "full" ? "completa" : "solo cambios"})`;
+  if (last.changed === undefined) return `${when} · ${fmt(last.written)} colegios revisados`; // de antes de contar cambios
+  const to = Object.entries(last.to || {}).sort((x, y) => y[1] - x[1]).map(([k, n]) => `${fmt(n)} a ${esc(ST[k]?.l || k)}`);
+  const parts = [];
+  if (last.changed) parts.push(`<b>${fmt(last.changed)} cambiaron</b>${to.length ? `: ${to.join(", ")}` : ""}`);
+  if (last.first) parts.push(`${fmt(last.first)} revisados por primera vez`);
+  if (!last.changed && !last.first) parts.push("sin cambios");
+  if (last.skipped) parts.push(`${fmt(last.skipped)} sin tocar (revisados recién o elegidos a mano)`);
+  return `${when} · ${parts.join(" · ")}`;
 }
 function syncHtml() {
   if (!sync) return '<div class="skel" style="margin:14px 0"></div>'.repeat(2);
   const j = sync.job, last = sync.last, c = sync.counts || {};
-  const p = j ? progress(j) : null;
-  const lastTxt = last ? `Última: ${esc(ago(last.finishedAt))} (${last.mode === "full" ? "completa" : "solo cambios"}) · ${fmt(last.written)} colegios actualizados${last.skipped ? `, ${fmt(last.skipped)} sin tocar (revisados recién o elegidos a mano)` : ""}` : "Todavía no se sincronizó: cada colegio se revisa recién cuando alguien abre su ficha.";
+  const other = !syncing && !!sync.active; // la está siguiendo otra pestaña, otro líder o el cron
+  const p = j ? progress(j) : starting ? { text: "Empezando…", pct: null } : null;
+  const who = a => a?.by === "cron" ? "el cron diario" : a?.by || "otra pestaña";
+  const state = syncing || starting ? "" : other ? ` · la está siguiendo ${esc(who(sync.active))}` : " · quedó en pausa";
   const counts = ORDER.filter(k => c[k]).map(k => `<span class="sync-count">${pill(k)}<b>${fmt(c[k])}</b></span>`).join("");
+  const bar = p ? `<div class="prog${p.pct == null ? " ind" : ""}" role="progressbar" aria-label="Progreso" ${p.pct != null ? `aria-valuenow="${Math.round(p.pct)}" aria-valuemin="0" aria-valuemax="100"` : ""}><div ${p.pct != null ? `style="width:${p.pct}%"` : ""}></div></div>` : "";
+  const hint = syncing || starting || other ? `<small class="faint" style="display:block;margin-top:4px">Tarda unos minutos. Si cerrás la pestaña queda en pausa y la seguís después${sync.cron ? " (o la sigue el cron diario)" : ""}.</small>` : "";
+  const buttons = syncing || starting ? `<button class="btn" id="syncPause" ${pausing ? "disabled" : ""}>${pausing ? "Pausando…" : "Pausar"}</button>`
+    : other ? `<button class="btn" id="syncLook">${icon("refresh", "sm")} Ver cómo va</button>`
+    : askFull ? `<div class="callout warn" style="flex-basis:100%">${icon("alert")}<span>Vuelve a leer todo Pipedrive. Tarda unos minutos.${j ? " Lo avanzado en la que quedó a medias se descarta." : ""}</span></div>
+        <button class="btn primary" id="syncFullYes">Sí, rehacer</button><button class="btn ghost" id="syncFullNo">Cancelar</button>`
+    : `<button class="btn primary" id="syncGo">${icon("refresh", "sm")} ${j ? "Seguir" : "Sincronizar con Pipedrive"}</button>${j || last ? `<button class="btn ghost" id="syncFull" title="Vuelve a leer todas las organizaciones y tratos">Rehacer desde cero</button>` : ""}`;
   return `
     ${sync.error ? `<div class="callout err" style="margin-bottom:10px">${icon("alert")}<span>${esc(sync.error.message)}</span></div>` : ""}
-    ${j ? `<div style="margin:4px 0 12px"><p style="margin:0 0 6px">${esc(p.text)}${syncing ? "" : " · quedó en pausa"}</p>
-      <div style="height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden" role="progressbar" aria-label="Progreso" ${p.pct != null ? `aria-valuenow="${Math.round(p.pct)}" aria-valuemin="0" aria-valuemax="100"` : ""}><div style="height:100%;width:${p.pct ?? 8}%;background:var(--accent);transition:width .4s"></div></div>
-      <small class="faint">${j.mode === "full" ? "Completa" : "Solo lo cambiado desde la última"}${j.by ? ` · la empezó ${esc(j.by === "cron" ? "el cron diario" : j.by)}` : ""}${sync.busy ? " · hay otro paso corriendo, espero…" : ""}</small></div>` : ""}
-    <p class="faint" style="margin:0 0 10px;font-size:13.5px">${lastTxt}</p>
+    ${p ? `<div style="margin:4px 0 12px"><p style="margin:0 0 6px">${esc(p.text)}${j ? state : ""}</p>${bar}
+      ${j ? `<small class="faint">${j.mode === "full" ? "Completa" : "Solo lo cambiado desde la última"}${j.by ? ` · la empezó ${esc(j.by === "cron" ? "el cron diario" : j.by)}` : ""}${sync.busy ? " · hay otro paso corriendo, espero…" : ""}</small>` : ""}${hint}</div>` : ""}
+    ${last ? `<p class="faint" style="margin:0 0 10px;font-size:13.5px">${lastHtml(last)}</p>`
+      : !p ? `<p class="faint" style="margin:0 0 10px;font-size:13.5px">Todavía no se sincronizó: cada colegio se revisa recién cuando alguien abre su ficha.</p>` : ""}
     <div style="display:flex;flex-wrap:wrap;gap:8px 14px;margin:0 0 14px">${counts}</div>
-    <div style="display:flex;flex-wrap:wrap;gap:8px">
-      ${syncing ? `<button class="btn" id="syncPause" ${pausing ? "disabled" : ""}>${pausing ? "Pausando…" : "Pausar"}</button>`
-        : `<button class="btn primary" id="syncGo">${icon("refresh", "sm")} ${j ? "Seguir" : "Sincronizar con Pipedrive"}</button>${!j && last ? `<button class="btn ghost" id="syncFull" title="Vuelve a leer todas las organizaciones y tratos">Rehacer desde cero</button>` : ""}`}
-    </div>`;
+    <div style="display:flex;flex-wrap:wrap;gap:8px">${buttons}</div>`;
 }
 function drawSync() {
   const box = host?.isConnected && host.querySelector("#syncBox"); if (!box) return;
   box.innerHTML = syncHtml();
   box.querySelector("#syncGo")?.addEventListener("click", () => runSync(false));
-  box.querySelector("#syncFull")?.addEventListener("click", () => runSync(true));
+  box.querySelector("#syncFull")?.addEventListener("click", () => { askFull = true; drawSync(); });
+  box.querySelector("#syncFullYes")?.addEventListener("click", () => { askFull = false; runSync(true); });
+  box.querySelector("#syncFullNo")?.addEventListener("click", () => { askFull = false; drawSync(); });
+  box.querySelector("#syncLook")?.addEventListener("click", () => loadSync());
   box.querySelector("#syncPause")?.addEventListener("click", () => { pausing = true; drawSync(); });
 }
 async function runSync(full) {
   if (syncing) return;
-  syncing = true; pausing = false; drawSync();
+  clearTimeout(pollT);
+  syncing = true; pausing = false; starting = !sync?.job; drawSync();
   let first = true;
   try {
     while (!pausing) {
-      sync = await api("/api/admin/sync", { body: { full: first && full } }); first = false;
+      sync = await api("/api/admin/sync", { body: { full: first && full } }); first = false; starting = false;
       drawSync();
       if (sync.error || !sync.running) break;
       if (sync.busy) await new Promise(r => setTimeout(r, 4000));
     }
   } catch (e) { sync = { ...(sync || {}), error: { message: e.message } }; }
   const done = !sync?.running && !sync?.error;
-  syncing = false; pausing = false; drawSync();
+  syncing = false; pausing = false; starting = false; drawSync();
   if (done) {
     toast("Listo: la base quedó cruzada con Pipedrive");
     try { setSchools(await api("/api/schools")); } catch {} // la lista y el mapa con los estados nuevos
@@ -89,17 +120,20 @@ function wdHtml() {
   if (!wd) return '<div class="skel" style="margin:14px 0"></div>'.repeat(2);
   if (wd.fail) return `<div class="callout err">${icon("alert")}<span>${esc(wd.fail)}</span><button class="btn sm" id="wdRetry">Reintentar</button></div>`;
   const which = wd.source === "env" ? "El token de Vercel" : "El token", lr = wd.lastRead;
+  // OrderBrain lo rechazó: eso manda sobre la fecha del token (que puede decir que todavía no venció)
+  const rejected = !!(lr && !lr.ok && lr.auth);
   const notes = [];
-  if (wd.expiry === "expired") notes.push(["err", `${which} venció el ${fWhen(wd.exp)}. Pegá uno nuevo abajo.`]);
+  if (rejected) notes.push(["err", `OrderBrain ya no acepta ${which === "El token" ? "este token" : "el token de Vercel"}${wd.exp && wd.expiry !== "expired" ? ` (aunque su fecha dice que vence el ${fDay(wd.exp)})` : ""}. Pegá uno nuevo abajo.`]);
+  else if (wd.expiry === "expired") notes.push(["err", `${which} venció el ${fWhen(wd.exp)}. Pegá uno nuevo abajo.`]);
   else if (wd.expiry === "soon") notes.push(["warn", `${which} vence ${until(wd.exp)} (${fWhen(wd.exp)}). Conviene cargar uno nuevo antes.`]);
   if (wd.loaded && !wd.loaded.inUse) notes.push(["warn", `El token que cargó ${wd.loaded.by || "un líder"} venció: se usa el de Vercel.`]);
   const here = t => String(t || "").replace(/ Un líder puede cargar uno nuevo en Equipo\.$/, ""); // ya está en Equipo
-  if (lr && !lr.ok) notes.push(["err", `La última lectura falló (${ago(lr.at)}): ${here(lr.error)}`]);
+  if (lr && !lr.ok && !rejected) notes.push(["err", `La última lectura falló (${ago(lr.at)}): ${here(lr.error)}`]);
   else if (!lr && wd.error) notes.push(["err", here(wd.error)]);
   if (!wd.source && !wd.demo) notes.push(["warn", "Sin token: la app no sabe qué colegios ya son clientes. Pegá uno abajo."]);
   const tokTxt = wd.source === "app" ? `Token cargado por <b>${esc(wd.loaded.by || "un líder")}</b> el ${esc(fDay(wd.loaded.at))}`
     : wd.source === "env" ? "Token de Vercel (BRAIN_TOKEN)" : "";
-  const expTxt = !wd.source ? "" : wd.exp ? ` · ${wd.expiry === "expired" ? "venció" : "vence"} el ${esc(fDay(wd.exp))}` : " · sin fecha de vencimiento";
+  const expTxt = !wd.source ? "" : rejected ? ` · rechazado ${esc(ago(lr.at))}` : wd.exp ? ` · ${wd.expiry === "expired" ? "venció" : "vence"} el ${esc(fDay(wd.exp))}` : " · sin fecha de vencimiento";
   return `
     ${notes.map(([k, t]) => `<div class="callout ${k}" style="margin-bottom:10px">${icon("alert")}<span>${esc(t)}</span></div>`).join("")}
     <p style="margin:0 0 4px"><b>${fmt(wd.sites)}</b> ${wd.demo ? "sitios de prueba (modo demo, sin token)" : `sitio${wd.sites === 1 ? "" : "s"}`}${wd.dataAt ? ` · datos <span title="${esc(fWhen(wd.dataAt))}">${esc(ago(wd.dataAt))}</span>` : ""}${wd.stale ? " (copia guardada)" : ""}</p>
@@ -109,6 +143,15 @@ function wdHtml() {
       <div class="scan-form"><input class="inp" id="wdTok" type="password" autocomplete="off" spellcheck="false" placeholder="Pegá el token acá" aria-describedby="wdHelp">
       <button class="btn primary" id="wdSave">Probar y guardar</button></div>
       <small class="faint" id="wdHelp">Es el token de sesión de ${esc(wd.host || "brain.ordereat.com")}. Lo probamos antes de guardarlo y después no se muestra más.</small>
+      <details style="margin-top:6px;font-size:13.5px"><summary>Cómo conseguirlo</summary>
+        <ol style="margin:6px 0 0;padding-left:20px;line-height:1.5">
+          <li>En una computadora, entrá a <a href="https://${esc(wd.host || "brain.ordereat.com")}" target="_blank" rel="noopener">${esc(wd.host || "brain.ordereat.com")}</a> con una cuenta que vea World Dominion.</li>
+          <li>Abrí las herramientas del navegador (F12, o clic derecho → Inspeccionar) y andá a la pestaña Consola.</li>
+          <li>Escribí <code>localStorage.getItem("auth_token")</code> y apretá Enter.</li>
+          <li>Copiá el texto que aparece (con o sin comillas, da igual) y pegalo acá. No lo mandes por chat: es tu sesión.</li>
+        </ol>
+        <p class="faint" style="margin:6px 0 0">Vence cuando vence tu sesión de OrderBrain: te avisamos en Hoy y acá unos días antes.</p>
+      </details>
       <div id="wdMsg" role="alert"></div></div>`;
 }
 function drawWd() {
@@ -132,7 +175,7 @@ async function saveWd() {
     wdBusy = false; drawWd();
     toast(`Listo: token guardado. ${fmt(wd.sites)} sitios de World Dominion.`);
     // el mapa, Hoy y la lista con los clientes nuevos
-    S.brainP = api("/api/brain").catch(() => ({ enabled: false })); S.brainP.then(b => { S.brain = b; });
+    S.brainP = api("/api/brain").catch(() => ({ enabled: false })); S.brainP.then(b => { S.brain = b; brainBadge(); });
     try { setSchools(await api("/api/schools")); } catch {}
   } catch (e) {
     wdBusy = false;

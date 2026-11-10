@@ -20,22 +20,23 @@ const truncated = async s => { const base = pd.tokens(s.name); return (await Pro
 const KEYS = ["status", "detail", "phase", "orgId", "orgName", "ownerId", "ownerName", "confirmed", "openDealId", "openDealOwnerId", "lostReason", "lostAt", "dealCount"];
 const pick = r => Object.fromEntries(KEYS.map(k => [k, r?.[k] ?? null]));
 
-test("scoreOrg: el puntaje de siempre (palabras propias en común + 0.15 por la ciudad, tope 1)", () => {
-  const s = { name: "Colegio San José de Calasanz", city: "Lima" };
+test("scoreOrg: palabras propias en común (las comunes pesan menos) + 0.15 por la ciudad solo si coincide una propia", () => {
+  const s = { name: "Colegio San José de Calasanz", city: "Lima" }; // san y jose son comunes (0.35), calasanz propia (1)
   assert.equal(pd.scoreOrg(s, { name: "San José de Calasanz" }), 1);
-  assert.equal(pd.scoreOrg(s, { name: "Colegio San Agustín" }), 1 / 3);
-  assert.equal(pd.scoreOrg(s, { name: "San José Lima" }), 2 / 3 + 0.15);
+  assert.equal(pd.scoreOrg(s, { name: "Colegio San Agustín" }), 0.35 / 1.7);
+  assert.equal(pd.scoreOrg(s, { name: "San José Lima" }), 0.7 / 1.7); // la ciudad no suma con solo palabras comunes
+  assert.equal(pd.scoreOrg(s, { name: "Calasanz Lima" }), 1 / 1.7 + 0.15);
   assert.equal(pd.scoreOrg({ name: "Colegio Particular", city: "Lima" }, { name: "Colegio Particular" }), 0);
 });
 
 // La búsqueda de Pipedrive devuelve como mucho 10 por término: si se cortó, la sincronización (que ve todas las
 // organizaciones) puede encontrar una mejor. Sin corte, tienen que elegir exactamente la misma.
 test("candidatesFor elige lo mismo que findOrgCandidates (misma organización y mismo puntaje)", async () => {
-  const orgs = await allOrgs(), list = sample(store.schools, 600);
-  const bulk = sync.candidatesFor(list, orgs);
+  const orgs = await allOrgs(), list = sample(store.schools, 600), ctx = pd.matchCtx(store.schools); // la misma base que la app
+  const bulk = sync.candidatesFor(list, orgs, { ctx });
   let chosen = 0, same = 0, cut = 0;
   for (const [i, s] of list.entries()) {
-    const one = pd.pickOrg(await pd.findOrgCandidates(s)), many = pd.pickOrg(bulk[i]);
+    const one = pd.pickOrg(await pd.findOrgCandidates(s, ctx)), many = pd.pickOrg(bulk[i]);
     if (one) { chosen++; assert.ok(many && many.score >= one.score, `${s.id}: la masiva no puede elegir peor`); }
     if ((many?.id ?? null) === (one?.id ?? null)) { same++; continue; }
     assert.ok(await truncated(s), `${s.id} ${s.name}: ${one?.id} vs ${many?.id} sin búsqueda cortada`);
@@ -45,18 +46,20 @@ test("candidatesFor elige lo mismo que findOrgCandidates (misma organización y 
   assert.ok(same / list.length > 0.9, `iguales ${same} de ${list.length} (cortadas ${cut})`);
 });
 
-test("candidatesFor: de mayor a menor, empate por la más parecida y después la más vieja; tope y piso", () => {
+test("candidatesFor: de mayor a menor, empate por la que nombra la ciudad, la más parecida y después la más vieja; tope", () => {
   const orgs = new Map([[30, { id: 30, name: "San Martín" }], [10, { id: 10, name: "Colegio San Martín" }], [20, { id: 20, name: "San Martín de Porres" }], [40, { id: 40, name: "Martín" }], [50, { id: 50, name: "Otra cosa" }]]);
   const [c] = sync.candidatesFor([{ name: "Colegio San Martín", city: "Lima" }], orgs, { top: 3 });
   assert.deepEqual(c.map(x => x.id), [10, 30, 20]);
   assert.deepEqual(sync.candidatesFor([{ name: "Colegio San Martín", city: "Lima" }], orgs, { top: 2 })[0].map(x => x.id), [10, 30]);
-  // «Martín» solo no compite: la búsqueda pide «san martin» (todas o las dos primeras palabras)
+  // «Martín» solo no compite: la búsqueda pide «san martin» (todas o las dos primeras palabras).
+  // «San Martín de Porres» tiene una palabra propia de más y el colegio ninguna: candidata, pero bajo PICK.
   const [d] = sync.candidatesFor([{ name: "Colegio San Martín", city: "Lima" }], orgs);
-  assert.deepEqual(d.map(x => [x.id, x.score]), [[10, 1], [30, 1], [20, 1]]);
+  assert.deepEqual(d.map(x => [x.id, x.score]), [[10, 1], [30, 1], [20, pd.PICK - 0.01]]);
   const [e] = sync.candidatesFor([{ name: "Colegio San Martín Tours", city: "Lima" }], orgs);
-  assert.deepEqual(e.map(x => [x.id, x.score]), [[10, 2 / 3], [30, 2 / 3], [20, 2 / 3]]);
-  assert.deepEqual(sync.candidatesFor([{ name: "Colegio San Martín Tours Bello", city: "Lima" }], orgs, { floor: 0.6 })[0], []); // 2/4 = 0.5, bajo el piso
-
+  assert.deepEqual(e.map(x => [x.id, x.score]), [[10, 0.7 / 1.7], [30, 0.7 / 1.7], [20, 0.7 / 1.7]]);
+  // con la ciudad en el nombre gana, aunque sea más nueva
+  const [f] = sync.candidatesFor([{ name: "Colegio San Martín", city: "Lima" }], new Map([...orgs, [60, { id: 60, name: "San Martín Lima" }]]));
+  assert.equal(f[0].id, 60);
 });
 
 const M = { users: [{ id: 7, name: "Ana" }], pipes: { 1: "ARG - SALES" }, stages: { 112: "SELLING", 111: "PROPOSAL SENT" } };
@@ -80,10 +83,15 @@ test("decideMatch: «no es esta organización» vigente no se vuelve a elegir", 
   const cur = { status: "new", orgId: null, confirmed: false, unlinked: true, checkedAt: "2026-11-05T10:00:00Z" };
   assert.deepEqual(sync.decideMatch({ cur, fresh: true, cands: [{ id: 5, name: "Colegio Norte", ownerId: 7, score: 1 }], orgs, dealsBy, m: M, now, startedAt }), { skip: "unlinked" });
 });
-test("decideMatch: mismo umbral (0.67 elige, 0.95 confirma) y estado por sus tratos", () => {
+test("decideMatch: mismo umbral (0.67 elige, 0.95 confirma solo si no hay dudas) y estado por sus tratos", () => {
   const r = sync.decideMatch({ cur: null, fresh: false, cands: [{ id: 5, name: "Colegio Norte", ownerId: 7, score: 0.8 }], orgs, dealsBy, m: M, now, startedAt });
   assert.equal(r.rec.status, "open"); assert.equal(r.rec.confirmed, false); assert.equal(r.rec.openDealId, 1); assert.equal(r.rec.ownerName, "Ana"); assert.equal(r.rec.via, "sync");
-  assert.equal(sync.decideMatch({ cur: null, cands: [{ id: 5, name: "Colegio Norte", ownerId: 7, score: 0.95 }], orgs, dealsBy, m: M, now, startedAt }).rec.confirmed, true);
+  const k = pd.schoolKey({ name: "Colegio Norte Andino", city: "Lima" }), sure = [{ id: 5, name: "Colegio Norte", ownerId: 7, score: 0.95 }];
+  const a = sync.decideMatch({ cur: null, cands: sure, k, orgs, dealsBy, m: M, now, startedAt }).rec;
+  assert.equal(a.confirmed, true); assert.equal(a.auto, true); assert.deepEqual(a.candidates, []);
+  // empate arriba, o una sola palabra propia: se elige pero no se confirma
+  assert.equal(sync.decideMatch({ cur: null, cands: [...sure, { id: 6, name: "Norte Sur", score: 0.95 }], k, orgs, dealsBy, m: M, now, startedAt }).rec.confirmed, false);
+  assert.equal(sync.decideMatch({ cur: null, cands: sure, k: pd.schoolKey({ name: "Colegio Andino", city: "Lima" }), orgs, dealsBy, m: M, now, startedAt }).rec.confirmed, false);
   const low = sync.decideMatch({ cur: null, cands: [{ id: 6, name: "Norte Sur", score: 0.6 }], orgs, dealsBy, m: M, now, startedAt }).rec;
   assert.equal(low.status, "new"); assert.equal(low.detail, "Sin coincidencia clara en Pipe"); assert.equal(low.candidates.length, 1);
   assert.equal(sync.decideMatch({ cur: null, cands: [], orgs, dealsBy, m: M, now, startedAt }).rec.detail, "No figura en Pipe");
@@ -110,19 +118,35 @@ test("de punta a punta en el demo: se pausa y se sigue, y da lo mismo que checkS
   assert.equal(r.last.mode, "full"); assert.ok(r.last.written >= list.length - 5, `escritos ${r.last.written} de ${list.length}`);
   assert.equal(list.filter(s => sales.schoolListItem(s).status === "unk").length, 0);
   const mm = store.getMatch(manual.id); assert.equal(mm.orgId, org.id); assert.equal(mm.confirmed, true);
+  // en toda la base: ninguna organización queda como cruce de muchos colegios (antes, «…Ágora International School
+  // Madrid» se quedaba con 116 colegios de Madrid por «centro», «educación» e «infantil»)
+  const per = new Map();
+  for (const s of list) { const id = store.getMatch(s.id)?.orgId; if (id && s.id !== manual.id) per.set(id, (per.get(id) || 0) + 1); }
+  assert.ok(Math.max(...per.values()) <= 4, `una organización con ${Math.max(...per.values())} colegios`);
+  const juanita = list.find(s => /Mamá Juanita/.test(s.name));
+  if (juanita) assert.equal(store.getMatch(juanita.id).orgId, null);
+  // todo colegio que la masiva marca «client» también lo marca así el cruce de a uno (salvo búsqueda cortada)
+  const clients = list.filter(s => s.id !== manual.id && store.getMatch(s.id)?.status === "client");
+  assert.ok(clients.length > 100, `clientes: ${clients.length}`);
+  for (const s of clients) {
+    if (!pd.keepsOrg(store.getMatch(s.id)) && await truncated(s)) continue;
+    const before = pick(store.getMatch(s.id)), one = pick(await sales.checkSchool(s.id, { force: true }));
+    assert.deepEqual(before, one, `${s.id} ${s.name}`);
+  }
   // la misma respuesta que el cruce de a uno, en una muestra
   let compared = 0;
-  for (const s of sample(list, 300)) {
-    if (s.id === manual.id || (!store.getMatch(s.id)?.confirmed && await truncated(s))) continue;
+  for (const s of sample(list, 400)) {
+    if (s.id === manual.id || store.getMatch(s.id)?.via !== "sync" || await truncated(s)) continue;
     compared++;
     const bulk = pick(store.getMatch(s.id)), one = pick(await sales.checkSchool(s.id, { force: true }));
     assert.deepEqual(bulk, one, `${s.id} ${s.name}`);
   }
   assert.ok(compared > 250, `comparados ${compared}`);
-  // las siguientes son incrementales. La primera reescribe los confirmados por puntaje (≥ 0.95): como en checkSchool,
-  // un confirmado se recalcula con su organización y sin otros candidatos. Después, si nada cambió, no reescribe nada.
+  // las siguientes son incrementales: si nada cambió en Pipedrive, no se reescribe nada (los confirmados solos ya
+  // nacen sin otras candidatas) y no se cuenta ningún cambio
   r = await sync.step({ budgetMs: 30e3 });
   assert.equal(r.running, false); assert.equal(r.last.mode, "inc"); assert.equal(r.last.orgs, 0);
+  assert.ok(r.last.written <= 2, `reescritos ${r.last.written}`); assert.equal(r.last.changed, 0); assert.equal(r.last.first, 0);
   r = await sync.step({ budgetMs: 30e3 });
   assert.equal(r.last.mode, "inc"); assert.equal(r.last.written, 0); assert.ok(r.last.same + r.last.skipped >= list.length - 5); assert.ok(r.last.skip.recent >= 250, "lo que se revisó recién por ficha no se toca");
   // un trato nuevo en Pipedrive: la incremental lo trae y cambia el estado de ese colegio
@@ -133,4 +157,7 @@ test("de punta a punta en el demo: se pausa y se sigue, y da lo mismo que checkS
   r = await sync.step({ budgetMs: 30e3 });
   assert.equal(r.last.mode, "inc"); assert.equal(r.last.deals, 1);
   assert.equal(store.getMatch(target.id).status, "open"); assert.equal(store.getMatch(target.id).openDealOwnerId, 2);
+  // cambió ese colegio (y los que comparten esa organización), todos a «En proceso»
+  const sharing = list.filter(s => store.getMatch(s.id)?.orgId === tm.orgId).length;
+  assert.equal(r.last.changed, sharing); assert.deepEqual(r.last.to, { open: sharing });
 });
