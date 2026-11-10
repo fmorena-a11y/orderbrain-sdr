@@ -259,12 +259,15 @@ async function main() {
   };
   process.once("SIGTERM", () => { log("corrida cortada: guardo lo hecho"); save("cortada"); process.exit(0); });
 
-  // 1. listas de ciudades (se renuevan cada 60 días)
+  // 1. listas de ciudades (se renuevan cada 60 días). Como mucho 2 países por corrida,
+  //    para que siempre quede tiempo de escanear colegios (las listas de países grandes tardan).
+  let listTries = 0;
   for (const cc of Object.keys(COUNTRIES)) {
     if (ONLY.length && !ONLY.includes(cc)) continue;
     const at = state.citiesAt[cc];
     if (state.cities[cc]?.length && at && (Date.now() - Date.parse(at)) / 864e5 < 60) continue;
-    if (timeLeft() < MINUTES * 60e3 * 0.5) break;
+    if (timeLeft() < MINUTES * 60e3 * 0.5 || listTries >= 2) break;
+    listTries++;
     try {
       const list = await citiesFor(cc);
       if (!list.length) throw new Error("Overpass no devolvió ciudades");
