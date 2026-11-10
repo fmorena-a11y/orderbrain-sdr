@@ -829,12 +829,12 @@ details.agent summary .sub { order: 3; }
 .map-legend ul { list-style: none; margin: 0; padding: 0 10px 8px; display: flex; flex-wrap: wrap; gap: 5px 12px; }
 .map-legend li { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
 .map-legend li b { font-weight: 600; color: var(--muted); }
-.lg { width: 10px; height: 10px; flex: none; display: inline-block; border-radius: 50%; background: var(--pd); box-shadow: 0 0 0 1.5px #fff, 0 0 0 2.5px rgb(0 0 0 / .18); }
-.lg.big { width: 12px; height: 12px; }
-.lg.sh-q { border-radius: 1.5px; } .lg.sh-d { border-radius: 1.5px; transform: rotate(45deg) scale(.92); }
-.lg.sh-ring { background: var(--surface) !important; box-shadow: inset 0 0 0 2.5px var(--pd), 0 0 0 1.5px #fff; }
-.lg.sh-dr { border-radius: 1.5px; transform: rotate(45deg) scale(.92); background: var(--surface) !important; box-shadow: inset 0 0 0 2.5px var(--pd), 0 0 0 1.5px #fff, 0 0 0 2.5px rgb(0 0 0 / .18); }
-.lg.sh-x { border-radius: 0; box-shadow: none; background: linear-gradient(45deg, transparent 38%, var(--pd) 38% 62%, transparent 62%), linear-gradient(-45deg, transparent 38%, var(--pd) 38% 62%, transparent 62%) !important; }
+.lgd { width: 10px; height: 10px; flex: none; display: inline-block; border-radius: 50%; background: var(--pd); box-shadow: 0 0 0 1.5px #fff, 0 0 0 2.5px rgb(0 0 0 / .18); }
+.lgd.big { width: 12px; height: 12px; }
+.lgd.sh-q { border-radius: 1.5px; } .lgd.sh-d { border-radius: 1.5px; transform: rotate(45deg) scale(.92); }
+.lgd.sh-ring { background: var(--surface) !important; box-shadow: inset 0 0 0 2.5px var(--pd), 0 0 0 1.5px #fff; }
+.lgd.sh-dr { border-radius: 1.5px; transform: rotate(45deg) scale(.92); background: var(--surface) !important; box-shadow: inset 0 0 0 2.5px var(--pd), 0 0 0 1.5px #fff, 0 0 0 2.5px rgb(0 0 0 / .18); }
+.lgd.sh-x { border-radius: 0; box-shadow: none; background: linear-gradient(45deg, transparent 38%, var(--pd) 38% 62%, transparent 62%), linear-gradient(-45deg, transparent 38%, var(--pd) 38% 62%, transparent 62%) !important; }
 /* en el celular el mapa es bajo: la lista de referencias abierta no pasa de ~3 renglones (se desplaza) y deja libre el botón de clientes */
 @media (max-width: 600px) {
   .map-legend { max-width: calc(100vw - 150px); font-size: 11.5px; }

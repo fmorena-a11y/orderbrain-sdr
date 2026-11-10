@@ -321,7 +321,7 @@ const LEG = ["new", "org", "lead", "stalled", "lost", "unk", "archived", "open",
 let legendEl = null;
 function paintLegend(seen) {
   if (!legendEl) return;
-  const item = (c, sh, l, n, big) => `<li><i class="lg sh-${sh}${big ? " big" : ""}" style="--pd:${c}"></i>${esc(l)}${n ? ` <b>${fmt(n)}</b>` : ""}</li>`;
+  const item = (c, sh, l, n, big) => `<li><i class="lgd sh-${sh}${big ? " big" : ""}" style="--pd:${c}"></i>${esc(l)}${n ? ` <b>${fmt(n)}</b>` : ""}</li>`;
   let items;
   if (!seen) items = [item(CITY.pros, "c", "Ciudad con colegios para llamar", 0, true), item(CITY.unk, "ring", "Solo sin revisar"), item(CITY.none, "c", "Nada para llamar")];
   else {
