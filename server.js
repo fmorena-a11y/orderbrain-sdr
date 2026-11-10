@@ -84,6 +84,7 @@ const auth = (req, res, next) => {
   next();
 };
 const wrap = fn => (req, res) => fn(req, res).catch(e => {
+  if (res.writableEnded || res.destroyed) return; // el navegador ya cortó (canceló): no hay a quién responder
   const status = e.status && e.status < 600 ? (e instanceof pd.PipedriveError && e.status >= 500 ? 502 : e.status) : 500;
   if (status >= 500) console.error(e);
   res.status(status).json({ error: e instanceof pd.PipedriveError ? `Pipedrive: ${e.message}` : e.message });
@@ -190,6 +191,13 @@ const SCAN_MIN_POP = Number(process.env.RADAR_MIN_POP || 40000);
 const SCAN_SECRET = process.env.SESSION_SECRET || "dev-only-secret";
 const signRec = rec => crypto.createHmac("sha256", SCAN_SECRET).update("cand:" + JSON.stringify(rec)).digest("base64url");
 const sigOk = (rec, sig) => { const want = signRec(rec); return typeof sig === "string" && sig.length === want.length && crypto.timingSafeEqual(Buffer.from(sig), Buffer.from(want)); };
+// Si el navegador corta el pedido (el usuario canceló), se corta todo lo que dependía de él: no se gastan más
+// consultas a OpenStreetMap, Google ni IA y no se guarda nada.
+function cancelOnClose(req, res) {
+  const ac = new AbortController();
+  res.on("close", () => { if (!res.writableFinished) { console.log(`buscador: ${req.path} cancelado por el usuario`); ac.abort(new Error("cancelado por el usuario")); } });
+  return ac.signal;
+}
 const appCountry = place => { const known = Object.entries(MARKETS).find(([, m]) => m.code === place.cc); if (known) place.country = known[0]; return place; };
 app.post("/api/scan/resolve", auth, wrap(async (req, res) => {
   const osm = String(req.body?.osm || "");
@@ -215,8 +223,8 @@ app.post("/api/scan/cities", auth, wrap(async (req, res) => {
   const k = Number(areaId) ? `cities:a${Number(areaId)}` : `cities:${cc}`;
   let list = await cacheGet(k);
   if (!list) {
-    const deadline = Date.now() + 240e3;
-    list = Number(areaId) ? await scan.citiesInArea(Number(areaId), { minPop: SCAN_MIN_POP, deadline, reserve: 5 }) : await scan.citiesFor(cc, { minPop: SCAN_MIN_POP, deadline, reserve: 5 });
+    const deadline = Date.now() + 240e3, signal = cancelOnClose(req, res);
+    list = Number(areaId) ? await scan.citiesInArea(Number(areaId), { minPop: SCAN_MIN_POP, deadline, reserve: 5, signal }) : await scan.citiesFor(cc, { minPop: SCAN_MIN_POP, deadline, reserve: 5, signal });
     if (list.length) await cacheSet(k, list, 60 * 864e2);
   }
   res.json({ cities: list });
@@ -228,7 +236,8 @@ app.post("/api/scan/city", auth, wrap(async (req, res) => {
   if (!/^[A-Z]{2}$/.test(cc || "") || !city || !Number.isFinite(+city.lat) || !Number.isFinite(+city.lng) || !String(city.name || "").trim()) return res.status(400).json({ error: "Ciudad inválida" });
   const c = { name: String(city.name).slice(0, 80), lat: +city.lat, lng: +city.lng, pop: Math.max(0, Number(city.pop) || 0) };
   const area = Number(areaId) > 0 ? Number(areaId) : null;
-  const opts = { deadline: Date.now() + 240e3, reserve: 5, attempts: 3 };
+  const signal = cancelOnClose(req, res);
+  const opts = { deadline: Date.now() + 240e3, reserve: 5, attempts: 3, signal };
   const els = whole && area ? await scan.scanArea(area, opts) : await scan.scanCity(cc, c, { ...opts, areaId: area, radius });
   // se cruza contra la base y contra lo que va saliendo en esta misma búsqueda (sin duplicados)
   const pool = schools.slice(), idx = scan.buildIndex(pool), candidates = [], seen = [];
@@ -255,7 +264,9 @@ app.post("/api/scan/verify", auth, wrap(async (req, res) => {
     let id = r.id, i = 2; while (byId.has(id)) id = `${r.id}-${i++}`; r.id = id;
     fresh.push(r);
   }
-  const { keep, drop } = await verifyCandidates(fresh);
+  const signal = cancelOnClose(req, res);
+  const { keep, drop, cancelled } = await verifyCandidates(fresh, signal);
+  if (cancelled || signal.aborted) return; // canceló: no se guarda nada de esta tanda
   const added = addSchools(keep);
   // sin Redis en Vercel lo sumado vive en la memoria de una instancia: el navegador lo avisa
   res.json({ added: added.map(sales.schoolListItem), dropped: drop, sources: enrichSources(), temporary: !kvEnabled && !!process.env.VERCEL });
