@@ -13,7 +13,9 @@ export const S = {
   team: [], schools: [], byId: new Map(), today: null, feed: null, agenda: null,
   territory: load("territory", []), view: "hoy",
   explore: { country: null, city: null, filter: "prospect", q: "" },
-  session: null, // { ids: [], i: 0, label }
+  session: null, // la sesión abierta en la ficha (school.js: useSession): { id, name, items, steps, i, ids, acts }
+  sessions: null, // sesiones guardadas (GET /api/sessions): { open, done, max, maxItems }, solo los resúmenes
+  sessionMax: 300, // cuántos colegios entran en una sesión (lo dice /api/me)
 };
 function load(k, d) { try { const v = localStorage.getItem("ob." + k); return v ? JSON.parse(v) : d; } catch { return d; } }
 export function save(k, v) { try { localStorage.setItem("ob." + k, JSON.stringify(v)); } catch {} }
@@ -98,6 +100,7 @@ const P = {
   note: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M16 13H8M16 17H8"/>',
   target: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
   play: '<path d="m7 4 13 8-13 8Z"/>',
+  dots: '<circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/>',
   refresh: '<path d="M21 12a9 9 0 0 1-15 6.7L3 16M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5M3 21v-5h5"/>',
   download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>',
   logout: '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>',

@@ -829,12 +829,12 @@ details.agent summary .sub { order: 3; }
 .map-legend ul { list-style: none; margin: 0; padding: 0 10px 8px; display: flex; flex-wrap: wrap; gap: 5px 12px; }
 .map-legend li { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
 .map-legend li b { font-weight: 600; color: var(--muted); }
-.lg { width: 10px; height: 10px; flex: none; display: inline-block; border-radius: 50%; background: var(--pd); box-shadow: 0 0 0 1.5px #fff, 0 0 0 2.5px rgb(0 0 0 / .18); }
-.lg.big { width: 12px; height: 12px; }
-.lg.sh-q { border-radius: 1.5px; } .lg.sh-d { border-radius: 1.5px; transform: rotate(45deg) scale(.92); }
-.lg.sh-ring { background: var(--surface) !important; box-shadow: inset 0 0 0 2.5px var(--pd), 0 0 0 1.5px #fff; }
-.lg.sh-dr { border-radius: 1.5px; transform: rotate(45deg) scale(.92); background: var(--surface) !important; box-shadow: inset 0 0 0 2.5px var(--pd), 0 0 0 1.5px #fff, 0 0 0 2.5px rgb(0 0 0 / .18); }
-.lg.sh-x { border-radius: 0; box-shadow: none; background: linear-gradient(45deg, transparent 38%, var(--pd) 38% 62%, transparent 62%), linear-gradient(-45deg, transparent 38%, var(--pd) 38% 62%, transparent 62%) !important; }
+.lgd { width: 10px; height: 10px; flex: none; display: inline-block; border-radius: 50%; background: var(--pd); box-shadow: 0 0 0 1.5px #fff, 0 0 0 2.5px rgb(0 0 0 / .18); }
+.lgd.big { width: 12px; height: 12px; }
+.lgd.sh-q { border-radius: 1.5px; } .lgd.sh-d { border-radius: 1.5px; transform: rotate(45deg) scale(.92); }
+.lgd.sh-ring { background: var(--surface) !important; box-shadow: inset 0 0 0 2.5px var(--pd), 0 0 0 1.5px #fff; }
+.lgd.sh-dr { border-radius: 1.5px; transform: rotate(45deg) scale(.92); background: var(--surface) !important; box-shadow: inset 0 0 0 2.5px var(--pd), 0 0 0 1.5px #fff, 0 0 0 2.5px rgb(0 0 0 / .18); }
+.lgd.sh-x { border-radius: 0; box-shadow: none; background: linear-gradient(45deg, transparent 38%, var(--pd) 38% 62%, transparent 62%), linear-gradient(-45deg, transparent 38%, var(--pd) 38% 62%, transparent 62%) !important; }
 /* en el celular el mapa es bajo: la lista de referencias abierta no pasa de ~3 renglones (se desplaza) y deja libre el botón de clientes */
 @media (max-width: 600px) {
   .map-legend { max-width: calc(100vw - 150px); font-size: 11.5px; }
@@ -1009,3 +1009,43 @@ details.agent summary .sub { order: 3; }
 .dup-b small { color: var(--muted); font-size: 12.5px; overflow-wrap: anywhere; }
 .dup-b small.dup-why { display: flex; gap: 6px; align-items: flex-start; color: var(--warn); }
 .dup-why .ico { flex: none; margin-top: 2px; }
+/* Sesiones activas (Hoy): cada sesión guardada con su avance, cómo se contactó y qué falta */
+.ss-card { margin-bottom: 20px; }
+.ss { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 14px 4px; border-top: 1px solid var(--line); }
+.ss-card .card-b > .ss:first-child { border-top: 0; padding-top: 6px; }
+.ss-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.ss-t { min-width: 0; flex: 1 1 auto; }
+.ss-t b { display: block; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ss-t small { display: block; color: var(--muted); font-size: 12.5px; }
+.ss-bar { display: flex; align-items: center; gap: 4px 10px; flex-wrap: wrap; font-size: 13px; }
+.ss-bar .progress { flex: 1 1 160px; min-width: 120px; height: 6px; border-radius: 999px; background: var(--surface-3); overflow: hidden; }
+.ss-bar .progress span { display: block; height: 100%; border-radius: inherit; background: var(--accent); }
+.ss-sum { font-size: 13.5px; color: var(--ink-2); }
+.ss-ops { display: flex; gap: 6px; flex-wrap: wrap; }
+.ss-empty { margin: 2px 0 4px; font-size: 14px; }
+.ss-modal { width: min(680px, 100%); }
+.ss-dh { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.ss-dh h3 { min-width: 0; overflow-wrap: anywhere; }
+.ss-items .sub-h:first-child { margin-top: 2px; }
+.sub-h .n { font-weight: 500; color: var(--faint); }
+.ss-it .t small { display: block; line-height: 1.45; white-space: normal; overflow: visible; }
+.ss-list { display: grid; }
+.btn.danger { color: var(--err); border-color: var(--err); }
+.ell { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hero-cta #resume { width: 100%; min-width: 0; max-width: 100%; overflow: hidden; }
+.hero-cta #resume .ell { flex: 0 1 auto; }
+.hero-cta #resume .nw { flex: none; white-space: nowrap; }
+/* tarjeta de Hoy: filas cortas (nombre; avance, lo registrado y cuándo), Retomar y «⋯» */
+.ss-c { grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 4px 6px; padding: 10px 2px; }
+.ss-c small { display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.4; }
+.ss-n { color: var(--ink-2); font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ss-c .progress { display: block; height: 3px; margin-top: 6px; border-radius: 999px; background: var(--surface-3); overflow: hidden; }
+.ss-c .progress span { display: block; height: 100%; border-radius: inherit; background: var(--accent); }
+.ss-links { display: flex; flex-wrap: wrap; gap: 6px 18px; padding: 8px 2px 2px; font-size: 13.5px; }
+.ss-card .card-b { padding-bottom: 12px; }
+/* el detalle es largo: el título y los botones quedan a la vista */
+.ss-modal .ss-dh { position: sticky; top: -20px; z-index: 1; margin: -20px -20px 0; padding: 16px 20px 6px; background: var(--surface); }
+.ss-modal > .row:last-child { position: sticky; bottom: -20px; z-index: 1; margin: 0 -20px -20px; padding: 12px 20px; background: var(--surface); border-top: 1px solid var(--line); }
+.ss-modal > .row:last-child:empty { display: none; }
+/* el botón grande de Hoy (Retomar «…» · faltan N) necesita su ancho: en escritorio la columna de acciones tiene ancho propio */
+@media (min-width: 961px) { .hero .hero-cta { width: clamp(240px, 28vw, 340px); } }

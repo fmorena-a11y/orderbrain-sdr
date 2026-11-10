@@ -99,8 +99,9 @@ export function renderExplore(el) {
   el.querySelector("#qf").onsubmit = e => { e.preventDefault(); if (!E.q.trim() || looksLikePlace(q.value) || !searchList().length) locate(q.value); };
   el.querySelector("#locate").onclick = () => locate(q.value);
   el.querySelector("#sess").onclick = () => {
-    const ids = callable().map(s => s.id);
-    if (ids.length) startSession(ids, E.city || (E.place && placeName(E.place)) || E.country || "selección");
+    const ids = callable().map(s => s.id); // startSession toma los primeros S.sessionMax y lo avisa
+    const where = E.city || (E.place && placeName(E.place)) || E.country || "selección", list = FILTERS.find(([k]) => k === E.filter)?.[1] || "";
+    if (ids.length) startSession(ids, where, { origin: { kind: "explore", key: `explore:${norm(where)}:${E.filter}:${norm(E.q)}`, filters: { lugar: where, lista: list, buscar: E.q || "" } } });
   };
   el.querySelector("#csv").onclick = csv;
   initMap();
@@ -245,11 +246,12 @@ function drawList() {
 }
 function bindCheck() { host.querySelector("#check")?.addEventListener("click", checkScope); }
 function drawFoot() {
-  const n = S.schools.length ? callable().length : 0;
+  const n = S.schools.length ? callable().length : 0, max = S.sessionMax || 300;
   const b = host.querySelector("#sess");
-  b.innerHTML = `${icon("play")} ${n ? `Llamar a ${fmt(n)}` : "Nadie para llamar"}`;
+  // una sesión lleva hasta S.sessionMax colegios: el botón no promete más de lo que entra
+  b.innerHTML = `${icon("play")} ${!n ? "Nadie para llamar" : n > max ? `Llamar a los primeros ${fmt(max)}` : `Llamar a ${fmt(n)}`}`;
   b.disabled = !n;
-  b.title = n ? "Sesión de llamadas con los colegios de esta selección que tienen teléfono" : "No hay colegios para llamar con teléfono en esta selección";
+  b.title = !n ? "No hay colegios para llamar con teléfono en esta selección" : n > max ? `Hay ${fmt(n)} con teléfono en esta selección: la sesión toma los primeros ${fmt(max)}, en el orden de la lista` : "Sesión de llamadas con los colegios de esta selección que tienen teléfono";
   host.querySelector("#csv").disabled = !S.schools.length;
 }
 function openCity(country, city) {
@@ -321,7 +323,7 @@ const LEG = ["new", "org", "lead", "stalled", "lost", "unk", "archived", "open",
 let legendEl = null;
 function paintLegend(seen) {
   if (!legendEl) return;
-  const item = (c, sh, l, n, big) => `<li><i class="lg sh-${sh}${big ? " big" : ""}" style="--pd:${c}"></i>${esc(l)}${n ? ` <b>${fmt(n)}</b>` : ""}</li>`;
+  const item = (c, sh, l, n, big) => `<li><i class="lgd sh-${sh}${big ? " big" : ""}" style="--pd:${c}"></i>${esc(l)}${n ? ` <b>${fmt(n)}</b>` : ""}</li>`;
   let items;
   if (!seen) items = [item(CITY.pros, "c", "Ciudad con colegios para llamar", 0, true), item(CITY.unk, "ring", "Solo sin revisar"), item(CITY.none, "c", "Nada para llamar")];
   else {

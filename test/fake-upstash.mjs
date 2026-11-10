@@ -21,7 +21,10 @@ export async function fakeUpstash() {
         if (px >= 0) exp.set(k, Date.now() + Number(o[px + 1])); if (ex >= 0) exp.set(k, Date.now() + Number(o[ex + 1]) * 1000);
         return "OK";
       }
-      case "DEL": { let n = 0; for (const k of a) { if (str.delete(k) | hash.delete(k) | zset.delete(k)) n++; } return n; }
+      case "MGET": return a.map(k => alive(k) ? str.get(k) : null);
+      // vencimiento: en las claves simples se aplica al leer; en hashes y zsets solo se anota (ttl, para las pruebas)
+      case "EXPIRE": { if (!(str.has(a[0]) || hash.has(a[0]) || zset.has(a[0]))) return 0; exp.set(a[0], Date.now() + Number(a[1]) * 1000); return 1; }
+      case "DEL": { let n = 0; for (const k of a) { exp.delete(k); if (str.delete(k) | hash.delete(k) | zset.delete(k)) n++; } return n; }
       case "HSET": { const h = H(a[0]); for (let i = 1; i < a.length; i += 2) h.set(String(a[i]), String(a[i + 1])); return (a.length - 1) / 2; }
       case "HGET": return hash.get(a[0])?.get(String(a[1])) ?? null;
       case "HMGET": return a.slice(1).map(f => hash.get(a[0])?.get(String(f)) ?? null);
@@ -49,5 +52,5 @@ export async function fakeUpstash() {
     });
   });
   await new Promise(r => srv.listen(0, "127.0.0.1", r));
-  return { url: `http://127.0.0.1:${srv.address().port}`, run, log, hooks, hash, close: () => srv.close() };
+  return { url: `http://127.0.0.1:${srv.address().port}`, run, log, hooks, hash, str, ttl: k => exp.has(k) ? Math.round((exp.get(k) - Date.now()) / 1000) : -1, close: () => srv.close() };
 }

@@ -105,7 +105,11 @@ function draw() {
   q("#agZone")?.addEventListener("change", e => set("zone", e.target.value));
   let tm; q("#agQ")?.addEventListener("input", e => { clearTimeout(tm); tm = setTimeout(() => { F.q = e.target.value; keep(); draw(); const i = q("#agQ"); if (i) { i.focus(); i.setSelectionRange(i.value.length, i.value.length); } }, 250); });
   q("#agClear")?.addEventListener("click", () => { Object.assign(F, { type: "all", when: "all", from: "", to: "", zone: "", q: "" }); keep(); draw(); });
-  q("#agWork")?.addEventListener("click", () => startSession(null, zoneName || whenLabel(t) || "tu agenda", { acts: workOrder(workable, t) }));
+  // la sesión guarda los filtros con que salió: con los mismos filtros se ofrece retomar la que ya está abierta
+  q("#agWork")?.addEventListener("click", () => {
+    const filters = { cuándo: F.when === "all" ? "" : whenLabel(t), zona: zoneName || "", tipo: F.type === "all" ? "" : PLURAL[F.type] || F.type, buscar: F.zone ? "" : F.q };
+    startSession(null, `Agenda · ${zoneName || whenLabel(t) || "todo"}`, { acts: workOrder(workable, t), origin: { kind: "agenda", key: `agenda:${t}:${[F.when, F.from, F.to, F.zone, norm(F.q), F.type].join("|")}`, filters } });
+  });
   host.querySelectorAll("[data-school]").forEach(b => b.onclick = () => openSchool(b.dataset.school, { activityId: Number(b.dataset.act) }));
   host.querySelectorAll("[data-record]").forEach(b => b.onclick = () => openRecord(b.dataset.record, { activityId: Number(b.dataset.act) || null }));
   host.querySelectorAll("[data-done]").forEach(b => b.onclick = () => { b.disabled = true; b.closest(".act")?.setAttribute("aria-busy", "true"); markDone(Number(b.dataset.done), draw); });
