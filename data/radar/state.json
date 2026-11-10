@@ -6795,10 +6795,207 @@
   "ES|n152364165": "2026-11-10T05:26:18.747Z",
   "ES|n34105607": "2026-11-10T05:31:09.511Z",
   "ES|n248820656": "2026-11-10T05:31:50.333Z",
-  "ES|n266776249": "2026-11-10T05:32:24.094Z"
+  "ES|n266776249": "2026-11-10T05:32:24.094Z",
+  "BO|n313811401": "2026-11-10T07:31:55.530Z",
+  "AR|Mar del Plata": "2026-11-10T07:32:35.366Z",
+  "MX|Acapulco": "2026-11-10T07:33:24.714Z",
+  "MX|Guadalupe": "2026-11-10T07:34:03.364Z",
+  "MX|Monterrey": "2026-11-10T07:34:33.713Z",
+  "CO|n1282585464": "2026-11-10T07:35:15.316Z",
+  "GT|Villa Nueva": "2026-11-10T07:35:46.304Z",
+  "MX|Durango": "2026-11-10T07:36:19.111Z",
+  "MX|Chimalhuacán": "2026-11-10T07:36:52.268Z",
+  "DO|n252996132": "2026-11-10T07:37:21.665Z",
+  "MX|Tuxtla Gutiérrez": "2026-11-10T07:37:56.905Z",
+  "VE|n313508522": "2026-11-10T07:38:35.310Z",
+  "DO|n250447778": "2026-11-10T07:39:09.512Z",
+  "VE|n333655403": "2026-11-10T07:39:50.128Z",
+  "CO|n703166714": "2026-11-10T07:40:24.419Z",
+  "ES|n21750065": "2026-11-10T07:40:51.631Z",
+  "MX|Apodaca": "2026-11-10T07:41:21.159Z",
+  "AR|Salta": "2026-11-10T07:41:54.072Z",
+  "CO|n9863038666": "2026-11-10T07:42:27.079Z",
+  "AR|San Miguel de Tucumán": "2026-11-10T07:42:57.737Z",
+  "PE|Chiclayo": "2026-11-10T07:43:35.114Z",
+  "AR|San Juan": "2026-11-10T07:44:02.752Z",
+  "VE|n333673827": "2026-11-10T07:44:32.716Z"
  },
  "failed": {},
  "runs": [
+  {
+   "at": "2026-11-10T07:31:17.433Z",
+   "cities": [
+    {
+     "cc": "BO",
+     "city": "Cochabamba",
+     "found": 0,
+     "updated": 0,
+     "osm": 459
+    },
+    {
+     "cc": "AR",
+     "city": "Mar del Plata",
+     "found": 0,
+     "updated": 0,
+     "osm": 111
+    },
+    {
+     "cc": "MX",
+     "city": "Acapulco",
+     "found": 0,
+     "updated": 0,
+     "osm": 555
+    },
+    {
+     "cc": "MX",
+     "city": "Guadalupe",
+     "found": 0,
+     "updated": 0,
+     "osm": 327
+    },
+    {
+     "cc": "MX",
+     "city": "Monterrey",
+     "found": 0,
+     "updated": 0,
+     "osm": 347
+    },
+    {
+     "cc": "CO",
+     "city": "Bucaramanga",
+     "found": 0,
+     "updated": 0,
+     "osm": 588
+    },
+    {
+     "cc": "GT",
+     "city": "Villa Nueva",
+     "found": 0,
+     "updated": 0,
+     "osm": 248
+    },
+    {
+     "cc": "MX",
+     "city": "Durango",
+     "found": 0,
+     "updated": 0,
+     "osm": 105
+    },
+    {
+     "cc": "MX",
+     "city": "Chimalhuacán",
+     "found": 0,
+     "updated": 0,
+     "osm": 373
+    },
+    {
+     "cc": "DO",
+     "city": "San Juan de la Maguana",
+     "found": 2,
+     "updated": 0,
+     "osm": 11
+    },
+    {
+     "cc": "MX",
+     "city": "Tuxtla Gutiérrez",
+     "found": 12,
+     "updated": 0,
+     "osm": 74
+    },
+    {
+     "cc": "VE",
+     "city": "Ciudad Bolívar",
+     "found": 26,
+     "updated": 0,
+     "osm": 161
+    },
+    {
+     "cc": "DO",
+     "city": "Santiago de los Caballeros",
+     "found": 45,
+     "updated": 0,
+     "osm": 105
+    },
+    {
+     "cc": "VE",
+     "city": "Barcelona",
+     "found": 132,
+     "updated": 2,
+     "osm": 354
+    },
+    {
+     "cc": "CO",
+     "city": "Villavicencio",
+     "found": 202,
+     "updated": 0,
+     "osm": 395
+    },
+    {
+     "cc": "ES",
+     "city": "Málaga",
+     "found": 152,
+     "updated": 0,
+     "osm": 260
+    },
+    {
+     "cc": "MX",
+     "city": "Apodaca",
+     "found": 7,
+     "updated": 0,
+     "osm": 196
+    },
+    {
+     "cc": "AR",
+     "city": "Salta",
+     "found": 36,
+     "updated": 0,
+     "osm": 170
+    },
+    {
+     "cc": "CO",
+     "city": "Ibagué",
+     "found": 42,
+     "updated": 1,
+     "osm": 113
+    },
+    {
+     "cc": "AR",
+     "city": "San Miguel de Tucumán",
+     "found": 143,
+     "updated": 3,
+     "osm": 465
+    },
+    {
+     "cc": "PE",
+     "city": "Chiclayo",
+     "found": 32,
+     "updated": 3,
+     "osm": 202
+    },
+    {
+     "cc": "AR",
+     "city": "San Juan",
+     "found": 69,
+     "updated": 0,
+     "osm": 452
+    },
+    {
+     "cc": "VE",
+     "city": "Maturín",
+     "found": 17,
+     "updated": 0,
+     "osm": 67
+    }
+   ],
+   "added": 917,
+   "enriched": 0,
+   "photos": 39,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 16.5,
+   "total": 13226
+  },
   {
    "at": "2026-11-10T05:19:07.558Z",
    "cities": [
