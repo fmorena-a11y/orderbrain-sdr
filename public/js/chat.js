@@ -8,7 +8,7 @@ const focusId = () => currentSchoolId();
 function suggestions() {
   const f = focusId(), s = f && S.byId.get(f);
   return s ? [`Armame un guion para ${s.name}`, `¿Qué pasó antes con ${s.name}?`, `Agendá una llamada con ${s.name} para mañana a las 10`, `Escribí un WhatsApp para reactivar a ${s.name}`]
-    : ["¿A quién llamo ahora?", "¿Qué tengo agendado esta semana?", "Agendá una demo con Colegio Vallesol el jueves a las 10", "¿Cómo respondo «ya tenemos un sistema»?"];
+    : ["¿A quién llamo ahora?", "Prospectá colegios en España", "¿Qué tengo agendado esta semana?", "¿Cómo respondo «ya tenemos un sistema»?"];
 }
 export function openAssistant() {
   if (!S.ai) return;
@@ -26,6 +26,11 @@ function bubble(cls, text) { const d = document.createElement("div"); d.classNam
 
 function propCard(p) {
   const d = document.createElement("div"); d.className = "prop"; $("msgs").appendChild(d);
+  if (p.kind === "scan") {
+    d.innerHTML = `<h4>${icon("globe", "sm")} Buscar colegios en ${esc(p.zona)}</h4><p class="muted" style="margin:0 0 10px">Busco los colegios privados que todavía no están y los sumo al mapa. Podés seguir trabajando mientras.</p><div class="r"><button class="btn primary sm" data-go>${icon("play", "sm")} Buscar ahora</button></div>`;
+    d.querySelector("[data-go]").onclick = () => { import("./scan.js").then(m => m.scanZone(p.zona)); d.querySelector(".r").innerHTML = `<p class="muted" style="margin:0">${icon("check", "sm")} Búsqueda en marcha: mirá el avance abajo a la izquierda.</p>`; };
+    $("msgs").scrollTop = 1e9; return;
+  }
   const draw = (state, extra = "") => {
     const body = p.kind === "activity"
       ? `<h4>${esc(p.typeLabel)}: ${esc(p.subject)}</h4><dl><dt>Colegio</dt><dd>${esc(p.colegio)}${p.orgId || p.schoolId ? "" : " (se crea en Pipe si no existe)"}</dd><dt>Cuándo</dt><dd>${esc(p.weekday)} ${esc(shortDay(p.date))}${p.time ? " · " + esc(p.time) : ""}</dd><dt>Para</dt><dd>${esc(p.owner.name)}</dd>${p.note ? `<dt>Nota</dt><dd>${esc(p.note)}</dd>` : ""}</dl>`

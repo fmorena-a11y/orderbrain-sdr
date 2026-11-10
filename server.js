@@ -4,7 +4,8 @@ import { OAuth2Client } from "google-auth-library";
 import path from "path";
 import { fileURLToPath } from "url";
 import * as pd from "./lib/pipedrive.js";
-import { schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock } from "./lib/store.js";
+import { schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet } from "./lib/store.js";
+import * as scan from "./lib/scan.js";
 import { research, studyEnabled, studyToHtml } from "./lib/study.js";
 import * as sales from "./lib/sales.js";
 import * as ai from "./lib/ai.js";
@@ -44,7 +45,7 @@ app.use((req, res, next) => {
   next();
 });
 // Trae de Redis lo que registraron otras instancias.
-app.use("/api", (req, res, next) => { sync().then(() => next(), () => next()); });
+app.use("/api", (req, res, next) => { Promise.all([sync(), syncExtras()]).then(() => next(), () => next()); });
 
 // ---------- auth
 async function attachPipedriveUser(email) {
@@ -167,6 +168,53 @@ app.post("/api/activities/:id/move", auth, wrap(async (req, res) => {
   await pd.updateActivity(Number(req.params.id), { due_date: u.date, ...(u.time ? { due_time: u.time } : {}) });
   res.json({ ok: true });
 }));
+// ---------- buscador de zonas: «prospectá España», «Bogotá», «Provincia de Córdoba»
+// El navegador recorre las ciudades de a una (así cada pedido es corto y se ve el avance).
+const SCAN_MIN_POP = Number(process.env.RADAR_MIN_POP || 40000);
+app.post("/api/scan/resolve", auth, wrap(async (req, res) => {
+  const q = String(req.body?.q || "").trim().slice(0, 120);
+  if (q.length < 2) return res.status(400).json({ error: "Escribí un país, una provincia o una ciudad." });
+  const cached = await cacheGet("place:" + scan.norm(q));
+  const place = cached || await scan.resolvePlace(q);
+  if (!place) return res.status(404).json({ error: `No encontré «${q}». Probá con otro nombre.` });
+  if (!cached) await cacheSet("place:" + scan.norm(q), place, 30 * 864e2);
+  // nombre del país como lo usa la app (México, Perú…) si es uno de los mercados conocidos
+  const known = Object.entries(MARKETS).find(([, m]) => m.code === place.cc);
+  if (known) place.country = known[0];
+  res.json(place);
+}));
+app.post("/api/scan/cities", auth, wrap(async (req, res) => {
+  const { cc, areaId } = req.body || {};
+  if (!/^[A-Z]{2}$/.test(cc || "") && !areaId) return res.status(400).json({ error: "Zona inválida" });
+  const k = areaId ? `cities:a${Number(areaId)}` : `cities:${cc}`;
+  let list = await cacheGet(k);
+  if (!list) {
+    const deadline = Date.now() + 240e3;
+    list = areaId ? await scan.citiesInArea(areaId, { minPop: SCAN_MIN_POP, deadline, reserve: 5 }) : await scan.citiesFor(cc, { minPop: SCAN_MIN_POP, deadline, reserve: 5 });
+    if (list.length) await cacheSet(k, list, 60 * 864e2);
+  }
+  res.json({ cities: list });
+}));
+app.post("/api/scan/city", auth, wrap(async (req, res) => {
+  const { cc, country, city } = req.body || {};
+  if (!/^[A-Z]{2}$/.test(cc || "") || !city || !Number.isFinite(+city.lat) || !Number.isFinite(+city.lng) || !String(city.name || "").trim()) return res.status(400).json({ error: "Ciudad inválida" });
+  const c = { name: String(city.name).slice(0, 80), lat: +city.lat, lng: +city.lng, pop: Math.max(0, Number(city.pop) || 0) };
+  const els = await scan.scanCity(cc, c, { deadline: Date.now() + 200e3, reserve: 5, attempts: 3 });
+  const idx = scan.buildIndex(schools), fresh = [];
+  let updated = 0;
+  const today = new Date().toISOString().slice(0, 10);
+  for (const e of els) {
+    const s = scan.fromOsm(e, c, cc, String(country || cc).slice(0, 60), today); if (!s) continue;
+    if (scan.matchExisting(schools, idx, s)) { updated++; continue; }
+    // se arma el registro igual que en el radar, con id único
+    const tmp = []; const rec = scan.addTo(tmp, { ...idx, ids: new Set([...idx.ids, ...fresh.map(x => x.id)]), osm: idx.osm, byName: idx.byName }, s);
+    rec.src = "buscador"; rec.addedBy = req.session.user.email;
+    fresh.push(rec);
+  }
+  const added = addSchools(fresh);
+  res.json({ city: c.name, found: els.length, added: added.map(sales.schoolListItem), known: updated });
+}));
+
 // Radar: lo que encontró el agente de prospección (scripts/radar.mjs).
 // Se lee en cada pedido (es chico): así refleja la última corrida aunque el servidor siga vivo.
 const RADAR_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), "data", "radar", "state.json");

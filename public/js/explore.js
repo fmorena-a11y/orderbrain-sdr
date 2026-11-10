@@ -17,7 +17,12 @@ const scope = () => S.schools.filter(s => (!E.country || s.country === E.country
 const searchList = () => { const q = norm(E.q); return S.schools.filter(s => (!E.country || s.country === E.country) && norm(`${s.name} ${s.city} ${s.addr || ""}`).includes(q)); };
 const applyFilter = a => E.filter === "prospect" ? a.filter(s => CALLABLE.includes(s.status)) : E.filter === "all" ? a : a.filter(s => s.status === E.filter);
 const sortS = a => a.sort((x, y) => RANK[x.status] - RANK[y.status] || (x.attempts || 0) - (y.attempts || 0) || x.name.localeCompare(y.name));
-const visible = () => sortS(applyFilter(E.q ? searchList() : scope()));
+// Ubicación buscada (ciudad, barrio o dirección): se muestran los colegios de alrededor, del más cercano al más lejano.
+const kmTo = (a, b) => { const R = 6371, r = x => x * Math.PI / 180; const h = Math.sin(r(b.lat - a.lat) / 2) ** 2 + Math.cos(r(a.lat)) * Math.cos(r(b.lat)) * Math.sin(r(b.lng - a.lng) / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(h)); };
+const placeRadius = p => p.precise ? 3 : (p.city.pop >= 3e6 ? 28 : p.city.pop >= 1e6 ? 18 : p.city.pop >= 4e5 ? 12 : p.city.pop >= 1.5e5 ? 8 : 5) + 2;
+const nearList = () => { const p = E.place, R = placeRadius(p); return S.schools.map(s => ({ s, d: kmTo(s, p.city) })).filter(x => x.d <= R).sort((a, b) => a.d - b.d).map(x => Object.assign(x.s, { _d: x.d })); };
+const nearMode = () => E.place?.kind === "city";
+const visible = () => nearMode() ? applyFilter(nearList()) : sortS(applyFilter(E.q ? searchList() : scope()));
 const callable = () => visible().filter(s => CALLABLE.includes(s.status) && s.phone);
 function citiesOf(list) {
   const m = new Map();
@@ -33,7 +38,8 @@ export function renderExplore(el) {
       <div class="explore-top">
         <h1>Prospectar</h1>
         <label class="sr" for="q">Buscar colegio</label>
-        <input class="inp" id="q" type="search" placeholder="Buscar colegio, ciudad o dirección" value="${esc(E.q)}" autocomplete="off">
+        <form id="qf" class="q-row" role="search"><input class="inp" id="q" type="search" placeholder="Colegio o ubicación (ciudad, barrio, dirección)" value="${esc(E.q)}" autocomplete="off" enterkeyhint="search"><button class="btn icon-only" id="locate" title="Ubicar en el mapa" aria-label="Ubicar en el mapa">${icon("nav")}</button></form>
+        <div id="placeBox"></div>
         <div class="chips scroll-row" id="countries" role="group" aria-label="País"></div>
         <div class="crumb" id="crumb"></div>
         <div class="chips scroll-row" id="filters" role="group" aria-label="Estado en Pipedrive"></div>
@@ -47,7 +53,9 @@ export function renderExplore(el) {
     <div class="mapwrap"><div id="map" role="region" aria-label="Mapa de colegios"></div></div>
   </div>`;
   const q = el.querySelector("#q");
-  q.oninput = () => { E.q = q.value; shown = PAGE; drawAll(); toTop(); };
+  q.oninput = () => { E.q = q.value; E.place = null; shown = PAGE; drawAll(); toTop(); };
+  // Enter o el botón: ubica la búsqueda en el mapa (si no es un colegio de la base)
+  el.querySelector("#qf").onsubmit = e => { e.preventDefault(); locate(q.value); };
   el.querySelector("#sess").onclick = () => {
     const ids = callable().map(s => s.id);
     if (ids.length) startSession(ids, E.city || E.country || "selección");
@@ -55,29 +63,55 @@ export function renderExplore(el) {
   el.querySelector("#csv").onclick = csv;
   initMap();
   drawAll();
+  if (E.pendingLocate) { const t = E.pendingLocate; E.pendingLocate = null; q.value = t; locate(t); }
 }
 
 // Al cambiar de ciudad, país, filtro o búsqueda, la lista vuelve arriba (en celular scrollea .explore-list; si no, .explore-scroll).
 const toTop = () => { for (const sel of [".explore-scroll", ".explore-list"]) { const n = host.querySelector(sel); if (n) n.scrollTop = 0; } };
 function drawAll() {
-  host.querySelector(".explore")?.classList.toggle("focused", !!(E.city || E.q));
-  drawCountries(); drawCrumb(); drawFilters(); drawList(); drawFoot(); drawMap();
+  host.querySelector(".explore")?.classList.toggle("focused", !!(E.city || E.q || E.place));
+  drawCountries(); drawPlace(); drawCrumb(); drawFilters(); drawList(); drawFoot(); drawMap();
+}
+
+// ---------- ubicar en el mapa
+async function locate(text) {
+  text = String(text || "").trim(); if (text.length < 2) return;
+  const box = host.querySelector("#placeBox");
+  box.innerHTML = `<p class="muted place-msg"><span class="spin"></span> Ubicando «${esc(text)}»…</p>`;
+  try {
+    const place = await api("/api/scan/resolve", { body: { q: text } });
+    if (!host.isConnected) return;
+    E.place = place; E.q = ""; E.city = null; shown = PAGE; host.querySelector("#q").value = "";
+    E.country = S.countries.includes(place.country) ? place.country : null;
+    if (place.kind !== "city") E.country = S.countries.includes(place.country) ? place.country : E.country;
+    drawAll(); toTop();
+  } catch (e) { box.innerHTML = `<div class="callout err place-msg">${icon("alert")}<span>${esc(e.message)}</span></div>`; }
+}
+function drawPlace() {
+  const box = host.querySelector("#placeBox"), p = E.place;
+  if (!p) { box.innerHTML = ""; return; }
+  const n = nearMode() ? nearList().length : S.schools.filter(s => s.country === p.country).length;
+  const where = p.kind === "city" ? (p.precise ? `a menos de ${placeRadius(p)} km` : "en la zona") : `en ${esc(p.country)}`;
+  box.innerHTML = `<div class="place-card"><span class="pin">${icon("nav", "sm")}</span><div class="t"><b>${esc(p.label)}</b><small>${fmt(n)} colegio${n === 1 ? "" : "s"} ${where}</small></div>
+    <button class="btn sm" id="pScan" title="Buscar colegios privados nuevos en esta zona">${icon("refresh", "sm")} ${n ? "Buscar más" : "Buscar colegios"}</button><button class="icon-btn" id="pX" aria-label="Quitar ubicación">${icon("x")}</button></div>`;
+  box.querySelector("#pX").onclick = () => { E.place = null; drawAll(); };
+  box.querySelector("#pScan").onclick = () => import("./scan.js").then(m => m.scanPlace(p));
 }
 function drawCountries() {
   const c = host.querySelector("#countries");
   c.innerHTML = [["", "Todos"], ...S.countries.map(x => [x, x])].map(([k, l]) => `<button class="chip" data-c="${esc(k)}" aria-pressed="${(E.country || "") === k}">${esc(l)}</button>`).join("");
-  c.querySelectorAll("button").forEach(b => b.onclick = () => { E.country = b.dataset.c || null; E.city = null; shown = PAGE; drawAll(); toTop(); });
+  c.querySelectorAll("button").forEach(b => b.onclick = () => { E.country = b.dataset.c || null; E.city = null; E.place = null; shown = PAGE; drawAll(); toTop(); });
 }
 function drawCrumb() {
   const c = host.querySelector("#crumb");
-  if (!E.city || E.q) { c.innerHTML = ""; return; }
+  if (!E.city || E.q || E.place) { c.innerHTML = ""; return; }
   c.innerHTML = `<button id="cb">${icon("arrowLeft", "sm")} Ciudades</button><span>${esc(E.city)}</span>`;
   c.querySelector("#cb").onclick = () => { E.city = null; shown = PAGE; drawAll(); };
 }
 function drawFilters() {
   const f = host.querySelector("#filters");
-  const base = E.q ? searchList() : scope();
-  if ((!E.city && !E.q) || !base.length) { f.innerHTML = ""; return; }
+  const base = nearMode() ? nearList() : E.q ? searchList() : scope();
+  if ((!E.city && !E.q && !nearMode()) || !base.length) { f.innerHTML = ""; return; }
   const cnt = {}; base.forEach(s => cnt[s.status] = (cnt[s.status] || 0) + 1);
   cnt.prospect = CALLABLE.reduce((a, k) => a + (cnt[k] || 0), 0); cnt.all = base.length;
   f.innerHTML = FILTERS.filter(([k]) => k === "prospect" || k === "all" || cnt[k]).map(([k, l]) => `<button class="chip" data-f="${k}" aria-pressed="${E.filter === k}">${ST[k] ? `<span class="sdot" style="background:var(${ST[k].c})"></span>` : ""}${l} <b>${fmt(cnt[k] || 0)}</b></button>`).join("");
@@ -86,6 +120,7 @@ function drawFilters() {
 function schoolRow(s) {
   // el subtítulo dice lo que la pastilla no: ciudad, último contacto o motivo de pérdida, intentos, teléfono
   const bits = [];
+  if (nearMode() && s._d != null) bits.push(s._d < 1 ? `${Math.round(s._d * 1000)} m` : `${s._d.toFixed(1).replace(".", ",")} km`);
   if (!E.city) bits.push(s.city);
   if (s.lastTouch) bits.push(`${s.lastTouch.outcome} ${ago(s.lastTouch.at)}`);
   else if (s.status === "lost" && s.detail) bits.push(s.detail.replace(/^Perdido \d{4}-\d{2}-\d{2}( · )?/, "") || "Perdido");
@@ -105,7 +140,7 @@ function drawList() {
     L.innerHTML = S.baseError ? `<div style="padding:12px 6px">${baseErrorCallout()}</div>` : '<div class="skel" style="margin:16px 10px"></div>'.repeat(6);
     return;
   }
-  if (!E.city && !E.q) {
+  if (!E.city && !E.q && !nearMode()) {
     const list = scope(), cs = citiesOf(list);
     L.innerHTML = `<div class="list-h"><span>${fmt(cs.length)} ciudades · ${fmt(list.length)} colegios</span><span class="legend"><i style="background:${CITY.pros}"></i>para llamar <i style="background:${CITY.unk}"></i>sin revisar</span></div>` + checkCallout(list) + cs.map(c => {
       const n = c.items.length, k = {}; c.items.forEach(s => k[s.status] = (k[s.status] || 0) + 1);
@@ -116,13 +151,17 @@ function drawList() {
     L.querySelectorAll("[data-city]").forEach(b => b.onclick = () => openCity(b.dataset.country, b.dataset.city));
     bindCheck(); return;
   }
-  const a = visible(), base = E.q ? searchList() : scope();
-  const empty = E.q
-    ? `<div class="empty">${icon("search")}<span>Ningún colegio coincide con «${esc(E.q)}»${E.country ? ` en ${esc(E.country)}` : ""}.</span>${E.country ? `<button class="btn sm" id="allC">Buscar en todos los países</button>` : ""}<button class="btn sm ghost" id="clr">Borrar búsqueda</button></div>`
+  const a = visible(), base = nearMode() ? nearList() : E.q ? searchList() : scope();
+  const empty = nearMode()
+    ? `<div class="empty">${icon("nav")}<span>Todavía no hay colegios cargados cerca de ${esc(E.place.label)}.</span><button class="btn primary sm" id="nearScan">${icon("refresh", "sm")} Buscar colegios acá</button></div>`
+    : E.q
+    ? `<div class="empty">${icon("search")}<span>Ningún colegio de la base coincide con «${esc(E.q)}»${E.country ? ` en ${esc(E.country)}` : ""}.</span><button class="btn primary sm" id="loc">${icon("nav", "sm")} Ubicar «${esc(E.q)}» en el mapa</button>${E.country ? `<button class="btn sm" id="allC">Buscar en todos los países</button>` : ""}</div>`
     : `<div class="empty">${icon("list")}<span>Nada con este filtro.</span><button class="btn sm" id="fAll">Ver todos</button></div>`;
   L.innerHTML = checkCallout(base) + `<div class="list-h"><span>${fmt(a.length)} colegio${a.length === 1 ? "" : "s"}</span></div>`
     + (a.length ? a.slice(0, shown).map(schoolRow).join("") + (a.length > shown ? `<button class="btn ghost sm block" id="moreS">Ver ${fmt(Math.min(PAGE, a.length - shown))} más</button>` : "") : empty);
   L.querySelector("#allC")?.addEventListener("click", () => { E.country = null; drawAll(); });
+  L.querySelector("#loc")?.addEventListener("click", () => locate(E.q));
+  L.querySelector("#nearScan")?.addEventListener("click", () => import("./scan.js").then(m => m.scanPlace(E.place)));
   L.querySelector("#clr")?.addEventListener("click", () => { E.q = ""; host.querySelector("#q").value = ""; drawAll(); });
   L.querySelector("#fAll")?.addEventListener("click", () => { E.filter = "all"; drawAll(); });
   L.querySelector("#moreS")?.addEventListener("click", () => { shown += PAGE; drawList(); });
@@ -139,12 +178,14 @@ function drawFoot() {
   host.querySelector("#csv").disabled = !S.schools.length;
 }
 function openCity(country, city) {
-  E.country = country; E.city = city; E.q = ""; shown = PAGE; host.querySelector("#q").value = "";
+  E.country = country; E.city = city; E.q = ""; E.place = null; shown = PAGE; host.querySelector("#q").value = "";
   drawAll(); toTop();
   const unk = scope().filter(s => s.status === "unk");
   if (unk.length && unk.length <= 40) checkScope();
 }
-export function openCityFromOutside(country, city) { E.country = country; E.city = city; E.q = ""; E.filter = "prospect"; }
+export function openCityFromOutside(country, city) { E.country = country; E.city = city; E.q = ""; E.place = null; E.filter = "prospect"; }
+// Desde la búsqueda rápida o el asistente: ir a Prospectar y ubicar un lugar en el mapa.
+export function locateFromOutside(text) { E.pendingLocate = text; }
 
 // ---------- mapa
 function initMap() {
@@ -163,7 +204,7 @@ function initMap() {
 }
 function drawMap() {
   if (!map) return; layer.clearLayers(); const pts = [];
-  if (!E.city && !E.q) {
+  if (!E.city && !E.q && !nearMode()) {
     citiesOf(scope()).forEach(c => {
       const lat = c.items.reduce((a, s) => a + s.lat, 0) / c.items.length, lng = c.items.reduce((a, s) => a + s.lng, 0) / c.items.length;
       const pros = c.items.filter(s => ["new", "org", "lost"].includes(s.status)).length, unk = c.items.filter(s => s.status === "unk").length;
@@ -174,11 +215,17 @@ function drawMap() {
     });
   } else {
     const colors = Object.fromEntries(Object.entries(ST).map(([k, v]) => [k, cssVar(v.c)]));
-    applyFilter(E.q ? searchList() : scope()).forEach(s => {
+    (nearMode() ? visible() : applyFilter(E.q ? searchList() : scope())).forEach(s => {
       L.circleMarker([s.lat, s.lng], { renderer: canvas, radius: 7, color: "#fff", weight: 2, fillColor: colors[s.status], fillOpacity: 1 })
         .on("click", () => openSchool(s.id)).bindTooltip(`${s.name} · ${ST[s.status].l}`).addTo(layer);
       pts.push([s.lat, s.lng]);
     });
+  }
+  if (E.place) {
+    const p = E.place, ll = [p.city?.lat ?? p.lat, p.city?.lng ?? p.lng];
+    L.marker(ll, { icon: L.divIcon({ className: "", iconSize: [30, 40], iconAnchor: [15, 38], html: `<div class="place-pin" aria-hidden="true"></div>` }), zIndexOffset: 2000, title: p.label }).bindTooltip(p.label, { permanent: false }).addTo(layer);
+    if (nearMode()) { L.circle(ll, { radius: placeRadius(p) * 1000, color: cssVar("--accent"), weight: 1.5, fillOpacity: 0.04, interactive: false }).addTo(layer); map.flyTo(ll, p.precise ? 14 : 12, { duration: 0.8 }); return; }
+    if (!pts.length) { map.flyTo(ll, p.kind === "country" ? 5 : 7, { duration: 0.8 }); return; }
   }
   if (pts.length) map.fitBounds(pts, { padding: [40, 40], maxZoom: 14 });
 }

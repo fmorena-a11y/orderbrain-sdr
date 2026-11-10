@@ -153,6 +153,7 @@ function renderPalette() {
     if (recent.length) sections.push(["Recientes", recent.map(s => ({ s }))]);
     if (next.length) sections.push(["Siguientes en tu cola", next.map(s => ({ s }))]);
     sections.push(["Acciones", [{ a: { label: "Empezar sesión de llamadas", sub: "Los mejores prospectos de tu territorio, uno tras otro", ic: "play", fn: () => startSession() } },
+      { a: { label: "Buscar colegios en una zona…", sub: "Un país, una provincia o una ciudad: los sumo al mapa", ic: "globe", fn: () => import("./scan.js").then(m => m.openScanDialog()) } },
       ...(S.ai ? [{ a: { label: "Abrir asistente", sub: "Que agende, cargue notas o arme un guion", ic: "sparkles", fn: () => openAssistant() } }] : [])]]);
   } else {
     const schools = q.length >= 2 ? S.schools.filter(s => norm(`${s.name} ${s.city} ${s.country}`).includes(q)).slice(0, 8) : [];
@@ -163,6 +164,10 @@ function renderPalette() {
       ...(S.ai ? [{ label: "Abrir asistente", sub: "", ic: "sparkles", fn: () => openAssistant() }] : []),
     ].filter(a => norm(a.label + " " + a.sub).includes(q));
     if (schools.length) sections.push(["Colegios", schools.map(s => ({ s }))]);
+    if (raw.trim().length >= 3) sections.push(["En el mapa", [
+      { a: { label: `Ubicar «${raw.trim()}» en el mapa`, sub: "Ciudad, barrio o dirección, con los colegios de alrededor", ic: "nav", fn: () => import("./explore.js").then(m => { m.locateFromOutside(raw.trim()); go("prospectar"); }) } },
+      { a: { label: `Buscar colegios en «${raw.trim()}»`, sub: "Busca los privados que faltan y los suma al mapa", ic: "globe", fn: () => import("./scan.js").then(m => m.openScanDialog(raw.trim())) } },
+    ]]);
     if (actions.length) sections.push(["Acciones", actions.map(a => ({ a }))]);
   }
   PAL.items = []; let html = "";

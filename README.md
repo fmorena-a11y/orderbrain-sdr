@@ -59,6 +59,16 @@ Cada colegio recibe un puntaje de 1 a 100 con los motivos visibles: nunca contac
 
 En la app, la sección **Radar** muestra la cobertura por país, las corridas y las mejores oportunidades nuevas, con un botón para hacer una sesión de llamadas con ellas.
 
+## Buscador de zonas
+
+Para no esperar al radar, cualquiera puede buscar colegios en una zona puntual:
+
+- **Prospectar**: escribí una ciudad, barrio o dirección y apretá Enter. La marca en el mapa con un círculo y lista los colegios cercanos por distancia. «Buscar más» trae los que falten en esa zona.
+- **Ctrl K** (o la lupa) → «Buscar colegios en una zona…»: sirve para un país o provincia entera («España», «Provincia de Córdoba»). Arma la lista de ciudades de más de 40.000 habitantes y las recorre en segundo plano, con un indicador de avance que se puede cancelar.
+- **Asistente**: «Prospectá colegios en España» propone la búsqueda y arranca con un botón.
+
+Usa la misma lógica que el radar (`lib/scan.js`: Nominatim para ubicar, Overpass para buscar, mismos filtros de privados y deduplicado). Endpoints: `POST /api/scan/resolve`, `/api/scan/cities`, `/api/scan/city`. Los colegios nuevos quedan en Redis (`schools:extra`) y los ve todo el equipo; sin Redis viven en memoria hasta que reinicia el servidor, y el radar los vuelve a encontrar en su próxima pasada.
+
 Variables: `RADAR_MIN_POP` (40000), `RADAR_RESCAN_DAYS` (30), `RADAR_MINUTES` (20), `RADAR_PLACES_MAX`, `RADAR_WEB_MAX`, `RADAR_AI_MAX`.
 
 ## Fotos de cada colegio
@@ -145,6 +155,7 @@ lib/ai.js              Claude: notas, brief de llamada, mensajes y asistente con
 lib/store.js           Colegios, cache del cruce y registro de contactos (Redis o DATA_DIR)
 lib/time.js            Zonas horarias y días hábiles
 lib/photos.js          Fotos de cada colegio (Google, web y satélite)
+lib/scan.js            Búsqueda en OpenStreetMap compartida por el radar y el buscador de zonas
 scripts/radar.mjs      Radar: busca colegios privados en todas las ciudades (GitHub Actions)
 public/                Frontend sin build: HTML, CSS y módulos JS (mapa con Leaflet)
 ```
