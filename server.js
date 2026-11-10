@@ -372,6 +372,8 @@ app.get("/api/today", auth, wrap(async (req, res) => {
   const busyOrgs = new Set(mine.items.map(a => a.orgId).filter(Boolean));
   res.json({ stats: sales.stats(req.session.user, req.tz), activities: mine, queue: sales.prospectQueue({ countries, limit: 60, excludeOrgIds: busyOrgs, userId: req.session.user.pdUserId || null }) });
 }));
+// Bandeja caliente de Hoy: los prospectos nuevos para vos (solo los tuyos). Va aparte para no frenar la carga de Hoy.
+app.get("/api/hot", auth, wrap(async (req, res) => res.json(await sales.newForMe(req.session.user))));
 // Cola de prospectos nuevos de una zona («hoy quiero trabajar Puebla»). El navegador manda las organizaciones que ya tienen
 // actividad tuya (exclude) para no repetirlas; la regla del dueño la aplica prospectQueue igual.
 app.get("/api/queue", auth, wrap(async (req, res) => {
@@ -385,10 +387,12 @@ app.post("/api/activities/:id/undone", auth, wrap(async (req, res) => { await ow
 app.post("/api/activities/:id/move", auth, wrap(async (req, res) => {
   const { date, time } = req.body || {};
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date || "")) return res.status(400).json({ error: "Fecha inválida" });
-  await ownActivity(req.session.user, req.params.id);
-  const u = toUtc(date, time && /^\d{2}:\d{2}$/.test(time) ? time : "", req.tz);
+  const a = await ownActivity(req.session.user, req.params.id), tm = time && /^\d{2}:\d{2}$/.test(time) ? time : "";
+  const u = toUtc(date, tm, req.tz);
   await pd.updateActivity(Number(req.params.id), { due_date: u.date, ...(u.time ? { due_time: u.time } : {}) });
-  res.json({ ok: true });
+  // si es una demo, el recordatorio para confirmarla se mueve con ella
+  const done = await sales.demoMoved(a, req.session.user, { date, time: tm }, req.tz, await isLeader(req.session.user.email)).catch(e => [{ label: `No pude mover el recordatorio para confirmar la demo: ${e.message}`, warn: true }]);
+  res.json({ ok: true, done });
 }));
 // ---------- buscador de zonas: «prospectá España», «Bogotá», «Provincia de Córdoba», «Pocitos»
 // 1) /resolve ubica el lugar con su contorno. 2) /city trae de OpenStreetMap los colegios de una ciudad o de un
@@ -589,6 +593,7 @@ async function confirmProposal(p, req) {
   if (p.kind === "activity") {
     const u = toUtc(p.date, p.time, p.tz || req.tz);
     await pd.addActivity({ subject: p.subject, type: p.type, dueDate: u.date, dueTime: u.time, durationMin: p.durationMin, ...target, ownerId: p.owner.id, note: p.note ? `${p.note}\n\n(Agendado por ${by} desde OrderBrain SDR)` : `Agendado por ${by} desde OrderBrain SDR` });
+    if (p.type === "meeting") await sales.demoReminder({ name: vs?.name || p.colegio, ...target, date: p.date, time: p.time, tz: p.tz || req.tz, user }).catch(e => console.warn("Recordatorio de demo:", e.message));
   } else {
     const esc = s => String(s).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
     await pd.addNote({ content: `<b>Nota desde el asistente</b><br>${esc(p.text).replace(/\n/g, "<br>")}<br><br><i>Cargado por ${esc(by)} desde OrderBrain SDR</i>`, ...target });

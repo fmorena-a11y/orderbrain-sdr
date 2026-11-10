@@ -180,6 +180,15 @@ export function localAct(a) {
   if (isNaN(d)) return { date: a.date, time: a.time.slice(0, 5) };
   return { date: d.toLocaleDateString("sv"), time: d.toTimeString().slice(0, 5) };
 }
+// Bandeja caliente de Hoy: tus demos de hoy y mañana sin hacer (de tu agenda) y los prospectos nuevos para vos (/api/hot).
+// Cada fila dice por qué está. Si una demo y un prospecto son de la misma ficha, queda la demo.
+export const agoText = (iso, now = Date.now()) => { const m = Math.max(1, Math.round((now - Date.parse(iso)) / 60e3)), h = Math.round(m / 60), d = Math.round(m / 1440); return m < 60 ? `${m} min` : m < 1440 ? `${h} h` : `${d} ${d === 1 ? "día" : "días"}`; };
+export function hotRows(acts = [], leads = [], t = today(), now = Date.now()) {
+  const tm = addDays(t, 1), demos = acts.filter(a => a.type === "meeting").map(a => ({ ...a, ...localAct(a) })).filter(a => a.date === t || a.date === tm).sort((a, b) => (a.date + (a.time || "99")).localeCompare(b.date + (b.time || "99")))
+    .map(a => ({ kind: "demo", id: a.id, schoolId: a.schoolId || null, record: a.schoolId ? null : a.record || null, url: a.url || "", title: a.who || a.subject, why: `Demo ${a.date === t ? "hoy" : "mañana"}${a.time ? ` ${a.time}` : ""}`, city: a.city || "", event: a.event || "" }));
+  const seen = new Set(demos.map(d => d.schoolId || d.record).filter(Boolean));
+  return [...demos, ...leads.filter(l => !seen.has(l.schoolId || l.record)).map(l => ({ kind: "lead", id: l.id, schoolId: l.schoolId || null, record: l.schoolId ? null : l.record, title: l.title, why: `${l.assigned ? "Te lo asignaron" : "Nuevo"} hace ${agoText(l.addTime, now)}`, event: l.event || "" }))];
+}
 // Horario de llamada («llamar a la hora en que atienden»): con la ventana de oficina del país (S.markets[país].horario, en hora
 // local del colegio, lunes a viernes) dice si ahora es horario de oficina o cuándo abre. local: la hora allá, solo si es otro huso que el tuyo.
 // s: { country, city, lng }. En un país con varios husos (husos/husoLng) sin saber el de la ciudad, null: no se afirma nada.
@@ -204,6 +213,15 @@ export function callWindow(s, now = new Date()) {
 export const callPill = s => { const w = callWindow(s); return w ? `<span class="cw ${w.ok ? "ok" : ""}" title="Horario habitual de oficina escolar en ${esc(s.country)} (no es un dato del colegio), hora local: ${esc(w.span)}">${icon("clock", "sm")}${esc([w.label, w.local].filter(Boolean).join(" · "))}</span>` : ""; };
 // La cola de Hoy en el orden en que se muestra y se llama: los nuevos (primero los que están en horario de oficina, orden estable) y después los de reactivar
 export const callQueue = (queue, now = new Date()) => { const rv = q => q.status === "lost" || q.status === "stalled", off = q => callWindow(q, now)?.ok ? 0 : 1; return [...queue.filter(q => !rv(q)).sort((a, b) => off(a) - off(b)), ...queue.filter(rv)]; };
+// «Registrar en 10 segundos»: cuánto duró la llamada (de tocar Llamar a volver a la app). Menos de 25 s casi siempre es que no atendieron:
+// se preselecciona «No atendió» (el SDR confirma). Más de una hora no se muestra: es tiempo fuera de la app, no la llamada.
+export const SHORT_CALL_S = 25;
+export function callGuess(ms) {
+  const s = Math.round(ms / 1000);
+  if (!(s >= 0) || s > 3600) return null;
+  if (s < SHORT_CALL_S) return { outcome: "no_answer", channel: "call", note: `La llamada duró ${s} s: marqué No atendió. Cambialo si no fue así.` };
+  return { note: `Duró ${s < 60 ? `${s} s` : `${Math.round(s / 60)} min`}` };
+}
 export const ago = t => {
   if (!t) return ""; const d = (Date.now() - new Date(t)) / 864e5;
   if (d < 1 / 48) return "recién"; if (d < 1 / 24) return `hace ${Math.round(d * 1440)} min`; if (d < 1) return `hace ${Math.round(d * 24)} h`;

@@ -1,9 +1,9 @@
 // Hoy: meta del día, agenda propia y a quién contactar ahora.
-import { S, api, esc, icon, potTag, save, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg, brainTokenCallout, matchZone, zoneOptions, ZONE_KIND, workOrder, norm, callPill, callQueue } from "./core.js";
+import { S, api, esc, icon, potTag, save, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg, brainTokenCallout, matchZone, zoneOptions, ZONE_KIND, workOrder, norm, callPill, callQueue, hotRows } from "./core.js";
 import { openSchool, openRecord, startSession, resumeSession } from "./school.js";
 import { setBadge, baseErrorCallout } from "./app.js";
 
-let host = null, showAll = false;
+let host = null, showAll = false, hotLeads = null, hotAll = false;
 const STATUS_REASONS = /^(Nunca contactado|Sin revisar|En Pipe sin trato)$/;
 
 export async function loadToday() {
@@ -26,10 +26,13 @@ async function verifyQueue() {
     if (S.today) { S.today.queue = S.today.queue.filter(q => !out.has(q.id)).map(q => r[q.id] && !r[q.id].error ? { ...q, status: r[q.id].status, detail: r[q.id].detail } : q); if (host?.isConnected) draw(); }
   } catch {} finally { verifying = false; }
 }
+// Prospectos nuevos para vos (bandeja caliente): aparte, para no frenar Hoy. Si falla, la bandeja queda solo con las demos.
+let hotSeq = 0;
+function loadHot() { const my = ++hotSeq; api("/api/hot").then(r => { if (my === hotSeq) { hotLeads = r.items || []; if (host?.isConnected) draw(); } }).catch(() => { if (my === hotSeq) { hotLeads = hotLeads || []; if (host?.isConnected) draw(); } }); }
 function syncBadge() { const t = today(); setBadge("hoy", (S.today?.activities.items || []).filter(a => localAct(a).date <= t).length); }
 
 export function renderToday(el) {
-  host = el; showAll = false;
+  host = el; showAll = false; hotAll = false; loadHot();
   if (!S.today) { el.innerHTML = skeleton(); loadToday().then(() => host === el && draw()).catch(e => host === el && drawError(e)); }
   else { draw(); loadToday().then(() => host === el && draw()).catch(e => toast(`No pudimos actualizar tu día: ${e.message}`, { type: "err", action: { label: "Reintentar", fn: () => renderToday(el) } })); }
 }
@@ -61,6 +64,7 @@ function draw() {
   const resume = S.lastSession && S.lastSession.i < S.lastSession.ids.length - 1;
   const terr = S.territory.length ? (S.territory.length <= 2 ? S.territory.join(", ") : `${S.territory.length} países`) : "Todos los países";
   const list = showAll ? fresh : fresh.slice(0, 6);
+  const hot = hotRows(activities.items || [], hotLeads || [], t), hotList = hotAll ? hot : hot.slice(0, 6);
 
   host.innerHTML = `<div class="page">
     ${baseErrorCallout()}
@@ -70,6 +74,8 @@ function draw() {
     ${brainStaleMsg() ? `<div class="callout warn" style="margin-bottom:16px">${icon("alert")}<span>${esc(brainStaleMsg())}</span></div>` : ""}
     <div class="page-head"><div><h1>${greeting()}, ${esc(firstName())}</h1><p>${esc(cap(new Intl.DateTimeFormat("es", { weekday: "long", day: "numeric", month: "long" }).format(new Date())))}</p></div></div>
     ${!S.me.pdUserId ? `<div class="callout warn" style="margin-bottom:16px">${icon("alert")}<span>Tu email (${esc(S.me.email)}) no coincide con ningún usuario de Pipedrive, así que no vemos tu agenda. Pedí que te den de alta con ese email.</span></div>` : ""}
+    ${hot.length ? `<section class="card hot" aria-labelledby="hH"><div class="card-h"><h2 id="hH">${icon("flame")} Bandeja caliente</h2><span class="sub">${hotLeads ? "demos cerca y prospectos nuevos para vos" : "buscando prospectos nuevos…"}</span></div>
+      <div class="card-b">${hotList.map(hotRow).join("")}${hot.length > 6 ? `<button class="btn ghost sm block" id="hotMore" data-focus-key="hotMore">${hotAll ? "Ver menos" : `Ver ${hot.length - 6} más`}</button>` : ""}</div></section>` : ""}
     <section class="card hero" aria-label="Tu día">
       <div class="ring" style="--p:${pct}" role="img" aria-label="${stats.todayTouches} de ${stats.goal} contactos hoy"><b>${stats.todayTouches}<small>de ${stats.goal}</small></b></div>
       <div class="hero-txt"><h2>${esc(msg)}</h2>
@@ -105,6 +111,7 @@ function draw() {
   host.querySelector("#terr").onclick = territoryPicker;
   host.querySelector("#zoneGo")?.addEventListener("click", zoneSession);
   host.querySelector("#more")?.addEventListener("click", () => { showAll = !showAll; draw(); });
+  host.querySelector("#hotMore")?.addEventListener("click", () => { hotAll = !hotAll; draw(); });
   host.querySelectorAll("[data-school]").forEach(b => b.onclick = () => openSchool(b.dataset.school, { activityId: b.dataset.act ? Number(b.dataset.act) : null }));
   host.querySelectorAll("[data-record]").forEach(b => b.onclick = () => openRecord(b.dataset.record, { activityId: Number(b.dataset.act) || null }));
   host.querySelectorAll("[data-done]").forEach(b => b.onclick = () => markDone(Number(b.dataset.done)));
@@ -185,6 +192,14 @@ export function actRow(a, late) {
       : `<div class="t"><b>${esc(title)}</b><small class="${late ? "late" : ""}">${esc(sub)}</small></div>`}
     <div class="ops"><button class="icon-btn" data-done="${a.id}" data-focus-key="done-${a.id}" title="Marcar como hecha" aria-label="Marcar como hecha">${icon("check")}</button><button class="icon-btn" data-move="${a.id}" title="Reprogramar" aria-label="Reprogramar">${icon("clock")}</button></div></div>`;
 }
+// Fila de la bandeja caliente: abre la ficha (colegio o prospecto) y dice por qué está ahí.
+function hotRow(r) {
+  const s = r.schoolId && S.byId.get(r.schoolId), demo = r.kind === "demo", act = demo ? ` data-act="${r.id}"` : "";
+  const title = s?.name || r.title, sub = [r.why, r.event, s?.city || r.city].filter(Boolean).join(" · "), inner = `<b>${esc(title)}</b><small>${esc(sub)}</small>`;
+  return `<div class="act"><span class="ty ${demo ? "meeting" : "lead"}" role="img" aria-label="${demo ? "Demo" : "Prospecto nuevo"}" title="${demo ? "Demo" : "Prospecto nuevo"}">${icon(demo ? TYPE_ICON.meeting : "user")}</span>
+    ${r.schoolId ? `<button class="t" data-school="${esc(r.schoolId)}"${act}>${inner}</button>` : r.record ? `<button class="t" data-record="${esc(r.record)}"${act} title="Abrir la ficha">${inner}</button>`
+      : r.url ? `<a class="t" href="${esc(r.url)}" target="_blank" rel="noopener" title="Abrir en Pipedrive">${inner}</a>` : `<div class="t">${inner}</div>`}</div>`;
+}
 function prospectRow(q) {
   const cls = q.score >= 60 ? "" : q.score >= 40 ? "mid" : "low";
   const why = q.reasons.filter(r => !STATUS_REASONS.test(r)).slice(0, 3);
@@ -223,7 +238,7 @@ export function moveMenu(anchor, id, after) {
   const all = [...(S.today?.activities.items || []), ...(S.agenda?.items || [])];
   const a = all.find(x => x.id === id); const time = a ? localAct(a).time : "";
   const done = async (d, tm) => {
-    try { await api(`/api/activities/${id}/move`, { body: { date: d, time: tm } }); toast(`Reprogramada para ${shortDay(d)}${tm ? ` a las ${tm}` : ""}`); }
+    try { const r = await api(`/api/activities/${id}/move`, { body: { date: d, time: tm } }); toast([`Reprogramada para ${shortDay(d)}${tm ? ` a las ${tm}` : ""}`, ...(r.done || []).map(x => x.label)].join(". "), r.done?.some(x => x.warn) ? { type: "err" } : undefined); }
     catch (e) { return toast(e.message, { type: "err" }); }
     const nextId = nextFocusKey(id);
     await loadToday().catch(() => {}); after ? after() : draw();

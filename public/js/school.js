@@ -1,6 +1,6 @@
 // Ficha del colegio: preparar el contacto, registrar el resultado e historial. Incluye el modo sesión.
 import { $, S, api, esc, icon, pill, statusPill, stageTag, potTag, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, workOrder, ago, TYPE_ICON,
-  telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile, callQueue } from "./core.js";
+  telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile, callQueue, callGuess } from "./core.js";
 // «la cafetería», «el casino», «el bar escolar»
 const laEsp = mk => `${/^(casino|bar)\b/.test(mk?.espacio || "") ? "el" : "la"} ${mk?.espacio || "cafetería"}`, delaEsp = mk => laEsp(mk).replace(/^el /, "del ").replace(/^la /, "de la ");
 const coarse = () => matchMedia("(pointer: coarse)").matches;
@@ -68,7 +68,7 @@ export async function openSchool(id, { activityId = null, tab = null, keepSessio
   if ($("drawer").hidden) { D.opener = document.activeElement; history.pushState({ ...(history.state || {}), drawer: id }, ""); }
   import("./app.js").then(m => m.rememberSchool(id));
   const draft = drafts.get(id); drafts.delete(id);
-  Object.assign(D, { inCall: false, id, data: null, form: draft?.form || newForm(), activityId: activityId ?? draft?.activityId ?? null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null, tab: draft ? "log" : tab || (activityId ? "log" : "prep") });
+  Object.assign(D, { inCall: false, call: null, id, data: null, form: draft?.form || newForm(), activityId: activityId ?? draft?.activityId ?? null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null, tab: draft ? "log" : tab || (activityId ? "log" : "prep") });
   if (draft) toast("Recuperé lo que estabas cargando", { type: "info" });
   $("drawer").hidden = false; $("scrim").hidden = false;
   $("scrim").onclick = closeSchool;
@@ -635,9 +635,17 @@ function bindTop(s, d) {
   // Llamar no saca del guion: en celular, al volver de la llamada se abre Registrar; en escritorio queda un aviso.
   el.querySelector("#aSedes")?.addEventListener("click", () => { if (D.tab !== "prep") goTab("prep"); setTimeout(() => $("drawer").querySelector("#sedes")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50); });
   el.querySelector("#aCall")?.addEventListener("click", () => {
-    D.inCall = true; D.form.channel = "call"; draw();
+    D.inCall = true; D.form.channel = "call"; D.call = null; draw();
     if (coarse()) {
-      const back = () => { if (document.visibilityState !== "visible") return; document.removeEventListener("visibilitychange", back); if (D.inCall && D.id === s.id) { D.result = null; goTab("log"); } };
+      // al volver: cuánto duró. Corta (<25 s) preselecciona «No atendió» con su próximo paso; nada se guarda solo, el SDR confirma.
+      const t0 = Date.now(), back = () => {
+        if (document.visibilityState !== "visible") return; document.removeEventListener("visibilitychange", back);
+        if (!D.inCall || D.id !== s.id) return;
+        const g = callGuess(Date.now() - t0), pre = g?.outcome && !D.form.outcome && S.outcomes.some(o => o.id === g.outcome);
+        D.call = g && (pre || !g.outcome) ? { note: g.note, outcome: pre ? g.outcome : null } : null;
+        if (pre) { D.form.outcome = g.outcome; D.form.channel = g.channel; D.form.lostReason = ""; }
+        D.result = null; goTab("log"); if (D.call) $("drawer").querySelector(".call-dur")?.scrollIntoView({ block: "center" }); if (pre) suggest(s);
+      };
       document.addEventListener("visibilitychange", back);
     }
   });
@@ -786,7 +794,8 @@ function logBody(s, d) {
     <div class="sec step"><div class="step-h"><span class="n">${++n}</span>¿Por dónde fue el contacto?</div>
       <div class="seg" role="group">${CH.map(([k, l, ic]) => `<button data-ch="${k}" aria-pressed="${f.channel === k}">${icon(ic, "sm")} ${l}</button>`).join("")}</div></div>
     <div class="sec step"><div class="step-h"><span class="n">${++n}</span>¿Qué pasó?</div>
-      <div class="outcomes">${S.outcomes.map(x => `<button class="oc ${GOOD.includes(x.id) ? "good" : ""}" data-oc="${x.id}" aria-pressed="${f.outcome === x.id}" ${x.id === "demo" && s.status === "client" ? `disabled title="Ya es cliente"` : ""}><b>${esc(x.label)}</b><small>${esc(x.hint)}</small></button>`).join("")}</div></div>
+      ${D.call ? `<p class="call-dur muted">${icon("clock", "sm")} ${esc(D.call.note)}</p>` : ""}
+      <div class="outcomes">${S.outcomes.map((x, i) => `<button class="oc ${GOOD.includes(x.id) ? "good" : ""}" data-oc="${x.id}" aria-pressed="${f.outcome === x.id}" ${x.id === "demo" && s.status === "client" ? `disabled title="Ya es cliente"` : ""}><b>${esc(x.label)}</b><small>${esc(x.hint)}</small>${i < 9 ? `<span class="kbd-hint oc-k" aria-hidden="true">${i + 1}</span>` : ""}</button>`).join("")}</div></div>
     <div class="sec step"><div class="step-h"><span class="n">${++n}</span>Comentario <span class="faint" style="font-weight:400;font-size:13px">${f.outcome ? "lo que te dijeron, con tus palabras" : contactPending() ? "lo que pasó, con tus palabras" : "opcional · se puede guardar solo, sin registrar un contacto"}</span></div>
       <textarea class="inp" data-f="text" aria-label="Comentario" placeholder="Ej: atendió la secretaria, la cafetería la maneja un concesionario (Don Pedro), llamar después de las 11.">${esc(f.text)}</textarea>
       ${(QUICK[f.outcome] || []).length ? `<div class="quick">${QUICK[f.outcome].map(q => `<button data-quick="${esc(q)}">+ ${esc(q)}</button>`).join("")}</div>` : ""}
@@ -829,7 +838,8 @@ function logBody(s, d) {
 function nextLine(f) {
   if (!f.next.type || !f.next.date) return "";
   const who = f.next.ownerId ? (S.team || []).find(u => String(u.id) === String(f.next.ownerId))?.name : "";
-  return `${S.types[f.next.type] || "Tarea"} el ${dayLabel(f.next.date).toLowerCase()}${f.next.time ? ` a las ${f.next.time}` : ""} · para ${who || "vos"}`;
+  const dl = dayLabel(f.next.date).toLowerCase();
+  return `${S.types[f.next.type] || "Tarea"} ${["hoy", "mañana", "ayer"].includes(dl) ? dl : `el ${dl}`}${f.next.time ? ` a las ${f.next.time}` : ""} · para ${who || "vos"}`;
 }
 function pipeName(s) { const mk = S.markets[s.country]; return mk ? `${{ MX: "MX - SALES", PE: "PE - SALES", AR: "ARG - SALES", CL: "CHI - Sales", UY: "UY - SALES" }[mk.code] || "LatAm - SALES"}` : "el embudo del país"; }
 
@@ -857,8 +867,8 @@ function bindLog(s, d) {
   el.querySelectorAll("[data-ch]").forEach(b => b.onclick = () => { f.channel = b.dataset.ch; redrawLog(); suggest(s); });
   el.querySelectorAll("[data-oc]").forEach(b => b.onclick = () => {
     // tocar el que ya estaba elegido lo quita (por ejemplo, para guardar solo un comentario)
-    if (f.outcome === b.dataset.oc) { f.outcome = null; f.lostReason = ""; f.why = ""; if (!f.nextTouched) f.next = { type: "", date: "", time: "", ownerId: f.next.ownerId }; redrawLog(); return; }
-    f.outcome = b.dataset.oc; f.lostReason = ""; redrawLog(); suggest(s);
+    if (f.outcome === b.dataset.oc) { if (D.call?.outcome) D.call = null; f.outcome = null; f.lostReason = ""; f.why = ""; if (!f.nextTouched) f.next = { type: "", date: "", time: "", ownerId: f.next.ownerId }; redrawLog(); return; }
+    f.outcome = b.dataset.oc; f.lostReason = ""; if (D.call?.outcome) D.call = null; redrawLog(); suggest(s);
   });
   el.querySelectorAll("[data-caf]").forEach(b => b.onclick = () => { f.qual.cafeteria = f.qual.cafeteria === b.dataset.caf ? "" : b.dataset.caf; redrawLog(); });
   el.querySelectorAll("[data-niv]").forEach(b => b.onclick = () => { const v = b.dataset.niv; f.qual.niveles = f.qual.niveles.includes(v) ? f.qual.niveles.filter(x => x !== v) : [...f.qual.niveles, v]; b.setAttribute("aria-pressed", f.qual.niveles.includes(v)); });
@@ -907,7 +917,7 @@ async function saveLog(s, d) {
   try {
     const r = await api(`/api/schools/${s.id}/log`, { body });
     if (D.id !== s.id) return;
-    D.result = { ...r, form: JSON.parse(JSON.stringify(f)) }; D.inCall = false;
+    D.result = { ...r, form: JSON.parse(JSON.stringify(f)) }; D.inCall = false; D.call = null;
     patchSchool(r.school);
     S.today = null; S.agenda = null;
     if (S.session) S.session.done++;
@@ -1006,11 +1016,15 @@ function bindHist(s, d) {
 function templateMenu(anchor, s, d, channel, to = {}) {
   if (!d) return toast(D.err ? "No se pudo cargar la ficha. Tocá Reintentar." : "Cargando la ficha…", { type: D.err ? "err" : "info" });
   const list = d.templates.filter(t => t.channel === channel);
-  const recommended = channel === "whatsapp" ? (s.status === "lost" || s.status === "stalled" ? "reactivate" : d.attempts ? "after_call" : "intro") : (s.status === "lost" || s.status === "stalled" ? "mail_reactivate" : "mail_info");
+  // abierta desde el recordatorio «Confirmar demo» de la agenda: va esa plantilla, con el día y la hora de la próxima demo
+  const act = D.activityId && d.activities?.find(a => a.id === D.activityId), confirm = act?.type === "deadline" && /^Confirmar demo\b/.test(act.subject || "");
+  const demo = confirm && d.activities.filter(a => a.type === "meeting").map(localAct).find(l => l.date >= today());
+  const recommended = channel === "whatsapp" ? (confirm ? "confirm_demo" : s.status === "lost" || s.status === "stalled" ? "reactivate" : d.attempts ? "after_call" : "intro") : (s.status === "lost" || s.status === "stalled" ? "mail_reactivate" : "mail_info");
   list.sort((a, b) => (b.id === recommended) - (a.id === recommended));
   openMenu(anchor, [{ head: channel === "whatsapp" ? "Mensaje de WhatsApp" : "Mail desde Gmail" },
     ...list.map(t => ({ label: t.label + (t.id === recommended ? " · sugerido" : ""), sub: channel === "mail" ? t.subject || "" : t.text.split("\n").find(x => x.length > 12) || t.text, fn: () => {
       let text = t.text; if (to.name) text = text.replace(/^Hola(?=[,\s])/, `Hola ${to.name.split(" ")[0]}`);
+      if (t.id === "confirm_demo" && demo) text = text.replace("[día]", shortDay(demo.date)).replace("[hora]", demo.time || "[hora]");
       messageModal(s, d, { ...t, text }, { phone: to.phone, email: to.email, name: to.name, logAfter: true });
     } })),
     { label: "Mensaje en blanco", sub: "Escribir desde cero", fn: () => messageModal(s, d, { channel, label: "Mensaje", text: "", subject: "" }, { phone: to.phone, email: to.email, name: to.name, logAfter: true }) },
@@ -1063,10 +1077,14 @@ function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
   };
 }
 
-// Ctrl + Enter guarda; en la pantalla de resultado, Enter pasa al siguiente de la sesión.
+// Ctrl + Enter guarda; en la pantalla de resultado, Enter pasa al siguiente de la sesión. En escritorio, 1 a 8 eligen qué pasó (fuera de los campos de texto).
+const typing = t => t?.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t?.tagName || "");
 addEventListener("keydown", e => {
   if (!drawerOpen() || document.querySelector(".modal")) return;
   if ((e.ctrlKey || e.metaKey) && e.key === "Enter" && D.tab === "log" && !D.result) { e.preventDefault(); $("drawer").querySelector("#save")?.click(); }
+  else if (/^[1-9]$/.test(e.key) && !e.ctrlKey && !e.metaKey && !e.altKey && D.tab === "log" && !D.result && !D.saving && !coarse() && !typing(e.target)) {
+    const b = $("drawer").querySelectorAll("[data-oc]")[+e.key - 1]; if (b && !b.disabled) { e.preventDefault(); b.click(); $("drawer").querySelector(`[data-oc="${b.dataset.oc}"]`)?.focus(); }
+  }
 });
 
 // «Ver qué pasó» (desde Registrar): va a la historia con OrderEAT en Preparar
