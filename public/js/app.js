@@ -28,6 +28,7 @@ async function start() {
   } catch { showLogin(); }
 }
 async function showLogin() {
+  document.querySelectorAll(".modal").forEach(m => m.remove()); // si la sesión vence con un diálogo abierto
   show("login"); $("assistant").hidden = true;
   const cfg = await api("/auth/config").catch(() => null);
   const err = $("loginErr");
@@ -112,23 +113,28 @@ function accountMenu(anchor) {
   ]);
 }
 function profileDialog({ required = false } = {}) {
-  const roles = S.profile?.roles || { sdr: "SDR", ae: "Account Executive", lider: "Líder" };
-  const cur = S.me.role || "", name = S.profile?.complete ? S.me.name : (S.profile?.suggested || "");
+  // el rol «Líder» lo define el servidor (quien conectó Pipedrive o la lista de líderes); los demás eligen SDR o AE
+  const leader = !!S.profile?.leader;
+  const roles = S.profile?.roles || { sdr: "SDR", ae: "Account Executive" };
+  const cur = leader ? "lider" : S.me.role && S.me.role !== "lider" ? S.me.role : "";
+  const name = S.profile?.complete ? S.me.name : (S.profile?.suggested || "");
   const m = modal(`<div class="modal-h"><h3>${required ? "Contanos quién sos" : "Tu perfil"}</h3>${required ? "" : `<button class="icon-btn" id="pfX" aria-label="Cerrar">${icon("x")}</button>`}</div>
-    ${required ? `<p class="muted" style="margin:-6px 0 0">Se usa en los saludos, en la firma de tus mensajes y en Equipo.</p>` : ""}
+    ${required ? `<p class="muted" style="margin:-6px 0 0">Se usa en los saludos y en Equipo. En Pipedrive tus notas se firman con tu usuario de Pipedrive.</p>` : ""}
     <form id="pfF" class="stack" style="gap:14px">
       <label class="field"><span>Nombre y apellido</span><input class="inp" id="pfName" value="${esc(name)}" autocomplete="name" placeholder="Ej: Javiera Tejos" required></label>
-      <div class="field"><span>Rol en el equipo</span><div class="seg" role="radiogroup" aria-label="Rol en el equipo">${Object.entries(roles).map(([k, l]) => `<button type="button" role="radio" data-role="${k}" aria-checked="${cur === k}" aria-pressed="${cur === k}">${esc(l)}</button>`).join("")}</div></div>
+      <div class="field"><span>Rol en el equipo</span>${leader ? `<p class="muted" style="margin:0">Líder (por ser quien conectó Pipedrive o estar en la lista de líderes)</p>` : `<div class="seg" role="radiogroup" aria-label="Rol en el equipo">${Object.entries(roles).map(([k, l]) => `<button type="button" role="radio" data-role="${k}" aria-checked="${cur === k}" aria-pressed="${cur === k}">${esc(l)}</button>`).join("")}</div>`}</div>
       <p class="err" id="pfErr" role="alert" style="margin:0;color:var(--err)"></p>
       <button class="btn primary block" id="pfGo">Guardar</button>
+      ${required ? `<button type="button" class="btn ghost block" id="pfOut">Salir</button>` : ""}
     </form>`, { locked: required });
   let role = cur;
   m.querySelectorAll("[data-role]").forEach(b => b.onclick = () => { role = b.dataset.role; m.querySelectorAll("[data-role]").forEach(x => { const on = x === b; x.setAttribute("aria-pressed", on); x.setAttribute("aria-checked", on); }); });
   m.querySelector("#pfX")?.addEventListener("click", () => m.close());
+  m.querySelector("#pfOut")?.addEventListener("click", async () => { await api("/auth/logout", { body: {} }).catch(() => {}); location.reload(); });
   m.querySelector("#pfF").onsubmit = async e => {
     e.preventDefault(); const go = m.querySelector("#pfGo"); go.disabled = true;
     try {
-      const r = await api("/api/me/profile", { body: { name: m.querySelector("#pfName").value, role } });
+      const r = await api("/api/me/profile", { body: { name: m.querySelector("#pfName").value, role: leader ? "lider" : role } });
       S.me = r.user; S.profile = { ...(S.profile || {}), complete: true }; m.close(); drawMe(); route();
       toast(required ? `Listo, ${S.me.name.split(" ")[0]}` : "Perfil guardado");
     } catch (x) { m.querySelector("#pfErr").textContent = x.message; go.disabled = false; }

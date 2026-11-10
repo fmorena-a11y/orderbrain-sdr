@@ -16,12 +16,12 @@ export async function loadToday() {
 // otra persona (o ya es cliente o tiene trato), salen de la cola. Así nunca se propone algo que no es tuyo.
 let verifying = false;
 async function verifyQueue() {
-  const unk = (S.today?.queue || []).slice(0, 15).filter(q => q.status === "unk").map(q => q.id);
+  const unk = (S.today?.queue || []).slice(0, 25).filter(q => q.status === "unk").map(q => q.id);
   if (verifying || !unk.length) return;
   verifying = true;
   try {
     const r = await api("/api/check", { body: { ids: unk } });
-    const out = new Set(Object.entries(r).filter(([, v]) => !v.error && ((v.ownerId && v.ownerId !== S.me.pdUserId) || ["client", "open"].includes(v.status))).map(([id]) => id));
+    const out = new Set(Object.entries(r).filter(([, v]) => !v.error && ((v.ownerId && v.ownerId !== S.me.pdUserId) || ["client", "open", "churn"].includes(v.status))).map(([id]) => id));
     Object.values(r).forEach(v => { if (!v.error) patchSchool(v); });
     if (S.today) { S.today.queue = S.today.queue.filter(q => !out.has(q.id)).map(q => r[q.id] && !r[q.id].error ? { ...q, status: r[q.id].status, detail: r[q.id].detail } : q); if (host?.isConnected) draw(); }
   } catch {} finally { verifying = false; }

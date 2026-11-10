@@ -1,5 +1,5 @@
 // Equipo: ranking de los últimos 7 días y actividad reciente.
-import { S, api, esc, icon, ago } from "./core.js";
+import { S, api, esc, icon, ago, copy, toast } from "./core.js";
 import { openSchool } from "./school.js";
 
 let host;
@@ -18,6 +18,11 @@ async function refresh() {
   S.team7 = { stats, feed };
   if (host?.isConnected) draw();
 }
+// Accesos (solo líderes): el código personal de cada persona y un botón para copiar la invitación
+let codes = null;
+async function loadCodes() { try { codes = await api("/api/team/codes"); } catch (e) { codes = { error: e.message, users: [] }; } if (host?.isConnected) draw(); }
+const codesHtml = c => c.error ? `<div class="callout err">${icon("alert")}<span>${esc(c.error)}</span></div>`
+  : `<div class="codes">${c.users.map(u => `<div class="code-row"><span class="t"><b>${esc(u.name)}</b><small>${esc(u.email)}</small></span><code>${esc(u.code)}</code><button class="btn sm" data-invite="${u.id}">${icon("copy", "sm")} Copiar invitación</button></div>`).join("")}</div>`;
 function draw() {
   const t = S.team7;
   const err = (x, what) => `<div class="callout err">${icon("alert")}<span>No pudimos cargar ${what}: ${esc(x.error)}</span><button class="btn sm" data-retry>Reintentar</button></div>`;
@@ -39,7 +44,15 @@ function draw() {
     <div class="two">
       <section class="card" aria-labelledby="hRk"><div class="card-h"><h2 id="hRk">${icon("flame")} Ranking</h2><span class="sub">por demos, conversaciones y contactos</span></div><div class="card-b" role="table" aria-label="Ranking del equipo">${rank}</div></section>
       <section class="card" aria-labelledby="hFd"><div class="card-h"><h2 id="hFd">${icon("clock")} Actividad reciente</h2></div><div class="card-b">${feed}</div></section>
-    </div></div>`;
+    </div>
+    ${S.profile?.leader ? `<section class="card" style="margin-top:16px" aria-labelledby="hAc"><div class="card-h"><h2 id="hAc">${icon("user")} Accesos del equipo</h2><span class="sub">cada persona entra con su email y su código personal</span></div>
+      <div class="card-b" id="codes">${codes ? codesHtml(codes) : '<div class="skel" style="margin:14px 0"></div>'.repeat(3)}</div></section>` : ""}
+    </div>`;
   host.querySelectorAll("[data-retry]").forEach(b => b.onclick = () => { S.team7 = null; draw(); refresh(); });
+  if (S.profile?.leader && !codes) loadCodes();
+  host.querySelectorAll("[data-invite]").forEach(b => b.onclick = () => {
+    const u = codes.users.find(x => String(x.id) === b.dataset.invite); if (!u) return;
+    copy(`Hola ${u.name.split(" ")[0]}! Entrá a OrderBrain SDR: ${codes.url}\nTu email: ${u.email}\nTu código personal: ${u.code}\n(No lo compartas: es solo tuyo.)`);
+  });
   host.querySelectorAll("[data-id]").forEach(b => b.onclick = () => openSchool(b.dataset.id));
 }

@@ -5,7 +5,7 @@ import { OAuth2Client } from "google-auth-library";
 import path from "path";
 import { fileURLToPath } from "url";
 import * as pd from "./lib/pipedrive.js";
-import { schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId, hiddenOsm, getProfile, setProfile, getProfiles, ROLES } from "./lib/store.js";
+import { kv, key as kvKey, schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId, hiddenOsm, getProfile, setProfile, getProfiles, ROLES } from "./lib/store.js";
 import * as scan from "./lib/scan.js";
 import { ensureBrain, brainState, brainDown } from "./lib/brain.js";
 import { verifyCandidates, enrichSources } from "./lib/enrich.js";
@@ -60,24 +60,47 @@ async function attachPipedriveUser(email) {
   catch { return {}; }
 }
 app.get("/auth/config", (req, res) => res.json({ googleClientId: GOOGLE_CLIENT_ID, devLogin: DEV_OK, codeLogin: !!TEAM_CODE, domain: DOMAIN, demo: pd.DEMO }));
-const tries = new Map(); // ip → { n, until }
+// Líderes: quien conectó Pipedrive (dueño del token) y los emails de LEADER_EMAILS. El rol no se elige: lo define esto.
+const LEADERS = (process.env.LEADER_EMAILS || "").split(",").map(e => e.trim().toLowerCase()).filter(Boolean);
+async function isLeader(email) {
+  email = String(email || "").toLowerCase();
+  if (LEADERS.includes(email)) return true;
+  try { return (await pd.tokenOwner()).email === email; } catch { return false; }
+}
+// Código personal: cada persona entra con su email y SU código (derivado del email con la clave del servidor),
+// así nadie entra como otro sabiendo un código compartido. El código de equipo solo sirve para los líderes.
+const B32 = "abcdefghjkmnpqrstuvwxyz23456789";
+function personalCode(email) {
+  const h = crypto.createHmac("sha256", SCAN_SECRET).update("code:" + String(email).toLowerCase()).digest();
+  const c = [...h.subarray(0, 8)].map(x => B32[x % B32.length]).join("");
+  return `${c.slice(0, 4)}-${c.slice(4)}`;
+}
+const same = (a, b) => { const x = crypto.createHash("sha256").update(String(a)).digest(), y = crypto.createHash("sha256").update(String(b)).digest(); return crypto.timingSafeEqual(x, y); };
+// Intentos fallidos: se cuentan en Redis (todas las instancias) por IP y por email, antes de comparar el código
+const memTries = new Map();
+async function tooMany(keys) {
+  if (kvEnabled) {
+    try { const r = await kv(keys.flatMap(k => [["INCR", kvKey("rl:" + k)], ["EXPIRE", kvKey("rl:" + k), "900"]])); return r.filter((_, i) => i % 2 === 0).some(n => Number(n) > 8); } catch {}
+  }
+  const now = Date.now(); let over = false;
+  for (const k of keys) { const t = memTries.get(k); const n = t && t.until > now ? t.n + 1 : 1; memTries.set(k, { n, until: now + 900e3 }); if (n > 8) over = true; }
+  return over;
+}
+async function clearTries(keys) { if (kvEnabled) await kv(keys.map(k => ["DEL", kvKey("rl:" + k)])).catch(() => {}); keys.forEach(k => memTries.delete(k)); }
 app.post("/auth/code", async (req, res) => {
   if (!TEAM_CODE) return res.status(404).end();
   const ip = String(req.headers["x-forwarded-for"] || req.ip || "").split(",")[0].trim();
-  const t = tries.get(ip) || { n: 0, until: 0 };
-  if (t.until > Date.now()) return res.status(429).json({ error: "Demasiados intentos. Probá de nuevo en 15 minutos." });
-  const email = String(req.body?.email || "").trim().toLowerCase(), code = String(req.body?.code || "");
-  const a = crypto.createHash("sha256").update(code).digest(), b = crypto.createHash("sha256").update(TEAM_CODE).digest();
-  const ok = crypto.timingSafeEqual(a, b) && /^[^@\s]+@[^@\s]+$/.test(email) && (!DOMAIN || email.endsWith("@" + DOMAIN));
+  const email = String(req.body?.email || "").trim().toLowerCase(), code = String(req.body?.code || "").trim().toLowerCase();
+  const keys = ["ip:" + ip, "em:" + email];
+  if (await tooMany(keys)) return res.status(429).json({ error: "Demasiados intentos. Probá de nuevo en 15 minutos." });
+  const validEmail = /^[^@\s]+@[^@\s]+$/.test(email) && (!DOMAIN || email.endsWith("@" + DOMAIN));
+  const ok = validEmail && (same(code, personalCode(email)) || (same(code, TEAM_CODE.toLowerCase()) && await isLeader(email)));
   await new Promise(r => setTimeout(r, 400));
-  if (!ok) {
-    t.n++; if (t.n >= 8) { t.until = Date.now() + 15 * 60e3; t.n = 0; } tries.set(ip, t);
-    return res.status(401).json({ error: DOMAIN && email && !email.endsWith("@" + DOMAIN) ? `Usá tu email @${DOMAIN}.` : "Email o código incorrecto." });
-  }
+  if (!ok) return res.status(401).json({ error: DOMAIN && email && !email.endsWith("@" + DOMAIN) ? `Usá tu email @${DOMAIN}.` : "Email o código incorrecto. Tu código personal te lo pasa el líder del equipo." });
+  await clearTries(keys);
   const pdu = await attachPipedriveUser(email);
   // con el Pipedrive real, solo entran los usuarios de la cuenta
   if (MODE === "live" && !pdu.pdUserId) return res.status(403).json({ error: "Ese email no es usuario del Pipedrive de OrderEAT." });
-  tries.delete(ip);
   req.session.user = { email, name: pdu.pdName || email.split("@")[0], ...pdu };
   req.session.mode = MODE;
   res.json({ user: req.session.user });
@@ -126,21 +149,28 @@ const schoolParam = (req, res, next) => {
 
 // ---------- API
 // Perfil: nombre completo y rol. Si la persona ya lo cargó, manda sobre el nombre que viene de Google o Pipedrive.
-const withProfile = (u, pr) => pr ? { ...u, name: pr.name, role: pr.role, roleLabel: ROLES[pr.role] || "" } : u;
+// El rol «Líder» lo define el servidor (isLeader); el perfil solo elige entre SDR y Account Executive.
+const withProfile = (u, pr, leader) => {
+  const role = leader ? "lider" : pr?.role === "lider" ? "sdr" : pr?.role || "";
+  return pr ? { ...u, name: pr.name, role, roleLabel: ROLES[role] || "" } : { ...u, role, roleLabel: ROLES[role] || "" };
+};
 app.get("/api/me", auth, wrap(async (req, res) => {
-  const pr = await getProfile(req.session.user.email);
-  req.session.user = withProfile(req.session.user, pr);
+  const [pr, leader] = await Promise.all([getProfile(req.session.user.email), isLeader(req.session.user.email)]);
+  req.session.user = withProfile(req.session.user, pr, leader);
+  const roles = leader ? { lider: ROLES.lider } : { sdr: ROLES.sdr, ae: ROLES.ae };
   res.json({
-  user: req.session.user, profile: { complete: !!(pr?.name && pr?.role), suggested: req.session.user.pdName || "", roles: ROLES }, ai: ai.aiEnabled(), study: studyEnabled(), demo: pd.DEMO, goal: DAILY_GOAL, pdWeb: pd.PD_WEB,
+  user: req.session.user, profile: { complete: !!(pr?.name && (pr?.role || leader)), suggested: req.session.user.pdName || "", roles, leader }, ai: ai.aiEnabled(), study: studyEnabled(), demo: pd.DEMO, goal: DAILY_GOAL, pdWeb: pd.PD_WEB,
   countries: [...new Set(schools.map(s => s.country))].sort(), markets: MARKETS, outcomes: sales.OUTCOMES, lostReasons: LOST_REASONS, types: TYPE_LABEL,
   });
 }));
 app.post("/api/me/profile", auth, wrap(async (req, res) => {
   const name = String(req.body?.name || "").replace(/\s+/g, " ").trim().slice(0, 80), role = String(req.body?.role || "");
   if (name.split(" ").filter(w => w.length > 1).length < 2) return res.status(400).json({ error: "Escribí tu nombre y apellido." });
-  if (!ROLES[role]) return res.status(400).json({ error: "Elegí tu rol en el equipo." });
-  const pr = await setProfile(req.session.user.email, { name, role });
-  req.session.user = withProfile(req.session.user, pr);
+  const leader = await isLeader(req.session.user.email);
+  const r = leader ? "lider" : role;
+  if (!Object.hasOwn(ROLES, r) || (r === "lider" && !leader)) return res.status(400).json({ error: "Elegí tu rol en el equipo (SDR o Account Executive)." });
+  const pr = await setProfile(req.session.user.email, { name, role: r });
+  req.session.user = withProfile(req.session.user, pr, leader);
   res.json({ user: req.session.user });
 }));
 // ficha de un prospecto (lead) o de una organización de Pipedrive que no está en la base
@@ -149,6 +179,12 @@ app.get("/api/records/:kind/:rid", auth, wrap(async (req, res) => {
   res.json(await sales.openRecord(req.params.kind, req.params.rid));
 }));
 app.get("/api/schools", auth, (req, res) => res.json(schools.map(sales.schoolListItem)));
+// Accesos del equipo: el código personal de cada persona (solo lo ve un líder, para pasárselo)
+app.get("/api/team/codes", auth, wrap(async (req, res) => {
+  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Solo un líder ve los accesos del equipo." });
+  const m = await pd.meta();
+  res.json({ url: `${req.protocol}://${req.get("host")}`, users: m.users.filter(u => u.email && (!DOMAIN || u.email.endsWith("@" + DOMAIN))).map(u => ({ id: u.id, name: u.name, email: u.email, code: personalCode(u.email) })) });
+}));
 app.get("/api/team", auth, wrap(async (req, res) => {
   const [m, prs] = await Promise.all([pd.meta(), getProfiles()]);
   res.json(m.users.map(u => { const pr = prs[u.email]; return { id: u.id, name: pr?.name || u.name, role: pr ? ROLES[pr.role] : "" }; }));
@@ -177,7 +213,7 @@ app.post("/api/schools/:id/log", auth, schoolParam, wrap(async (req, res) => {
 }));
 const escHtml = v => String(v).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 // Comentario suelto: queda como nota en la organización de Pipedrive, sin registrar un contacto.
-app.post("/api/schools/:id/prospect", auth, schoolParam, wrap(async (req, res) => res.json(await sales.createProspect(req.params.id, req.session.user))));
+app.post("/api/schools/:id/prospect", auth, schoolParam, wrap(async (req, res) => res.json(await sales.createProspect(req.params.id, req.session.user, req.body?.task || null, req.tz))));
 // Comentario y/o tarea para más adelante (para quien registra o para otra persona del equipo), sin registrar un contacto.
 app.post("/api/schools/:id/comment", auth, schoolParam, wrap(async (req, res) => {
   const text = String(req.body?.text || "").trim().slice(0, 5000), t = req.body?.task || null, user = req.session.user;
@@ -185,7 +221,7 @@ app.post("/api/schools/:id/comment", auth, schoolParam, wrap(async (req, res) =>
   if (t && !task) return res.status(400).json({ error: "Elegí el tipo y el día de la tarea." });
   if (task?.time && !/^\d{2}:\d{2}$/.test(task.time)) return res.status(400).json({ error: "Hora inválida." });
   if (!text && !task) return res.status(400).json({ error: "Escribí el comentario o elegí una tarea." });
-  const s = byId.get(req.params.id), by = user.name || user.email;
+  const s = byId.get(req.params.id), by = sales.signer(user);
   const m = await pd.meta(), owner = task?.ownerId ? m.users.find(u => u.id === Number(task.ownerId)) : null;
   if (task?.ownerId && !owner) return res.status(400).json({ error: "Esa persona no está en el equipo." });
   const rec = s.leadOnly ? null : await sales.ensureOrg(req.params.id, user.pdUserId || null);
@@ -227,8 +263,13 @@ app.post("/api/schools/:id/study", auth, schoolParam, wrap(async (req, res) => {
 app.post("/api/schools/:id/study/note", auth, schoolParam, wrap(async (req, res) => {
   const st = await getStudy(req.params.id);
   if (!st) return res.status(404).json({ error: "Todavía no hay estudio de este colegio." });
-  const rec = await sales.ensureOrg(req.params.id);
-  await pd.addNote({ content: studyToHtml(byId.get(req.params.id), st), orgId: rec.orgId, dealId: rec.openDealId });
+  const s = byId.get(req.params.id);
+  if (s.leadOnly) { // prospecto sin organización: el estudio va al prospecto
+    await pd.addNote({ content: studyToHtml(s, st), leadId: s.leadId });
+    return res.json({ ok: true, orgUrl: `${pd.PD_WEB}/leads/inbox/${s.leadId}` });
+  }
+  const rec = await sales.ensureOrg(req.params.id, req.session.user.pdUserId || null);
+  await pd.addNote({ content: studyToHtml(s, st), orgId: rec.orgId, dealId: rec.openDealId });
   res.json({ ok: true, orgUrl: `${pd.PD_WEB}/organization/${rec.orgId}` });
 }));
 app.get("/api/schools/:id/brief", auth, schoolParam, wrap(async (req, res) => res.json(await ai.brief(req.params.id, { user: req.session.user }))));
@@ -424,22 +465,31 @@ app.post("/api/proposals/confirm", auth, wrap(async (req, res) => {
   res.json(out);
 }));
 async function confirmProposal(p, req) {
-  let orgId = p.orgId, dealId = p.dealId;
-  if (!orgId && p.schoolId) { const rec = await sales.ensureOrg(p.schoolId); orgId = rec.orgId; dealId = dealId || rec.openDealId; }
-  if (!orgId) {
+  const user = req.session.user;
+  let orgId = p.orgId, dealId = p.dealId, leadId = null;
+  const vs = p.schoolId && byId.get(p.schoolId);
+  if (vs?.leadOnly) leadId = vs.leadId; // ficha de un prospecto sin organización: se escribe en el prospecto
+  else if (!orgId && p.schoolId) { const rec = await sales.ensureOrg(p.schoolId, user.pdUserId || null); orgId = rec.orgId; dealId = dealId || rec.openDealId; }
+  if (!orgId && !leadId) {
     const hits = await pd.searchOrganizations(p.colegio, 5);
     const exact = hits.find(h => pd.norm(h.name) === pd.norm(p.colegio));
-    orgId = exact ? exact.id : (await pd.createOrganization({ name: p.colegio })).id;
+    orgId = exact ? exact.id : (await pd.createOrganization({ name: p.colegio, ownerId: user.pdUserId || undefined })).id;
   }
-  const by = req.session.user.name || req.session.user.email;
+  // cada uno trabaja lo suyo: una organización de otra persona solo admite agendarle una demo (o lo hace un líder)
+  if (orgId && !(p.kind === "activity" && p.type === "meeting") && user.role !== "lider") {
+    const o = (await pd.orgsByIds([orgId]))[0];
+    if (o?.ownerId && user.pdUserId && o.ownerId !== user.pdUserId) throw Object.assign(new Error("Esa organización es de otra persona en Pipedrive."), { status: 409 });
+  }
+  const by = sales.signer(user);
+  const target = leadId ? { leadId } : { orgId, dealId };
   if (p.kind === "activity") {
     const u = toUtc(p.date, p.time, p.tz || req.tz);
-    await pd.addActivity({ subject: p.subject, type: p.type, dueDate: u.date, dueTime: u.time, durationMin: p.durationMin, orgId, dealId, ownerId: p.owner.id, note: p.note ? `${p.note}\n\n(Agendado por ${by} desde OrderBrain SDR)` : `Agendado por ${by} desde OrderBrain SDR` });
+    await pd.addActivity({ subject: p.subject, type: p.type, dueDate: u.date, dueTime: u.time, durationMin: p.durationMin, ...target, ownerId: p.owner.id, note: p.note ? `${p.note}\n\n(Agendado por ${by} desde OrderBrain SDR)` : `Agendado por ${by} desde OrderBrain SDR` });
   } else {
     const esc = s => String(s).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
-    await pd.addNote({ content: `<b>Nota desde el asistente</b><br>${esc(p.text).replace(/\n/g, "<br>")}<br><br><i>Cargado por ${esc(by)} desde OrderBrain SDR</i>`, orgId, dealId });
+    await pd.addNote({ content: `<b>Nota desde el asistente</b><br>${esc(p.text).replace(/\n/g, "<br>")}<br><br><i>Cargado por ${esc(by)} desde OrderBrain SDR</i>`, ...target });
   }
-  return { ok: true, orgUrl: `${pd.PD_WEB}/organization/${orgId}` };
+  return { ok: true, orgUrl: leadId ? `${pd.PD_WEB}/leads/inbox/${leadId}` : `${pd.PD_WEB}/organization/${orgId}` };
 }
 app.post("/api/proposals/discard", auth, wrap(async (req, res) => {
   const token = String(req.body?.id || "");

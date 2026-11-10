@@ -26,6 +26,10 @@ Cada registro hace, según el caso:
 | Trato perdido con el motivo de la cuenta (No es prioridad ahora, No responde más, etc.) | Trato |
 | Etiqueta de interés de la organización (muy, algo o poco interesado) | Organización |
 | Organización nueva si el colegio no existía | Pipedrive |
+| **Crear prospecto**: institución, persona y prospecto con Ciudad, País, Fuente, SDR, teléfono, email, web, dirección y niveles, más la tarea pendiente | Prospectos |
+| Comentario con tarea para más adelante (mini calendario, asignable a otra persona) | Organización o prospecto |
+
+Después de cada contacto la app propone siempre un próximo paso con fecha. Se puede cerrar sin agendar, pero avisa: la idea es que nunca quede un colegio sin algo pendiente.
 
 Las horas se guardan en UTC, como pide Pipedrive, y se muestran en la hora local de cada persona.
 
@@ -130,6 +134,12 @@ npm run dev
 
 Para probar sin configurar Google, poné `DEV_LOGIN_EMAIL=tu-email@ordereat.com` en `.env`: aparece el botón «Entrar en modo desarrollo». Ese botón no existe en producción.
 
+## Acceso del equipo
+
+Cada persona entra con su **código personal** (o con Google si está configurado). Los líderes ven los códigos en Equipo → «Accesos del equipo» y los copian como invitación. El código del equipo (`TEAM_ACCESS_CODE`) sirve solo para líderes. Son líderes el dueño del token de Pipedrive y los emails de `LEADER_EMAILS`. La primera vez la app pide nombre completo y rol (SDR o Account Executive; el rol de líder lo decide el servidor). Los intentos fallidos se frenan por IP y por email.
+
+Para probar contra la cuenta real sin escribir nada, usá `READ_ONLY=1`: todas las escrituras a Pipedrive se bloquean.
+
 ## Variables de entorno
 
 | Variable | Qué es | Dónde se saca |
@@ -144,6 +154,10 @@ Para probar sin configurar Google, poné `DEV_LOGIN_EMAIL=tu-email@ordereat.com`
 | `DAILY_GOAL` | Meta diaria de contactos por SDR (por defecto 40) | |
 | `DATA_DIR` | Carpeta para el cruce con Pipe y el registro de contactos (si no hay Redis) | Un disco persistente en producción |
 | `KV_REST_API_URL`, `KV_REST_API_TOKEN` | Redis de Upstash para guardar cruce y contactos | Vercel → Storage → Upstash for Redis (se cargan solas) |
+| `TEAM_ACCESS_CODE` | Código de entrada para líderes | Texto que elijas; rotarlo si se compartió |
+| `LEADER_EMAILS` | Emails de líderes separados por coma | |
+| `BRAIN_TOKEN` | Token de World Dominion (brain.ordereat.com) para saber clientes activos, onboarding y churn | |
+| `READ_ONLY` | `1` bloquea las escrituras a Pipedrive (para probar) | |
 | `SALES_PIPELINES` | Opcional: embudo y etapa de entrada por país en JSON | Ver `.env.example` |
 
 Los IDs de embudos, etapas y campos personalizados de la cuenta de OrderEAT están en `lib/config.js`. Si cambian en Pipedrive, se actualizan ahí (o con `SALES_PIPELINES` y `DEAL_FIELDS`).

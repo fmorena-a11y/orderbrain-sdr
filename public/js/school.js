@@ -8,8 +8,8 @@ const CH = [["call", "Llamada", "phone"], ["whatsapp", "WhatsApp", "whatsapp"], 
 const NEXT_TYPES = [["", "Sin próximo paso"], ["call", "Llamada"], ["deadline", "WhatsApp"], ["task", "Mail"], ["contacto_decisor", "Contacto decisor"]];
 // Mini calendario del mes (para elegir el día del próximo paso o de la tarea sin abrir otro selector)
 const MONTHS = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
-function miniCal(sel, min, disabled) {
-  const base = D.calMonth || (sel || min).slice(0, 7);
+function miniCal(sel, min, disabled, month = D.calMonth) {
+  const base = month || (sel || min).slice(0, 7);
   const [y, mo] = base.split("-").map(Number), first = new Date(Date.UTC(y, mo - 1, 1)), days = new Date(Date.UTC(y, mo, 0)).getUTCDate();
   const lead = (first.getUTCDay() + 6) % 7; // semana empieza el lunes
   const ymd = d => `${y}-${String(mo).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
@@ -24,6 +24,8 @@ function miniCal(sel, min, disabled) {
     }).join("")}</div></div>`;
 }
 const GOOD = ["callback", "info", "demo"];
+// resultados que no necesitan un próximo paso (la demo ya es el próximo paso; el descarte cierra)
+const NO_NEXT = ["demo", "not_interested", "bad_data"];
 const CONNECTED = ["gatekeeper", "callback", "info", "demo", "not_now", "not_interested"];
 const QUALIFY = ["callback", "info", "demo", "not_now"];
 // Atajos para la nota, según lo que pasó (los datos de calificación tienen sus propios campos).
@@ -186,10 +188,8 @@ async function load(opts = {}) {
     else d = await api(`/api/schools/${id}${opts.refresh ? "?refresh=1" : ""}`);
     if (D.id !== id) return;
     D.data = d; D.err = null; patchSchool(d.school);
-    if (S.session && d.school.status === "client" && !opts.refresh && opts.match === undefined) {
-      toast(`${d.school.name} ya es cliente: lo salteé`);
-      return sessionGo(1);
-    }
+    const why = S.session && !opts.refresh && opts.match === undefined && skipReason(d.school);
+    if (why) { toast(`${d.school.name}: ${why}, lo salteé`); return sessionGo(1); }
   } catch (e) { if (D.id === id) D.err = e.message; }
   if (D.id === id) draw();
 }
@@ -227,37 +227,84 @@ function prefetch() {
   api("/api/check", { body: { ids } }).then(r => {
     Object.values(r).forEach(v => !v.error && patchSchool(v));
     if (S.session !== ss) return;
-    const skip = new Set(Object.values(r).filter(v => v.status === "client").map(v => v.id));
+    const skip = new Set(Object.values(r).filter(v => !v.error && skipReason(v)).map(v => v.id));
     if (skip.size) ss.ids = ss.ids.filter((id, k) => k <= ss.i || !skip.has(id));
   }).catch(() => {});
 }
 
+// En una sesión de llamadas no se llama a clientes, ex clientes, tratos abiertos ni organizaciones de otra persona.
+function skipReason(v) {
+  if (v.status === "client") return "ya es cliente";
+  if (v.status === "churn") return "es ex cliente";
+  if (v.status === "open") return "tiene un trato abierto";
+  if (v.ownerId && S.me.pdUserId && v.ownerId !== S.me.pdUserId) return `es de ${v.ownerName || "otra persona"}`;
+  return "";
+}
 // ---------- render
 const focusKey = el => el && (el.id ? `#${el.id}` : ["tab", "oc", "ch", "f", "caf", "niv", "nd", "ph"].map(k => el.dataset?.[k] !== undefined ? `[data-${k}="${el.dataset[k]}"]` : "").find(Boolean));
 // «Lo voy a contactar»: se puede crear el prospecto si no es cliente, no tiene trato abierto ni prospecto, y no es de otra persona
 function canProspect(s, m) {
-  if (s.virtual || !D.data || m?.leadId) return false;
+  if (s.virtual || !D.data || m?.leadId || !S.me.pdUserId) return false;
   if (["client", "open", "churn"].includes(s.status) || s.ob?.client) return false;
   if (s.ownerId && S.me.pdUserId && s.ownerId !== S.me.pdUserId) return false;
   return true;
 }
-async function createProspect(s) {
+// «Crear prospecto»: antes de crearlo se elige la primera tarea a futuro (siempre conviene dejar algo para hacer).
+// Viene precargada: llamada el próximo día hábil, para vos. Se puede cambiar, asignar a otra persona o, si de verdad
+// no hace falta, crear sin tarea.
+function createProspect(s) {
   if (D.prospecting) return;
-  D.prospecting = true; draw();
+  const t = today(), team = S.team || [];
+  const st = { type: "call", date: nextBusinessDay(t), time: "10:00", ownerId: "", subject: "", month: null };
+  const m = modal(`<div class="modal-h"><h3>${icon("plus")} Crear prospecto</h3><button class="icon-btn" id="cpX" aria-label="Cerrar">${icon("x")}</button></div>
+    <p class="muted" style="margin:-6px 0 0">Se crea en Pipedrive a tu nombre: la institución, el prospecto y el contacto que encontremos. ¿Cuándo lo contactás?</p>
+    <div id="cpBody"></div>
+    <div class="r" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px"><button class="btn primary" id="cpGo">${icon("check")} Crear y agendar</button><button class="btn ghost" id="cpNo" title="No es lo ideal: sin una tarea a futuro el colegio se pierde de vista">Crear sin tarea</button></div>`);
+  const body = m.querySelector("#cpBody");
+  const paint = () => {
+    body.innerHTML = `<div class="grid2" style="margin-top:12px"><label class="field"><span>Qué</span><select class="inp" id="cpType">${NEXT_TYPES.filter(([k]) => k).map(([k, l]) => `<option value="${k}" ${st.type === k ? "selected" : ""}>${l}</option>`).join("")}</select></label>
+      <label class="field"><span>Para</span><select class="inp" id="cpOwner"><option value="">Para mí</option>${team.filter(u => u.id !== S.me.pdUserId).map(u => `<option value="${u.id}" ${String(st.ownerId) === String(u.id) ? "selected" : ""}>Para ${esc(u.name)}</option>`).join("")}</select></label></div>
+      <div class="next-when">${miniCal(st.date, t, false, st.month)}<div class="next-side">
+        <label class="field"><span>Hora <span class="faint">opcional</span></span><input class="inp" type="time" id="cpTime" value="${esc(st.time)}" step="900"></label>
+        <label class="field"><span>Detalle <span class="faint">opcional</span></span><input class="inp" id="cpSub" value="${esc(st.subject)}" placeholder="Ej: preguntar por quien maneja la cafetería" maxlength="140"></label>
+        <p class="muted" style="margin:0;font-size:13px">${esc(S.types[st.type] || "Tarea")} el ${esc(dayLabel(st.date).toLowerCase())}${st.time ? ` a las ${esc(st.time)}` : ""} · para ${esc(st.ownerId ? team.find(u => String(u.id) === String(st.ownerId))?.name || "" : "vos")}</p></div></div>`;
+    body.querySelector("#cpType").onchange = e => { st.type = e.target.value; paint(); };
+    body.querySelector("#cpOwner").onchange = e => { st.ownerId = e.target.value; paint(); };
+    body.querySelector("#cpTime").onchange = e => { st.time = e.target.value; paint(); };
+    body.querySelector("#cpSub").oninput = e => { st.subject = e.target.value; };
+    body.querySelectorAll("[data-day]").forEach(b => b.onclick = () => { st.date = b.dataset.day; paint(); });
+    body.querySelectorAll("[data-cal]").forEach(b => b.onclick = () => { const [y, mo] = (st.month || st.date.slice(0, 7)).split("-").map(Number), d = new Date(Date.UTC(y, mo - 1 + Number(b.dataset.cal), 1)); st.month = d.toISOString().slice(0, 7); paint(); });
+  };
+  paint();
+  m.querySelector("#cpX").onclick = () => m.close();
+  const go = async withTask => {
+    const task = withTask ? { type: st.type, date: st.date, time: st.time || undefined, ownerId: st.ownerId ? Number(st.ownerId) : undefined, subject: st.subject || undefined } : null;
+    m.close(); await runProspect(s, task);
+  };
+  m.querySelector("#cpGo").onclick = () => go(true);
+  m.querySelector("#cpNo").onclick = () => go(false);
+}
+async function runProspect(s, task) {
+  D.prospecting = s.id; draw();
   try {
-    const r = await api(`/api/schools/${s.id}/prospect`, { body: {} });
-    patchSchool(r.school); D.prospecting = false;
+    const r = await api(`/api/schools/${s.id}/prospect`, { body: { task } });
+    patchSchool(r.school);
+    if (D.prospecting === s.id) D.prospecting = false;
     const f = r.found || {};
-    const m = modal(`<div class="modal-h"><h3>${icon("checkCircle")} Prospecto creado</h3><button class="icon-btn" id="cpX" aria-label="Cerrar">${icon("x")}</button></div>
+    const html = `<div class="modal-h"><h3>${icon("checkCircle")} Prospecto creado · ${esc(s.name)}</h3><button class="icon-btn" id="cpX" aria-label="Cerrar">${icon("x")}</button></div>
       <ul class="writes">${r.done.map(x => `<li>${icon("check", "sm")}<span>${x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.label)}</a>` : esc(x.label)}</span></li>`).join("")}</ul>
+      ${task ? "" : `<p class="callout warn" style="margin:0">${icon("alert")}<span>Quedó sin tarea a futuro. Agendá un próximo paso para que no se pierda de vista.</span></p>`}
       <div class="sub-h">A quién contactar</div>
       ${f.decisores?.length ? `<ul class="ticks">${f.decisores.map(d => `<li>${icon("user", "sm")}<span><b>${esc(d.nombre)}</b> · ${esc(d.cargo)}</span></li>`).join("")}</ul>` : `<p class="muted" style="margin:0">Todavía no tenemos el nombre del decisor. Preguntá en recepción quién maneja la cafetería${S.ai ? " o hacé el estudio del colegio" : ""}.</p>`}
       ${f.phones?.length || f.emails?.length || f.whatsapp ? `<p style="margin:8px 0 0">${[...(f.phones || []).map(esc), f.whatsapp ? `WhatsApp ${esc(f.whatsapp)}` : "", ...(f.emails || []).map(esc)].filter(Boolean).join(" · ")}</p>` : ""}
-      <button class="btn primary block" id="cpGo" style="margin-top:14px">Listo</button>`);
-    m.querySelector("#cpX").onclick = m.querySelector("#cpGo").onclick = () => m.close();
+      <button class="btn primary block" id="cpGo" style="margin-top:14px">Listo</button>`;
+    // el resultado se muestra sobre la ficha correcta; si ya estás en otro colegio, alcanza con un aviso
+    if (D.id === s.id) { const m = modal(html); m.querySelector("#cpX").onclick = m.querySelector("#cpGo").onclick = () => m.close(); }
+    else toast(`Prospecto creado: ${s.name}`);
     api(`/api/schools/${s.id}`).then(nd => { if (D.id === s.id) { D.data = nd; draw(); } }).catch(() => {});
+    S.today = null; S.agenda = null;
     import("./explore.js").then(x => x.refreshExplore({ fit: false }));
-  } catch (e) { D.prospecting = false; draw(); toast(e.message, { type: "err" }); }
+  } catch (e) { if (D.prospecting === s.id) D.prospecting = false; if (D.id === s.id) draw(); toast(e.message, { type: "err" }); }
 }
 function clientWarn(s, m) {
   if (s.ownerId && S.me.pdUserId && s.ownerId !== S.me.pdUserId && s.status !== "client") return `Esta organización es de ${s.ownerName || "otra persona"} en Pipedrive. No la contactes: si te interesa, hablalo con esa persona.`;
@@ -296,7 +343,7 @@ function draw() {
       <button class="btn wa" id="aWa" ${notReady} aria-haspopup="menu">${icon("whatsapp")} WhatsApp</button>
       <button class="btn" id="aMail" ${notReady} aria-haspopup="menu">${icon("mail")} Mail</button>
       <button class="btn" id="aDemo" ${notReady} ${s.status === "client" ? `disabled title="Ya es cliente"` : ""}>${icon("video")} Demo</button>
-      ${canProspect(s, m) ? `<button class="btn" id="aProspect" title="Crear el prospecto (y la organización si falta) a tu nombre en Pipedrive y buscar a quién contactar">${D.prospecting ? `<span class="spin"></span> Creando…` : `${icon("plus")} Crear prospecto`}</button>` : ""}
+      ${canProspect(s, m) ? `<button class="btn" id="aProspect" title="Crear el prospecto (y la organización si falta) a tu nombre en Pipedrive y buscar a quién contactar">${D.prospecting === s.id ? `<span class="spin"></span> Creando…` : `${icon("plus")} Crear prospecto`}</button>` : ""}
       <button class="btn icon-only" id="aMore" aria-haspopup="menu" aria-label="Más: mapa, web y buscar al decisor" title="Mapa, web y buscar al decisor">${icon("nav")}</button>
     </div>
     ${D.inCall && D.tab !== "log" ? `<button class="call-banner" id="toLog">${icon("phone", "sm")} ¿Cortaste? Registrá cómo te fue ${icon("arrowRight", "sm")}</button>` : ""}
@@ -456,6 +503,8 @@ async function suggest(s) {
     if (D.id !== s.id) return;
     f.why = r.why || "";
     if (!f.nextTouched) { f.next.type = r.type || ""; f.next.date = r.date || (r.type ? nextBusinessDay(today()) : ""); }
+    // siempre conviene dejar algo a futuro: si la sugerencia no trae nada (y no es demo ni descarte), una llamada el próximo hábil
+    if (!f.nextTouched && !f.next.type && !NO_NEXT.includes(f.outcome)) { f.next.type = "call"; f.next.date = nextBusinessDay(today()); }
     if (r.lost && !f.lostReason) f.lostReason = r.lost;
     if (f.outcome === "demo" && !f.nextTouched) { f.next.type = ""; }
     redrawLog();
@@ -488,6 +537,7 @@ function logBody(s, d) {
       ${(QUICK[f.outcome] || []).length ? `<div class="quick">${QUICK[f.outcome].map(q => `<button data-quick="${esc(q)}">+ ${esc(q)}</button>`).join("")}</div>` : ""}
       ${S.ai && f.outcome ? `<label class="toggle"><input type="checkbox" data-f="ai" ${f.ai ? "checked" : ""}> Ordenar la nota con IA (resumen, decisor, objeción e interés)</label>` : ""}</div>
     ${f.outcome === "demo" ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>La demo</div>
+      ${s.virtual && !s.country ? `<label class="field"><span>País del colegio <span class="faint">para crear el trato en su embudo</span></span><select class="inp" data-f="country"><option value="">Elegí el país</option>${Object.keys(S.markets).sort().map(c => `<option ${f.country === c ? "selected" : ""}>${esc(c)}</option>`).join("")}</select></label>` : ""}
       <div class="grid3"><label class="field"><span>Día</span><input class="inp" type="date" data-f="demo.date" value="${esc(f.demo.date)}" min="${t}"></label>
       <label class="field"><span>Hora (tu hora local)</span><input class="inp" type="time" data-f="demo.time" value="${esc(f.demo.time)}" step="900"></label>
       <label class="field"><span>Duración</span><select class="inp" data-f="demo.duration">${[20, 30, 45, 60].map(m => `<option value="${m}" ${+f.demo.duration === m ? "selected" : ""}>${m} min</option>`).join("")}</select></label></div>
@@ -509,6 +559,7 @@ function logBody(s, d) {
       <p class="muted" style="margin:0;font-size:13.5px">${d.match.openDealId ? "El trato abierto se marca como perdido con este motivo." : "Queda en la nota. No hay trato abierto para cerrar."}</p></div>` : ""}
     ${f.outcome || !contactPending() ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>${f.outcome ? "Próximo paso" : `Tarea para más adelante <span class="faint" style="font-weight:400;font-size:13px">opcional · para vos o para alguien del equipo</span>`}</div>
       ${f.outcome && f.why ? `<div class="callout">${icon("sparkles")}<span>${esc(f.why)}</span></div>` : ""}
+      ${!f.next.type && (f.outcome ? !NO_NEXT.includes(f.outcome) : !!f.text?.trim()) ? `<div class="callout warn">${icon("alert")}<span>Sin ${f.outcome ? "próximo paso" : "tarea a futuro"} este colegio se pierde de vista. Conviene dejar algo para hacer.</span></div>` : ""}
       <div class="grid2"><label class="field"><span>Qué</span><select class="inp" data-f="next.type" data-touch>${NEXT_TYPES.map(([k, l]) => `<option value="${k}" ${f.next.type === k ? "selected" : ""}>${k ? l : f.outcome ? l : "Sin tarea"}</option>`).join("")}</select></label>
       <label class="field"><span>Para</span><select class="inp" data-f="next.ownerId" ${f.next.type ? "" : "disabled"}>${ownerOpts(f.next.ownerId)}</select></label></div>
       ${f.next.type ? `<div class="next-when">${miniCal(f.next.date, t, false)}
@@ -569,6 +620,8 @@ function bindLog(s, d) {
       if (inp.hasAttribute("data-touch")) f.nextTouched = true;
       if (inp.dataset.f === "next.type") { if (inp.value && !f.next.date) f.next.date = nextBusinessDay(today()); redrawLog(); }
       else if (inp.dataset.f === "lostReason") redrawLog();
+      // comentario suelto: al empezar a escribir se prende la tarea a futuro (llamada el próximo hábil, para vos)
+      else if (inp.dataset.f === "text" && !f.outcome && !contactPending() && !f.nextTouched && !f.next.type && inp.value.trim()) { f.next.type = "call"; f.next.date = nextBusinessDay(today()); redrawLog(); }
       else {
         const sum = el.querySelector("#sum"); if (sum) sum.innerHTML = summary(s, d);
         const nl = el.querySelector("#nextLine"); if (nl) nl.textContent = nextLine(f);
@@ -585,9 +638,10 @@ async function saveLog(s, d) {
   if (!f.outcome) return toast("Elegí qué pasó o dejá un comentario", { type: "err" });
   if (f.next.type && !f.next.date) return toast("Poné la fecha del próximo paso", { type: "err" });
   if (f.outcome === "demo" && (!f.demo.date || !f.demo.time)) return toast("Poné el día y la hora de la demo", { type: "err" });
+  if (f.outcome === "demo" && s.virtual && !s.country && !f.country) return toast("Elegí el país del colegio para crear el trato", { type: "err" });
   D.saving = true; redrawLog();
   const body = {
-    outcome: f.outcome, channel: f.channel, text: f.text, ai: f.ai,
+    outcome: f.outcome, channel: f.channel, text: f.text, ai: f.ai, country: f.country || undefined,
     contact: f.contact.name ? f.contact : null, qual: f.qual,
     demo: f.outcome === "demo" ? { ...f.demo, ownerId: f.demo.ownerId ? Number(f.demo.ownerId) : undefined } : null,
     next: f.next.type ? { type: f.next.type, date: f.next.date, time: f.next.time || undefined, ownerId: f.next.ownerId ? Number(f.next.ownerId) : undefined, subject: f.next.subject || undefined } : null,

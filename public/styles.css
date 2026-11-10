@@ -777,3 +777,11 @@ details.agent summary .sub { order: 3; }
 .mcal-g .d.on, .mcal-g .d.on:hover:not(:disabled) { background: var(--accent); color: #fff; font-weight: 700; }
 .mcal-g .d:disabled { color: var(--faint); opacity: .45; cursor: default; }
 .mcal-g .d:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+/* accesos del equipo (solo líderes) */
+.codes { display: grid; gap: 4px; }
+.code-row { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 8px 4px; border-bottom: 1px solid var(--line); }
+.code-row:last-child { border-bottom: 0; }
+.code-row .t b { display: block; } .code-row .t small { color: var(--muted); font-size: 12.5px; }
+.code-row code { font: 600 14px ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--surface-2); padding: 4px 8px; border-radius: 8px; letter-spacing: .5px; }
+@media (max-width: 600px) { .code-row { grid-template-columns: 1fr auto; } .code-row .btn { grid-column: 1 / -1; } }

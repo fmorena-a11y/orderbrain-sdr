@@ -173,7 +173,7 @@ function schoolRow(s) {
   if (s.attempts) bits.push(`${s.attempts} intento${s.attempts > 1 ? "s" : ""}`);
   if (!s.phone) bits.push("sin teléfono");
   const single = E.filter !== "prospect" && E.filter !== "all";
-  return `<button class="school-row" data-id="${esc(s.id)}"><span class="t"><b>${esc(s.name)}</b>${bits.length ? `<small>${esc(bits.join(" · "))}</small>` : ""}</span>${othersOwn(s) ? `<span class="pill owner" title="Su organización en Pipedrive es de ${esc(s.ownerName || "otra persona")}">De ${esc((s.ownerName || "otra persona").split(" ")[0])}</span>` : single && !s.phase ? `<span class="sdot" title="${ST[s.status].l}" style="background:var(${ST[s.status].c})"></span>` : statusPill(s)}</button>`;
+  return `<button class="school-row" data-id="${esc(s.id)}"><span class="t"><b>${esc(s.name)}</b>${bits.length ? `<small>${esc(bits.join(" · "))}</small>` : ""}</span>${othersOwn(s) && CALLABLE.includes(s.status) ? `<span class="pill owner" title="Su organización en Pipedrive es de ${esc(s.ownerName || "otra persona")}">De ${esc((s.ownerName || "otra persona").split(" ")[0])}</span>` : single && !s.phase ? `<span class="sdot" title="${ST[s.status].l}" style="background:var(${ST[s.status].c})"></span>` : statusPill(s)}</button>`;
 }
 function checkCallout(list) {
   const unk = list.filter(s => s.status === "unk").length;
@@ -275,7 +275,7 @@ function drawMap({ fit = true } = {}) {
     const colors = Object.fromEntries(Object.entries(ST).map(([k, v]) => [k, cssVar(v.c)]));
     (placeMode() ? visible() : applyFilter(E.q ? searchList() : scope())).forEach(s => {
       L.circleMarker([s.lat, s.lng], { renderer: canvas, radius: s.phase ? 8 : 7, color: "#fff", weight: 2, fillColor: dotColor(s, colors), fillOpacity: 1 })
-        .on("click", () => openSchool(s.id)).bindTooltip(esc(`${s.name} · ${s.phase ? PH[s.phase].l : ST[s.status].l}`)).addTo(layer);
+        .on("click", () => openSchool(s.id)).bindTooltip(esc(`${s.name} · ${s.phase === "churn" && s.ob?.label ? s.ob.label : s.phase ? PH[s.phase].l : ST[s.status]?.l || ""}`)).addTo(layer);
       pts.push([s.lat, s.lng]);
     });
   }
@@ -342,7 +342,7 @@ function drawBrain() {
     const ph = x.churn ? "churn" : { Active: "activo", Onboarding: "onboarding", Closed: "cerrado" }[x.status] || "activo";
     const html = `<div class="ob-site" style="background:${PH[ph].dot}" aria-hidden="true"></div>`;
     L.marker([x.lat, x.lng], { icon: L.divIcon({ className: "", iconSize: [16, 16], html }), zIndexOffset: 500, keyboard: false })
-      .bindTooltip(esc(`${x.name}${x.client && x.client !== x.name ? ` (${x.client})` : ""} · ${x.churn ? "Churn: ex cliente" : `${x.label}: cliente de OrderEAT, no contactar`}`))
+      .bindTooltip(esc(`${x.name}${x.client && x.client !== x.name ? ` (${x.client})` : ""} · ${x.churn ? (x.label === "Churn" ? "Churn: era cliente activo" : `${x.label}`) : `${x.label}: cliente de OrderEAT, no contactar`}`))
       .on("click", () => { if (x.schoolId && S.byId.has(x.schoolId)) openSchool(x.schoolId); })
       .addTo(brainLayer);
   }
@@ -374,7 +374,7 @@ async function checkScope() {
 
 function csv() {
   const arr = E.city || E.country || E.q || E.place ? visible() : sortS(applyFilter([...S.schools]));
-  const rows = [["Colegio", "Ciudad", "País", "Dirección", "Teléfono", "Web", "Estado en Pipe", "Detalle", "Último contacto"], ...arr.map(s => [s.name, s.city, s.country, s.addr || "", s.phone || "", s.web || "", ST[s.status].l, s.detail || "", s.lastTouch ? `${s.lastTouch.outcome} (${shortDay(s.lastTouch.at.slice(0, 10))})` : ""])];
+  const rows = [["Colegio", "Ciudad", "País", "Dirección", "Teléfono", "Web", "Estado en Pipe", "Detalle", "Último contacto"], ...arr.map(s => [s.name, s.city, s.country, s.addr || "", s.phone || "", s.web || "", s.phase === "churn" && s.ob?.label ? s.ob.label : ST[s.status]?.l || s.status, s.detail || "", s.lastTouch ? `${s.lastTouch.outcome} (${shortDay(s.lastTouch.at.slice(0, 10))})` : ""])];
   const data = "﻿" + rows.map(r => r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(",")).join("\n");
   const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([data], { type: "text/csv" }));
   const label = FILTERS.find(([k]) => k === E.filter)?.[1] || "";
