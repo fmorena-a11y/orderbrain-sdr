@@ -66,11 +66,11 @@ function kpis() {
   const pd = (r, k) => r ? `Pipedrive · ${readTxt(k)}` : "";
   const tiles = [
     { l: "Demos agendadas", v: d && !d.partial.created ? d.loaded.totals.total : null, wait: !D.demos, sub: "creadas en Pipedrive en el período (Demo y No Show)", src: pd(d, d?.at.created), mine: !leader && d && !d.partial.created ? `vos: ${fmt(d.loaded.mine?.total || 0)}` : "" },
-    { l: "Se hicieron", v: d && !d.partial.held ? sum(d.held.totals, "appDone", "done") : null, wait: !D.demos, sub: "con fecha en el período: hechas en Pipedrive o marcadas «se hizo» en la app", src: pd(d, d?.at.held) },
-    { l: "No-show", v: d && !d.partial.held ? sum(d.held.totals, "appNoshow", "noshow") : null, wait: !D.demos, sub: "con fecha en el período: pasadas a «No Show» o marcadas en la app", src: pd(d, d?.at.held) },
+    { l: "Se hicieron", v: d && !d.partial.held ? sum(d.held.totals, "appDone", "done") : null, wait: !D.demos, sub: "con fecha en el período, hechas en Pipedrive o marcadas «se hizo» en la app", src: pd(d, d?.at.held) },
+    { l: "No-show", v: d && !d.partial.held ? sum(d.held.totals, "appNoshow", "noshow") : null, wait: !D.demos, sub: "con fecha en el período, pasadas a «No Show» o marcadas en la app", src: pd(d, d?.at.held) },
     { l: "Tratos ganados", v: c && !c.partial.won ? c.won.n : null, wait: !D.deals, sub: "embudos de venta, fecha de ganado en el período", src: pd(c, c?.at), mine: !leader && c && !c.partial.won ? `vos: ${fmt(c.mine.wonOwner)} como dueño · ${fmt(c.mine.wonSdr)} como SDR` : "" },
     { l: "Clientes activos", v: cl?.enabled ? cl.byStatus.find(x => x.key === "Activo")?.n || 0 : null, wait: !D.clients, sub: cl && !cl.enabled ? "sin token de World Dominion" : "sitios en estado Activo en World Dominion", src: cl?.enabled ? `World Dominion · datos de ${dmhm(cl.at)}${cl.demo ? " (prueba)" : ""}` : "" },
-    { l: "Colegios para llamar", v: null, sub: "falta comprobar el cruce con Pipedrive: lo mostramos después de revisar una muestra a mano", src: "" },
+    { l: "Colegios para llamar", v: null, sub: "falta comprobar el cruce con Pipedrive con una muestra revisada a mano", src: "" },
   ];
   return `<section class="mx-kpis" aria-label="Indicadores del período">${tiles.map(t => `<div class="card mx-kpi"><span class="l">${esc(t.l)}</span>
     ${t.wait ? '<div class="skel" style="height:30px;width:70px;margin:4px 0"></div>' : `<b>${fmt(t.v)}</b>`}<small>${esc(t.sub)}</small>${t.mine ? `<small class="mine">${esc(t.mine)}</small>` : ""}${t.src ? `<small class="src">${esc(t.src)}</small>` : ""}</div>`).join("")}</section>`;

@@ -871,7 +871,7 @@ details.agent summary .sub { order: 3; }
 
 /* ---------- Métricas: fila de indicadores, tarjetas con barras horizontales (una sola serie, color neutro) y tablas */
 .mx-filters { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: end; margin: 0 0 10px; }
-.mx-kpis { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 12px; margin: 0 0 16px; }
+.mx-kpis { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin: 0 0 16px; }
 .mx-kpi { padding: 14px 16px; display: grid; gap: 3px; align-content: start; min-width: 0; }
 .mx-kpi .l { font-weight: 600; font-size: 13.5px; color: var(--ink-2); }
 .mx-kpi b { font-size: 30px; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums; }
@@ -903,3 +903,8 @@ details.agent summary .sub { order: 3; }
 .mx-stages { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px; color: var(--ink-2); }
 .mx-stages span { white-space: nowrap; }
 .mx .follow tbody th small { white-space: nowrap; }
+/* las tablas de Métricas, al ancho de su contenido (los números cerca del nombre) */
+.mx .follow { width: auto; min-width: min(100%, 460px); }
+.mx .follow th.num, .mx .follow td.num { padding-left: 14px; }
+/* barra de abajo del celular con 6 secciones: la etiqueta un poco más chica para que «Prospectar» y «Métricas» entren enteras */
+@media (max-width: 420px) and (min-height: 521px), (max-width: 420px) and (orientation: portrait) { .nav-item { font-size: 10.5px; padding-inline: 0; } }
