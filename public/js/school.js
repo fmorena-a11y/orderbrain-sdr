@@ -236,7 +236,7 @@ function draw() {
     ${[["prep", "Preparar"], ["log", "Registrar"], ["hist", "Historial"]].map(([k, l]) => `<button class="tab" role="tab" id="tab-${k}" data-tab="${k}" aria-selected="${D.tab === k}" aria-controls="dBody" tabindex="${D.tab === k ? 0 : -1}">${l}${k === "hist" && nHist ? `<span class="n">${nHist}</span>` : ""}</button>`).join("")}
   </div>
   <div class="d-body" id="dBody" role="tabpanel" aria-labelledby="tab-${D.tab}" aria-busy="${!d && !D.err}">${D.err ? `<div class="callout err">${icon("alert")}<span>No se pudo cargar la ficha: ${esc(D.err)}</span><button class="btn sm" id="retry">Reintentar</button></div>` : !d ? loadingBody() : D.tab === "prep" ? prepBody(s, d) : D.tab === "log" ? (D.result ? resultBody(s, d) : logBody(s, d)) : histBody(s, d)}</div>
-  ${D.tab === "log" && d && !D.result ? `<div class="d-foot"><div class="sum" id="sum">${summary(s, d)}</div><button class="btn primary lg" id="save" ${D.saving || !D.form.outcome || (s.status === "client" && D.form.outcome === "demo") ? "disabled" : ""}>${D.saving ? `<span class="spin"></span> Guardando…` : `${icon("check")} Guardar en Pipedrive`}</button></div>` : ""}`;
+  ${D.tab === "log" && d && !D.result ? `<div class="d-foot"><div class="sum" id="sum">${summary(s, d)}</div><button class="btn primary lg" id="save" ${saveDisabled(s) ? "disabled" : ""}>${D.saving ? `<span class="spin"></span> Guardando…` : saveLabel()}</button></div>` : ""}`;
   bindTop(s, d);
   if (d) {
     if (D.tab === "prep") bindPrep(s, d);
@@ -412,6 +412,10 @@ function logBody(s, d) {
       <div class="seg" role="group">${CH.map(([k, l, ic]) => `<button data-ch="${k}" aria-pressed="${f.channel === k}">${icon(ic, "sm")} ${l}</button>`).join("")}</div></div>
     <div class="sec step"><div class="step-h"><span class="n">${++n}</span>¿Qué pasó?</div>
       <div class="outcomes">${S.outcomes.map(x => `<button class="oc ${GOOD.includes(x.id) ? "good" : ""}" data-oc="${x.id}" aria-pressed="${f.outcome === x.id}" ${x.id === "demo" && s.status === "client" ? `disabled title="Ya es cliente"` : ""}><b>${esc(x.label)}</b><small>${esc(x.hint)}</small></button>`).join("")}</div></div>
+    <div class="sec step"><div class="step-h"><span class="n">${++n}</span>Comentario <span class="faint" style="font-weight:400;font-size:13px">${f.outcome ? "lo que te dijeron, con tus palabras" : "opcional · se puede guardar solo, sin registrar un contacto"}</span></div>
+      <textarea class="inp" data-f="text" aria-label="Comentario" placeholder="Ej: atendió la secretaria, la cafetería la maneja un concesionario (Don Pedro), llamar después de las 11.">${esc(f.text)}</textarea>
+      ${(QUICK[f.outcome] || []).length ? `<div class="quick">${QUICK[f.outcome].map(q => `<button data-quick="${esc(q)}">+ ${esc(q)}</button>`).join("")}</div>` : ""}
+      ${S.ai && f.outcome ? `<label class="toggle"><input type="checkbox" data-f="ai" ${f.ai ? "checked" : ""}> Ordenar la nota con IA (resumen, decisor, objeción e interés)</label>` : ""}</div>
     ${f.outcome === "demo" ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>La demo</div>
       <div class="grid3"><label class="field"><span>Día</span><input class="inp" type="date" data-f="demo.date" value="${esc(f.demo.date)}" min="${t}"></label>
       <label class="field"><span>Hora (tu hora local)</span><input class="inp" type="time" data-f="demo.time" value="${esc(f.demo.time)}" step="900"></label>
@@ -439,16 +443,17 @@ function logBody(s, d) {
       <label class="field"><span>Día</span><input class="inp" type="date" data-f="next.date" data-touch value="${esc(f.next.date)}" min="${t}" ${f.next.type ? "" : "disabled"}></label>
       <label class="field"><span>Hora <span class="faint">opcional</span></span><input class="inp" type="time" data-f="next.time" data-touch value="${esc(f.next.time)}" step="900" ${f.next.type ? "" : "disabled"}></label></div>
       ${f.next.type ? `<div class="chips">${dates.map(([l, v]) => `<button class="chip" data-nd="${v}" aria-pressed="${f.next.date === v}">${l}</button>`).join("")}</div>` : ""}</div>` : ""}
-    ${f.outcome ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>Notas <span class="faint" style="font-weight:400;font-size:13px">lo que te dijeron, con tus palabras</span></div>
-      <textarea class="inp" data-f="text" placeholder="Ej: atendió la secretaria, la cafetería la maneja un concesionario (Don Pedro), llamar después de las 11.">${esc(f.text)}</textarea>
-      ${(QUICK[f.outcome] || []).length ? `<div class="quick">${QUICK[f.outcome].map(q => `<button data-quick="${esc(q)}">+ ${esc(q)}</button>`).join("")}</div>` : ""}
-      ${S.ai ? `<label class="toggle"><input type="checkbox" data-f="ai" ${f.ai ? "checked" : ""}> Ordenar la nota con IA (resumen, decisor, objeción e interés)</label>` : ""}</div>` : ""}
   </div>`;
 }
 function pipeName(s) { const mk = S.markets[s.country]; return mk ? `${{ MX: "MX - SALES", PE: "PE - SALES", AR: "ARG - SALES", CL: "CHI - Sales", UY: "UY - SALES" }[mk.code] || "LatAm - SALES"}` : "el embudo del país"; }
 
+const onlyComment = () => !D.form.outcome && !!D.form.text?.trim();
+const saveDisabled = s => D.saving || !(D.form.outcome || onlyComment()) || (s.status === "client" && D.form.outcome === "demo");
+const saveLabel = () => `${icon("check")} ${onlyComment() ? "Guardar comentario" : "Guardar en Pipedrive"}`;
 function summary(s, d) {
-  const f = D.form; if (!f.outcome) return "Elegí qué pasó para guardar.";
+  const f = D.form;
+  if (onlyComment()) return `<b>Se guarda en Pipedrive:</b> comentario en la organización, sin registrar contacto<span class="kbd-hint faint"> · Ctrl + Enter</span>`;
+  if (!f.outcome) return "Elegí qué pasó o dejá un comentario.";
   if (s.status === "client" && f.outcome === "demo") return "Ya es cliente: no se crea un trato nuevo.";
   const parts = ["contacto hecho", "nota"];
   if (f.contact.name) parts.push("contacto");
@@ -473,7 +478,10 @@ function bindLog(s, d) {
       if (inp.hasAttribute("data-touch")) f.nextTouched = true;
       if (inp.dataset.f === "next.type") { if (inp.value && !f.next.date) f.next.date = nextBusinessDay(today()); redrawLog(); }
       else if (inp.dataset.f === "lostReason") redrawLog();
-      else { const sum = el.querySelector("#sum"); if (sum) sum.innerHTML = summary(s, d); }
+      else {
+        const sum = el.querySelector("#sum"); if (sum) sum.innerHTML = summary(s, d);
+        const sv = el.querySelector("#save"); if (sv && !D.saving) { sv.disabled = saveDisabled(s); sv.innerHTML = saveLabel(); }
+      }
     });
   });
   el.querySelector("#save")?.addEventListener("click", () => saveLog(s, d));
@@ -481,7 +489,8 @@ function bindLog(s, d) {
 
 async function saveLog(s, d) {
   const f = D.form;
-  if (!f.outcome) return toast("Elegí qué pasó", { type: "err" });
+  if (onlyComment()) return saveComment(s);
+  if (!f.outcome) return toast("Elegí qué pasó o dejá un comentario", { type: "err" });
   if (f.next.type && !f.next.date) return toast("Poné la fecha del próximo paso", { type: "err" });
   if (f.outcome === "demo" && (!f.demo.date || !f.demo.time)) return toast("Poné el día y la hora de la demo", { type: "err" });
   D.saving = true; redrawLog();
@@ -507,6 +516,18 @@ async function saveLog(s, d) {
   } catch (e) { D.saving = false; redrawLog(); toast(e.message, { type: "err" }); }
 }
 
+async function saveComment(s) {
+  const f = D.form;
+  D.saving = true; redrawLog();
+  try {
+    const r = await api(`/api/schools/${s.id}/comment`, { body: { text: f.text } });
+    if (D.id !== s.id) return;
+    D.result = { ...r, form: JSON.parse(JSON.stringify(f)) };
+    if (r.school) patchSchool(r.school);
+    D.saving = false; draw(); toTabs();
+    api(`/api/schools/${s.id}`).then(nd => { if (D.id === s.id) { D.data = nd; if (D.tab !== "log") draw(); } }).catch(() => {});
+  } catch (e) { D.saving = false; redrawLog(); toast(e.message, { type: "err" }); }
+}
 function resultBody(s, d) {
   const r = D.result, f = r.form, ss = S.session;
   const contact = f.contact?.name ? f.contact : d.persons?.[0] || null;

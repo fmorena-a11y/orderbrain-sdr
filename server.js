@@ -117,6 +117,17 @@ app.get("/api/schools/:id/next", auth, schoolParam, (req, res) => res.json(sales
 app.post("/api/schools/:id/log", auth, schoolParam, wrap(async (req, res) => {
   res.json(await sales.logContact(req.params.id, req.session.user, req.body || {}, req.tz));
 }));
+const escHtml = v => String(v).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+// Comentario suelto: queda como nota en la organización de Pipedrive, sin registrar un contacto.
+app.post("/api/schools/:id/comment", auth, schoolParam, wrap(async (req, res) => {
+  const text = String(req.body?.text || "").trim().slice(0, 5000);
+  if (!text) return res.status(400).json({ error: "Escribí el comentario." });
+  const rec = await sales.ensureOrg(req.params.id);
+  const by = req.session.user.name || req.session.user.email;
+  await pd.addNote({ content: `<b>Comentario</b><br>${escHtml(text).replace(/\n/g, "<br>")}<br><br><i>Cargado por ${escHtml(by)} desde OrderBrain SDR</i>`, orgId: rec.orgId, dealId: rec.openDealId || undefined });
+  const orgUrl = `${pd.PD_WEB}/organization/${rec.orgId}`;
+  res.json({ done: [{ label: "Comentario en Pipedrive", url: orgUrl }], school: sales.schoolSummary(byId.get(req.params.id)), orgUrl });
+}));
 app.get("/api/schools/:id/photos", auth, schoolParam, wrap(async (req, res) => {
   res.set("cache-control", "private, max-age=3600");
   res.json({ photos: await photosFor(req.params.id, { refresh: req.query.refresh === "1" }), google: googleEnabled() });
