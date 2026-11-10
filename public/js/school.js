@@ -105,7 +105,6 @@ async function loadStudy(id, { refresh = false } = {}) {
 // Redibuja sin perder el scroll (en celular scrollea toda la ficha; en escritorio, el cuerpo).
 function keepScroll(fn) { const dr = $("drawer"), b = dr.querySelector("#dBody"); const t1 = dr.scrollTop, t2 = b?.scrollTop || 0; fn(); dr.scrollTop = t1; const nb = dr.querySelector("#dBody"); if (nb) nb.scrollTop = t2; }
 async function loadPhotos(id) {
-  if (/^pd-(org|lead)-/.test(id)) { D.photos = []; return; } // prospecto de Pipedrive: sin ubicación ni fotos
   let list = [];
   try { list = (await api(`/api/schools/${id}/photos`)).photos || []; } catch {}
   if (D.id !== id) return;
@@ -117,7 +116,7 @@ async function loadPhotos(id) {
 function photoList(s) {
   const seen = new Set((D.photos || []).map(p => p.url));
   const fromStudy = (D.study?.imagenes || []).filter(x => !seen.has(x.url)).map(x => ({ url: x.url, kind: "study", credit: x.descripcion || "Encontrada en la web" }));
-  return [...(D.photos || []), ...fromStudy, { url: satLink(s), kind: "sat", credit: "Vista satelital · Esri, Maxar, Earthstar Geographics" }];
+  return [...(D.photos || []), ...fromStudy, ...(s.lat == null ? [] : [{ url: satLink(s), kind: "sat", credit: "Vista satelital · Esri, Maxar, Earthstar Geographics" }])];
 }
 const KIND = { google: "Google Maps", web: "Web del colegio", study: "Web", sat: "Satélite" };
 function gallery(s) {
@@ -222,38 +221,43 @@ async function loadEnrich(id) {
   try { const r = await api(`/api/schools/${encodeURIComponent(id)}/enrich`); ENR.set(id, r.data || null); } catch { ENR.delete(id); return; }
   if (D.id === id && ENR.get(id) && D.tab === "prep") keepScroll(draw);
 }
+const enriching = new Set();
 async function enrich(s) {
-  if (D.enriching) return;
-  D.enriching = s.id; draw();
+  if (enriching.has(s.id)) return;
+  enriching.add(s.id); D.enriching = s.id; draw();
   try {
     const r = await api(`/api/schools/${encodeURIComponent(s.id)}/enrich`, { body: {} });
     ENR.set(s.id, r.data); SEDES.delete(s.id);
-    if (D.id === s.id) { D.photos = r.photos || D.photos; if (D.tab !== "prep") goTab("prep"); }
-    const n = r.data.items.length + r.data.sedes.length + r.data.decisores.length;
-    toast(r.note.saved ? `Listo: ${n} dato${n === 1 ? "" : "s"} guardado${n === 1 ? "" : "s"} en una nota de Pipedrive` : `${n ? `Encontré ${n} dato${n === 1 ? "" : "s"}. ` : ""}${r.note.reason || ""}`, r.note.saved ? { href: r.note.url, action: "Abrir" } : { type: n ? "info" : "err" });
+    if (D.id === s.id) D.photos = r.photos || D.photos;
+    const n = r.data.nuevos || 0, see = D.id === s.id && D.tab !== "prep" ? { action: { label: "Ver datos", fn: () => goTab("prep") } } : {};
+    toast(r.note.saved ? `Listo: ${n} dato${n === 1 ? "" : "s"} nuevo${n === 1 ? "" : "s"} en una nota de Pipedrive` : `${n ? `Encontré ${n} dato${n === 1 ? "" : "s"} nuevo${n === 1 ? "" : "s"}. ` : ""}${r.note.reason || ""}`, r.note.saved ? { href: r.note.url, action: "Abrir" } : { type: n ? "info" : "err", ...see });
     loadSedes(s.id);
     if (S.study && !D.study && !D.studyWorking && S.byId.get(s.id)?.lat != null) loadStudy(s.id, { refresh: true }); // con IA, además el estudio (decisores)
   } catch (e) { toast(e.message, { type: "err" }); }
-  D.enriching = null;
+  enriching.delete(s.id); if (D.enriching === s.id) D.enriching = null;
   if (D.id === s.id) keepScroll(draw);
 }
 const KIND_E = { tel: ["phone", "Teléfonos"], wa: ["whatsapp", "WhatsApp"], mail: ["mail", "Mails"], web: ["external", "Web"], addr: ["map", "Dirección"] };
 function enrichSec(s) {
   const e = ENR.get(s.id); if (!e) return "";
+  const mx = s.country === "México";
   const row = x => {
-    const v = esc(x.value), src = `<span class="tag">${esc(x.src)}</span>`;
-    if (x.kind === "tel") return `<div class="sede-row"><a class="sede-tel" href="${esc(telLink(x.value))}">${v}</a>${x.value.replace(/\D/g, "").length >= 10 ? `<button class="linkbtn" data-sdwa="${v}">WhatsApp</button>` : `<span class="tag" title="Sin código de área">sin lada</span>`}${src}</div>`;
+    const v = esc(x.value), src = `<span class="tag${x.known ? " faint" : ""}">${esc(x.known ? `ya estaba · ${x.src}` : x.src)}</span>`;
+    const dig = x.value.replace(/\D/g, "").length, short = mx ? dig < 10 && !/^\+/.test(x.value) : dig < 8;
+    if (x.kind === "tel") return `<div class="sede-row">${short ? `<span class="sede-tel">${v}</span><span class="tag" title="Sin código de área: así no se puede marcar">${mx ? "sin lada" : "sin código de área"}</span>` : `<a class="sede-tel" href="${esc(telLink(x.value))}">${v}</a><button class="linkbtn" data-sdwa="${v}">WhatsApp</button>`}${src}</div>`;
     if (x.kind === "wa") return `<div class="sede-row"><button class="linkbtn" data-sdwa="${v}">${v}</button>${src}</div>`;
     if (x.kind === "mail") return `<div class="sede-row"><button class="linkbtn" data-sdmail="${v}">${v}</button>${src}</div>`;
     if (x.kind === "web") return `<div class="sede-row"><a href="${v}" target="_blank" rel="noopener">${esc(x.value.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, ""))}</a>${src}</div>`;
     return `<div class="sede-row"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(x.value)}" target="_blank" rel="noopener">${v}</a>${src}</div>`;
   };
   const groups = Object.entries(KIND_E).map(([k, [ic, label]]) => [label, ic, e.items.filter(x => x.kind === k)]).filter(([, , l]) => l.length);
-  return `<section class="sec" id="enrichSec"><h3><span class="l">${icon("building")} Datos del colegio</span><span class="faint" style="font-size:12.5px;font-weight:500">${esc(new Intl.DateTimeFormat("es", { day: "numeric", month: "numeric" }).format(new Date(e.at)))} · ${esc(e.by)}</span></h3>
-    ${groups.length ? `<div class="enr">${groups.map(([label, ic, l]) => `<div class="enr-g"><div class="sub-h">${icon(ic, "sm")} ${esc(label)}</div>${l.map(row).join("")}</div>`).join("")}</div>` : `<p class="muted" style="margin:0">No encontré teléfonos, mails ni web nuevos.</p>`}
+  const nt = e.note || {}, fecha = esc(new Intl.DateTimeFormat("es", { day: "numeric", month: "numeric" }).format(new Date(e.at)));
+  return `<section class="sec" id="enrichSec"><h3><span class="l">${icon("building")} Datos del colegio</span><span class="faint" style="font-size:12.5px;font-weight:500">Enriquecido el ${fecha} por ${esc(e.by)}</span></h3>
+    <p class="faint" style="margin:0 0 10px;font-size:13px">${nt.saved ? `${icon("check", "sm")} Quedó en una nota de Pipedrive · <a href="${esc(nt.url)}" target="_blank" rel="noopener">abrir</a>` : nt.reason ? `${icon("alert", "sm")} ${esc(nt.reason)}` : ""}</p>
+    ${groups.length ? `<div class="enr">${groups.map(([label, ic, l]) => `<div class="enr-g"><div class="sub-h">${icon(ic, "sm")} ${esc(label)}</div>${l.map(row).join("")}</div>`).join("")}</div>` : `<p class="muted" style="margin:0">No encontré teléfonos, mails ni web.</p>`}
     ${e.rating ? `<p class="muted" style="margin:8px 0 0">Google Maps: ${esc(String(e.rating.value))}★ · ${esc(String(e.rating.count))} reseñas</p>` : ""}
     ${e.decisores.length ? `<div class="sub-h" style="margin-top:10px">Decisores</div>${e.decisores.map(d => `<div class="sede-row"><b>${esc(d.nombre)}</b>${d.cargo ? `<span class="muted">${esc(d.cargo)}</span>` : ""}</div>`).join("")}` : ""}
-    <p class="faint" style="margin:8px 0 0;font-size:12.5px">Fuentes: web ${esc(e.sources.web)} · Google Maps ${esc(e.sources.google)} · estudio ${esc(e.sources.estudio)}${e.photos ? ` · ${e.photos} foto${e.photos === 1 ? "" : "s"}` : ""}</p>
+    <p class="faint" style="margin:8px 0 0;font-size:12.5px">Buscado en: su web (${esc(e.sources.web)}) · Google Maps (${esc(e.sources.google)}) · estudio (${esc(e.sources.estudio)})${e.photos ? ` · ${e.photos} foto${e.photos === 1 ? "" : "s"}` : ""}</p>
   </section>`;
 }
 
@@ -450,7 +454,7 @@ function draw() {
       <button class="btn" id="aMail" ${notReady} aria-haspopup="menu">${icon("mail")} Mail</button>
       <button class="btn" id="aDemo" ${notReady} ${s.status === "client" ? `disabled title="Ya es cliente"` : ""}>${icon("video")} Demo</button>
       ${canProspect(s, m) ? `<button class="btn" id="aProspect" title="Crear el prospecto (y la organización si falta) a tu nombre en Pipedrive y buscar a quién contactar">${D.prospecting === s.id ? `<span class="spin"></span> Creando…` : `${icon("plus")} Crear prospecto`}</button>` : ""}
-      <button class="btn" id="aEnrich" ${notReady} title="Buscar todo lo que hay del colegio (Pipedrive, su web, Google Maps y sedes) y dejarlo en una nota en Pipedrive">${D.enriching === s.id ? `<span class="spin"></span> Buscando…` : `${icon("sparkles")} Enriquecer`}</button>
+      <button class="btn" id="aEnrich" ${notReady} title="Buscar todo lo que hay del colegio (Pipedrive, su web, Google Maps y sedes) y dejarlo en una nota en Pipedrive">${enriching.has(s.id) ? `<span class="spin"></span> Buscando…` : `${icon("sparkles")} Enriquecer`}</button>
       <button class="btn icon-only" id="aMore" aria-haspopup="menu" aria-label="Más: mapa, web y buscar al decisor" title="Mapa, web y buscar al decisor">${icon("nav")}</button>
     </div>
     ${D.inCall && D.tab !== "log" ? `<button class="call-banner" id="toLog">${icon("phone", "sm")} ¿Cortaste? Registrá cómo te fue ${icon("arrowRight", "sm")}</button>` : ""}
@@ -568,7 +572,7 @@ function prepBody(s, d) {
   const cands = !m.confirmed ? (m.candidates || []) : [];
   return `<div class="stack">
     ${warn ? `<div class="callout warn">${icon("alert")}<span>${esc(warn)}</span></div>` : ""}
-    ${s.lat == null ? "" : gallery(s)}
+    ${s.lat == null && !(D.photos || []).length ? "" : gallery(s)}
     ${enrichSec(s)}
     ${sedesSec(s)}
     <section class="sec"><h3><span class="l">${icon("phone")} Primeros 15 segundos</span></h3>
@@ -664,7 +668,7 @@ function logBody(s, d) {
       <label class="field"><span>Email</span><input class="inp" type="email" data-f="contact.email" value="${esc(f.contact.email)}" placeholder="nombre@colegio.edu"></label></div>
       <datalist id="roles"><option>Director/a</option><option>Administrador/a</option><option>Concesionario/a ${esc(delaEsp(d.market))}</option><option>Coordinador/a de servicios</option><option>Dueño/a</option></datalist></div>` : ""}
     ${qualify ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>Calificación <span class="faint" style="font-weight:400;font-size:13px">lo que sepas</span></div>
-      <div class="field"><span>La ${esc(d.market.espacio)} es…</span><div class="seg">${["Propia", "Externa", "No tiene"].map(c => `<button data-caf="${c}" aria-pressed="${f.qual.cafeteria === c}">${c === "Externa" ? "Concesionada" : c}</button>`).join("")}</div></div>
+      <div class="field"><span>${esc(laEsp(d.market).replace(/^./, c => c.toUpperCase()))} es…</span><div class="seg">${["Propia", "Externa", "No tiene"].map(c => `<button data-caf="${c}" aria-pressed="${f.qual.cafeteria === c}">${c === "Externa" ? "Concesionada" : c}</button>`).join("")}</div></div>
       <div class="grid2"><label class="field"><span>Alumnos</span><input class="inp" type="number" min="0" step="10" data-f="qual.alumnos" value="${esc(f.qual.alumnos)}" placeholder="Ej: 600"></label>
       <label class="field"><span>Sistema actual</span><input class="inp" data-f="qual.sistema" value="${esc(f.qual.sistema)}" placeholder="Efectivo, Excel, otro software…"></label></div>
       <div class="field"><span>Niveles</span><div class="chips">${NIVELES.map(nv => `<button class="chip" data-niv="${nv}" aria-pressed="${f.qual.niveles.includes(nv)}">${nv}</button>`).join("")}</div></div></div>` : ""}
@@ -673,7 +677,8 @@ function logBody(s, d) {
       <p class="muted" style="margin:0;font-size:13.5px">${d.match.openDealId ? "El trato abierto se marca como perdido con este motivo." : "Queda en la nota. No hay trato abierto para cerrar."}</p></div>` : ""}
     ${f.outcome || !contactPending() ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>${f.outcome ? "Próximo paso" : `Tarea para más adelante <span class="faint" style="font-weight:400;font-size:13px">opcional · para vos o para alguien del equipo</span>`}</div>
       ${f.outcome && f.why ? `<div class="callout">${icon("sparkles")}<span>${esc(f.why)}</span></div>` : ""}
-      ${!f.next.type && (f.outcome ? !NO_NEXT.includes(f.outcome) : !!f.text?.trim()) ? `<div class="callout warn">${icon("alert")}<span>Sin ${f.outcome ? "próximo paso" : "tarea a futuro"} este colegio se pierde de vista. Conviene dejar algo para hacer.</span></div>` : ""}
+      ${!f.next.type && f.outcome && !NO_NEXT.includes(f.outcome) && !d.match?.orgId && !s.leadOnly ? `<div class="callout info">${icon("calendar")}<span>Es la primera vez que se lo contacta: al guardar queda a tu nombre en Pipedrive y, si no elegís otro paso, con una llamada para el ${esc(dayLabel(nextBusinessDay(today())).toLowerCase())}.</span></div>`
+        : !f.next.type && (f.outcome ? !NO_NEXT.includes(f.outcome) : !!f.text?.trim()) ? `<div class="callout warn">${icon("alert")}<span>Sin ${f.outcome ? "próximo paso" : "tarea a futuro"} este colegio se pierde de vista. Conviene dejar algo para hacer.</span></div>` : ""}
       <div class="grid2"><label class="field"><span>Qué</span><select class="inp" data-f="next.type" data-touch>${NEXT_TYPES.map(([k, l]) => `<option value="${k}" ${f.next.type === k ? "selected" : ""}>${k ? l : f.outcome ? l : "Sin tarea"}</option>`).join("")}</select></label>
       <label class="field"><span>Para</span><select class="inp" data-f="next.ownerId" ${f.next.type ? "" : "disabled"}>${ownerOpts(f.next.ownerId)}</select></label></div>
       ${f.next.type ? `<div class="next-when">${miniCal(f.next.date, t, false)}
