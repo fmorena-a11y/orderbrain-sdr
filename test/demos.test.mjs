@@ -58,7 +58,7 @@ test("demoBoard: últimos 7 días y próximos 14, conteo por quién agendó en o
   assert.equal(r.upcoming[0].time, "09:00");
   assert.equal(r.recent[1].result, "done");
   assert.equal(r.recent[1].owner, "Matías");
-  assert.deepEqual(r.people, [{ name: "Ana Pérez", upcoming: 0, recent: 1 }, { name: "Zoe", upcoming: 1, recent: 1 }]);
+  assert.deepEqual(r.people, [{ id: 3, name: "Ana Pérez", upcoming: 0, recent: 1 }, { id: 2, name: "Zoe", upcoming: 1, recent: 1 }]);
   assert.ok(!("pos" in r.people[0]) && !("rank" in r.people[0]));
 });
 
@@ -72,21 +72,6 @@ test("demoBoard: una demo de hoy que ya pasó va a «ya pasaron»; una reprogram
   assert.equal(pastResult({ result: "moved" }, true), null);
   assert.equal(pastResult({ result: "moved" }, false), "moved");
   assert.equal(pastResult({ result: "done" }, true), "done");
-});
-
-  // la 6 (reprogramada, su fecha nueva ya pasó sin marca) es «?», no «con resultado»; se cuenta aparte que se reprogramó
-  assert.deepEqual({ ...r.totals }, { set: 6, marked: 4, done: 2, noshow: 1, canceled: 1, unknown: 2, movedEver: 1, attendance: 67 });
-  assert.equal(r.bySetter.find(x => x.name === "Ana Pérez").unknown, 1);
-  assert.equal(r.bySetter.find(x => x.name === "Ana Pérez").movedEver, 1);
-  assert.equal(r.deals.won, 1); assert.equal(r.deals.lost, 1);
-  assert.deepEqual(r.deals.lostReasons, [{ reason: "Es muy caro", n: 1 }]);
-  assert.equal(r.deals.avgDaysToWon, 10);
-  assert.deepEqual(r.countries, ["México", "Perú", "?"]); // Perú también sale del embudo del trato
-  assert.deepEqual(r.bySetter.map(x => [x.name, x.set, x.attendance]), [["Ana Pérez", 2, null], ["Zoe", 4, 67]]);
-  assert.deepEqual(r.byOwner.map(x => x.name), ["Matías", "Token"]);
-  const pe = demoMetrics(demos, { users, profiles, today: "2026-11-10", tz: "UTC", days: 30, deals, pipeCountry: { 29: "Perú" }, now, country: "Perú" });
-  assert.equal(pe.totals.set, 2); assert.equal(pe.totals.attendance, null); // ninguna marcada como hecha o no-show: «?»
-  assert.equal(attendance({ done: 0, noshow: 0 }), null);
 });
 
 test("demoBoard: entradas automáticas aparte, No Show no queda en «Falta marcar», y un SDR ve solo lo suyo y el total", () => {

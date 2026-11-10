@@ -5,6 +5,7 @@ import { renderExplore } from "./explore.js";
 import { renderAgenda } from "./agenda.js";
 import { renderTeam } from "./team.js";
 import { renderRadar } from "./radar.js";
+import { renderMetrics } from "./metrics.js";
 import { openSchool, closeSchool, drawerOpen, startSession } from "./school.js";
 import { openAssistant, closeAssistant } from "./chat.js";
 
@@ -14,6 +15,7 @@ const VIEWS = {
   agenda: { label: "Agenda", icon: "calendar", render: renderAgenda },
   radar: { label: "Radar", icon: "target", render: renderRadar },
   equipo: { label: "Equipo", icon: "users", render: renderTeam },
+  metricas: { label: "Métricas", icon: "chart", render: renderMetrics },
 };
 const show = id => { for (const x of ["boot", "login", "app"]) $(x).hidden = x !== id; };
 
@@ -259,7 +261,7 @@ addEventListener("keydown", e => {
   }
   if (typing || overlay || e.ctrlKey || e.metaKey || e.altKey) return;
   if (e.key === "/") { e.preventDefault(); openPalette(); }
-  if (!drawerOpen()) { const k = { 1: "hoy", 2: "prospectar", 3: "agenda", 4: "radar", 5: "equipo" }[e.key]; if (k) { go(k); $("main").focus({ preventScroll: true }); } }
+  if (!drawerOpen()) { const k = Object.keys(VIEWS)[Number(e.key) - 1]; if (/^[1-9]$/.test(e.key) && k) { go(k); $("main").focus({ preventScroll: true }); } }
 });
 
 start();

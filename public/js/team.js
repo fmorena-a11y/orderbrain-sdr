@@ -1,4 +1,5 @@
-// Equipo: demos agendadas en Pipedrive (sin ranking: cada uno con su número, en orden alfabético) y actividad reciente.
+// Equipo: demos de Pipedrive (la lista y «Falta marcar»; cuántas cargó cada uno solo para líderes, en orden alfabético),
+// actividad reciente y, para líderes, accesos, sincronización y World Dominion. Las métricas están en Métricas (metrics.js).
 import { S, api, esc, icon, ago, copy, toast, pill, setSchools, ST, DEMO_RES, shortDay } from "./core.js";
 import { openSchool, openRecord } from "./school.js";
 import { demoResultMenu } from "./today.js";
@@ -188,87 +189,34 @@ async function saveWd() {
     b.querySelector("#wdMsg").innerHTML = `<div class="callout err" style="margin-top:8px">${icon("alert")}<span>${esc(e.message)}</span></div>`;
   }
 }
-// Seguimiento del equipo (solo líderes): lo de cada persona en la semana según Pipedrive. Para acompañar, no para comparar:
-// orden alfabético, sin puestos ni colores de mejor o peor.
-let follow = null, followAt = 0;
-async function loadFollow() { followAt = Date.now(); try { follow = await api("/api/team/follow"); } catch (e) { follow = { error: e.message }; } drawFollow(); }
-const FCOLS = [["calls", "Llamadas"], ["whatsapp", "WhatsApp"], ["mails", "Mails"], ["demosSet", "Demos agendadas"], ["demosDone", "Demos hechas"], ["won", "Tratos ganados"], ["overdue", "Vencieron esta semana"]];
-function followHtml() {
-  const f = follow;
-  if (!f) return '<div class="skel" style="margin:14px 0"></div>'.repeat(3);
-  if (f.error) return `<div class="callout err">${icon("alert")}<span>No pudimos cargar el seguimiento: ${esc(f.error)}</span><button class="btn sm" id="fwRetry">Reintentar</button></div>`;
-  const dd = d => `${d.slice(8, 10)}/${d.slice(5, 7)}${d.slice(0, 4) === f.today.slice(0, 4) ? "" : "/" + d.slice(2, 4)}`;
-  const intro = `<p class="faint" style="margin:0 0 10px;font-size:13.5px">Para acompañar a cada uno, no para comparar: va en orden alfabético. Del ${dd(f.from)} al ${dd(f.today)}, desde las actividades y tratos de Pipedrive${f.at ? ` (leído ${esc(ago(f.at))})` : ""}.</p>`;
-  if (!f.people.length) return intro + `<div class="empty">${icon("user")}<span>Nadie del equipo tiene perfil ni actividades esta semana.</span></div>`;
-  const pdLink = id => S.pdWeb ? `${S.pdWeb}/deal/${id}` : "";
-  const alerts = f.people.filter(p => p.noNext);
-  return `${intro}${f.partial ? `<div class="callout warn" style="margin-bottom:10px">${icon("alert")}<span>Pipedrive devolvió demasiado: algunos números pueden quedar cortos.</span></div>` : ""}
-    <div class="follow-wrap"><table class="follow"><thead><tr><th scope="col">Persona</th>${FCOLS.map(([k, l]) => `<th scope="col" class="num"${k === "demosSet" ? ' title="Las agendadas desde la app cuentan para quien las agendó; las otras, para quien da la demo."' : ""}>${l}</th>`).join("")}</tr></thead>
-      <tbody>${f.people.map(p => `<tr><th scope="row">${esc(p.name)}${p.role ? `<small>${esc(p.role)}</small>` : ""}</th>${FCOLS.map(([k]) => `<td class="num">${p[k]}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
-    <h3 style="margin:16px 0 6px;font-size:14px">Tratos abiertos sin próxima actividad</h3>
-    ${alerts.length ? alerts.map(p => `<details class="follow-alert"><summary><b>${esc(p.name)}</b>: ${p.noNext} trato${p.noNext === 1 ? "" : "s"}</summary>
-      <ul>${p.deals.map(d => `<li>${pdLink(d.id) ? `<a href="${esc(pdLink(d.id))}" target="_blank" rel="noopener">${esc(d.title || "Trato " + d.id)}</a>` : esc(d.title || "Trato " + d.id)}${d.since ? ` <small class="faint">sin cambios desde el ${esc(dd(d.since))}</small>` : ""}</li>`).join("")}${p.noNext > p.deals.length ? `<li class="faint">y ${p.noNext - p.deals.length} más en Pipedrive</li>` : ""}</ul></details>`).join("")
-      : `<p class="faint" style="margin:0;font-size:13.5px">Todos los tratos abiertos tienen una próxima actividad.</p>`}`;
-}
-function drawFollow() {
-  const box = host?.isConnected && host.querySelector("#followBox"); if (!box) return;
-  box.innerHTML = followHtml();
-  box.querySelector("#fwRetry")?.addEventListener("click", () => { follow = null; drawFollow(); loadFollow(); });
-}
-// Demos (todos): cuántas agendó cada uno y la lista, con quién la agendó, quién la da y qué pasó.
-// El resultado es el que quedó marcado (desde la app o en Pipedrive); sin marca, «?».
+// Demos (todos): la lista, con quién la cargó, quién la da y qué pasó. Cuántas cargó cada uno solo lo ve un líder
+// (el servidor a los demás les manda lo suyo y el total). Las métricas de demos están en Métricas.
+// El resultado es el que quedó marcado (desde la app o en Pipedrive); sin marca, «?». Pasada a «No Show» en Pipedrive: ya tiene resultado.
 // «Se hizo» con el color de lo positivo (res-ok), para que no se confunda con el «?» gris.
 const RES_PILL = { done: "res-ok", noshow: "lost", moved: "org", canceled: "stalled" };
 const resPill = r => r.result ? `<span class="pill ${RES_PILL[r.result]}">${esc(DEMO_RES[r.result])}</span>`
+  : r.noShowType ? `<span class="pill lost" title="En Pipedrive la pasaron al tipo «No Show»">No Show</span>`
   : r.past ? `<span class="pill unk" title="${r.moved ? "Se reprogramó y la fecha nueva ya pasó: falta marcar qué pasó" : "Falta marcar qué pasó con la demo"}">?</span>` : "";
-const canMark = r => !!(r.ownerId && r.ownerId === S.me.pdUserId) || !!S.profile?.leader;
+const canMark = r => !r.noShowType && (!!(r.ownerId && r.ownerId === S.me.pdUserId) || !!S.profile?.leader);
+const setterTxt = r => r.auto ? "entrada automática" : `cargó ${r.setter || "?"}`;
 function demoRow(r) {
-  const when = `${shortDay(r.date)}${r.time ? ` · ${r.time}` : ""}`, inner = `<b>${esc(r.name || "Colegio sin nombre")}</b><small style="white-space:normal">${esc(when)} · agendó ${esc(r.setter || "?")} · la da ${esc(r.owner || "?")}</small>`;
+  const when = `${shortDay(r.date)}${r.time ? ` · ${r.time}` : ""}`, inner = `<b>${esc(r.name || "Colegio sin nombre")}</b><small style="white-space:normal">${esc(when)} · ${esc(setterTxt(r))} · la da ${esc(r.owner || "?")}</small>`;
   const open = r.schoolId ? `<button class="t" data-dsch="${esc(r.schoolId)}">${inner}</button>` : r.record ? `<button class="t" data-drec="${esc(r.record)}" title="Abrir la ficha">${inner}</button>` : `<div class="t">${inner}</div>`;
   const mark = r.past && !r.result && canMark(r) ? `<button class="btn sm" data-dres="${r.id}" data-time="${esc(r.time)}">Marcar</button>` : "";
   return `<div class="act"><span class="ty meeting" role="img" aria-label="Demo">${icon("video")}</span>${open}<div class="ops">${resPill(r)}${mark}</div></div>`;
 }
 function demosHtml(d) {
-  const intro = `<p class="faint" style="margin:0 0 8px;font-size:13.5px">Por quién la agendó en Pipedrive (en las agendadas desde la app, quien dice la nota). Del ${esc(shortDay(d.from))} al ${esc(shortDay(d.to))}${d.at ? ` · leído ${esc(ago(d.at))}` : ""}.</p>`;
-  const ppl = d.people.length ? `<div class="follow-wrap"><table class="follow"><thead><tr><th scope="col">Agendó</th><th scope="col" class="num">Ya pasaron</th><th scope="col" class="num">Próximas</th></tr></thead>
-    <tbody>${d.people.map(p => `<tr><th scope="row">${esc(p.name || "?")}${p.name === S.me.name ? " (vos)" : ""}</th><td class="num">${p.recent}</td><td class="num">${p.upcoming}</td></tr>`).join("")}</tbody></table></div>` : "";
+  const intro = `<p class="faint" style="margin:0 0 8px;font-size:13.5px">Quién la cargó: en las de la app, quien dice la nota; si no, quien la creó en Pipedrive. Del ${esc(shortDay(d.from))} al ${esc(shortDay(d.to))}${d.at ? ` · Pipedrive, leído ${esc(ago(d.at))}` : ""}. Las métricas están en <a href="#/metricas">Métricas</a>.</p>`;
+  // por persona solo a los líderes (orden alfabético, sin puestos); a los demás, lo suyo y el total
+  const ppl = d.people ? (d.people.length ? `<div class="follow-wrap"><table class="follow"><thead><tr><th scope="col">Cargó <span class="mx-tag">solo líderes</span></th><th scope="col" class="num">Ya pasaron</th><th scope="col" class="num">Próximas</th></tr></thead>
+    <tbody>${d.people.map(p => `<tr><th scope="row">${esc(p.auto ? "Entrada automática, sin agendador" : p.name || "?")}${p.id && p.id === S.me.pdUserId ? " (vos)" : ""}</th><td class="num">${p.recent}</td><td class="num">${p.upcoming}</td></tr>`).join("")}</tbody></table></div>` : "")
+    : d.mine ? `<p style="margin:0 0 6px;font-size:14px">Cargadas por vos: <b>${d.mine.recent}</b> ya pasaron y <b>${d.mine.upcoming}</b> próximas. Todo el equipo: ${d.total.recent} y ${d.total.upcoming}.</p>` : "";
   const sec = (h, l) => `<h3 style="margin:14px 0 4px;font-size:14px">${h} <small class="faint">${l.length}</small></h3>${l.length ? l.map(demoRow).join("") : `<p class="faint" style="margin:0;font-size:13.5px">Ninguna.</p>`}`;
   // las de antes de los 7 días que quedaron sin resultado: solo las que podés marcar (las tuyas; un líder, todas)
   const pending = (d.pending || []).filter(canMark), unk = [...d.recent, ...pending].some(r => !r.result);
   return `${intro}${d.partial ? `<div class="callout warn" style="margin-bottom:10px">${icon("alert")}<span>Pipedrive devolvió demasiado: puede faltar alguna.</span></div>` : ""}${ppl}
     ${sec("Próximas", d.upcoming)}${sec("Ya pasaron (7 días)", d.recent)}${pending.length ? sec(`Falta marcar (desde el ${esc(shortDay(d.pendingFrom))})`, pending) : ""}
     ${unk ? `<p class="faint" style="margin:10px 0 0;font-size:13px">«?»: falta marcar qué pasó con la demo. La marca quien la da (o un líder).</p>` : ""}`;
-}
-// Métricas de demos (solo líderes): 30 o 90 días, por país. La asistencia se calcula solo con las marcadas.
-let dm = null, dmAt = 0; const DMF = { days: 30, country: "" };
-async function loadDm() { dmAt = Date.now(); dm = null; drawDm(); try { dm = await api(`/api/team/demo-metrics?days=${DMF.days}&country=${encodeURIComponent(DMF.country)}`); } catch (e) { dm = { error: e.message }; } drawDm(); }
-// «Se reprogramó» no es un resultado: si la fecha nueva ya pasó sin marca, la demo cuenta como «?». Aparte, cuántas se reprogramaron alguna vez.
-const DCOLS = [["set", "Agendadas"], ["marked", "Con resultado"], ["done", "Se hicieron"], ["noshow", "No-show"], ["canceled", "Canceladas"], ["unknown", "Sin resultado (?)"], ["movedEver", "Se reprogramaron alguna vez"]];
-const pct = v => v == null ? "?" : `${v}%`;
-function dmHtml() {
-  const filters = `<div style="display:flex;flex-wrap:wrap;gap:8px 14px;align-items:end;margin:0 0 12px"><div class="chips" role="group" aria-label="Período">${[30, 90].map(n => `<button class="chip" data-dmd="${n}" aria-pressed="${DMF.days === n}">${n} días</button>`).join("")}</div>
-    <label class="field" style="margin:0"><span>País</span><select class="inp" id="dmC"><option value="">Todos</option>${(dm?.countries || (DMF.country ? [DMF.country] : [])).map(c => `<option value="${esc(c)}" ${DMF.country === c ? "selected" : ""}>${esc(c === "?" ? "Sin país" : c)}</option>`).join("")}</select></label></div>`;
-  if (!dm) return filters + '<div class="skel" style="margin:14px 0"></div>'.repeat(3);
-  if (dm.error) return filters + `<div class="callout err">${icon("alert")}<span>No pudimos cargar las métricas: ${esc(dm.error)}</span><button class="btn sm" id="dmRetry">Reintentar</button></div>`;
-  const T = dm.totals, D = dm.deals, base = T.done + T.noshow;
-  const kpis = `<div class="kpis" style="margin:0 0 6px">${DCOLS.map(([k, l]) => `<div class="kpi"><b>${T[k]}</b><span>${l}</span></div>`).join("")}<div class="kpi"><b>${pct(T.attendance)}</b><span>Asistencia</span></div></div>
-    <p class="faint" style="margin:0 0 12px;font-size:13.5px">Demos con fecha del ${esc(shortDay(dm.from))} a hoy que ya pasaron. La asistencia es sobre las ${base} marcadas como «se hizo» o «no se presentó»; las ${T.unknown} sin resultado no cuentan (una reprogramada cuya fecha nueva ya pasó sin marca también es «?»).</p>`;
-  const deals = `<h3 style="margin:14px 0 6px;font-size:14px">De las ${T.done} que se hicieron: el trato</h3>
-    <div class="kpis" style="margin:0 0 6px">${[["won", "Ganado"], ["proposal", "Propuesta enviada"], ["open", "Abierto, antes de la propuesta"], ["lost", "Perdido"], ["none", "Sin trato"], ["unknown", "No se sabe (?)"]].map(([k, l]) => `<div class="kpi"><b>${D[k]}</b><span>${l}</span></div>`).join("")}</div>
-    ${D.lostReasons.length ? `<p style="margin:4px 0;font-size:13.5px">Motivos de pérdida: ${D.lostReasons.map(r => `${esc(r.reason)} (${r.n})`).join(", ")}</p>` : ""}
-    <p style="margin:4px 0;font-size:13.5px">De la demo al cierre ganado: <b>${D.avgDaysToWon == null ? "?" : `${D.avgDaysToWon} días`}</b>${D.wonWithDays ? ` <span class="faint">(promedio de ${D.wonWithDays})</span>` : ""}</p>
-    <p class="faint" style="margin:0 0 12px;font-size:13px">El trato de la demo en Pipedrive o, si no tiene, el de esa organización creado después de la demo.</p>`;
-  const table = (h, rows) => `<h3 style="margin:14px 0 6px;font-size:14px">${h}</h3><div class="follow-wrap"><table class="follow"><thead><tr><th scope="col">Persona</th>${DCOLS.map(([, l]) => `<th scope="col" class="num">${l}</th>`).join("")}<th scope="col" class="num">Asistencia</th></tr></thead>
-    <tbody>${rows.map(r => `<tr><th scope="row">${esc(r.name || "?")}</th>${DCOLS.map(([k]) => `<td class="num">${r[k]}</td>`).join("")}<td class="num">${pct(r.attendance)}</td></tr>`).join("")}</tbody></table></div>`;
-  return filters + (dm.partial ? `<div class="callout warn" style="margin-bottom:10px">${icon("alert")}<span>Pipedrive devolvió demasiado: algunos números pueden quedar cortos.</span></div>` : "") + (T.set ? kpis + deals + table("Por quién la agendó", dm.bySetter) + table("Por quién la dio", dm.byOwner)
-    : `<div class="empty">${icon("video")}<span>No hay demos en este período.</span></div>`) + `<p class="faint" style="margin:10px 0 0;font-size:13px">Orden alfabético, para acompañar. No incluye las cuentas generales de Pipedrive${dm.at ? ` · leído ${esc(ago(dm.at))}` : ""}.</p>`;
-}
-function drawDm() {
-  const box = host?.isConnected && host.querySelector("#dmBox"); if (!box) return;
-  box.innerHTML = dmHtml();
-  box.querySelectorAll("[data-dmd]").forEach(b => b.onclick = () => { DMF.days = Number(b.dataset.dmd); loadDm(); });
-  box.querySelector("#dmC")?.addEventListener("change", e => { DMF.country = e.target.value; loadDm(); });
-  box.querySelector("#dmRetry")?.addEventListener("click", loadDm);
 }
 function draw() {
   const t = S.team7;
@@ -288,11 +236,7 @@ function draw() {
       <section class="card" aria-labelledby="hRk"><div class="card-h"><h2 id="hRk">${icon("video")} Demos</h2><span class="sub">últimos 7 días y próximas 2 semanas</span></div><div class="card-b">${rank}</div></section>
       <section class="card" aria-labelledby="hFd"><div class="card-h"><h2 id="hFd">${icon("clock")} Actividad reciente</h2></div><div class="card-b">${feed}</div></section>
     </div>
-    ${S.profile?.leader ? `<section class="card" style="margin-top:16px" aria-labelledby="hDm"><div class="card-h"><h2 id="hDm">${icon("video")} Métricas de demos</h2><span class="sub">solo lo ven los líderes</span></div>
-      <div class="card-b" id="dmBox" aria-live="polite"></div></section>
-    <section class="card" style="margin-top:16px" aria-labelledby="hFw"><div class="card-h"><h2 id="hFw">${icon("user")} Seguimiento del equipo</h2><span class="sub">solo lo ven los líderes</span></div>
-      <div class="card-b"><p class="faint" style="margin:0;font-size:13.5px">Próximamente. Lo vamos a mostrar cuando los números coincidan uno a uno con Pipedrive; mientras tanto, mejor nada que un dato equivocado.</p></div></section>
-    <section class="card" style="margin-top:16px" aria-labelledby="hAc"><div class="card-h"><h2 id="hAc">${icon("user")} Accesos del equipo</h2><span class="sub">cada persona entra con su email y su código personal</span></div>
+    ${S.profile?.leader ? `<section class="card" style="margin-top:16px" aria-labelledby="hAc"><div class="card-h"><h2 id="hAc">${icon("user")} Accesos del equipo</h2><span class="sub">cada persona entra con su email y su código personal</span></div>
       <div class="card-b" id="codes">${codes ? codesHtml(codes) : '<div class="skel" style="margin:14px 0"></div>'.repeat(3)}</div></section>
     <section class="card" style="margin-top:16px" aria-labelledby="hSy"><div class="card-h"><h2 id="hSy">${icon("refresh")} Sincronizar con Pipedrive</h2><span class="sub">cruza toda la base de colegios de una vez</span></div>
       <div class="card-b" id="syncBox" aria-live="polite"></div></section>
@@ -302,7 +246,6 @@ function draw() {
   host.querySelectorAll("[data-retry]").forEach(b => b.onclick = () => { S.team7 = null; draw(); refresh(); });
   if (S.profile?.leader && !codes) loadCodes();
   if (S.profile?.leader) { drawSync(); if (!syncing) loadSync(); }
-  if (S.profile?.leader) { if (Date.now() - dmAt > 60e3) loadDm(); else drawDm(); }
   if (S.profile?.leader) { drawWd(); if (!wdBusy && Date.now() - wdAt > 20e3) loadWd(); }
   host.querySelectorAll("[data-invite]").forEach(b => b.onclick = () => {
     const u = codes.users.find(x => String(x.id) === b.dataset.invite); if (!u) return;
@@ -311,5 +254,5 @@ function draw() {
   host.querySelectorAll("[data-id]").forEach(b => b.onclick = () => openSchool(b.dataset.id));
   host.querySelectorAll("[data-dsch]").forEach(b => b.onclick = () => openSchool(b.dataset.dsch));
   host.querySelectorAll("[data-drec]").forEach(b => b.onclick = () => openRecord(b.dataset.drec));
-  host.querySelectorAll("[data-dres]").forEach(b => b.onclick = () => demoResultMenu(b, { id: Number(b.dataset.dres), time: b.dataset.time }, () => { refresh(); if (S.profile?.leader) loadDm(); }));
+  host.querySelectorAll("[data-dres]").forEach(b => b.onclick = () => demoResultMenu(b, { id: Number(b.dataset.dres), time: b.dataset.time }, () => refresh()));
 }
