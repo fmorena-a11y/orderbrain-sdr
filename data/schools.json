@@ -1361,9 +1361,7 @@
   "lng": -70.6555967,
   "addr": "Padre Alonso de Ovalle 1452",
   "phone": "+56 2 2367 8500",
-  "id": "santiago-colegio-san-ignacio",
-  "email": "svmsgo@123mail.cl",
-  "osm": "n906429611"
+  "id": "santiago-colegio-san-ignacio"
  },
  {
   "name": "Colegio San Juan de Las Condes",
@@ -6749,7 +6747,7 @@
   "opp": [
    "Confesional (puede ser parte de una red)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w409097747",
   "found": "2026-11-09"
@@ -10477,7 +10475,7 @@
   "email": "",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w457362953",
   "found": "2026-11-09"
@@ -12499,7 +12497,7 @@
   "email": "",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w1462523833",
   "found": "2026-11-09"
@@ -15687,7 +15685,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n12533483602",
   "found": "2026-11-09"
@@ -18874,7 +18872,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w442338114",
   "found": "2026-11-09"
@@ -19324,7 +19322,7 @@
   "email": "",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w547364028",
   "found": "2026-11-09"
@@ -20108,7 +20106,7 @@
   "email": "",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w728882037",
   "found": "2026-11-09"
@@ -21565,7 +21563,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w1234123701",
   "found": "2026-11-09"
@@ -22000,7 +21998,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w1424154116",
   "found": "2026-11-09"
@@ -22598,7 +22596,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w1549271130",
   "found": "2026-11-09"
@@ -22979,7 +22977,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n874429516",
   "found": "2026-11-09"
@@ -23134,7 +23132,7 @@
   "email": "licogami@vtr.net",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906399190",
   "found": "2026-11-09"
@@ -23266,7 +23264,7 @@
   "email": "eneas_carlo@hotmail.com",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906399265",
   "found": "2026-11-09"
@@ -23342,7 +23340,7 @@
   "email": "educapltda@123mail.cl",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906399302",
   "found": "2026-11-09"
@@ -23434,7 +23432,7 @@
   "email": "clopez@corporacionsofofa.cl",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906399374",
   "found": "2026-11-09"
@@ -23488,7 +23486,7 @@
   "email": "horacioHenríquez@msn.com",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906399391",
   "found": "2026-11-09"
@@ -24159,7 +24157,7 @@
   "email": "liceoadultosagj@yahoo.es",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906404207",
   "found": "2026-11-09"
@@ -24273,7 +24271,7 @@
   "opp": [
    "Confesional (puede ser parte de una red)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906405568",
   "found": "2026-11-09"
@@ -24391,7 +24389,7 @@
   "email": "milcec@hotmail.com",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906407930",
   "found": "2026-11-09"
@@ -24578,7 +24576,7 @@
   "email": "info@yanquiray.cl",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906409577",
   "found": "2026-11-09"
@@ -24749,7 +24747,7 @@
   "email": "cegoyenechea@gmail.com",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906411600",
   "found": "2026-11-09"
@@ -24787,7 +24785,7 @@
   "email": "mimuro04@yahoo.es",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906412377",
   "found": "2026-11-09"
@@ -25089,7 +25087,7 @@
   "email": "instituto_humboldt@yahoo.es",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906415008",
   "found": "2026-11-09"
@@ -25599,7 +25597,7 @@
   "email": "ceia@ceiapintana.com",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906418731",
   "found": "2026-11-09"
@@ -25659,7 +25657,7 @@
   "email": "forjandofuturo@terra.cl",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906418761",
   "found": "2026-11-09"
@@ -26113,7 +26111,7 @@
   "email": "colevascodegama@hotmail.com",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906421247",
   "found": "2026-11-09"
@@ -26388,7 +26386,7 @@
   "email": "limabu@bulneslaflorida.tie.cl",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906421741",
   "found": "2026-11-09"
@@ -26763,7 +26761,7 @@
   "email": "lmmadulto@hotmail.com",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906425422",
   "found": "2026-11-09"
@@ -26855,7 +26853,7 @@
   "email": "cea_educagladyslazo@yahoo.es",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906427322",
   "found": "2026-11-09"
@@ -26951,7 +26949,7 @@
   "email": "ceiacreandofuturo@gmail.com",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906430368",
   "found": "2026-11-09"
@@ -27099,7 +27097,7 @@
   "email": "rocker.adultos@gmail.com",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906434462",
   "found": "2026-11-09"
@@ -27263,7 +27261,7 @@
   "email": "colegio@icel.cl",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906435038",
   "found": "2026-11-09"
@@ -27281,7 +27279,7 @@
   "email": "claudia_venegas_26@hotmail.com",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906435039",
   "found": "2026-11-09"
@@ -27299,7 +27297,7 @@
   "email": "aruxa11@hotmail.com",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906435049",
   "found": "2026-11-09"
@@ -27429,7 +27427,7 @@
   "opp": [
    "Confesional (puede ser parte de una red)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906435081",
   "found": "2026-11-09"
@@ -27652,7 +27650,7 @@
   "email": "computacion@colegiolosandes.cl",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906435166",
   "found": "2026-11-09"
@@ -27746,7 +27744,7 @@
   "email": "antultda2006@gmail.com",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906435269",
   "found": "2026-11-09"
@@ -27820,7 +27818,7 @@
   "email": "yayitau2@gmail.cl",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906435293",
   "found": "2026-11-09"
@@ -28042,7 +28040,7 @@
   "email": "landaur@gmail.com",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906438286",
   "found": "2026-11-09"
@@ -28154,7 +28152,7 @@
   "email": "veritouno@gmail.com",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n906438349",
   "found": "2026-11-09"
@@ -28795,7 +28793,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n5759039235",
   "found": "2026-11-09"
@@ -29592,7 +29590,7 @@
   "email": "",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n10978980954",
   "found": "2026-11-09"
@@ -30442,7 +30440,7 @@
   "email": "",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n11330005514",
   "found": "2026-11-09"
@@ -30721,7 +30719,7 @@
   "email": "",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n11384355567",
   "found": "2026-11-09"
@@ -30777,7 +30775,7 @@
   "email": "",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n11397770363",
   "found": "2026-11-09"
@@ -30833,7 +30831,7 @@
   "email": "",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n11400953155",
   "found": "2026-11-09"
@@ -30851,7 +30849,7 @@
   "email": "",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n11401085525",
   "found": "2026-11-09"
@@ -31166,7 +31164,7 @@
   "email": "",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n11414647276",
   "found": "2026-11-09"
@@ -31506,7 +31504,7 @@
   "email": "",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n11992919310",
   "found": "2026-11-09"
@@ -31696,7 +31694,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n13256123235",
   "found": "2026-11-09"
@@ -31803,7 +31801,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w23591942",
   "found": "2026-11-09"
@@ -31825,7 +31823,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w23635361",
   "found": "2026-11-09"
@@ -31869,7 +31867,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w25018684",
   "found": "2026-11-09"
@@ -32272,7 +32270,7 @@
   "email": "aruiztagle@nocedal.cl",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w42312807",
   "found": "2026-11-09"
@@ -32484,7 +32482,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w73909996",
   "found": "2026-11-09"
@@ -33722,7 +33720,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w154548950",
   "found": "2026-11-09"
@@ -33986,7 +33984,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w169859202",
   "found": "2026-11-09"
@@ -35051,7 +35049,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w221517271",
   "found": "2026-11-09"
@@ -35420,7 +35418,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w238513165",
   "found": "2026-11-09"
@@ -35978,7 +35976,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w282278537",
   "found": "2026-11-09"
@@ -36154,7 +36152,7 @@
   "email": "",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w300547561",
   "found": "2026-11-09"
@@ -36434,7 +36432,7 @@
   "opp": [
    "Confesional (puede ser parte de una red)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w324220866",
   "found": "2026-11-09"
@@ -38089,7 +38087,7 @@
   "email": "chenadultos@terra.cl",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w447256210",
   "found": "2026-11-09"
@@ -38240,7 +38238,7 @@
   "email": "liceocejeb@yahoo.es",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w447559909",
   "found": "2026-11-09"
@@ -38276,7 +38274,7 @@
   "email": "martinelli@ctpra.cl",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w447719955",
   "found": "2026-11-09"
@@ -38477,7 +38475,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w448225451",
   "found": "2026-11-09"
@@ -39423,7 +39421,7 @@
   "email": "edufranciscov@comudef.cl",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w450889883",
   "found": "2026-11-09"
@@ -39921,7 +39919,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w454966015",
   "found": "2026-11-09"
@@ -40581,7 +40579,7 @@
   "email": "polivalentedelapintana@gmail.com",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w547534781",
   "found": "2026-11-09"
@@ -41902,7 +41900,7 @@
   "opp": [
    "Confesional (puede ser parte de una red)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w618398114",
   "found": "2026-11-09"
@@ -42889,7 +42887,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w729411507",
   "found": "2026-11-09"
@@ -44099,7 +44097,7 @@
   "email": "eneas_carlo@hotmail.com",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w1107891879",
   "found": "2026-11-09"
@@ -44592,7 +44590,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w1130632644",
   "found": "2026-11-09"
@@ -44614,7 +44612,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w1130632645",
   "found": "2026-11-09"
@@ -44841,7 +44839,7 @@
   "email": "",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w1151191775",
   "found": "2026-11-09"
@@ -44859,7 +44857,7 @@
   "email": "",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w1151996367",
   "found": "2026-11-09"
@@ -44971,7 +44969,7 @@
   "email": "",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w1177965188",
   "found": "2026-11-09"
@@ -45007,7 +45005,7 @@
   "email": "proceres540@yahoo.es",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w1178197117",
   "found": "2026-11-09"
@@ -46534,7 +46532,7 @@
   "email": "jpalma@recoleta.cl",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w1229964122",
   "found": "2026-11-09"
@@ -46785,7 +46783,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w1238627902",
   "found": "2026-11-09"
@@ -46803,7 +46801,7 @@
   "email": "cervantesbasica@gmail.com",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w1239017183",
   "found": "2026-11-09"
@@ -47585,7 +47583,7 @@
   "email": "",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w1319947614",
   "found": "2026-11-09"
@@ -48873,7 +48871,7 @@
   "email": "",
   "levels": [],
   "opp": [],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n1393092854",
   "found": "2026-11-09"
@@ -60518,7 +60516,7 @@
   "opp": [
    "Bilingüe o internacional"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "n5117576281",
   "found": "2026-11-09"
@@ -66762,7 +66760,7 @@
   "opp": [
    "Universidad (OrderGO)"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "w402516058",
   "found": "2026-11-09"
@@ -73090,7 +73088,7 @@
   "opp": [
    "Bilingüe o internacional"
   ],
-  "private": "probable",
+  "private": "no",
   "src": "osm",
   "osm": "r12487937",
   "found": "2026-11-09"

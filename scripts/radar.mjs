@@ -97,8 +97,8 @@ const PUBLIC_RE = new RegExp([
   "universidad (nacional|autonoma|estatal|publica|tecnologica nacional)",
   "\\b(ceip|ies|ceo|cra|cepa|cpi|cpr|eso)\\b", "colegio publico", "instituto de educacion secundaria", "escuela oficial", "centro publico",
   "unidad educativa (fiscal|fiscomisional|municipal|nacional|del milenio)", "\\bfiscal\\b", "escuela basica", "colegio nacional", "u e n\\b",
-  "\\bpublic[oa]s?\\b", "instituto tecnologico de", "universidad (tecnologica|politecnica)", "colegio (municipal|tecnico profesional)", "\\bctp\\b", "por cooperativa", "\\bcindea\\b", "\\bipec\\b",
-  "\\b(uba|udelar|uchile|usach|unmsm|uni|unal|uncuyo|unlp|unc|unr|utn|uaem|uanl|udg|buap|uv|uady|uas|uson)\\b",
+  "\\bpublic[oa]s?\\b", "instituto tecnologico de", "universidad politecnica", "tecnologico publico", "superior tecnologico publico", "\\badultos\\b", "educacion de adultos", "\\bnocturn[oa]\\b", "universidad de chile", "escuela de ingenieria", "colegio (municipal|tecnico profesional)", "\\bctp\\b", "por cooperativa", "\\bcindea\\b", "\\bipec\\b",
+  "\\b(uba|udelar|uchile|usach|unmsm|unal|uncuyo|unlp|unr|utn|uaem|uanl|udg|buap|uady|uson)\\b",
   "institucion educativa (distrital|departamental|municipal|oficial)", "colegio distrital", "colegio departamental", "\\bied\\b", "\\binem\\b", "\\bunam\\b", "\\bipn\\b", "\\bliceo departamental", "\\bescuela publica", "\\bjardin de ninos (federal|estatal)",
 ].join("|"), "i");
 const PRIVATE_RE = /\b(unidad educativa|colegio|instituto|school|college|academy|academia|liceo|montessori|waldorf|bilingue|bilingual|british|american|britanico|americano|aleman|frances|italiano|ingles|internacional|international|iep|i e p|cep|cebp|kinder|preparatoria|prepa|centro educativo|complejo educativo|gimnasio|lycee|deutsche|scuola|universidad|university)\b/i;
