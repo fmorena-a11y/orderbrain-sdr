@@ -196,11 +196,14 @@ async function saveWd() {
 const RES_PILL = { done: "res-ok", noshow: "lost", moved: "org", canceled: "stalled" };
 const resPill = r => r.result ? `<span class="pill ${RES_PILL[r.result]}">${esc(DEMO_RES[r.result])}</span>`
   : r.noShowType ? `<span class="pill lost" title="En Pipedrive la pasaron al tipo «No Show»">No Show</span>`
+  : r.done ? `<span class="pill res-ok" title="En Pipedrive está hecha; nadie marcó qué pasó desde la app">Hecha en Pipedrive</span>`
   : r.past ? `<span class="pill unk" title="${r.moved ? "Se reprogramó y la fecha nueva ya pasó: falta marcar qué pasó" : "Falta marcar qué pasó con la demo"}">?</span>` : "";
 const canMark = r => !r.noShowType && (!!(r.ownerId && r.ownerId === S.me.pdUserId) || !!S.profile?.leader);
-const setterTxt = r => r.auto ? "entrada automática" : `cargó ${r.setter || (r.setterId ? "un usuario no activo" : "?")}`;
+// a un SDR el servidor solo le manda quién cargó las suyas («cargaste vos»); en las demás no va (no se cuenta por persona)
+const setterTxt = r => r.auto ? "entrada automática" : r.mineLoaded || (r.setterId && r.setterId === S.me.pdUserId) ? "cargaste vos"
+  : "setter" in r || "setterId" in r ? `cargó ${r.setter || (r.setterId ? "un usuario no activo" : "?")}` : "";
 function demoRow(r) {
-  const when = `${shortDay(r.date)}${r.time ? ` · ${r.time}` : ""}`, inner = `<b>${esc(r.name || "Colegio sin nombre")}</b><small style="white-space:normal">${esc(when)} · ${esc(setterTxt(r))} · la da ${esc(r.owner || "?")}</small>`;
+  const when = `${shortDay(r.date)}${r.time ? ` · ${r.time}` : ""}`, inner = `<b>${esc(r.name || "Colegio sin nombre")}</b><small style="white-space:normal">${esc([when, setterTxt(r), `la da ${r.owner || (r.ownerFree ? "una cuenta general" : "?")}`].filter(Boolean).join(" · "))}</small>`;
   const open = r.schoolId ? `<button class="t" data-dsch="${esc(r.schoolId)}">${inner}</button>` : r.record ? `<button class="t" data-drec="${esc(r.record)}" title="Abrir la ficha">${inner}</button>` : `<div class="t">${inner}</div>`;
   const mark = r.past && !r.result && canMark(r) ? `<button class="btn sm" data-dres="${r.id}" data-time="${esc(r.time)}">Marcar</button>` : "";
   return `<div class="act"><span class="ty meeting" role="img" aria-label="Demo">${icon("video")}</span>${open}<div class="ops">${resPill(r)}${mark}</div></div>`;
@@ -213,7 +216,8 @@ function demosHtml(d) {
     : d.mine ? `<p style="margin:0 0 6px;font-size:14px">Cargadas por vos: <b>${d.mine.recent}</b> ya pasaron y <b>${d.mine.upcoming}</b> próximas. Todo el equipo: ${d.total.recent} y ${d.total.upcoming}.</p>` : "";
   const sec = (h, l) => `<h3 style="margin:14px 0 4px;font-size:14px">${h} <small class="faint">${l.length}</small></h3>${l.length ? l.map(demoRow).join("") : `<p class="faint" style="margin:0;font-size:13.5px">Ninguna.</p>`}`;
   // las de antes de los 7 días que quedaron sin resultado: solo las que podés marcar (las tuyas; un líder, todas)
-  const pending = (d.pending || []).filter(canMark), unk = [...d.recent, ...pending].some(r => !r.result);
+  // hechas en Pipedrive (sin marca de la app) no son «falta marcar»: Métricas las cuenta como «Hecha en Pipedrive»
+  const pending = (d.pending || []).filter(r => !r.done && canMark(r)), unk = [...d.recent, ...pending].some(r => !r.result && !r.noShowType && !r.done);
   return `${intro}${d.partial ? `<div class="callout warn" style="margin-bottom:10px">${icon("alert")}<span>Pipedrive devolvió demasiado: puede faltar alguna.</span></div>` : ""}${ppl}
     ${sec("Próximas", d.upcoming)}${sec("Ya pasaron (7 días)", d.recent)}${pending.length ? sec(`Falta marcar (desde el ${esc(shortDay(d.pendingFrom))})`, pending) : ""}
     ${unk ? `<p class="faint" style="margin:10px 0 0;font-size:13px">«?»: falta marcar qué pasó con la demo. La marca quien la da (o un líder).</p>` : ""}`;

@@ -37,7 +37,7 @@ test("A1 demos cargadas: por fecha de creación; la nota de la app manda; cuenta
     act(11, { deleted: true }),
   ];
   const r = M.demosLoaded(acts, { users, profiles, free, period, tz: TZ });
-  assert.deepEqual(r.totals, { total: 8, demo: 7, noshow: 1, preDone: 1, auto: 1, autoPreDone: 1, unknown: 0 });
+  assert.deepEqual(r.totals, { total: 8, demo: 7, noshow: 1, preDone: 1, auto: 1, autoPreDone: 1, unknown: 0, people: 7, dups: 0 });
   assert.deepEqual(r.people.map(p => [p.name, p.total, p.noshow, !!p.inactive]), [["Alguien de afuera", 1, 0, false], ["Ana Pérez", 2, 1, false], ["Zoe", 3, 0, false], ["", 1, 0, true]]);
   assert.deepEqual(r.others, [{ id: 99, name: "", free: true, auto: true, total: 1, demo: 1, noshow: 0, preDone: 1 }]); // la automática, aparte (no es una persona)
   assert.equal(r.people.find(p => p.name === "Ana Pérez").id, 3);
@@ -72,7 +72,7 @@ test("A2 qué pasó: marca de la app → No Show → hecha en Pipedrive → sin 
     act(8, { due_date: "2026-11-08", mark: "done", owner_id: 1, by: "Ana Pérez", creator_user_id: 1 }),
   ];
   const r = M.demosHeld(acts, { users, profiles, free, period, tz: TZ, now });
-  assert.deepEqual(r.totals, { total: 6, appDone: 1, appNoshow: 0, appCanceled: 0, noshow: 1, done: 1, unmarked: 1, upcoming: 2 });
+  assert.deepEqual(r.totals, { total: 6, appDone: 1, appNoshow: 0, appCanceled: 0, noshow: 1, done: 1, unmarked: 1, today: 0, upcoming: 2, dups: 0 });
   assert.deepEqual(r.byOwner.map(x => [x.name, x.total]), [["Matías", 4], ["Token", 2]]);
   assert.deepEqual(r.byLoader.map(x => [x.name, x.total, !!x.auto]), [["Ana Pérez", 2, false], ["Zoe", 3, false], ["", 1, true]]); // la automática al final
   assert.deepEqual(r.items.map(a => a.id).sort(), [1, 2, 3, 4, 5, 8]);
@@ -148,11 +148,16 @@ test("E base, F clientes de World Dominion y G archivados: lo exacto; clientes d
   const sch = [{ country: "México", city: "Puebla" }, { country: "México", city: "Puebla" }, { country: "México", city: "León" }, { country: "Perú", city: "Lima" }];
   assert.deepEqual(M.baseSummary(sch), { total: 4, byCountry: [{ key: "México", n: 3 }, { key: "Perú", n: 1 }], cities: [], cityCount: 0, otherCities: 0 });
   assert.deepEqual(M.baseSummary(sch, { country: "México", top: 1 }), { total: 3, byCountry: [{ key: "México", n: 3 }, { key: "Perú", n: 1 }], cities: [{ key: "Puebla", n: 2 }], cityCount: 2, otherCities: 1 });
-  const sites = [{ label: "Churn", country: "México", client: "A" }, { label: "Activo", country: "México", client: "A" }, { label: "Activo", country: "Uruguay", client: "b" }, { label: "Se cayó en onboarding", country: "México", client: "C" }];
+  const sites = [{ label: "Churn", country: "México", client: "A", clientId: 1 }, { label: "Activo", country: "México", client: "A", clientId: 1 }, { label: "Activo", country: "Uruguay", client: "b", clientId: 2 }, { label: "Se cayó en onboarding", country: "México", client: "C", clientId: 3 }];
   const f = M.clientsSummary(sites);
   assert.deepEqual(f.byStatus, [{ key: "Activo", n: 2 }, { key: "Churn", n: 1 }, { key: "Se cayó en onboarding", n: 1 }]);
   assert.equal(f.sites, 4); assert.equal(f.clients, 3);
-  assert.equal(M.clientsSummary([...sites, { label: "Activo", country: "México", client: "" }]).clients, null); // un sitio sin cliente: no se sabe
+  assert.deepEqual([f.activeSites, f.activeClients], [2, 2]);
+  assert.equal(M.clientsSummary([...sites, { label: "Activo", country: "México", client: "", clientId: null }]).clients, null); // un sitio sin cliente: no se sabe
+  assert.equal(M.clientsSummary([...sites, { label: "Activo", country: "México", client: "", clientId: null }]).activeClients, null);
+  // por clientId, no por nombre: dos clientes «Jesus Maria» distintos son dos; dos sitios activos del mismo cliente, uno
+  const jm = M.clientsSummary([{ label: "Activo", client: "Jesus Maria", clientId: 10 }, { label: "Activo", client: "Jesus Maria", clientId: 11 }, { label: "Activo", client: "X", clientId: 12 }, { label: "Activo", client: "X", clientId: 12 }]);
+  assert.deepEqual([jm.sites, jm.clients, jm.activeSites, jm.activeClients], [4, 3, 4, 3]);
   assert.equal(M.clientsSummary(sites, { country: "Uruguay" }).sites, 1);
   const recs = { a: { by: "zoe@x.com", byName: "Zoe", at: "2026-11-05T12:00:00Z", reason: "Cerró" }, b: { by: "ana@x.com", byName: "ana", at: "2026-11-06T12:00:00Z", reason: "Otro", text: "academia" },
     c: { by: "zoe@x.com", at: "2026-10-01T12:00:00Z", reason: "Duplicado" }, d: { by: "zoe@x.com", at: "2026-11-06T12:00:00Z", reason: "Cerró" } };
@@ -193,6 +198,72 @@ test("A1 con la forma real de Pipedrive v2 (fechas con Z, No Show = lunch, cuent
     { id: 101261, type: "lunch", add_time: "2026-11-03T15:43:00Z", done: true, creator_user_id: 28543616, owner_id: 24821777 }, // creada el 03/11: fuera
   ];
   const r = M.demosLoaded(acts, { users: U, free: g, period, tz: TZ });
-  assert.deepEqual(r.totals, { total: 4, demo: 3, noshow: 1, preDone: 1, auto: 1, autoPreDone: 1, unknown: 0 });
+  assert.deepEqual(r.totals, { total: 4, demo: 3, noshow: 1, preDone: 1, auto: 1, autoPreDone: 1, unknown: 0, people: 3, dups: 0 });
   assert.deepEqual(r.people.map(p => [p.name, p.total]), [["Ariana Moreira", 2], ["Joaquin Márquez", 1]]); // a quien la creó, no a quien la da
+});
+
+test("A2: la cuenta general (13493598) también es dueña de demos: entran, en la fila de la cuenta general (al final)", () => {
+  const g = new Set([13493598]), U = [{ id: 25513259, name: "Belén", email: "b@x" }], now = Date.parse("2026-11-10T20:00:00Z");
+  const acts = [
+    { id: 97836, type: "meeting", owner_id: 13493598, creator_user_id: 25513259, deal_id: 1, due_date: "2026-11-05", due_time: "15:00", done: true, add_time: "2026-11-01T10:00:00Z" },
+    { id: 95608, type: "lunch", owner_id: 13493598, creator_user_id: 25513259, deal_id: 2, due_date: "2026-11-06", due_time: "", done: true, add_time: "2026-11-01T10:00:00Z" },
+    { id: 1, type: "meeting", owner_id: 25513259, creator_user_id: 25513259, deal_id: 3, due_date: "2026-11-06", due_time: "15:00", done: false, add_time: "2026-11-01T10:00:00Z" },
+  ];
+  const r = M.demosHeld(acts, { users: U, free: g, period, tz: TZ, now });
+  assert.equal(r.totals.total, 3); assert.equal(r.totals.done, 1); assert.equal(r.totals.noshow, 1); assert.equal(r.totals.unmarked, 1);
+  assert.deepEqual(r.byOwner.map(x => [x.name, x.total, !!x.free]), [["Belén", 1, false], ["", 2, true]]);
+});
+
+test("cargada ya hecha: marcada hecha en el primer minuto (101852: creada 00:22:09, hecha 00:22:11)", () => {
+  assert.equal(M.preDone({ done: true, add_time: "2026-11-05T00:22:09Z", done_time: "2026-11-05T00:22:11Z" }), true);
+  assert.equal(M.preDone({ done: true, add_time: "2026-11-05T00:22:09Z", done_time: "2026-11-05T00:22:09Z" }), true);
+  assert.equal(M.preDone({ done: true, add_time: "2026-11-05T00:22:09Z", done_time: "2026-11-05T00:23:10Z" }), false); // 61 s
+  assert.equal(M.preDone({ done: false, add_time: "2026-11-05T00:22:09Z", done_time: "2026-11-05T00:22:11Z" }), false);
+  assert.equal(M.preDone({ done: true, add_time: "2026-11-05T00:22:09Z", done_time: "2026-11-05T00:22:00Z" }), false); // hecha antes de creada: no
+});
+
+test("duplicados: la misma demo (trato + día + tipo) cuenta una vez; la automática que repite una ya cargada no suma", () => {
+  const g = new Set([13493598]), U = [{ id: 24821777, name: "Joaquin Márquez", email: "j@x" }, { id: 20, name: "Ricardo", email: "r@x" }], now = Date.parse("2026-11-10T22:00:00Z");
+  const acts = [
+    // trato 6462: la No Show de Joaquín del 09/11 y dos automáticas creadas hoy (103533 y 103537)
+    { id: 102871, type: "lunch", deal_id: 6462, owner_id: 24821777, creator_user_id: 24821777, due_date: "2026-11-09", due_time: "", done: true, add_time: "2026-11-08T12:00:00Z", done_time: "2026-11-09T20:00:00Z" },
+    { id: 103533, type: "lunch", deal_id: 6462, owner_id: 24821777, creator_user_id: 13493598, due_date: "2026-11-09", due_time: "", done: true, add_time: "2026-11-10T21:08:00Z", done_time: "2026-11-10T21:08:00Z" },
+    { id: 103537, type: "lunch", deal_id: 6462, owner_id: 24821777, creator_user_id: 13493598, due_date: "2026-11-09", due_time: "", done: true, add_time: "2026-11-10T21:12:00Z", done_time: "2026-11-10T21:12:00Z" },
+    // trato 6436: dos No Show en días distintos (04/11 y 10/11): son dos
+    { id: 1, type: "lunch", deal_id: 6436, owner_id: 24821777, creator_user_id: 24821777, due_date: "2026-11-04", due_time: "18:00", done: true, add_time: "2026-11-02T12:00:00Z" },
+    { id: 2, type: "lunch", deal_id: 6436, owner_id: 24821777, creator_user_id: 24821777, due_date: "2026-11-10", due_time: "15:00", done: true, add_time: "2026-11-05T12:00:00Z" },
+    // trato 6394: la Demo 101852 de Ricardo (cargada ya hecha) y la automática 101854, las dos del 03/11 (Montevideo: 05/11 de creación)
+    { id: 101852, type: "meeting", deal_id: 6394, owner_id: 20, creator_user_id: 20, due_date: "2026-11-05", due_time: "", done: true, add_time: "2026-11-05T13:22:09Z", done_time: "2026-11-05T13:22:11Z" },
+    { id: 101854, type: "meeting", deal_id: 6394, owner_id: 20, creator_user_id: 13493598, due_date: "2026-11-05", due_time: "", done: true, add_time: "2026-11-05T13:24:52Z", done_time: "2026-11-05T13:24:52Z" },
+  ];
+  const h = M.demosHeld(acts, { users: U, free: g, period, tz: TZ, now });
+  assert.equal(h.totals.total, 4); assert.equal(h.totals.dups, 3); assert.equal(h.totals.noshow, 3); assert.equal(h.totals.done, 1);
+  assert.equal(h.byOwner.find(x => x.id === 24821777).noshow, 3); // Joaquín: 3 eventos distintos, no 5
+  assert.deepEqual(h.byLoader.map(x => [x.name, x.total, !!x.auto]), [["Joaquin Márquez", 3, false], ["Ricardo", 1, false]]); // queda la de la persona
+  // A1: la automática no suma; la que cuenta es la primera cargada (102871, del 08/11)
+  const l = M.demosLoaded(acts, { users: U, free: g, period, tz: TZ });
+  assert.deepEqual([l.totals.total, l.totals.auto, l.totals.dups, l.totals.people, l.totals.preDone], [3, 0, 3, 3, 1]); // la 1 de 6436 se cargó el 02/11: fuera
+  // la primera cargada fuera del período: la automática de hoy tampoco cuenta como cargada en el período
+  const late = M.demosLoaded(acts.filter(a => a.deal_id === 6462), { users: U, free: g, period: { from: "2026-11-10", to: "2026-11-10", days: 1 }, tz: TZ });
+  assert.deepEqual([late.totals.total, late.totals.dups], [0, 2]);
+});
+
+test("A2: sin hora y con fecha de hoy es «hoy, sin hora» (no «sin marcar») hasta que termine el día", () => {
+  const now = Date.parse("2026-11-10T13:00:00Z"); // 10:00 en Montevideo
+  const acts = [act(1, { due_date: "2026-11-10", due_time: "" }), act(2, { due_date: "2026-11-10", due_time: "", done: true }), act(3, { due_date: "2026-11-09", due_time: "" })];
+  const r = M.demosHeld(acts, { users, profiles, free, period, tz: TZ, now });
+  assert.deepEqual([r.totals.today, r.totals.done, r.totals.unmarked], [1, 1, 1]);
+  assert.equal(M.heldState({ type: "meeting" }, true, true), "today");
+  assert.equal(M.heldState({ type: "lunch" }, true, true), "noshow");
+});
+
+test("C1 ganados por la primera fecha de ganado (won_time se puede editar)", () => {
+  const ctx2 = { sales: new Set([9]), pipeCountry: { 9: "México" }, paisOf: () => "", stageOf: () => null, stagesOf: () => [], pipeOrder: [9] };
+  const won = [
+    { id: 6313, status: "won", pipeline_id: 9, owner_id: 2, won_time: "2026-10-30T12:00:00Z", first_won_time: "2026-11-03T12:00:00Z" }, // ganado el 03/11
+    { id: 4133, status: "won", pipeline_id: 9, owner_id: 2, won_time: "2026-11-05T12:00:00Z", first_won_time: "2023-05-01T12:00:00Z" }, // ganado por primera vez en 2023
+    { id: 5391, status: "won", pipeline_id: 9, owner_id: 2, won_time: "2026-11-09T14:31:00Z" }, // sin first_won_time: won_time
+  ];
+  const r = M.dealsSummary({ won, period: { from: "2026-11-01", to: "2026-11-10", days: 10 }, tz: TZ, users, ...ctx2 });
+  assert.deepEqual(r.won.list.map(d => d.id), [6313, 5391]);
 });

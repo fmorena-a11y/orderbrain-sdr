@@ -93,3 +93,24 @@ test("demoBoard: entradas automáticas aparte, No Show no queda en «Falta marca
   assert.deepEqual(s.total, { upcoming: 1, recent: 2 });
   assert.deepEqual(boardFor(b, { me: 77 }).mine, { id: 77, upcoming: 0, recent: 0 });
 });
+
+test("demoBoard: 7 días = hoy y los 6 anteriores (como Métricas), sin duplicados, hechas fuera de «Falta marcar»; a un SDR, quién cargó solo en las suyas", () => {
+  const now = Date.parse("2026-11-10T20:00:00Z"), free = new Set([99]);
+  const b = demoBoard([
+    { id: 1, due_date: "2026-11-03", due_time: "15:00", owner_id: 4, creator_user_id: 2 }, // hace 7 días: ya no es «ya pasaron»
+    { id: 2, due_date: "2026-11-04", due_time: "15:00", owner_id: 4, creator_user_id: 2, deal_id: 9, add_time: "2026-11-01T10:00:00Z" },
+    { id: 3, due_date: "2026-11-04", due_time: "", owner_id: 4, creator_user_id: 99, deal_id: 9, done: true, add_time: "2026-11-05T10:00:00Z" }, // automática que repite la 2
+    { id: 4, due_date: "2026-11-05", due_time: "", owner_id: 4, creator_user_id: 3 },
+    { id: 5, due_date: "2026-10-20", due_time: "", owner_id: 4, creator_user_id: 2, done: true }, // vieja, hecha en Pipedrive: no falta marcar
+  ].map(a => ({ type: "meeting", ...a })), { users, profiles, free, today: "2026-11-10", tz: "UTC", now });
+  assert.equal(b.from, "2026-11-04");
+  assert.deepEqual(b.recent.map(r => r.id).sort(), [2, 4]);
+  assert.equal(b.recent.find(r => r.id === 2).done, true); // la automática dice que se hizo
+  assert.deepEqual(b.pending.map(r => r.id), [1]);
+  const s = boardFor(b, { leader: false, me: 2 });
+  const r2 = s.recent.find(r => r.id === 2), r4 = s.recent.find(r => r.id === 4);
+  assert.deepEqual([r2.setterId, r2.mineLoaded], [2, true]);
+  assert.ok(!("setter" in r4) && !("setterId" in r4)); // de otro: no se manda quién la cargó
+  assert.equal(r4.owner, "Matías"); // quién la da sí
+  assert.ok(boardFor(b, { leader: true }).recent.find(r => r.id === 4).setterId === 3);
+});
