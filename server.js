@@ -299,6 +299,7 @@ app.post("/api/schools/:id/study/note", auth, schoolParam, wrap(async (req, res)
 app.get("/api/schools/:id/brief", auth, schoolParam, wrap(async (req, res) => res.json(await ai.brief(req.params.id, { user: req.session.user }))));
 app.get("/api/schools/:id/enrich", auth, schoolParam, wrap(async (req, res) => res.json({ data: await sales.getEnrich(req.params.id) })));
 app.post("/api/schools/:id/enrich", auth, schoolParam, wrap(async (req, res) => res.json(await sales.enrichSchool(req.params.id, req.session.user, (await getProfile(req.session.user.email).catch(() => null))?.name))));
+app.get("/api/schools/:id/history", auth, schoolParam, wrap(async (req, res) => res.json(await sales.historyFor(req.params.id))));
 app.get("/api/schools/:id/sedes", auth, schoolParam, wrap(async (req, res) => res.json(await sales.sedesFor(req.params.id))));
 // Redactar un mensaje: con IA usa el contexto que escribe el SDR + lo que sabe Pipedrive; sin IA, la plantilla de la casa.
 app.post("/api/schools/:id/draft", auth, schoolParam, wrap(async (req, res) => {

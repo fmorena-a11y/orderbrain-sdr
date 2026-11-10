@@ -161,6 +161,9 @@ Para probar contra la cuenta real sin escribir nada, usá `READ_ONLY=1`: todas l
 | `TEAM_ACCESS_CODE` | Código de entrada para líderes | Texto que elijas; rotarlo si se compartió |
 | `LEADER_EMAILS` | Emails de líderes separados por coma | |
 | `BRAIN_TOKEN` | Token de World Dominion (brain.ordereat.com) para saber clientes activos, onboarding y churn | |
+| `GOOGLE_MAPS_API_KEY` | Fotos, teléfono, horario y reseñas de Google Maps (Places API New), con tope de gasto | Google Cloud → APIs y servicios |
+| `SLACK_BOT_TOKEN`, `SLACK_CHANNEL_ID` | Mensajes del canal de colegios lanzados en «Qué pasó con OrderEAT» (scopes `channels:history` y `users:read`; el bot tiene que estar en el canal) | api.slack.com/apps |
+| `FREE_OWNER_IDS` | Cuentas generales de Pipedrive cuyos colegios están libres (por defecto «OrderEAT» y «Contacto OrderEAT») | |
 | `READ_ONLY` | `1` bloquea las escrituras a Pipedrive (para probar) | |
 | `SALES_PIPELINES` | Opcional: embudo y etapa de entrada por país en JSON | Ver `.env.example` |
 

@@ -819,3 +819,5 @@ details.agent summary .sub { order: 3; }
 .sat-pin { position: absolute; left: 50%; top: 50%; width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; background: #E0153F; border: 3px solid #fff; box-shadow: 0 0 0 3px rgb(224 21 63 / .35), 0 1px 4px rgb(0 0 0 / .5); pointer-events: none; }
 .sat-pin.lg { width: 22px; height: 22px; margin: -11px 0 0 -11px; box-shadow: 0 0 0 8px rgb(224 21 63 / .28), 0 1px 6px rgb(0 0 0 / .5); }
 .sat-pin[hidden] { display: none; }
+
+.hist-b { padding: 10px 12px; border-radius: 10px; background: var(--surface-2); font-size: 14px; margin-bottom: 4px; }

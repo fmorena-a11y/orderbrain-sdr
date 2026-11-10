@@ -210,9 +210,35 @@ async function load(opts = {}) {
     D.data = d; D.err = null; patchSchool(d.school);
     const why = S.session && !opts.refresh && opts.match === undefined && skipReason(d.school, !!D.activityId && myDeal(d.match));
     if (why) { toast(`${d.school.name}: ${why}, lo salteé`); return sessionGo(1); }
-    loadSedes(id); loadEnrich(id);
+    loadSedes(id); loadEnrich(id); loadHistory(id, d);
   } catch (e) { if (D.id === id) D.err = e.message; }
   if (D.id === id) draw();
+}
+
+// ---------- Qué pasó con OrderEAT: cliente, onboarding, churn o perdido. World Dominion + Pipedrive + Slack.
+const HIST = new Map();
+const wantsHistory = (s, d) => !!(s.ob || s.phase || ["client", "churn", "lost", "stalled"].includes(s.status) || d?.deals?.some(x => x.status !== "open"));
+async function loadHistory(id, d) {
+  const s = S.byId.get(id); if (!s || HIST.has(id) || !wantsHistory(s, d)) return;
+  HIST.set(id, null);
+  try { HIST.set(id, await api(`/api/schools/${encodeURIComponent(id)}/history`)); } catch { HIST.delete(id); return; }
+  if (D.id === id && D.tab === "prep") keepScroll(draw);
+}
+const INFO_LABEL = k => k.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/_/g, " ").replace(/^./, c => c.toUpperCase());
+function historySec(s) {
+  const h = HIST.get(s.id); if (!h) return "";
+  const b = h.brain, day = v => v ? esc(new Intl.DateTimeFormat("es", { day: "numeric", month: "short", year: "numeric" }).format(new Date(String(v).slice(0, 10) + "T12:00:00"))) : "";
+  const deals = h.deals.filter(x => x.status !== "open" || x.clientPipe);
+  if (!b && !deals.length && !h.notes.length && !h.slack?.msgs?.length) return "";
+  return `<section class="sec" id="histSec"><h3><span class="l">${icon("refresh")} Qué pasó con OrderEAT</span></h3>
+    ${b ? `<div class="hist-b"><b>World Dominion: ${esc(b.label)}</b>${b.client ? ` · cliente «${esc(b.client)}»` : ""}${b.site && b.site !== s.name ? ` · sitio «${esc(b.site)}»` : ""}${b.start ? ` · inicio ${day(b.start)}` : ""}
+      ${Object.keys(b.info || {}).length ? `<div class="faint" style="font-size:12.5px;margin-top:4px">${Object.entries(b.info).map(([k, v]) => `${esc(INFO_LABEL(k))}: ${esc(/^\d{4}-\d{2}-\d{2}/.test(String(v)) ? day(v) : String(v))}`).join(" · ")}</div>` : ""}</div>` : ""}
+    ${deals.length ? `<div class="sub-h">Tratos en Pipedrive${h.orgs > 1 ? ` (${h.orgs} organizaciones con este nombre)` : ""}</div>${deals.map(x => `<div class="act"><span class="ty">${icon("deal")}</span><div class="t"><b><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a></b>
+      <small>${esc([x.pipeline, x.stage].filter(Boolean).join(" · "))} · ${x.status === "won" ? `ganado ${day(x.won)}` : x.status === "lost" ? `perdido ${day(x.lost)}${x.lostReason ? ` · «${esc(x.lostReason)}»` : ""}` : `abierto desde ${day(x.added)}`}${x.owner ? ` · ${esc(x.owner)}` : ""}</small></div></div>`).join("")}` : ""}
+    ${h.notes.length ? `<div class="sub-h">Últimas notas</div>${h.notes.slice(0, 4).map(n => `<details class="obj"><summary>${day(n.at)}${n.author ? ` · ${esc(n.author)}` : ""}${n.deal ? ` · ${esc(n.deal)}` : ""} — ${esc(n.text.split("\n")[0].slice(0, 90))}</summary><p style="white-space:pre-wrap">${esc(n.text)}</p></details>`).join("")}` : ""}
+    ${h.slack?.msgs?.length ? `<div class="sub-h">En Slack (colegios lanzados)</div>${h.slack.msgs.map(m => `<details class="obj"><summary>${day(m.at)}${m.by ? ` · ${esc(m.by)}` : ""} — ${esc(m.text.slice(0, 90))}</summary><p style="white-space:pre-wrap">${esc(m.text)}</p><a href="${esc(m.url)}" target="_blank" rel="noopener">Abrir en Slack</a></details>`).join("")}`
+      : h.slackEnabled ? `<p class="faint" style="margin:8px 0 0;font-size:12.5px">${h.slack?.error ? `No pude leer Slack: ${esc(h.slack.error)}` : "No hay mensajes en Slack que nombren a este colegio."}</p>` : ""}
+  </section>`;
 }
 
 // ---------- Enriquecer: juntar todo lo que hay del colegio y dejarlo en Pipedrive
@@ -574,6 +600,7 @@ function prepBody(s, d) {
   const cands = !m.confirmed ? (m.candidates || []) : [];
   return `<div class="stack">
     ${warn ? `<div class="callout warn">${icon("alert")}<span>${esc(warn)}</span></div>` : ""}
+    ${historySec(s)}
     ${s.lat == null && !(D.photos || []).length ? "" : gallery(s)}
     ${enrichSec(s)}
     ${sedesSec(s)}
@@ -646,7 +673,7 @@ function logBody(s, d) {
   const dates = [["Hoy", t], ["Mañana", addDays(t, 1)], ...(nb !== addDays(t, 1) ? [["Próx. hábil", nb]] : []), ["En 1 semana", addDays(t, 7)], ["En 1 mes", addDays(t, 30)], ["En 3 meses", addDays(t, 90)]];
   let n = 0;
   return `<div class="stack">
-    ${warn ? `<div class="callout warn">${icon("alert")}<span>${esc(warn)}</span></div>` : ""}
+    ${warn ? `<div class="callout warn">${icon("alert")}<span>${esc(warn)}${HIST.get(s.id) ? ` <button class="linkbtn" data-see-hist>Ver qué pasó</button>` : ""}</span></div>` : ""}
     ${act ? `<label class="callout info toggle" style="color:var(--st-org)"><input type="checkbox" data-f="completeAct" ${f.completeAct ? "checked" : ""}> Marcar como hecha: <b>${esc(act.subject)}</b></label>` : ""}
     <div class="sec step"><div class="step-h"><span class="n">${++n}</span>¿Por dónde fue el contacto?</div>
       <div class="seg" role="group">${CH.map(([k, l, ic]) => `<button data-ch="${k}" aria-pressed="${f.channel === k}">${icon(ic, "sm")} ${l}</button>`).join("")}</div></div>
@@ -930,4 +957,10 @@ function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
 addEventListener("keydown", e => {
   if (!drawerOpen() || document.querySelector(".modal")) return;
   if ((e.ctrlKey || e.metaKey) && e.key === "Enter" && D.tab === "log" && !D.result) { e.preventDefault(); $("drawer").querySelector("#save")?.click(); }
+});
+
+// «Ver qué pasó» (desde Registrar): va a la historia con OrderEAT en Preparar
+document.addEventListener("click", e => {
+  if (!e.target.closest?.("[data-see-hist]")) return;
+  goTab("prep"); setTimeout(() => $("drawer").querySelector("#histSec")?.scrollIntoView({ behavior: "smooth", block: "start" }), 60);
 });
