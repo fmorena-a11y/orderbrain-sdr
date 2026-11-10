@@ -16,7 +16,7 @@ function syncBadge() { const t = today(); setBadge("hoy", (S.today?.activities.i
 export function renderToday(el) {
   host = el; showAll = false;
   if (!S.today) { el.innerHTML = skeleton(); loadToday().then(() => host === el && draw()).catch(e => host === el && drawError(e)); }
-  else { draw(); loadToday().then(() => host === el && draw()).catch(() => {}); }
+  else { draw(); loadToday().then(() => host === el && draw()).catch(e => toast(`No pudimos actualizar tu día: ${e.message}`, { type: "err", action: { label: "Reintentar", fn: () => renderToday(el) } })); }
 }
 function drawError(e) {
   host.innerHTML = `<div class="page">${baseErrorCallout()}<div class="callout err">${icon("alert")}<span>No pudimos traer tu día de Pipedrive: ${esc(e.message)}</span><button class="btn sm" id="retryToday">Reintentar</button></div></div>`;
@@ -129,9 +129,18 @@ function prospectRow(q) {
   return `<button class="prospect" data-school="${esc(q.id)}"><span class="score ${cls}" title="Prioridad ${q.score} de 100">${q.score}</span><span class="t"><b>${esc(q.name)}</b><small>${esc(q.city)}, ${esc(q.country)}${q.lastTouch ? ` · último: ${esc(q.lastTouch.outcome.toLowerCase())}` : ""}</small>${why.length ? `<span class="why">${why.map(r => `<span class="tag">${esc(r)}</span>`).join("")}</span>` : ""}</span>${icon("arrowRight", "faint")}</button>`;
 }
 
+// Enfoca la fila que sigue a la actividad (o la anterior si era la última), en la vista que esté abierta.
+function nextFocusKey(id) {
+  const btns = [...document.querySelectorAll("#main [data-done]")], k = btns.findIndex(b => b.dataset.done === String(id));
+  const n = btns[k + 1] || btns[k - 1];
+  return n ? n.dataset.done : null;
+}
+const focusDone = id => (id && document.querySelector(`#main [data-done="${id}"]`) || document.getElementById("main"))?.focus({ preventScroll: !id });
 export async function markDone(id, after) {
+  const nextId = nextFocusKey(id);
   const all = S.today?.activities.items || [], agenda = S.agenda?.items || [];
   const removed = all.find(a => a.id === id) || agenda.find(a => a.id === id);
+  const iT = all.findIndex(a => a.id === id), iA = agenda.findIndex(a => a.id === id);
   try { await api(`/api/activities/${id}/done`, { body: {} }); }
   catch (e) { return toast(e.message, { type: "err" }); }
   if (S.today) S.today.activities.items = all.filter(a => a.id !== id);
@@ -139,11 +148,12 @@ export async function markDone(id, after) {
   syncBadge();
   toast("Actividad marcada como hecha", { action: { label: "Deshacer", fn: async () => {
     try { await api(`/api/activities/${id}/undone`, { body: {} }); } catch (e) { return toast(e.message, { type: "err" }); }
-    if (removed) { if (S.today) S.today.activities.items.push(removed); if (S.agenda) S.agenda.items.push(removed); }
+    // vuelve a su lugar en la lista, no al final
+    if (removed) { if (S.today && iT >= 0) S.today.activities.items.splice(iT, 0, removed); if (S.agenda && iA >= 0) S.agenda.items.splice(iA, 0, removed); }
     syncBadge(); after ? after() : draw();
   } } });
   after ? after() : draw();
-  (host || document).querySelector?.("[data-done]")?.focus();
+  focusDone(nextId);
 }
 export function moveMenu(anchor, id, after) {
   const t = today(), nb = nextBusinessDay(t);
@@ -153,9 +163,12 @@ export function moveMenu(anchor, id, after) {
   const done = async (d, tm) => {
     try { await api(`/api/activities/${id}/move`, { body: { date: d, time: tm } }); toast(`Reprogramada para ${shortDay(d)}${tm ? ` a las ${tm}` : ""}`); }
     catch (e) { return toast(e.message, { type: "err" }); }
+    const nextId = nextFocusKey(id);
     await loadToday().catch(() => {}); after ? after() : draw();
+    focusDone(document.querySelector(`#main [data-done="${id}"]`) ? id : nextId);
   };
-  openMenu(anchor, [{ head: "Reprogramar para" }, ...opts.map(([l, d]) => ({ label: l, sub: shortDay(d), fn: () => done(d, time) })),
+  const abs = d => new Intl.DateTimeFormat("es", { weekday: "short", day: "numeric", month: "short" }).format(new Date(d + "T12:00:00"));
+  openMenu(anchor, [{ head: "Reprogramar para" }, ...opts.map(([l, d]) => ({ label: l, sub: abs(d), fn: () => done(d, time) })),
     { label: "Elegir fecha y hora…", sub: "", fn: () => {
       const m = modal(`<h3>Reprogramar</h3><div class="grid2"><label class="field"><span>Día</span><input class="inp" type="date" id="mvD" min="${t}" value="${addDays(t, 1)}"></label><label class="field"><span>Hora <span class="faint">opcional</span></span><input class="inp" type="time" id="mvT" step="900" value="${esc(time)}"></label></div><div class="row"><button class="btn ghost" id="mvX">Cancelar</button><button class="btn primary" id="mvOk">Reprogramar</button></div>`, { onClose: () => anchor.focus() });
       m.querySelector("#mvX").onclick = () => m.close();

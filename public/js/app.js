@@ -1,5 +1,5 @@
 // OrderBrain SDR · arranque, navegación, cuenta, búsqueda rápida y atajos.
-import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, closeMenu, openMenu, isDark, applyTheme, save, loadPref } from "./core.js";
+import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo } from "./core.js";
 import { renderToday } from "./today.js";
 import { renderExplore } from "./explore.js";
 import { renderAgenda } from "./agenda.js";
@@ -90,7 +90,7 @@ function drawMe() {
 }
 function accountMenu(anchor) {
   openMenu(anchor, [
-    { head: S.me.email },
+    { head: S.me.email, cls: "plain" },
     { label: S.me.pdUserId ? "Conectado a Pipedrive" : "Sin usuario en Pipedrive", sub: S.me.pdUserId ? "Tus actividades y notas se guardan a tu nombre" : "Pedí que te den de alta con este email", fn: () => S.pdWeb && window.open(S.pdWeb, "_blank", "noopener") },
     { label: isDark() ? "Modo claro" : "Modo oscuro", sub: "Cambiar el tema", fn: toggleTheme },
     { label: "Salir", sub: "Cerrar sesión en este dispositivo", fn: async () => { await api("/auth/logout", { body: {} }).catch(() => {}); location.reload(); } },
@@ -114,6 +114,7 @@ export function setBadge(view, n) {
 }
 export function go(view) { if (location.hash !== "#/" + view) location.hash = "#/" + view; else route(); }
 function route() {
+  closeMenu();
   const v = (location.hash.match(/^#\/(\w+)/) || [])[1];
   S.view = VIEWS[v] ? v : "hoy";
   $("nav").querySelectorAll("[data-v]").forEach(b => { if (b.dataset.v === S.view) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
@@ -134,9 +135,14 @@ export function rememberSchool(id) { const r = [id, ...loadPref("recent", []).fi
 function openPalette() {
   closeMenu();
   PAL.ret = document.activeElement;
+  $("app").inert = true; document.querySelector(".skip").inert = true;
   $("palette").hidden = false; $("palIn").value = ""; renderPalette(); $("palIn").focus();
 }
-function closePalette(picked = false) { $("palette").hidden = true; if (!picked) PAL.ret?.focus?.(); }
+function closePalette(picked = false) {
+  $("palette").hidden = true;
+  $("app").inert = drawerOpen(); document.querySelector(".skip").inert = drawerOpen();
+  if (!picked) PAL.ret?.focus?.();
+}
 function renderPalette() {
   const raw = $("palIn").value, q = norm(raw);
   const row = (i, ic, title, sub, right = "") => `<button class="pal-item" role="option" data-i="${i}" aria-selected="${i === 0}">${icon(ic)}<span class="t"><b>${esc(title)}</b><small>${esc(sub)}</small></span>${right}</button>`;
@@ -185,15 +191,21 @@ $("palette").addEventListener("pointerdown", e => { if (e.target === $("palette"
 // ---------- atajos de teclado
 addEventListener("keydown", e => {
   if ($("app").hidden) return;
-  const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName) || document.activeElement?.isContentEditable;
-  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); $("palette").hidden ? openPalette() : closePalette(); return; }
+  const el = document.activeElement;
+  const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(el?.tagName) || el?.isContentEditable;
+  const overlay = document.querySelector(".modal, .menu");
+  // Deshacer lo último (por ejemplo, «marcar como hecha») mientras el aviso está visible
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z" && !typing && lastUndo) { e.preventDefault(); lastUndo.fn(); return; }
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); if (overlay) return; $("palette").hidden ? openPalette() : closePalette(); return; }
   if (e.key === "Escape") {
     if (!$("palette").hidden) return closePalette();
-    if (document.querySelector(".modal") || document.querySelector(".menu")) return;
+    if (overlay) return;
+    // en un campo de la ficha, Esc solo sale del campo (no cierra la ficha ni pierde lo escrito)
+    if (drawerOpen() && typing) { el.blur(); return; }
     if (drawerOpen()) return closeSchool();
     if (!$("assistant").hidden) return closeAssistant();
   }
-  if (typing || e.ctrlKey || e.metaKey || e.altKey) return;
+  if (typing || overlay || e.ctrlKey || e.metaKey || e.altKey) return;
   if (e.key === "/") { e.preventDefault(); openPalette(); }
   if (!drawerOpen()) { const k = { 1: "hoy", 2: "prospectar", 3: "agenda", 4: "radar", 5: "equipo" }[e.key]; if (k) { go(k); $("main").focus({ preventScroll: true }); } }
 });

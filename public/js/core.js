@@ -140,15 +140,24 @@ export function satLink(s, { w = 800, h = 480, span = 0.0035 } = {}) {
 export const mapsSearch = s => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + " " + s.city)}`;
 
 // ---------- piezas de interfaz
+// Último «Deshacer» disponible: también se usa con Ctrl+Z mientras el aviso está visible.
+export let lastUndo = null;
 export function toast(msg, { type = "", action, href, ms } = {}) {
   const t = document.createElement("div"); t.className = "toast " + type; t.setAttribute("role", type === "err" ? "alert" : "status");
   const ic = type === "err" ? "alert" : type === "info" ? "clock" : "checkCircle";
-  t.innerHTML = `${icon(ic)}<span>${esc(msg)}</span>${href ? `<a href="${esc(href)}" target="_blank" rel="noopener">${esc(action || "Abrir")}</a>` : action ? `<button data-act>${esc(action.label)}</button>` : ""}<button class="x" aria-label="Cerrar aviso">×</button>`;
-  if (action?.fn) t.querySelector("[data-act]").onclick = () => { action.fn(); t.remove(); };
-  t.querySelector(".x").onclick = () => t.remove();
+  t.innerHTML = `${icon(ic)}<span>${esc(msg)}</span>${href ? `<a href="${esc(href)}" target="_blank" rel="noopener">${esc(action || "Abrir")}</a>` : action ? `<button data-act>${esc(action.label)}${action.label === "Deshacer" ? '<span class="kbd-hint"> (Ctrl Z)</span>' : ""}</button>` : ""}<button class="x" aria-label="Cerrar aviso">×</button>`;
+  const remove = () => { t.remove(); if (lastUndo?.el === t) lastUndo = null; };
+  if (action?.fn) { t.querySelector("[data-act]").onclick = () => { action.fn(); remove(); }; if (action.label === "Deshacer") lastUndo = { el: t, fn: () => { action.fn(); remove(); } }; }
+  t.querySelector(".x").onclick = remove;
   $("toasts").appendChild(t);
-  // los errores y los avisos con acción duran más
-  setTimeout(() => t.remove(), ms || (type === "err" ? 9000 : action ? 7000 : 4200));
+  // los errores y los avisos con acción duran más; se pausan mientras el mouse o el foco están encima
+  const total = ms || (type === "err" ? 9000 : action ? 8000 : 4200);
+  let left = total, start = Date.now(), timer = setTimeout(remove, left);
+  const pause = () => { clearTimeout(timer); left -= Date.now() - start; };
+  const resume = () => { start = Date.now(); clearTimeout(timer); timer = setTimeout(remove, Math.max(left, 1500)); };
+  t.addEventListener("mouseenter", pause); t.addEventListener("mouseleave", resume);
+  t.addEventListener("focusin", pause); t.addEventListener("focusout", resume);
+  return t;
 }
 export async function copy(text) { try { await navigator.clipboard.writeText(text); toast("Copiado"); } catch { toast("No se pudo copiar", { type: "err" }); } }
 
@@ -159,7 +168,7 @@ function outside(e) { if (menuEl && !menuEl.contains(e.target)) closeMenu(); }
 export function openMenu(anchor, items) {
   closeMenu();
   menuEl = document.createElement("div"); menuEl.className = "menu"; menuEl.setAttribute("role", "menu");
-  menuEl.innerHTML = items.map((it, i) => it.head ? `<div class="mh">${esc(it.head)}</div>` : `<button role="menuitem" data-i="${i}"><b>${esc(it.label)}</b>${it.sub ? `<small>${esc(it.sub)}</small>` : ""}</button>`).join("");
+  menuEl.innerHTML = items.map((it, i) => it.head ? `<div class="mh ${it.cls || ""}">${esc(it.head)}</div>` : `<button role="menuitem" data-i="${i}"><b>${esc(it.label)}</b>${it.sub ? `<small>${esc(it.sub)}</small>` : ""}</button>`).join("");
   document.body.appendChild(menuEl);
   const r = anchor.getBoundingClientRect(), mw = menuEl.offsetWidth, mh = menuEl.offsetHeight;
   menuEl.style.left = Math.max(12, Math.min(r.left, innerWidth - mw - 12)) + "px";
@@ -180,7 +189,8 @@ export function modal(html, { onClose } = {}) {
   const m = document.createElement("div"); m.className = "modal"; m.setAttribute("role", "dialog"); m.setAttribute("aria-modal", "true");
   m.innerHTML = `<div class="modal-box">${html}</div>`;
   const close = () => { m.remove(); document.removeEventListener("keydown", key); onClose?.(); };
-  const key = e => { if (e.key === "Escape") { e.stopPropagation(); close(); } };
+  // Esc cierra el modal, salvo que la búsqueda esté abierta encima
+  const key = e => { if (e.key === "Escape" && document.getElementById("palette").hidden) { e.stopPropagation(); close(); } };
   m.addEventListener("pointerdown", e => { if (e.target === m) close(); });
   document.addEventListener("keydown", key);
   document.body.appendChild(m);

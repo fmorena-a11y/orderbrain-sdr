@@ -47,7 +47,7 @@ export function renderExplore(el) {
     <div class="mapwrap"><div id="map" role="region" aria-label="Mapa de colegios"></div></div>
   </div>`;
   const q = el.querySelector("#q");
-  q.oninput = () => { E.q = q.value; shown = PAGE; drawAll(); };
+  q.oninput = () => { E.q = q.value; shown = PAGE; drawAll(); toTop(); };
   el.querySelector("#sess").onclick = () => {
     const ids = callable().map(s => s.id);
     if (ids.length) startSession(ids, E.city || E.country || "selección");
@@ -57,11 +57,16 @@ export function renderExplore(el) {
   drawAll();
 }
 
-function drawAll() { drawCountries(); drawCrumb(); drawFilters(); drawList(); drawFoot(); drawMap(); }
+// Al cambiar de ciudad, país, filtro o búsqueda, la lista vuelve arriba (en celular scrollea .explore-list; si no, .explore-scroll).
+const toTop = () => { for (const sel of [".explore-scroll", ".explore-list"]) { const n = host.querySelector(sel); if (n) n.scrollTop = 0; } };
+function drawAll() {
+  host.querySelector(".explore")?.classList.toggle("focused", !!(E.city || E.q));
+  drawCountries(); drawCrumb(); drawFilters(); drawList(); drawFoot(); drawMap();
+}
 function drawCountries() {
   const c = host.querySelector("#countries");
   c.innerHTML = [["", "Todos"], ...S.countries.map(x => [x, x])].map(([k, l]) => `<button class="chip" data-c="${esc(k)}" aria-pressed="${(E.country || "") === k}">${esc(l)}</button>`).join("");
-  c.querySelectorAll("button").forEach(b => b.onclick = () => { E.country = b.dataset.c || null; E.city = null; shown = PAGE; drawAll(); });
+  c.querySelectorAll("button").forEach(b => b.onclick = () => { E.country = b.dataset.c || null; E.city = null; shown = PAGE; drawAll(); toTop(); });
 }
 function drawCrumb() {
   const c = host.querySelector("#crumb");
@@ -76,7 +81,7 @@ function drawFilters() {
   const cnt = {}; base.forEach(s => cnt[s.status] = (cnt[s.status] || 0) + 1);
   cnt.prospect = CALLABLE.reduce((a, k) => a + (cnt[k] || 0), 0); cnt.all = base.length;
   f.innerHTML = FILTERS.filter(([k]) => k === "prospect" || k === "all" || cnt[k]).map(([k, l]) => `<button class="chip" data-f="${k}" aria-pressed="${E.filter === k}">${ST[k] ? `<span class="sdot" style="background:var(${ST[k].c})"></span>` : ""}${l} <b>${fmt(cnt[k] || 0)}</b></button>`).join("");
-  f.querySelectorAll("button").forEach(b => b.onclick = () => { E.filter = b.dataset.f; shown = PAGE; drawAll(); });
+  f.querySelectorAll("button").forEach(b => b.onclick = () => { E.filter = b.dataset.f; shown = PAGE; drawAll(); toTop(); });
 }
 function schoolRow(s) {
   // el subtítulo dice lo que la pastilla no: ciudad, último contacto o motivo de pérdida, intentos, teléfono
@@ -135,8 +140,7 @@ function drawFoot() {
 }
 function openCity(country, city) {
   E.country = country; E.city = city; E.q = ""; shown = PAGE; host.querySelector("#q").value = "";
-  drawAll();
-  host.querySelector(".explore-list").scrollTop = 0;
+  drawAll(); toTop();
   const unk = scope().filter(s => s.status === "unk");
   if (unk.length && unk.length <= 40) checkScope();
 }

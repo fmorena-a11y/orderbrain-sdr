@@ -18,6 +18,9 @@ const QUICK = {
 const NIVELES = ["Preescolar", "Primaria", "Secundaria", "Prepa", "Universidad"];
 
 export const drawerOpen = () => !$("drawer").hidden;
+// Borradores de Registrar por colegio: si cerrás la ficha a mitad de carga, al volver sigue ahí.
+const drafts = new Map();
+let pauseToast = null;
 export const currentSchoolId = () => (drawerOpen() ? D.id : null);
 const newForm = () => ({ channel: "call", outcome: null, contact: { name: "", role: "", phone: "", email: "" }, qual: { cafeteria: "", alumnos: "", niveles: [], sistema: "" },
   demo: { date: nextBusinessDay(today()), time: "10:00", duration: 30, ownerId: "" }, next: { type: "", date: "", time: "", ownerId: "" }, lostReason: "", text: "", ai: true, completeAct: true, nextTouched: false, why: "" });
@@ -26,12 +29,14 @@ const newForm = () => ({ channel: "call", outcome: null, contact: { name: "", ro
 export async function openSchool(id, { activityId = null, tab = null, keepSession = false } = {}) {
   if (!S.byId.has(id)) return toast("Colegio inexistente", { type: "err" });
   if (!keepSession) S.session = null;
-  if ($("drawer").hidden) D.opener = document.activeElement;
+  if ($("drawer").hidden) { D.opener = document.activeElement; history.pushState({ ...(history.state || {}), drawer: id }, ""); }
   import("./app.js").then(m => m.rememberSchool(id));
-  Object.assign(D, { inCall: false, id, data: null, form: newForm(), activityId, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null, tab: tab || (activityId ? "log" : "prep") });
+  const draft = drafts.get(id); drafts.delete(id);
+  Object.assign(D, { inCall: false, id, data: null, form: draft?.form || newForm(), activityId: activityId ?? draft?.activityId ?? null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null, tab: draft ? "log" : tab || (activityId ? "log" : "prep") });
+  if (draft) toast("Recuperé lo que estabas cargando", { type: "info" });
   $("drawer").hidden = false; $("scrim").hidden = false;
   $("scrim").onclick = closeSchool;
-  $("app").inert = true; // lo de atrás no recibe foco ni clics mientras la ficha está abierta
+  $("app").inert = true; document.querySelector(".skip").inert = true; // lo de atrás no recibe foco ni clics
   $("drawer").scrollTop = 0;
   draw();
   $("drawer").querySelector("#dClose")?.focus();
@@ -103,19 +108,31 @@ function lightbox(s, start) {
   img.addEventListener("pointerup", e => { if (x0 === null) return; const dx = e.clientX - x0; x0 = null; if (dx > 40) go(-1); else if (dx < -40) go(1); });
   show();
 }
-export function closeSchool() {
+// El botón Atrás del celular cierra la ficha en vez de cambiar la pantalla de abajo.
+addEventListener("popstate", () => { if (drawerOpen()) closeSchool({ fromPop: true }); });
+export function closeSchool({ fromPop = false } = {}) {
+  if (!drawerOpen()) return;
+  if (!fromPop && history.state?.drawer) history.back();
+  const closedId = D.id, f = D.form;
+  if (closedId && D.tab === "log" && !D.result && (f?.outcome || f?.text?.trim())) drafts.set(closedId, { form: f, activityId: D.activityId });
   $("drawer").hidden = true; $("scrim").hidden = true; D.id = null;
-  $("app").inert = false;
+  $("app").inert = false; document.querySelector(".skip").inert = false;
+  pauseToast?.remove(); pauseToast = null;
   const ss = S.session; S.session = null;
   if (ss) {
     const n = ss.done, left = ss.ids.length - ss.i - 1;
-    if (left > 0) { S.lastSession = ss; toast(`Sesión en pausa: ${n} contacto${n === 1 ? "" : "s"} registrado${n === 1 ? "" : "s"}, faltan ${left}`, { action: { label: "Retomar", fn: resumeSession } }); }
+    if (left > 0) { S.lastSession = ss; pauseToast = toast(`Sesión en pausa: ${n} contacto${n === 1 ? "" : "s"} registrado${n === 1 ? "" : "s"}, faltan ${left}`, { action: { label: "Retomar", fn: resumeSession } }); }
     else { S.lastSession = null; toast(`Sesión terminada: ${n} contacto${n === 1 ? "" : "s"} registrado${n === 1 ? "" : "s"}`); }
   }
-  import("./app.js").then(m => (S.view === "hoy" || S.view === "agenda") && m.rerender()).then(() => { if (D.opener?.isConnected) D.opener.focus(); });
+  // el foco vuelve a la fila del colegio (aunque la vista se haya redibujado) o al contenido
+  import("./app.js").then(m => (S.view === "hoy" || S.view === "agenda") && m.rerender()).then(() => {
+    const target = D.opener?.isConnected ? D.opener : document.querySelector(`#main [data-school="${closedId}"], #main [data-id="${closedId}"]`);
+    (target || $("main")).focus({ preventScroll: !target });
+  });
 }
 export function resumeSession() {
   const ss = S.lastSession; if (!ss) return;
+  pauseToast?.remove(); pauseToast = null;
   S.lastSession = null; S.session = ss;
   openSchool(ss.ids[ss.i], { keepSession: true, activityId: ss.acts[ss.ids[ss.i]] || null, tab: "prep" });
 }
@@ -137,6 +154,7 @@ async function load(opts = {}) {
 
 // ---------- sesión de llamadas
 export async function startSession(ids, label = "tu territorio") {
+  pauseToast?.remove(); pauseToast = null; S.lastSession = null;
   if (!ids) {
     if (!S.today) { try { const { loadToday } = await import("./today.js"); await loadToday(); } catch (e) { return toast(e.message, { type: "err" }); } }
     const t = today(), acts = (S.today.activities.items || []).map(a => ({ ...a, ...localAct(a) })).filter(a => a.schoolId && a.date <= t);
@@ -187,10 +205,9 @@ function draw() {
   const mk = d?.market || S.markets[s.country] || {};
   const nHist = d ? (d.notes?.length || 0) + (d.touches?.length || 0) : 0;
   const notReady = !d ? `disabled title="${D.err ? "No se pudo cargar la ficha" : "Cargando la ficha…"}"` : "";
-  el.setAttribute("aria-busy", d ? "false" : "true");
   el.innerHTML = `
   ${ss ? `<div class="d-session"><span class="progress" aria-hidden="true"><span style="width:${(ss.i + 1) / ss.ids.length * 100}%"></span></span>
-    <span class="lbl">${icon("play", "sm")} <b>${ss.i + 1}</b>/${ss.ids.length}<span class="hide-sm"> · sesión</span></span>
+    <span class="lbl">${icon("play", "sm")} <span><b>${ss.i + 1}</b>/${ss.ids.length}<span class="hide-sm"> · sesión</span></span></span>
     <button class="btn sm ghost" id="prev" ${ss.i ? "" : "disabled"} aria-label="Colegio anterior">${icon("arrowLeft", "sm")}</button><button class="btn sm" id="skip">${icon("skip", "sm")} Saltar</button></div>` : ""}
   <div class="d-top">
     <div class="d-title"><div class="tt"><h2 id="dTitle">${esc(s.name)}</h2><div class="sub">${esc([s.addr, s.city, s.country].filter(Boolean).join(", "))}</div></div>
@@ -217,7 +234,7 @@ function draw() {
   <div class="tabs" role="tablist" aria-label="Secciones de la ficha">
     ${[["prep", "Preparar"], ["log", "Registrar"], ["hist", "Historial"]].map(([k, l]) => `<button class="tab" role="tab" id="tab-${k}" data-tab="${k}" aria-selected="${D.tab === k}" aria-controls="dBody" tabindex="${D.tab === k ? 0 : -1}">${l}${k === "hist" && nHist ? `<span class="n">${nHist}</span>` : ""}</button>`).join("")}
   </div>
-  <div class="d-body" id="dBody" role="tabpanel" aria-labelledby="tab-${D.tab}">${D.err ? `<div class="callout err">${icon("alert")}<span>No se pudo cargar la ficha: ${esc(D.err)}</span><button class="btn sm" id="retry">Reintentar</button></div>` : !d ? loadingBody() : D.tab === "prep" ? prepBody(s, d) : D.tab === "log" ? (D.result ? resultBody(s, d) : logBody(s, d)) : histBody(s, d)}</div>
+  <div class="d-body" id="dBody" role="tabpanel" aria-labelledby="tab-${D.tab}" aria-busy="${!d && !D.err}">${D.err ? `<div class="callout err">${icon("alert")}<span>No se pudo cargar la ficha: ${esc(D.err)}</span><button class="btn sm" id="retry">Reintentar</button></div>` : !d ? loadingBody() : D.tab === "prep" ? prepBody(s, d) : D.tab === "log" ? (D.result ? resultBody(s, d) : logBody(s, d)) : histBody(s, d)}</div>
   ${D.tab === "log" && d && !D.result ? `<div class="d-foot"><div class="sum" id="sum">${summary(s, d)}</div><button class="btn primary lg" id="save" ${D.saving || !D.form.outcome || (s.status === "client" && D.form.outcome === "demo") ? "disabled" : ""}>${D.saving ? `<span class="spin"></span> Guardando…` : `${icon("check")} Guardar en Pipedrive`}</button></div>` : ""}`;
   bindTop(s, d);
   if (d) {
@@ -231,9 +248,14 @@ const loadingBody = () => `<div class="stack">${[1, 2, 3].map(() => `<div class=
 function goTab(tab) {
   D.tab = tab; draw();
   // en celular la ficha entera scrollea: se lleva a las pestañas; en escritorio, el cuerpo al inicio
-  const el = $("drawer"), tabs = el.querySelector(".tabs");
-  if (el.scrollTop > tabs.offsetTop) el.scrollTop = tabs.offsetTop;
-  el.querySelector("#dBody").scrollTop = 0;
+  toTabs();
+}
+// Lleva el scroll a las pestañas (en celular scrollea toda la ficha; las pestañas son fijas y su offsetTop no sirve).
+function toTabs() {
+  const el = $("drawer"), top = el.querySelector(".d-top");
+  const natural = top.offsetTop + top.offsetHeight - (el.querySelector(".d-session")?.offsetHeight || 0);
+  if (el.scrollTop > natural) el.scrollTop = natural;
+  const b = el.querySelector("#dBody"); if (b) b.scrollTop = 0;
 }
 
 function bindTop(s, d) {
@@ -310,14 +332,15 @@ function prepBody(s, d) {
   const me = (S.me.name || "").split(/[\s.@_]/)[0];
   const apertura = (b?.apertura || p.apertura).replace(/\[tu nombre\]/g, me);
   const preguntas = b?.preguntas?.length ? b.preguntas : p.preguntas, objeciones = b?.objeciones?.length ? b.objeciones : p.objeciones;
-  const cierre = p.cierre.replace("[día]", shortDay(nextBusinessDay(today()))).replace("[hora]", "10:00");
+  const nd = nextBusinessDay(today());
+  const dia = nd === addDays(today(), 1) ? "mañana" : `el ${new Intl.DateTimeFormat("es", { weekday: "long", day: "numeric" }).format(new Date(nd + "T12:00:00"))}`;
+  const cierre = p.cierre.replace(/el \[día\]|\[día\]/, dia).replace("[hora]", "10:00");
   const angulo = b?.angulo || s.pitch;
   const decisor = b?.decisores?.[0];
   const warn = clientWarn(s, m);
   const cands = !m.confirmed ? (m.candidates || []) : [];
   return `<div class="stack">
     ${warn ? `<div class="callout warn">${icon("alert")}<span>${esc(warn)}</span></div>` : ""}
-    ${cands.length ? `<section class="sec"><h3><span class="l">${icon("building")} ¿Es alguna de estas organizaciones de Pipedrive?</span></h3>${m.orgId ? `<p class="muted" style="margin:0 0 6px">Ahora está vinculado a <b>${esc(m.orgName)}</b>.</p>` : ""}${cands.map(c => `<div class="cand"><span>${esc(c.name)}</span><button class="btn sm" data-org="${c.id}" data-name="${esc(c.name)}">Es esta</button></div>`).join("")}${m.orgId ? `<div class="cand"><span class="muted">Ninguna de estas</span><button class="btn sm ghost" id="unlink">Desvincular</button></div>` : ""}</section>` : ""}
     ${gallery(s)}
     <section class="sec"><h3><span class="l">${icon("phone")} Primeros 15 segundos</span></h3>
       <div class="say">${esc(apertura)}<button class="icon-btn" data-copy="${esc(apertura)}" aria-label="Copiar apertura">${icon("copy")}</button></div>
@@ -327,6 +350,7 @@ function prepBody(s, d) {
       <p style="margin:0">${esc(p.situacion)} <b>${esc(p.objetivo)}</b></p>
       ${angulo ? `<div class="callout ok" style="margin-top:10px">${icon("bolt")}<span><b>Ángulo:</b> ${esc(angulo)}</span></div>` : ""}
     </section>
+    ${cands.length ? `<section class="sec"><h3><span class="l">${icon("building")} ¿Es alguna de estas organizaciones de Pipedrive?</span></h3>${m.orgId ? `<p class="muted" style="margin:0 0 6px">Ahora está vinculado a <b>${esc(m.orgName)}</b>.</p>` : ""}${cands.map(c => `<div class="cand"><span>${esc(c.name)}</span><button class="btn sm" data-org="${c.id}" data-name="${esc(c.name)}">Es esta</button></div>`).join("")}${m.orgId ? `<div class="cand"><span class="muted">Ninguna de estas</span><button class="btn sm ghost" id="unlink">Desvincular</button></div>` : ""}</section>` : ""}
     <section class="sec"><h3><span class="l">${icon("list")} Preguntas para calificar</span></h3>
       <ol class="qnum">${preguntas.map(q => `<li>${esc(q)}</li>`).join("")}</ol>
     </section>
@@ -476,7 +500,7 @@ async function saveLog(s, d) {
     S.today = null; S.agenda = null;
     if (S.session) S.session.done++;
     import("./explore.js").then(m => m.refreshExplore());
-    D.saving = false; draw();
+    D.saving = false; draw(); toTabs();
     // refresca la ficha en segundo plano para que Historial muestre lo nuevo
     api(`/api/schools/${s.id}`).then(nd => { if (D.id === s.id) { D.data = nd; if (D.tab !== "log") draw(); } }).catch(() => {});
   } catch (e) { D.saving = false; redrawLog(); toast(e.message, { type: "err" }); }
@@ -517,7 +541,7 @@ function bindResult(s, d) {
     if (f.contact?.name) text = text.replace(/^Hola(?=[,\s])/, `Hola ${f.contact.name.split(" ")[0]}`);
     messageModal(s, d, { ...t, text }, { phone: f.contact?.phone, email: f.contact?.email, logAfter: false });
   });
-  el.querySelector("#nextSchool")?.focus();
+  (el.querySelector("#nextSchool") || el.querySelector("#closeD"))?.focus();
 }
 
 // ---------- Historial
