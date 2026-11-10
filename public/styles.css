@@ -857,6 +857,8 @@ details.agent summary .sub { order: 3; }
 .follow th, .follow td { padding: 8px 6px; border-top: 1px solid var(--line); text-align: left; vertical-align: top; }
 .follow thead th { border-top: 0; vertical-align: bottom; font-size: 12px; color: var(--muted); font-weight: 600; }
 .follow tbody th { font-weight: 600; min-width: 120px; }
+/* en celular la tabla se desplaza: la persona queda fija a la izquierda */
+.follow tbody th, .follow thead th:first-child { position: sticky; left: 0; z-index: 1; background: var(--surface); }
 .follow tbody th small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
 .follow .num { text-align: right; font-variant-numeric: tabular-nums; }
 .follow-alert { padding: 6px 0; border-top: 1px solid var(--line); font-size: 14px; }

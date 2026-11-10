@@ -55,3 +55,15 @@ test("followUp: tratos abiertos de venta sin próxima actividad, por dueño, los
   assert.deepEqual(z.deals.map(d => d.id), [2, 1, 5, 6, 7]);
   assert.equal(z.deals[0].since, "2026-09-01");
 });
+
+test("followUp: la demo agendada desde la app cuenta para quien la agendó (by), no para quien la da", () => {
+  const acts = [
+    { owner_id: 12, type: "meeting", done: false, due_date: "2026-11-20", add_time: "2026-11-09T10:00:00Z", by: "Zoe Ruiz" }, // nombre del perfil
+    { owner_id: 12, type: "meeting", done: false, due_date: "2026-11-20", add_time: "2026-11-09T10:00:00Z", by: "ZOE" }, // nombre de Pipedrive, sin importar mayúsculas
+    { owner_id: 12, type: "meeting", done: false, due_date: "2026-11-21", add_time: "2026-11-09T11:00:00Z", by: "Ana" },
+    { owner_id: 12, type: "meeting", done: false, due_date: "2026-11-22", add_time: "2026-11-09T12:00:00Z", by: "Alguien de afuera" }, // no se sabe: para el dueño
+    { owner_id: 12, type: "meeting", done: false, due_date: "2026-11-22", add_time: "2026-11-09T12:00:00Z" },
+  ];
+  const r = followUp({ ...base, acts });
+  assert.deepEqual([10, 11, 12].map(id => row(r, id).demosSet), [2, 1, 2]);
+});

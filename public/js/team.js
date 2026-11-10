@@ -191,7 +191,7 @@ async function saveWd() {
 // orden alfabético, sin puestos ni colores de mejor o peor.
 let follow = null, followAt = 0;
 async function loadFollow() { followAt = Date.now(); try { follow = await api("/api/team/follow"); } catch (e) { follow = { error: e.message }; } drawFollow(); }
-const FCOLS = [["calls", "Llamadas"], ["whatsapp", "WhatsApp"], ["mails", "Mails"], ["demosSet", "Demos agendadas"], ["demosDone", "Demos hechas"], ["won", "Tratos ganados"], ["overdue", "Vencidas sin hacer"]];
+const FCOLS = [["calls", "Llamadas"], ["whatsapp", "WhatsApp"], ["mails", "Mails"], ["demosSet", "Demos agendadas"], ["demosDone", "Demos hechas"], ["won", "Tratos ganados"], ["overdue", "Vencieron esta semana"]];
 function followHtml() {
   const f = follow;
   if (!f) return '<div class="skel" style="margin:14px 0"></div>'.repeat(3);
@@ -202,7 +202,7 @@ function followHtml() {
   const pdLink = id => S.pdWeb ? `${S.pdWeb}/deal/${id}` : "";
   const alerts = f.people.filter(p => p.noNext);
   return `${intro}${f.partial ? `<div class="callout warn" style="margin-bottom:10px">${icon("alert")}<span>Pipedrive devolvió demasiado: algunos números pueden quedar cortos.</span></div>` : ""}
-    <div class="follow-wrap"><table class="follow"><thead><tr><th scope="col">Persona</th>${FCOLS.map(([, l]) => `<th scope="col" class="num">${l}</th>`).join("")}</tr></thead>
+    <div class="follow-wrap"><table class="follow"><thead><tr><th scope="col">Persona</th>${FCOLS.map(([k, l]) => `<th scope="col" class="num"${k === "demosSet" ? ' title="Las agendadas desde la app cuentan para quien las agendó; las otras, para quien da la demo."' : ""}>${l}</th>`).join("")}</tr></thead>
       <tbody>${f.people.map(p => `<tr><th scope="row">${esc(p.name)}${p.role ? `<small>${esc(p.role)}</small>` : ""}</th>${FCOLS.map(([k]) => `<td class="num">${p[k]}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
     <h3 style="margin:16px 0 6px;font-size:14px">Tratos abiertos sin próxima actividad</h3>
     ${alerts.length ? alerts.map(p => `<details class="follow-alert"><summary><b>${esc(p.name)}</b>: ${p.noNext} trato${p.noNext === 1 ? "" : "s"}</summary>

@@ -39,8 +39,8 @@ test("hotRows: demos de hoy y mañana primero (por hora), después los prospecto
     { id: 4, type: "call", date: "2026-11-10", time: "", schoolId: "s4", subject: "Llamada" }];
   const leads = [{ id: "x", record: "lead:x", title: "Colegio B", addTime: h(2), assigned: true }, { id: "y", record: "lead:y", title: "Colegio C", addTime: h(3), assigned: false, event: "EduExperience 2026" }];
   const r = hotRows(acts, leads, "2026-11-10", now);
-  assert.deepEqual(r.map(x => x.why), ["Demo hoy", "Demo mañana 10:00", "Nuevo hace 3 h"]);
+  assert.deepEqual(r.map(x => x.why), ["Demo hoy", "Demo mañana 10:00", "Lo creaste hace 3 h"]);
   assert.deepEqual(r.map(x => [x.schoolId, x.record]), [[null, "lead:x"], ["s1", null], [null, "lead:y"]]);
-  assert.equal(hotRows([], [leads[0]], "2026-11-10", now)[0].why, "Te lo asignaron hace 2 h");
+  assert.equal(hotRows([], [leads[0]], "2026-11-10", now)[0].why, "A tu nombre · creado hace 2 h");
   assert.deepEqual(hotRows([], [], "2026-11-10", now), []);
 });
