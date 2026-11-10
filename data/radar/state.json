@@ -6735,7 +6735,7 @@
   "SV": "2026-11-10T03:03:09.884Z",
   "NI": "2026-11-10T03:45:57.955Z",
   "PR": "2026-11-10T03:46:32.474Z",
-  "ES": "2026-11-10T05:07:50.222Z"
+  "ES": "2026-11-10T05:25:10.690Z"
  },
  "scanned": {
   "PE|Lima": "2026-11-09T23:57:25.294Z",
@@ -6791,24 +6791,274 @@
   "NI|n13230029220": "2026-11-10T03:51:37.216Z",
   "MX|Reynosa": "2026-11-10T03:53:22.862Z",
   "MX|Torreón": "2026-11-10T03:55:39.892Z",
-  "ES|n21068295": "2026-11-10T05:08:38.506Z",
-  "ES|n152364165": "2026-11-10T05:09:19.755Z",
-  "ES|n34105607": "2026-11-10T05:09:57.512Z",
-  "ES|n248820656": "2026-11-10T05:10:35.635Z",
-  "ES|n266776249": "2026-11-10T05:11:06.609Z",
-  "BO|n313811401": "2026-11-10T05:11:41.126Z",
-  "AR|Mar del Plata": "2026-11-10T05:12:12.638Z",
-  "MX|Acapulco": "2026-11-10T05:12:49.816Z",
-  "MX|Guadalupe": "2026-11-10T05:13:23.061Z",
-  "MX|Monterrey": "2026-11-10T05:13:55.467Z",
-  "CO|n1282585464": "2026-11-10T05:14:21.551Z",
-  "GT|Villa Nueva": "2026-11-10T05:14:57.885Z",
-  "MX|Durango": "2026-11-10T05:15:30.403Z"
+  "ES|n21068295": "2026-11-10T05:25:51.249Z",
+  "ES|n152364165": "2026-11-10T05:26:18.747Z",
+  "ES|n34105607": "2026-11-10T05:31:09.511Z",
+  "ES|n248820656": "2026-11-10T05:31:50.333Z",
+  "ES|n266776249": "2026-11-10T05:32:24.094Z",
+  "BO|n313811401": "2026-11-10T07:31:55.530Z",
+  "AR|Mar del Plata": "2026-11-10T07:32:35.366Z",
+  "MX|Acapulco": "2026-11-10T07:33:24.714Z",
+  "MX|Guadalupe": "2026-11-10T07:34:03.364Z",
+  "MX|Monterrey": "2026-11-10T07:34:33.713Z",
+  "CO|n1282585464": "2026-11-10T07:35:15.316Z",
+  "GT|Villa Nueva": "2026-11-10T07:35:46.304Z",
+  "MX|Durango": "2026-11-10T07:36:19.111Z",
+  "MX|Chimalhuacán": "2026-11-10T07:36:52.268Z",
+  "DO|n252996132": "2026-11-10T07:37:21.665Z",
+  "MX|Tuxtla Gutiérrez": "2026-11-10T07:37:56.905Z",
+  "VE|n313508522": "2026-11-10T07:38:35.310Z",
+  "DO|n250447778": "2026-11-10T07:39:09.512Z",
+  "VE|n333655403": "2026-11-10T07:39:50.128Z",
+  "CO|n703166714": "2026-11-10T07:40:24.419Z",
+  "ES|n21750065": "2026-11-10T07:40:51.631Z",
+  "MX|Apodaca": "2026-11-10T07:41:21.159Z",
+  "AR|Salta": "2026-11-10T07:41:54.072Z",
+  "CO|n9863038666": "2026-11-10T07:42:27.079Z",
+  "AR|San Miguel de Tucumán": "2026-11-10T07:42:57.737Z",
+  "PE|Chiclayo": "2026-11-10T07:43:35.114Z",
+  "AR|San Juan": "2026-11-10T07:44:02.752Z",
+  "VE|n333673827": "2026-11-10T07:44:32.716Z",
+  "MX|Matamoros": "2026-11-10T09:09:39.111Z",
+  "CO|n298024011": "2026-11-10T09:10:19.596Z",
+  "EC|n9911249241": "2026-11-10T09:11:00.025Z",
+  "CO|n312257491": "2026-11-10T09:11:27.770Z",
+  "MX|Ciudad López Mateos": "2026-11-10T09:12:10.517Z"
  },
- "failed": {},
+ "failed": {
+  "PY|n1437475089": {
+   "n": 1,
+   "at": "2026-11-10T09:24:07.382Z",
+   "error": "Overpass 504"
+  }
+ },
  "runs": [
   {
-   "at": "2026-11-10T05:02:06.460Z",
+   "at": "2026-11-10T09:08:58.853Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Matamoros",
+     "found": 3,
+     "updated": 0,
+     "osm": 36
+    },
+    {
+     "cc": "CO",
+     "city": "Santa Marta",
+     "found": 207,
+     "updated": 0,
+     "osm": 342
+    },
+    {
+     "cc": "EC",
+     "city": "Cuenca",
+     "found": 110,
+     "updated": 2,
+     "osm": 336
+    },
+    {
+     "cc": "CO",
+     "city": "Valledupar",
+     "found": 13,
+     "updated": 0,
+     "osm": 39
+    },
+    {
+     "cc": "MX",
+     "city": "Ciudad López Mateos",
+     "found": 22,
+     "updated": 1,
+     "osm": 507
+    }
+   ],
+   "added": 355,
+   "enriched": 0,
+   "photos": 51,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "PY|n1437475089: Overpass 504"
+   ],
+   "minutes": 18.4,
+   "total": 13581
+  },
+  {
+   "at": "2026-11-10T07:31:17.433Z",
+   "cities": [
+    {
+     "cc": "BO",
+     "city": "Cochabamba",
+     "found": 0,
+     "updated": 0,
+     "osm": 459
+    },
+    {
+     "cc": "AR",
+     "city": "Mar del Plata",
+     "found": 0,
+     "updated": 0,
+     "osm": 111
+    },
+    {
+     "cc": "MX",
+     "city": "Acapulco",
+     "found": 0,
+     "updated": 0,
+     "osm": 555
+    },
+    {
+     "cc": "MX",
+     "city": "Guadalupe",
+     "found": 0,
+     "updated": 0,
+     "osm": 327
+    },
+    {
+     "cc": "MX",
+     "city": "Monterrey",
+     "found": 0,
+     "updated": 0,
+     "osm": 347
+    },
+    {
+     "cc": "CO",
+     "city": "Bucaramanga",
+     "found": 0,
+     "updated": 0,
+     "osm": 588
+    },
+    {
+     "cc": "GT",
+     "city": "Villa Nueva",
+     "found": 0,
+     "updated": 0,
+     "osm": 248
+    },
+    {
+     "cc": "MX",
+     "city": "Durango",
+     "found": 0,
+     "updated": 0,
+     "osm": 105
+    },
+    {
+     "cc": "MX",
+     "city": "Chimalhuacán",
+     "found": 0,
+     "updated": 0,
+     "osm": 373
+    },
+    {
+     "cc": "DO",
+     "city": "San Juan de la Maguana",
+     "found": 2,
+     "updated": 0,
+     "osm": 11
+    },
+    {
+     "cc": "MX",
+     "city": "Tuxtla Gutiérrez",
+     "found": 12,
+     "updated": 0,
+     "osm": 74
+    },
+    {
+     "cc": "VE",
+     "city": "Ciudad Bolívar",
+     "found": 26,
+     "updated": 0,
+     "osm": 161
+    },
+    {
+     "cc": "DO",
+     "city": "Santiago de los Caballeros",
+     "found": 45,
+     "updated": 0,
+     "osm": 105
+    },
+    {
+     "cc": "VE",
+     "city": "Barcelona",
+     "found": 132,
+     "updated": 2,
+     "osm": 354
+    },
+    {
+     "cc": "CO",
+     "city": "Villavicencio",
+     "found": 202,
+     "updated": 0,
+     "osm": 395
+    },
+    {
+     "cc": "ES",
+     "city": "Málaga",
+     "found": 152,
+     "updated": 0,
+     "osm": 260
+    },
+    {
+     "cc": "MX",
+     "city": "Apodaca",
+     "found": 7,
+     "updated": 0,
+     "osm": 196
+    },
+    {
+     "cc": "AR",
+     "city": "Salta",
+     "found": 36,
+     "updated": 0,
+     "osm": 170
+    },
+    {
+     "cc": "CO",
+     "city": "Ibagué",
+     "found": 42,
+     "updated": 1,
+     "osm": 113
+    },
+    {
+     "cc": "AR",
+     "city": "San Miguel de Tucumán",
+     "found": 143,
+     "updated": 3,
+     "osm": 465
+    },
+    {
+     "cc": "PE",
+     "city": "Chiclayo",
+     "found": 32,
+     "updated": 3,
+     "osm": 202
+    },
+    {
+     "cc": "AR",
+     "city": "San Juan",
+     "found": 69,
+     "updated": 0,
+     "osm": 452
+    },
+    {
+     "cc": "VE",
+     "city": "Maturín",
+     "found": 17,
+     "updated": 0,
+     "osm": 67
+    }
+   ],
+   "added": 917,
+   "enriched": 0,
+   "photos": 39,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 16.5,
+   "total": 13226
+  },
+  {
+   "at": "2026-11-10T05:19:07.558Z",
    "cities": [
     {
      "cc": "ES",
@@ -6844,72 +7094,16 @@
      "found": 118,
      "updated": 1,
      "osm": 313
-    },
-    {
-     "cc": "BO",
-     "city": "Cochabamba",
-     "found": 292,
-     "updated": 2,
-     "osm": 459
-    },
-    {
-     "cc": "AR",
-     "city": "Mar del Plata",
-     "found": 24,
-     "updated": 1,
-     "osm": 111
-    },
-    {
-     "cc": "MX",
-     "city": "Acapulco",
-     "found": 63,
-     "updated": 2,
-     "osm": 555
-    },
-    {
-     "cc": "MX",
-     "city": "Guadalupe",
-     "found": 62,
-     "updated": 1,
-     "osm": 327
-    },
-    {
-     "cc": "MX",
-     "city": "Monterrey",
-     "found": 40,
-     "updated": 0,
-     "osm": 347
-    },
-    {
-     "cc": "CO",
-     "city": "Bucaramanga",
-     "found": 329,
-     "updated": 0,
-     "osm": 588
-    },
-    {
-     "cc": "GT",
-     "city": "Villa Nueva",
-     "found": 13,
-     "updated": 0,
-     "osm": 248
-    },
-    {
-     "cc": "MX",
-     "city": "Durango",
-     "found": 16,
-     "updated": 0,
-     "osm": 105
     }
    ],
-   "added": 2135,
+   "added": 1296,
    "enriched": 0,
-   "photos": 40,
+   "photos": 38,
    "ai": 0,
    "studies": 0,
    "errors": [],
-   "minutes": 16.8,
-   "total": 12309
+   "minutes": 16.6,
+   "total": 11470
   },
   {
    "at": "2026-11-10T03:40:41.671Z",
