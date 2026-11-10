@@ -455,7 +455,7 @@ function skipReason(v, mine = false) {
 const focusKey = el => el && (el.id ? `#${el.id}` : ["tab", "oc", "ch", "f", "caf", "niv", "nd", "ph"].map(k => el.dataset?.[k] !== undefined ? `[data-${k}="${el.dataset[k]}"]` : "").find(Boolean));
 // «Lo voy a contactar»: se puede crear el prospecto si no es cliente, no tiene trato abierto ni prospecto, y no es de otra persona
 function canProspect(s, m) {
-  if (s.virtual || !D.data || m?.leadId || !S.me.pdUserId) return false;
+  if (s.virtual || !D.data || m?.leadId || D.data.leads?.length || !S.me.pdUserId) return false;
   if (["client", "open", "churn"].includes(s.status) || s.ob?.client) return false;
   if (s.ownerId && S.me.pdUserId && s.ownerId !== S.me.pdUserId) return false;
   return true;
@@ -555,6 +555,7 @@ function draw() {
       <button class="btn wa" id="aWa" ${notReady} aria-haspopup="menu">${icon("whatsapp")} WhatsApp</button>
       <button class="btn" id="aMail" ${notReady} aria-haspopup="menu">${icon("mail")} Mail</button>
       <button class="btn" id="aDemo" ${notReady} ${s.status === "client" ? `disabled title="Ya es cliente"` : ""}>${icon("video")} Demo</button>
+      ${!s.virtual && d?.leads?.length ? `<a class="btn" href="${esc(d.leads[0].url)}" target="_blank" rel="noopener" title="${esc(d.leads.length > 1 ? `Tiene ${d.leads.length} prospectos abiertos en Pipedrive` : `Ya tiene prospecto en Pipedrive${d.leads[0].owner ? ` (de ${d.leads[0].owner})` : ""}: no se crea otro`)}">${icon("lead")} Prospecto${d.leads.length > 1 ? `s (${d.leads.length})` : ""}${d.leads[0].ownerId && d.leads[0].ownerId !== S.me.pdUserId && d.leads[0].owner ? ` de ${esc(d.leads[0].owner.split(" ")[0])}` : ""}</a>` : ""}
       ${canProspect(s, m) ? `<button class="btn" id="aProspect" title="Crear el prospecto (y la organización si falta) a tu nombre en Pipedrive y buscar a quién contactar">${D.prospecting === s.id ? `<span class="spin"></span> Creando…` : `${icon("plus")} Crear prospecto`}</button>` : ""}
       <button class="btn" id="aEnrich" ${notReady} title="Buscar todo lo que hay del colegio (Pipedrive, su web, Google Maps y sedes) y dejarlo en una nota en Pipedrive">${enriching.has(s.id) ? `<span class="spin"></span> Buscando…` : `${icon("sparkles")} Enriquecer`}</button>
       <button class="btn icon-only" id="aMore" aria-haspopup="menu" aria-label="Más: mapa, web y buscar al decisor" title="Mapa, web y buscar al decisor">${icon("nav")}</button>

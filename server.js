@@ -12,6 +12,7 @@ import { verifyCandidates, enrichSources } from "./lib/enrich.js";
 import { research, studyEnabled, studyToHtml } from "./lib/study.js";
 import * as sales from "./lib/sales.js";
 import * as ai from "./lib/ai.js";
+import * as psync from "./lib/sync.js";
 import { photosFor, googleEnabled } from "./lib/photos.js";
 import fs from "fs";
 import { MARKETS, LOST_REASONS, TYPE_LABEL, DAILY_GOAL } from "./lib/config.js";
@@ -208,6 +209,30 @@ app.get("/api/team/codes", auth, wrap(async (req, res) => {
 app.get("/api/team", auth, wrap(async (req, res) => {
   const [m, prs] = await Promise.all([pd.meta(), getProfiles()]);
   res.json(m.users.map(u => { const pr = prs[u.email]; return { id: u.id, name: pr?.name || u.name, role: pr ? ROLES[pr.role] : "" }; }));
+}));
+
+// ---------- sincronización masiva con Pipedrive (lib/sync.js). Solo lee de Pipedrive: corre también con READ_ONLY=1.
+// Cuántos colegios hay en cada estado (lo mismo que ve la lista: World Dominion manda, «unk» = sin revisar)
+const stateCounts = () => { const c = {}; for (const s of schools) { const st = sales.schoolListItem(s).status; c[st] = (c[st] || 0) + 1; } return c; };
+const syncView = async r => ({ ...r, counts: stateCounts(), total: schools.length });
+app.get("/api/admin/sync", auth, wrap(async (req, res) => {
+  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Solo un líder sincroniza con Pipedrive." });
+  res.json(await syncView(await psync.status()));
+}));
+// Hace un paso (hasta ~40 s) y devuelve el progreso; el navegador lo repite hasta terminar.
+app.post("/api/admin/sync", auth, wrap(async (req, res) => {
+  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Solo un líder sincroniza con Pipedrive." });
+  res.json(await syncView(await psync.step({ budgetMs: 40e3, full: req.body?.full === true, by: req.session.user.name || req.session.user.email })));
+}));
+// Vercel Cron (vercel.json): manda «Authorization: Bearer $CRON_SECRET». Sin CRON_SECRET la ruta no existe.
+// Sigue una sincronización a medias o hace una incremental (lo cambiado desde la última).
+app.get("/api/cron/sync", wrap(async (req, res) => {
+  const secret = process.env.CRON_SECRET;
+  if (!secret) return res.status(404).end();
+  if (!same(String(req.get("authorization") || ""), `Bearer ${secret}`)) return res.status(401).json({ error: "No autorizado" });
+  const secs = Math.min(280, Math.max(20, Number(process.env.SYNC_CRON_SECONDS) || 50));
+  const r = await psync.step({ budgetMs: secs * 1e3, by: "cron" });
+  res.json({ running: r.running, busy: !!r.busy, phase: r.job?.phase || null, last: r.last, error: r.error });
 }));
 
 // Revisa varios colegios contra Pipedrive (de a 3 en paralelo).

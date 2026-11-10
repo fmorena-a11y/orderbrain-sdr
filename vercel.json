@@ -9,6 +9,9 @@
       "destination": "/api/index"
     }
   ],
+  "crons": [
+    { "path": "/api/cron/sync", "schedule": "17 8 * * *" }
+  ],
   "functions": {
     "api/index.js": {
       "includeFiles": "data/**",
