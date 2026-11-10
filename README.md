@@ -178,7 +178,7 @@ Con `CRON_SECRET` en Vercel, el cron diario (`vercel.json`, 08:17 UTC) sigue una
 | `LEADER_EMAILS` | Emails de líderes separados por coma | |
 | `BRAIN_TOKEN` | Token de World Dominion (brain.ordereat.com) para saber clientes activos, onboarding y churn. Opcional si un líder lo carga en Equipo (ese manda) | |
 | `GOOGLE_MAPS_API_KEY` | Fotos, teléfono, horario y reseñas de Google Maps (Places API New), con tope de gasto | Google Cloud → APIs y servicios |
-| `SLACK_BOT_TOKEN`, `SLACK_CHANNEL_ID` | Mensajes del canal de colegios lanzados en «Qué pasó con OrderEAT» (scopes `channels:history` y `users:read`; el bot tiene que estar en el canal) | api.slack.com/apps |
+| `SLACK_BOT_TOKEN`, `SLACK_CHANNEL_ID` | Lanzamientos y bajas de Slack en «Qué pasó con OrderEAT» (lee el formato del bot Orderito: tipo, motivo, account, onboarder). Canales separados por coma; por defecto #launches-and-churn (`C0B52KT5F7F`). Scopes `channels:history` y `users:read`; el bot tiene que estar en los canales | api.slack.com/apps |
 | `FREE_OWNER_IDS` | Cuentas generales de Pipedrive cuyos colegios están libres (por defecto «OrderEAT» y «Contacto OrderEAT») | |
 | `READ_ONLY` | `1` bloquea las escrituras a Pipedrive (para probar) | |
 | `CRON_SECRET` | Activa el cron diario de sincronización con Pipedrive (Vercel lo manda como `Authorization: Bearer …`) | `openssl rand -hex 32` |
