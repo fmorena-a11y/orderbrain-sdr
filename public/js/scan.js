@@ -59,7 +59,7 @@ async function planFor(place, progress = () => {}, signal) {
     if (!cities.length) throw new Error(`No encontré ciudades de más de 40.000 habitantes en ${place.label}.`);
     return { whole: false, steps: cities.map(c => ({ city: c })) };
   }
-  if (place.areaId) return { whole: true, steps: [{ city: { name: place.city.name, lat: place.lat, lng: place.lng, pop: place.city.pop }, areaId: place.areaId, whole: true }] };
+  if (place.areaId) return { whole: true, steps: [{ city: { name: place.city.name, lat: place.lat, lng: place.lng, pop: place.city.pop }, areaId: place.areaId, whole: true, region: place.kind === "region" }] };
   return { whole: true, steps: [{ city: { name: place.city.name, lat: place.lat, lng: place.lng, pop: 0 }, radius: place.radius || 3 }] };
 }
 
@@ -107,23 +107,32 @@ async function start(place, plan, j = null) {
       // una provincia entera no respondió de una vez: se recorre por sus ciudades, siempre dentro del contorno
       if (!r && st.whole && place.kind === "region" && !j.fellBack && !signal.aborted) {
         j.fellBack = true;
-        try { const { cities } = await api("/api/scan/cities", { body: { areaId: place.areaId }, signal }); j.steps.push(...cities.map(c => ({ city: c, areaId: place.areaId }))); j.errors = Math.max(0, j.errors - 1); }
+        try {
+          const { cities } = await api("/api/scan/cities", { body: { areaId: place.areaId }, signal });
+          if (cities.length) { j.steps.push(...cities.map(c => ({ city: c, areaId: place.areaId }))); j.errors = Math.max(0, j.errors - 1); }
+          else j.lastError = "la provincia no respondió y no tiene ciudades grandes para recorrer";
+        }
         catch (e) { if (aborted(e)) throw e; }
       }
       if (!r) continue;
       // los que ya estaban (otra búsqueda u otra instancia los sumó): que el navegador los tenga
       const before = S.schools.length; (r.seen || []).forEach(patchSchool); if (S.schools.length > before) refresh();
-      j.total += r.candidates.length;
+      // sin Redis, otra instancia pudo haber sumado el mismo colegio con otro id: se descarta por elemento del mapa
+      const have = new Set(S.schools.map(s => s.osm).filter(Boolean));
+      const cands = r.candidates.filter(c => !c.rec.osm || !have.has(c.rec.osm));
+      j.total += cands.length; j.truncated = (j.truncated || 0) + (r.truncated || 0);
+      j.stepTotal = cands.length; j.stepVerified = 0;
       // verificación por tandas: recién entra a la base lo que pasa el control
-      for (let k = 0; k < r.candidates.length && !signal.aborted; k += BATCH) {
+      for (let k = 0; k < cands.length && !signal.aborted; k += BATCH) {
         drawJob();
-        const items = r.candidates.slice(k, k + BATCH);
+        const items = cands.slice(k, k + BATCH);
         try {
           const v = await api("/api/scan/verify", { body: { items }, signal });
-          v.added.forEach(patchSchool); j.added += v.added.length; j.dropped.push(...v.dropped); j.verified += items.length;
+          const fresh = v.added.filter(a => !a.osm || !have.has(a.osm)); fresh.forEach(a => { patchSchool(a); if (a.osm) have.add(a.osm); });
+          j.added += fresh.length; j.dropped.push(...v.dropped); j.verified += items.length; j.stepVerified += items.length;
           j.sources = v.sources; j.temporary = v.temporary;
           if (v.added.length) refresh();
-        } catch (e) { if (aborted(e)) throw e; j.errors++; j.lastError = e.message; j.verified += items.length; }
+        } catch (e) { if (aborted(e)) throw e; j.errors++; j.lastError = e.message; j.verified += items.length; j.stepVerified += items.length; }
       }
     }
   } catch (e) { if (!aborted(e)) { j.errors++; j.lastError = e.message; } }
@@ -162,12 +171,13 @@ function drawJob() {
       import("./explore.js").then(m => m.refreshExplore());
     };
     // pointerdown: cancela apenas se toca, sin esperar a que termine el clic
-    el.querySelector("#sjStop").addEventListener("pointerdown", e => { e.preventDefault(); cancel(); });
+    el.querySelector("#sjStop").addEventListener("pointerdown", e => { if (e.pointerType === "mouse" && e.button === 0) { e.preventDefault(); cancel(); } });
     el.querySelector("#sjStop").addEventListener("click", cancel);
     el.querySelector("#sjX").onclick = () => { job = null; drawJob(); };
   }
   const j = job, n = Math.max(1, j.steps.length);
-  const pct = j.preparing ? 3 : Math.round(Math.min(n, j.i + (j.total ? j.verified / j.total : 0)) / n * 100);
+  // avance: ciudades terminadas + lo verificado de la ciudad en curso
+  const pct = j.preparing ? 3 : Math.round(Math.min(n, j.i + (j.stepTotal ? j.stepVerified / j.stepTotal : 0)) / n * 100);
   const step = j.steps[Math.min(j.i, n - 1)];
   const where = j.steps.length > 1 ? `${step?.city?.name || ""} · ${fmt(Math.min(j.i + 1, n))}/${fmt(n)} ciudades · ` : "";
   const verifying = j.total ? `verificados ${fmt(j.verified)}/${fmt(j.total)} · ` : "";
@@ -177,7 +187,8 @@ function drawJob() {
   if (ic.dataset.k !== want) { ic.dataset.k = want; ic.innerHTML = j.running ? `<span class="spin"></span>` : icon(j.cancel ? "x" : "checkCircle"); }
   el.querySelector(".sj-t b").textContent = j.running ? (j.preparing ? `Preparando ${j.label}…` : `Buscando en ${j.label}`) : j.cancel ? `${j.label}: cancelado` : `${j.label}: listo`;
   const sub = el.querySelector(".sj-sub");
-  sub.textContent = j.running ? (j.preparing ? "Armando la lista de lugares" : `${where}${verifying}${fmt(j.added)} nuevos${drop}`) : `${fmt(j.added)} colegios nuevos verificados${drop}${j.errors ? ` · ${fmt(j.errors)} sin respuesta` : ""}`;
+  const trunc = j.truncated ? ` · ${fmt(j.truncated)} sin revisar: la zona es muy grande, buscá por ciudad` : "";
+  sub.textContent = j.running ? (j.preparing ? "Armando la lista de lugares" : `${where}${verifying}${fmt(j.added)} nuevos${drop}`) : `${fmt(j.added)} colegios nuevos verificados${drop}${j.errors ? ` · ${fmt(j.errors)} sin respuesta` : ""}${trunc}`;
   sub.title = j.dropped.slice(0, 12).map(d => `${d.name}: ${d.why}`).join("\n");
   el.querySelector(".warn-t").hidden = j.running || !j.temporary;
   el.querySelector("#sjStop").hidden = !j.running;

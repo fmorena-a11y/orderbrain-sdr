@@ -5,9 +5,9 @@ import { OAuth2Client } from "google-auth-library";
 import path from "path";
 import { fileURLToPath } from "url";
 import * as pd from "./lib/pipedrive.js";
-import { schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId } from "./lib/store.js";
+import { schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId, hiddenOsm } from "./lib/store.js";
 import * as scan from "./lib/scan.js";
-import { ensureBrain, brainState } from "./lib/brain.js";
+import { ensureBrain, brainState, brainDown } from "./lib/brain.js";
 import { verifyCandidates, enrichSources } from "./lib/enrich.js";
 import { research, studyEnabled, studyToHtml } from "./lib/study.js";
 import * as sales from "./lib/sales.js";
@@ -48,7 +48,8 @@ app.use((req, res, next) => {
   next();
 });
 // Trae de Redis lo que registraron otras instancias.
-app.use("/api", (req, res, next) => { Promise.all([sync(), syncExtras(), ensureBrain()]).then(() => next(), () => next()); });
+app.use("/api", (req, res, next) => { // x-brain-down: cada respuesta dice si ESTA instancia tiene los clientes de World Dominion (si no, el navegador avisa)
+  Promise.all([sync(), syncExtras(), ensureBrain()]).finally(() => { res.setHeader("x-brain-down", brainDown() ? "1" : "0"); next(); }); });
 
 // ---------- auth
 async function attachPipedriveUser(email) {
@@ -190,7 +191,7 @@ app.post("/api/activities/:id/move", auth, wrap(async (req, res) => {
 const SCAN_MIN_POP = Number(process.env.RADAR_MIN_POP || 40000);
 const SCAN_SECRET = process.env.SESSION_SECRET || "dev-only-secret";
 const signRec = rec => crypto.createHmac("sha256", SCAN_SECRET).update("cand:" + JSON.stringify(rec)).digest("base64url");
-const sigOk = (rec, sig) => { const want = signRec(rec); return typeof sig === "string" && sig.length === want.length && crypto.timingSafeEqual(Buffer.from(sig), Buffer.from(want)); };
+const sigOk = (rec, sig) => typeof sig === "string" && /^[A-Za-z0-9_-]{43}$/.test(sig) && crypto.timingSafeEqual(Buffer.from(sig), Buffer.from(signRec(rec)));
 // Si el navegador corta el pedido (el usuario canceló), se corta todo lo que dependía de él: no se gastan más
 // consultas a OpenStreetMap, Google ni IA y no se guarda nada.
 function cancelOnClose(req, res) {
@@ -205,7 +206,7 @@ app.post("/api/scan/resolve", auth, wrap(async (req, res) => {
     const k = "place:osm:" + osm;
     const place = (await cacheGet(k)) || await scan.lookupPlace(osm);
     if (!place) return res.status(404).json({ error: "No encontré ese lugar." });
-    await cacheSet(k, place, 30 * 864e2);
+    await cacheSet(k, place, place.boundaryFailed ? 600 : 30 * 864e2);
     return res.json(appCountry(place));
   }
   const q = String(req.body?.q || "").trim().slice(0, 120), nq = scan.norm(q);
@@ -214,7 +215,8 @@ app.post("/api/scan/resolve", auth, wrap(async (req, res) => {
   const cached = await cacheGet(k);
   const place = cached || await scan.resolvePlace(q);
   if (!place) return res.status(404).json({ error: `No encontré «${q}». Probá con otro nombre.` });
-  if (!cached) await cacheSet(k, place, 30 * 864e2);
+  // si el contorno falló por un error pasajero, se guarda solo unos minutos para reintentar pronto
+  if (!cached) await cacheSet(k, place, place.boundaryFailed ? 600 : 30 * 864e2);
   res.json(appCountry(place));
 }));
 app.post("/api/scan/cities", auth, wrap(async (req, res) => {
@@ -232,26 +234,38 @@ app.post("/api/scan/cities", auth, wrap(async (req, res) => {
 // whole: todo el área (barrio, ciudad o provincia con contorno). Si no, un círculo alrededor de la ciudad,
 // recortado al área (areaId) o al país.
 app.post("/api/scan/city", auth, wrap(async (req, res) => {
-  const { cc, country, city, areaId, radius, whole } = req.body || {};
+  const { cc, country, city, areaId, radius, whole, region } = req.body || {};
   if (!/^[A-Z]{2}$/.test(cc || "") || !city || !Number.isFinite(+city.lat) || !Number.isFinite(+city.lng) || !String(city.name || "").trim()) return res.status(400).json({ error: "Ciudad inválida" });
   const c = { name: String(city.name).slice(0, 80), lat: +city.lat, lng: +city.lng, pop: Math.max(0, Number(city.pop) || 0) };
   const area = Number(areaId) > 0 ? Number(areaId) : null;
   const signal = cancelOnClose(req, res);
   const opts = { deadline: Date.now() + 240e3, reserve: 5, attempts: 3, signal };
   const els = whole && area ? await scan.scanArea(area, opts) : await scan.scanCity(cc, c, { ...opts, areaId: area, radius });
+  // provincia entera: cada colegio lleva su ciudad (la del mapa o la ciudad grande más cercana), no el nombre de la provincia
+  let cityOf = null;
+  if (whole && area && region) {
+    const cities = (await cacheGet(`cities:a${area}`)) || await scan.citiesInArea(area, { minPop: 20000, deadline: Date.now() + 60e3, reserve: 5, signal }).catch(() => []);
+    cityOf = (t, lat, lng) => {
+      const tagged = String(t["addr:city"] || t["is_in:city"] || "").split(";")[0].trim(); if (tagged) return tagged.slice(0, 80);
+      let best = null, bd = Infinity; for (const x of cities) { const d = scan.km({ lat, lng }, x); if (d < bd) { bd = d; best = x; } }
+      return best && bd <= scan.radiusKm(best.pop) * 1.5 ? best.name : null;
+    };
+  }
   // se cruza contra la base y contra lo que va saliendo en esta misma búsqueda (sin duplicados)
   const pool = schools.slice(), idx = scan.buildIndex(pool), candidates = [], seen = [];
   const today = new Date().toISOString().slice(0, 10), cname = String(country || cc).slice(0, 60);
   let skipped = 0;
   for (const e of els) {
-    const s = scan.fromOsm(e, c, cc, cname, today); if (!s) { skipped++; continue; }
+    const s = scan.fromOsm(e, c, cc, cname, today, cityOf); if (!s) { skipped++; continue; }
+    if (s.osm && hiddenOsm.has(s.osm)) { skipped++; continue; } // el radar ya lo descartó (público o no es colegio)
     const k = scan.matchExisting(pool, idx, s);
     if (k) { if (seen.length < 800 && byId.has(k.x.id)) seen.push(sales.schoolListItem(byId.get(k.x.id))); continue; }
     const rec = scan.addTo(pool, idx, s);
-    rec.src = "buscador"; rec.addedBy = req.session.user.email;
+    rec.src = "buscador"; rec.addedBy = req.session.user.email; if (area) rec.area = area;
     candidates.push({ rec, sig: signRec(rec) });
   }
-  res.json({ city: c.name, found: els.length, skipped, candidates: candidates.slice(0, 3000), seen });
+  // una zona enorme: se mandan 3000 y se avisa cuántos quedaron afuera (el navegador sugiere ir por ciudad)
+  res.json({ city: c.name, found: els.length, skipped, candidates: candidates.slice(0, 3000), total: candidates.length, truncated: Math.max(0, candidates.length - 3000), seen });
 }));
 app.post("/api/scan/verify", auth, wrap(async (req, res) => {
   const items = Array.isArray(req.body?.items) ? req.body.items.slice(0, 10) : [];
@@ -260,7 +274,7 @@ app.post("/api/scan/verify", auth, wrap(async (req, res) => {
   // pudo entrar mientras tanto (otra búsqueda u otra instancia): se vuelve a cruzar
   const idx = scan.buildIndex(schools), fresh = [];
   for (const r of recs) {
-    if (scan.matchExisting(schools, idx, r)) continue;
+    if ((r.osm && hiddenOsm.has(r.osm)) || scan.matchExisting(schools, idx, r)) continue;
     let id = r.id, i = 2; while (byId.has(id)) id = `${r.id}-${i++}`; r.id = id;
     fresh.push(r);
   }

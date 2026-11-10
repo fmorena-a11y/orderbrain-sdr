@@ -63,6 +63,8 @@ export const setUnauthorized = fn => (onUnauthorized = fn);
 export async function api(path, opts = {}) {
   const r = await fetch(path, { method: opts.body ? "POST" : "GET", headers: { "content-type": "application/json", "x-tz": TZ }, ...opts, body: opts.body ? JSON.stringify(opts.body) : undefined });
   const j = await r.json().catch(() => ({}));
+  // el servidor que respondió no tiene los clientes de World Dominion: hay que avisar que alguno puede aparecer para llamar
+  const bd = r.headers.get("x-brain-down"); if (bd !== null) S.brainDown = bd === "1";
   if (r.status === 401 && !path.startsWith("/auth")) { onUnauthorized(); throw new Error("Iniciá sesión."); }
   if (!r.ok) throw new Error(j.error || `Error ${r.status}`);
   return j;

@@ -39,8 +39,9 @@ function placeList() {
   for (const s of S.schools) {
     if (s.lat == null) continue;
     if (p.geo) {
-      if (bb && (s.lat < bb[0][0] || s.lat > bb[1][0] || s.lng < bb[0][1] || s.lng > bb[1][1])) continue;
-      if (!inGeo(p.geo, s.lng, s.lat)) continue;
+      const mine = p.areaId && s.area === p.areaId; // lo trajo la búsqueda de este mismo lugar
+      if (!mine && bb && (s.lat < bb[0][0] || s.lat > bb[1][0] || s.lng < bb[0][1] || s.lng > bb[1][1])) continue;
+      if (!mine && !inGeo(p.geo, s.lng, s.lat)) continue;
       s._d = kmTo(s, c);
     } else { const d = kmTo(s, c); if (d > (p.radius || 3)) continue; s._d = d; }
     list.push(s);
@@ -117,7 +118,7 @@ async function locate(text, { osm } = {}) {
     const place = await api("/api/scan/resolve", { body: osm ? { osm } : { q: text } });
     // si mientras tanto escribió otra cosa o pidió otro lugar, esta respuesta ya no sirve
     if (!host.isConnected || seq !== locSeq) return;
-    E.place = place; E.q = ""; E.city = null; shown = PAGE; host.querySelector("#q").value = "";
+    E.place = place; E.q = ""; E.city = null; E.filter = "prospect"; shown = PAGE; host.querySelector("#q").value = "";
     E.country = S.countries.includes(place.country) ? place.country : null;
     drawAll(); toTop();
   } catch (e) { if (seq === locSeq) box.innerHTML = `<div class="callout err place-msg">${icon("alert")}<span>${esc(e.message)}</span></div>`; }
@@ -138,13 +139,13 @@ function drawPlace() {
 function drawCountries() {
   const c = host.querySelector("#countries");
   c.innerHTML = [["", "Todos"], ...S.countries.map(x => [x, x])].map(([k, l]) => `<button class="chip" data-c="${esc(k)}" aria-pressed="${(E.country || "") === k}">${esc(l)}</button>`).join("");
-  c.querySelectorAll("button").forEach(b => b.onclick = () => { E.country = b.dataset.c || null; E.city = null; E.place = null; shown = PAGE; drawAll(); toTop(); });
+  c.querySelectorAll("button").forEach(b => b.onclick = () => { E.country = b.dataset.c || null; E.city = null; E.place = null; locSeq++; shown = PAGE; drawAll(); toTop(); });
 }
 function drawCrumb() {
   const c = host.querySelector("#crumb");
   if (!E.city || E.q || E.place) { c.innerHTML = ""; return; }
   c.innerHTML = `<button id="cb">${icon("arrowLeft", "sm")} Ciudades</button><span>${esc(E.city)}</span>`;
-  c.querySelector("#cb").onclick = () => { E.city = null; shown = PAGE; drawAll(); };
+  c.querySelector("#cb").onclick = () => { E.city = null; locSeq++; shown = PAGE; drawAll(); };
 }
 function drawFilters() {
   const f = host.querySelector("#filters");
@@ -222,12 +223,12 @@ function drawFoot() {
   host.querySelector("#csv").disabled = !S.schools.length;
 }
 function openCity(country, city) {
-  E.country = country; E.city = city; E.q = ""; E.place = null; shown = PAGE; host.querySelector("#q").value = "";
+  E.country = country; E.city = city; E.q = ""; E.place = null; locSeq++; shown = PAGE; host.querySelector("#q").value = "";
   drawAll(); toTop();
   const unk = scope().filter(s => s.status === "unk");
   if (unk.length && unk.length <= 40) checkScope();
 }
-export function openCityFromOutside(country, city) { E.country = country; E.city = city; E.q = ""; E.place = null; E.filter = "prospect"; }
+export function openCityFromOutside(country, city) { E.country = country; E.city = city; E.q = ""; E.place = null; E.filter = "prospect"; locSeq++; }
 // Desde la búsqueda rápida o el asistente: ir a Prospectar y ubicar un lugar en el mapa.
 export function locateFromOutside(text) { E.pendingLocate = text; }
 
@@ -236,6 +237,7 @@ function initMap() {
   if (!window.L) return;
   const touch = matchMedia("(pointer: coarse)").matches;
   map = L.map(host.querySelector("#map"), { zoomControl: !touch, attributionControl: true }).setView([-10, -70], 3);
+  lastView = ""; // mapa nuevo: hay que volver a encuadrar
   const dark = document.documentElement.dataset.theme === "dark" || (!document.documentElement.dataset.theme && matchMedia("(prefers-color-scheme: dark)").matches);
   const B = "https://server.arcgisonline.com/ArcGIS/rest/services/";
   if (dark) {
@@ -364,4 +366,4 @@ function csv() {
 // fit:false = no mover el mapa (por ejemplo, mientras corre una búsqueda en segundo plano).
 export function refreshExplore({ fit = true } = {}) { if (host?.isConnected) drawAll({ fit }); }
 // Aviso de OrderBrain caído (sin datos de clientes): los clientes pueden aparecer para llamar.
-export const brainWarn = () => S.brain?.down ? `<div class="callout warn">${icon("alert")}<span>No pudimos leer los clientes de World Dominion (${esc(S.brain.error || "OrderBrain no respondió")}). Hasta que vuelva, revisá en Pipedrive antes de llamar.</span></div>` : "";
+export const brainWarn = () => S.brainDown || S.brain?.down ? `<div class="callout warn">${icon("alert")}<span>No pudimos leer los clientes de World Dominion (${esc(S.brain?.error || "OrderBrain no respondió")}). Hasta que vuelva, revisá en Pipedrive antes de llamar.</span></div>` : "";

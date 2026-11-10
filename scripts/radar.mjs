@@ -38,7 +38,7 @@ export const COUNTRIES = {
   CO: "Colombia", EC: "Ecuador", BO: "Bolivia", PY: "Paraguay", VE: "Venezuela", PA: "Panamá", DO: "República Dominicana",
   HN: "Honduras", SV: "El Salvador", NI: "Nicaragua", PR: "Puerto Rico", ES: "España",
 };
-import { norm, slug, sleep, km, titleCase, overpass as overpassRaw, citiesFor as citiesForRaw, radiusKm, classify, fromOsm as fromOsmRaw, keyTokens, matchExisting, buildIndex, addTo } from "../lib/scan.js";
+import { notSchool, norm, slug, sleep, km, titleCase, overpass as overpassRaw, citiesFor as citiesForRaw, radiusKm, classify, fromOsm as fromOsmRaw, keyTokens, matchExisting, buildIndex, addTo } from "../lib/scan.js";
 export { norm, slug, km, radiusKm, classify };
 // En el radar, Overpass nunca pasa el tiempo de la corrida.
 const overpass = (q, o = {}) => overpassRaw(q, { ...o, deadline: T0 + MINUTES * 60e3 });
@@ -113,7 +113,7 @@ async function main() {
     const json = JSON.stringify(schools, null, 1) + "\n";
     const changed = json !== original;
     if (!changed && !run.cities.length && !citiesFetched) { log("sin cambios: no se escribe nada"); return; }
-    const total = schools.filter(s => s.private !== "no").length;
+    const total = schools.filter(s => s.private !== "no" && !notSchool(norm(s.name))).length;
     state.runs = [{ ...run, minutes: +((Date.now() - T0) / 60e3).toFixed(1), total, cities: run.cities.slice(0, 80), errors: run.errors.slice(0, 20), ...(reason ? { cut: reason } : {}) }, ...(state.runs || [])].slice(0, 40);
     if (DRY) { log("--dry: no se escribe nada"); return; }
     if (changed) fs.writeFileSync(SCHOOLS_FILE, json);
@@ -248,7 +248,8 @@ async function main() {
     fs.mkdirSync(STUDY_DIR, { recursive: true });
     const has = s => fs.existsSync(path.join(STUDY_DIR, s.id + ".json"));
     const rank = s => (s.fit === "alto" ? 30 : s.fit === "bajo" ? -30 : 0) + (s.opp || []).length * 6 + (s.web ? 8 : 0) + (s.phone ? 6 : 0) + (s.pitch ? 4 : 0) + (s.found === today ? 5 : 0) + (s.src !== "osm" ? 12 : 0);
-    const todo = schools.filter(s => s.private !== "no" && s.fit !== "bajo" && !has(s)).sort((a, b) => rank(b) - rank(a)).slice(0, STUDY_MAX);
+    // sin gastar estudios en lo que no es un colegio (la app ya lo oculta)
+    const todo = schools.filter(s => s.private !== "no" && !notSchool(norm(s.name)) && s.fit !== "bajo" && !has(s)).sort((a, b) => rank(b) - rank(a)).slice(0, STUDY_MAX);
     for (const s of todo) {
       if (timeLeft() < 150e3) break;
       try {
