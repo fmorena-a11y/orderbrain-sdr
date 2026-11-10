@@ -6825,7 +6825,11 @@
   "CO|n312257491": "2026-11-10T09:11:27.770Z",
   "MX|Ciudad López Mateos": "2026-11-10T09:12:10.517Z",
   "MX|Cuautitlán Izcalli": "2026-11-10T11:27:23.183Z",
-  "ES|n260380069": "2026-11-10T11:35:01.659Z"
+  "ES|n260380069": "2026-11-10T11:35:01.659Z",
+  "PE|Piura": "2026-11-10T13:26:31.189Z",
+  "PE|Iquitos": "2026-11-10T13:27:01.953Z",
+  "CO|n284074373": "2026-11-10T13:30:20.754Z",
+  "MX|General Escobedo": "2026-11-10T13:39:49.052Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -6840,6 +6844,48 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-10T13:25:56.869Z",
+   "cities": [
+    {
+     "cc": "PE",
+     "city": "Piura",
+     "found": 0,
+     "updated": 0,
+     "osm": 376
+    },
+    {
+     "cc": "PE",
+     "city": "Iquitos",
+     "found": 0,
+     "updated": 0,
+     "osm": 231
+    },
+    {
+     "cc": "CO",
+     "city": "Manizales",
+     "found": 0,
+     "updated": 0,
+     "osm": 86
+    },
+    {
+     "cc": "MX",
+     "city": "General Escobedo",
+     "found": 0,
+     "updated": 0,
+     "osm": 165
+    }
+   ],
+   "added": 0,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 24,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 14.8,
+   "total": 13785
+  },
   {
    "at": "2026-11-10T11:26:53.213Z",
    "cities": [
