@@ -73030,7 +73030,7 @@
   "src": "osm",
   "osm": "w1526649266",
   "found": "2026-11-09",
-  "img": "https://sites.google.com/sitesv-images-rt/APXyLQfoCcL4vSyh0OKaN-uPcUfadwoe2js18hNc8-_zNbqtmiYY4XbJ9wwgi3b96MUmpNQN1Wp8eJe6RyOPHdkDiBCl7k7WX74gbzCR11vwjmh_WuSZx2fbTK_Lkuiqj7b4fGyGz0lQOwMnvZCV-K1qWO2AdBb5S5LsEPXbPPEtA3k7ex26oxT4xPCFuMvRPWc=w16383"
+  "img": "https://sites.google.com/sitesv-images-rt/APXyLQdC4vqlsQdRwm0NqKSCrazDKuZ9j6Ass13ihFZFeHZ1OyOzH4oHan3xsWLbgBpxWSUdUyQyK2aOKuNIpIy66ZZ_9yNuMMPt0uLmfCjFp-HMMOPGtS_Z0Ifk4UYPw4mK-bRIUNZgB2iFcccW9fxKLocVG93chNirMYO1taMbaQmVJarxLvZt-TtAp1JHyzM=w16383"
  },
  {
   "id": "buenos-aires-instituto-san-miguel",
@@ -73225,7 +73225,8 @@
   "src": "osm",
   "osm": "w1559365576",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "buenos-aires-colegio-san-vicente-de-paul",
@@ -80109,7 +80110,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w400523369",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "bogota-instituto-colombo-sueco",
@@ -80210,7 +80212,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w402044613",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "bogota-liceo-val",
@@ -80252,7 +80255,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w402204154",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "bogota-gimnasio-campestre-la-salette",
@@ -80292,7 +80296,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w403723253",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "bogota-universidad-santo-tomas-campus-el-aquinate",
@@ -80315,7 +80320,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w404858009",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "bogota-colegio-el-camino-academy",
@@ -80519,7 +80525,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w409390051",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://irp.cdn-website.com/dff05459/dms3rep/multi/opt/open-GLP-1920w.jpg?jxl&v=jxl"
  },
  {
   "id": "bogota-colegio-santa-mariana-de-jesus",
@@ -80691,7 +80698,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w413217363",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "bogota-colegio-agustin-fernandez-sede-c",
@@ -81416,7 +81424,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w529810331",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "bogota-liceo-montana",
@@ -81606,7 +81615,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w531972449",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "bogota-colegio-bogota-andino",
@@ -81839,7 +81849,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w541379007",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "bogota-colegio-superior-americano",
@@ -82323,7 +82334,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w553266308",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://static.wixstatic.com/media/11e373_4df2479080b0485eb298ad241aae7206~mv2_d_4000_2248_s_2.jpg/v1/fill/w_2500,h_1405,al_c/11e373_4df2479080b0485eb298ad241aae7206~mv2_d_4000_2248_s_2.jpg"
  },
  {
   "id": "bogota-universidad-antonio-narino-2",
@@ -82345,7 +82357,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w553394447",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "bogota-colegio-giovanni-antonio-farina",
@@ -82505,7 +82518,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w611269548",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.teresianobogota.edu.co/wp-content/uploads/2024/01/ACADEMICO.webp"
  },
  {
   "id": "bogota-instituto-clara-fey",
@@ -82635,7 +82649,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w625188127",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.edu.com/assets/images/tal.svg"
  },
  {
   "id": "bogota-colegio-yerbabuena",
@@ -82974,7 +82989,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w655270830",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "bogota-colegio-parroquial",
@@ -83424,7 +83440,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w694330609",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "bogota-colegio-rembrandt",
@@ -84057,7 +84074,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w774881841",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://celestinfreinet.edu.co/wp-content/uploads/2026/02/cropped-cropped-admin-ajax-Photoroom-1.png"
  },
  {
   "id": "bogota-colegio-bicentenario",
@@ -84095,7 +84113,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w784649143",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://liceolunita.edu.co/wp-content/uploads/2025/08/LOGO2025FF.webp"
  },
  {
   "id": "bogota-colegio-furatena",
@@ -84283,7 +84302,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w836222358",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://gimnasionuevomodelia.edu.co/wp-content/uploads/2026/09/banda-Rock-768x373.jpg"
  },
  {
   "id": "bogota-colegio-san-mateo",
@@ -84303,7 +84323,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w836897104",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.csma.edu.co/sites/school53/files/logo.png"
  },
  {
   "id": "bogota-colegio-el-manatial-ced",
@@ -84474,7 +84495,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w939115987",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.gimnasiocampestrevalsenales.edu.co/wp-content/uploads/2024/09/banner-colegio-2025-02-1024x425.png"
  },
  {
   "id": "bogota-universidad-antonio-narino-3",
@@ -84573,7 +84595,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w963240696",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "bogota-colegio-celestin-freinet-sede-soacha",
@@ -84594,7 +84617,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w963263624",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://celestinfreinet.edu.co/wp-content/uploads/2026/02/cropped-cropped-admin-ajax-Photoroom-1.png"
  },
  {
   "id": "bogota-colegio-heladia-mejia-sede-a",
@@ -84758,7 +84782,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1038341772",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://cdn.prod.website-files.com/55d55412965aff177731a5e2/55f743e61621edf00dc74efd_GLC7.png"
  },
  {
   "id": "bogota-colegio-rural-el-destino",
@@ -84930,7 +84955,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1090311151",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "bogota-colegio-soledad-acosta-de-samper",
@@ -85112,7 +85138,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1150006744",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "bogota-liceo-cristiano-semilla-de-vida",
@@ -85316,7 +85343,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1243085524",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/299178557_421093656666261_2432938895422491258_n.jpg?stp=dst-jpg_tt6&cstp=mx320x320&ctp=s320x320&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=_LNQd_znyeIQ7kNvwHB9eBJ&_nc_oc=Adr3Lmp_TJzfepQMSEGnMyWHGQbZdfZtpW9VmzojHGmj5TUfLEbRO1tF-7IsCupz6YU&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&_nc_gid=ISCphDlpMcOi-0YZ21X4RA&_nc_ss=7c289&oh=00_AQT8fgK5azxy_Lac5pIVM14s-rwnwM0ZU3G66tZfEaypjA&oe=6AF862B0"
  },
  {
   "id": "bogota-liceo-campestre-san-rafael",
@@ -85444,7 +85472,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1296481915",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "bogota-arcos",
@@ -85490,7 +85519,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1296750363",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "bogota-universidad-ean",
@@ -85513,7 +85543,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1303104771",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "bogota-casa-de-los-deportes-universidad-de-bogota-jorge-tadeo-lozano",
@@ -85535,7 +85566,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1312343755",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "bogota-facultad-de-arte-y-diseno-universidad-jorge-tadeo-lozano",
@@ -85557,7 +85589,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1312351302",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "bogota-innova-school-cota",
@@ -86645,7 +86678,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "r7144874",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "bogota-universidad-del-rosario-2",
@@ -86756,7 +86790,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "r12835669",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "bogota-universidad-externado-de-colombia",
@@ -86800,7 +86835,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "r12923963",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.uniandes.edu.co/sites/default/files/2024-09/img-redes-sociales.png"
  },
  {
   "id": "bogota-liceo-moderno-walt-whitman",
@@ -86920,7 +86956,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n929349998",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "guayaquil-colegio-san-nicolas",
@@ -87106,7 +87143,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4150041690",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "guayaquil-instituto-tecnologico-superior-esca",
@@ -87256,7 +87294,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4150085039",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "guayaquil-universidad-del-pacifico-escuela-de-negocios",
@@ -87278,7 +87317,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4150085052",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://upacifico.edu.ec/wp-content/uploads/2025/01/Header-Home_-1.png"
  },
  {
   "id": "guayaquil-universidad-internacional-del-ecuador",
@@ -87301,7 +87341,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4150085064",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.uide.edu.ec/wp-content/uploads/2025/06/logo-uide.webp"
  },
  {
   "id": "guayaquil-universidad-metropolitana",
@@ -87323,7 +87364,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4150085073",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "guayaquil-colegio-integral-tecnologico-sudamericano",
@@ -88055,7 +88097,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n4460773892",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "guayaquil-liceo-cristiano-de-guayaquil-campus2",
@@ -88337,7 +88380,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n6694280385",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "guayaquil-escuela-de-educacion-basica-particular-la-presentacion",
@@ -88357,7 +88401,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n8401302972",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "guayaquil-consulting-group-ecuador-duran",
@@ -88377,7 +88422,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n9509901040",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "guayaquil-unidad-educativa-republica-de-iberia",
@@ -88419,7 +88465,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n13260301191",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "guayaquil-puerta-g5-universidad-de-guayaquil",
@@ -88441,7 +88488,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n13260313154",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "guayaquil-fe-y-alegria",
@@ -88542,7 +88590,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n14156207639",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "guayaquil-unidad-educativa-ciudad-de-filadelfia",
@@ -88563,7 +88612,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n14156416067",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "guayaquil-unidad-educativa-agustin-castro-espinoza",
@@ -88661,7 +88711,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w35405075",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.uartes.edu.ec/sitio/wp-content/uploads/2022/10/2210-FACHADA-UARTES-1536x563.png"
  },
  {
   "id": "guayaquil-colegio-aleman-humboldt",
@@ -88681,7 +88732,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w35415390",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "guayaquil-colegio-balandra",
@@ -88757,7 +88809,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w35577013",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "guayaquil-unidad-educativa-bilingue-sagrados-corazones",
@@ -88820,7 +88873,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w35668431",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "guayaquil-unidad-educativa-mixta-bilingue-san-judas-tadeo",
@@ -89072,7 +89126,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w47140688",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.cenu.edu.ec/wp-content/uploads/2023/09/icono-desarrollo-academico-cenu.png"
  },
  {
   "id": "guayaquil-unidad-educativa-bilingue-delta",
@@ -89412,7 +89467,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w427109761",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://ecotec.edu.ec/wp-content/uploads/2026/02/banner-sitio-web-ecotec-principal.webp"
  },
  {
   "id": "guayaquil-unidad-educativa-emanuel",
@@ -89631,7 +89687,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w431224633",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.uartes.edu.ec/sitio/wp-content/uploads/2022/10/2210-FACHADA-UARTES-1536x563.png"
  },
  {
   "id": "guayaquil-unidad-educativa-vicente-leon",
@@ -89859,7 +89916,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w432171488",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "guayaquil-ue-particular-bilingue-santo-domingo-de-guzman",
@@ -89881,7 +89939,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w432171867",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-1/507325824_1290049063128123_5407456000833180687_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x2048&ctp=s720x720&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=DgquSAcx0c0Q7kNvwHje8MR&_nc_oc=Adr23WlgxGhpOrm_ZmE3V_CJyZIw0Fo_0_5z5pIg2G5oHXmdDPkVQwKnGx1p3T2J850&_nc_zt=24&_nc_ht=scontent-iad6-1.xx&_nc_gid=PysD59Y8NMg35focOII-rQ&_nc_ss=7c289&oh=00_AQQyd-7dM1_LqNO9qhXwKFf9tBYVVHbyGOWs-J7xvpA6ow&oe=6AF8844B"
  },
  {
   "id": "guayaquil-unidad-educativa-sagrada-familia",
@@ -90179,7 +90238,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w434450139",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "guayaquil-unidad-educativa-dr-modesto-chavez-franco",
@@ -90237,7 +90297,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w466551150",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://ecotec.edu.ec/wp-content/uploads/2026/02/banner-sitio-web-ecotec-principal.webp"
  },
  {
   "id": "guayaquil-instituto-superior-tecnologico-benjamin-rosales-pareja",
@@ -90565,7 +90626,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w699924386",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "guayaquil-unidad-educativa-victoria-torres-de-neira",
@@ -90749,7 +90811,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1018635857",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "guayaquil-universidad-tecnologica-empresarial-de-guayaquil-uteg",
@@ -90771,7 +90834,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1099982763",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.uteg.edu.ec/wp-content/uploads/2024/03/Logo-UTEG-2019-en-vertical4.png"
  },
  {
   "id": "guayaquil-colegio-gral-george-smith-patton",
@@ -90809,7 +90873,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1235082482",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "guayaquil-escuela-particular-gran-bretana",
@@ -92701,7 +92766,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n2907865093",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "quito-colegio-marista-quito",
@@ -92793,7 +92859,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4100647100",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegioterranova.edu.ec/SA%20-%20Colegio%20Terranova/logo/Favicon-tigre.webp"
  },
  {
   "id": "quito-colegio-miguel-angel-zambrano",
@@ -93123,7 +93190,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4150041699",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "quito-instituto-tecnologico-superior-el-pacifico",
@@ -93559,7 +93627,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4150085071",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "quito-universidad-particular-internacional-sek-ecuador",
@@ -93583,7 +93652,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n4150085086",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://uisek.edu.ec/wp-content/uploads/2022/01/LETRAS_UISEK-02.png"
  },
  {
   "id": "quito-universidad-tecnologica-israel",
@@ -93605,7 +93675,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4150086539",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "quito-victoria-bilingual-christian-academy",
@@ -93798,7 +93869,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4333824815",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "quito-unidad-educativa-adventista-del-sur",
@@ -93890,7 +93962,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4337608591",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "quito-colegio-carlos-zambrano",
@@ -93966,7 +94039,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4415912490",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "quito-colegio-victor-manuel-penaherrera",
@@ -94190,7 +94264,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4557359590",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://seneca.edu.ec/wp-content/uploads/2024/01/Colegio-Seneca-compartir.jpg"
  },
  {
   "id": "quito-colegio-adventista-ciudad-de-quito",
@@ -94342,7 +94417,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4666110187",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "quito-colegio-ligdano-chavez",
@@ -94434,7 +94510,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4747109623",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "quito-instituto-lendan",
@@ -94582,7 +94659,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5040126124",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "quito-liceo-ortega-gasset",
@@ -94654,7 +94732,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5290245922",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "quito-comunidad-educativa-el-trebol-montessori",
@@ -94674,7 +94753,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5294606221",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://static.wixstatic.com/media/0d75ba_b6e60d56dcd44b20ad6ddbb9cb4fb56d%7Emv2.png/v1/fit/w_2500,h_1330,al_c/0d75ba_b6e60d56dcd44b20ad6ddbb9cb4fb56d%7Emv2.png"
  },
  {
   "id": "quito-unidad-educativa-manuela-espejo",
@@ -95067,7 +95147,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5993887707",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "quito-ism-school",
@@ -95595,7 +95676,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n10860866336",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "quito-el-sauce-school",
@@ -95819,7 +95901,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w31134072",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://aka-cdn.uce.edu.ec/ares/perseo/common/images/logo.png"
  },
  {
   "id": "quito-colegio-mejia",
@@ -95875,7 +95958,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w31150386",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "quito-colegio-luis-napoleon-dillon",
@@ -96079,7 +96163,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w31234106",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.uasb.edu.ec/wp-content/uploads/2021/09/LOGO-UASB-COLOR-30-anos.png"
  },
  {
   "id": "quito-unidad-educativa-consejo-provincial-de-pichincha",
@@ -96319,7 +96404,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w125111214",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "quito-universidad-internacional-del-ecuador",
@@ -96342,7 +96428,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w146987920",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "quito-universidad-ute",
@@ -96365,7 +96452,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w161111197",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://ute.edu.ec/wp-content/uploads/2022/10/logo-ute-wp.png"
  },
  {
   "id": "quito-unidad-educativa-abdon-calderon",
@@ -200400,6 +200488,3423 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1474527740",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-american-college",
+  "name": "American College",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.136582,
+  "lng": -86.284451,
+  "addr": "18A Calle SO",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n283111979",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-hispanoamericana",
+  "name": "Universidad Hispanoamericana",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.14094,
+  "lng": -86.285916,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n286971210",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-nordico-internacional",
+  "name": "Colegio Nórdico Internacional",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.093886,
+  "lng": -86.258468,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n459667988",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-aleman-nicaraguense",
+  "name": "Colegio Alemán Nicaragüense",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.086613,
+  "lng": -86.329306,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.coalnic.edu.ni/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1819067246",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-calasanz",
+  "name": "Colegio Calasanz",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.084774,
+  "lng": -86.320104,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1966008076",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-cristiano-josue-1-8",
+  "name": "Colegio Cristiano Josue 1:8",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.19374,
+  "lng": -86.368897,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1983084135",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-centroamerica",
+  "name": "Colegio Centroamérica",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.098062,
+  "lng": -86.264146,
+  "addr": "",
+  "phone": "",
+  "web": "https://cca.edu.ni/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2339946939",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-liceo-franciscano",
+  "name": "Colegio Liceo Franciscano",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.122461,
+  "lng": -86.250742,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2402989257",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-trinity-christian-school",
+  "name": "Trinity Christian School",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.094563,
+  "lng": -86.246433,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2428484847",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-camilo-zapata",
+  "name": "Colegio Camilo Zapata",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.132203,
+  "lng": -86.261297,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2501240001",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-sagrado-corazon-de-jesus",
+  "name": "Colegio Sagrado Corazón de Jesús",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.136416,
+  "lng": -86.245138,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2618003483",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-metropolitana",
+  "name": "Universidad Metropolitana",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.139639,
+  "lng": -86.277032,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2685651035",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-nicaraguense-frances",
+  "name": "Colegio Nicaragüense Francés",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.125457,
+  "lng": -86.309522,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2685684307",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio",
+  "name": "Colegio",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.137593,
+  "lng": -86.279132,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2690538269",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-central-de-nicaragua-ucn",
+  "name": "Universidad Central de Nicaragua UCN",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.151216,
+  "lng": -86.224522,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2713362595",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-liceo-gaspar-garcia-laviana",
+  "name": "Liceo Gaspar García Laviana",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.150903,
+  "lng": -86.186718,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2748474240",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-madre-de-dios",
+  "name": "Colegio Madre de Dios",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.12334,
+  "lng": -86.209796,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2782561523",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-kinder-montesson",
+  "name": "Kinder Montesson",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.09245,
+  "lng": -86.240607,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2782561886",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-the-notre-dame-school",
+  "name": "The Notre Dame School",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.095369,
+  "lng": -86.243534,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2782561956",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-centro-educativo-pablo-antonio-cuadra",
+  "name": "Centro educativo Pablo Antonio Cuadra",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.074193,
+  "lng": -86.196969,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2913836444",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-chino-nicaraguense",
+  "name": "Colegio Chino-Nicaragüense",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.044859,
+  "lng": -86.195718,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2953594483",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-cristiano-verbo",
+  "name": "Colegio Cristiano Verbo",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.084559,
+  "lng": -86.164864,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3241824710",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-centro-educativo-bilingue-alfa",
+  "name": "Centro Educativo Bilingüe Alfa",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.128797,
+  "lng": -86.20316,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3306721224",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-parroquial-san-ignacio-de-loyola",
+  "name": "Colegio Parroquial San Ignacio de Loyola",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.124931,
+  "lng": -86.202786,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3383759643",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-pio-x",
+  "name": "Colegio Pío X",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.145672,
+  "lng": -86.230066,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria",
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n3404615660",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-stilecroft",
+  "name": "Colegio Stilecroft",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.107031,
+  "lng": -86.253146,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3601424780",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-cornerstone",
+  "name": "Cornerstone",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.147413,
+  "lng": -86.240642,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n3700514260",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-de-las-americas",
+  "name": "Universidad de las Américas",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.152148,
+  "lng": -86.249484,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3945275658",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-unitec-universidad-de-tecnologia-y-comercio",
+  "name": "Unitec - Universidad de Tecnología y Comercio",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.121159,
+  "lng": -86.252931,
+  "addr": "",
+  "phone": "22707633",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3958180161",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-rubenia",
+  "name": "Colegio Rubenia",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.131463,
+  "lng": -86.229578,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3983107360",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-instituto-tecnologico-superior-interamericano",
+  "name": "Instituto Tecnológico Superior Interamericano",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.141407,
+  "lng": -86.229013,
+  "addr": "",
+  "phone": "+505 2249 6599 +505 2240 1111",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3983120160",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-nueva-vida",
+  "name": "Colegio Nueva Vida",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.162077,
+  "lng": -86.366707,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3986333455",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-cristiano-el-sendero-divino",
+  "name": "Colegio Cristiano El Sendero Divino",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.136355,
+  "lng": -86.216831,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4011653588",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-mont-berkley-international-school",
+  "name": "Mont Berkley International School",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.113081,
+  "lng": -86.268086,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4059018495",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-cristiano-el-olivo",
+  "name": "Colegio cristiano El Olivo",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.083405,
+  "lng": -86.169846,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4072780333",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-jose-artiga-zona-5",
+  "name": "Colegio Jose Artiga Zona 5",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.167601,
+  "lng": -86.362191,
+  "addr": "Zona#5",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4115683104",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-roberto-clemente",
+  "name": "Colegio Roberto Clemente",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.170491,
+  "lng": -86.35616,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4117417590",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-fraternidad-zona-4",
+  "name": "Colegio Fraternidad Zona #4",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.166265,
+  "lng": -86.357533,
+  "addr": "18a Calle N.O.",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4117896089",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-jose-sandino",
+  "name": "Colégio José Sandino",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.167695,
+  "lng": -86.362302,
+  "addr": "ZONA#5",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4117897089",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-jean-jaques-rousseu",
+  "name": "Universidad Jean Jaques Rousseu",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.148241,
+  "lng": -86.243148,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4172215206",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-popular-de-nicaragua",
+  "name": "Universidad Popular de Nicaragua",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.153538,
+  "lng": -86.279538,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4196015405",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-centro-evangelistico",
+  "name": "Colegio Centro Evangelistico",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.15183,
+  "lng": -86.288196,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4196020342",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-viva-spanish-school",
+  "name": "Viva Spanish School",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.12934,
+  "lng": -86.259504,
+  "addr": "",
+  "phone": "+505227023390",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4266228390",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-instituto-elvis-diaz-romero",
+  "name": "Instituto Elvis Díaz Romero",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.130813,
+  "lng": -86.254818,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4303374789",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-bello-horizonte",
+  "name": "Colegio Bello Horizonte",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.147213,
+  "lng": -86.232073,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4427483296",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-instituto-rigoberto-lopez-perez",
+  "name": "Instituto Rigoberto López Pérez",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.118498,
+  "lng": -86.275531,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4956985122",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-buenas-orientaciones",
+  "name": "Colegio Buenas Orientaciones",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.132395,
+  "lng": -86.21782,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4977964028",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-instituto-de-estudios-tecnologicos-por-internet",
+  "name": "Instituto de estudios tecnológicos por internet",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.149607,
+  "lng": -86.286403,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5150769221",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-tabernaculo-evangelico",
+  "name": "Colegio \"Tabernáculo Evangélico\"",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.146634,
+  "lng": -86.253503,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5481812980",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-cristiano-el-baul",
+  "name": "Colegio Cristiano \"El Baúl\"",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.14841,
+  "lng": -86.254045,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5481830722",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-tecnica-de-comercio",
+  "name": "Universidad Tecnica de Comercio",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.140547,
+  "lng": -86.257236,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5481898183",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-tu-spanish-school",
+  "name": "TU Spanish School",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.131517,
+  "lng": -86.250874,
+  "addr": "",
+  "phone": "+50522520278",
+  "web": "https://www.tuspanish.com",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5528547621",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-leonardo-sepulveda",
+  "name": "Colegio Leonardo Sepulveda",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.13722,
+  "lng": -86.255199,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5775563754",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-instituto-tecnico-jose-dolores-estrada",
+  "name": "Instituto Técnico José Dolores Estrada",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.150508,
+  "lng": -86.245785,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6266909675",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-ulam-recinto-no-2",
+  "name": "ULAM Recinto No 2",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.152589,
+  "lng": -86.244075,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria",
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n6518881655",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-regina-mater",
+  "name": "Colegio Regina Mater",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.144635,
+  "lng": -86.229107,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6699525057",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-academia-cristiana-de-managua",
+  "name": "Academia Cristiana de Managua",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.147384,
+  "lng": -86.18689,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6877172854",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-escuela-parroquial-santa-ana",
+  "name": "Escuela Parroquial Santa Ana",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.157446,
+  "lng": -86.289326,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n7220573638",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-pedro-joaquin-chamorro",
+  "name": "Colegio Pedro Joaquín Chamorro",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.154444,
+  "lng": -86.149546,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n8335504460",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-preescolar-las-abejitas",
+  "name": "Preescolar Las Abejitas",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.144074,
+  "lng": -86.216837,
+  "addr": "19 de julio",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9061177939",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-julia-herrera-de-pomares",
+  "name": "Colegio Julia Herrera de Pomares",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.142231,
+  "lng": -86.229222,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9244541555",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-preescolar-pastorcitos-de-fatima",
+  "name": "Preescolar Pastorcitos de Fátima",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.147725,
+  "lng": -86.230209,
+  "addr": "",
+  "phone": "+505 2249 5792 +505 8934 3494",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9244541561",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-complejo-educativo-rev-barillas-salas",
+  "name": "Complejo Educativo Rev. Barillas Salas",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.15814,
+  "lng": -86.217548,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9261035082",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-douglas-nino",
+  "name": "Colegio Douglas Niño",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.145456,
+  "lng": -86.212006,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9356911163",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-esther-gallardy",
+  "name": "Colegio Esther Gallardy",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.16936,
+  "lng": -86.344334,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n10976155194",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-san-miguel-de-la-cruz",
+  "name": "Colegio San Miguel de la Cruz",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.167152,
+  "lng": -86.350036,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n10976156445",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-instituto-biblico-nicaraguense",
+  "name": "Instituto Bíblico Nicaragüense",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.126759,
+  "lng": -86.230594,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12382704138",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-san-martin-de-porres",
+  "name": "Colegio San Martín de Porres",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.1045,
+  "lng": -86.31314,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13790175869",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-instituto-tecnico-manuel-olivares",
+  "name": "Instituto Tecnico Manuel Olivares",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.153455,
+  "lng": -86.309663,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w38753881",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-lincoln-international-academy",
+  "name": "Lincoln International Academy",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.08605,
+  "lng": -86.222084,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w38767082",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-americana-uam",
+  "name": "Universidad Americana (UAM)",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.107956,
+  "lng": -86.257363,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.uam.edu.ni/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w70193885",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-nca-international",
+  "name": "NCA International",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.101446,
+  "lng": -86.336267,
+  "addr": "",
+  "phone": "",
+  "web": "https://nca.edu.ni/international",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w108180082",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-martin-lutero",
+  "name": "Universidad Martín Lutero",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.106714,
+  "lng": -86.336612,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w110138952",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-instituto-el-alfarero",
+  "name": "Instituto El Alfarero",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.170871,
+  "lng": -86.340773,
+  "addr": "Ciudad Sandino, de los TIP/TOP 1 c. arriba, 1/2 c. al norte, 1/2 c. arriba.",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w113030091",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-instituto-sendero-de-luz",
+  "name": "Instituto Sendero de Luz",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.171477,
+  "lng": -86.339182,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w113062596",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-carlos-blass-hernandez",
+  "name": "Colegio Carlos Blass Hernández",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.1404,
+  "lng": -86.222407,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w114654358",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-hispano-nicaraguense",
+  "name": "Colegio Hispano Nicaragüense",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.093169,
+  "lng": -86.242025,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w183011089",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-americano-nicaraguense",
+  "name": "Colegio Americano Nicaragüense",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.111982,
+  "lng": -86.277786,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.ans.edu.ni/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w184938347",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-iberoamericana-de-ciencia-y-tecnologia",
+  "name": "Universidad Iberoamericana de Ciencia y Tecnología",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.11161,
+  "lng": -86.273118,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w190740885",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-nicaraguan-bilingual-school",
+  "name": "Colegio Nicaraguan Bilingual School",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.080378,
+  "lng": -86.22599,
+  "addr": "NIC-4",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w225623960",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-pureza-de-maria-managua-villa-venezuela",
+  "name": "Colegio Pureza de María - Managua, Villa Venezuela",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.121493,
+  "lng": -86.20482,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w232827747",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-de-medicina-oriental-japon-nicaragua",
+  "name": "Universidad de Medicina Oriental Japón-Nicaragua",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.133536,
+  "lng": -86.238502,
+  "addr": "Semáforos de Rubenia, 7c. abajo",
+  "phone": "+505 2253-0344, 2253-0340",
+  "web": "http://www.iesmojn.edu.ni/",
+  "email": "relacionespublicas@iesmojn.edu.ni",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w234595318",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-del-valle",
+  "name": "Universidad del Valle",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.124535,
+  "lng": -86.282952,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w237414882",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-de-ciencias-comerciales",
+  "name": "Universidad de Ciencias Comerciales",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.12301,
+  "lng": -86.249852,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w239602495",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-nicaraguense-de-ciencia-y-tecnologia",
+  "name": "Universidad Nicaragüense de Ciencia y Tecnología",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.135958,
+  "lng": -86.229489,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w241368647",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-escuela-normal-maria-mazzarello",
+  "name": "Escuela Normal María Mazzarello",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.141116,
+  "lng": -86.290932,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w241411814",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-cedro-galan",
+  "name": "Colegio Cedro Galán",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.09047,
+  "lng": -86.344277,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w245213368",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-san-jose-de-calasanz",
+  "name": "Colegio San José de Calasanz",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.085064,
+  "lng": -86.319763,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w245213435",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-centro-educativo-villa-libertad",
+  "name": "Centro Educativo Villa Libertad",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.117793,
+  "lng": -86.201,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w250005721",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-bautista-hebron",
+  "name": "Colegio Bautista Hebrón",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.138727,
+  "lng": -86.215312,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w251428165",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-saint-mary-school",
+  "name": "Saint Mary School",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.058436,
+  "lng": -86.196685,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w261164090",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-centro-educativo-omar-tellez-sanchez",
+  "name": "Centro Educativo Omar Téllez Sánchez",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.118945,
+  "lng": -86.196374,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w262467257",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-instituto-goyena",
+  "name": "Instituto Goyena",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.148198,
+  "lng": -86.314121,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w262894475",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-instituto-experimental-mexico",
+  "name": "Instituto Experimental México",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.142028,
+  "lng": -86.230815,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w265141368",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-nicaraguense-los-angeles",
+  "name": "Colegio Nicaragüense Los Ángeles",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.150627,
+  "lng": -86.174508,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w268776175",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-gueguense",
+  "name": "Colegio Güegüense",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.144008,
+  "lng": -86.231309,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w270715679",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-st-augustine-preparatory-school",
+  "name": "St. Augustine Preparatory School",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.079718,
+  "lng": -86.271642,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w287819533",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-thomas-more",
+  "name": "Universidad Thomas More",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.101096,
+  "lng": -86.264607,
+  "addr": "Semaforos del Club Terraza 150 vrs. al Sur, Villa Fontana Sur, Managua, Nicaragua",
+  "phone": "",
+  "web": "https://www.unithomasmore.edu.ni",
+  "email": "informacion@unithomasmore.edu.ni",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w287903477",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-central-de-nicaragua-campus-el-doral",
+  "name": "Universidad Central de Nicaragua - Campus El Doral",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.131482,
+  "lng": -86.191237,
+  "addr": "Pista La Reynaga",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w288580933",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-josefa-toledo-de-aguerri",
+  "name": "Colegio Josefa Toledo de Aguerri",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.14347,
+  "lng": -86.256996,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w315912026",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-del-occidente",
+  "name": "Universidad del Occidente",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.147305,
+  "lng": -86.290815,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w322569517",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-cristiano-ebenezer",
+  "name": "Colegio Cristiano Ebenezer",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.171975,
+  "lng": -86.37064,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w330939104",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-la-verde-sonrisa",
+  "name": "Colegio La Verde Sonrisa",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.142023,
+  "lng": -86.228345,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w333344220",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-ignacio-loyola",
+  "name": "Colegio Ignacio Loyola",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.13821,
+  "lng": -86.24869,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w344530437",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-centro-educativo-enrique-schmidt",
+  "name": "Centro Educativo Enrique Schmidt",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.170253,
+  "lng": -86.358727,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w396088562",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-pureza-de-maria-managua",
+  "name": "Colegio Pureza de María Managua",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.081248,
+  "lng": -86.218876,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w399526119",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-paulo-freire",
+  "name": "Universidad Paulo Freire",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.146037,
+  "lng": -86.304521,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w416178600",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-rodriguez-ruiz",
+  "name": "Colegio Rodríguez Ruíz",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.056956,
+  "lng": -86.19527,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w417650268",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-inmaculada-concepcion",
+  "name": "Colegio Inmaculada Concepción",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.127916,
+  "lng": -86.209419,
+  "addr": "Pista La Sabana",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w417707753",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-centro-educativo-villa-flor",
+  "name": "Centro Educativo Villa Flor",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.120334,
+  "lng": -86.223559,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w418598726",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-salomon-ibarra-mayorga",
+  "name": "Colegio Salomón Ibarra Mayorga",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.11025,
+  "lng": -86.225119,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w418812726",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-instituto-tecnologico-central",
+  "name": "Instituto Tecnológico Central",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.121354,
+  "lng": -86.243589,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w419080472",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-evangelica-de-nicaragua",
+  "name": "Universidad Evangélica de Nicaragua",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.130349,
+  "lng": -86.261689,
+  "addr": "Pista de la Resistencia",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w419333874",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-la-american-university",
+  "name": "La American University",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.141074,
+  "lng": -86.239368,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Bilingüe o internacional",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w419354114",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-sant-dominic-school",
+  "name": "Sant Dominic School",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.100324,
+  "lng": -86.230146,
+  "addr": "Calle Vista Alegre",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w419583779",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-centro-educativo-cristiano",
+  "name": "Centro Educativo Cristiano",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.132362,
+  "lng": -86.248363,
+  "addr": "Avenida Martires del 1ero de Mayo",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w419729629",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-bautista",
+  "name": "Colegio Bautista",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.14804,
+  "lng": -86.267492,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w419749620",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-cristiano-monte-de-sion",
+  "name": "Colegio Cristiano Monte de Sión",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.150306,
+  "lng": -86.276645,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w420400782",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-cristo-rey",
+  "name": "Colegio Cristo Rey",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.137152,
+  "lng": -86.259312,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w420400870",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-instituto-loyola",
+  "name": "Instituto Loyola",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.152956,
+  "lng": -86.266006,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w520043084",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-technico-nino-jesus-de-praga",
+  "name": "Colegio Technico Nino Jesus De Praga",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.089285,
+  "lng": -86.359643,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w539062508",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-evangelico-tabernaculo-de-agua-viva",
+  "name": "Colegio Evangélico Tabernáculo de Agua Viva",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.150139,
+  "lng": -86.258197,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w567645982",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-nuestra-senora-de-guadalupe",
+  "name": "Colegio Nuestra Señora de Guadalupe",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.146456,
+  "lng": -86.347279,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w600960341",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-hna-maura-clarke",
+  "name": "Colegio Hna Maura Clarke",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.14662,
+  "lng": -86.346088,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w600960357",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-divino-salvador-de-amen",
+  "name": "Colegio Divino Salvador de Amen",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.147959,
+  "lng": -86.346553,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w600962994",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-cristiano-el-senor-es-mi-pastor",
+  "name": "Colegio Cristiano El Señor es mi pastor",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.152508,
+  "lng": -86.21977,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w711548030",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-beato-faustino-miguez",
+  "name": "Colegio Beato Faustino Míguez",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.134382,
+  "lng": -86.212255,
+  "addr": "Villa 9 Junio Contiguo Iglesia Madre del Pilar Managua, Nicaragua",
+  "phone": "+505 2280 3689",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w729421570",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-adventista-del-reparto-schick-2",
+  "name": "Colegio Adventista del Reparto Schick 2",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.102334,
+  "lng": -86.219581,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w737651456",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-centroamericana-de-ciencias-empresariales",
+  "name": "Universidad Centroamericana de Ciencias Empresariales",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.140485,
+  "lng": -86.299865,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w961584289",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-catolica-nicaragua",
+  "name": "Universidad Católica Nicaragua",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.082779,
+  "lng": -86.230342,
+  "addr": "Km 9,5 Carretera Masaya 500 Vrs al sur oeste, Managua",
+  "phone": "+505 2248 9595",
+  "web": "https://unica.edu.ni/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w962247462",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-12-de-septiembre",
+  "name": "Colegio 12 de septiembre",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.087357,
+  "lng": -86.274446,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1087356461",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-vocacional-adventista-de-nicaragua-covanic",
+  "name": "Colegio Vocacional Adventista de Nicaragua (COVANIC)",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.084554,
+  "lng": -86.342914,
+  "addr": "",
+  "phone": "",
+  "web": "http://covanic.com",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1154825569",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-central-de-nicaragua",
+  "name": "Universidad Central de Nicaragua",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.127021,
+  "lng": -86.303624,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1430753754",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-colegio-bautista-betania",
+  "name": "Colegio Bautista Betania",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.164603,
+  "lng": -86.352705,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r3355279",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-instituto-pedagogico-la-salle",
+  "name": "Instituto Pedagógico La Salle",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.11025,
+  "lng": -86.266753,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.lasalle.edu.ni/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r5876011",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "managua-universidad-de-managua-udem",
+  "name": "Universidad de Managua (UdeM)",
+  "city": "Managua",
+  "country": "Nicaragua",
+  "lat": 12.126442,
+  "lng": -86.309829,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r18305922",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "reynosa-instituto-cambridge",
+  "name": "Instituto Cambridge",
+  "city": "Reynosa",
+  "country": "México",
+  "lat": 26.049495,
+  "lng": -98.382779,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Bilingüe o internacional",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6981154151",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "reynosa-universidad-pedagogica-nacional-upn-285",
+  "name": "Universidad Pedagogica Nacional UPN 285",
+  "city": "Reynosa",
+  "country": "México",
+  "lat": 26.049094,
+  "lng": -98.303435,
+  "addr": "Calle Burgos",
+  "phone": "",
+  "web": "https://www.upn285.edu.mx/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12570581392",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "reynosa-universidad-tamaulipeca",
+  "name": "Universidad Tamaulipeca",
+  "city": "Reynosa",
+  "country": "México",
+  "lat": 26.088705,
+  "lng": -98.282745,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w426492384",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "reynosa-universidad-del-atlantico-campus-virreyes",
+  "name": "Universidad del Atlántico Campus Virreyes",
+  "city": "Reynosa",
+  "country": "México",
+  "lat": 26.083872,
+  "lng": -98.303959,
+  "addr": "Av Jose Zertuche Ibarra 100",
+  "phone": "",
+  "web": "https://www.uda.edu.mx/",
+  "email": "informes@uda.edu.mx",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w472151304",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "reynosa-colegio-puente-de-esperanza",
+  "name": "Colegio Puente de Esperanza",
+  "city": "Reynosa",
+  "country": "México",
+  "lat": 26.040703,
+  "lng": -98.371105,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1444072176",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-colegio-elizalde",
+  "name": "Colegio Elizalde",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.53736,
+  "lng": -103.426988,
+  "addr": "Joaquin Moreno 149",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4637485095",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-colegio-montreal",
+  "name": "Colegio Montreal",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.575008,
+  "lng": -103.37359,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n8581086136",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-instituto-anglo-de-la-laguna",
+  "name": "Instituto ANglo de La Laguna",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.557966,
+  "lng": -103.496072,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n10937845526",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-instituto-abraham-lincoln",
+  "name": "Instituto Abraham Lincoln",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.568531,
+  "lng": -103.500179,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n13904609864",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-colegio-san-luis",
+  "name": "Colegio San Luis",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.591088,
+  "lng": -103.406979,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n14088713984",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-colegio-san-luis-2",
+  "name": "Colegio San Luis",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.564784,
+  "lng": -103.488996,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n14132339788",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-colegio-cristobal-colon",
+  "name": "Colegio Cristóbal Colón",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.573219,
+  "lng": -103.437404,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n14143465448",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-instituto-nancy-campbell",
+  "name": "Instituto Nancy Campbell",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.554026,
+  "lng": -103.442789,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n14329916070",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-instituto-dr-carlos-coqui",
+  "name": "Instituto Dr. Carlos Coqui",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.540151,
+  "lng": -103.455346,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w116771075",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-instituto-londres",
+  "name": "Instituto Londres",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.538223,
+  "lng": -103.454255,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w116771083",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-colegio-mijares",
+  "name": "Colegio Mijares",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.540624,
+  "lng": -103.455278,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w116771089",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-universidad-juarez-del-estado-de-durango-nucleo-universitario",
+  "name": "Universidad Juárez del Estado de Durango. Nucleo Universitario",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.587186,
+  "lng": -103.501593,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w116783564",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-universidad-tecnologica-de-torreon",
+  "name": "Universidad Tecnológica de Torreón",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.530297,
+  "lng": -103.321009,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w147774980",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-universidad-maria-esther-zuno-de-echeverria",
+  "name": "Universidad Maria Esther Zuno de Echeverría",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.557735,
+  "lng": -103.408528,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.meze.com.mx/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w256976505",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-colegio-michael-faraday",
+  "name": "Colegio Michael Faraday",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.557236,
+  "lng": -103.407125,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w256977004",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-colegio-valladolid",
+  "name": "Colegio Valladolid",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.538601,
+  "lng": -103.357196,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w256997436",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-instituto-tecnologico-nacional-campus-la-laguna",
+  "name": "Instituto Tecnológico Nacional Campus La Laguna",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.532159,
+  "lng": -103.436289,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w257531479",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-colegio-cervantes",
+  "name": "Colegio Cervantes",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.530454,
+  "lng": -103.395036,
+  "addr": "Calzada Division del Norte",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w257539980",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-colegio-excelsior",
+  "name": "Colegio Excelsior",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.531497,
+  "lng": -103.394296,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w257559594",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-instituto-de-estudios-superiores-de-educacion-normal",
+  "name": "Instituto de Estudios Superiores de Educación Normal",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.554065,
+  "lng": -103.515044,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w462665391",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-universidad-la-salle-laguna",
+  "name": "Universidad La Salle Laguna",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.550651,
+  "lng": -103.466811,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w462696643",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-colegio-josefa-e-de-ponchaux",
+  "name": "Colegio Josefa E. de Ponchaux",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.540735,
+  "lng": -103.522973,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w462991144",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-instituto-frances-de-la-laguna",
+  "name": "Instituto Francés de La Laguna",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.561722,
+  "lng": -103.509525,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w468903629",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-kinder",
+  "name": "Kinder",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.571207,
+  "lng": -103.435245,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w544469169",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-colegio-los-angeles",
+  "name": "Colegio Los Angeles",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.591669,
+  "lng": -103.415884,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w756029448",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-colegio-americano-de-torreon",
+  "name": "Colegio Americano de Torreón",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.571048,
+  "lng": -103.379723,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w757041683",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-colegio-cervantes-2",
+  "name": "Colegio Cervantes",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.542524,
+  "lng": -103.430757,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w763494807",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-instituto-britanico-de-torreon",
+  "name": "Instituto Británico de Torreon",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.525301,
+  "lng": -103.380179,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w877479475",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-montessori-servicios-educativos-mosed",
+  "name": "Montessori Servicios Educativos Mosed",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.610045,
+  "lng": -103.405813,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1205055322",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-universidad-tecmilenio",
+  "name": "Universidad Tecmilenio",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.604308,
+  "lng": -103.41037,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1205055323",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-universidad-del-valle-de-mexico",
+  "name": "Universidad del Valle de México",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.606662,
+  "lng": -103.401745,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1205055324",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "torreon-instituto-britanico-las-lomas",
+  "name": "Instituto Britanico Las Lomas",
+  "city": "Torreón",
+  "country": "México",
+  "lat": 25.537323,
+  "lng": -103.335623,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1340343053",
   "found": "2026-11-10"
  }
 ]
