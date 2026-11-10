@@ -1,4 +1,4 @@
-// Equipo: ranking de los últimos 7 días y actividad reciente.
+// Equipo: demos de los últimos 7 días (solo demos: no se compite por contactos) y actividad reciente.
 import { S, api, esc, icon, ago, copy, toast, pill, setSchools, ST } from "./core.js";
 import { openSchool } from "./school.js";
 import { brainBadge } from "./app.js";
@@ -123,7 +123,10 @@ function wdHtml() {
   // OrderBrain lo rechazó: eso manda sobre la fecha del token (que puede decir que todavía no venció)
   const rejected = !!(lr && !lr.ok && lr.auth);
   const notes = [];
-  if (rejected) notes.push(["err", `OrderBrain ya no acepta ${which === "El token" ? "este token" : "el token de Vercel"}${wd.exp && wd.expiry !== "expired" ? ` (aunque su fecha dice que vence el ${fDay(wd.exp)})` : ""}. Pegá uno nuevo abajo.`]);
+  // si la copia de los clientes es reciente, el token vencido no es urgente: se dice tranquilo
+  const freshCopy = wd.dataAt && Date.now() - new Date(wd.dataAt).getTime() < 3 * 864e5;
+  if ((rejected || wd.expiry === "expired") && freshCopy) notes.push(["warn", `${rejected ? "OrderBrain ya no acepta el token" : `${which} venció el ${fWhen(wd.exp)}`}, pero los clientes siguen al día con la copia de ${ago(wd.dataAt)} (se usa hasta 30 días). Cuando quieras actualizarla, pegá uno nuevo abajo.`]);
+  else if (rejected) notes.push(["err", `OrderBrain ya no acepta ${which === "El token" ? "este token" : "el token de Vercel"}${wd.exp && wd.expiry !== "expired" ? ` (aunque su fecha dice que vence el ${fDay(wd.exp)})` : ""}. Pegá uno nuevo abajo.`]);
   else if (wd.expiry === "expired") notes.push(["err", `${which} venció el ${fWhen(wd.exp)}. Pegá uno nuevo abajo.`]);
   else if (wd.expiry === "soon") notes.push(["warn", `${which} vence ${until(wd.exp)} (${fWhen(wd.exp)}). Conviene cargar uno nuevo antes.`]);
   if (wd.loaded && !wd.loaded.inUse) notes.push(["warn", `El token que cargó ${wd.loaded.by || "un líder"} venció: se usa el de Vercel.`]);
@@ -192,9 +195,9 @@ function draw() {
   if (t) {
     const board = t.stats.error ? null : t.stats.leaderboard || [];
     rank = !board ? err(t.stats, "el ranking") : board.length ? `
-      <div class="rank head" role="row"><span>#</span><span>Persona</span><span class="num" title="Contactos registrados">Cont.</span><span class="num" title="Conversaciones (atendió alguien)">Conv.</span><span class="num" title="Ordenado por demos">Demos ↓</span></div>
-      ${board.map((p, i) => `<div class="rank ${p.name === S.me.name ? "me" : ""}" role="row"><span class="pos ${["g1", "g2", "g3"][i] || ""}">${i + 1}</span><span class="nm">${esc(p.name)}${p.name === S.me.name ? " (vos)" : ""}</span><span class="num">${p.touches}</span><span class="num">${p.connected}</span><span class="num"><b>${p.demos}</b></span></div>`).join("")}`
-      : `<div class="empty">${icon("users")}<span>Todavía no hay contactos registrados desde OrderBrain esta semana.</span></div>`;
+      <div class="rank head" role="row"><span>#</span><span>Persona</span><span class="num">Demos</span></div>
+      ${board.map((p, i) => `<div class="rank ${p.name === S.me.name ? "me" : ""}" role="row"><span class="pos ${["g1", "g2", "g3"][i] || ""}">${i + 1}</span><span class="nm">${esc(p.name)}${p.name === S.me.name ? " (vos)" : ""}</span><span class="num"><b>${p.demos}</b></span></div>`).join("")}`
+      : `<div class="empty">${icon("video")}<span>Todavía no hay demos agendadas esta semana.</span></div>`;
     feed = t.feed.error ? err(t.feed, "la actividad") : t.feed.length ? t.feed.map(f => {
       const inner = `<span class="ty ${f.demo ? "meeting" : ""}" role="img" aria-label="${esc(f.title)}">${icon(f.demo ? "video" : CH_ICON[f.channel] || "note")}</span><span class="t"><b>${esc(f.org)}</b><span>${esc(f.title)}</span><small>${esc(f.author)} · ${esc(ago(f.at))}</small></span>`;
       return f.schoolId ? `<button class="feed-item" data-id="${esc(f.schoolId)}">${inner}</button>` : `<div class="feed-item">${inner}</div>`;
@@ -203,7 +206,7 @@ function draw() {
   host.innerHTML = `<div class="page">
     <div class="page-head"><div><h1>Equipo</h1><p>Últimos 7 días</p></div></div>
     <div class="two">
-      <section class="card" aria-labelledby="hRk"><div class="card-h"><h2 id="hRk">${icon("flame")} Ranking</h2><span class="sub">por demos, conversaciones y contactos</span></div><div class="card-b" role="table" aria-label="Ranking del equipo">${rank}</div></section>
+      <section class="card" aria-labelledby="hRk"><div class="card-h"><h2 id="hRk">${icon("video")} Demos de la semana</h2><span class="sub">agendadas desde OrderBrain</span></div><div class="card-b" role="table" aria-label="Ranking del equipo">${rank}</div></section>
       <section class="card" aria-labelledby="hFd"><div class="card-h"><h2 id="hFd">${icon("clock")} Actividad reciente</h2></div><div class="card-b">${feed}</div></section>
     </div>
     ${S.profile?.leader ? `<section class="card" style="margin-top:16px" aria-labelledby="hAc"><div class="card-h"><h2 id="hAc">${icon("user")} Accesos del equipo</h2><span class="sub">cada persona entra con su email y su código personal</span></div>

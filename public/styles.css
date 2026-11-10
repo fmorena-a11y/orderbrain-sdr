@@ -477,7 +477,7 @@ details.obj p { margin: 0 0 12px; color: var(--ink-2); }
 .agenda-day h3 small { color: var(--muted); font-weight: 500; }
 
 /* ---------- equipo */
-.rank { display: grid; grid-template-columns: 28px minmax(0, 1fr) repeat(3, minmax(44px, auto)); gap: 8px; align-items: center; padding: 10px 6px; border-top: 1px solid var(--line); font-size: 14px; }
+.rank { display: grid; grid-template-columns: 28px minmax(0, 1fr) minmax(56px, auto); gap: 8px; align-items: center; padding: 10px 6px; border-top: 1px solid var(--line); font-size: 14px; }
 .rank:first-child { border-top: 0; }
 .rank .num { text-align: right; font-variant-numeric: tabular-nums; }
 .rank .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

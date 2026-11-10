@@ -47,7 +47,7 @@ Cada colegio recibe un puntaje de 1 a 100 con los motivos visibles: nunca contac
 
 - **Prospectar:** mapa y lista por país y ciudad, cruce en lote con Pipedrive, filtros por estado, sesión de llamadas de una ciudad y descarga en CSV.
 - **Agenda:** tus actividades pendientes por día, con hecha, reprogramar y abrir ficha.
-- **Equipo:** ranking semanal (demos, conversaciones y contactos) y actividad reciente.
+- **Equipo:** demos de la semana (solo demos: no se compite por cantidad de contactos) y actividad reciente.
 - **Asistente (con IA):** «¿a quién llamo ahora?», «agendá una demo con Vallesol el jueves a las 10 para Juan Diego», «armame un guion para San José Obrero», «¿cómo respondo "ya tenemos un sistema"?». Todo lo que escribe en Pipedrive se confirma con un botón.
 - **Búsqueda rápida:** Ctrl K o `/`. Atajos 1 a 4 para cambiar de sección y Esc para cerrar.
 

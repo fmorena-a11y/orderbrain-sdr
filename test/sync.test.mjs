@@ -46,6 +46,11 @@ test("candidatesFor elige lo mismo que findOrgCandidates (misma organización y 
   assert.ok(same / list.length > 0.9, `iguales ${same} de ${list.length} (cortadas ${cut})`);
 });
 
+test("empate entre dos que nombran la ciudad: gana la que se llama igual que el colegio", () => {
+  const orgs = new Map([[5, { id: 5, name: "Colegio Thomas Jefferson De Guadalajara" }], [9, { id: 9, name: "Instituto Thomas Jefferson Campus Guadalajara" }]]);
+  const [c] = sync.candidatesFor([{ name: "Instituto Thomas Jefferson Campus Guadalajara", city: "Guadalajara" }], orgs);
+  assert.equal(c[0].id, 9);
+});
 test("candidatesFor: de mayor a menor, empate por la que nombra la ciudad, la más parecida y después la más vieja; tope", () => {
   const orgs = new Map([[30, { id: 30, name: "San Martín" }], [10, { id: 10, name: "Colegio San Martín" }], [20, { id: 20, name: "San Martín de Porres" }], [40, { id: 40, name: "Martín" }], [50, { id: 50, name: "Otra cosa" }]]);
   const [c] = sync.candidatesFor([{ name: "Colegio San Martín", city: "Lima" }], orgs, { top: 3 });
