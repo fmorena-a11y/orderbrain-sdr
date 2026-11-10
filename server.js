@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 import * as pd from "./lib/pipedrive.js";
 import { schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet } from "./lib/store.js";
 import * as scan from "./lib/scan.js";
+import { ensureBrain, brainState } from "./lib/brain.js";
 import { research, studyEnabled, studyToHtml } from "./lib/study.js";
 import * as sales from "./lib/sales.js";
 import * as ai from "./lib/ai.js";
@@ -45,7 +46,7 @@ app.use((req, res, next) => {
   next();
 });
 // Trae de Redis lo que registraron otras instancias.
-app.use("/api", (req, res, next) => { Promise.all([sync(), syncExtras()]).then(() => next(), () => next()); });
+app.use("/api", (req, res, next) => { Promise.all([sync(), syncExtras(), ensureBrain()]).then(() => next(), () => next()); });
 
 // ---------- auth
 async function attachPipedriveUser(email) {
@@ -237,6 +238,8 @@ app.get("/api/radar", auth, (req, res) => {
     weekPhone: fresh.filter(s => s.phone).length,
     topCities: [...byCity].sort((a, b) => b[1] - a[1]).slice(0, 10).map(([k, n]) => { const [city, country] = k.split("|"); return { city, country, n }; }), top, google: googleEnabled(), ai: ai.aiEnabled() });
 });
+// OrderBrain general: sitios de World Dominion (clientes de OrderEAT) para el mapa.
+app.get("/api/brain", auth, (req, res) => res.json(brainState()));
 app.get("/api/feed", auth, wrap(async (req, res) => res.json(await sales.teamFeed())));
 app.get("/api/stats", auth, (req, res) => res.json(sales.stats(req.session.user, req.tz)));
 

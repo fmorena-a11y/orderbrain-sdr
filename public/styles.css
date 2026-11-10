@@ -686,3 +686,13 @@ details.agent summary .sub { order: 3; }
 .sj-row { display: flex; align-items: center; gap: 10px; padding: 10px 10px 10px 14px; }
 .sj-row > .ico { color: var(--ok); }
 .sj-t { flex: 1; min-width: 0; } .sj-t b { display: block; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .sj-t small { color: var(--muted); font-size: 12.5px; }
+
+/* Clientes de OrderEAT (World Dominion): cuadrado con borde blanco, distinto de los círculos de colegios */
+.ob-site { width: 14px; height: 14px; margin: 1px; border-radius: 3px; transform: rotate(45deg); background: #2563EB; border: 2px solid #fff; box-shadow: 0 1px 4px rgb(0 0 0 / .35); }
+.ob-site.churn { background: #fff; border-color: #DC2626; }
+.map-toggle { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: 600 13px var(--font); box-shadow: var(--shadow); cursor: pointer; }
+.map-toggle b { font-weight: 700; color: var(--muted); }
+.map-toggle .ob-dot { width: 10px; height: 10px; border-radius: 2px; transform: rotate(45deg); background: #2563EB; }
+.map-toggle[aria-pressed="false"] { color: var(--muted); }
+.map-toggle[aria-pressed="false"] .ob-dot { background: transparent; border: 2px solid var(--muted); }
+.map-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }

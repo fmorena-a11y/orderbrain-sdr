@@ -11,7 +11,9 @@ const RANK = { new: 0, org: 1, lost: 2, unk: 3, open: 4, client: 5 };
 // Colores fijos para los círculos de ciudad: el número en blanco se lee igual en modo claro y oscuro.
 const CITY = { pros: "#00813A", unk: "#6B6B73", none: "#3F3F46" };
 const PAGE = 150;
-let host, map, layer, canvas, busy = false, shown = PAGE;
+let host, map, layer, canvas, brainLayer, brainBtn, busy = false, shown = PAGE;
+// Capa de clientes de OrderEAT (World Dominion de OrderBrain): prendida por defecto, se recuerda por persona.
+let showBrain = (() => { try { return localStorage.getItem("ob.brain") !== "0"; } catch { return true; } })();
 
 const scope = () => S.schools.filter(s => (!E.country || s.country === E.country) && (!E.city || s.city === E.city));
 const searchList = () => { const q = norm(E.q); return S.schools.filter(s => (!E.country || s.country === E.country) && norm(`${s.name} ${s.city} ${s.addr || ""}`).includes(q)); };
@@ -123,6 +125,7 @@ function schoolRow(s) {
   if (nearMode() && s._d != null) bits.push(s._d < 1 ? `${Math.round(s._d * 1000)} m` : `${s._d.toFixed(1).replace(".", ",")} km`);
   if (!E.city) bits.push(s.city);
   if (s.lastTouch) bits.push(`${s.lastTouch.outcome} ${ago(s.lastTouch.at)}`);
+  else if (s.ob?.churn) bits.push("ex cliente OrderEAT");
   else if (s.status === "lost" && s.detail) bits.push(s.detail.replace(/^Perdido \d{4}-\d{2}-\d{2}( · )?/, "") || "Perdido");
   if (s.attempts) bits.push(`${s.attempts} intento${s.attempts > 1 ? "s" : ""}`);
   if (!s.phone) bits.push("sin teléfono");
@@ -152,7 +155,11 @@ function drawList() {
     bindCheck(); return;
   }
   const a = visible(), base = nearMode() ? nearList() : E.q ? searchList() : scope();
-  const empty = nearMode()
+  // hay coincidencias pero el filtro las oculta: decir por qué (clientes, en proceso…) en vez de «no hay nada»
+  const why = () => { const c = {}; base.forEach(s => { c[s.status] = (c[s.status] || 0) + 1; }); return Object.entries(c).map(([k, v]) => `${fmt(v)} ${k === "client" ? `cliente${v > 1 ? "s" : ""} de OrderEAT` : ST[k].l.toLowerCase()}`).join(", "); };
+  const empty = base.length
+    ? `<div class="empty">${icon("list")}<span>${base.length === 1 ? `«${esc(base[0].name)}» no está` : `${fmt(base.length)} coinciden pero no están`} en «${esc(FILTERS.find(f => f[0] === E.filter)?.[1] || "")}»: ${esc(why())}.</span><button class="btn sm" id="fAll">Ver ${base.length === 1 ? "el colegio" : "todos"}</button></div>`
+    : nearMode()
     ? `<div class="empty">${icon("nav")}<span>Todavía no hay colegios cargados cerca de ${esc(E.place.label)}.</span><button class="btn primary sm" id="nearScan">${icon("refresh", "sm")} Buscar colegios acá</button></div>`
     : E.q
     ? `<div class="empty">${icon("search")}<span>Ningún colegio de la base coincide con «${esc(E.q)}»${E.country ? ` en ${esc(E.country)}` : ""}.</span><button class="btn primary sm" id="loc">${icon("nav", "sm")} Ubicar «${esc(E.q)}» en el mapa</button>${E.country ? `<button class="btn sm" id="allC">Buscar en todos los países</button>` : ""}</div>`
@@ -200,6 +207,8 @@ function initMap() {
   } else L.tileLayer(B + "World_Street_Map/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, attribution: "© Esri, HERE, OpenStreetMap" }).addTo(map);
   layer = L.layerGroup().addTo(map);
   canvas = L.canvas({ padding: 0.3 });
+  brainLayer = L.layerGroup(); if (showBrain) brainLayer.addTo(map);
+  loadBrain();
   setTimeout(() => map.invalidateSize(), 50);
 }
 function drawMap() {
@@ -228,6 +237,39 @@ function drawMap() {
     if (!pts.length) { map.flyTo(ll, p.kind === "country" ? 5 : 7, { duration: 0.8 }); return; }
   }
   if (pts.length) map.fitBounds(pts, { padding: [40, 40], maxZoom: 14 });
+}
+
+// ---------- clientes de OrderEAT (World Dominion)
+async function loadBrain() {
+  if (!S.brain) { try { S.brain = await api("/api/brain"); } catch { S.brain = { enabled: false }; } }
+  if (!map || !S.brain.enabled) return;
+  drawBrain();
+  const Ctl = L.Control.extend({ options: { position: "topright" }, onAdd() {
+    const b = L.DomUtil.create("button", "map-toggle"); brainBtn = b; b.type = "button";
+    L.DomEvent.disableClickPropagation(b); b.onclick = () => toggleBrain(); paintBrainBtn(); return b;
+  } });
+  map.addControl(new Ctl());
+}
+function paintBrainBtn() {
+  if (!brainBtn) return;
+  const n = (S.brain?.sites || []).filter(x => !x.churn).length;
+  brainBtn.setAttribute("aria-pressed", showBrain);
+  brainBtn.title = S.brain?.error ? `OrderBrain: ${S.brain.error}` : "Mostrar u ocultar los colegios que ya son clientes de OrderEAT (World Dominion)";
+  brainBtn.innerHTML = `<i class="ob-dot"></i>Clientes OrderEAT <b>${fmt(n)}</b>${S.brain?.error ? ` ${icon("alert", "sm")}` : ""}`;
+}
+function toggleBrain() {
+  showBrain = !showBrain; try { localStorage.setItem("ob.brain", showBrain ? "1" : "0"); } catch {}
+  showBrain ? brainLayer.addTo(map) : brainLayer.remove(); paintBrainBtn();
+}
+function drawBrain() {
+  if (!brainLayer) return; brainLayer.clearLayers();
+  for (const x of S.brain?.sites || []) {
+    const html = `<div class="ob-site${x.churn ? " churn" : ""}" aria-hidden="true"></div>`;
+    L.marker([x.lat, x.lng], { icon: L.divIcon({ className: "", iconSize: [16, 16], html }), zIndexOffset: 500, keyboard: false })
+      .bindTooltip(`${x.name}${x.client && x.client !== x.name ? ` (${x.client})` : ""} · ${x.churn ? "Ex cliente (churn)" : `Cliente OrderEAT: ${x.label}`}${x.churn ? "" : " · no contactar"}`)
+      .on("click", () => { if (x.schoolId && S.byId.has(x.schoolId)) openSchool(x.schoolId); })
+      .addTo(brainLayer);
+  }
 }
 
 // ---------- revisar en Pipedrive (de a 6)

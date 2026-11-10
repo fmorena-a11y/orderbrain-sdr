@@ -71,6 +71,16 @@ Usa la misma lógica que el radar (`lib/scan.js`: Nominatim para ubicar, Overpas
 
 Variables: `RADAR_MIN_POP` (40000), `RADAR_RESCAN_DAYS` (30), `RADAR_MINUTES` (20), `RADAR_PLACES_MAX`, `RADAR_WEB_MAX`, `RADAR_AI_MAX`.
 
+## Clientes de OrderEAT (World Dominion)
+
+Con `BRAIN_TOKEN` la app lee los sitios de World Dominion en OrderBrain general (`brain.ordereat.com/api/sites` y `/api/clients`) cada 15 minutos (`lib/brain.js`) y los cruza con la base: mismo Google Place, mismo predio (menos de 60 m) o nombre parecido a menos de 300 m.
+
+- Los sitios en estado Cerrado, Onboarding o Activo quedan como **Cliente**: salen de «Para llamar», de la cola de llamadas y de las sugerencias del asistente, y la ficha avisa que no hay que prospectarlos. Esto pasa aunque Pipedrive no tenga el trato bien cargado.
+- Los sitios en Churn quedan marcados como **ex cliente**: se pueden contactar, pero la ficha pide hablar antes con el equipo de cuentas.
+- En el mapa de Prospectar, los clientes aparecen como rombos azules y los ex clientes con borde rojo. El botón «Clientes OrderEAT» los muestra u oculta.
+
+Si el token vence, el botón muestra un aviso y la app sigue con la última copia. En modo demo sin token se marcan unos colegios de prueba.
+
 ## Fotos de cada colegio
 
 La ficha muestra una galería sin salir de la app: fotos de Google Maps (si el servidor tiene `GOOGLE_MAPS_API_KEY`), la imagen de portada de la web del colegio y siempre una vista satelital del predio (sirve para estimar el tamaño). Se toca una foto para verla grande.
@@ -155,6 +165,7 @@ lib/ai.js              Claude: notas, brief de llamada, mensajes y asistente con
 lib/store.js           Colegios, cache del cruce y registro de contactos (Redis o DATA_DIR)
 lib/time.js            Zonas horarias y días hábiles
 lib/photos.js          Fotos de cada colegio (Google, web y satélite)
+lib/brain.js           Sitios de World Dominion (OrderBrain) para marcar clientes
 lib/scan.js            Búsqueda en OpenStreetMap compartida por el radar y el buscador de zonas
 scripts/radar.mjs      Radar: busca colegios privados en todas las ciudades (GitHub Actions)
 public/                Frontend sin build: HTML, CSS y módulos JS (mapa con Leaflet)
