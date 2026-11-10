@@ -38,7 +38,16 @@ async function showLogin() {
       catch (e) { err.textContent = e.message; b.disabled = false; b.textContent = "Entrar en modo desarrollo"; }
     };
   }
-  if (!cfg.googleClientId) { $("gbtn").innerHTML = ""; if (!cfg.devLogin) err.textContent = "El login con Google todavía no está configurado en el servidor."; return; }
+  if (cfg.codeLogin) {
+    const f = $("codeLogin"); f.hidden = false;
+    if (cfg.domain) $("ceEmail").placeholder = `nombre@${cfg.domain}`;
+    f.onsubmit = async e => {
+      e.preventDefault(); const go = $("ceGo"); go.disabled = true; go.textContent = "Entrando…"; err.textContent = "";
+      try { await api("/auth/code", { body: { email: $("ceEmail").value, code: $("ceCode").value } }); start(); }
+      catch (x) { err.textContent = x.message; go.disabled = false; go.textContent = "Entrar"; }
+    };
+  }
+  if (!cfg.googleClientId) { $("gbtn").innerHTML = ""; if (!cfg.devLogin && !cfg.codeLogin) err.textContent = "El login con Google todavía no está configurado en el servidor."; return; }
   const init = () => {
     if (!window.google?.accounts?.id) return setTimeout(init, 200);
     $("gbtn").innerHTML = "";

@@ -20,7 +20,10 @@ import { safeTz, toUtc } from "./lib/time.js";
 const app = express();
 const PORT = process.env.PORT || 3000;
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || "";
-const DOMAIN = (process.env.ALLOWED_EMAIL_DOMAIN || "").toLowerCase();
+// Código de equipo: alternativa al login con Google. Entra quien tenga un email del dominio, sea usuario de
+// Pipedrive (en modo real) y sepa el código. Con pocos intentos por IP para que no se pueda adivinar.
+const TEAM_CODE = process.env.TEAM_ACCESS_CODE || "";
+const DOMAIN = (process.env.ALLOWED_EMAIL_DOMAIN || (TEAM_CODE ? "ordereat.com" : "")).toLowerCase();
 const DEV_EMAIL = process.env.DEV_LOGIN_EMAIL || "";
 const PROD = process.env.NODE_ENV === "production";
 // En modo demo (Pipedrive de prueba) se permite entrar sin Google aunque sea producción: no hay datos reales.
@@ -56,7 +59,29 @@ async function attachPipedriveUser(email) {
   try { const m = await pd.meta(); const u = m.users.find(x => x.email === email.toLowerCase()); return u ? { pdUserId: u.id, pdName: u.name } : {}; }
   catch { return {}; }
 }
-app.get("/auth/config", (req, res) => res.json({ googleClientId: GOOGLE_CLIENT_ID, devLogin: DEV_OK, demo: pd.DEMO }));
+app.get("/auth/config", (req, res) => res.json({ googleClientId: GOOGLE_CLIENT_ID, devLogin: DEV_OK, codeLogin: !!TEAM_CODE, domain: DOMAIN, demo: pd.DEMO }));
+const tries = new Map(); // ip → { n, until }
+app.post("/auth/code", async (req, res) => {
+  if (!TEAM_CODE) return res.status(404).end();
+  const ip = String(req.headers["x-forwarded-for"] || req.ip || "").split(",")[0].trim();
+  const t = tries.get(ip) || { n: 0, until: 0 };
+  if (t.until > Date.now()) return res.status(429).json({ error: "Demasiados intentos. Probá de nuevo en 15 minutos." });
+  const email = String(req.body?.email || "").trim().toLowerCase(), code = String(req.body?.code || "");
+  const a = crypto.createHash("sha256").update(code).digest(), b = crypto.createHash("sha256").update(TEAM_CODE).digest();
+  const ok = crypto.timingSafeEqual(a, b) && /^[^@\s]+@[^@\s]+$/.test(email) && (!DOMAIN || email.endsWith("@" + DOMAIN));
+  await new Promise(r => setTimeout(r, 400));
+  if (!ok) {
+    t.n++; if (t.n >= 8) { t.until = Date.now() + 15 * 60e3; t.n = 0; } tries.set(ip, t);
+    return res.status(401).json({ error: DOMAIN && email && !email.endsWith("@" + DOMAIN) ? `Usá tu email @${DOMAIN}.` : "Email o código incorrecto." });
+  }
+  const pdu = await attachPipedriveUser(email);
+  // con el Pipedrive real, solo entran los usuarios de la cuenta
+  if (MODE === "live" && !pdu.pdUserId) return res.status(403).json({ error: "Ese email no es usuario del Pipedrive de OrderEAT." });
+  tries.delete(ip);
+  req.session.user = { email, name: pdu.pdName || email.split("@")[0], ...pdu };
+  req.session.mode = MODE;
+  res.json({ user: req.session.user });
+});
 app.post("/auth/google", async (req, res) => {
   try {
     if (!google) return res.status(500).json({ error: "El login con Google no está configurado (GOOGLE_CLIENT_ID)." });

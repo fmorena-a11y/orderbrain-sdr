@@ -745,3 +745,8 @@ details.agent summary .sub { order: 3; }
 .lb-fail { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 240px; border-radius: 10px; background: var(--surface-2); color: var(--muted); padding: 24px; text-align: center; }
 .lb-fail[hidden] { display: none; }
 .lb-nav { display: inline-flex; align-items: center; gap: 6px; }
+
+/* login con código del equipo */
+.code-login { width: 100%; display: grid; gap: 12px; text-align: left; }
+.code-login[hidden] { display: none; }
+.login-card p.err { color: var(--err); font-weight: 500; }
