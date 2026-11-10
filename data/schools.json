@@ -159234,7 +159234,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n8617924986",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "arequipa-i-e-p-happy-children-s-milagros",
@@ -159385,7 +159386,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w327166509",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://ucsp.edu.pe/wp-content/uploads/2024/03/bg-header-home-rescaled.jpg"
  },
  {
   "id": "arequipa-universidad-catolica-de-santa-maria",
@@ -159408,7 +159410,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w327170134",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "arequipa-universidad-de-san-martin-de-porres",
@@ -159453,7 +159456,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w330604086",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "arequipa-colegio-domingo-savio",
@@ -159474,7 +159478,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w399149202",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "arequipa-universidad-la-salle",
@@ -159497,7 +159502,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w413168654",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.ulasalle.edu.pe/wp-content/uploads/2026/10/300-1.png"
  },
  {
   "id": "arequipa-universidad-andina-filial-arequipa",
@@ -159519,7 +159525,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w423726029",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "arequipa-peruano-aleman-max-uhle",
@@ -159539,7 +159546,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w437698459",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.cmu.edu.pe/wp-content/uploads/2025/08/porquemaxuhle-1.jpg"
  },
  {
   "id": "arequipa-universidad-privada-autonoma-del-sur",
@@ -159562,7 +159570,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w557381629",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "arequipa-universidad-continental",
@@ -159584,7 +159593,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w599965619",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://ucontinental.edu.pe/site/wp-content/themes/salient-child/img/og-image-continental.jpg"
  },
  {
   "id": "arequipa-instituto-geofisico-de-la-unsa",
@@ -159606,7 +159616,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w983278263",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "arequipa-universidad-tecnologiga-del-peru-utp",
@@ -159647,7 +159658,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1042840755",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "arequipa-instituto-superior-jose-crisam",
@@ -159808,7 +159820,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n8653765365",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "panama-instituto-profesional-de-las-americas-rio-abajo",
@@ -159826,7 +159839,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n10098151909",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "panama-saint-george-intrenational-school-of-panama",
@@ -159846,7 +159860,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n12124736783",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.stgeorge.edu.pa/wp-content/uploads/2021/06/logo-stgpanama.png"
  },
  {
   "id": "panama-the-lincoln-academy",
@@ -159882,7 +159897,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n13020780401",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "panama-colegio-la-salle",
@@ -160102,7 +160118,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w304707033",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "panama-balboa-academy-s-gym",
@@ -160539,7 +160556,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w570814678",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "panama-escuela-y-colegio-jeronimo-de-la-ossa",
@@ -160899,7 +160917,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w833686169",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "panama-colegio-bilingue-santo-domingo-savio",
@@ -161308,7 +161327,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1053821129",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "panama-lycee-francais-international-de-panama",
@@ -161328,7 +161348,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1243157230",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://cdn.prod.website-files.com/68780782367c30fb04aa5b8e/689105dff220da6b439dcc0a_SMP_1084-p-2000.jpg"
  },
  {
   "id": "panama-panama-christian-academy",
@@ -161483,7 +161504,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1282225411",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "panama-the-king-s-school",
@@ -162185,7 +162207,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "r18529179",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "panama-colegio-bilingue-de-panama",
@@ -162679,7 +162702,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4426370389",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "santo-domingo-colegio-victor-manuel",
@@ -162957,7 +162981,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5550507021",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "santo-domingo-instituto-superior-de-formacion-docente-salome-urena-recinto-eugenio-m",
@@ -163031,7 +163056,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n6417809987",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "santo-domingo-universidad-experimental-feliz-adam",
@@ -163165,7 +163191,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n11257630857",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.nordangliaeducation.com/saint-george-school/-/media/corporate/social-media/default-image-opengraph.png?rev=253eda5bd2c04136a3c08fc966555015&hash=7EE127BEED6CF6AB831005E041126B9E"
  },
  {
   "id": "santo-domingo-centro-educativo-pedro-variara",
@@ -163244,7 +163271,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n13602710001",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "santo-domingo-the-community-for-learning",
@@ -163264,7 +163292,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n13860836308",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "santo-domingo-colegio-maria-de-los-milagros",
@@ -163346,7 +163375,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n14266360649",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "santo-domingo-instituto-tecnico-salesiano",
@@ -163462,7 +163492,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w112410358",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "santo-domingo-instituto-superior-de-formacion-docente-salome-urena-isfodosu",
@@ -163846,7 +163877,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w227726150",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "santo-domingo-colegio-catolico-santiago-apostol",
@@ -164018,7 +164050,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w300316499",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "santo-domingo-colegio-sagrado-corazon-de-jesus",
@@ -164535,7 +164568,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w405192319",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "santo-domingo-instituto-de-senoritas-salome-urena",
@@ -164589,7 +164623,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w406811925",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "santo-domingo-universidad-tecnologica-de-santiago-extension-san-carlos",
@@ -165268,7 +165303,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w410086774",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "santo-domingo-colegio-claret",
@@ -165964,7 +166000,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w463137259",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "santo-domingo-liceo-frances-de-santo-domingo",
@@ -165985,7 +166022,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w463370037",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://lfsd.edu.do/wp-content/uploads/2025/03/Repas-du-Monde-2025.png"
  },
  {
   "id": "santo-domingo-instituto-montessori",
@@ -166021,7 +166059,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w463994024",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "santo-domingo-colegio-serafin-de-asis",
@@ -166115,7 +166154,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w629607115",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "santo-domingo-centro-educativo-andamios",
@@ -166133,7 +166173,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w629992239",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "santo-domingo-colegio-las-frutas",
@@ -166171,7 +166212,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w933884322",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "santo-domingo-instituto-tecnologico-profesor-simon-orozco",
@@ -166207,7 +166249,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1000970078",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "santo-domingo-universidad-psicologia-industrial-dominicana",
@@ -166477,7 +166520,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n2393875595",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "mendoza-instituto-arte-f-chopin",
@@ -166571,7 +166615,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n2595625967",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "mendoza-instituto-de-biologia-agricola-mendoza-ibam",
@@ -166607,7 +166652,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n2595625969",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "mendoza-instituto-de-histologia-y-embriologia-ihem",
@@ -166625,7 +166671,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n2595625970",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "mendoza-instituto-de-medicina-y-biologia-experimental-de-cuyo-imbecu",
@@ -166679,7 +166726,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n2703956695",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "mendoza-instituto-oxford",
@@ -166772,7 +166820,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n3128062978",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "mendoza-instituto-superior-del-profesorado-p014",
@@ -166958,7 +167007,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4087391103",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "mendoza-colegio-santa-maria-de-los-angeles",
@@ -167018,7 +167068,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4164214444",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "mendoza-colegio-san-nicolas",
@@ -167132,7 +167183,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4792416044",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://static.wixstatic.com/media/56a4d8_1511e04f57dc48a9b5583e4b7b20380f%7Emv2.png/v1/fit/w_2500,h_1330,al_c/56a4d8_1511e04f57dc48a9b5583e4b7b20380f%7Emv2.png"
  },
  {
   "id": "mendoza-academia-godoy-cruz",
@@ -167170,7 +167222,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4868624557",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "mendoza-colegio-p-58-monsenor-scalabrini",
@@ -167188,7 +167241,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4868668902",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "mendoza-instituto-superior-tecnico-de-estudios-economicos-de-cuyo",
@@ -167265,7 +167319,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5010254959",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "mendoza-universidad-de-mendoza-rectorado",
@@ -167287,7 +167342,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5078098948",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://um.edu.ar/wp-content/uploads/cropped-universidad-de-mendoza-foto.jpg"
  },
  {
   "id": "mendoza-centro-educativo-franciscano-san-buenaventura",
@@ -167423,7 +167479,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n9685797947",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://ispn.edu.ar/wp-content/uploads/2020/02/SPNLogoMza2-19.png"
  },
  {
   "id": "mendoza-escuela-ps-219-colegio-beato-juan-bautista-scalabrini",
@@ -167443,7 +167500,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n10948234040",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://ss-cnt-001c.esmsv.com/r/content/host1/8cc6232d0a41e4b9894720ba457cfd6e/img/logo%20cole-1.jpg"
  },
  {
   "id": "mendoza-instituto-san-vicente-ferrer",
@@ -167585,7 +167643,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w169336959",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegiosanluisgonzaga.edu.ar/wp-content/uploads/2026/03/Inicio-CL-2026-02-scaled.jpg"
  },
  {
   "id": "mendoza-colegio-universitario-central-general-jose-de-san-martin",
@@ -167605,7 +167664,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w174320609",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "mendoza-colegio-compania-de-maria",
@@ -167647,7 +167707,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w183049793",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "mendoza-colegio-s124-rainbow",
@@ -167665,7 +167726,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w188204455",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "mendoza-colegio-domingo-savio",
@@ -167741,7 +167803,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w205631449",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "mendoza-colegio-n-s139-lumen-de-san-jose-de-calasanz",
@@ -167801,7 +167864,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w225756999",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://cma.edu.ar/multimedia/maria-auxiliadora_logo.webp"
  },
  {
   "id": "mendoza-instituto-cuyano-de-educacion-integral-icei",
@@ -167819,7 +167883,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w227338246",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "mendoza-colegio-ps82-padre-j-mullner",
@@ -167937,7 +168002,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w248053046",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "mendoza-colegio-francisco-correa",
@@ -167977,7 +168043,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w264745717",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "mendoza-colegio-alberto-schweitzer",
@@ -168071,7 +168138,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w498693175",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "mendoza-colegio-portezuelo",
@@ -168089,7 +168157,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w499304005",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "mendoza-escuela-tecnica-de-la-universidad-de-mendoza",
@@ -168109,7 +168178,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w574667041",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "mendoza-colegio-santa-clara",
@@ -168208,7 +168278,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1307579165",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.churchofjesuschrist.org/imgs/45e59c1c726d11ec9eb5eeeeac1ea79d5f76a9ce/full/1920,/0/default"
  },
  {
   "id": "mendoza-p-253-colegio-papa-francisco",
@@ -168229,7 +168300,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1339371425",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "mendoza-pontificia-universidad-catolica-argentina",
@@ -168253,7 +168325,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1339371428",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "mendoza-colegio-san-jose-de-calasanz",
@@ -168352,7 +168425,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "r11810218",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "chihuahua-universidad-tecnologica-de-chihuahua-sur",
@@ -168571,7 +168645,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w305380338",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "chihuahua-esfer-salesianos",
@@ -168716,7 +168791,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1420795146",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegiocumbreschihuahua.mx/public/images/social_share.jpg"
  },
  {
   "id": "chihuahua-colegio-belen-plantel-2",
@@ -168758,7 +168834,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1507552387",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://cloudinary-assets.dostuffmedia.com/res/dostuff-media/image/upload/venue-471080/1635014689.jpg"
  },
  {
   "id": "merida-universidad-de-chapingo",
@@ -168850,7 +168927,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n2305272050",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "merida-preparatoria-miguel-angel",
@@ -168906,7 +168984,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n6197172085",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.ifly.com.mx/images/ifly_aviation_group_social_media.jpg"
  },
  {
   "id": "merida-colegio-maria-nelly-rosado",
@@ -168989,7 +169068,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n14165373301",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.iudy.edu.mx/img/portada.jpg"
  },
  {
   "id": "merida-colegio-montejo-a-c",
@@ -169029,7 +169109,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w359613946",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "merida-preparatoria-croc",
@@ -169105,7 +169186,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w525435931",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "merida-instituto-mexico-2",
@@ -169163,7 +169245,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1273249530",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://imagedelivery.net/xaKlCos5cTg_1RWzIu_h-A/5000a29e-a649-4fb6-7003-92374f235300/public"
  },
  {
   "id": "merida-universidad-humanitas-campus-merida",
@@ -169225,7 +169308,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1318023998",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://incih.edu.mx/wp-content/uploads/2016/01/logoincih120.png"
  },
  {
   "id": "merida-centro-educativo-renacimiento",
@@ -169245,7 +169329,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1321682372",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://renacimiento.edu.mx/img/imgSeo/renacimiento-30e612be.jpg"
  },
  {
   "id": "merida-colegio-teresiano-enrique-de-osso-merida",
@@ -169359,7 +169444,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1377302743",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.rochavi.com.mx/images/articulos/rochavi-altabrisa-fachada-2.jpg"
  },
  {
   "id": "merida-colegio-motolinia-de-merida",
@@ -169400,7 +169486,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1567234939",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.rochavi.com.mx/images/articulos/rochavi-altabrisa-fachada-2.jpg"
  },
  {
   "id": "merida-universidad-modelo",
@@ -169655,7 +169742,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n5597218933",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "trujillo-boqueron-surf-school",
@@ -169735,7 +169823,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w127681075",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "trujillo-colegio-fleming",
@@ -169798,7 +169887,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w252809018",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "trujillo-universidad-privada-de-trujillo",
@@ -170770,7 +170860,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4462598993",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://instituto-web-connect.replit.app/opengraph.jpg"
  },
  {
   "id": "cancun-universidad-del-sur",
@@ -170833,7 +170924,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n12115463939",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "cancun-preparatoria-xel-baalam",
@@ -170917,7 +171009,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w896165658",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "cancun-instituto-cesare",
@@ -170935,7 +171028,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w896177674",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "cancun-universidad-salle-cancun",
@@ -171002,7 +171096,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1282955398",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "cancun-british-international-school",
@@ -171062,7 +171157,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1316050526",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "cancun-instituto-americano-leonardo-da-vinci",
@@ -171082,7 +171178,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1317956054",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://static.wixstatic.com/media/90a52d_32d6c2cf3c904a64be1e1085d61c42f1%7Emv2_d_3425_3425_s_4_2.png/v1/fit/w_2500,h_1330,al_c/90a52d_32d6c2cf3c904a64be1e1085d61c42f1%7Emv2_d_3425_3425_s_4_2.png"
  },
  {
   "id": "cancun-colegio-st-john-s",
@@ -171100,7 +171197,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1317956055",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "cancun-universidad-de-oriente",
@@ -171122,7 +171220,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1317956056",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "cancun-modern-academy-cancun",
@@ -171140,7 +171239,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1317956057",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://modernacademycancun.edu.mx/wp-content/uploads/2023/11/MAcC.png"
  },
  {
   "id": "cancun-instituto-la-salle-cancun",
@@ -171160,7 +171260,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1453497880",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://iclasalle.edu.mx/wp-content/uploads/2019/08/knowledge-150x150.png"
  },
  {
   "id": "saltillo-kinder",
@@ -171294,7 +171395,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w181528327",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://uvm.mx/storage/app/uploads/public/675/32b/7b9/67532b7b92ef0097878795.jpg"
  },
  {
   "id": "saltillo-colegio-norte",
@@ -171312,7 +171414,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w930835679",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://img1.wsimg.com/isteam/ip/480ff16c-2944-4b77-adf8-7123e3aa8d5c/pagina%20colegio%20norte%20(2).png"
  },
  {
   "id": "saltillo-colegio-de-estudios-cientificos-y-tecnologicos-del-estado-de-coahuila",
@@ -171350,7 +171453,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1159848813",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "aguascalientes-a-o-internacional-del-ni-o",
@@ -173511,7 +173615,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n12963095301",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.institutosanford.edu.mx/wp-content/uploads/2022/02/Cover.png"
  },
  {
   "id": "aguascalientes-instituto-tesla",
@@ -173630,7 +173735,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w144014191",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "aguascalientes-universidad-panamericana-campus-bonaterra",
@@ -173652,7 +173758,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w147336706",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "aguascalientes-universidad-tecnologica-de-aguascalientes",
@@ -173776,7 +173883,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1158051987",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "aguascalientes-instituto-cima",
@@ -173816,7 +173924,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1483857128",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.uniti.edu.mx/web/image/2081-c8e6478d/hero.jpg"
  },
  {
   "id": "hermosillo-nuevos-horizontes-kinder",
@@ -173946,7 +174055,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n7693107647",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "hermosillo-universidad-del-valle-de-mexico",
@@ -174379,7 +174489,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w825372591",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://irp.cdn-website.com/352d9770/dms3rep/multi/opt/open-graph-1920w.jpg?jxl&v=jxl"
  },
  {
   "id": "hermosillo-preparatoria-universitaria-kino",
@@ -174516,7 +174627,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1263806203",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "hermosillo-colegio-alerce",
@@ -174557,7 +174669,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1427111063",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://irp.cdn-website.com/fc3c36d2/dms3rep/multi/opt/og_412097032-1920w.jpg?jxl&v=jxl"
  },
  {
   "id": "hermosillo-universidad-de-sonora",
@@ -175805,7 +175918,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n6708270647",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "mexicali-cetys-universidad-campus-mexicali",
@@ -175867,7 +175981,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w119971597",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "mexicali-colegio-frontera",
@@ -175907,7 +176022,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w284875628",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "mexicali-centro-escolar-ingles",
@@ -176007,7 +176123,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1175210972",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "mexicali-colegio-anglo-americano-nuestra-senora-de-la-paz",
@@ -176028,7 +176145,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1175369755",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "mexicali-universidad-xochicalco-campus-mexicali",
@@ -176050,7 +176168,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1216662292",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "mexicali-universidad-de-tijuana-cut-campus-mexicali",
@@ -176208,7 +176327,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1375111424",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.mmontessori.mx/img/mmu-inscripcion-op.jpg"
  },
  {
   "id": "mexicali-edumax",
@@ -176269,7 +176389,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n690820498",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.umsa.bo/documents/20142/33077/umsa.jpg"
  },
  {
   "id": "el-alto-instituto-educativo-san-fernando",
@@ -176312,7 +176433,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n2920759068",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.usfa.edu.bo/images/logo/logos-usfa-optimized.webp"
  },
  {
   "id": "el-alto-universidad-andina-simon-bolivar",
@@ -177216,7 +177338,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5604805423",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQfZHnVZfH5eZGw-2Szwu_CLcBxmN0IlX-CcWKxyInIjAGNE6hWoGyQmN_BDCHf6PjYl93MZX0uniUX3xXcrdY2uOdOrHxlTh1-wnux5ps8XuTl8iM-jBRCafkGkCPasmPj5-dNDQ0GZg5QtcXMehfotKes1Ey2F2NJj9sHQDeNseY2UQPJYk3R3bI2VY3I=w16383"
  },
  {
   "id": "el-alto-centro-educativo-adventista-bello-horizonte",
@@ -177784,7 +177907,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n12162094003",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "el-alto-unidad-educativa-10-de-junio",
@@ -177883,7 +178007,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n13896046087",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "el-alto-u-e-instituto-bautista-canadiense",
@@ -178085,7 +178210,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w225332981",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://acslp.org/wp-content/uploads/2023/01/logo-500x200-1.png"
  },
  {
   "id": "el-alto-escuela-militar-de-ingenieria",
@@ -178332,7 +178458,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w323913748",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "el-alto-ue-colegio-loretto",
@@ -178561,7 +178688,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w417006418",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://udelosandes.edu.bo/img/meta-img/universidad-de-los-andes.jpg"
  },
  {
   "id": "el-alto-unidad-educativa-brasil",
@@ -178906,7 +179034,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w472247485",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "el-alto-unidad-educativa-venezuela",
@@ -179026,7 +179155,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w546129920",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "el-alto-unidad-educativa-comandante-ernesto-che-guevarra",
@@ -179654,7 +179784,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w728815445",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/682052313_1407156158102909_4845426644822588988_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x2048&ctp=s720x720&_nc_cat=103&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=rFn9a3DLXR4Q7kNvwEml7Ob&_nc_oc=Ado3CqRPXhj54sBSG5YSv8XSrWMCYmVrPgFNiWlUKf9g8NPGTlO2_-mQuZrv_Py5_nA&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&_nc_gid=-vFILEvdvweoAdK5NapJpA&_nc_ss=7c289&oh=00_AQQN3yRgfgRsmFYUWHqDhfmnltZaQlJyfAVtbRikhwrdLQ&oe=6AF8B17F"
  },
  {
   "id": "el-alto-unidad-educativa-rafael-pabon-unidad-educativa-eduviges-vda-de-hertzog",
@@ -180184,7 +180315,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1084609287",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "el-alto-universidad-privada-domingo-savio",
@@ -180227,7 +180359,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1085796049",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/764358230_1453758833442399_5505272686582796440_n.jpg?stp=dst-jpg_tt6&cstp=mx1254x1254&ctp=s720x720&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=XgMJoiOsUhoQ7kNvwFX7j7F&_nc_oc=AdqdrPoHppcvPgzg5hkUTZBc9ymzEzxH_mZt6f-8x3q9lxkLNIhRk7RTUFhPPabgiPE&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&_nc_gid=MsVrTtuFu-g9RwolO6DSrA&_nc_ss=7c289&oh=00_AQScpSBUjwQNrP-orlvZtx3rWo5OW4fOe_LELlfNnhQzEw&oe=6AF8A703"
  },
  {
   "id": "el-alto-colegio-club-de-leones",
@@ -180904,7 +181037,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n9791528292",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "san-luis-potosi-universidad-vasco-de-quiroga",
@@ -181302,7 +181436,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1173757260",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://upotosina.edu.mx/wp-content/uploads/2025/03/escolarizadas-h.jpg"
  },
  {
   "id": "san-luis-potosi-preparatoria-ponciano-arriaga",
@@ -181362,7 +181497,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n6030214783",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "ciudad-guayana-instituto-categorico-san-marcos",
@@ -181382,7 +181518,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n6030217517",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-1/607739448_1215540044023801_7512003741179337380_n.jpg?stp=dst-jpg_tt6&cstp=mx880x1107&ctp=p720x720&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=pPUoNSgpYYsQ7kNvwFJg0i9&_nc_oc=AdqyhD_mpVOzsIIxDjOBlW2FP-aJKkmWtKjHoepWr5EJDRAvhp7HXMIuFZHodmJJJnE&_nc_zt=24&_nc_ht=scontent-iad6-1.xx&_nc_gid=eYbHDtIVGa_72AoXoxVVCw&_nc_ss=7c289&oh=00_AQRC4JP6OolX61eIYSLyYUmzOaOC6BFEHJPtnwu9yvr44w&oe=6AF8C2F8"
  },
  {
   "id": "ciudad-guayana-u-e-colegio-nuestra-senora-de-coromoto",
@@ -181448,7 +181585,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n7944490978",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "ciudad-guayana-i-u-p-santiago-marino",
@@ -181471,7 +181609,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n7944547348",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "ciudad-guayana-u-e-jesus-de-nazareth",
@@ -181555,7 +181694,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n8388856628",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "ciudad-guayana-colegio-universitario-monsenor-de-talavera",
@@ -181578,7 +181718,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n8481061658",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://static.wixstatic.com/media/de1dd6_0f4206f0f4e043da8254ce3c47c1a1b2%7Emv2.png/v1/fit/w_2500,h_1330,al_c/de1dd6_0f4206f0f4e043da8254ce3c47c1a1b2%7Emv2.png"
  },
  {
   "id": "ciudad-guayana-u-e-colegio-martin-lutero",
@@ -181618,7 +181759,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w138184628",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.feyalegria.org/wp-content/uploads/sites/4/2023/12/Fe-y-Alegria-Federacion-1.jpg"
  },
  {
   "id": "ciudad-guayana-u-e-colegio-internacional-miguel-otero-silva",
@@ -181639,7 +181781,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w157001253",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "ciudad-guayana-u-e-inmaculada-concepcion",
@@ -181739,7 +181882,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w524957043",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.feyalegria.org/wp-content/uploads/sites/4/2023/12/Fe-y-Alegria-Federacion-1.jpg"
  },
  {
   "id": "ciudad-guayana-u-e-fe-y-alegria-la-consolacion",
@@ -181759,7 +181903,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w524957044",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.feyalegria.org/wp-content/uploads/sites/4/2023/12/Fe-y-Alegria-Federacion-1.jpg"
  },
  {
   "id": "ciudad-guayana-u-e-c-p-internacional-rio-caura",
@@ -181780,7 +181925,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w525014180",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "ciudad-guayana-u-e-colegio-integral-guayana-ii",
@@ -181800,7 +181946,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w527109244",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "ciudad-guayana-u-e-fe-y-alegria-virgen-nina",
@@ -181820,7 +181967,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w527301976",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.feyalegria.org/wp-content/uploads/sites/4/2023/12/Fe-y-Alegria-Federacion-1.jpg"
  },
  {
   "id": "ciudad-guayana-u-e-colegio-orinoco",
@@ -181927,7 +182075,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w635820961",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-1/294407099_392375582991285_870056777624708643_n.png?stp=dst-png&cstp=mx464x452&ctp=s464x452&_nc_cat=110&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=SBdfgWeQk4cQ7kNvwExPPyG&_nc_oc=Adr3EdMwnMErzSP-jQgic06SBcte9SgcHjBanaNseUGlhGxR4O8J2CRjPWSb8v7AaWY&_nc_zt=24&_nc_ht=scontent-iad3-2.xx&_nc_gid=jJlI546lv0ibYzOmwGtw7g&_nc_ss=7c289&oh=00_AQRP1eaaPfkNnHVBVVGUf2npMTIERHtVFuoC_AB7AjPqGQ&oe=6AF89F5A"
  },
  {
   "id": "ciudad-guayana-cecal-san-buenaventura",
@@ -181948,7 +182097,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w635821150",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://cecalsb.wordpress.com/wp-content/uploads/2014/10/cropped-10406963_787566321299741_3395130046506380405_n.png"
  },
  {
   "id": "ciudad-guayana-liceo-e-t-c-bicentenario",
@@ -266836,6 +266986,7034 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1267606699",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "matamoros-universidad-tecnologica-de-matamoros",
+  "name": "Universidad tecnologica de matamoros",
+  "city": "Matamoros",
+  "country": "México",
+  "lat": 25.921174,
+  "lng": -97.589244,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4836298503",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "matamoros-universidad-miguel-aleman",
+  "name": "Universidad Miguel Alemán",
+  "city": "Matamoros",
+  "country": "México",
+  "lat": 25.862553,
+  "lng": -97.502144,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Bilingüe o internacional",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7018626388",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "matamoros-universidad-del-valle-de-mexico",
+  "name": "Universidad Del Valle De Mexico",
+  "city": "Matamoros",
+  "country": "México",
+  "lat": 25.896649,
+  "lng": -97.534336,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w751947267",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-maria-auxiliadora",
+  "name": "Colegio Maria Auxiliadora",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.239442,
+  "lng": -74.180531,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2756651885",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-jesus-espeleta-fajardo",
+  "name": "Colegio Jesus Espeleta Fajardo",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.148073,
+  "lng": -74.221014,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2767366313",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-cristiano-kavot",
+  "name": "Colegio Cristiano \" KAVOT\"",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.216303,
+  "lng": -74.187911,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9184187732",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio",
+  "name": "Colegio",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.218112,
+  "lng": -74.184359,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9184187737",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-campestre-mundo-de-disney",
+  "name": "Colegio Campestre Mundo de Disney",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.188611,
+  "lng": -74.2169,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n10099905717",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-sony-dive-center",
+  "name": "sony dive Center",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.267004,
+  "lng": -74.190615,
+  "addr": "Calle 16",
+  "phone": "",
+  "web": "https://www.sonydivecenter.com/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n11086735404",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-madre-maria-goretti",
+  "name": "Institución Madre María Goretti",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.147074,
+  "lng": -74.217893,
+  "addr": "",
+  "phone": "+57 605 4322316",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485797043",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-pedag-gotas-de-rocio",
+  "name": "Institución Pedag Gotas de Rocio",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.248397,
+  "lng": -74.202673,
+  "addr": "",
+  "phone": "+57 605 4225784",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485797044",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-san-rafael",
+  "name": "Colegio San Rafael",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.188838,
+  "lng": -74.219313,
+  "addr": "",
+  "phone": "+57 605 4227988",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485797046",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-escuela-mix-maria-auxiliadora",
+  "name": "Escuela Mix María Auxiliadora",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.267899,
+  "lng": -74.190228,
+  "addr": "",
+  "phone": "+57 605 4219153",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485797047",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-gimnasio-campestre-el-rodadero",
+  "name": "Gimnasio Campestre El Rodadero",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.200469,
+  "lng": -74.225078,
+  "addr": "",
+  "phone": "+57 605 4227350",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485797049",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-educativa-cooperativa-el-rosario-de-gaira",
+  "name": "Institución Educativa Cooperativa El Rosario de Gaira",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.250779,
+  "lng": -74.20463,
+  "addr": "",
+  "phone": "+57 605 4358126",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485797050",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-integral-english-excellen-celeaders",
+  "name": "Colegio Integral English Excellen Celeaders",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.213313,
+  "lng": -74.160257,
+  "addr": "",
+  "phone": "+57 310 7892878",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837018",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-semillitas-del-saber",
+  "name": "Colegio Semillitas del Saber",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.212224,
+  "lng": -74.18058,
+  "addr": "",
+  "phone": "+57 312 8202261",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837019",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-semillas-del-futuro",
+  "name": "Colegio Semillas del Futuro",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.221816,
+  "lng": -74.204341,
+  "addr": "",
+  "phone": "+57 301 3113363",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837020",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-escuela-pedagogica-infancia-creativa",
+  "name": "Escuela Pedagogica Infancia Creativa",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.209359,
+  "lng": -74.184815,
+  "addr": "",
+  "phone": "+57 301 5132880",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837021",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-corporacion-sistematizada-ceotes",
+  "name": "Corporación Sistematizada Ceotes",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.242171,
+  "lng": -74.203219,
+  "addr": "",
+  "phone": "+57 301 5132880",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837022",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-corporacion-colombiana-cettcor",
+  "name": "Corporación Colombiana Cettcor",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.242004,
+  "lng": -74.187265,
+  "addr": "",
+  "phone": "+57 304 6291656",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837023",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-estoy-feliz",
+  "name": "Centro Educativo Estoy Feliz",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.215583,
+  "lng": -74.159805,
+  "addr": "",
+  "phone": "+57 305 4121232",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837024",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-centro-de-formacion-tecnica-de-colombia-cenfocat",
+  "name": "Centro Educativo Centro de Formación Tecnica de Colombia Cenfocat",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.239549,
+  "lng": -74.18065,
+  "addr": "",
+  "phone": "+57 320 5796123",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837025",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-jardin-infantil-reino-del-saber",
+  "name": "Jardín Infantil Reino del Saber",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.213841,
+  "lng": -74.185987,
+  "addr": "",
+  "phone": "+57 318 2169303",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837026",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-jugando-aprendo",
+  "name": "Centro Educativo Jugando Aprendo",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.21589,
+  "lng": -74.159638,
+  "addr": "",
+  "phone": "+57 317 4515848",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837027",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-mixto-nuevo-magdalena",
+  "name": "Institución Mixto Nuevo Magdalena",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.195847,
+  "lng": -74.2252,
+  "addr": "",
+  "phone": "+57 313 5960869",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837028",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-kids-world",
+  "name": "Centro Educativo Kids World",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.232739,
+  "lng": -74.186325,
+  "addr": "",
+  "phone": "+57 321 4257583",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837029",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-alvaro-beltran-diaz",
+  "name": "Centro Educativo Alvaro Beltran Diaz",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.223019,
+  "lng": -74.204843,
+  "addr": "",
+  "phone": "+57 605 4303739",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837030",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-madre-naturaleza",
+  "name": "Colegio Madre Naturaleza",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.233876,
+  "lng": -74.215294,
+  "addr": "",
+  "phone": "+57 321 5974185",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837031",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-cristiano-boston-kids",
+  "name": "Colegio Cristiano Boston Kids",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.192613,
+  "lng": -74.223458,
+  "addr": "",
+  "phone": "+57 300 2856556",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837032",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-educativa-cristiano-larsen",
+  "name": "Institución Educativa Cristiano Larsen",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.223847,
+  "lng": -74.155106,
+  "addr": "",
+  "phone": "+57 300 5525254",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837033",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-humanista-edgar-hernando-sanchez-duarte",
+  "name": "Colegio Humanista Edgar Hernando Sanchez Duarte",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.242794,
+  "lng": -74.194887,
+  "addr": "",
+  "phone": "+57 301 4087178",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837034",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-camino-al-saber",
+  "name": "Institución Camino Al Saber",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.245978,
+  "lng": -74.205908,
+  "addr": "",
+  "phone": "+57 305 3263821",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837035",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-my-forest-school-sas",
+  "name": "My Forest School Sas",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.242251,
+  "lng": -74.193116,
+  "addr": "",
+  "phone": "+57 300 5305168",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837036",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-educativa-fuente-de-amor",
+  "name": "Institución Educativa Fuente de Amor",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.223688,
+  "lng": -74.152092,
+  "addr": "",
+  "phone": "+57 321 5074495",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837037",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-rafael-nunez",
+  "name": "Centro Educativo Rafael Nuñez",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.223127,
+  "lng": -74.201094,
+  "addr": "",
+  "phone": "+57 605 4367110",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837038",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-para-la-sensibilizacion-motivacion-aprendizaje-respeto-y-trans",
+  "name": "Colegio Para La Sensibilización Motivación Aprendizaje Respeto y Transformación",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.236423,
+  "lng": -74.21077,
+  "addr": "",
+  "phone": "+57 302 3392871",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837039",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-cristiano-hefziba-beula",
+  "name": "Colegio Cristiano Hefziba Beula",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.246544,
+  "lng": -74.190895,
+  "addr": "",
+  "phone": "+57 315 7387940",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837040",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-cristiano-nueva-generacion",
+  "name": "Colegio Cristiano Nueva Generación",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.247931,
+  "lng": -74.207638,
+  "addr": "",
+  "phone": "+57 605 4371404",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837041",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-mundo-de-ilusiones-school",
+  "name": "Mundo de Ilusiones School",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.218713,
+  "lng": -74.200263,
+  "addr": "",
+  "phone": "+57 316 2433523",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837042",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-ninos-felices",
+  "name": "Colegio Niños Felices",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.238033,
+  "lng": -74.164348,
+  "addr": "",
+  "phone": "+57 318 4929898",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837043",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-pedagogico-nueva-esperanza",
+  "name": "Institución Pedagogico Nueva Esperanza",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.237774,
+  "lng": -74.179478,
+  "addr": "",
+  "phone": "+57 315 2797605",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837044",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-cristiano-hefziba",
+  "name": "Colegio Cristiano Hefziba",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.212865,
+  "lng": -74.188981,
+  "addr": "",
+  "phone": "+57 302 4349955",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837045",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-centro-tecnico-de-formacion-colombiano-centefoc",
+  "name": "Centro Educativo Centro Tecnico de Formación Colombiano Centefoc",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.238855,
+  "lng": -74.180522,
+  "addr": "",
+  "phone": "+57 605 4202343",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837046",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-jardin-cristiano-corazones-felices",
+  "name": "Jardín Cristiano Corazones Felices",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.225975,
+  "lng": -74.197537,
+  "addr": "",
+  "phone": "+57 605 4370599",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837047",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-academia-internacional-de-estudios-tecnicos-aies",
+  "name": "Academia Internacional de Estudios Tecnicos Aies",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.237978,
+  "lng": -74.191583,
+  "addr": "",
+  "phone": "+57 304 5617986",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837048",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-fenix",
+  "name": "Centro Educativo Fenix",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.212902,
+  "lng": -74.178967,
+  "addr": "",
+  "phone": "+57 605 4343768",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837049",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-pedagogico-cristiano",
+  "name": "Institución Pedagogico Cristiano",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.235319,
+  "lng": -74.151085,
+  "addr": "",
+  "phone": "+57 312 6224111",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837050",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-liceo-san-lucas",
+  "name": "Colegio Liceo San Lucas",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.241927,
+  "lng": -74.175223,
+  "addr": "",
+  "phone": "+57 300 5679454",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837051",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-bilingue-los-pinos",
+  "name": "Colegio Bilingue Los Pinos",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.213347,
+  "lng": -74.174627,
+  "addr": "",
+  "phone": "+57 300 6178507",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837052",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-cristiano-creciendo-con-jesus",
+  "name": "Colegio Cristiano Creciendo Con Jesus",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.239987,
+  "lng": -74.187535,
+  "addr": "",
+  "phone": "+57 301 2008658",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837053",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-centro-teologico-jerusalem",
+  "name": "Centro Educativo Centro Teologico Jerusalem",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.229453,
+  "lng": -74.183655,
+  "addr": "",
+  "phone": "+57 318 5808952",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837054",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-el-salvador",
+  "name": "Colegio El Salvador",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.213955,
+  "lng": -74.189526,
+  "addr": "",
+  "phone": "+57 605 4301654",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837055",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-el-mundo-del-saber",
+  "name": "Colegio El Mundo del Saber",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.228791,
+  "lng": -74.189035,
+  "addr": "",
+  "phone": "+57 300 2004799",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837056",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-semilleros-del-saber",
+  "name": "Institución Semilleros del Saber",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.251058,
+  "lng": -74.206976,
+  "addr": "",
+  "phone": "+57 310 6425167",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837057",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-happy-kids-jardin-infantil",
+  "name": "Happy Kids Jardín Infantil",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.213225,
+  "lng": -74.126882,
+  "addr": "",
+  "phone": "+57 304 3426471",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837059",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-cristiano-rayitos-de-amor",
+  "name": "Institución Cristiano Rayitos de Amor",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.238449,
+  "lng": -74.176138,
+  "addr": "",
+  "phone": "+57 605 4337155",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837060",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-gran-mundo-de-paz",
+  "name": "Centro Educativo Gran Mundo de Paz",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.147184,
+  "lng": -74.213006,
+  "addr": "",
+  "phone": "+57 605 4209387",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837061",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-cristiano-anglocolombiano",
+  "name": "Colegio Cristiano Anglocolombiano",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.24254,
+  "lng": -74.187888,
+  "addr": "",
+  "phone": "+57 605 4203113",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837062",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-los-manglares",
+  "name": "Colegio Los Manglares",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.197441,
+  "lng": -74.228683,
+  "addr": "",
+  "phone": "+57 310 8756225",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837063",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-divina-luz",
+  "name": "Institución Divina Luz",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.222302,
+  "lng": -74.20565,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837066",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-fundacion-educ-cristiana-juan-calvino",
+  "name": "Fundación Educ Cristiana Juan Calvino",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.228009,
+  "lng": -74.195125,
+  "addr": "",
+  "phone": "+57 605 4201169",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837067",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-ninos-de-dios",
+  "name": "Institución Niños de Dios",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.226687,
+  "lng": -74.150432,
+  "addr": "",
+  "phone": "+57 312 6528650",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837068",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-jardin-infantil-imaginarte",
+  "name": "Jardín Infantil Imaginarte",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.238126,
+  "lng": -74.197921,
+  "addr": "",
+  "phone": "+57 301 3744270",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837069",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-saber",
+  "name": "Institución Saber",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.219264,
+  "lng": -74.200168,
+  "addr": "",
+  "phone": "+57 605 4304965",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837070",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-fundacion-de-formacion-integl-esperanza-viva",
+  "name": "Fundación de Formación Integl Esperanza Viva",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.234748,
+  "lng": -74.131532,
+  "addr": "",
+  "phone": "+57 313 5074080",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837071",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-el-ohim",
+  "name": "Centro Educativo El Ohim",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.216561,
+  "lng": -74.195689,
+  "addr": "",
+  "phone": "+57 316 5433436",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837072",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-ecos",
+  "name": "Centro Educativo Ecos",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.251097,
+  "lng": -74.168284,
+  "addr": "",
+  "phone": "+57 605 4340928",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837073",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-cristiano-superior-del-caribe",
+  "name": "Colegio Cristiano Superior del Caribe",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.234226,
+  "lng": -74.194744,
+  "addr": "",
+  "phone": "+57 605 4347833",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837074",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-primavera",
+  "name": "Centro Educativo Primavera",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.241008,
+  "lng": -74.173446,
+  "addr": "",
+  "phone": "+57 605 4311708",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837075",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-lic-pitagoras",
+  "name": "Colegio Lic Pitagoras",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.232585,
+  "lng": -74.193523,
+  "addr": "",
+  "phone": "+57 605 4349640",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837077",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-liceo-mix-jean-piaget",
+  "name": "Liceo Mix Jean Piaget",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.249067,
+  "lng": -74.199484,
+  "addr": "",
+  "phone": "+57 605 4226754",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837078",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-cristiano-amor-de-cristo",
+  "name": "Colegio Cristiano Amor de Cristo",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.229328,
+  "lng": -74.211413,
+  "addr": "",
+  "phone": "+57 605 4234923",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837079",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-jardin-biling-la-alegria-de-contar",
+  "name": "Jardín Biling La Alegria de Contar",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.239409,
+  "lng": -74.190564,
+  "addr": "",
+  "phone": "+57 605 4203779",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837080",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-buhler",
+  "name": "Centro Educativo Buhler",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.127472,
+  "lng": -74.221436,
+  "addr": "",
+  "phone": "+57 605 4320804",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837081",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-fuente-del-saber",
+  "name": "Institución Fuente del Saber",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.241027,
+  "lng": -74.198972,
+  "addr": "",
+  "phone": "+57 605 4348246",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837082",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-jardin-infantil-aluna",
+  "name": "Jardín Infantil Aluna",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.236584,
+  "lng": -74.197625,
+  "addr": "",
+  "phone": "+57 605 4348355",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837083",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-gotitas-de-amor",
+  "name": "Colegio Gotitas de Amor",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.236247,
+  "lng": -74.20721,
+  "addr": "",
+  "phone": "+57 605 4316021",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837084",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-corporacion-educativa-del-caribe-cedelca",
+  "name": "Corporación Educativa del Caribe Cedelca",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.23859,
+  "lng": -74.21438,
+  "addr": "",
+  "phone": "+57 605 4234685",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837085",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-mariel",
+  "name": "Institución Mariel",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.219659,
+  "lng": -74.211436,
+  "addr": "",
+  "phone": "+57 605 4235830",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837086",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-inst-tec-del-caribe",
+  "name": "Colegio Inst Tec del Caribe",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.24387,
+  "lng": -74.212592,
+  "addr": "",
+  "phone": "410695",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837087",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-esmar",
+  "name": "Centro Educativo Esmar",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.249311,
+  "lng": -74.200638,
+  "addr": "",
+  "phone": "+57 605 4221994",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837088",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-jord-camp-el-mundo-de-disney",
+  "name": "Jord Camp El Mundo de Disney",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.188721,
+  "lng": -74.216728,
+  "addr": "",
+  "phone": "+57 605 4220125",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837089",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-crist-nueva-jerusalen",
+  "name": "Colegio Crist Nueva Jerusalen",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.24627,
+  "lng": -74.209571,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837090",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-francisco-sanchez-pinto",
+  "name": "Institución Francisco Sanchez Pinto",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.226601,
+  "lng": -74.20611,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837091",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-nueva-ensenanza",
+  "name": "Institucion Nueva Enseñanza",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.216724,
+  "lng": -74.19031,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837092",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-agazzi",
+  "name": "Institución Agazzi",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.225869,
+  "lng": -74.203872,
+  "addr": "",
+  "phone": "+57 605 4233955",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837093",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-vigostky",
+  "name": "Institución Vigostky",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.223417,
+  "lng": -74.213214,
+  "addr": "",
+  "phone": "+57 605 4315175",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837094",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-ludico-decroly",
+  "name": "Institución Ludico Decroly",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.245315,
+  "lng": -74.19844,
+  "addr": "",
+  "phone": "+57 605 4208972",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837095",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-inf-inolvidable-infancia",
+  "name": "Colegio Inf Inolvidable Infancia",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.221141,
+  "lng": -74.209625,
+  "addr": "",
+  "phone": "+57 605 4315682",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837096",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-salem",
+  "name": "Centro Educativo Salem",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.221333,
+  "lng": -74.197866,
+  "addr": "",
+  "phone": "+57 605 4234158",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837097",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-jireh",
+  "name": "Centro Educativo Jireh",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.23912,
+  "lng": -74.1751,
+  "addr": "",
+  "phone": "+57 317 4225953",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837098",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-nino-jesus-de-praga",
+  "name": "Colegio Niño Jesus de Praga",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.222772,
+  "lng": -74.153184,
+  "addr": "",
+  "phone": "+57 605 4337754",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837099",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-cristiano-nuevo-jerusalen",
+  "name": "Colegio Cristiano Nuevo Jerusalen",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.24146,
+  "lng": -74.207354,
+  "addr": "",
+  "phone": "+57 300 2077339",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837100",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-ludico-huellitas-infantiles",
+  "name": "Institución Ludico Huellitas Infantiles",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.190328,
+  "lng": -74.231166,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837101",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-maury",
+  "name": "Institución Maury",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.250812,
+  "lng": -74.201067,
+  "addr": "",
+  "phone": "+57 605 4229076",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837102",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-jardin-infantil-suenos-infantiles",
+  "name": "Jardín Infantil Suenos Infantiles",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.236873,
+  "lng": -74.197669,
+  "addr": "",
+  "phone": "+57 605 4201760",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837103",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-jardin-infantil-pequenos-sonadores",
+  "name": "Jardín Infantil Pequenos Sonadores",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.235164,
+  "lng": -74.175853,
+  "addr": "",
+  "phone": "+57 605 4330439",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837104",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-mis-primeros-logros",
+  "name": "Colegio Mis Primeros Logros",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.247448,
+  "lng": -74.17053,
+  "addr": "",
+  "phone": "+57 605 4330775",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837105",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-i-e-d-san-francisco-javier",
+  "name": "I. E. D. San Francisco Javier",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.230911,
+  "lng": -74.151793,
+  "addr": "Calle 27C",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837106",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-comun-juan-jose-thonson",
+  "name": "Institución Comun Juan José Thonson",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.248324,
+  "lng": -74.167509,
+  "addr": "",
+  "phone": "+57 605 4334984",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837107",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-integ-sistematizado-arco-iris",
+  "name": "Colegio Integ Sistematizado Arco Iris",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.241347,
+  "lng": -74.177162,
+  "addr": "",
+  "phone": "+57 605 4332095",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837108",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-jardin-infantil-ipler",
+  "name": "Jardín Infantil Ipler",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.236353,
+  "lng": -74.21215,
+  "addr": "",
+  "phone": "+57 605 4201434",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837109",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-el-saber",
+  "name": "Institución El Saber",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.251433,
+  "lng": -74.202996,
+  "addr": "",
+  "phone": "+57 605 4316444",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837110",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-jardin-infantil-cristiano-nino-feliz",
+  "name": "Jardín Infantil Cristiano Niño Feliz",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.247891,
+  "lng": -74.194254,
+  "addr": "",
+  "phone": "+57 605 4202855",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837111",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-liceo-inf-osito-panda",
+  "name": "Liceo Inf Osito Panda",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.234916,
+  "lng": -74.20073,
+  "addr": "",
+  "phone": "+57 605 4310612",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837112",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-pedag-mi-casita",
+  "name": "Institución Pedag Mi Casita",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.235459,
+  "lng": -74.179152,
+  "addr": "",
+  "phone": "+57 605 4334565",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837113",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-mundo-de-ilusiones",
+  "name": "Colegio Mundo de Ilusiones",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.232309,
+  "lng": -74.186968,
+  "addr": "",
+  "phone": "+57 605 4207756",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837114",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-jose-gregorio-hernandez",
+  "name": "Institución José Gregorio Hernandez",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.228737,
+  "lng": -74.206512,
+  "addr": "",
+  "phone": "+57 605 4235221",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837115",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-mix-rodrigo-de-bastidas",
+  "name": "Institución Mix Rodrigo de Bastidas",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.2422,
+  "lng": -74.201746,
+  "addr": "",
+  "phone": "+57 605 6401250",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837116",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-jardin-infantil-personitas-del-futuro",
+  "name": "Jardín Infantil Personitas del Futuro",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.243556,
+  "lng": -74.205126,
+  "addr": "",
+  "phone": "215617",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837117",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-pedag-mis-primeros-pasos",
+  "name": "Colegio Pedag Mis Primeros Pasos",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.253957,
+  "lng": -74.191319,
+  "addr": "",
+  "phone": "+57 605 4348074",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837118",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-eduardo-santos",
+  "name": "Institución Eduardo Santos",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.221452,
+  "lng": -74.207388,
+  "addr": "",
+  "phone": "+57 605 4231526",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837119",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-rafael-reyes",
+  "name": "Institución Rafael Reyes",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.229702,
+  "lng": -74.16665,
+  "addr": "",
+  "phone": "+57 605 4338456",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837120",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-valdy",
+  "name": "Institución Valdy",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.249127,
+  "lng": -74.205446,
+  "addr": "",
+  "phone": "221805",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837121",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-pablo-neruda",
+  "name": "Colegio Pablo Neruda",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.238421,
+  "lng": -74.191064,
+  "addr": "",
+  "phone": "+57 605 4200466",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837122",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-cira-quiroz-de-ayala",
+  "name": "Institución Cira Quiroz de Ayala",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.22999,
+  "lng": -74.207171,
+  "addr": "",
+  "phone": "232952",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837123",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-santiago-marquez",
+  "name": "Institución Santiago Marquez",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.22905,
+  "lng": -74.206777,
+  "addr": "",
+  "phone": "+57 605 4316479",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837124",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-gimn-bastidas",
+  "name": "Colegio Gimn Bastidas",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.221305,
+  "lng": -74.20401,
+  "addr": "",
+  "phone": "+57 605 4335487",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837125",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-mix-luis-carlos-galan",
+  "name": "Institución Mix Luis Carlos Galán",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.233341,
+  "lng": -74.179897,
+  "addr": "",
+  "phone": "+57 605 4333317",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837126",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-jardin-inf-manitas-traviesas",
+  "name": "Colegio Jardín Inf Manitas Traviesas",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.240013,
+  "lng": -74.190015,
+  "addr": "",
+  "phone": "+57 605 4205959",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837127",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-juan-jacobo-rousseau",
+  "name": "Colegio Juan Jacobo Rousseau",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.219257,
+  "lng": -74.158336,
+  "addr": "",
+  "phone": "+57 605 4332202",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837128",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-pedag-anita",
+  "name": "Institución Pedag Anita",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.243534,
+  "lng": -74.175492,
+  "addr": "",
+  "phone": "+57 605 4331238",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837129",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-chiquimundo-jardin-inf-creativo",
+  "name": "Chiquimundo Jardín Inf Creativo",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.241836,
+  "lng": -74.213561,
+  "addr": "",
+  "phone": "+57 605 4221453",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837130",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-jardin-lucecitas",
+  "name": "Colegio Jardín Lucecitas",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.235743,
+  "lng": -74.199711,
+  "addr": "",
+  "phone": "+57 605 4349132",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837131",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-nueva-esperanza",
+  "name": "Institución Nueva Esperanza",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.241103,
+  "lng": -74.210785,
+  "addr": "",
+  "phone": "+57 605 4210035",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837132",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-mi-bella-sonrisa",
+  "name": "Centro Educativo Mi Bella Sonrisa",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.242934,
+  "lng": -74.201616,
+  "addr": "",
+  "phone": "+57 605 4221071",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837133",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-jardin-infantil-mi-edad-feliz",
+  "name": "Jardín Infantil Mi Edad Feliz",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.241927,
+  "lng": -74.193568,
+  "addr": "",
+  "phone": "+57 315 7181497",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837134",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-jardin-infantil-jugar-y-crear",
+  "name": "Jardín Infantil Jugar y Crear",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.251181,
+  "lng": -74.198981,
+  "addr": "",
+  "phone": "+57 605 4215646",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837135",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-fray-bartolome",
+  "name": "Colegio Fray Bartolomé",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.246673,
+  "lng": -74.207238,
+  "addr": "",
+  "phone": "+57 605 4310791",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837136",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-cent-inf-nino-jesus",
+  "name": "Centro Educativo Cent Inf Nino Jesus",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.247582,
+  "lng": -74.196928,
+  "addr": "",
+  "phone": "+57 605 4203597",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837137",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-oriente",
+  "name": "Institución Oriente",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.223021,
+  "lng": -74.153926,
+  "addr": "",
+  "phone": "+57 605 4339819",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837138",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-preescolar-nuestra-senora-de-fatima",
+  "name": "Preescolar Nuestra Señora de Fatima",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.238287,
+  "lng": -74.174983,
+  "addr": "",
+  "phone": "+57 605 4302089",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837139",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-anher",
+  "name": "Institución Anher",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.254479,
+  "lng": -74.204179,
+  "addr": "",
+  "phone": "+57 605 4223585",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837140",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-jardin-infantil-mis-primeras-luces",
+  "name": "Jardín Infantil Mis Primeras Luces",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.22478,
+  "lng": -74.208829,
+  "addr": "",
+  "phone": "+57 605 4210310",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837141",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-samario-del-sur",
+  "name": "Institución Samario del Sur",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.223499,
+  "lng": -74.202902,
+  "addr": "",
+  "phone": "+57 605 4210535",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837142",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-mis-pequenos-sabios",
+  "name": "Institución Mis Pequenos Sabios",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.251742,
+  "lng": -74.201818,
+  "addr": "",
+  "phone": "+57 605 4221036",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837143",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-cent-escol-manantial-de-ternura",
+  "name": "Centro Educativo Cent Escol Manantial de Ternura",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.199029,
+  "lng": -74.218075,
+  "addr": "",
+  "phone": "+57 605 4221896",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837144",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-la-virgen-de-fatima",
+  "name": "Institución La Virgen de Fatima",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.24517,
+  "lng": -74.204849,
+  "addr": "",
+  "phone": "+57 605 4227950",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837145",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-cent-pedag-del-nino",
+  "name": "Colegio Cent Pedag del Nino",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.23571,
+  "lng": -74.20649,
+  "addr": "",
+  "phone": "+57 605 4232664",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837146",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-domingo-savio",
+  "name": "Colegio Domingo Savio",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.240329,
+  "lng": -74.143155,
+  "addr": "",
+  "phone": "+57 605 4338338",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837147",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-mix-corazon-de-maria",
+  "name": "Institución Mix Corazon de María",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.217609,
+  "lng": -74.158757,
+  "addr": "",
+  "phone": "+57 605 4340136",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837148",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-maria-inmaculada",
+  "name": "Colegio María Inmaculada",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.243153,
+  "lng": -74.214388,
+  "addr": "",
+  "phone": "+57 605 4212540",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837149",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-las-americas",
+  "name": "Institución Las Americas",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.226841,
+  "lng": -74.204402,
+  "addr": "",
+  "phone": "+57 605 4231827",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837150",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-educativa-dist-el-pantano",
+  "name": "Institución Educativa Dist El Pantano",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.240638,
+  "lng": -74.17335,
+  "addr": "",
+  "phone": "+57 605 4335598",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837151",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-miguel-antonio-campo",
+  "name": "Institución Miguel Antonio Campo",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.229698,
+  "lng": -74.207271,
+  "addr": "",
+  "phone": "+57 605 4230518",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837152",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-jardin-infantil-carrusel",
+  "name": "Jardín Infantil Carrusel",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.23704,
+  "lng": -74.186856,
+  "addr": "",
+  "phone": "+57 605 4203274",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837153",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-el-paraiso",
+  "name": "Colegio El Paraiso",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.237233,
+  "lng": -74.172257,
+  "addr": "",
+  "phone": "+57 605 4331892",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837154",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-inmaculada-concepcion",
+  "name": "Colegio Inmaculada Concepción",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.241716,
+  "lng": -74.209482,
+  "addr": "",
+  "phone": "+57 605 4213410",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837155",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-del-norte",
+  "name": "Institución del Norte",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.251134,
+  "lng": -74.203946,
+  "addr": "",
+  "phone": "+57 605 4316447",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837156",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-colombo-ecuatoriano",
+  "name": "Colegio Colombo Ecuatoriano",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.241673,
+  "lng": -74.209116,
+  "addr": "",
+  "phone": "+57 605 4212014",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837157",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-agustin-nieto-caballero",
+  "name": "Colegio Agustín Nieto Caballero",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.232573,
+  "lng": -74.212276,
+  "addr": "",
+  "phone": "+57 605 4231616",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837158",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-tayrona",
+  "name": "Institución Tayrona",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.240078,
+  "lng": -74.205523,
+  "addr": "",
+  "phone": "+57 605 4231722",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837159",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-nueva-york",
+  "name": "Colegio Nueva York",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.249442,
+  "lng": -74.20752,
+  "addr": "",
+  "phone": "+57 605 4316223",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837160",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-sagrado-corazon",
+  "name": "Colegio Sagrado Corazon",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.241871,
+  "lng": -74.205527,
+  "addr": "",
+  "phone": "+57 605 4212324",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837161",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-nancy",
+  "name": "Institución Nancy",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.24504,
+  "lng": -74.193206,
+  "addr": "",
+  "phone": "+57 605 4347176",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837162",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-ariano",
+  "name": "Institución Ariano",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.245262,
+  "lng": -74.192905,
+  "addr": "",
+  "phone": "+57 605 4200356",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837163",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-camilo-torres",
+  "name": "Institución Camilo Torres",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.246192,
+  "lng": -74.173061,
+  "addr": "",
+  "phone": "+57 605 4331593",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837164",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-liceo-san-judas-tadeo",
+  "name": "Liceo San Judas Tadeo",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.244201,
+  "lng": -74.192285,
+  "addr": "",
+  "phone": "+57 605 4203672",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837165",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-la-milagrosa",
+  "name": "Institución La Milagrosa",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.194992,
+  "lng": -74.221417,
+  "addr": "",
+  "phone": "+57 605 4216720",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837166",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-escuela-san-martin-de-porres",
+  "name": "Escuela San Martín de Porres",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.23313,
+  "lng": -74.194809,
+  "addr": "",
+  "phone": "+57 605 4349035",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837167",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-jardin-infantil-el-rosario",
+  "name": "Jardín Infantil El Rosario",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.24348,
+  "lng": -74.196364,
+  "addr": "",
+  "phone": "+57 605 4202993",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837168",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-dist-antonio-escobar-camargo",
+  "name": "Centro Educativo Dist Antonio Escobar Camargo",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.203497,
+  "lng": -74.162312,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837169",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-de-comercio-moderno",
+  "name": "Institución de Comercio Moderno",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.246507,
+  "lng": -74.210784,
+  "addr": "",
+  "phone": "+57 605 4231625",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837170",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-marco-fidel-suarez",
+  "name": "Colegio Marco Fidel Suarez",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.244527,
+  "lng": -74.203257,
+  "addr": "",
+  "phone": "+57 605 4231680",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837171",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-ateneo-moderno",
+  "name": "Ateneo Moderno",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.187463,
+  "lng": -74.22149,
+  "addr": "",
+  "phone": "+57 605 4230913",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837172",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-mix-20-de-julio",
+  "name": "Colegio Mix 20 de Julio",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.250155,
+  "lng": -74.20475,
+  "addr": "",
+  "phone": "+57 605 4216613",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837173",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-espiritu-santo",
+  "name": "Colegio Espiritu Santo",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.247246,
+  "lng": -74.20142,
+  "addr": "",
+  "phone": "+57 605 4217175",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837174",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-el-divino-nino",
+  "name": "Colegio El Divino Nino",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.235672,
+  "lng": -74.191782,
+  "addr": "",
+  "phone": "+57 605 4201305",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837175",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-eucaristico",
+  "name": "Colegio Eucaristico",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.241808,
+  "lng": -74.211986,
+  "addr": "",
+  "phone": "+57 605 4214498",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837176",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-san-juan-bosco",
+  "name": "Colegio San Juan Bosco",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.235423,
+  "lng": -74.204708,
+  "addr": "",
+  "phone": "+57 605 4232279",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837177",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-inst-denise",
+  "name": "Colegio Inst Denise",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.242824,
+  "lng": -74.2085,
+  "addr": "",
+  "phone": "+57 605 4212428",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837178",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-escuela-magdalena",
+  "name": "Colegio Escuela Magdalena",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.241878,
+  "lng": -74.207232,
+  "addr": "",
+  "phone": "213757",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837179",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-centro-educativo-cent-inf-la-primavera",
+  "name": "Centro Educativo Cent Inf La Primavera",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.249473,
+  "lng": -74.205065,
+  "addr": "",
+  "phone": "+57 605 4229093",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837180",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-marlys",
+  "name": "Institución Marlys",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.221623,
+  "lng": -74.155965,
+  "addr": "",
+  "phone": "+57 311 6734038",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837181",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-de-educ-media-abierta-y-a-distancia-inem",
+  "name": "Institución de Educ Media Abierta y A Distancia Inem",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.237056,
+  "lng": -74.211918,
+  "addr": "",
+  "phone": "231867",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837182",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-primero-de-mayo",
+  "name": "Institución Primero de Mayo",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.218742,
+  "lng": -74.193096,
+  "addr": "",
+  "phone": "+57 605 4317636",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837183",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-inf-bambi",
+  "name": "Colegio Inf Bambi",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.224638,
+  "lng": -74.204626,
+  "addr": "",
+  "phone": "+57 605 4313245",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837184",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-jose-maria-carbonel",
+  "name": "José María Carbonel",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.228764,
+  "lng": -74.165196,
+  "addr": "",
+  "phone": "+57 605 4333501",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837185",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-escuela-el-divino-infante",
+  "name": "Escuela El Divino Infante",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.25119,
+  "lng": -74.20945,
+  "addr": "",
+  "phone": "+57 605 4234933",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837186",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-tecnolog-del-magdalena",
+  "name": "Institución Tecnolog del Magdalena",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.24611,
+  "lng": -74.210691,
+  "addr": "",
+  "phone": "212879",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837187",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-liceo-cervantes",
+  "name": "Liceo Cervantes",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.243435,
+  "lng": -74.188433,
+  "addr": "",
+  "phone": "+57 605 4207448",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837188",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-institucion-educativa-dist-madre-laura",
+  "name": "Institución Educativa Dist Madre Laura",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.251525,
+  "lng": -74.20628,
+  "addr": "",
+  "phone": "+57 605 4216438",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837189",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-universidad-sergio-arboleda-campus-centro",
+  "name": "Universidad Sergio Arboleda Campus Centro",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.239926,
+  "lng": -74.200126,
+  "addr": "Calle 18 14A-18",
+  "phone": "",
+  "web": "https://www.usergioarboleda.edu.co",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12833954282",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-bilingue-santa-marta",
+  "name": "Colegio Bilingüe Santa Marta",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.219008,
+  "lng": -74.169178,
+  "addr": "Troncal DEL CARIBE",
+  "phone": "+57 605 4330455",
+  "web": "https://bilinguesantamarta.edu.co/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w223368847",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-diocesano-san-jose",
+  "name": "Colegio Diocesano San José",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.242222,
+  "lng": -74.197637,
+  "addr": "Avenida del Libertador 16D-40",
+  "phone": "",
+  "web": "https://cdiocesano.edu.co/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w267485805",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-la-presentacion",
+  "name": "Colegio La Presentación",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.23946,
+  "lng": -74.213897,
+  "addr": "Carrera 3 #23-62",
+  "phone": "",
+  "web": "https://www.colegiopresentacionsantamarta.edu.co/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w267605935",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-instituto-magdalena",
+  "name": "Instituto Magdalena",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.241338,
+  "lng": -74.196884,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w289310016",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-universidad-del-magdalena",
+  "name": "Universidad del Magdalena",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.224176,
+  "lng": -74.185421,
+  "addr": "Calle 32 # 22-08",
+  "phone": "",
+  "web": "https://www.unimagdalena.edu.co/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w289310695",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-santiago-de-cali-cajamag",
+  "name": "Colegio Santiago de Cali - Cajamag",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.23775,
+  "lng": -74.189004,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w386989389",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-juan-miguel-de-osuna",
+  "name": "Colegio Juan Miguel de Osuna",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.22432,
+  "lng": -74.173946,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w549555173",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-universidad-cooperativa-de-colombia",
+  "name": "Universidad Cooperativa de Colombia",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.22447,
+  "lng": -74.170665,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w549555175",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-divino-jesus",
+  "name": "Colegio Divino Jesús",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.238413,
+  "lng": -74.201358,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w576781969",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-bureche",
+  "name": "Colegio Bureche",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.205244,
+  "lng": -74.19096,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w587697702",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-mayor-del-caribe",
+  "name": "Colegio Mayor del Caribe",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.231936,
+  "lng": -74.175807,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w617203108",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-jorge-eliecer-gaitan",
+  "name": "Colegio Jorge Eliecer Gaitán",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.234616,
+  "lng": -74.176641,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w620714416",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-mega-colegio-de-la-paz",
+  "name": "Mega Colegio de la Paz",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.152367,
+  "lng": -74.216698,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w647104006",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-mega-colegio-quinto-centenario",
+  "name": "Mega Colegio Quinto Centenario",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.197926,
+  "lng": -74.180877,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w680632388",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-gimnasio-bolivariano",
+  "name": "Colegio Gimnasio Bolivariano",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.231171,
+  "lng": -74.205228,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w680653801",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-simon-rodriguez",
+  "name": "Colegio Simon Rodriguez",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.228458,
+  "lng": -74.167509,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w681392636",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-universidad-de-bogota-jorge-tadeo-lozano-sede-santa-marta",
+  "name": "Universidad de Bogotá Jorge Tadeo Lozano Sede Santa Marta",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.20176,
+  "lng": -74.227286,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.utadeo.edu.co/es/santa-marta",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w682983054",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-universidad-antonio-narino",
+  "name": "Universidad Antonio Nariño",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.221588,
+  "lng": -74.173002,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w684285983",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-franciscano-san-luis-beltran",
+  "name": "Colegio Franciscano San Luis Beltrán",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.236262,
+  "lng": -74.176958,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w684288025",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-la-villa",
+  "name": "Colegio La Villa",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.24375,
+  "lng": -74.198024,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w684419305",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-liceo-del-norte",
+  "name": "Liceo del Norte",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.248248,
+  "lng": -74.192942,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w684419313",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-colegio-nuestra-senora-de-fatima",
+  "name": "Colegio Nuestra Señora de Fátima",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.2463,
+  "lng": -74.196435,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w684419315",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-instituto-laura-vicuna",
+  "name": "Instituto Laura Vicuña",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.246814,
+  "lng": -74.203943,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w684419322",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-instituto-la-milagrosa",
+  "name": "Instituto La Milagrosa",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.241041,
+  "lng": -74.206057,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w684501928",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-liceo-celedon",
+  "name": "Liceo Celedón",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.242854,
+  "lng": -74.2028,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w685105292",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santa-marta-universidad-sergio-arboleda",
+  "name": "Universidad Sergio Arboleda",
+  "city": "Santa Marta",
+  "country": "Colombia",
+  "lat": 11.2196,
+  "lng": -74.177642,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w938878653",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-instituto-artesanal-gaspar-sangurima",
+  "name": "Instituto Artesanal Gaspar Sangurima",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.895904,
+  "lng": -78.980321,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n617216504",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-instituto-secular-la-merced",
+  "name": "Instituto Secular La Merced",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.883976,
+  "lng": -78.988128,
+  "addr": "",
+  "phone": "099 307 9225",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n620038790",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-abdon-calderon",
+  "name": "Colegio Abdón Calderón",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.876041,
+  "lng": -78.958992,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1566648868",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-centro-educativo-madrid",
+  "name": "Centro Educativo Madrid",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.872406,
+  "lng": -79.033698,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1569879192",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unid-educativa-liceo-cristiano-de-cuenca",
+  "name": "Unid. Educativa Liceo Cristiano de Cuenca",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.889327,
+  "lng": -79.018351,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1569879255",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-corel",
+  "name": "Unidad Educativa Corel",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.893915,
+  "lng": -78.970121,
+  "addr": "Avenida González Suárez",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1577474267",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-mixto-san-luis-beltran",
+  "name": "Colegio Mixto San Luis Beltrán",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.894635,
+  "lng": -79.006275,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1778475002",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-principe-de-paz",
+  "name": "Unidad Educativa Príncipe de Paz",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.913491,
+  "lng": -79.013638,
+  "addr": "Carlos V 3176",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2513974866",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-helen-doron-english-school",
+  "name": "Helen Doron: english school",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.908909,
+  "lng": -79.012318,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2566104612",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-instituto-superior-pedagogico-ricardo-marquez-tapia",
+  "name": "Instituto Superior Pedagógico Ricardo Marquez Tapia",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.893241,
+  "lng": -79.007375,
+  "addr": "TARQUI 1185 Y SANGURIMA, ESQ.",
+  "phone": "(07) 2826212 / 2842029 / 2830422 / 2830425 / 2847428",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4150041429",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-instituto-tecnologico-superior-american-college",
+  "name": "Instituto Tecnológico Superior American College",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.891599,
+  "lng": -79.001732,
+  "addr": "ANTONIO BORRERO 1480 ENTRE PIO BRAVO Y RAFAEL MARIA ARIZAGA",
+  "phone": "(07) 2850498",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4150041442",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-instituto-tecnologico-superior-integracion-andina",
+  "name": "Instituto Tecnológico Superior Integración Andina",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.894971,
+  "lng": -79.002208,
+  "addr": "BORRERO 11-38 Y LAMAR (EDIFICIO CIUDAD DE CUENCA/CUARTO PISO).",
+  "phone": "(07) 2451472 / 2846215",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4150041739",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-instituto-tecnologico-superior-sudamericano",
+  "name": "Instituto Tecnológico Superior Sudamericano",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.895964,
+  "lng": -78.998808,
+  "addr": "BOLIVAR 1-62 Y MANUEL VEGA(ESQUINA), SECTOR SAN BLAS",
+  "phone": "(07) 2838323 / 2839170 / 2843619",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4150041838",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-universidad-de-cuenca",
+  "name": "Universidad De Cuenca",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.920597,
+  "lng": -79.02496,
+  "addr": "AVENIDA 12 DE OCTUBRE Y DIEGO DE TAPIA",
+  "phone": "(07) 4051000",
+  "web": "https://www.ucuenca.edu.ec",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4150085033",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-ueps",
+  "name": "Unidad educativa UEPS",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.899545,
+  "lng": -79.012983,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4283269400",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-centro-educativo-el-sol",
+  "name": "Centro Educativo El Sol",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.89225,
+  "lng": -78.974252,
+  "addr": "Atahualpa",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4414898692",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-particular-la-alborada",
+  "name": "Colegio Particular La Alborada",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.880263,
+  "lng": -79.068648,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n4451302692",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-a-distancia-continental",
+  "name": "Colegio a Distancia Continental",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.908719,
+  "lng": -79.040587,
+  "addr": "Carlos Arizaga Toral",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4452356590",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-sinincay",
+  "name": "Unidad Educativa Sinincay",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.851589,
+  "lng": -79.015425,
+  "addr": "Padre Gonzalo Vasquez",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4508866189",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-casa-administrativa-de-la-universidad-catolica-de-cuenca",
+  "name": "Casa Administrativa de la Universidad Católica de Cuenca",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.884897,
+  "lng": -79.006362,
+  "addr": "Avenida de las Américas",
+  "phone": "+5932830751",
+  "web": "https://www.ucacue.edu.ec/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4790117421",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-instituto-american-college",
+  "name": "Instituto American College",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.89389,
+  "lng": -78.97016,
+  "addr": "Avenida González Suárez",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4842410521",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-aletheia-bible-school",
+  "name": "Aletheia bible school",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.997507,
+  "lng": -79.023487,
+  "addr": "Via Tarqui - Gullashanpa - Turi",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5336582622",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-porvenir",
+  "name": "Unidad Educativa Porvenir",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.906933,
+  "lng": -79.038348,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5499913798",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa",
+  "name": "unidad educativa",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.86818,
+  "lng": -79.047519,
+  "addr": "calle Octavio Tobias",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5647787523",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-centro-educativo-nova",
+  "name": "Centro Educativo Nova",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.916096,
+  "lng": -79.026067,
+  "addr": "Avenida de los Conquistadores",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5647845621",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-academia-cuenca",
+  "name": "Academia Cuenca",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.893636,
+  "lng": -78.978515,
+  "addr": "Narrio 2-63",
+  "phone": "+593-2865411-0984244820",
+  "web": "https://www.academiacuenca.com/",
+  "email": "info@academiacuenca.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5657353824",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-academia-profesional-de-danza-clasica-tersicore",
+  "name": "Academia Profesional de Danza Clásica TERSICORE",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.888446,
+  "lng": -79.008886,
+  "addr": "Calle Estévez de Toral 16-09",
+  "phone": "+593995516818",
+  "web": "https://www.facebook.com/academiaprofesionaldedanzaTERSICORE/",
+  "email": "periking@hotmail.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5668134221",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-enriqueta-cordero",
+  "name": "Unidad educativa Enriqueta cordero",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.91856,
+  "lng": -79.064082,
+  "addr": "24 de diciembre",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5977250385",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-chiquintad",
+  "name": "Unidad educativa CHIQUINTAD",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.809235,
+  "lng": -78.999927,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6287336386",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-centro-educativo-santa-maria-de-los-angeles",
+  "name": "Centro Educativo Santa María de los Ángeles",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.897962,
+  "lng": -79.022779,
+  "addr": "Brasil",
+  "phone": "0986310453",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6388952385",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-infancia",
+  "name": "Colegio Infancia",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.863369,
+  "lng": -78.967186,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6514376985",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-liceo-decroliano-internacional",
+  "name": "Liceo Decroliano Internacional",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.915186,
+  "lng": -79.029941,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6952820874",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-dolores-j-torres",
+  "name": "Unidad Educativa Dolores J. Torres",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.899685,
+  "lng": -79.004329,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7015593185",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-las-cumbres",
+  "name": "Unidad Educativa Las Cumbres",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.852395,
+  "lng": -78.91742,
+  "addr": "Pueblo Aguaruna",
+  "phone": "074075567",
+  "web": "http://secretarialascumbres@hotmail.com",
+  "email": "secretarialascumbres@hotmail.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7209646086",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-particular-a-distancia-atlantico",
+  "name": "Colegio Particular a Distancia Atlantico",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.898986,
+  "lng": -79.000555,
+  "addr": "Calle Mariscal Sucre 4-43",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n8041990285",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-particular-integracion-iberoamericano-uepii",
+  "name": "Unidad Educativa Particular Integración Iberoamericano UEPII",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.910992,
+  "lng": -79.039509,
+  "addr": "Tarquino Cordero nn",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n8583007392",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-la-asuncion",
+  "name": "Unidad Educativa La Asunción",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.925319,
+  "lng": -79.050815,
+  "addr": "Rio Orinoco",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n8643609818",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-checa",
+  "name": "Unidad Educativa Checa",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.812568,
+  "lng": -78.994258,
+  "addr": "Ent. colegio Checa",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n10739691240",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-bilingue-buena-esperanza",
+  "name": "Unidad Educativa Bilingue Buena Esperanza",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.870472,
+  "lng": -78.969594,
+  "addr": "Julia Bernal 42HJ+Q72",
+  "phone": "",
+  "web": "",
+  "email": "secretariauebes@hotmail.com",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10739705699",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-montessori",
+  "name": "Montessori",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.906084,
+  "lng": -79.032714,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n10869366607",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-intercultural-bilingue-de-narancay",
+  "name": "Colegio Intercultural Bilingue de Narancay",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.924654,
+  "lng": -79.035682,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n10887717586",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-amauta-spanish-school",
+  "name": "Amauta Spanish School",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.899114,
+  "lng": -79.002182,
+  "addr": "Hermano Miguel 7-48",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11009328405",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-universidad-hemisferio",
+  "name": "Universidad Hemisferio",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.89551,
+  "lng": -79.009382,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13106929939",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-instituto-ross-futura",
+  "name": "Instituto Ross Futura",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.900774,
+  "lng": -79.0143,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13185242302",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-especializada-stephen-hawking",
+  "name": "Unidad Educativa Especializada \"Stephen Hawking\"",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.886512,
+  "lng": -79.013492,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n14298210170",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-hermano-miguel-la-salle",
+  "name": "Colegio Hermano Miguel La Salle",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.910758,
+  "lng": -79.007167,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w48860949",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-universidad-de-cuenca-2",
+  "name": "Universidad de Cuenca",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.910356,
+  "lng": -78.99101,
+  "addr": "AVENIDA EL PARAISO 3-52 (JUNTO AL HOSPITAL REGIONAL VICENTE CORRAL MOSCOSO)",
+  "phone": "(07) 4051000",
+  "web": "https://www.ucuenca.edu.ec",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w49588990",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-tecnico-daniel-cordova-toral",
+  "name": "Colegio Técnico Daniel Córdova Toral",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.913668,
+  "lng": -78.993636,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w61041852",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-borja",
+  "name": "Unidad Educativa Borja",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.922682,
+  "lng": -79.049593,
+  "addr": "Avenida Ricardo Duran",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w74354397",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-universidad-catolica",
+  "name": "Universidad Católica",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.881579,
+  "lng": -78.958599,
+  "addr": "Panamericana Norte",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w143179343",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-cebci-comunidad-educativa-bilingue-cristiana-israel",
+  "name": "CEBCI - Comunidad Educativa Bilingüe Cristiana Israel",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.914204,
+  "lng": -78.990123,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w143411429",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-maria-auxiliadora",
+  "name": "Unidad Educativa María Auxiliadora",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.898466,
+  "lng": -79.000553,
+  "addr": "Simón Bolívar",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w172865679",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-tecnico-salesiano",
+  "name": "Unidad Educativa Tecnico Salesiano",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.916578,
+  "lng": -79.015524,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w240448153",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-bilingue-interamericano",
+  "name": "Colegio Bilingue Interamericano",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.913597,
+  "lng": -79.01036,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w247332253",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-centro-educativo-santana",
+  "name": "Centro Educativo Santana",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.87282,
+  "lng": -79.037631,
+  "addr": "Av. De Los Cerezos s/n",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w281054611",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-cesar-davila-andrade",
+  "name": "Colegio César Dávila Andrade",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.905612,
+  "lng": -78.988553,
+  "addr": "Medardo Angel Silva",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w297832904",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-antonio-avila-m",
+  "name": "Colegio Antonio Ávila M.",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.898407,
+  "lng": -79.017054,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w306186092",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-ignacio-escandon",
+  "name": "Unidad Educativa Ignacio Escandón",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.916359,
+  "lng": -79.034113,
+  "addr": "Avenida Loja",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w310128300",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-sudamericano",
+  "name": "Unidad Educativa Sudamericano",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.864684,
+  "lng": -78.969562,
+  "addr": "Av. 25 de Marzo",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w352176124",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-javeriano",
+  "name": "Colegio Javeriano",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.87369,
+  "lng": -79.07261,
+  "addr": "Av. Ordoñez Lazo",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w363169096",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-carlos-arizaga-vega-escuela-juan-montalvo",
+  "name": "Colegio Carlos Arizaga Vega-Escuela Juan Montalvo",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.879958,
+  "lng": -78.979995,
+  "addr": "Juan Lavalle",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w375686635",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-luis-monsalve-pozo",
+  "name": "Colegio Luis Monsalve Pozo",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.872334,
+  "lng": -78.999188,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w380641355",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-santa-marianita-de-jesus",
+  "name": "Unidad Educativa Santa Marianita de Jesús",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.894075,
+  "lng": -79.004599,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w389944972",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-santo-domingo",
+  "name": "Unidad Educativa Santo Domingo",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.89482,
+  "lng": -79.006139,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w389946935",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-octavio-cordero-palacios",
+  "name": "Unidad Educativa Octavio Cordero Palacios",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.894921,
+  "lng": -79.005685,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w389946936",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-honorato-vasquez",
+  "name": "Unidad Educativa Honorato Vasquez",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.893056,
+  "lng": -79.007944,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w390051505",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-la-inmaculada",
+  "name": "Unidad Educativa La Inmaculada",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.89304,
+  "lng": -78.97037,
+  "addr": "Los Shirys",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w398404821",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-victor-gerardo-agular",
+  "name": "Unidad Educativa Victor Gerardo Agular",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.889996,
+  "lng": -79.017704,
+  "addr": "Ángel Figueroa",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w402246192",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-particular-cedfi",
+  "name": "Unidad Educativa Particular CEDFI",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.90763,
+  "lng": -79.056921,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w419523293",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-ciudad-de-cuenca",
+  "name": "Colegio Ciudad de Cuenca",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.889463,
+  "lng": -79.035349,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w435722929",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-nuestra-familia",
+  "name": "Unidad Educativa Nuestra Familia",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.910936,
+  "lng": -79.012956,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w444785673",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-jose-maria-velaz-irfeyal-s-j",
+  "name": "Unidad Educativa Jose María Velaz Irfeyal S.J.",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.902135,
+  "lng": -79.019467,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w535111049",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-liceo-americano-catolico",
+  "name": "Liceo Americano Catolico",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.909355,
+  "lng": -79.034475,
+  "addr": "Avenida de las Américas",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w552440228",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-san-andres-school",
+  "name": "San Andres School",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.90574,
+  "lng": -78.992717,
+  "addr": "Paseo de los Cañaris",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w552680368",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-latinoamericano",
+  "name": "Colegio Latinoamericano",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.895633,
+  "lng": -78.963521,
+  "addr": "Guadalajara",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w555402582",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-joel-monroy",
+  "name": "Unidad Educativa Joel Monroy",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.905667,
+  "lng": -79.051528,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w611255087",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-kennedy",
+  "name": "UNIDAD EDUCATIVA Kennedy",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.88492,
+  "lng": -78.961964,
+  "addr": "Del Himno Nacional",
+  "phone": "",
+  "web": "https://www.uekennedy.edu.ec/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w634408098",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-paccha",
+  "name": "Unidad Educativa Paccha",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.897923,
+  "lng": -78.936768,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w648501140",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-ciitt",
+  "name": "Ciitt",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.857095,
+  "lng": -78.965118,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.ucacue.edu.ec/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w666133652",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-instituto-superior-san-isidro",
+  "name": "Instituto Superior San Isidro",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.903093,
+  "lng": -79.005946,
+  "addr": "Avenida Fray Vicente Solano",
+  "phone": "",
+  "web": "https://sanisidro.edu.ec/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w691289904",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-particular-rosa-de-jesus-cordero-catalinas",
+  "name": "Unidad Educativa Particular Rosa de Jesús Cordero - Catalinas",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.860504,
+  "lng": -78.95927,
+  "addr": "Lautaro Abad",
+  "phone": "",
+  "web": "https://www.catalinas.edu.ec/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w691536155",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-particular-santa-mariana-de-jesus",
+  "name": "Unidad Educativa Particular Santa Mariana De Jesús",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.889475,
+  "lng": -79.003113,
+  "addr": "Alberto Muñoz Vernaza",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w697642193",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-juan-pablo-ii",
+  "name": "Unidad Educativa Juan Pablo II",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.922196,
+  "lng": -79.039338,
+  "addr": "Manuela Saenz",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w697649760",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-guillermo-mensi",
+  "name": "Colegio Guillermo Mensi",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.937089,
+  "lng": -78.966967,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w731794063",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-universidad-tecnica-particular-de-loja",
+  "name": "Universidad Técnica Particular de Loja",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.892251,
+  "lng": -79.019431,
+  "addr": "Gran Colombia",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w756783882",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-republica-del-ecuador",
+  "name": "Unidad Educativa \"Republica del Ecuador\"",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.893167,
+  "lng": -79.017384,
+  "addr": "Avenida 3 de Noviembre",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w756785094",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-universidad-catolica-2",
+  "name": "Universidad Catolica",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.88428,
+  "lng": -79.005977,
+  "addr": "Avenida de las Américas",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w759031502",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-alberto-andrade-arizaga-brummel",
+  "name": "Unidad Educativa Alberto Andrade Arizaga-Brummel",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.885529,
+  "lng": -79.005444,
+  "addr": "Teniente Hugo Ortiz",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w759923927",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-leoncio-cordero-j",
+  "name": "Unidad Educativa Leoncio Cordero J.",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.912907,
+  "lng": -79.039985,
+  "addr": "Manuel Coello nn",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w924824622",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-continental",
+  "name": "Unidad Educativa Continental",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.908986,
+  "lng": -79.040162,
+  "addr": "Carlos Arizaga Toral nn",
+  "phone": "",
+  "web": "https://continental.edu.ec/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w924825435",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-campus-bicentario",
+  "name": "Campus Bicentario",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.925178,
+  "lng": -79.0511,
+  "addr": "Rio Orinoco",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w989771405",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-montessori-school",
+  "name": "Montessori School",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.885539,
+  "lng": -79.048456,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1020612263",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-universidad-catolica-de-cuenca",
+  "name": "Universidad Católica de Cuenca",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.892527,
+  "lng": -79.001883,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1097245362",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-instituto-tecnologico-superior-kevin",
+  "name": "Instituto Tecnológico Superior Kevin",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.888264,
+  "lng": -79.041018,
+  "addr": "PASEO 3 DE NOVIEMBRE Y LA CALLE MANUEL MARÍA BORRERO",
+  "phone": "(07) 4073282 / 4073283",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1101470224",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-gabriel-arsenio-ullauri",
+  "name": "Unidad Educativa Gabriel Arsenio Ullauri",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.84169,
+  "lng": -78.943232,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1166019467",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-dora-beatriz-canelos",
+  "name": "Unidad Educativa Dora Beatriz Canelos",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.826716,
+  "lng": -78.981677,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1166019511",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-francisco-eugenio-tamariz",
+  "name": "Unidad Educativa Francisco Eugenio Tamariz",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.862684,
+  "lng": -78.907472,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1166282361",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-nulti",
+  "name": "Unidad Educativa Nulti",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.867359,
+  "lng": -78.929469,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1166282362",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-julio-matovelle",
+  "name": "Colegio Julio Matovelle",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.901424,
+  "lng": -79.004191,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1169424936",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-daniel-hermida",
+  "name": "Unidad Educativa Daniel Hermida",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.94106,
+  "lng": -78.923538,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1169435820",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-san-joaquin",
+  "name": "Unidad Educativa San Joaquin",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.896159,
+  "lng": -79.050132,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1173149804",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-tres-de-noviembre",
+  "name": "Unidad Educativa Tres De Noviembre",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.891411,
+  "lng": -79.008174,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1192121455",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-san-francisco",
+  "name": "Colegio San Francisco",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.894337,
+  "lng": -79.00786,
+  "addr": "Tarqui 10-63",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1202998539",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-unidad-educativa-tecnico-salesiano-campus-maria-auxiliadora",
+  "name": "Unidad Educativa Técnico Salesiano - Campus María Auxiliadora",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.891947,
+  "lng": -79.005442,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1212570325",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-liceo-del-azuay",
+  "name": "Liceo del Azuay",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.893259,
+  "lng": -79.005094,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1367415801",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-instituto-superior-tecnologico-alquimia",
+  "name": "Instituto Superior Tecnologico Alquimia",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.907347,
+  "lng": -78.999278,
+  "addr": "Avenida 12 de Abril 2-59",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1449504470",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-aleman-stiehle",
+  "name": "Colegio Aleman Stiehle",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.921286,
+  "lng": -78.943977,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1504762198",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-universidad-del-azuay",
+  "name": "Universidad del Azuay",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.919177,
+  "lng": -79.001548,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r12835795",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-colegio-aleman-stiehle-de-cuenca",
+  "name": "Colegio Alemán Stiehle de Cuenca",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.852094,
+  "lng": -78.911886,
+  "addr": "Autopista Cuenca - Azogues KM 11 1/2",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r13506179",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuenca-universidad-de-cuenca-3",
+  "name": "Universidad de Cuenca",
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "lat": -2.901255,
+  "lng": -79.010175,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r17453875",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "valledupar-colegio-gimnasio-del-saber",
+  "name": "Colegio Gimnasio del Saber",
+  "city": "Valledupar",
+  "country": "Colombia",
+  "lat": 10.466749,
+  "lng": -73.250804,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4249729289",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "valledupar-colegio-la-sagrada-familia-de-valledupar",
+  "name": "Colegio La Sagrada Familia de Valledupar",
+  "city": "Valledupar",
+  "country": "Colombia",
+  "lat": 10.49331,
+  "lng": -73.264982,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6456124981",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "valledupar-corporacion-gimnasio-del-norte",
+  "name": "Corporacion Gimnasio del Norte",
+  "city": "Valledupar",
+  "country": "Colombia",
+  "lat": 10.495616,
+  "lng": -73.271879,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6456124983",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "valledupar-universidad-popular-del-cesar-sede-hurtado",
+  "name": "Universidad Popular del Cesar-Sede Hurtado",
+  "city": "Valledupar",
+  "country": "Colombia",
+  "lat": 10.500673,
+  "lng": -73.269383,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6456125485",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "valledupar-colegio-santa-fe",
+  "name": "Colegio Santa Fe",
+  "city": "Valledupar",
+  "country": "Colombia",
+  "lat": 10.467367,
+  "lng": -73.251041,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6456488856",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "valledupar-fundacion-colegio-bilingue-de-valledupar",
+  "name": "Fundación Colegio Bilingüe de Valledupar",
+  "city": "Valledupar",
+  "country": "Colombia",
+  "lat": 10.48881,
+  "lng": -73.269252,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w688495511",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "valledupar-colegio-bello-horizonte",
+  "name": "Colegio Bello Horizonte",
+  "city": "Valledupar",
+  "country": "Colombia",
+  "lat": 10.483367,
+  "lng": -73.284443,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1316299504",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "valledupar-colegio-comfacesar",
+  "name": "Colegio ComfaCesar",
+  "city": "Valledupar",
+  "country": "Colombia",
+  "lat": 10.485603,
+  "lng": -73.280658,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1431612664",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "valledupar-colegio-domingo-savio",
+  "name": "Colegio Domingo Savio",
+  "city": "Valledupar",
+  "country": "Colombia",
+  "lat": 10.480235,
+  "lng": -73.250206,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1433202703",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "valledupar-colegio-santo-domingo",
+  "name": "Colegio Santo Domingo",
+  "city": "Valledupar",
+  "country": "Colombia",
+  "lat": 10.469592,
+  "lng": -73.238024,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1434073418",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "valledupar-colegio-la-sagrada",
+  "name": "Colegio La Sagrada",
+  "city": "Valledupar",
+  "country": "Colombia",
+  "lat": 10.493503,
+  "lng": -73.265146,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1434232171",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "valledupar-colegio",
+  "name": "colegio",
+  "city": "Valledupar",
+  "country": "Colombia",
+  "lat": 10.471141,
+  "lng": -73.24065,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1562256361",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "valledupar-universidad-popular-del-cesar",
+  "name": "Universidad Popular del Cesar",
+  "city": "Valledupar",
+  "country": "Colombia",
+  "lat": 10.450007,
+  "lng": -73.262142,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r12857782",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-universidad-tecnologica-fidel-velazquez",
+  "name": "Universidad Tecnológica Fidel Velázquez",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.61326,
+  "lng": -99.339399,
+  "addr": "\"Ex-Hacienda de la Encarnación\" Av. Emiliano Zapata s/n",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1601892336",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-elementary-middle-school-thomas-jefferson",
+  "name": "Elementary & Middle School Thomas Jefferson",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.527224,
+  "lng": -99.230627,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5514377429",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-colegio-marie-curie",
+  "name": "Colegio Marie Curie",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.63361,
+  "lng": -99.327911,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5617442827",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-preparatoria-federal-por-cooperacion-nicolas-romero",
+  "name": "Preparatoria Federal Por Cooperación Nicolás Romero",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.625886,
+  "lng": -99.333466,
+  "addr": "Calle Guillermo Prieto",
+  "phone": "",
+  "web": "",
+  "email": "prefeconr@hotmail.com",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12521288341",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-colegio-cristobal-colon-ac",
+  "name": "Colegio Cristobal Colon Ac",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.61918,
+  "lng": -99.315995,
+  "addr": "Calle 17 de Junio",
+  "phone": "+52 55 5821 2584",
+  "web": "",
+  "email": "colegiocristobalcolon@prodigy.net.mx",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12523527217",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-escuela-secundaria-particular-albert-einstein",
+  "name": "Escuela Secundaría Particular Albert Einstein",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.614522,
+  "lng": -99.325329,
+  "addr": "Calle División Del Norte",
+  "phone": "+52 55 1660 5647",
+  "web": "",
+  "email": "alberteinstein517@hotmail.com",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12528007949",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-colegio-particular-benemerito-de-las-americas",
+  "name": "Colegio Particular Benemérito de las Américas",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.616472,
+  "lng": -99.3422,
+  "addr": "Arturo Rosas Pinedo",
+  "phone": "+52 55 5823 4412",
+  "web": "",
+  "email": "benemerito.a@hotmail.com",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12528314740",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-colegio-particular-ignacio-manuel-altamirano-jardin-de-ninos-y-primari",
+  "name": "Colegio Particular Ignacio Manuel Altamirano Jardin De Niños Y Primaria",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.619078,
+  "lng": -99.316488,
+  "addr": "Calle 17 de Junio",
+  "phone": "+52 55 5823 0304",
+  "web": "",
+  "email": "sima9003@prodigy.net.mx",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12537485876",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-colegio-montes-de-los-olvos",
+  "name": "Colegio Montes De Los Olvos",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.624937,
+  "lng": -99.313449,
+  "addr": "Calle Fernando Montes de Oca",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12542758360",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-escuelas-del-sector-privado-que-combinan-diversos-niveles-de-educacion",
+  "name": "Escuelas Del Sector Privado Que Combinan Diversos Niveles De Educación",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.619724,
+  "lng": -99.320761,
+  "addr": "Calle Gustavo Adolfo Madero",
+  "phone": "",
+  "web": "",
+  "email": "nrmakarenko@gmail.com",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12545541093",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-instituto-de-belleza-ibci",
+  "name": "Instituto De Belleza Ibci",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.621264,
+  "lng": -99.314244,
+  "addr": "Avenida Miguel Hidalgo",
+  "phone": "",
+  "web": "",
+  "email": "ibcinicolasromero@gmail.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12545546055",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-colegio-oxford",
+  "name": "Colegio Oxford",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.623946,
+  "lng": -99.321361,
+  "addr": "Calle Jaime Nunó",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12547881878",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-instituto-juan-bautista-de-la-salle",
+  "name": "Instituto Juan Bautista De La Salle",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.629873,
+  "lng": -99.334727,
+  "addr": "Calle Gómez Farías",
+  "phone": "",
+  "web": "",
+  "email": "cplasallen.r@gmail.com",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12548001951",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-instituto-dinamico-de-artes-lima-lama",
+  "name": "Instituto Dinamico De Artes Lima Lama",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.625115,
+  "lng": -99.319295,
+  "addr": "Calle 12 De Diciembre",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12548455014",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-centro-educativo-instituto-versalles",
+  "name": "Centro Educativo Instituto Versalles",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.623527,
+  "lng": -99.31861,
+  "addr": "Calle 20 De Noviembre",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12549616946",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-escuela-primaria-particular-josefa-ortiz-de-dominguez",
+  "name": "Escuela Primaria Particular Josefa Ortiz de Domínguez",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.618995,
+  "lng": -99.316162,
+  "addr": "Calle 17 de Junio",
+  "phone": "+52 55 2168 5301",
+  "web": "",
+  "email": "josefaortizdedomingue85@hotmail.com",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12563462843",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-cen-kinder-pre-escolar-y-primaria",
+  "name": "Cen Kinder, Pre escolar y primaria",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.625593,
+  "lng": -99.316854,
+  "addr": "Avenida Benito Juárez",
+  "phone": "+52 55 5823 0112",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12578993590",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-colegio-de-educacion-contable-y-asesoria-academica-dalesa",
+  "name": "Colegio De Educacion Contable Y Asesoria Academica Dalesa",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.62671,
+  "lng": -99.319086,
+  "addr": "Avenida Miguel Hidalgo",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12610070488",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-colegio-et-tajin",
+  "name": "Colegio Et Tajin",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.485946,
+  "lng": -99.268105,
+  "addr": "Avenida Valle De Oaxaca",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12616659247",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-escuela-particular-primaria-quetzalcoalt",
+  "name": "Escuela Particular Primaria Quetzalcoalt",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.621566,
+  "lng": -99.342764,
+  "addr": "Adolfo López Mateos",
+  "phone": "+52 55 2168 0426",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12623743363",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-colegio-juan-jacobo-rousseau",
+  "name": "Colegio Juan Jacobo Rousseau",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.624062,
+  "lng": -99.333819,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12777376600",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "ciudad-lopez-mateos-colegio-britanico-buenavista",
+  "name": "Colegio Britanico Buenavista",
+  "city": "Ciudad López Mateos",
+  "country": "México",
+  "lat": 19.675921,
+  "lng": -99.230286,
+  "addr": "Av. Buenavista 22 54728",
+  "phone": "01 55 1676 8853",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w625210071",
   "found": "2026-11-10"
  }
 ]

@@ -6818,10 +6818,71 @@
   "AR|San Miguel de Tucumán": "2026-11-10T07:42:57.737Z",
   "PE|Chiclayo": "2026-11-10T07:43:35.114Z",
   "AR|San Juan": "2026-11-10T07:44:02.752Z",
-  "VE|n333673827": "2026-11-10T07:44:32.716Z"
+  "VE|n333673827": "2026-11-10T07:44:32.716Z",
+  "MX|Matamoros": "2026-11-10T09:09:39.111Z",
+  "CO|n298024011": "2026-11-10T09:10:19.596Z",
+  "EC|n9911249241": "2026-11-10T09:11:00.025Z",
+  "CO|n312257491": "2026-11-10T09:11:27.770Z",
+  "MX|Ciudad López Mateos": "2026-11-10T09:12:10.517Z"
  },
- "failed": {},
+ "failed": {
+  "PY|n1437475089": {
+   "n": 1,
+   "at": "2026-11-10T09:24:07.382Z",
+   "error": "Overpass 504"
+  }
+ },
  "runs": [
+  {
+   "at": "2026-11-10T09:08:58.853Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Matamoros",
+     "found": 3,
+     "updated": 0,
+     "osm": 36
+    },
+    {
+     "cc": "CO",
+     "city": "Santa Marta",
+     "found": 207,
+     "updated": 0,
+     "osm": 342
+    },
+    {
+     "cc": "EC",
+     "city": "Cuenca",
+     "found": 110,
+     "updated": 2,
+     "osm": 336
+    },
+    {
+     "cc": "CO",
+     "city": "Valledupar",
+     "found": 13,
+     "updated": 0,
+     "osm": 39
+    },
+    {
+     "cc": "MX",
+     "city": "Ciudad López Mateos",
+     "found": 22,
+     "updated": 1,
+     "osm": 507
+    }
+   ],
+   "added": 355,
+   "enriched": 0,
+   "photos": 51,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "PY|n1437475089: Overpass 504"
+   ],
+   "minutes": 18.4,
+   "total": 13581
+  },
   {
    "at": "2026-11-10T07:31:17.433Z",
    "cities": [
