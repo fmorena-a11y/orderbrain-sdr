@@ -1620,7 +1620,8 @@
   "src": "osm",
   "osm": "n1301470754",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "lima-colegio-santa-angela",
@@ -2866,7 +2867,8 @@
   "src": "osm",
   "osm": "n3379539178",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "lima-liceo-naval-almirante-guise",
@@ -2885,7 +2887,8 @@
   "src": "osm",
   "osm": "n3976168048",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "lima-colegio-peruano-chino",
@@ -2913,9 +2916,9 @@
   "lat": -12.123605,
   "lng": -77.032736,
   "addr": "Malecón Balta 740",
-  "phone": "",
+  "phone": "5116153434",
   "web": "https://www.britanico.edu.pe/centrocultural/auditorio/miraflores/",
-  "email": "",
+  "email": "informes@britanico.edu.pe",
   "levels": [],
   "opp": [
    "Bilingüe o internacional"
@@ -2924,7 +2927,9 @@
   "src": "osm",
   "osm": "n4081753741",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+5116153434",
+  "webAt": "2026-11-10"
  },
  {
   "id": "lima-iep-corazon-de-jesuis",
