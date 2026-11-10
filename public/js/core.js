@@ -176,6 +176,30 @@ export function localAct(a) {
   if (isNaN(d)) return { date: a.date, time: a.time.slice(0, 5) };
   return { date: d.toLocaleDateString("sv"), time: d.toTimeString().slice(0, 5) };
 }
+// Horario de llamada («llamar a la hora en que atienden»): con la ventana de oficina del país (S.markets[país].horario, en hora
+// local del colegio, lunes a viernes) dice si ahora es horario de oficina o cuándo abre. local: la hora allá, solo si es otro huso que el tuyo.
+// s: { country, city, lng }. En un país con varios husos (husos/husoLng) sin saber el de la ciudad, null: no se afirma nada.
+const WD = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"], hh = t => t.replace(/^0/, "");
+const clock = (tz, now) => Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: tz, weekday: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).formatToParts(now).map(x => [x.type, x.value]));
+export function tzOf(s) {
+  const m = S.markets[s?.country]; if (!m?.tz) return null; if (!m.husos) return m.tz;
+  const c = norm(s.city), hit = c && Object.entries(m.husos).find(([, l]) => l.some(x => norm(x) === c));
+  if (hit) return hit[0];
+  return typeof s.lng === "number" && s.lng >= m.husoLng[0] && s.lng <= m.husoLng[1] ? m.tz : null;
+}
+export function callWindow(s, now = new Date()) {
+  const m = S.markets[s?.country], tz = tzOf(s); if (!tz || !m.horario?.length) return null;
+  let c; try { c = clock(tz, now); } catch { return null; }
+  const dow = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(c.weekday), hm = `${c.hour}:${c.minute}`, days = m.dias || [1, 2, 3, 4, 5], me = clock(TZ, now);
+  const local = me.weekday + me.hour + me.minute === c.weekday + c.hour + c.minute ? "" : `allá son las ${hh(hm)}`, span = m.horario.map(([a, b]) => `${hh(a)} a ${hh(b)}`).join(" y ");
+  const r = (ok, label) => ({ ok, label, local, span });
+  if (days.includes(dow)) { if (m.horario.some(([a, b]) => hm >= a && hm < b)) return r(true, "en horario de oficina"); const nx = m.horario.find(([a]) => hm < a); if (nx) return r(false, `oficina abre ${hh(nx[0])}`); }
+  for (let i = 1; i <= 7; i++) { const d = (dow + i) % 7; if (days.includes(d)) return r(false, `oficina abre ${i === 1 ? "mañana" : `el ${WD[d]}`} ${hh(m.horario[0][0])}`); }
+  return null;
+}
+export const callPill = s => { const w = callWindow(s); return w ? `<span class="cw ${w.ok ? "ok" : ""}" title="Horario habitual de oficina escolar en ${esc(s.country)} (no es un dato del colegio), hora local: ${esc(w.span)}">${icon("clock", "sm")}${esc([w.label, w.local].filter(Boolean).join(" · "))}</span>` : ""; };
+// La cola de Hoy en el orden en que se muestra y se llama: los nuevos (primero los que están en horario de oficina, orden estable) y después los de reactivar
+export const callQueue = queue => { const rv = q => q.status === "lost" || q.status === "stalled", off = q => callWindow(q)?.ok ? 0 : 1; return [...queue.filter(q => !rv(q)).sort((a, b) => off(a) - off(b)), ...queue.filter(rv)]; };
 export const ago = t => {
   if (!t) return ""; const d = (Date.now() - new Date(t)) / 864e5;
   if (d < 1 / 48) return "recién"; if (d < 1 / 24) return `hace ${Math.round(d * 1440)} min`; if (d < 1) return `hace ${Math.round(d * 24)} h`;

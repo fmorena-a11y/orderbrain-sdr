@@ -1,5 +1,5 @@
 // Hoy: meta del día, agenda propia y a quién contactar ahora.
-import { S, api, esc, icon, save, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg, matchZone, zoneOptions, ZONE_KIND, workOrder, norm } from "./core.js";
+import { S, api, esc, icon, save, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg, matchZone, zoneOptions, ZONE_KIND, workOrder, norm, callPill, callQueue } from "./core.js";
 import { openSchool, openRecord, startSession, resumeSession } from "./school.js";
 import { setBadge, baseErrorCallout } from "./app.js";
 
@@ -49,8 +49,9 @@ function draw() {
   const acts = (activities.items || []).map(a => ({ ...a, ...localAct(a) }));
   const late = acts.filter(a => a.date < t).sort((a, b) => (b.date + b.time).localeCompare(a.date + a.time)), now = acts.filter(a => a.date === t), soon = acts.filter(a => a.date > t && a.date <= addDays(t, 7));
   const pct = Math.min(100, Math.round(stats.todayTouches / Math.max(1, stats.goal) * 100));
-  const fresh = queue.filter(q => q.status !== "lost" && q.status !== "stalled"), revive = queue.filter(q => q.status === "lost" || q.status === "stalled");
-  const sk = new Set([...late, ...now].map(a => a.schoolId || a.record).filter(Boolean)), sessionCount = sk.size + queue.slice(0, 25).filter(q => !sk.has(q.id)).length;
+  // los que están en horario de oficina van primero (orden estable); la sesión llama en este mismo orden (callQueue)
+  const order = callQueue(queue), fresh = order.filter(q => q.status !== "lost" && q.status !== "stalled"), revive = order.filter(q => q.status === "lost" || q.status === "stalled");
+  const sk = new Set([...late, ...now].map(a => a.schoolId || a.record).filter(Boolean)), sessionCount = sk.size + order.slice(0, 25).filter(q => !sk.has(q.id)).length;
   const left = Math.max(0, stats.goal - stats.todayTouches);
   const msg = !left ? "Meta cumplida. Lo que sumes ahora es extra."
     : now.length ? `Empezá por ${now.length === 1 ? "tu actividad de hoy" : `tus ${now.length} actividades de hoy`}.${late.length ? ` Después siguen ${late.length === 1 ? "la vencida" : `las ${late.length} vencidas`} y los colegios nuevos.` : ` Te faltan ${left} contactos para la meta.`}`
@@ -186,7 +187,7 @@ export function actRow(a, late) {
 function prospectRow(q) {
   const cls = q.score >= 60 ? "" : q.score >= 40 ? "mid" : "low";
   const why = q.reasons.filter(r => !STATUS_REASONS.test(r)).slice(0, 3);
-  return `<button class="prospect" data-school="${esc(q.id)}"><span class="score ${cls}" title="Prioridad ${q.score} de 100">${q.score}</span><span class="t"><b>${esc(q.name)}</b><small>${esc(q.city)}, ${esc(q.country)}${q.lastTouch ? ` · último: ${esc(q.lastTouch.outcome.toLowerCase())}` : ""}</small>${why.length ? `<span class="why">${why.map(r => `<span class="tag">${esc(r)}</span>`).join("")}</span>` : ""}</span>${icon("arrowRight", "faint")}</button>`;
+  return `<button class="prospect" data-school="${esc(q.id)}"><span class="score ${cls}" title="Prioridad ${q.score} de 100">${q.score}</span><span class="t"><b>${esc(q.name)}</b><small>${esc(q.city)}, ${esc(q.country)}${q.lastTouch ? ` · último: ${esc(q.lastTouch.outcome.toLowerCase())}` : ""}</small>${callPill(q)}${why.length ? `<span class="why">${why.map(r => `<span class="tag">${esc(r)}</span>`).join("")}</span>` : ""}</span>${icon("arrowRight", "faint")}</button>`;
 }
 
 // Enfoca la fila que sigue a la actividad (o la anterior si era la última), en la vista que esté abierta.

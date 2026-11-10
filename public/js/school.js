@@ -1,6 +1,6 @@
 // Ficha del colegio: preparar el contacto, registrar el resultado e historial. Incluye el modo sesión.
 import { $, S, api, esc, icon, pill, statusPill, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, workOrder, ago, TYPE_ICON,
-  telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile } from "./core.js";
+  telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile, callQueue } from "./core.js";
 // «la cafetería», «el casino», «el bar escolar»
 const laEsp = mk => `${/^(casino|bar)\b/.test(mk?.espacio || "") ? "el" : "la"} ${mk?.espacio || "cafetería"}`, delaEsp = mk => laEsp(mk).replace(/^el /, "del ").replace(/^la /, "de la ");
 const coarse = () => matchMedia("(pointer: coarse)").matches;
@@ -241,6 +241,80 @@ function historySec(s) {
   </section>`;
 }
 
+// ---------- tratos y decisores desde la ficha, sin abrir Pipedrive. Cada uno lo suyo; un líder, todo (el servidor lo vuelve a controlar).
+const mineOrLeader = ownerId => !!S.profile?.leader || (!!ownerId && ownerId === S.me.pdUserId);
+// Solo tratos de venta abiertos: los de clientes (onboarding, clientes, performance) se cambian en Pipedrive.
+const stageAt = (x, id) => (x.stages || []).findIndex(st => st.id === id);
+function dealOpsHtml(x) {
+  if (x.status !== "open" || !x.id || x.clientPipe || !x.stages || !mineOrLeader(x.ownerId)) return "";
+  const b = (op, label, cls = "") => `<button class="btn sm ${cls}" data-deal="${x.id}" data-dop="${op}"${op === "stage" ? ' aria-haspopup="menu"' : ""}>${label}</button>`;
+  // «Propuesta enviada» solo si el trato todavía no llegó a esa etapa (no lo manda para atrás)
+  return `<div class="deal-ops">${x.proposalStage && stageAt(x, x.stageId) < stageAt(x, x.proposalStage) ? b("proposal", `${icon("mail", "sm")} Propuesta enviada`) : ""}${(x.stages || []).length > 1 ? b("stage", "Mover de etapa") : ""}${b("won", `${icon("check", "sm")} Ganado`)}${b("lost", "Perdido", "ghost")}</div>`;
+}
+const dealOf = (s, id) => [...(D.data?.deals || []), ...(HIST.get(s.id)?.deals || [])].find(x => x.id === id);
+function bindDeals(s) {
+  $("drawer").querySelectorAll("[data-deal]").forEach(b => b.onclick = () => {
+    const x = dealOf(s, Number(b.dataset.deal)); if (!x) return;
+    const op = b.dataset.dop, prop = x.stages?.find(st => st.id === x.proposalStage);
+    if (op === "proposal" && prop) return dealConfirm(s, x, { action: "proposal" }, `Propuesta enviada: pasa a ${prop.name}`);
+    if (op === "won") return dealConfirm(s, x, { action: "won" }, "Marcar como ganado");
+    if (op === "lost") return dealConfirm(s, x, { action: "lost" }, "Marcar como perdido");
+    if (op === "stage") openMenu(b, [{ head: "Mover a" }, ...x.stages.filter(st => st.id !== x.stageId).map(st => ({ label: st.name, fn: () => dealConfirm(s, x, { action: "stage", stageId: st.id }, `${stageAt(x, st.id) < stageAt(x, x.stageId) ? "Volver" : "Mover"} a ${st.name}`) }))]);
+  });
+}
+// Confirmación antes de escribir en Pipedrive; después, lo que se hizo (con el enlace al trato)
+function dealConfirm(s, x, body, title) {
+  const lost = body.action === "lost";
+  const m = modal(`<div class="modal-h"><h3>${icon("deal")} ${esc(title)}</h3><button class="icon-btn" id="dcX" aria-label="Cerrar">${icon("x")}</button></div>
+    <p class="muted" style="margin:-6px 0 0">${esc(x.title)} · ${esc([x.pipeline, x.stage].filter(Boolean).join(" · "))}</p>
+    ${lost ? `<label class="field"><span>Motivo</span><select class="inp" id="dcWhy"><option value="">Elegí el motivo</option>${S.lostReasons.map(r => `<option value="${esc(r)}">${esc(r.replace(/\s+/g, " "))}</option>`).join("")}</select></label>` : ""}
+    <p class="muted" style="margin:0;font-size:13.5px">Se cambia en Pipedrive y queda una nota en el trato a tu nombre.</p>
+    <div class="row" style="justify-content:flex-end;gap:8px"><button class="btn ghost" id="dcNo">Cancelar</button><button class="btn primary" id="dcGo">${icon("check")} Confirmar</button></div>`);
+  m.querySelector("#dcX").onclick = m.querySelector("#dcNo").onclick = () => m.close();
+  m.querySelector("#dcGo").onclick = async e => {
+    const go = e.currentTarget;
+    if (lost) { body.reason = m.querySelector("#dcWhy").value; if (!body.reason) { m.querySelector("#dcWhy").focus(); return toast("Elegí el motivo de pérdida", { type: "err" }); } }
+    go.disabled = true; go.innerHTML = `<span class="spin"></span> Guardando…`;
+    try {
+      const r = await api(`/api/schools/${encodeURIComponent(s.id)}/deals/${x.id}`, { body });
+      if (r.school) patchSchool(r.school);
+      m.querySelector(".modal-box").innerHTML = `<div class="modal-h"><h3>${icon("checkCircle")} Listo</h3></div>${writesList(r.done)}<button class="btn primary block" id="dcOk">Listo</button>`;
+      m.querySelector("#dcOk").onclick = () => m.close(); m.querySelector("#dcOk").focus();
+      S.today = null; S.agenda = null;
+      if (D.id === s.id) { HIST.delete(s.id); load({ refresh: true }); }
+    } catch (err) { go.disabled = false; go.innerHTML = `${icon("check")} Confirmar`; toast(err.message, { type: "err" }); }
+  };
+}
+const writesList = done => `<ul class="writes">${done.map(x => `<li${x.warn ? ' class="warn"' : ""}>${icon(x.warn ? "alert" : "check", "sm")}<span>${x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.label)}</a>` : esc(x.label)}</span></li>`).join("")}</ul>`;
+// Agregar decisor: persona en la organización (o en el prospecto) a tu nombre. En lo de otra persona, no (salvo líder).
+const canAddPerson = s => !!S.me.pdUserId && (!!S.profile?.leader || !(s.ownerId && s.ownerId !== S.me.pdUserId));
+function addDecisor(s, d) {
+  const where = s.leadOnly ? "en el prospecto" : d.match?.orgId ? `en ${d.match.orgName || "la organización"}` : "en una organización nueva";
+  const m = modal(`<div class="modal-h"><h3>${icon("user")} Agregar decisor</h3><button class="icon-btn" id="adX" aria-label="Cerrar">${icon("x")}</button></div>
+    <p class="muted" style="margin:-6px 0 0">Se crea en Pipedrive a tu nombre, ${esc(where)}.</p>
+    <div class="grid2"><label class="field"><span>Nombre</span><input class="inp" id="adName" placeholder="Ej: Laura Gómez" autocomplete="off" required></label>
+      <label class="field"><span>Cargo <span class="faint">opcional</span></span><input class="inp" id="adRole" placeholder="Directora, administrador, concesionario" list="adRoles"></label>
+      <label class="field"><span>Teléfono <span class="faint">opcional</span></span><input class="inp" type="tel" id="adPhone" placeholder="${esc(S.markets[s.country]?.prefix ? `+${S.markets[s.country].prefix} …` : "Teléfono")}"></label>
+      <label class="field"><span>Mail <span class="faint">opcional</span></span><input class="inp" type="email" id="adMail" placeholder="nombre@colegio.edu"></label></div>
+    <datalist id="adRoles"><option>Director/a</option><option>Administrador/a</option><option>Concesionario/a ${esc(delaEsp(d.market))}</option><option>Coordinador/a de servicios</option><option>Dueño/a</option></datalist>
+    <div class="row" style="justify-content:flex-end;gap:8px"><button class="btn ghost" id="adNo">Cancelar</button><button class="btn primary" id="adGo">${icon("check")} Guardar en Pipedrive</button></div>`);
+  const q = sel => m.querySelector(sel);
+  q("#adX").onclick = q("#adNo").onclick = () => m.close();
+  setTimeout(() => q("#adName").focus());
+  q("#adGo").onclick = async e => {
+    const go = e.currentTarget, body = { name: q("#adName").value.trim(), role: q("#adRole").value.trim(), phone: q("#adPhone").value.trim(), email: q("#adMail").value.trim() };
+    if (!body.name) { q("#adName").focus(); return toast("Escribí el nombre del decisor", { type: "err" }); }
+    go.disabled = true; go.innerHTML = `<span class="spin"></span> Guardando…`;
+    try {
+      const r = await api(`/api/schools/${encodeURIComponent(s.id)}/persons`, { body });
+      if (r.school) patchSchool(r.school);
+      q(".modal-box").innerHTML = `<div class="modal-h"><h3>${icon("checkCircle")} Decisor agregado</h3></div>${writesList(r.done)}<button class="btn primary block" id="adOk">Listo</button>`;
+      q("#adOk").onclick = () => m.close(); q("#adOk").focus();
+      if (D.id === s.id) load();
+    } catch (err) { go.disabled = false; go.innerHTML = `${icon("check")} Guardar en Pipedrive`; toast(err.message, { type: "err" }); }
+  };
+}
+
 // ---------- Enriquecer: juntar todo lo que hay del colegio y dejarlo en Pipedrive
 const ENR = new Map();
 async function loadEnrich(id) {
@@ -331,7 +405,7 @@ export async function startSession(ids, label = "tu territorio", { acts = null, 
     if (!S.today) { try { const { loadToday } = await import("./today.js"); await loadToday(); } catch (e) { return toast(e.message, { type: "err" }); } }
     const t = today();
     acts = workOrder((S.today.activities.items || []).map(a => ({ ...a, ...localAct(a) })).filter(a => a.date <= t), t);
-    extra = S.today.queue.slice(0, 25).map(q => q.id);
+    extra = callQueue(S.today.queue).slice(0, 25).map(q => q.id); // en el mismo orden que la lista de Hoy
   }
   S.session = { ids: [], i: 0, label, acts: {}, done: 0 };
   if (acts) {
@@ -606,7 +680,7 @@ function prepBody(s, d) {
     ${sedesSec(s)}
     <section class="sec"><h3><span class="l">${icon("phone")} Primeros 15 segundos</span></h3>
       <div class="say">${esc(apertura)}<button class="icon-btn" data-copy="${esc(apertura)}" aria-label="Copiar apertura">${icon("copy")}</button></div>
-      <p class="muted" style="margin:10px 0 0;font-size:13.5px">${decisor ? `Preguntá por <b>${esc(decisor.nombre)}</b> (${esc(decisor.cargo)}).` : `Si atiende recepción, pedí el nombre de quien maneja ${esc(laEsp(d.market))} y su mejor horario.`}</p>
+      <p class="muted" style="margin:10px 0 0;font-size:13.5px">${d.askFor ? `Preguntá por <b>${esc(d.askFor.name)}</b>${d.askFor.role ? ` (${esc(d.askFor.role)})` : ""}. <span class="faint">Lo dijeron en recepción ${esc(ago(d.askFor.at))}.</span>` : decisor ? `Preguntá por <b>${esc(decisor.nombre)}</b>${decisor.cargo ? ` (${esc(decisor.cargo)})` : ""}.` : `Si atiende recepción, pedí el nombre de quien maneja ${esc(laEsp(d.market))} y su mejor horario.`}</p>
     </section>
     <section class="sec"><h3><span class="l">${icon("target")} Situación</span></h3>
       <p style="margin:0">${esc(p.situacion)} <b>${esc(p.objetivo)}</b></p>
@@ -690,7 +764,7 @@ function logBody(s, d) {
       <label class="field"><span>Duración</span><select class="inp" data-f="demo.duration">${[20, 30, 45, 60].map(m => `<option value="${m}" ${+f.demo.duration === m ? "selected" : ""}>${m} min</option>`).join("")}</select></label></div>
       <label class="field"><span>¿Quién da la demo?</span><select class="inp" data-f="demo.ownerId">${ownerOpts(f.demo.ownerId, true).replace("Para mí", "Yo")}</select></label>
       <p class="muted" style="margin:0;font-size:13.5px">${d.match.openDealId ? "Se agenda en el trato abierto." : `Se crea el trato en <b>${esc(pipeName(s))}</b> con fuente «Outbound - Cold Calling» y vos como SDR.`}</p></div>` : ""}
-    ${connected ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>${f.outcome === "gatekeeper" ? "¿Quién es el decisor?" : "¿Con quién hablaste?"} <span class="faint" style="font-weight:400;font-size:13px">opcional, se crea como contacto</span></div>
+    ${connected ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>${f.outcome === "gatekeeper" ? "¿Por quién preguntar?" : "¿Con quién hablaste?"} <span class="faint" style="font-weight:400;font-size:13px">${f.outcome === "gatekeeper" ? "opcional · nombre y cargo si te lo dijeron, se crea como contacto" : "opcional, se crea como contacto"}</span></div>
       <div class="grid2"><label class="field"><span>Nombre</span><input class="inp" data-f="contact.name" value="${esc(f.contact.name)}" placeholder="Ej: Laura Gómez" autocomplete="off"></label>
       <label class="field"><span>Cargo</span><input class="inp" data-f="contact.role" value="${esc(f.contact.role)}" placeholder="Directora, administrador, concesionario" list="roles"></label>
       <label class="field"><span>Teléfono / WhatsApp</span><input class="inp" type="tel" data-f="contact.phone" value="${esc(f.contact.phone)}" placeholder="${esc(pre)}"></label>
@@ -870,10 +944,10 @@ function histBody(s, d) {
   ].sort((a, b) => String(b.at).localeCompare(String(a.at)));
   const m = d.match;
   return `<div class="stack">
-    ${d.persons?.length ? `<div class="sec"><h3><span class="l">${icon("users")} Contactos</span></h3>${d.persons.map(p => `<div class="person"><div class="av" style="width:34px;height:34px;border-radius:50%;background:var(--surface-3);display:grid;place-items:center;font-weight:600;font-size:13px">${initials(p.name)}</div><div class="t"><b>${esc(p.name)}</b><small>${esc([p.phone, p.email].filter(Boolean).join(" · ") || "Sin datos")}</small></div>
+    ${d.persons?.length || canAddPerson(s) ? `<div class="sec"><h3><span class="l">${icon("users")} Contactos</span>${canAddPerson(s) ? `<button class="btn sm ghost" id="addDec">${icon("plus", "sm")} Agregar decisor</button>` : ""}</h3>${d.persons?.length ? "" : `<p class="muted" style="margin:0">Todavía no hay contactos cargados.</p>`}${(d.persons || []).map(p => `<div class="person"><div class="av" style="width:34px;height:34px;border-radius:50%;background:var(--surface-3);display:grid;place-items:center;font-weight:600;font-size:13px">${initials(p.name)}</div><div class="t"><b>${esc(p.name)}</b><small>${esc([p.phone, p.email].filter(Boolean).join(" · ") || "Sin datos")}</small></div>
       ${p.phone ? `<a class="icon-btn" href="${esc(telLink(p.phone))}" aria-label="Llamar">${icon("phone")}</a><button class="icon-btn" data-pwa="${esc(p.phone)}" data-pname="${esc(p.name)}" aria-label="WhatsApp">${icon("whatsapp")}</button>` : ""}${p.email ? `<button class="icon-btn" data-pmail="${esc(p.email)}" data-pname="${esc(p.name)}" aria-label="Mail">${icon("mail")}</button>` : ""}</div>`).join("")}</div>` : ""}
     ${d.activities?.length ? `<div class="sec"><h3><span class="l">${icon("calendar")} Pendientes</span></h3>${d.activities.map(a => { const l = localAct(a); return `<div class="act"><span class="ty ${a.type}">${icon(TYPE_ICON[a.type] || "check")}</span><div class="t"><b>${esc(a.subject)}</b><small class="${l.date < today() ? "late" : ""}">${esc(a.typeLabel)} · ${esc(dayLabel(l.date))}${l.time ? ` ${l.time}` : ""} · ${esc(a.owner)}</small></div><div class="ops">${a.ownerId === S.me.pdUserId ? `<button class="icon-btn" data-hdone="${a.id}" aria-label="Marcar como hecha" title="Marcar como hecha">${icon("check")}</button>` : ""}</div></div>`; }).join("")}</div>` : ""}
-    ${d.deals?.length ? `<div class="sec"><h3><span class="l">${icon("deal")} Tratos</span></h3>${d.deals.map(x => `<div class="act"><span class="ty">${icon("deal")}</span><div class="t"><b><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a></b><small>${esc(x.pipeline)} · ${esc(x.stage)} · ${x.status === "won" ? "ganado" : x.status === "lost" ? "perdido" + (x.lostReason ? ` (${esc(x.lostReason)})` : "") : "abierto"}${x.owner ? ` · ${esc(x.owner)}` : ""} · ${esc(x.updated)}</small></div></div>`).join("")}</div>` : ""}
+    ${d.deals?.length ? `<div class="sec"><h3><span class="l">${icon("deal")} Tratos</span></h3>${d.deals.map(x => `<div class="act"><span class="ty">${icon("deal")}</span><div class="t"><b><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a></b><small>${esc(x.pipeline)} · ${esc(x.stage)} · ${x.status === "won" ? "ganado" : x.status === "lost" ? "perdido" + (x.lostReason ? ` (${esc(x.lostReason)})` : "") : "abierto"}${x.owner ? ` · ${esc(x.owner)}` : ""} · ${esc(x.updated)}</small>${dealOpsHtml(x)}</div></div>`).join("")}</div>` : ""}
     <div class="sec"><h3><span class="l">${icon("clock")} Historial</span>${m.checkedAt ? `<button class="btn sm ghost" id="refresh">${icon("refresh", "sm")} Actualizar</button>` : ""}</h3>
       ${items.length ? `<div class="timeline">${items.map(i => `<div class="tl"><span class="ic">${icon(i.ic)}</span><div><div class="h">${i.h} · ${esc(ago(i.at))}</div>${i.p ? `<p>${esc(i.p)}</p>` : ""}</div></div>`).join("")}</div>` : `<div class="empty">${icon("note")}<span>Todavía no hay contactos ni notas. Lo que registres aparece acá y en Pipedrive.</span></div>`}
     </div>
@@ -884,6 +958,8 @@ function bindHist(s, d) {
   const el = $("drawer");
   el.querySelector("#refresh")?.addEventListener("click", () => { D.data = null; draw(); load({ refresh: true }); });
   el.querySelector("#unlink2")?.addEventListener("click", () => { D.data = null; D.tab = "prep"; draw(); load({ match: { orgId: null } }); });
+  el.querySelector("#addDec")?.addEventListener("click", () => addDecisor(s, d));
+  bindDeals(s);
   el.querySelectorAll("[data-hdone]").forEach(b => b.onclick = async () => {
     const { markDone } = await import("./today.js");
     markDone(Number(b.dataset.hdone), () => load());

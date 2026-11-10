@@ -112,6 +112,10 @@ textarea.inp { min-height: 88px; resize: vertical; line-height: 1.45; }
 .pill.open { color: var(--st-open); background: var(--st-open-bg); }
 .pill.client { color: var(--st-client); background: var(--st-client-bg); }
 .pill.unk { color: var(--st-unk); background: var(--st-unk-bg); }
+/* horario de llamada: pastilla chica con si atienden ahora o cuándo abren (hora local del colegio) */
+.cw { display: flex; align-items: center; gap: 4px; width: fit-content; max-width: 100%; margin-top: 4px; padding: 1px 7px; border-radius: 999px; background: var(--surface-2); color: var(--muted); font-size: 11.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cw .ico.sm { width: 12px; height: 12px; }
+.cw.ok { background: var(--ok-soft); color: var(--ok); }
 .tag { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 6px; background: var(--surface-2); color: var(--muted); font-size: 12px; font-weight: 500; }
 
 /* ---------- login */
@@ -231,6 +235,8 @@ textarea.inp { min-height: 88px; resize: vertical; line-height: 1.45; }
 .act .t b { display: block; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .act .t small { color: var(--muted); font-size: 12.5px; }
 .act .t small.late { color: var(--err); font-weight: 600; }
+/* acciones sobre un trato abierto (propuesta enviada, etapa, ganado, perdido) */
+.deal-ops { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
 .act .ops { display: flex; gap: 2px; }
 .act .ops .icon-btn { color: var(--muted); }
 .act button.t { border: 0; background: none; text-align: left; padding: 0; cursor: pointer; }

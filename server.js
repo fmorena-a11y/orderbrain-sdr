@@ -134,7 +134,7 @@ const auth = (req, res, next) => {
   next();
 };
 // READ_ONLY=1: nada se escribe en Pipedrive (para probar contra la cuenta real sin tocarla)
-if (process.env.READ_ONLY === "1") app.use((req, res, next) => req.method === "POST" && /^\/api\/(schools\/[^/]+\/(match|log|comment|prospect|study\/note|enrich)|activities\/|proposals\/confirm)/.test(req.path) ? res.status(403).json({ error: "Modo solo lectura: no se escribe en Pipedrive." }) : next());
+if (process.env.READ_ONLY === "1") app.use((req, res, next) => req.method === "POST" && /^\/api\/(schools\/[^/]+\/(match|log|comment|prospect|study\/note|enrich|deals\/|persons)|activities\/|proposals\/confirm)/.test(req.path) ? res.status(403).json({ error: "Modo solo lectura: no se escribe en Pipedrive." }) : next());
 const wrap = fn => (req, res) => fn(req, res).catch(e => {
   if (res.writableEnded || res.destroyed) return; // el navegador ya cortó (canceló): no hay a quién responder
   const status = e.status && e.status < 600 ? (e instanceof pd.PipedriveError && e.status >= 500 ? 502 : e.status) : 500;
@@ -150,6 +150,15 @@ async function ownActivity(user, id, { missingOk } = {}) {
   if (owner && user.pdUserId && Number(owner) === Number(user.pdUserId)) return a;
   if (await isLeader(user.email)) return a;
   throw Object.assign(new Error("Esa actividad es de otra persona en Pipedrive: no la podés cambiar."), { status: 403 });
+}
+// Lo mismo con los tratos: solo el dueño del trato (owner_id/user_id) o un líder.
+async function ownDeal(user, id) {
+  const d = await pd.getDeal(Number(id));
+  if (!d) throw Object.assign(new Error("No encontré ese trato en Pipedrive."), { status: 404 });
+  const owner = d.owner_id ?? d.user_id ?? null;
+  if (owner && user.pdUserId && Number(owner) === Number(user.pdUserId)) return d;
+  if (await isLeader(user.email)) return d;
+  throw Object.assign(new Error("Ese trato es de otra persona en Pipedrive: no lo podés cambiar."), { status: 403 });
 }
 // las fichas de Pipedrive (prospectos y organizaciones fuera de la base) se rearman si esta instancia no las tiene
 const schoolParam = (req, res, next) => {
@@ -260,6 +269,13 @@ app.post("/api/schools/:id/comment", auth, schoolParam, wrap(async (req, res) =>
   if (gone) done.push({ label: "La actividad ya no está en Pipedrive.", warn: true });
   res.json({ done, school: sales.schoolSummary(s), orgUrl: url });
 }));
+// Tratos desde la ficha: { action: "stage", stageId } (propuesta enviada u otra etapa de su embudo), { action: "won" } o { action: "lost", reason }
+app.post("/api/schools/:id/deals/:dealId", auth, schoolParam, wrap(async (req, res) => {
+  if (!/^\d+$/.test(req.params.dealId)) return res.status(400).json({ error: "Trato inválido" });
+  res.json(await sales.dealAction(req.params.id, await ownDeal(req.session.user, req.params.dealId), req.session.user, req.body || {}));
+}));
+// Agregar un decisor (persona) a la organización del colegio o al prospecto: en lo ajeno solo un líder
+app.post("/api/schools/:id/persons", auth, schoolParam, wrap(async (req, res) => res.json(await sales.addDecisor(req.params.id, req.session.user, await isLeader(req.session.user.email), req.body || {}))));
 app.get("/api/schools/:id/photos", auth, schoolParam, wrap(async (req, res) => {
   res.set("cache-control", "private, max-age=3600");
   // sin web en la base, la que encontró «Enriquecer» (de Pipedrive o de una sede), con su fuente

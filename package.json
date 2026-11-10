@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "node server.js",
+    "test": "node --test test/*.test.mjs",
     "dev": "node --watch --env-file=.env server.js",
     "demo": "DEMO_MODE=1 DEV_LOGIN_EMAIL=demo@ordereat.com SESSION_SECRET=demo node --watch server.js"
   },
