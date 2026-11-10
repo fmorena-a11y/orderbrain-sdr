@@ -6823,7 +6823,14 @@
   "CO|n298024011": "2026-11-10T09:10:19.596Z",
   "EC|n9911249241": "2026-11-10T09:11:00.025Z",
   "CO|n312257491": "2026-11-10T09:11:27.770Z",
-  "MX|Ciudad López Mateos": "2026-11-10T09:12:10.517Z"
+  "MX|Ciudad López Mateos": "2026-11-10T09:12:10.517Z",
+  "MX|Cuautitlán Izcalli": "2026-11-10T11:07:48.825Z",
+  "ES|n260380069": "2026-11-10T11:08:25.596Z",
+  "CO|n8448168093": "2026-11-10T11:09:07.453Z",
+  "PE|Piura": "2026-11-10T11:13:47.188Z",
+  "PE|Iquitos": "2026-11-10T11:14:34.580Z",
+  "CO|n284074373": "2026-11-10T11:16:17.960Z",
+  "MX|General Escobedo": "2026-11-10T11:23:44.359Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -6833,6 +6840,68 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-10T11:07:10.550Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Cuautitlán Izcalli",
+     "found": 2,
+     "updated": 0,
+     "osm": 290
+    },
+    {
+     "cc": "ES",
+     "city": "Murcia",
+     "found": 141,
+     "updated": 0,
+     "osm": 285
+    },
+    {
+     "cc": "CO",
+     "city": "Pereira",
+     "found": 43,
+     "updated": 0,
+     "osm": 113
+    },
+    {
+     "cc": "PE",
+     "city": "Piura",
+     "found": 20,
+     "updated": 1,
+     "osm": 376
+    },
+    {
+     "cc": "PE",
+     "city": "Iquitos",
+     "found": 6,
+     "updated": 0,
+     "osm": 231
+    },
+    {
+     "cc": "CO",
+     "city": "Manizales",
+     "found": 34,
+     "updated": 0,
+     "osm": 86
+    },
+    {
+     "cc": "MX",
+     "city": "General Escobedo",
+     "found": 7,
+     "updated": 0,
+     "osm": 165
+    }
+   ],
+   "added": 253,
+   "enriched": 0,
+   "photos": 30,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 19.3,
+   "total": 13834
+  },
   {
    "at": "2026-11-10T09:08:58.853Z",
    "cities": [

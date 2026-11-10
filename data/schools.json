@@ -999,7 +999,8 @@
   "pitch": "Colegio de varones, hermano de Vallesol.",
   "zone": "Norte",
   "id": "piura-colegio-turicara",
-  "img": ""
+  "img": "",
+  "osm": "w374303245"
  },
  {
   "name": "Colegio Vallesol",
@@ -182119,7 +182120,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w636025152",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "ciudad-guayana-u-e-privada-santiago-marino-i",
@@ -182226,7 +182228,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w681001873",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "ciudad-guayana-universidad-de-oriente",
@@ -182248,7 +182251,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w684685369",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "ciudad-guayana-ucab-guayana",
@@ -182271,7 +182275,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w756054751",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "ciudad-guayana-u-e-colegio-loyola-gumilla",
@@ -182292,7 +182297,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w756056827",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "ciudad-guayana-u-e-alta-vista-sur",
@@ -182332,7 +182338,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w881731443",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "ciudad-guayana-ugma-puerto-ordaz",
@@ -182355,7 +182362,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w881940958",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "ciudad-guayana-a-c-u-e-colegio-nazaret",
@@ -182375,7 +182383,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w881956665",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "ciudad-guayana-u-e-colegio-cristobal-mendoza",
@@ -182395,7 +182404,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w882334515",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "ciudad-guayana-u-e-colegio-don-bosco",
@@ -182435,7 +182445,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w882334523",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "ciudad-guayana-u-e-colegio-loefling",
@@ -182475,7 +182486,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w882334530",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.feyalegria.org/wp-content/uploads/sites/4/2023/12/Fe-y-Alegria-Federacion-1.jpg"
  },
  {
   "id": "ciudad-guayana-u-e-diego-de-ordaz-i",
@@ -182515,7 +182527,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w887699756",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegiometropolitano.online/wp-content/uploads/2020/06/logo3d.gif"
  },
  {
   "id": "ciudad-guayana-u-e-colegio-combinado-gonzalo-mendez-i",
@@ -182558,7 +182571,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w887982432",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "ciudad-guayana-centro-taller-nuclearizado-claret",
@@ -182599,7 +182613,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w889177822",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.feyalegria.org/wp-content/uploads/sites/4/2023/12/Fe-y-Alegria-Federacion-1.jpg"
  },
  {
   "id": "ciudad-guayana-u-e-fe-y-alegria-pablo-vi",
@@ -182619,7 +182634,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w889241050",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.feyalegria.org/wp-content/uploads/sites/4/2023/12/Fe-y-Alegria-Federacion-1.jpg"
  },
  {
   "id": "ciudad-guayana-u-e-simon-rodriguez",
@@ -182660,7 +182676,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w890221408",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.feyalegria.org/wp-content/uploads/sites/4/2023/12/Fe-y-Alegria-Federacion-1.jpg"
  },
  {
   "id": "ciudad-guayana-cecal-monsenor-zabaleta",
@@ -182700,7 +182717,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w890683736",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.feyalegria.org/wp-content/uploads/sites/4/2023/12/Fe-y-Alegria-Federacion-1.jpg"
  },
  {
   "id": "ciudad-guayana-u-e-p-aquiles-nazoa",
@@ -182740,7 +182758,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w890767924",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.feyalegria.org/wp-content/uploads/sites/4/2023/12/Fe-y-Alegria-Federacion-1.jpg"
  },
  {
   "id": "ciudad-guayana-u-e-general-rafael-urdaneta",
@@ -182861,7 +182880,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w899477035",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "ciudad-guayana-u-e-colegio-santisima-trinidad",
@@ -182924,7 +182944,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w919238132",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "ciudad-guayana-i-u-t-pedro-emilio-coll",
@@ -182947,7 +182968,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w919238133",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "ciudad-guayana-u-e-nuestra-senora-del-rosario",
@@ -183007,7 +183029,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "r19905846",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "culiacan-colegio-sinaloa",
@@ -183139,7 +183162,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5676914319",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "culiacan-preparatoria-rafael-buelna-tenorio-uas",
@@ -183420,7 +183444,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1130829901",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "culiacan-kinder",
@@ -183614,7 +183639,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n3300558314",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "la-plata-colegio-juan-xxiii",
@@ -183758,7 +183784,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4283153227",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "la-plata-instituto-de-ensenanza-integral",
@@ -183817,7 +183844,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4562410754",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "la-plata-instituto-de-todo-tipo",
@@ -184238,7 +184266,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w176333961",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "la-plata-colegio-nuestra-senora-del-carmen",
@@ -184277,7 +184306,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w176333963",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "la-plata-universidad-catolica-de-la-plata-rectorado",
@@ -184535,7 +184565,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1043682665",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "la-plata-instituto-superior-de-hoteleria-y-gastronomia-angel-salvadori",
@@ -184571,7 +184602,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1052995611",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "la-plata-colegio-nuestra-senora-de-la-merced",
@@ -185017,7 +185049,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5435750621",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://scontent-ord5-2.xx.fbcdn.net/v/t39.30808-1/869620387_122259428864062092_2301610253642043870_n.avif?stp=dst-avif&cstp=mx1440x1440&ctp=s720x720&_nc_cat=110&ccb=1-7&_nc_sid=3ab345&_nc_ohc=So8g-z4Z1DwQ7kNvwFom0W-&_nc_oc=Ado7wA_2-U7lu4ckuWv6BIa6dc2xeYemtbjOue0b0sDWEBhfzzGZHlRPcJIqFULDPYU&_nc_zt=24&_nc_ht=scontent-ord5-2.xx&_nc_gid=q2kIfP6GrliBYIDhnqk0Fg&_nc_ss=7c289&oh=00_AQRyQ6sdMEQM86eMdrw-5ZI7Ua1Kaf0JYmJ7Dpw2JUQddw&oe=6AF8BF20"
  },
  {
   "id": "san-salvador-colegio-la-floresta",
@@ -185055,7 +185088,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n9191855917",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "san-salvador-colegio-adventista-del-septimo-dia",
@@ -185174,7 +185208,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w39542700",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.udb.edu.sv/udb/public/img/logos/logo-rebranding.jpg"
  },
  {
   "id": "san-salvador-universidad-evangelica-de-el-salvador",
@@ -185197,7 +185232,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w136694890",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.uees.edu.sv/wp-content/uploads/2026/07/matricula-abierta-ciclo1-2027-horizontal-1264x590.jpg"
  },
  {
   "id": "san-salvador-universidad-dr-jose-matias-delgado-campus-i",
@@ -185259,7 +185295,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w139809829",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "san-salvador-colegio-augusto-walte",
@@ -185360,7 +185397,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w196616509",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "san-salvador-colegio-champagnat",
@@ -185609,7 +185647,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w343445595",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://lfelsalvador.org/wp-content/uploads/2026/05/Piscina.jpg"
  },
  {
   "id": "san-salvador-academia-europea",
@@ -185689,7 +185728,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w376145947",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "san-salvador-kinder",
@@ -185729,7 +185769,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w378234934",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "san-salvador-colegio-evangelico-jardin-de-acuarelas",
@@ -185789,7 +185830,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w396090354",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "san-salvador-liceo-ladislao-leiva",
@@ -185807,7 +185849,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w396092951",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "san-salvador-universidad-modular-abierta",
@@ -186475,7 +186518,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w437201234",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "san-salvador-complejo-educativo-walter-a-soundy",
@@ -186608,7 +186652,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w693775626",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "san-salvador-instituto-bethania",
@@ -186628,7 +186673,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w696175355",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "san-salvador-liceo-jorge-adalberto-lagos",
@@ -186706,7 +186752,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w738000673",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "san-salvador-complejo-educativo-catolico-san-jose-villanueva",
@@ -186800,7 +186847,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w746876810",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "san-salvador-liceo-cristiano-reverendo-juan-bueno-la-coruna",
@@ -186820,7 +186868,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w778694367",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "san-salvador-instituto-de-ciudad-credisa",
@@ -186858,7 +186907,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w879111299",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQe0ciD2yBj8_9SmA65KyNTCtRlaa0qVy3BSSb1WrbP2AE_nZ6hxG2hlRyMvPxpWCqIZboauYz_Hdg5G_kfjoEhSqee-5ZXCtBuXYj8Y1eldYZRWl_SepPky6D6TRJ-BRmESYboV44Z2iU7r7BeuNh2Ws8ZbK2Ib7hqsKDw=w16383"
  },
  {
   "id": "san-salvador-colegio-san-antonio",
@@ -186900,7 +186950,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1020758053",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "san-salvador-centro-educativo-maria-madre-de-america",
@@ -186980,7 +187031,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1107278942",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "san-salvador-colegio-theodor-herlz",
@@ -187196,7 +187248,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1543702892",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "san-salvador-colegio-la-divina-providencia",
@@ -187292,7 +187345,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "r6876664",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "san-salvador-colegio-divino-salvador",
@@ -187602,7 +187656,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n469702560",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.pinares.org/wp-content/uploads/2025/01/LOGO-ALP-WEB-FONDO-VERDE-100px.png"
  },
  {
   "id": "tegucigalpa-academia-europea",
@@ -187810,7 +187865,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n11620274133",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "tegucigalpa-instituto-renacimiento",
@@ -189245,7 +189301,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1209133755",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "tegucigalpa-the-mayan-school",
@@ -189617,7 +189674,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n6653512287",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "santiago-de-queretaro-instituto-jose-marti",
@@ -189914,7 +189972,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n13735828101",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "santiago-de-queretaro-colegio-arte-cultura-y-espiritu",
@@ -190013,7 +190072,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w263720065",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://storage.googleapis.com/gpt-engineer-file-uploads/bOz4CXxUITOdHgnd3xYJWuaam1h1/uploads/1770136681327-UNIQ.svg"
  },
  {
   "id": "santiago-de-queretaro-preparatoria-norte-uaq",
@@ -190263,7 +190323,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w609647096",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.unitec.mx/hubfs/01.UNITEC/oferta-academica/campus/queretaro.webp"
  },
  {
   "id": "santiago-de-queretaro-liceo-internacional-jules-verne",
@@ -190323,7 +190384,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w626828240",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "santiago-de-queretaro-colegio-numen-queretaro",
@@ -190435,7 +190497,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w800407279",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "santiago-de-queretaro-prepa-sur",
@@ -190455,7 +190518,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w877423036",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "santiago-de-queretaro-universidad-mondragon",
@@ -190477,7 +190541,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w922025811",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://mondragonmexico.edu.mx/wp-content/uploads/2022/04/UM_Assets_Libro.png"
  },
  {
   "id": "santiago-de-queretaro-universidad-corregidora",
@@ -190513,7 +190578,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1561137420",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "santiago-de-queretaro-instituto-queretano",
@@ -190621,7 +190687,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n441770302",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "cucuta-colegio-la-salle",
@@ -190717,7 +190784,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n587553022",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "cucuta-colegio",
@@ -194876,7 +194944,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n12480805336",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegioebenezer.edu.co/wp-content/uploads/2016/08/dummy-1.jpg"
  },
  {
   "id": "cucuta-colegio-santa-paulina",
@@ -195997,7 +196066,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w69193431",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://angelinoscucuta.edu.co/wp-content/uploads/2020/09/favicon.png"
  },
  {
   "id": "cucuta-universidad-libre",
@@ -196041,7 +196111,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w69605063",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://ww2.ufps.edu.co/"
  },
  {
   "id": "cucuta-instituto-tecnico-mercedes-abrego",
@@ -196059,7 +196130,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w69665517",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "cucuta-colegio-claretiano",
@@ -196141,7 +196213,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w120574105",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "cucuta-colegio-padre-luis-variara-2",
@@ -196200,7 +196273,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w271561621",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "cucuta-universidad-simon-bolivar-sede-2",
@@ -196431,7 +196505,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w305580292",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "cucuta-gimnasio-comfaoriente",
@@ -196859,7 +196934,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n13284606801",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "morelia-universidad-latina-de-america-unla",
@@ -197250,7 +197326,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1296482370",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "morelia-universidad-montrer",
@@ -197566,7 +197643,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4373074989",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "asuncion-colegio-frances-marcel-pagnol",
@@ -197814,7 +197892,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4580168736",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "asuncion-centro-americano-de-la-informatica",
@@ -198197,7 +198276,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n5623136880",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "asuncion-colegio-medalla-milagrosa",
@@ -198293,7 +198373,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n8587357724",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "asuncion-colegio-nuestra-senora-del-carmen",
@@ -198333,7 +198414,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n10245920121",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "asuncion-colegio-cristiano-nataniel",
@@ -198447,7 +198529,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w130888813",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "asuncion-colegio-pablo-avila",
@@ -198542,7 +198625,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w217584760",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "asuncion-colegio-nuestra-senora-del-huerto",
@@ -198582,7 +198666,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w236406056",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "asuncion-colegio-experimental-paraguay-brasil",
@@ -198604,7 +198689,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w272760670",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "asuncion-colegio-campoalto",
@@ -198642,7 +198728,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w273085245",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "asuncion-asuncion-christian-academy",
@@ -198660,7 +198747,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w273086993",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "asuncion-the-american-school-of-asuncion",
@@ -198680,7 +198768,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w273096614",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "asuncion-st-anne-s-school",
@@ -198698,7 +198787,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w273213099",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://sas.edu.py/storage/media/2026/10/web-page-para-nuestra-historia.webp"
  },
  {
   "id": "asuncion-colegio-sagrado-corazon-de-jesus",
@@ -198892,7 +198982,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w276183982",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "asuncion-colegio-tecnico-y-centro-de-entrenamiento-vocacional-presidente-carlos",
@@ -199882,7 +199973,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1421277486",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "asuncion-colegio-privado-el-sol",
@@ -199943,7 +200035,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "r14537736",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "san-pedro-sula-instituto-debe-haber",
@@ -200158,7 +200251,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w307968504",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "san-pedro-sula-universidad-cristiana-evangelica-nuevo-milenio",
@@ -200861,7 +200955,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1471986482",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "san-pedro-sula-ipc-instituto-politecnico-centroamericano",
@@ -201039,7 +201134,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n1819067246",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "managua-colegio-calasanz",
@@ -201095,7 +201191,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n2339946939",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "managua-colegio-liceo-franciscano",
@@ -201953,7 +202050,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5528547621",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://i0.wp.com/tuspanish.com/wp-content/uploads/2018/04/tu-spanish-school-managua-nicaragua4.jpg?fit=1200%2C488&#038;ssl=1"
  },
  {
   "id": "managua-colegio-leonardo-sepulveda",
@@ -202334,7 +202432,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w70193885",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.uam.edu.ni/wp-content/uploads/2024/01/UAM-_-Favicon.png"
  },
  {
   "id": "managua-nca-international",
@@ -202354,7 +202453,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w108180082",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://international.nca.edu.ni/assets/uploads/general/_800x418_crop_center-center_82_none/5DX_7397_rot.jpg?mtime=1630506703"
  },
  {
   "id": "managua-universidad-martin-lutero",
@@ -202468,7 +202568,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w184938347",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.ans.edu.ni/wp-content/uploads/2023/10/SEO-Image.webp"
  },
  {
   "id": "managua-universidad-iberoamericana-de-ciencia-y-tecnologia",
@@ -202552,7 +202653,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w234595318",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "managua-universidad-del-valle",
@@ -202872,7 +202974,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w287903477",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "managua-universidad-central-de-nicaragua-campus-el-doral",
@@ -203513,7 +203616,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w962247462",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://unica.edu.ni/wp-content/uploads/2024/01/IMAGEN-PARA-WEB-2-2.jpg"
  },
  {
   "id": "managua-colegio-12-de-septiembre",
@@ -203551,7 +203655,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1154825569",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "managua-universidad-central-de-nicaragua",
@@ -203613,7 +203718,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "r5876011",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "managua-universidad-de-managua-udem",
@@ -203680,7 +203786,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n12570581392",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "reynosa-universidad-tamaulipeca",
@@ -203724,7 +203831,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w472151304",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "reynosa-colegio-puente-de-esperanza",
@@ -204015,7 +204123,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w256976505",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "torreon-colegio-michael-faraday",
@@ -204397,7 +204506,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167093",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-nuestra-sen",
@@ -204421,7 +204531,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167229",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-centro-educ",
@@ -204445,7 +204556,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167233",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-amor-de-dio",
@@ -204469,7 +204581,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167234",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-mama-juanita",
@@ -204492,7 +204605,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167305",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://mama-juanita.com/wp-content/uploads/go-x/u/f78610ab-4350-4213-b977-4e0f2725f6c6/image.png"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-san-sebastian",
@@ -204516,7 +204630,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167371",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-san-jose",
@@ -204541,7 +204656,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167384",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-mengual",
@@ -204564,7 +204680,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167392",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-divina-past",
@@ -204588,7 +204705,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167410",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.divinapastoragetafe.es/wp-content/uploads/2020/08/divina-pastora-getafe-movimiento-calasancio.jpg"
  },
  {
   "id": "madrid-centro-privado-de-educacion-primaria-y-secundaria-montfort-internation",
@@ -204613,7 +204731,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167421",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegiomontfort.es/resources/sections/home/footer.jpg"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-madres-conc",
@@ -204637,7 +204756,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167536",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://storagetormenta.blob.core.windows.net/provincia/202301-favicon-concepcionistas-misioneras-de-la-ensenianza.png"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-san-luis-felca",
@@ -204685,7 +204805,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167561",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-beata-filip",
@@ -204708,7 +204829,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167565",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-liceo-oroquieta",
@@ -204731,7 +204853,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167566",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": ""
  },
  {
   "id": "madrid-colegio-pablo-vi",
@@ -204753,7 +204876,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167569",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://primary.jwwb.nl/public/w/k/i/temp-bxvnlozxanqvlrflkgll/ef6a30bf-3935-4d2e-a27c-d0c0fafd064f-high-w3te1n.jpg?enable-io=true&enable=upscale&fit=bounds&width=1200"
  },
  {
   "id": "madrid-centro-privado-de-educacion-primaria-y-secundaria-el-prado",
@@ -204776,7 +204900,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167570",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-nuestra-sen-2",
@@ -204800,7 +204925,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167597",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "madrid-colegio-san-vicente",
@@ -274014,6 +274140,4966 @@
   "private": "probable",
   "src": "osm",
   "osm": "w625210071",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuautitlan-izcalli-colegio-alberto-rincon-gallardo",
+  "name": "Colegio Alberto Rincón Gallardo",
+  "city": "Cuautitlán Izcalli",
+  "country": "México",
+  "lat": 19.699285,
+  "lng": -99.261474,
+  "addr": "Amapola 2",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w627406543",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "cuautitlan-izcalli-universidad-bancaria-de-mexico",
+  "name": "Universidad Bancaria de México",
+  "city": "Cuautitlán Izcalli",
+  "country": "México",
+  "lat": 19.73493,
+  "lng": -99.184297,
+  "addr": "5 de Mayo",
+  "phone": "+52 593 102 0000",
+  "web": "http://www.ubam.edu.mx/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w692518688",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-nuestra-senora-de-los-angeles",
+  "name": "Colegio Nuestra Señora de los Ángeles",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.930789,
+  "lng": -1.202916,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n674869059",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-santa-cruz",
+  "name": "Colegio Santa Cruz",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.920371,
+  "lng": -1.207422,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n674869060",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-sagrada-familia",
+  "name": "Colegio Sagrada Familia",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.054492,
+  "lng": -1.207311,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1709109522",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-puente-de-donana",
+  "name": "Colegio de Educación Infantil y Primaria Puente de Doñana",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.990385,
+  "lng": -1.154179,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2517193617",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-instituto-montepinar",
+  "name": "Instituto Montepinar",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.041702,
+  "lng": -1.091318,
+  "addr": "Calle Sierra de la Magdalena",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4568858980",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-san-jose",
+  "name": "Colegio San José",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.005247,
+  "lng": -1.148646,
+  "addr": "Avenida Teniente Montesinos 19",
+  "phone": "",
+  "web": "https://colegiosanjose-espinardo.com/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5866391316",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-academia-camargo",
+  "name": "Academia Camargo",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.977095,
+  "lng": -1.119974,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6463044085",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-primaria",
+  "name": "Colegio de Primaria",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.985326,
+  "lng": -1.216341,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6773155987",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio",
+  "name": "colegio",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.037578,
+  "lng": -1.077292,
+  "addr": "Calle Limonar, 2, 30140 El Esparragal, Murcia 2",
+  "phone": "+34 968850084",
+  "web": "http://www.ceip-nsangeles.com",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6784058085",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-academia-zenit",
+  "name": "Academia Zenit",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.994357,
+  "lng": -1.126401,
+  "addr": "",
+  "phone": "+34 968 97 72 05",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12103392203",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-elan-montessori-british-school",
+  "name": "Elan Montessori British School",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.990155,
+  "lng": -1.175147,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13316425763",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-san-jorge",
+  "name": "Colegio San Jorge",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.087887,
+  "lng": -1.158842,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w30093246",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-felix-rodriguez-de-la-fuente",
+  "name": "Colegio de Educación Infantil y Primaria Félix Rodríguez de la Fuente",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.975694,
+  "lng": -1.128187,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w54046824",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-ciudad-de-murcia",
+  "name": "Colegio de Educación Infantil y Primaria Ciudad de Murcia",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.974914,
+  "lng": -1.124896,
+  "addr": "Calle Pintor Pedro Flores 30",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w54848871",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-el-carmen",
+  "name": "Colegio de Educación Infantil y Primaria El Carmen",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.978986,
+  "lng": -1.129263,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w54851211",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-maestro-jose-castano",
+  "name": "Colegio de Educación Infantil y Primaria Maestro José Castaño",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.98876,
+  "lng": -1.143235,
+  "addr": "Senda de Enmedio 20",
+  "phone": "+34 968296620",
+  "web": "http://www.murciaeduca.es/cpmaestrojosecastano/",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w55121376",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-jesus-maria",
+  "name": "Colegio Jesús María",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.9892,
+  "lng": -1.1289,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w55785087",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-federico-de-arce",
+  "name": "Colegio de Educación Infantil y Primaria Federico de Arce",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.990794,
+  "lng": -1.1389,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w55806982",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-divino-maestro",
+  "name": "Colegio Divino Maestro",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.986506,
+  "lng": -1.12057,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w55887889",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-manuel-fernandez-caballero",
+  "name": "Colegio de Educación Infantil y Primaria Manuel Fernández Caballero",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.999559,
+  "lng": -1.139438,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w56015884",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-juan-xxiii",
+  "name": "Colegio de Educación Infantil y Primaria Juan XXIII",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.996817,
+  "lng": -1.147687,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w56036796",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-francisco-giner-de-los-rios",
+  "name": "Colegio de Educación Infantil y Primaria Francisco Giner de los Rios",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.97225,
+  "lng": -1.119239,
+  "addr": "Calle Bravo Murillo 11",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w57732476",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-san-vicente-de-paul",
+  "name": "Colegio de Educación Infantil y Primaria San Vicente de Paúl",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.943204,
+  "lng": -1.160692,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w104893353",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-cierva-penafiel",
+  "name": "Colegio de Educación Infantil y Primaria Cierva Peñafiel",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.987571,
+  "lng": -1.129924,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w105665357",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-mirasierra",
+  "name": "Colegio Mirasierra",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.975589,
+  "lng": -1.06331,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w118801803",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-centro-educativo-juvenil-de-el-palmar-las-moreras",
+  "name": "Centro Educativo Juvenil de El Palmar \"Las Moreras\"",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.934418,
+  "lng": -1.192671,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w128350687",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-los-rosales",
+  "name": "Colegio de Educación Infantil y Primaria Los Rosales",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.93672,
+  "lng": -1.165164,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w128650749",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-santa-rosa-de-lima",
+  "name": "Colegio de Educación Infantil y Primaria Santa Rosa de Lima",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.931754,
+  "lng": -1.165193,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w128651210",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-gloria-fuertes",
+  "name": "Colegio de Educación Infantil y Primaria Gloria Fuertes",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.937522,
+  "lng": -1.156032,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w128651330",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-jose-maria-parraga",
+  "name": "Colegio de Educación Infantil y Primaria José María Párraga",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.936504,
+  "lng": -1.16355,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w129782631",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-san-vicente-ferrer",
+  "name": "Colegio San Vicente Ferrer",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.964054,
+  "lng": -1.117422,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w135413723",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-pintor-pedro-cano",
+  "name": "Colegio de Educación Infantil y Primaria Pintor Pedro Cano",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.938818,
+  "lng": -1.17014,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w140979107",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-marista-la-merced-fuensanta",
+  "name": "Colegio Marista La Merced-Fuensanta",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.980447,
+  "lng": -1.140138,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142712444",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-el-limonar-international-school-buenavista",
+  "name": "El Limonar International School - Buenavista",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.926676,
+  "lng": -1.159997,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w153205433",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-santo-angel",
+  "name": "Colegio de Educación Infantil y Primaria Santo Ángel",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.941508,
+  "lng": -1.13172,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w155263344",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-maestro-enrique-laborda",
+  "name": "Colegio de Educación Infantil y Primaria Maestro Enrique Laborda",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.976322,
+  "lng": -1.106358,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w178506680",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-lycee-francais-andre-malraux",
+  "name": "Lycée Français André Malraux",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.068725,
+  "lng": -1.173931,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w181059561",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-san-jose",
+  "name": "Colegio de Educación Infantil y Primaria San José",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.94023,
+  "lng": -1.146402,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w183519336",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-campoamor",
+  "name": "Colegio de Educación Infantil y Primaria Campoamor",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.968181,
+  "lng": -1.218866,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w207600301",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-nuestra-senora-de-la-asuncion",
+  "name": "Colegio de Educación Infantil y Primaria Nuestra Señora de la Asunción",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.973068,
+  "lng": -1.217716,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w207657415",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-jacinto-benavente",
+  "name": "Colegio de Educación Infantil y Primaria Jacinto Benavente",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.967406,
+  "lng": -1.209754,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w207720842",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-nuestra-senora-de-la-salud",
+  "name": "Colegio de Educación Infantil y Primaria Nuestra Señora de la Salud",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.976103,
+  "lng": -1.215896,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w207746432",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-de-cobatillas",
+  "name": "Colegio de Educación Infantil y Primaria de Cobatillas",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.054723,
+  "lng": -1.081333,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w214738670",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-santiago-el-mayor",
+  "name": "Colegio de Educación Infantil y Primaria Santiago el Mayor",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.971386,
+  "lng": -1.125134,
+  "addr": "Calle del Renacimiento 1",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w217547736",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-antonio-delgado-dorrego",
+  "name": "Colegio de Educación Infantil y Primaria Antonio Delgado Dorrego",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.932392,
+  "lng": -1.213549,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w233758878",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-rafael-nicolas-raya",
+  "name": "Colegio de Educación Infantil y Primaria Rafael Nicolás Raya",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.928451,
+  "lng": -1.206061,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w233759109",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-el-molinico",
+  "name": "Colegio de Educación Infantil y Primaria El Molinico",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.943528,
+  "lng": -1.140829,
+  "addr": "Huertos 12",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w249192181",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-escuelas-nuevas",
+  "name": "Colegio de Educación Infantil y Primaria Escuelas Nuevas",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.94157,
+  "lng": -1.156048,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w262532332",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-mariano-aroca-lopez",
+  "name": "Colegio de Educación Infantil y Primaria Mariano Aroca López",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.978389,
+  "lng": -1.121587,
+  "addr": "Calle del Sauce 13",
+  "phone": "+34 968250254",
+  "web": "http://www.marianoaroca.es",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w263087010",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-la-consolacion",
+  "name": "Colegio la Consolación",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.053638,
+  "lng": -1.216494,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w265752357",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-fatima",
+  "name": "Colegio de Fátima",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.062911,
+  "lng": -1.212307,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w265763286",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-concertado-salzillo",
+  "name": "Colegio Concertado Salzillo",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.066351,
+  "lng": -1.211929,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w265763663",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-el-taller",
+  "name": "Colegio el Taller",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.070021,
+  "lng": -1.202341,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w265763664",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-santa-maria-de-gracia",
+  "name": "Colegio de Educación Infantil y Primaria Santa María de Gracia",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.996384,
+  "lng": -1.137494,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w266861064",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-san-andres",
+  "name": "Colegio de Educación Infantil y Primaria San Andrés",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.984503,
+  "lng": -1.140321,
+  "addr": "Calle de los Bolos 15",
+  "phone": "+34 968290374",
+  "web": "http://www.murciaeduca.es/cpsanandres/sitio/",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w274609453",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-nuestra-senora-de-la-fuensanta-jesus-maria",
+  "name": "Colegio Nuestra Señora de la Fuensanta- Jesús María",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.987769,
+  "lng": -1.142935,
+  "addr": "Calle Senda de Enmedio 1",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w274749103",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-infante-don-juan-manuel",
+  "name": "Colegio de Educación Infantil y Primaria Infante Don Juan Manuel",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.978815,
+  "lng": -1.115332,
+  "addr": "Calle Alberto Sevilla 6",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w278710769",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-especial-perez-urruti",
+  "name": "Colegio de Educación Especial Pérez Urruti",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.025972,
+  "lng": -1.133336,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w284790990",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-adn-centro-educativo",
+  "name": "ADN Centro Educativo",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.03143,
+  "lng": -1.132293,
+  "addr": "Paraje Casablanca",
+  "phone": "+34 968 30 81 33",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w284791191",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-salesianos-colegio-don-bosco-cabezo-de-torres",
+  "name": "Salesianos Colegio Don Bosco Cabezo de Torres",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.028168,
+  "lng": -1.127247,
+  "addr": "Avenida Alto Atalayas 43",
+  "phone": "+34 968 89 97 19",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w284807580",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-consejo-rector-de-la-universidad-de-murcia",
+  "name": "Consejo Rector de la Universidad de Murcia",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.982474,
+  "lng": -1.127154,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w304079683",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-las-tejeras",
+  "name": "Colegio de Educación Infantil y Primaria Las Tejeras",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.96136,
+  "lng": -1.220733,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.murciaeduca.es/cplastejeras/sitio/index.cgi?wid_seccion=30",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w316535984",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-vicente-medina",
+  "name": "Colegio de Educación Infantil y Primaria Vicente Medina",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.033727,
+  "lng": -1.062113,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w327219356",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-herma",
+  "name": "Colegio Herma",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.977651,
+  "lng": -1.130939,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.colegioherma.es/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w341640255",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-bilingue-ana-maria-matute",
+  "name": "Colegio Bilingüe Ana María Matute",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.971831,
+  "lng": -1.160171,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.colegioanamariamatute.com/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w344306566",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-santa-maria-del-carmen",
+  "name": "Colegio Santa María del Carmen",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.976321,
+  "lng": -1.118413,
+  "addr": "Avenida Monte Carmelo 12",
+  "phone": "",
+  "web": "http://murcia.colegioscarmelitas.es/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w352006811",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-luis-costa",
+  "name": "Colegio de Educación Infantil y Primaria Luis Costa",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.99665,
+  "lng": -1.123646,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w356570024",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-narciso-yepes",
+  "name": "Colegio de Educación Infantil y Primaria Narciso Yepes",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.990234,
+  "lng": -1.12132,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w356570025",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-la-arboleda",
+  "name": "Colegio de Educación Infantil y Primaria La Arboleda",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.000497,
+  "lng": -1.124472,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w371187892",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-nuestra-senora-de-belen",
+  "name": "Colegio de Educación Infantil y Primaria Nuestra Señora de Belén",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.002212,
+  "lng": -1.13617,
+  "addr": "Avenida Doctor Pascual Parrilla Paricio",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w378112165",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-nuestra-senora-de-fatima",
+  "name": "Colegio Nuestra Señora de Fátima",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.060523,
+  "lng": -1.217061,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w386576491",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-fomento-monteagudo-nelva",
+  "name": "Colegio de Fomento - Monteagudo-Nelva",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.987476,
+  "lng": -1.111785,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w389685369",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-vista-real",
+  "name": "Colegio Vista Real",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.075718,
+  "lng": -1.155496,
+  "addr": "Calle Sierra Espuña",
+  "phone": "+34968618683",
+  "web": "http://www.vistarreal.es/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w413388991",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-cei",
+  "name": "Colegio CEI",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.981934,
+  "lng": -1.134773,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.colegiocei.es/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w417325466",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-juan-carlos-i",
+  "name": "Colegio de Educación Infantil y Primaria Juan Carlos I",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.003765,
+  "lng": -1.070998,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w437256668",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-enrique-laborda",
+  "name": "Colegio de Educación Infantil y Primaria Enrique Laborda",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.980422,
+  "lng": -1.102334,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w458161629",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-santa-joaquina-de-vedruna",
+  "name": "Colegio Santa Joaquina de Vedruna",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.980041,
+  "lng": -1.126043,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w500938557",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-divino-maestro-2",
+  "name": "Colegio \"Divino Maestro\"",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.025512,
+  "lng": -1.23877,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w531513715",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-el-parque",
+  "name": "Colegio de Educación Infantil y Primaria El Parque",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.025686,
+  "lng": -1.245757,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w531515219",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-maestro-joaquin-cantero",
+  "name": "Colegio de Educación Infantil y Primaria Maestro Joaquín Cantero",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.017766,
+  "lng": -1.236889,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w531521140",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-monte-azahar",
+  "name": "Colegio \"Monte-Azahar\"",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.028753,
+  "lng": -1.25036,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w531527633",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-san-jose-ii",
+  "name": "Colegio de Educación Infantil y Primaria San José II",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.020477,
+  "lng": -1.248641,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w531527643",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-susarte",
+  "name": "Colegio \"Susarte\"",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.020151,
+  "lng": -1.240653,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w531535684",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-valentin-buendia",
+  "name": "Colegio de Educación Infantil y Primaria Valentín Buendía",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.03121,
+  "lng": -1.240581,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w531535693",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-vista-alegre",
+  "name": "Colegio de Educación Infantil y Primaria Vista Alegre",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.039892,
+  "lng": -1.245785,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w531535704",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-severo-ochoa",
+  "name": "Colegio Severo Ochoa",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.964076,
+  "lng": -1.092144,
+  "addr": "Camino de Tiñosa 50",
+  "phone": "+34 968 822 701",
+  "web": "http://www.severoochoa.net",
+  "email": "info@severoochoa.net",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w542052005",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-nuestra-senora-de-fatima",
+  "name": "Colegio de Educación Infantil y Primaria Nuestra Señora de Fátima",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.965689,
+  "lng": -1.064241,
+  "addr": "Calle Nuestra Señora de Fatima 14",
+  "phone": "+34 968 82 06 17",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w542127176",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-nuestra-senora-de-la-fuensant",
+  "name": "Colegio de Educación Infantil y Primaria Nuestra Señora de la Fuensanta",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.974975,
+  "lng": -1.075595,
+  "addr": "Calle Juan Peregrin Tomas 10",
+  "phone": "+34 968 82 08 46",
+  "web": "https://www.murciaeduca.es/cpntrasradelafuensantamurcia/sitio/",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w543337815",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-nicolas-de-las-penas",
+  "name": "Colegio de Educación Infantil y Primaria Nicolás de las Peñas",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.992509,
+  "lng": -1.134461,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w545284664",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-san-juan",
+  "name": "Colegio de Educación Infantil y Primaria San Juan",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.982793,
+  "lng": -1.124253,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w553602094",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-ucam-universidad-catolica-san-antonio-de-murcia",
+  "name": "UCAM - Universidad Católica San Antonio de Murcia",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.991262,
+  "lng": -1.185329,
+  "addr": "Campus de los Jerónimos, Guadalupe",
+  "phone": "+34 968 27 88 01",
+  "web": "https://www.ucam.edu/",
+  "email": "info@ucam.edu",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w555197343",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-ays",
+  "name": "Colegio AYS",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.982601,
+  "lng": -1.143129,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w557638553",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-e-c-torre-salinas",
+  "name": "Colegio E.C. Torre Salinas",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.969394,
+  "lng": -1.148194,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w563310232",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-nuestra-senora-del-paso",
+  "name": "Colegio de Educación Infantil y Primaria Nuestra Señora del Paso",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.990412,
+  "lng": -1.193899,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w566829631",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-concertado-cipriano-galea",
+  "name": "Colegio Concertado Cipriano Galea",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.991009,
+  "lng": -1.19657,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w566829633",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-virgen-de-guadalupe",
+  "name": "Colegio de Educación Infantil y Primaria Virgen de Guadalupe",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.000477,
+  "lng": -1.176974,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w566974163",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-fuenteblanca",
+  "name": "Colegio Fuenteblanca",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.999247,
+  "lng": -1.128225,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w573770465",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-reino-de-murcia",
+  "name": "Colegio de Educación Infantil y Primaria Reino de Murcia",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.997598,
+  "lng": -1.14568,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w579214278",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-vistabella",
+  "name": "Colegio de Educación Infantil y Primaria Vistabella",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.983123,
+  "lng": -1.11934,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w592182837",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-sagrado-corazon-primaria",
+  "name": "Colegio de Educación Infantil y Primaria Sagrado Corazón (Primaria)",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.010504,
+  "lng": -0.999823,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w665105235",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-sagrado-corazon-infantil",
+  "name": "Colegio de Educación Infantil y Primaria Sagrado Corazón (Infantil)",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.008082,
+  "lng": -1.003603,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w668760458",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-cristo-rey",
+  "name": "Colegio Cristo Rey",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.991115,
+  "lng": -1.137562,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w706194792",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-parra",
+  "name": "Colegio Parra",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.988355,
+  "lng": -1.122311,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w724450879",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-nuestra-senora-de-los-dolores",
+  "name": "Colegio Nuestra Señora de los Dolores",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.040757,
+  "lng": -1.028573,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w724679554",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-barriomar-74",
+  "name": "Colegio de Educación Infantil y Primaria Barriomar 74",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.976681,
+  "lng": -1.139129,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w727902890",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-nuestra-senora-de-las-lagrimas",
+  "name": "Colegio Nuestra Señora de las Lágrimas",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.029428,
+  "lng": -1.127808,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w730458029",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-rubio-gomariz",
+  "name": "Colegio Rubio Gomariz",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.023112,
+  "lng": -1.121404,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w730859057",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-maria-maroto",
+  "name": "Colegio de Educación Infantil y Primaria María Maroto",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.991382,
+  "lng": -1.127478,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w732685565",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-la-paz",
+  "name": "Colegio de Educación Infantil y Primaria La Paz",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.988435,
+  "lng": -1.1179,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w745819412",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-andres-baquero",
+  "name": "Colegio de Educación Infantil y Primaria Andrés Baquero",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.987147,
+  "lng": -1.123896,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w745819415",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-santa-maria-de-la-paz-jesuitinas",
+  "name": "Colegio Santa María de la Paz (Jesuitinas)",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.990095,
+  "lng": -1.115156,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w749009744",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-el-buen-pastor",
+  "name": "Colegio El Buen Pastor",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.986234,
+  "lng": -1.138522,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w749086993",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-san-buenaventura-capuchinos",
+  "name": "Colegio San Buenaventura (Capuchinos)",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.993778,
+  "lng": -1.130011,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w749165482",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-nuestra-senora-de-la-arrixaca",
+  "name": "Colegio de Educación Infantil y Primaria Nuestra Señora de la Arrixaca",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.996772,
+  "lng": -1.129805,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w749181786",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-la-flota",
+  "name": "Colegio de Educación Infantil y Primaria La Flota",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.994092,
+  "lng": -1.122234,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w749933763",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-la-flota",
+  "name": "Colegio La Flota",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.994786,
+  "lng": -1.118808,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w750037763",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-nuestra-senora-de-atocha",
+  "name": "Colegio de Educación Infantil y Primaria Nuestra Señora de Atocha",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.000767,
+  "lng": -1.130677,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w752969500",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-el-limonar-international-school-montevida",
+  "name": "El Limonar International School - Montevida",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.933622,
+  "lng": -1.153176,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w768676701",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-infanta-elena",
+  "name": "Colegio de Educación Infantil y Primaria Infanta Elena",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.986231,
+  "lng": -1.081957,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w837341237",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-nuestra-sra-de-la-antigua",
+  "name": "Colegio de Educación Infantil y Primaria Nuestra. Sra. de la Antigua",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.01723,
+  "lng": -1.099292,
+  "addr": "Avenida Pedro Díaz Cassou",
+  "phone": "+34 968 852404",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w918643244",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-virgen-del-rosario",
+  "name": "Colegio de Educación Infantil y Primaria Virgen del Rosario",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.022862,
+  "lng": -1.089535,
+  "addr": "",
+  "phone": "+34 968 850092",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w918815041",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-luis-vives",
+  "name": "Colegio Luis Vives",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.971165,
+  "lng": -1.172775,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w976716374",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-nuestra-senora-de-cortes",
+  "name": "Colegio de Educación Infantil y Primaria Nuestra Señora de Cortes",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.971157,
+  "lng": -1.171767,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w976716375",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-jose-rubio-gomariz",
+  "name": "Colegio de Educación Infantil y Primaria José Rubio Gomariz",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.023502,
+  "lng": -1.117949,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1030211995",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-carolina-codorniu",
+  "name": "Colegio Carolina Codorniu",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.015684,
+  "lng": -1.1387,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1057269461",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-marco",
+  "name": "Colegio Marco",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.991748,
+  "lng": -1.099646,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.colegiomarco.es/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1093137058",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-gregorio-minano",
+  "name": "Colegio de Educación Infantil y Primaria Gregorio Miñano",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.057327,
+  "lng": -1.2168,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1098388978",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-antonio-diaz",
+  "name": "Colegio de Educación Infantil y Primaria Antonio Díaz",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.9533,
+  "lng": -1.092304,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1120650050",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-vicente-medina",
+  "name": "Colegio \"Vicente Medina\"",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.048498,
+  "lng": -1.202105,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1196532804",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-san-miguel",
+  "name": "Colegio de Educación Infantil y Primaria San Miguel",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.055783,
+  "lng": -1.202323,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1196743900",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-nuestra-senora-de-la-encarnac",
+  "name": "Colegio de Educación Infantil y Primaria Nuestra Señora de la Encarnación",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.977689,
+  "lng": -1.181078,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1200605126",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-los-alamos",
+  "name": "Colegio de Educación Infantil y Primaria Los Álamos",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.980111,
+  "lng": -1.132947,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1211282355",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-san-lorenzo",
+  "name": "Colegio San Lorenzo",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.995948,
+  "lng": -1.097836,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1497953495",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-san-pio-x",
+  "name": "Colegio de Educación Infantil y Primaria San Pío X",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.972678,
+  "lng": -1.132951,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r1589704",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-ciudad-de-la-paz",
+  "name": "Colegio de Educación Infantil y Primaria Ciudad de la Paz",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.938736,
+  "lng": -1.171741,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r1836425",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-saavedra-fajardo",
+  "name": "Colegio de Educación Infantil y Primaria Saavedra Fajardo",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.945934,
+  "lng": -1.109177,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r1871489",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-nuestra-senora-de-la-consolacion",
+  "name": "Colegio Nuestra Señora de la Consolación",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.007082,
+  "lng": -1.151362,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r1894497",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-san-pablo",
+  "name": "Colegio de Educación Infantil y Primaria San Pablo",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.990874,
+  "lng": -1.126551,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r1979290",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-universidad-de-murcia",
+  "name": "Universidad de Murcia",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.816071,
+  "lng": -1.246395,
+  "addr": "",
+  "phone": "",
+  "web": "http://www.um.es/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r4051787",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-cuatronaranjos-active-school",
+  "name": "Cuatronaranjos Active School",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 37.980749,
+  "lng": -1.141759,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r12473172",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "murcia-colegio-de-educacion-infantil-y-primaria-cristo-de-la-expiracion",
+  "name": "Colegio de Educación Infantil y Primaria Cristo de la Expiración",
+  "city": "Murcia",
+  "country": "España",
+  "lat": 38.016677,
+  "lng": -1.053772,
+  "addr": "Travesía Escuelas 1",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r17852844",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-san-francisco-de-asis",
+  "name": "colegio San Francisco de Asis",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.721297,
+  "lng": -75.715731,
+  "addr": "",
+  "phone": "",
+  "web": "http://iesfaarabia.edu.co/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3983276706",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-lorencita-villegas-de-santos",
+  "name": "Colegio Lorencita Villegas de Santos",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.867643,
+  "lng": -75.617749,
+  "addr": "Carrera 10",
+  "phone": "+57 606 3661775",
+  "web": "https://lorencitavillegasdesantos.jimdofree.com/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5270924845",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-colombo-britanico",
+  "name": "Colegio colombo britanico",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.827948,
+  "lng": -75.695966,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7129235473",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-academia-de-artes-y-oficios-munich",
+  "name": "Academia de artes y oficios Munich",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.814772,
+  "lng": -75.720676,
+  "addr": "Carrera 11 48-180",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12138574089",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-fabio-vasquez-botero",
+  "name": "Colegio Fabio Vasquez Botero",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.830769,
+  "lng": -75.682913,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w185448124",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio",
+  "name": "Colegio",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.720942,
+  "lng": -75.713259,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w322121773",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-universidad-libre",
+  "name": "Universidad Libre",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.805176,
+  "lng": -75.760218,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w489423302",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-instituto-tecnico-superior-seccion-primaria",
+  "name": "Instituto Tecnico Superior - Seccion Primaria",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.79825,
+  "lng": -75.69313,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w652454119",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-instituto-tecnico-industrial",
+  "name": "Instituto Técnico Industrial",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.860199,
+  "lng": -75.614796,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w705578536",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-fundacion-liceo-ingles",
+  "name": "Colegio Fundación Liceo Inglés",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.803266,
+  "lng": -75.771101,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1028998428",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-school-san-pedro-y-san-pablo",
+  "name": "School San Pedro y San Pablo",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.840709,
+  "lng": -75.668193,
+  "addr": "Calle 50",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1042673233",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-instituto-psicopedagogico-harvard",
+  "name": "Instituto Psicopedagogico Harvard",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.786842,
+  "lng": -75.728621,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1156341522",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-universidad-ciaf",
+  "name": "Universidad CIAF",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.81632,
+  "lng": -75.698832,
+  "addr": "Carrera 6 24 - 56",
+  "phone": "",
+  "web": "https://www.ciaf.edu.co/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1157704716",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-santa-maria-goretti",
+  "name": "Colegio Santa María Goretti",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.865574,
+  "lng": -75.618783,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1182584187",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-crai-universidad-ciaf",
+  "name": "Crai Universidad Ciaf",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.816694,
+  "lng": -75.694605,
+  "addr": "Calle 20 4 -57",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1283017829",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-rodolfo-llinas",
+  "name": "Colegio Rodolfo Llinas",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.856292,
+  "lng": -75.659662,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1378424936",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-universidad-del-quindio-sede-pereira",
+  "name": "Universidad del Quindío - Sede Pereira",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.748876,
+  "lng": -75.668903,
+  "addr": "",
+  "phone": "+57 316 4782363",
+  "web": "https://www.uniquindio.edu.co/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1445394496",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-santa-juana",
+  "name": "Colegio Santa Juana",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.823295,
+  "lng": -75.673171,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r6038287",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-universidad-tecnologica-de-pereira",
+  "name": "Universidad Tecnológica de Pereira",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.794254,
+  "lng": -75.689112,
+  "addr": "",
+  "phone": "+57 606 3137300",
+  "web": "https://www.utp.edu.co/",
+  "email": "contactenos@utp.edu.co",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r6794266",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-instituto-tecnico-superior-de-pereira",
+  "name": "Instituto Técnico Superior de Pereira",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.797781,
+  "lng": -75.688392,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r6794305",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-universidad-catolica-de-pereira",
+  "name": "Universidad Católica de Pereira",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.805576,
+  "lng": -75.725225,
+  "addr": "Avenida de las Americas #45-95",
+  "phone": "+57 606 3124000",
+  "web": "https://www.ucp.edu.co/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r6794329",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-cooperativo",
+  "name": "Colegio Cooperativo",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.801058,
+  "lng": -75.742364,
+  "addr": "Carrera 25 75b - 22",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r7414485",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-universidad-libre-2",
+  "name": "Universidad Libre",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.816443,
+  "lng": -75.712038,
+  "addr": "Calle 40 #7-30",
+  "phone": "+57 606 3401081",
+  "web": "https://www.unilibre.edu.co/pereira/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r7616322",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-ciudadela-cuba",
+  "name": "Colegio Ciudadela Cuba",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.804405,
+  "lng": -75.736526,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r7622794",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-hans-drews-arango",
+  "name": "Colegio Hans Drews Arango",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.793739,
+  "lng": -75.739238,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r7628546",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-salamanca",
+  "name": "Colegio Salamanca",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.791388,
+  "lng": -75.747151,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r7628582",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-bethlemitas",
+  "name": "Colegio Bethlemitas",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.782313,
+  "lng": -75.733291,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r7639779",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-byron-gaviria",
+  "name": "Colegio Byron Gaviria",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.796899,
+  "lng": -75.73334,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r7650166",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-calasanz-pereira",
+  "name": "Colegio Calasanz Pereira",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.812234,
+  "lng": -75.718974,
+  "addr": "Carrera 19 #46-50",
+  "phone": "+57 606 3400191",
+  "web": "https://www.calasanz-pereira.edu.co/sitio/",
+  "email": "comunicaciones@calasanz-pereira.edu.co",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r7681664",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-pablo-sexto",
+  "name": "Colegio Pablo Sexto",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.834459,
+  "lng": -75.664615,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r7735010",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-fundacion-gimnasio-pereira",
+  "name": "Colegio Fundación Gimnasio Pereira",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.807102,
+  "lng": -75.676348,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r7747939",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-la-ensenanza",
+  "name": "Colegio La Enseñanza",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.807711,
+  "lng": -75.680137,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r7747942",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-instituto-kennedy",
+  "name": "Instituto Kennedy",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.806941,
+  "lng": -75.672046,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r7750106",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-universidad-antonio-narino",
+  "name": "Universidad Antonio Nariño",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.797278,
+  "lng": -75.693424,
+  "addr": "Carrera 27",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r7752531",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-jorge-eliecer-gaitan",
+  "name": "Colegio Jorge Eliecer Gaitan",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.811779,
+  "lng": -75.676498,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r7757022",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-de-malaga",
+  "name": "Colegio de Malaga",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.827564,
+  "lng": -75.730991,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r7766986",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-centro-educativo-canceles",
+  "name": "Centro Educativo Canceles",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.797189,
+  "lng": -75.674024,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r7827527",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-centro-educativo-juan-xxiii",
+  "name": "Centro Educativo Juan XXIII",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.804479,
+  "lng": -75.742108,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r7895397",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-salesiano",
+  "name": "Colegio Salesiano",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.831058,
+  "lng": -75.672532,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r8136515",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-oficial-manuel-elkin-patarroyo",
+  "name": "Colegio Oficial Manuel Elkin Patarroyo",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.851373,
+  "lng": -75.653321,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r9586238",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-liceo-frances-de-pereira",
+  "name": "Liceo Francés de Pereira",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.776822,
+  "lng": -75.695142,
+  "addr": "Via Armenia Pereira.",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r10266909",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-centro-educativo-hans-drews-arango-sede-la-union",
+  "name": "Centro Educativo Hans Drews Arango Sede La Unión",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.806063,
+  "lng": -75.731393,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r14207893",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "pereira-colegio-ciudad-boquia",
+  "name": "Colegio Ciudad Boquia",
+  "city": "Pereira",
+  "country": "Colombia",
+  "lat": 4.821697,
+  "lng": -75.732575,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r15713253",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-academia-el-triunfo",
+  "name": "Academia El Triunfo",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.191662,
+  "lng": -80.628362,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5693908407",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-instituto-abaco",
+  "name": "Instituto Abaco",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.195287,
+  "lng": -80.625706,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n8271758363",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-instituto-superior-de-educacion-san-fernando",
+  "name": "Instituto Superior de Educación San Fernando",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.186012,
+  "lng": -80.617524,
+  "addr": "Avenida Luis Montero Mz L1 Lote 26, Urbanización Miraflores Castilla-Piura., Urbanización Miraflores",
+  "phone": "",
+  "web": "https://www.facebook.com/institutosanfernandopiura",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12110660463",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-i-e-p-villarreal",
+  "name": "I.E.P. Villarreal",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.164745,
+  "lng": -80.649524,
+  "addr": "",
+  "phone": "",
+  "web": "https://colegiosvillarrealpiura.com/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n14161458923",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-universidad-privada-antenor-orrego",
+  "name": "Universidad Privada Antenor Orrego",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.168165,
+  "lng": -80.629334,
+  "addr": "Los Zanganos",
+  "phone": "",
+  "web": "https://upao.edu.pe/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w286110415",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-universidad-de-piura",
+  "name": "Universidad de Piura",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.173019,
+  "lng": -80.638799,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.udep.edu.pe/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w286174463",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-universidad-cesar-vallejo",
+  "name": "Universidad César Vallejo",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.174466,
+  "lng": -80.663339,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w374287820",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-colegio-san-gabriel",
+  "name": "Colegio San Gabriel",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.1846,
+  "lng": -80.620925,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w397135504",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-centro-educativo-inicial-sagrado-corazon-de-jesus",
+  "name": "Centro Educativo Inicial Sagrado Corazón de Jesús",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.176537,
+  "lng": -80.683743,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w397154046",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-colegio-san-luis-gonzaga",
+  "name": "Colegio San Luis Gonzaga",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.181726,
+  "lng": -80.633836,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w397160869",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-i-e-p-premium",
+  "name": "I.E.P Premium",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.196383,
+  "lng": -80.625886,
+  "addr": "Calle La Libertad 735",
+  "phone": "",
+  "web": "https://colegiopremium.edu.pe/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w397163959",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-i-e-p-miraflores-school",
+  "name": "I.E.P. Miraflores School",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.185886,
+  "lng": -80.618241,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w397314506",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-colegio-internacional-elim",
+  "name": "Colegio Internacional Elim",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.204291,
+  "lng": -80.632911,
+  "addr": "Mz Ll Lote 10",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w468278380",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-universidad-tecnologica-del-peru-piura",
+  "name": "Universidad Técnológica del Perú - Piura",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.182802,
+  "lng": -80.640713,
+  "addr": "Avenida Andrés Avelino Cáceres",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1090356120",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-universidad-alas-peruanas",
+  "name": "Universidad Alas Peruanas",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.186569,
+  "lng": -80.583196,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1279202980",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-universidad-san-pedro",
+  "name": "Universidad San Pedro",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.184163,
+  "lng": -80.581709,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1279202981",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-colegio-adventista-union-piura",
+  "name": "Colegio Adventista Unión Piura",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.14504,
+  "lng": -80.655449,
+  "addr": "Urbanización Monte Bello I- Etapa",
+  "phone": "",
+  "web": "https://ieapiu.educacionadventista.com/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1442478942",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-colegio-salesiano",
+  "name": "Colegio Salesiano",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.192863,
+  "lng": -80.624977,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1472535474",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-i-e-p-ebenezer-school",
+  "name": "I.E.P. Ebenezer School",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.210376,
+  "lng": -80.626599,
+  "addr": "Avenida Tacna 906",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1538932992",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "piura-instituto-otto-tonsmann",
+  "name": "Instituto Otto Tonsmann",
+  "city": "Piura",
+  "country": "Perú",
+  "lat": -5.17995,
+  "lng": -80.654838,
+  "addr": "",
+  "phone": "",
+  "web": "https://ottotonsmann.edu.pe/web/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1557377987",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "iquitos-colegio-primario-tupac-amaru-60793",
+  "name": "Colegio Primario Tupac Amaru 60793",
+  "city": "Iquitos",
+  "country": "Perú",
+  "lat": -3.753776,
+  "lng": -73.267593,
+  "addr": "Ca. Tupac Amaru",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4318991690",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "iquitos-instituto-peruano-de-administracion-de-empresas-ipae-iquitos",
+  "name": "Instituto Peruano De Administracion De Empresas Ipae-iquitos",
+  "city": "Iquitos",
+  "country": "Perú",
+  "lat": -3.74719,
+  "lng": -73.2527,
+  "addr": "Calle Echenique Cuadra 3",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5573997800",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "iquitos-colegio-primaria-san-martin-de-porres",
+  "name": "Colegio Primaria San Martín de Porres",
+  "city": "Iquitos",
+  "country": "Perú",
+  "lat": -3.752233,
+  "lng": -73.257887,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w966867150",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "iquitos-colegio-teniente-manuel-clavero-muga-punchana",
+  "name": "Colegio Teniente Manuel Clavero Muga Punchana",
+  "city": "Iquitos",
+  "country": "Perú",
+  "lat": -3.731582,
+  "lng": -73.249054,
+  "addr": "Jirón Trujillo 750",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w979579990",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "iquitos-universidad-cientifica-del-peru-ucp",
+  "name": "Universidad Científica del Perú - UCP",
+  "city": "Iquitos",
+  "country": "Perú",
+  "lat": -3.769379,
+  "lng": -73.282492,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1022183923",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "iquitos-universidad-peruana-del-oriente-upo",
+  "name": "Universidad Peruana del Oriente - UPO",
+  "city": "Iquitos",
+  "country": "Perú",
+  "lat": -3.77266,
+  "lng": -73.282846,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1022240511",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-liceo-mixto-malhabar",
+  "name": "Liceo Mixto Malhabar",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.045741,
+  "lng": -75.502152,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1660843430",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-liceo-mixto-aranjuez",
+  "name": "Liceo Mixto Aranjuez",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.042899,
+  "lng": -75.500496,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1660994810",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-colegio-gerardo-arias-ramirez",
+  "name": "Colegio Gerardo Arias Ramírez",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.044872,
+  "lng": -75.515998,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1731147828",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-colegio-la-asuncion",
+  "name": "Colegio La Asunción",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.067201,
+  "lng": -75.494314,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3360337016",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-colegio-la-asuncion-bachillerato",
+  "name": "Colegio La Asunción Bachillerato",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.065727,
+  "lng": -75.494345,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3360337017",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-liceo-aprender",
+  "name": "Liceo Aprender",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.043471,
+  "lng": -75.509048,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4757957458",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-colegio-nuevo-gimnasio",
+  "name": "Colegio Nuevo Gimnasio",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.059047,
+  "lng": -75.500291,
+  "addr": "Calle 50",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5602393322",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-universidad-del-quindio-sede-manizales",
+  "name": "Universidad del Quindío - Sede Manizales",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.045407,
+  "lng": -75.480484,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13462543534",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-colegio-santa-ines",
+  "name": "Colegio Santa Inés",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.044795,
+  "lng": -75.480332,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w45742558",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-instituto-chipre",
+  "name": "Instituto Chipre",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.07999,
+  "lng": -75.526707,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w48179016",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-colegio-seminario-menor",
+  "name": "Colegio Seminario Menor",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.062406,
+  "lng": -75.491322,
+  "addr": "Carrera 22 #56-31",
+  "phone": "+57 096 8854299",
+  "web": "https://www.colsemenormanizales.edu.co/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w48217194",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-colegio-de-cristo",
+  "name": "Colegio de Cristo",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.05423,
+  "lng": -75.479978,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w81218156",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-universidad-de-caldas",
+  "name": "Universidad de Caldas",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.0556,
+  "lng": -75.493413,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w106577012",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-centro-colombo-americano",
+  "name": "Centro Colombo Americano",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.058673,
+  "lng": -75.48964,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w202583927",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-instituto-mariscal-sucre",
+  "name": "Instituto Mariscal Sucre",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.060353,
+  "lng": -75.48117,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w489325527",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-universidad-de-manizales",
+  "name": "Universidad de Manizales",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.07701,
+  "lng": -75.519612,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w493501386",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-colegio-anglo-frances",
+  "name": "Colegio Anglo Francés",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.030797,
+  "lng": -75.479307,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w497213939",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-colegio-liceo-mixto-sinai",
+  "name": "Colegio Liceo Mixto Sinai",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.072846,
+  "lng": -75.487781,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w538348122",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-colegio-fe-y-alegria-la-paz",
+  "name": "Colegio Fe y Alegria La Paz",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.075184,
+  "lng": -75.495067,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w538393308",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-universidad-catolica-de-manizales",
+  "name": "Universidad Católica De Manizales",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.060337,
+  "lng": -75.487334,
+  "addr": "Avenida Santander 60 - 63",
+  "phone": "",
+  "web": "https://www.ucm.edu.co/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w556111557",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-colegio-san-rafael",
+  "name": "Colegio San Rafael",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.052927,
+  "lng": -75.483018,
+  "addr": "Carrera 22",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w559271191",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-universidad-luis-amigo",
+  "name": "Universidad Luis Amigó",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.053423,
+  "lng": -75.483519,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w574568553",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-colegio-anglo-hispano",
+  "name": "Colegio Anglo Hispano",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.036649,
+  "lng": -75.493092,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w672545854",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-universidad-de-caldas-sede-palogrande",
+  "name": "Universidad de Caldas - Sede Palogrande",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.061619,
+  "lng": -75.490359,
+  "addr": "Carrera 23 #58-65",
+  "phone": "",
+  "web": "https://www.ucaldas.edu.co/portal/sedes-y-espacios-institucionales/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w911413634",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-colegio-filipense-nuestra-senora-de-lourdes",
+  "name": "Colegio Filipense Nuestra Señora de Lourdes",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.069351,
+  "lng": -75.53056,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w956438412",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-instituto-manizales",
+  "name": "Instituto Manizales",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.071509,
+  "lng": -75.513612,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w958515179",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-asociacion-colegio-granadino",
+  "name": "Asociación Colegio Granadino",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.024083,
+  "lng": -75.481835,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w959571254",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-aspaen-gimnasio-horizontes",
+  "name": "Aspaen Gimnasio Horizontes",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.023763,
+  "lng": -75.479788,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w959571255",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-instituto-integrado-la-sultana",
+  "name": "Instituto Integrado La sultana",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.061652,
+  "lng": -75.472073,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w964719617",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-centro-educativo-siete-de-agosto",
+  "name": "Centro Educativo Siete de Agosto",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.063444,
+  "lng": -75.519735,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w965483225",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-universidad-antonio-narino",
+  "name": "Universidad Antonio Nariño",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.045567,
+  "lng": -75.528789,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w969279471",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-colegio-agropecuario-fortunato-gaviria-botero",
+  "name": "Colegio Agropecuario Fortunato Gaviria Botero",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 4.993121,
+  "lng": -75.55343,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "iefortunatogaviriabotero@sedcaldas.gov.co",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w980377749",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-colegio-campestre-la-consolata",
+  "name": "Colegio Campestre la Consolata",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.038045,
+  "lng": -75.454562,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1019617914",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "manizales-colegio-franciscanoagustin-gemelli",
+  "name": "Colegio FranciscanoAgustín Gemelli",
+  "city": "Manizales",
+  "country": "Colombia",
+  "lat": 5.073895,
+  "lng": -75.534827,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r8097138",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "general-escobedo-colegio-cambridge-de-monterrey",
+  "name": "Colegio Cambridge de Monterrey",
+  "city": "General Escobedo",
+  "country": "México",
+  "lat": 25.745733,
+  "lng": -100.412437,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w111622746",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "general-escobedo-instituto-san-agustin",
+  "name": "Instituto San Agustín",
+  "city": "General Escobedo",
+  "country": "México",
+  "lat": 25.756469,
+  "lng": -100.418962,
+  "addr": "Av. Madeiras",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w470697409",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "general-escobedo-instituto-nouveau-campus-cumbres",
+  "name": "Instituto Nouveau Campus Cumbres",
+  "city": "General Escobedo",
+  "country": "México",
+  "lat": 25.771083,
+  "lng": -100.429657,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w552403616",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "general-escobedo-colegio-cristobal-colon",
+  "name": "Colegio Cristobal Colon",
+  "city": "General Escobedo",
+  "country": "México",
+  "lat": 25.768909,
+  "lng": -100.410826,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w665384734",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "general-escobedo-instituto-mckinley",
+  "name": "Instituto McKinley",
+  "city": "General Escobedo",
+  "country": "México",
+  "lat": 25.778311,
+  "lng": -100.433893,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w746262722",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "general-escobedo-colegio-agustin-ramirez-barba",
+  "name": "Colegio Agustín Ramírez Barba",
+  "city": "General Escobedo",
+  "country": "México",
+  "lat": 25.80643,
+  "lng": -100.326678,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1123126004",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "general-escobedo-ox-high-school",
+  "name": "Ox High School",
+  "city": "General Escobedo",
+  "country": "México",
+  "lat": 25.806915,
+  "lng": -100.318536,
+  "addr": "",
+  "phone": "",
+  "web": "https://hs.oxschool.edu.mx/",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1123138618",
   "found": "2026-11-10"
  }
 ]
