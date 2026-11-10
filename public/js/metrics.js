@@ -65,11 +65,11 @@ function kpis() {
   const d = D.demos?.data, c = D.deals?.data, cl = D.clients?.data, leader = !!S.profile?.leader;
   const pd = (r, k) => r ? `Pipedrive · ${readTxt(k)}` : "";
   const tiles = [
-    { l: "Demos agendadas", v: d && !d.partial.created ? d.loaded.totals.total : null, wait: !D.demos, sub: "creadas en Pipedrive en el período (Demo y No Show)", src: pd(d, d?.at.created), mine: !leader && d && !d.partial.created ? `vos: ${fmt(d.loaded.mine?.total || 0)}` : "" },
-    { l: "Se hicieron", v: d && !d.partial.held ? sum(d.held.totals, "appDone", "done") : null, wait: !D.demos, sub: "con fecha en el período, hechas en Pipedrive o marcadas «se hizo» en la app", src: pd(d, d?.at.held) },
+    { l: "Demos cargadas por el equipo", v: d && !d.partial.created ? d.loaded.totals.people : null, wait: !D.demos, sub: d && !d.partial.created ? `creadas en Pipedrive en el período por una persona (Demo y No Show). Aparte: ${fmt(d.loaded.totals.auto)} entradas automáticas${d.loaded.totals.dups ? ` y ${fmt(d.loaded.totals.dups)} duplicadas` : ""}` : "creadas en Pipedrive en el período por una persona (Demo y No Show)", src: pd(d, d?.at.created), mine: !leader && d && !d.partial.created ? `vos: ${fmt(d.loaded.mine?.total || 0)}` : "" },
+    { l: "Demos hechas", v: d && !d.partial.held ? sum(d.held.totals, "appDone", "done") : null, wait: !D.demos, sub: "las que tenían fecha en el período (no son las cargadas): hechas en Pipedrive o marcadas «se hizo» en la app", src: pd(d, d?.at.held) },
     { l: "No-show", v: d && !d.partial.held ? sum(d.held.totals, "appNoshow", "noshow") : null, wait: !D.demos, sub: "con fecha en el período, pasadas a «No Show» o marcadas en la app", src: pd(d, d?.at.held) },
-    { l: "Tratos ganados", v: c && !c.partial.won ? c.won.n : null, wait: !D.deals, sub: "embudos de venta, fecha de ganado en el período", src: pd(c, c?.at), mine: !leader && c && !c.partial.won ? `vos: ${fmt(c.mine.wonOwner)} como dueño · ${fmt(c.mine.wonSdr)} como SDR` : "" },
-    { l: "Clientes activos", v: cl?.enabled ? cl.byStatus.find(x => x.key === "Activo")?.n || 0 : null, wait: !D.clients, sub: cl && !cl.enabled ? "sin token de World Dominion" : "sitios en estado Activo en World Dominion", src: cl?.enabled ? `World Dominion · datos de ${dmhm(cl.at)}${cl.demo ? " (prueba)" : ""}` : "" },
+    { l: "Tratos ganados", v: c && !c.partial.won ? c.won.n : null, wait: !D.deals, sub: "embudos de venta, ganados por primera vez en el período (sin archivados)", src: pd(c, c?.at), mine: !leader && c && !c.partial.won ? `vos: ${fmt(c.mine.wonOwner)} como dueño · ${fmt(c.mine.wonSdr)} como SDR` : "" },
+    { l: "Clientes activos", v: cl?.enabled && !cl.unknown ? cl.activeClients : null, wait: !D.clients, sub: cl && !cl.enabled ? "sin token de World Dominion" : cl?.unknown ? "World Dominion no respondió" : `clientes con al menos un sitio Activo en World Dominion${cl ? ` (${fmt(cl.activeSites)} sitios activos)` : ""}`, src: cl?.enabled && !cl.unknown ? `World Dominion · datos de ${dmhm(cl.at)}${cl.demo ? " (prueba)" : ""}` : "" },
     { l: "Colegios para llamar", v: null, sub: "falta comprobar el cruce con Pipedrive con una muestra revisada a mano", src: "" },
   ];
   return `<section class="mx-kpis" aria-label="Indicadores del período">${tiles.map(t => `<div class="card mx-kpi"><span class="l">${esc(t.l)}</span>
@@ -78,7 +78,7 @@ function kpis() {
 
 // ---------- A. Demos
 const HELD = [["appDone", "Se hizo (marcado en la app)"], ["done", "Hecha en Pipedrive"], ["appNoshow", "No se presentó (marcado en la app)"], ["noshow", "No Show (tipo en Pipedrive)"],
-  ["appCanceled", "Se canceló (marcado en la app)"], ["unmarked", "Sin marcar (ya pasó y no está hecha)"], ["upcoming", "Todavía no pasó"]];
+  ["appCanceled", "Se canceló (marcado en la app)"], ["unmarked", "Sin marcar (ya pasó y no está hecha)"], ["today", "Hoy, sin hora (todavía no se sabe)"], ["upcoming", "Todavía no pasó"]];
 function demosCard() {
   const r = D.demos;
   const body = !r ? sk(4) : r.error ? err("las demos", r.error) : (() => {
@@ -88,17 +88,17 @@ function demosCard() {
     return `${src("Pipedrive", readTxt(d.at.created), periodTxt(d))}
       <h3 class="mx-h">Cargadas en el período</h3>
       ${pc ? cut("demos creadas") : ""}
-      ${mini([[pc ? "?" : L.total, "Total"], [pc ? "?" : L.demo, "Demo"], [pc ? "?" : L.noshow, "No Show"], [pc ? "?" : L.preDone, "Cargadas ya hechas", "Se crearon ya marcadas como hechas: se registraron después"], [pc ? "?" : L.auto, "Entradas automáticas", "Las crea una cuenta general (diio, formularios): no tienen agendador"]])}
+      ${mini([[pc ? "?" : L.total, "Total"], [pc ? "?" : L.demo, "Demo"], [pc ? "?" : L.noshow, "No Show"], [pc ? "?" : L.preDone, "Cargadas ya hechas", "Se crearon ya marcadas como hechas: se registraron después"], [pc ? "?" : L.auto, "Entradas automáticas", "Las crea una cuenta general (diio, formularios): no tienen agendador"], [pc ? "?" : L.dups, "Duplicadas (no cuentan)", "Otra actividad de la misma demo: mismo trato, mismo día y mismo tipo"]])}
       ${!leader && !pc ? `<p class="mx-mine">Vos cargaste <b>${fmt(mineL?.total || 0)}</b>${mineL ? ` (${fmt(mineL.demo)} Demo, ${fmt(mineL.noshow)} No Show)` : ""}.</p>` : ""}
-      ${note(`Por la fecha en que se crearon en Pipedrive. Quién la cargó: la nota «Agendada por … desde OrderBrain SDR» o, si no hay, quien la creó. ${L.auto ? `De las ${fmt(L.auto)} entradas automáticas, ${fmt(L.autoPreDone)} se cargaron ya hechas.` : ""}`)}
+      ${note(`Por la fecha en que se crearon en Pipedrive. Quién la cargó: la nota «Agendada por … desde OrderBrain SDR» o, si no hay, quien la creó. «Cargadas ya hechas»: se marcaron hechas en el primer minuto desde que se crearon (se registraron después). Una demo cargada dos veces (mismo trato, mismo día y mismo tipo, por ejemplo una entrada automática que repite una ya cargada) cuenta una vez, el día en que se cargó la primera. ${L.auto ? `De las ${fmt(L.auto)} entradas automáticas, ${fmt(L.autoPreDone)} se cargaron ya hechas.` : ""}`)}
       ${peopleBlock("demos", p => `<h4 class="mx-h4">Quién la cargó ${leaderOnly}</h4>${pc ? "" : table([["demo", "Demo"], ["noshow", "No Show"], ["preDone", "Cargadas ya hechas"], ["total", "Total"]], p.loaded)}`)}
       <h3 class="mx-h">Con fecha en el período: qué pasó</h3>
       ${ph ? cut("demos por persona") : bars(HELD.map(([k, l]) => ({ key: l, n: H[k] })).filter(x => x.n), { empty: "No hubo demos con fecha en el período." })}
-      ${!ph ? `<p class="mx-note" style="margin-top:0">${fmt(H.total)} en total.</p>` : ""}
+      ${!ph ? `<p class="mx-note" style="margin-top:0">${fmt(H.total)} en total${H.dups ? ` (sin ${fmt(H.dups)} duplicadas)` : ""}.</p>` : ""}
       ${!leader && !ph ? `<p class="mx-mine">Las que cargaste: <b>${fmt(ml?.total || 0)}</b>${ml ? ` (${st(ml)})` : ""}. Las que diste: <b>${fmt(mo?.total || 0)}</b>${mo ? ` (${st(mo)})` : ""}.</p>` : ""}
-      ${peopleBlock("demos", p => ph ? "" : (() => { const cols = [["appDone", "Se hizo (app)"], ["done", "Hecha en Pipedrive"], ["appNoshow", "No se presentó (app)"], ["noshow", "No Show"], ["appCanceled", "Se canceló (app)"], ["unmarked", "Sin marcar"], ["upcoming", "Todavía no"], ["total", "Total"]];
+      ${peopleBlock("demos", p => ph ? "" : (() => { const cols = [["appDone", "Se hizo (app)"], ["done", "Hecha en Pipedrive"], ["appNoshow", "No se presentó (app)"], ["noshow", "No Show"], ["appCanceled", "Se canceló (app)"], ["unmarked", "Sin marcar"], ["today", "Hoy, sin hora"], ["upcoming", "Todavía no"], ["total", "Total"]];
         return `<h4 class="mx-h4">Por quién la da ${leaderOnly}</h4>${table(cols, p.heldByOwner)}<h4 class="mx-h4">Por quién la cargó ${leaderOnly}</h4>${table(cols, p.heldByLoader)}`; })())}
-      ${note("Qué pasó, en este orden: la marca que deja la app, el tipo «No Show», hecha en Pipedrive y, si ya pasó y no está hecha, sin marcar. Cuenta actividades, no colegios: una 2ª reunión cuenta aparte. Son las demos a nombre de personas del equipo (no las de las cuentas generales). La asistencia (%) no se muestra hasta confirmar que todo no-show se pasa a «No Show».")}
+      ${note("Qué pasó, en este orden: la marca que deja la app, el tipo «No Show», hecha en Pipedrive y, si ya pasó y no está hecha, sin marcar. Cuenta actividades, no colegios: una 2ª reunión cuenta aparte; la misma demo cargada dos veces (mismo trato, día y tipo) cuenta una vez. Incluye las que están a nombre de una cuenta general (van en su fila, al final). Sin hora y con fecha de hoy: «hoy, sin hora» hasta que termine el día. La asistencia (%) no se muestra hasta confirmar que todo no-show se pasa a «No Show».")}
       <h3 class="mx-h">El trato de esas demos, hoy</h3>
       ${ph ? "" : `${mini([[A.won, "Ganados"], [A.lost, "Perdidos"], [A.open, "Abiertos"], [A.unknown, "Demos sin trato (?)", "La demo no tiene trato vinculado en Pipedrive, o no lo encontramos"]])}
       <p class="mx-note" style="margin-top:0">De ${fmt(A.demos)} demos, ${fmt(A.withDeal)} tienen trato (${fmt(A.deals)} tratos distintos). Solo el trato vinculado a la demo en Pipedrive; sin trato, «?».</p>
@@ -137,7 +137,7 @@ function dealsCard() {
         <tbody>${c.open.pipes.map(p => `<tr><th scope="row">${esc(p.country || "LatAm")}<small>${esc(p.name || "")}</small></th><td class="num">${fmt(p.total)}</td><td class="num">${fmt(p.noNext)}</td><td class="mx-stages">${p.stages.map(s => `<span>${esc(s.name)} <b>${fmt(s.n)}</b></span>`).join("")}</td></tr>`).join("")}</tbody></table></div>`}
       ${peopleBlock("deals", p => P.open || !p.noNext.length ? "" : `<h4 class="mx-h4">Abiertos sin próxima actividad, por dueño ${leaderOnly}</h4>${p.noNext.map(x => `<details class="follow-alert"><summary><b>${esc(pname(x))}</b>: ${fmt(x.n)}</summary><ul>${x.deals.map(t => `<li>${pdDeal(t.id) ? `<a href="${esc(pdDeal(t.id))}" target="_blank" rel="noopener">${esc(t.title || "Trato " + t.id)}</a>` : esc(t.title)}${t.since ? ` <small class="faint">sin cambios desde el ${dm(t.since)}</small>` : ""}</li>`).join("")}${x.n > x.deals.length ? `<li class="faint">y ${fmt(x.n - x.deals.length)} más en Pipedrive</li>` : ""}</ul></details>`).join("")}`)}
       ${soon("Propuestas enviadas en el período", "Pipedrive v2 no guarda el historial de etapas (solo el último cambio) y hay tratos que se crean directo en PROPOSAL SENT. Para que sea exacto hay que leer el historial de cada trato. Mientras tanto, la foto de abiertos por etapa es exacta.")}
-      ${note("Embudos de venta: Argentina, Chile, Uruguay, México, Perú y LatAm (en LatAm el país sale del campo País). Ganados y perdidos: los que hoy están así, por su fecha de ganado o de perdido en Pipedrive (esa fecha se puede editar).")}`;
+      ${note("Embudos de venta: Argentina, Chile, Uruguay, México, Perú y LatAm (en LatAm el país sale del campo País). Ganados y perdidos: los que hoy están así; ganados, por la fecha en que se ganaron por primera vez; perdidos, por su fecha de perdido en Pipedrive (esa fecha se puede editar). No incluye tratos archivados (Pipedrive no los devuelve en esta lectura).")}`;
   })();
   return `<section class="card wide" aria-labelledby="mxC"><div class="card-h"><h2 id="mxC">${icon("deal")} Tratos</h2><span class="sub">Pipedrive</span></div><div class="card-b">${body}</div></section>`;
 }
@@ -180,9 +180,10 @@ function clientsCard() {
   const body = !r ? sk(3) : r.error ? err("los clientes", r.error) : (() => {
     const c = r.data;
     if (!c.enabled) return `<div class="callout warn">${icon("alert")}<span>Sin token de World Dominion: no sabemos cuántos clientes hay. Un líder lo carga en Equipo.</span></div>`;
+    if (c.unknown) return `<div class="callout err">${icon("alert")}<span>World Dominion no respondió y no hay copia guardada: no sabemos cuántos sitios ni clientes hay («?»).${c.error ? ` ${esc(c.error)}` : ""}</span></div>${mini([["?", "Sitios"], ["?", "Clientes"]])}`;
     return `${src("World Dominion", `datos de ${dmhm(c.at)}${c.stale ? " (copia guardada)" : ""}`, c.demo ? "datos de prueba (modo demo)" : "")}
       ${c.error && c.stale ? `<div class="callout warn" style="margin:6px 0 10px">${icon("alert")}<span>La última lectura falló: son los datos de la copia.</span></div>` : ""}
-      ${mini([[c.sites, "Sitios"], [c.clients, "Clientes", c.clients == null ? "Algún sitio no dice de qué cliente es" : ""]])}
+      ${mini([[c.sites, "Sitios"], [c.clients, "Clientes", c.clients == null ? "Algún sitio no dice de qué cliente es" : "Clientes distintos (por su id en World Dominion)"], [c.activeSites, "Sitios activos"], [c.activeClients, "Clientes activos", c.activeClients == null ? "Algún sitio activo no dice de qué cliente es" : "Con al menos un sitio Activo"]])}
       <h3 class="mx-h">Por estado</h3>${bars(c.byStatus, { empty: "Ningún sitio." })}
       ${F.country ? "" : `<h3 class="mx-h">Por país</h3>${bars(c.byCountry, { label: x => x.key === "?" ? "Sin país" : x.key })}`}
       ${note("Directo de World Dominion, no del cruce con la base: es lo que está cargado hoy, no tiene período.")}
@@ -226,7 +227,7 @@ function draw() {
     <div class="page-head"><div><h1>Métricas</h1><p>Lo exacto del período, con su fuente y su hora. «?» es que no se puede saber.</p></div></div>
     <div class="mx-filters">
       <div class="chips" role="group" aria-label="Período">${[7, 30, 90].map(n => `<button class="chip" data-mxd="${n}" aria-pressed="${F.days === n}">${n} días</button>`).join("")}</div>
-      <label class="field" style="margin:0"><span>País</span><select class="inp" id="mxC"><option value="">Todos</option>${countries().map(c => `<option value="${esc(c)}" ${F.country === c ? "selected" : ""}>${esc(c)}</option>`).join("")}<option value="?" ${F.country === "?" ? "selected" : ""}>Sin país</option></select></label>
+      <label class="field" style="margin:0"><span>País</span><select class="inp" id="mxCountry"><option value="">Todos</option>${countries().map(c => `<option value="${esc(c)}" ${F.country === c ? "selected" : ""}>${esc(c)}</option>`).join("")}<option value="?" ${F.country === "?" ? "selected" : ""}>Sin país</option></select></label>
     </div>
     <p class="mx-src" style="margin:0 0 14px">${esc(per ? per[0].toUpperCase() + per.slice(1) : "")}${per ? " · " : ""}${leader ? "Ves el total y el detalle por persona (en orden alfabético, para acompañar)." : "Ves tus números y los totales del equipo."}</p>
     ${kpis()}
@@ -240,6 +241,6 @@ function draw() {
       ${leader ? activityCard() : ""}
     </div></div>`;
   host.querySelectorAll("[data-mxd]").forEach(b => b.onclick = () => { F.days = Number(b.dataset.mxd); save("mx.days", F.days); load(); draw(); });
-  host.querySelector("#mxC").onchange = e => { F.country = e.target.value; save("mx.country", F.country); load(); draw(); };
+  host.querySelector("#mxCountry").onchange = e => { F.country = e.target.value; save("mx.country", F.country); load(); draw(); };
   host.querySelectorAll("[data-mxretry]").forEach(b => b.onclick = () => { cache.delete(keyOf()); load(); draw(); });
 }

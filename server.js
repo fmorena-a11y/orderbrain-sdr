@@ -234,8 +234,11 @@ const MX_LOAD = {
   base: async req => { const { country } = mxOpts(req), sy = await psync.status().catch(() => null), st = radarState();
     return { country, at: new Date().toISOString(), ...MX.baseSummary(schools, { country }), file: FILE_COUNTS, added: schools.length - FILE_COUNTS.shown, radarAt: st.runs?.[0]?.at || null, syncAt: sy?.last?.finishedAt || null }; },
   // clientes de OrderEAT: los sitios de World Dominion tal cual (sin token: no se inventa nada)
+  // World Dominion caído y sin copia (o sin ninguna lectura): no hay números («?»), no 0
   clients: async req => { const { country } = mxOpts(req), b = brainSites();
-    return b.enabled ? { country, enabled: true, demo: b.demo, at: b.dataAt, stale: b.stale, error: b.error, ...MX.clientsSummary(b.sites, { country }) } : { country, enabled: false }; },
+    if (!b.enabled) return { country, enabled: false };
+    if (b.down || (!b.sites.length && (b.error || !b.dataAt))) return { country, enabled: true, unknown: true, demo: b.demo, error: b.error || "" };
+    return { country, enabled: true, demo: b.demo, at: b.dataAt, stale: b.stale, error: b.error, ...MX.clientsSummary(b.sites, { country }) }; },
 };
 app.get("/api/metrics/:section", auth, wrap(async (req, res) => {
   const load = MX_LOAD[req.params.section]; if (!load) return res.status(404).json({ error: "No existe esa métrica." });
