@@ -6842,7 +6842,15 @@
   "MX|Nuevo Laredo": "2026-11-10T15:15:22.160Z",
   "DO|n2322572886": "2026-11-10T15:15:57.339Z",
   "MX|Veracruz": "2026-11-10T15:16:28.974Z",
-  "AR|Santa Fe": "2026-11-10T15:17:07.080Z"
+  "AR|Santa Fe": "2026-11-10T15:17:07.080Z",
+  "AR|Resistencia": "2026-11-10T19:17:15.699Z",
+  "MX|Celaya": "2026-11-10T19:17:47.231Z",
+  "VE|n333675723": "2026-11-10T19:18:20.778Z",
+  "MX|Tepic": "2026-11-10T19:18:52.923Z",
+  "CO|n703168221": "2026-11-10T19:20:22.617Z",
+  "CO|n3377581135": "2026-11-10T19:21:46.317Z",
+  "MX|Uruapan": "2026-11-10T19:29:20.064Z",
+  "MX|Xico": "2026-11-10T19:29:56.152Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -6867,6 +6875,76 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-10T19:16:25.962Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Resistencia",
+     "found": 0,
+     "updated": 0,
+     "osm": 262
+    },
+    {
+     "cc": "MX",
+     "city": "Celaya",
+     "found": 0,
+     "updated": 0,
+     "osm": 67
+    },
+    {
+     "cc": "VE",
+     "city": "Cumaná",
+     "found": 0,
+     "updated": 0,
+     "osm": 42
+    },
+    {
+     "cc": "MX",
+     "city": "Tepic",
+     "found": 0,
+     "updated": 0,
+     "osm": 349
+    },
+    {
+     "cc": "CO",
+     "city": "Buenaventura",
+     "found": 0,
+     "updated": 0,
+     "osm": 13
+    },
+    {
+     "cc": "CO",
+     "city": "Neiva",
+     "found": 0,
+     "updated": 0,
+     "osm": 58
+    },
+    {
+     "cc": "MX",
+     "city": "Uruapan",
+     "found": 0,
+     "updated": 0,
+     "osm": 36
+    },
+    {
+     "cc": "MX",
+     "city": "Xico",
+     "found": 4,
+     "updated": 0,
+     "osm": 75
+    }
+   ],
+   "added": 4,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 29,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 15.3,
+   "total": 14460
+  },
   {
    "at": "2026-11-10T17:21:02.808Z",
    "cities": [],

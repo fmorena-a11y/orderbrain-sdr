@@ -75946,7 +75946,7 @@
   "lat": 4.507991,
   "lng": -74.267594,
   "addr": "",
-  "phone": "",
+  "phone": "+573203026932",
   "web": "https://licamba.edu.co/",
   "email": "info@licamba.edu.co",
   "levels": [
@@ -75959,7 +75959,9 @@
   "src": "osm",
   "osm": "n10245251770",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+573203026932",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-colegio-leon-de-greiff",
@@ -76004,7 +76006,8 @@
   "src": "osm",
   "osm": "n10245454265",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-liceo-samper-uribe",
@@ -76096,7 +76099,8 @@
   "src": "osm",
   "osm": "n10245457751",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-liceo-cristiano-kyrios",
@@ -76119,7 +76123,8 @@
   "src": "osm",
   "osm": "n10245457752",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-gimnasio-bilingue-de-sibate",
@@ -76143,7 +76148,8 @@
   "src": "osm",
   "osm": "n10245457753",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-liceo-psicopedagogico-sibate",
@@ -76365,16 +76371,18 @@
   "lat": 4.659244,
   "lng": -74.055956,
   "addr": "Carrera 9 74-99",
-  "phone": "",
+  "phone": "+573138870033",
   "web": "https://gimnasiomoderno.edu.co/",
-  "email": "",
+  "email": "comunicaciones@gimnasiomoderno.edu.co",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w24429673",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+573138870033",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-colegio-externado-nacional-camilo-torres",
@@ -76563,7 +76571,7 @@
   "lat": 4.664998,
   "lng": -74.049612,
   "addr": "Carrera 8 83-29",
-  "phone": "",
+  "phone": "+573222057776",
   "web": "https://liceodecervantesretiro.edu.co/",
   "email": "",
   "levels": [],
@@ -76572,7 +76580,9 @@
   "src": "osm",
   "osm": "w39045671",
   "found": "2026-11-10",
-  "img": "https://liceodecervantesretiro.edu.co/wp-content/uploads/2018/04/logolcr.png"
+  "img": "https://liceodecervantesretiro.edu.co/wp-content/uploads/2018/04/logolcr.png",
+  "whatsapp": "+573222057776",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-pontificia-universidad-javeriana",
@@ -76824,7 +76834,8 @@
   "src": "osm",
   "osm": "w42629349",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "bogota-colegio-infantil-el-alegre-mundo-de-los-ninos",
@@ -77000,7 +77011,8 @@
   "src": "osm",
   "osm": "w48205786",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-instituto-san-pablo-apostol-potosi",
@@ -77068,9 +77080,9 @@
   "lat": 4.713936,
   "lng": -74.050016,
   "addr": "Calle 128B 20-80",
-  "phone": "",
+  "phone": "573153376005",
   "web": "https://ccsj.edu.co/",
-  "email": "",
+  "email": "admisiones@ccsj.edu.co",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -77079,7 +77091,9 @@
   "src": "osm",
   "osm": "w50148568",
   "found": "2026-11-10",
-  "img": "https://ccsj.edu.co/wp-content/uploads/2023/10/ccsj-logo.png"
+  "img": "https://ccsj.edu.co/wp-content/uploads/2023/10/ccsj-logo.png",
+  "whatsapp": "+573153376005",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-gimnasio-militar-fuerza-aerea-colombiana",
@@ -77125,7 +77139,7 @@
   "lat": 4.710826,
   "lng": -74.031351,
   "addr": "",
-  "phone": "",
+  "phone": "+573115128420",
   "web": "https://www.unbosque.edu.co/",
   "email": "",
   "levels": [
@@ -77139,7 +77153,9 @@
   "src": "osm",
   "osm": "w52189297",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+573115128420",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-colegio-reyes-catolicos",
@@ -77167,9 +77183,9 @@
   "lat": 4.698264,
   "lng": -74.089214,
   "addr": "",
-  "phone": "",
+  "phone": "6015933004",
   "web": "https://www.uniminuto.edu/",
-  "email": "",
+  "email": "direccion.juridica@uniminuto.edu",
   "levels": [
    "Universidad"
   ],
@@ -77181,7 +77197,9 @@
   "src": "osm",
   "osm": "w59180384",
   "found": "2026-11-10",
-  "img": "https://www.uniminuto.edu/sites/default/files/2021-01/sede-principal-bogota-cll-80.jpg"
+  "img": "https://www.uniminuto.edu/sites/default/files/2021-01/sede-principal-bogota-cll-80.jpg",
+  "whatsapp": "+573138330249",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-liceo-boston",
@@ -77371,7 +77389,8 @@
   "src": "osm",
   "osm": "w75913618",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-colegio-de-nuestra-senora-del-pilar-chapinero",
@@ -77381,7 +77400,7 @@
   "lat": 4.651041,
   "lng": -74.075098,
   "addr": "Calle 62 27 A 12",
-  "phone": "",
+  "phone": "+573160525141",
   "web": "https://www.colpilarch.edu.co/",
   "email": "",
   "levels": [],
@@ -77393,7 +77412,9 @@
   "src": "osm",
   "osm": "w77962624",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+573160525141",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-instituto-alberto-merani",
@@ -78625,7 +78646,8 @@
   "src": "osm",
   "osm": "w177598076",
   "found": "2026-11-10",
-  "img": "https://colegiosminutodedios.edu.co/hubfs/Minuto%20de%20Dios%20-%20Main%20Theme/Fotos/DESTACADAS%20CEMID/logo-destacada-colegios-minuto-de-dios.jpg"
+  "img": "https://colegiosminutodedios.edu.co/hubfs/Minuto%20de%20Dios%20-%20Main%20Theme/Fotos/DESTACADAS%20CEMID/logo-destacada-colegios-minuto-de-dios.jpg",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-colegio-jose-allamano",
@@ -78942,7 +78964,7 @@
   "lat": 4.644615,
   "lng": -74.059366,
   "addr": "",
-  "phone": "",
+  "phone": "+573217701768",
   "web": "https://www.lasalle.edu.co",
   "email": "",
   "levels": [
@@ -78956,7 +78978,9 @@
   "src": "osm",
   "osm": "w222836689",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+573217701768",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-gimnasio-de-los-cerros",
@@ -79229,7 +79253,8 @@
   "src": "osm",
   "osm": "w244112887",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-instituto-salesiano-san-jose",
@@ -79387,7 +79412,7 @@
   "lat": 4.736504,
   "lng": -74.143109,
   "addr": "",
-  "phone": "",
+  "phone": "0317452729",
   "web": "https://www.mayordeinglaterra.edu.co/",
   "email": "",
   "levels": [],
@@ -79396,7 +79421,9 @@
   "src": "osm",
   "osm": "w310940868",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+573208424777",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-colegio-benposta-nacion-de-muchachos",
@@ -79800,7 +79827,8 @@
   "src": "osm",
   "osm": "w335042934",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-colegio-bilingue-san-juan-de-dios",
@@ -80121,7 +80149,7 @@
   "addr": "Carrera 7 51A-13",
   "phone": "",
   "web": "https://usantotomas.edu.co/inicio",
-  "email": "",
+  "email": "aux.adminjuridico2@usta.edu.co",
   "levels": [
    "Universidad"
   ],
@@ -80133,7 +80161,8 @@
   "src": "osm",
   "osm": "w371999091",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-instituto-de-oncologia",
@@ -80347,7 +80376,8 @@
   "src": "osm",
   "osm": "w399333075",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-gimnasio-alessandro-volta",
@@ -80377,7 +80407,7 @@
   "addr": "",
   "phone": "",
   "web": "https://www.unincca.edu.co/",
-  "email": "",
+  "email": "admisiones@unincca.edu.co",
   "levels": [
    "Universidad"
   ],
@@ -80388,7 +80418,8 @@
   "src": "osm",
   "osm": "w400523369",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-instituto-colombo-sueco",
@@ -80518,7 +80549,7 @@
   "lat": 4.594596,
   "lng": -74.070453,
   "addr": "",
-  "phone": "",
+  "phone": "+573217701768",
   "web": "https://lasalle.edu.co/es",
   "email": "",
   "levels": [
@@ -80533,7 +80564,9 @@
   "src": "osm",
   "osm": "w402204154",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+573217701768",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-gimnasio-campestre-la-salette",
@@ -80586,7 +80619,7 @@
   "addr": "Carrera 9A 63-28",
   "phone": "",
   "web": "https://usantotomas.edu.co",
-  "email": "",
+  "email": "aux.adminjuridico2@usta.edu.co",
   "levels": [
    "Universidad"
   ],
@@ -80598,7 +80631,8 @@
   "src": "osm",
   "osm": "w404858009",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-colegio-el-camino-academy",
@@ -80803,7 +80837,8 @@
   "src": "osm",
   "osm": "w409390051",
   "found": "2026-11-10",
-  "img": "https://irp.cdn-website.com/dff05459/dms3rep/multi/opt/open-GLP-1920w.jpg?jxl&v=jxl"
+  "img": "https://irp.cdn-website.com/dff05459/dms3rep/multi/opt/open-GLP-1920w.jpg?jxl&v=jxl",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-colegio-santa-mariana-de-jesus",
@@ -80963,9 +80998,9 @@
   "lat": 4.716878,
   "lng": -74.074512,
   "addr": "",
-  "phone": "",
+  "phone": "+576044487666",
   "web": "https://www.funlam.edu.co/modules/sedebogota/",
-  "email": "",
+  "email": "ucatolicaluisamigo@amigo.edu.co",
   "levels": [
    "Universidad"
   ],
@@ -80976,7 +81011,8 @@
   "src": "osm",
   "osm": "w413217363",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-colegio-agustin-fernandez-sede-c",
@@ -81690,7 +81726,7 @@
   "lat": 4.700489,
   "lng": -74.074119,
   "addr": "Calle 117",
-  "phone": "",
+  "phone": "+573112225225",
   "web": "https://gimnasiokaipore.edu.co/",
   "email": "",
   "levels": [],
@@ -81702,7 +81738,9 @@
   "src": "osm",
   "osm": "w529810331",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+573112225225",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-liceo-montana",
@@ -82635,7 +82673,8 @@
   "src": "osm",
   "osm": "w553394447",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-colegio-giovanni-antonio-farina",
@@ -82785,7 +82824,7 @@
   "lat": 4.734812,
   "lng": -74.046541,
   "addr": "Calle 152",
-  "phone": "",
+  "phone": "6019156065",
   "web": "https://www.teresianobogota.edu.co/",
   "email": "",
   "levels": [],
@@ -82796,7 +82835,8 @@
   "src": "osm",
   "osm": "w611269548",
   "found": "2026-11-10",
-  "img": "https://www.teresianobogota.edu.co/wp-content/uploads/2024/01/ACADEMICO.webp"
+  "img": "https://www.teresianobogota.edu.co/wp-content/uploads/2024/01/ACADEMICO.webp",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-instituto-clara-fey",
@@ -83267,7 +83307,8 @@
   "src": "osm",
   "osm": "w655270830",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-colegio-parroquial",
@@ -83718,7 +83759,8 @@
   "src": "osm",
   "osm": "w694330609",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-colegio-rembrandt",
@@ -84340,7 +84382,7 @@
   "lat": 4.744732,
   "lng": -74.112765,
   "addr": "",
-  "phone": "",
+  "phone": "+573160106741",
   "web": "https://celestinfreinet.edu.co/",
   "email": "",
   "levels": [],
@@ -84352,7 +84394,9 @@
   "src": "osm",
   "osm": "w774881841",
   "found": "2026-11-10",
-  "img": "https://celestinfreinet.edu.co/wp-content/uploads/2026/02/cropped-cropped-admin-ajax-Photoroom-1.png"
+  "img": "https://celestinfreinet.edu.co/wp-content/uploads/2026/02/cropped-cropped-admin-ajax-Photoroom-1.png",
+  "whatsapp": "+573160106741",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-colegio-bicentenario",
@@ -84391,7 +84435,8 @@
   "src": "osm",
   "osm": "w784649143",
   "found": "2026-11-10",
-  "img": "https://liceolunita.edu.co/wp-content/uploads/2025/08/LOGO2025FF.webp"
+  "img": "https://liceolunita.edu.co/wp-content/uploads/2025/08/LOGO2025FF.webp",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-colegio-furatena",
@@ -84580,7 +84625,8 @@
   "src": "osm",
   "osm": "w836222358",
   "found": "2026-11-10",
-  "img": "https://gimnasionuevomodelia.edu.co/wp-content/uploads/2026/09/banda-Rock-768x373.jpg"
+  "img": "https://gimnasionuevomodelia.edu.co/wp-content/uploads/2026/09/banda-Rock-768x373.jpg",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-colegio-san-mateo",
@@ -84590,7 +84636,7 @@
   "lat": 4.793705,
   "lng": -74.045112,
   "addr": "Calle 215 50 - 24",
-  "phone": "",
+  "phone": "+5716760885",
   "web": "http://csma.edu.co/home",
   "email": "",
   "levels": [],
@@ -84601,7 +84647,8 @@
   "src": "osm",
   "osm": "w836897104",
   "found": "2026-11-10",
-  "img": "https://www.csma.edu.co/sites/school53/files/logo.png"
+  "img": "https://www.csma.edu.co/sites/school53/files/logo.png",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-colegio-el-manatial-ced",
@@ -84883,7 +84930,7 @@
   "lat": 4.602495,
   "lng": -74.217009,
   "addr": "Carrera 31 17-201",
-  "phone": "",
+  "phone": "+573160106741",
   "web": "https://celestinfreinet.edu.co/sede-soacha/",
   "email": "",
   "levels": [],
@@ -84895,7 +84942,9 @@
   "src": "osm",
   "osm": "w963263624",
   "found": "2026-11-10",
-  "img": "https://celestinfreinet.edu.co/wp-content/uploads/2026/02/cropped-cropped-admin-ajax-Photoroom-1.png"
+  "img": "https://celestinfreinet.edu.co/wp-content/uploads/2026/02/cropped-cropped-admin-ajax-Photoroom-1.png",
+  "whatsapp": "+573160106741",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-colegio-heladia-mejia-sede-a",
@@ -85049,7 +85098,7 @@
   "lat": 4.838257,
   "lng": -74.05864,
   "addr": "",
-  "phone": "",
+  "phone": "+573189615535",
   "web": "https://www.gimnasioloscaobos.edu.co/",
   "email": "",
   "levels": [],
@@ -85060,7 +85109,9 @@
   "src": "osm",
   "osm": "w1038341772",
   "found": "2026-11-10",
-  "img": "https://cdn.prod.website-files.com/55d55412965aff177731a5e2/55f743e61621edf00dc74efd_GLC7.png"
+  "img": "https://cdn.prod.website-files.com/55d55412965aff177731a5e2/55f743e61621edf00dc74efd_GLC7.png",
+  "whatsapp": "+573189615535",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-colegio-rural-el-destino",
@@ -85621,7 +85672,8 @@
   "src": "osm",
   "osm": "w1243085524",
   "found": "2026-11-10",
-  "img": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/299178557_421093656666261_2432938895422491258_n.jpg?stp=dst-jpg_tt6&cstp=mx320x320&ctp=s320x320&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=_LNQd_znyeIQ7kNvwHB9eBJ&_nc_oc=Adr3Lmp_TJzfepQMSEGnMyWHGQbZdfZtpW9VmzojHGmj5TUfLEbRO1tF-7IsCupz6YU&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&_nc_gid=ISCphDlpMcOi-0YZ21X4RA&_nc_ss=7c289&oh=00_AQT8fgK5azxy_Lac5pIVM14s-rwnwM0ZU3G66tZfEaypjA&oe=6AF862B0"
+  "img": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/299178557_421093656666261_2432938895422491258_n.jpg?stp=dst-jpg_tt6&cstp=mx320x320&ctp=s320x320&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=_LNQd_znyeIQ7kNvwHB9eBJ&_nc_oc=Adr3Lmp_TJzfepQMSEGnMyWHGQbZdfZtpW9VmzojHGmj5TUfLEbRO1tF-7IsCupz6YU&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&_nc_gid=ISCphDlpMcOi-0YZ21X4RA&_nc_ss=7c289&oh=00_AQT8fgK5azxy_Lac5pIVM14s-rwnwM0ZU3G66tZfEaypjA&oe=6AF862B0",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-liceo-campestre-san-rafael",
@@ -85807,9 +85859,9 @@
   "lat": 4.663462,
   "lng": -74.055058,
   "addr": "Avenida Carrera 11 78-47",
-  "phone": "",
+  "phone": "018000931000",
   "web": "https://universidadean.edu.co/",
-  "email": "",
+  "email": "notificacionesjudiciales@universidadean.edu.co",
   "levels": [
    "Universidad"
   ],
@@ -85821,7 +85873,8 @@
   "src": "osm",
   "osm": "w1303104771",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-casa-de-los-deportes-universidad-de-bogota-jorge-tadeo-lozano",
@@ -87100,7 +87153,7 @@
   "lat": 4.601198,
   "lng": -74.064513,
   "addr": "",
-  "phone": "",
+  "phone": "+57 (601) 339 49 99",
   "web": "http://uniandes.edu.co",
   "email": "",
   "levels": [
@@ -87113,7 +87166,8 @@
   "src": "osm",
   "osm": "r12923963",
   "found": "2026-11-10",
-  "img": "https://www.uniandes.edu.co/sites/default/files/2024-09/img-redes-sociales.png"
+  "img": "https://www.uniandes.edu.co/sites/default/files/2024-09/img-redes-sociales.png",
+  "webAt": "2026-11-10"
  },
  {
   "id": "bogota-liceo-moderno-walt-whitman",
@@ -88375,7 +88429,8 @@
   "src": "osm",
   "osm": "n4460773892",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "guayaquil-liceo-cristiano-de-guayaquil-campus2",
@@ -88689,7 +88744,7 @@
   "lat": -2.164209,
   "lng": -79.843946,
   "addr": "Avenida Samuel Cisneros",
-  "phone": "",
+  "phone": "+593982246028",
   "web": "https://www.cge.ec",
   "email": "duran@cge.ec",
   "levels": [],
@@ -88700,7 +88755,9 @@
   "src": "osm",
   "osm": "n9509901040",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+593982246028",
+  "webAt": "2026-11-10"
  },
  {
   "id": "guayaquil-unidad-educativa-republica-de-iberia",
@@ -88743,7 +88800,8 @@
   "src": "osm",
   "osm": "n13260301191",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "guayaquil-puerta-g5-universidad-de-guayaquil",
@@ -88766,7 +88824,8 @@
   "src": "osm",
   "osm": "n13260313154",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "guayaquil-fe-y-alegria",
@@ -88890,7 +88949,8 @@
   "src": "osm",
   "osm": "n14156416067",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "guayaquil-unidad-educativa-agustin-castro-espinoza",
@@ -89395,16 +89455,18 @@
   "lat": -2.144527,
   "lng": -79.860856,
   "addr": "",
-  "phone": "",
+  "phone": "+59346018560",
   "web": "https://www.cenu.edu.ec/",
-  "email": "",
+  "email": "info@cenu.edu.ec",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w47140688",
   "found": "2026-11-10",
-  "img": "https://www.cenu.edu.ec/wp-content/uploads/2023/09/icono-desarrollo-academico-cenu.png"
+  "img": "https://www.cenu.edu.ec/wp-content/uploads/2023/09/icono-desarrollo-academico-cenu.png",
+  "whatsapp": "+593980202020",
+  "webAt": "2026-11-10"
  },
  {
   "id": "guayaquil-unidad-educativa-bilingue-delta",
@@ -90562,7 +90624,7 @@
   "lat": -2.038962,
   "lng": -79.857164,
   "addr": "",
-  "phone": "",
+  "phone": "+59345150400",
   "web": "https://www.ecotec.edu.ec/",
   "email": "",
   "levels": [
@@ -90575,7 +90637,9 @@
   "src": "osm",
   "osm": "w466551150",
   "found": "2026-11-10",
-  "img": "https://ecotec.edu.ec/wp-content/uploads/2026/02/banner-sitio-web-ecotec-principal.webp"
+  "img": "https://ecotec.edu.ec/wp-content/uploads/2026/02/banner-sitio-web-ecotec-principal.webp",
+  "whatsapp": "+593989880999",
+  "webAt": "2026-11-10"
  },
  {
   "id": "guayaquil-instituto-superior-tecnologico-benjamin-rosales-pareja",
@@ -91080,7 +91144,7 @@
   "lat": -2.177939,
   "lng": -79.900446,
   "addr": "Avenida Kennedy",
-  "phone": "",
+  "phone": "+59322503885",
   "web": "https://www.mercedarias.edu.ec/",
   "email": "",
   "levels": [],
@@ -91089,7 +91153,8 @@
   "src": "osm",
   "osm": "w1018635857",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "guayaquil-universidad-tecnologica-empresarial-de-guayaquil-uteg",
@@ -93044,7 +93109,8 @@
   "src": "osm",
   "osm": "n2907865093",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "quito-colegio-marista-quito",
@@ -93128,16 +93194,17 @@
   "lat": -0.202721,
   "lng": -78.454754,
   "addr": "De las Rieles Colegio Terranova",
-  "phone": "",
+  "phone": "+59 3 (02) 356 4000",
   "web": "https://www.colegioterranova.com.ec",
-  "email": "",
+  "email": "info@colegioterranova.edu.ec",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "n4100647100",
   "found": "2026-11-10",
-  "img": "https://www.colegioterranova.edu.ec/SA%20-%20Colegio%20Terranova/logo/Favicon-tigre.webp"
+  "img": "https://www.colegioterranova.edu.ec/SA%20-%20Colegio%20Terranova/logo/Favicon-tigre.webp",
+  "webAt": "2026-11-10"
  },
  {
   "id": "quito-colegio-miguel-angel-zambrano",
@@ -94147,7 +94214,8 @@
   "src": "osm",
   "osm": "n4333824815",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "quito-unidad-educativa-adventista-del-sur",
@@ -94317,7 +94385,8 @@
   "src": "osm",
   "osm": "n4415912490",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-10"
  },
  {
   "id": "quito-colegio-victor-manuel-penaherrera",
@@ -94542,7 +94611,8 @@
   "src": "osm",
   "osm": "n4557359590",
   "found": "2026-11-10",
-  "img": "https://seneca.edu.ec/wp-content/uploads/2024/01/Colegio-Seneca-compartir.jpg"
+  "img": "https://seneca.edu.ec/wp-content/uploads/2024/01/Colegio-Seneca-compartir.jpg",
+  "webAt": "2026-11-10"
  },
  {
   "id": "quito-colegio-adventista-ciudad-de-quito",
@@ -94695,7 +94765,8 @@
   "src": "osm",
   "osm": "n4666110187",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "quito-colegio-ligdano-chavez",
@@ -95945,7 +96016,7 @@
   "lat": -0.273545,
   "lng": -78.546078,
   "addr": "Cusubamba Oe4-215",
-  "phone": "",
+  "phone": "+593959709328",
   "web": "https://celsis.edu.ec/",
   "email": "info@celsis.edu.ec",
   "levels": [],
@@ -95954,7 +96025,9 @@
   "src": "osm",
   "osm": "n10860866336",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+593959709328",
+  "webAt": "2026-11-10"
  },
  {
   "id": "quito-el-sauce-school",
@@ -96179,7 +96252,8 @@
   "src": "osm",
   "osm": "w31134072",
   "found": "2026-11-10",
-  "img": "https://aka-cdn.uce.edu.ec/ares/perseo/common/images/logo.png"
+  "img": "https://aka-cdn.uce.edu.ec/ares/perseo/common/images/logo.png",
+  "webAt": "2026-11-10"
  },
  {
   "id": "quito-colegio-mejia",
@@ -96236,7 +96310,8 @@
   "src": "osm",
   "osm": "w31150386",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "quito-colegio-luis-napoleon-dillon",
@@ -96428,9 +96503,9 @@
   "lat": -0.211456,
   "lng": -78.487362,
   "addr": "Toledo",
-  "phone": "",
+  "phone": "+59324008300",
   "web": "https://www.uasb.edu.ec",
-  "email": "",
+  "email": "soportevirtual@uasb.edu.ec",
   "levels": [
    "Universidad"
   ],
@@ -96441,7 +96516,9 @@
   "src": "osm",
   "osm": "w31234106",
   "found": "2026-11-10",
-  "img": "https://www.uasb.edu.ec/wp-content/uploads/2021/09/LOGO-UASB-COLOR-30-anos.png"
+  "img": "https://www.uasb.edu.ec/wp-content/uploads/2021/09/LOGO-UASB-COLOR-30-anos.png",
+  "whatsapp": "+593963077166",
+  "webAt": "2026-11-10"
  },
  {
   "id": "quito-unidad-educativa-consejo-provincial-de-pichincha",
@@ -97129,7 +97206,8 @@
   "src": "osm",
   "osm": "w303710333",
   "found": "2026-11-10",
-  "img": "https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-1/530883806_1338843318244658_6046365869028997443_n.jpg?stp=dst-jpg_tt6&cstp=mx904x896&ctp=s720x720&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=kmy_IHd_ikEQ7kNvwE4hSp_&_nc_oc=AdqC-pJvQwxcuQ7Lc2redCSlAf2SgKLSem6DeNEcJq_ydxThiExObskyTJjvjecfDOQ&_nc_zt=24&_nc_ht=scontent-iad3-2.xx&_nc_gid=K5qSc7oBXuId7oYrN1WDlw&_nc_ss=7c289&oh=00_AQRemk4etH4VIRFkISW126OQennrAbIJexP_WL_9dntI4A&oe=6AF8876B"
+  "img": "https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-1/530883806_1338843318244658_6046365869028997443_n.jpg?stp=dst-jpg_tt6&cstp=mx904x896&ctp=s720x720&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=kmy_IHd_ikEQ7kNvwE4hSp_&_nc_oc=AdqC-pJvQwxcuQ7Lc2redCSlAf2SgKLSem6DeNEcJq_ydxThiExObskyTJjvjecfDOQ&_nc_zt=24&_nc_ht=scontent-iad3-2.xx&_nc_gid=K5qSc7oBXuId7oYrN1WDlw&_nc_ss=7c289&oh=00_AQRemk4etH4VIRFkISW126OQennrAbIJexP_WL_9dntI4A&oe=6AF8876B",
+  "webAt": "2026-11-10"
  },
  {
   "id": "quito-colegio-jan-komensky",
@@ -98103,7 +98181,8 @@
   "src": "osm",
   "osm": "w428040943",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "quito-colegio-emilio-uzcategui",
@@ -293063,6 +293142,84 @@
   "private": "probable",
   "src": "osm",
   "osm": "w464796989",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "xico-universidad-etac-campus-chalco",
+  "name": "Universidad ETAC Campus Chalco",
+  "city": "Xico",
+  "country": "México",
+  "lat": 19.301594,
+  "lng": -98.870101,
+  "addr": "Camino Real La Parcela 3Z- P1/2",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w557556360",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "xico-escuela-preparatoria-oficial-anexa-a-la-normal-de-chalco",
+  "name": "Escuela Preparatoria Oficial \"Anexa a la Normal de Chalco\".",
+  "city": "Xico",
+  "country": "México",
+  "lat": 19.267143,
+  "lng": -98.888423,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w625145083",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "xico-colegio-juana-de-asbaje",
+  "name": "Colegio \"Juana de Asbaje\"",
+  "city": "Xico",
+  "country": "México",
+  "lat": 19.260095,
+  "lng": -98.894492,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w627278982",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "xico-colegio-albert-einstein",
+  "name": "Colegio Albert Einstein",
+  "city": "Xico",
+  "country": "México",
+  "lat": 19.247814,
+  "lng": -98.891815,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r15336697",
   "found": "2026-11-10"
  }
 ]
