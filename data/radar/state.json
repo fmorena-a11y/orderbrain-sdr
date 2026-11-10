@@ -6829,7 +6829,16 @@
   "PE|Piura": "2026-11-10T13:26:31.189Z",
   "PE|Iquitos": "2026-11-10T13:27:01.953Z",
   "CO|n284074373": "2026-11-10T13:30:20.754Z",
-  "MX|General Escobedo": "2026-11-10T13:39:49.052Z"
+  "MX|General Escobedo": "2026-11-10T13:39:49.052Z",
+  "CO|n676777722": "2026-11-10T14:13:52.679Z",
+  "MX|Irapuato": "2026-11-10T14:14:40.659Z",
+  "MX|Xalapa-Enríquez": "2026-11-10T14:15:16.045Z",
+  "MX|Tonalá": "2026-11-10T14:15:50.869Z",
+  "MX|Mazatlán": "2026-11-10T14:16:31.558Z",
+  "VE|n313507005": "2026-11-10T14:17:10.449Z",
+  "DO|n3710926351": "2026-11-10T14:17:45.258Z",
+  "AR|Corrientes": "2026-11-10T14:18:22.606Z",
+  "PE|Cuzco": "2026-11-10T14:19:02.254Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -6844,6 +6853,85 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-10T14:06:06.344Z",
+   "cities": [
+    {
+     "cc": "CO",
+     "city": "Montería",
+     "found": 67,
+     "updated": 0,
+     "osm": 183
+    },
+    {
+     "cc": "MX",
+     "city": "Irapuato",
+     "found": 4,
+     "updated": 0,
+     "osm": 20
+    },
+    {
+     "cc": "MX",
+     "city": "Xalapa-Enríquez",
+     "found": 65,
+     "updated": 1,
+     "osm": 454
+    },
+    {
+     "cc": "MX",
+     "city": "Tonalá",
+     "found": 0,
+     "updated": 0,
+     "osm": 1106
+    },
+    {
+     "cc": "MX",
+     "city": "Mazatlán",
+     "found": 22,
+     "updated": 0,
+     "osm": 91
+    },
+    {
+     "cc": "VE",
+     "city": "Puerto Ordaz",
+     "found": 13,
+     "updated": 0,
+     "osm": 132
+    },
+    {
+     "cc": "DO",
+     "city": "Sabana Grande de Palenque",
+     "found": 0,
+     "updated": 0,
+     "osm": 5
+    },
+    {
+     "cc": "AR",
+     "city": "Corrientes",
+     "found": 63,
+     "updated": 0,
+     "osm": 297
+    },
+    {
+     "cc": "PE",
+     "city": "Cuzco",
+     "found": 28,
+     "updated": 0,
+     "osm": 331
+    }
+   ],
+   "added": 262,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 23,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "MX|Nuevo Laredo: sin tiempo en esta corrida"
+   ],
+   "minutes": 19.3,
+   "total": 14047
+  },
   {
    "at": "2026-11-10T13:25:56.869Z",
    "cities": [
