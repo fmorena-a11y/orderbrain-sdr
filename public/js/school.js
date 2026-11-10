@@ -1,5 +1,5 @@
 // Ficha del colegio: preparar el contacto, registrar el resultado e historial. Incluye el modo sesión.
-import { $, S, api, esc, icon, pill, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, ago, TYPE_ICON,
+import { $, S, api, esc, icon, pill, statusPill, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, ago, TYPE_ICON,
   telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink } from "./core.js";
 const coarse = () => matchMedia("(pointer: coarse)").matches;
 
@@ -94,16 +94,34 @@ function bindGallery(s) {
 }
 function lightbox(s, start) {
   const list = photoList(s); let i = start;
-  const m = modal(`<div class="lb"><img id="lbImg" alt="Foto del colegio"><div class="lb-bar"><span id="lbCap" class="faint"></span><span class="lb-nav">${list.length > 1 ? `<button class="icon-btn" id="lbPrev" aria-label="Anterior">${icon("arrowLeft")}</button><button class="icon-btn" id="lbNext" aria-label="Siguiente">${icon("arrowRight")}</button>` : ""}<button class="icon-btn" id="lbClose" aria-label="Cerrar">${icon("x")}</button></span></div></div>`, { onClose: () => $("drawer").querySelector(`[data-ph="${i}"]`)?.focus() });
+  const m = modal(`<div class="lb"><img id="lbImg" alt="Foto del colegio" referrerpolicy="no-referrer"><div class="lb-fail" id="lbFail" hidden>${icon("alert")}<span>No se pudo cargar esta foto. Abrila con el botón de abajo.</span></div><div class="lb-bar"><span id="lbCap" class="faint"></span><span class="lb-nav"><a class="btn sm" id="lbExt" target="_blank" rel="noopener">${icon("external", "sm")} <span>Abrir</span></a>${list.length > 1 ? `<button class="icon-btn" id="lbPrev" aria-label="Anterior">${icon("arrowLeft")}</button><button class="icon-btn" id="lbNext" aria-label="Siguiente">${icon("arrowRight")}</button>` : ""}<button class="icon-btn" id="lbClose" aria-label="Cerrar">${icon("x")}</button></span></div></div>`, { onClose: () => $("drawer").querySelector(`[data-ph="${i}"]`)?.focus() });
   m.querySelector(".modal-box").classList.add("wide");
-  const show = () => { const p = list[i]; m.querySelector("#lbImg").src = p.kind === "sat" ? satLink(s, { w: 1400, h: 900 }) : p.url; m.querySelector("#lbCap").textContent = `${i + 1} de ${list.length} · ${p.credit || KIND[p.kind]}`; };
+  // La foto grande nunca queda rota: si una versión falla (el servicio satelital a veces devuelve error en ciertos
+  // tamaños), prueba la siguiente; al final queda la misma de la miniatura o un aviso con el enlace para abrirla afuera.
+  const img = m.querySelector("#lbImg"), fail = m.querySelector("#lbFail"), ext = m.querySelector("#lbExt");
+  let tries = [], seq = 0;
+  const show = () => {
+    const p = list[i], my = ++seq;
+    tries = p.kind === "sat" ? [satLink(s, { w: 1200, h: 750 }), satLink(s, { w: 1024, h: 640 }), satLink(s, { w: 800, h: 480 }), satLink(s, { w: 480, h: 300 })] : [p.url];
+    fail.hidden = true; img.hidden = false; img.classList.add("loading");
+    img.onload = () => { if (my === seq) img.classList.remove("loading"); };
+    img.onerror = () => {
+      if (my !== seq) return;
+      if (tries.length) { img.src = tries.shift(); return; }
+      img.hidden = true; fail.hidden = false;
+    };
+    img.src = tries.shift();
+    ext.href = p.kind === "sat" ? `https://www.google.com/maps/@${s.lat},${s.lng},180m/data=!3m1!1e3` : p.url;
+    ext.querySelector("span").textContent = p.kind === "sat" ? "Abrir en Google Maps" : "Abrir la foto";
+    m.querySelector("#lbCap").textContent = `${i + 1} de ${list.length} · ${p.credit || KIND[p.kind]}`;
+  };
   const go = d => { i = (i + d + list.length) % list.length; show(); };
   m.querySelector("#lbPrev")?.addEventListener("click", () => go(-1));
   m.querySelector("#lbNext")?.addEventListener("click", () => go(1));
   m.querySelector("#lbClose").onclick = () => m.close();
   m.addEventListener("keydown", e => { if (e.key === "ArrowLeft") go(-1); if (e.key === "ArrowRight") go(1); });
   // deslizar para pasar de foto en el celular
-  let x0 = null; const img = m.querySelector("#lbImg");
+  let x0 = null;
   img.addEventListener("pointerdown", e => (x0 = e.clientX));
   img.addEventListener("pointerup", e => { if (x0 === null) return; const dx = e.clientX - x0; x0 = null; if (dx > 40) go(-1); else if (dx < -40) go(1); });
   show();
@@ -194,7 +212,7 @@ function prefetch() {
 const focusKey = el => el && (el.id ? `#${el.id}` : ["tab", "oc", "ch", "f", "caf", "niv", "nd", "ph"].map(k => el.dataset?.[k] !== undefined ? `[data-${k}="${el.dataset[k]}"]` : "").find(Boolean));
 function clientWarn(s, m) {
   if (s.status === "client") return s.ob && !s.ob.churn ? `Ya es cliente de OrderEAT en OrderBrain (${s.ob.label}${s.ob.client && s.ob.client !== s.name ? `, ${s.ob.client}` : ""}). No lo prospectes: si hay algo, avisale al equipo de cuentas.` : "Ya es cliente de OrderEAT. No lo prospectes: si hay algo, avisale al equipo de cuentas.";
-  if (s.ob?.churn) return "Ex cliente de OrderEAT (churn en OrderBrain). Antes de contactar, hablá con el equipo de cuentas para saber por qué se fue.";
+  if (s.ob?.churn || s.phase === "churn") return "Ex cliente de OrderEAT (churn). Antes de contactar, hablá con el equipo de cuentas para saber por qué se fue.";
   if (s.status === "open") return `Tiene un trato abierto${m?.openDealOwner ? ` de ${m.openDealOwner}` : ""}. Coordiná con esa persona antes de contactar.`;
   return "";
 }
@@ -212,9 +230,9 @@ function draw() {
     <button class="btn sm ghost" id="prev" ${ss.i ? "" : "disabled"} aria-label="Colegio anterior">${icon("arrowLeft", "sm")}</button><button class="btn sm" id="skip">${icon("skip", "sm")} Saltar</button></div>` : ""}
   <div class="d-top">
     <div class="d-title"><div class="tt"><h2 id="dTitle">${esc(s.name)}</h2><div class="sub">${esc([s.addr, s.city, s.country].filter(Boolean).join(", "))}</div></div>
-      <div class="d-tr">${pill(s.status)}${d?.orgUrl ? `<a class="icon-btn" href="${esc(d.orgUrl)}" target="_blank" rel="noopener" title="Abrir en Pipedrive" aria-label="Abrir en Pipedrive">${icon("external")}</a>` : ""}<button class="icon-btn" id="dClose" aria-label="Cerrar ficha" title="Cerrar (Esc)">${icon("x")}</button></div></div>
+      <div class="d-tr">${statusPill(s)}${d?.orgUrl ? `<a class="icon-btn" href="${esc(d.orgUrl)}" target="_blank" rel="noopener" title="Abrir en Pipedrive" aria-label="Abrir en Pipedrive">${icon("external")}</a>` : ""}<button class="icon-btn" id="dClose" aria-label="Cerrar ficha" title="Cerrar (Esc)">${icon("x")}</button></div></div>
     <div class="d-meta">
-      ${pill(s.status)}
+      ${statusPill(s)}
       ${mk.espacio ? `<span class="tag" title="Decí «${esc(mk.espacio)}» y tratá de ${mk.trato === "vos" ? "vos" : "tú"}">«${esc(mk.espacio)}» · ${mk.trato === "vos" ? "vos" : "tú"}</span>` : ""}
       ${s.hours ? `<span class="tag" title="Horario">${icon("clock", "sm")} ${esc(s.hours)}</span>` : ""}
       ${s.rating ? `<span class="tag" title="Reseñas en Google">★ ${esc(s.rating)}</span>` : ""}
@@ -412,7 +430,7 @@ function logBody(s, d) {
       <div class="seg" role="group">${CH.map(([k, l, ic]) => `<button data-ch="${k}" aria-pressed="${f.channel === k}">${icon(ic, "sm")} ${l}</button>`).join("")}</div></div>
     <div class="sec step"><div class="step-h"><span class="n">${++n}</span>¿Qué pasó?</div>
       <div class="outcomes">${S.outcomes.map(x => `<button class="oc ${GOOD.includes(x.id) ? "good" : ""}" data-oc="${x.id}" aria-pressed="${f.outcome === x.id}" ${x.id === "demo" && s.status === "client" ? `disabled title="Ya es cliente"` : ""}><b>${esc(x.label)}</b><small>${esc(x.hint)}</small></button>`).join("")}</div></div>
-    <div class="sec step"><div class="step-h"><span class="n">${++n}</span>Comentario <span class="faint" style="font-weight:400;font-size:13px">${f.outcome ? "lo que te dijeron, con tus palabras" : "opcional · se puede guardar solo, sin registrar un contacto"}</span></div>
+    <div class="sec step"><div class="step-h"><span class="n">${++n}</span>Comentario <span class="faint" style="font-weight:400;font-size:13px">${f.outcome ? "lo que te dijeron, con tus palabras" : contactPending() ? "lo que pasó, con tus palabras" : "opcional · se puede guardar solo, sin registrar un contacto"}</span></div>
       <textarea class="inp" data-f="text" aria-label="Comentario" placeholder="Ej: atendió la secretaria, la cafetería la maneja un concesionario (Don Pedro), llamar después de las 11.">${esc(f.text)}</textarea>
       ${(QUICK[f.outcome] || []).length ? `<div class="quick">${QUICK[f.outcome].map(q => `<button data-quick="${esc(q)}">+ ${esc(q)}</button>`).join("")}</div>` : ""}
       ${S.ai && f.outcome ? `<label class="toggle"><input type="checkbox" data-f="ai" ${f.ai ? "checked" : ""}> Ordenar la nota con IA (resumen, decisor, objeción e interés)</label>` : ""}</div>
@@ -447,13 +465,15 @@ function logBody(s, d) {
 }
 function pipeName(s) { const mk = S.markets[s.country]; return mk ? `${{ MX: "MX - SALES", PE: "PE - SALES", AR: "ARG - SALES", CL: "CHI - Sales", UY: "UY - SALES" }[mk.code] || "LatAm - SALES"}` : "el embudo del país"; }
 
-const onlyComment = () => !D.form.outcome && !!D.form.text?.trim();
+// Comentario suelto: solo si no hay un contacto en curso (recién llamaste o mandaste un mensaje desde la ficha).
+const contactPending = () => D.inCall || D.form.sent;
+const onlyComment = () => !D.form.outcome && !!D.form.text?.trim() && !contactPending();
 const saveDisabled = s => D.saving || !(D.form.outcome || onlyComment()) || (s.status === "client" && D.form.outcome === "demo");
 const saveLabel = () => `${icon("check")} ${onlyComment() ? "Guardar comentario" : "Guardar en Pipedrive"}`;
 function summary(s, d) {
   const f = D.form;
   if (onlyComment()) return `<b>Se guarda en Pipedrive:</b> comentario en la organización, sin registrar contacto<span class="kbd-hint faint"> · Ctrl + Enter</span>`;
-  if (!f.outcome) return "Elegí qué pasó o dejá un comentario.";
+  if (!f.outcome) return contactPending() ? `Elegí qué pasó con ${D.form.sent ? "el mensaje" : "la llamada"} para guardar.` : "Elegí qué pasó o dejá un comentario.";
   if (s.status === "client" && f.outcome === "demo") return "Ya es cliente: no se crea un trato nuevo.";
   const parts = ["contacto hecho", "nota"];
   if (f.contact.name) parts.push("contacto");
@@ -466,7 +486,11 @@ function setPath(obj, path, val) { const ks = path.split("."); let o = obj; ks.s
 function bindLog(s, d) {
   const el = $("drawer"), f = D.form;
   el.querySelectorAll("[data-ch]").forEach(b => b.onclick = () => { f.channel = b.dataset.ch; redrawLog(); suggest(s); });
-  el.querySelectorAll("[data-oc]").forEach(b => b.onclick = () => { f.outcome = b.dataset.oc; f.lostReason = ""; redrawLog(); suggest(s); });
+  el.querySelectorAll("[data-oc]").forEach(b => b.onclick = () => {
+    // tocar el que ya estaba elegido lo quita (por ejemplo, para guardar solo un comentario)
+    if (f.outcome === b.dataset.oc) { f.outcome = null; f.lostReason = ""; f.why = ""; if (!f.nextTouched) f.next = { type: "", date: "", time: "", ownerId: f.next.ownerId }; redrawLog(); return; }
+    f.outcome = b.dataset.oc; f.lostReason = ""; redrawLog(); suggest(s);
+  });
   el.querySelectorAll("[data-caf]").forEach(b => b.onclick = () => { f.qual.cafeteria = f.qual.cafeteria === b.dataset.caf ? "" : b.dataset.caf; redrawLog(); });
   el.querySelectorAll("[data-niv]").forEach(b => b.onclick = () => { const v = b.dataset.niv; f.qual.niveles = f.qual.niveles.includes(v) ? f.qual.niveles.filter(x => x !== v) : [...f.qual.niveles, v]; b.setAttribute("aria-pressed", f.qual.niveles.includes(v)); });
   el.querySelectorAll("[data-nd]").forEach(b => b.onclick = () => { f.next.date = b.dataset.nd; f.nextTouched = true; redrawLog(); });
@@ -570,7 +594,8 @@ function bindResult(s, d) {
 function histBody(s, d) {
   const items = [
     ...(d.touches || []).map(t => ({ at: t.at, ic: { call: "phone", whatsapp: "whatsapp", mail: "mail", visit: "user" }[t.channel] || "note", h: `<b>${esc(t.by)}</b> · ${esc(t.outcome)}`, p: t.text })),
-    ...(d.notes || []).filter(n => !/OrderBrain SDR/.test(n.text) || !(d.touches || []).length).map(n => ({ at: String(n.at).replace(" ", "T") + "Z", ic: "note", h: `<b>${esc(n.author)}</b> · nota${n.deal ? ` en ${esc(n.deal)}` : ""}`, p: n.text })),
+    // las notas de «Registrar» ya se ven como contactos; los comentarios sueltos y las del asistente, no: esas se muestran
+    ...(d.notes || []).filter(n => !/OrderBrain SDR/.test(n.text) || /^(Comentario|Nota desde el asistente)\b/.test(n.text) || !(d.touches || []).length).map(n => ({ at: String(n.at).replace(" ", "T") + "Z", ic: "note", h: `<b>${esc(n.author)}</b> · nota${n.deal ? ` en ${esc(n.deal)}` : ""}`, p: n.text })),
   ].sort((a, b) => String(b.at).localeCompare(String(a.at)));
   const m = d.match;
   return `<div class="stack">
@@ -643,7 +668,7 @@ function messageModal(s, d, t, { phone, email, logAfter }) {
     if (isMail) open(gmailLink({ to, subject: q("#mSub").value, body: text }));
     else { if (!to) return toast("Poné el número", { type: "err" }); open(waLink(to, text, s.country)); }
     m.close();
-    if (logAfter) { D.form.channel = isMail ? "mail" : "whatsapp"; D.tab = "log"; D.result = null; if (!D.form.text) D.form.text = `Mandé ${isMail ? "mail" : "WhatsApp"}: ${t.label.toLowerCase()}.`; draw(); toast("Cuando tengas respuesta (o no), registralo acá"); }
+    if (logAfter) { D.form.channel = isMail ? "mail" : "whatsapp"; D.tab = "log"; D.result = null; D.form.sent = true; if (!D.form.text) D.form.text = `Mandé ${isMail ? "mail" : "WhatsApp"}: ${t.label.toLowerCase()}.`; draw(); toast("Cuando tengas respuesta (o no), registralo acá"); }
   };
 }
 

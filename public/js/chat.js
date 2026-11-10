@@ -28,7 +28,14 @@ function propCard(p) {
   const d = document.createElement("div"); d.className = "prop"; $("msgs").appendChild(d);
   if (p.kind === "scan") {
     d.innerHTML = `<h4>${icon("globe", "sm")} Buscar colegios en ${esc(p.zona)}</h4><p class="muted" style="margin:0 0 10px">Busco los colegios privados que todavía no están y los sumo al mapa. Podés seguir trabajando mientras.</p><div class="r"><button class="btn primary sm" data-go>${icon("play", "sm")} Buscar ahora</button></div>`;
-    d.querySelector("[data-go]").onclick = () => { import("./scan.js").then(m => m.scanZone(p.zona)); d.querySelector(".r").innerHTML = `<p class="muted" style="margin:0">${icon("check", "sm")} Búsqueda en marcha: mirá el avance abajo a la izquierda.</p>`; };
+    const go = d.querySelector("[data-go]");
+    go.onclick = async () => {
+      go.disabled = true;
+      const ok = await import("./scan.js").then(m => m.scanZone(p.zona)).catch(() => false);
+      // solo se dice «en marcha» si de verdad arrancó; si no, el botón queda para reintentar
+      if (ok) d.querySelector(".r").innerHTML = `<p class="muted" style="margin:0">${icon("check", "sm")} Búsqueda en marcha: mirá el avance abajo a la izquierda.</p>`;
+      else go.disabled = false;
+    };
     $("msgs").scrollTop = 1e9; return;
   }
   const draw = (state, extra = "") => {

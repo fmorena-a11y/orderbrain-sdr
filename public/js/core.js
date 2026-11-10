@@ -123,6 +123,13 @@ export const ST = {
 };
 export const cssVar = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 export const pill = st => `<span class="pill ${st}">${ST[st]?.l || st}</span>`;
+// Fase comercial (World Dominion o Pipedrive): pisa a la pastilla de estado porque dice más.
+export const PH = {
+  activo: { l: "Activo", dot: "#16A34A" }, onboarding: { l: "Onboarding", dot: "#EAB308" }, cerrado: { l: "Cerrado", dot: "#2563EB" },
+  churn: { l: "Churn", dot: "#DC2626" }, propuesta: { l: "Propuesta enviada", dot: "#7C3AED" },
+};
+export const statusPill = s => s?.phase && PH[s.phase] ? `<span class="pill ph-${s.phase}">${PH[s.phase].l}</span>` : pill(s?.status);
+export const dotColor = (s, colors) => s.phase && PH[s.phase] ? PH[s.phase].dot : colors[s.status];
 
 // ---------- fechas
 const fmtDay = new Intl.DateTimeFormat("es", { weekday: "long", day: "numeric", month: "long" });

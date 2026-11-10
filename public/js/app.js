@@ -1,5 +1,5 @@
 // OrderBrain SDR · arranque, navegación, cuenta, búsqueda rápida y atajos.
-import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo } from "./core.js";
+import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, statusPill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo } from "./core.js";
 import { renderToday } from "./today.js";
 import { renderExplore } from "./explore.js";
 import { renderAgenda } from "./agenda.js";
@@ -67,6 +67,9 @@ async function enterApp() {
 // Colegios y equipo: si fallan, se avisa y se puede reintentar sin recargar.
 async function loadBase() {
   try {
+    // clientes de World Dominion: se piden junto con la base (el mapa y Hoy los usan)
+    S.brainP ??= api("/api/brain").catch(() => ({ enabled: false }));
+    S.brainP.then(b => { S.brain = b; });
     const [schools, team] = await Promise.all([api("/api/schools"), api("/api/team").catch(() => [])]);
     setSchools(schools); S.team = team; S.baseError = null;
   } catch (e) { S.baseError = e.message; }
@@ -175,7 +178,7 @@ function renderPalette() {
     html += `<div class="pal-h">${h}</div>`;
     for (const it of list) {
       const i = PAL.items.length;
-      if (it.s) { PAL.items.push({ fn: () => openSchool(it.s.id) }); html += row(i, "building", it.s.name, `${it.s.city}, ${it.s.country}`, it.s.status ? pill(it.s.status) : ""); }
+      if (it.s) { PAL.items.push({ fn: () => openSchool(it.s.id) }); html += row(i, "building", it.s.name, `${it.s.city}, ${it.s.country}`, it.s.status ? statusPill(it.s) : ""); }
       else { PAL.items.push(it.a); html += row(i, it.a.ic, it.a.label, it.a.sub); }
     }
   }

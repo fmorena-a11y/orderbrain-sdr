@@ -61,20 +61,26 @@ En la app, la sección **Radar** muestra la cobertura por país, las corridas y 
 
 ## Buscador de zonas
 
-Para no esperar al radar, cualquiera puede buscar colegios en una zona puntual:
+Para no esperar al radar, cualquiera puede buscar colegios en un lugar puntual:
 
-- **Prospectar**: escribí una ciudad, barrio o dirección y apretá Enter. La marca en el mapa con un círculo y lista los colegios cercanos por distancia. «Buscar más» trae los que falten en esa zona.
-- **Ctrl K** (o la lupa) → «Buscar colegios en una zona…»: sirve para un país o provincia entera («España», «Provincia de Córdoba»). Arma la lista de ciudades de más de 40.000 habitantes y las recorre en segundo plano, con un indicador de avance que se puede cancelar.
-- **Asistente**: «Prospectá colegios en España» propone la búsqueda y arranca con un botón.
+- **Prospectar**: escribí un país, provincia, ciudad, barrio o dirección y tocá la flecha (o Enter si el texto no coincide con ningún colegio). El mapa dibuja el **contorno real** del lugar y la lista muestra solo los colegios de adentro, del más cercano al más lejano. Si el lugar es un punto (una dirección o un barrio sin límite en OpenStreetMap), se usa un círculo chico. Si el nombre es ambiguo («Puebla»), elige la ciudad y ofrece las otras opciones («Puebla, México» el estado).
+- **«Buscar más»** trae de OpenStreetMap los colegios privados que falten **dentro del contorno** (un país se recorre ciudad por ciudad).
+- **Ctrl K** → «Buscar colegios en una zona…», o el asistente: «Prospectá colegios en España».
 
-Usa la misma lógica que el radar (`lib/scan.js`: Nominatim para ubicar, Overpass para buscar, mismos filtros de privados y deduplicado). Endpoints: `POST /api/scan/resolve`, `/api/scan/cities`, `/api/scan/city`. Los colegios nuevos quedan en Redis (`schools:extra`) y los ve todo el equipo; sin Redis viven en memoria hasta que reinicia el servidor, y el radar los vuelve a encontrar en su próxima pasada.
+Cada colegio nuevo pasa por un control antes de entrar a la base (`lib/enrich.js`):
 
-Variables: `RADAR_MIN_POP` (40000), `RADAR_RESCAN_DAYS` (30), `RADAR_MINUTES` (20), `RADAR_PLACES_MAX`, `RADAR_WEB_MAX`, `RADAR_AI_MAX`.
+1. Filtro estricto (`lib/scan.js`): fuera públicos, academias de idiomas, de manejo, de arte o deportes, centros de estudio, apoyo escolar, etc.
+2. Web del colegio: teléfono, WhatsApp, mail y foto de portada.
+3. Google Places (con `GOOGLE_MAPS_API_KEY`): que figure como escuela y siga abierta; suma teléfono, web y rating.
+4. Claude (con `ANTHROPIC_API_KEY`): que sea un colegio y privado; suma encaje y ángulo de venta.
+
+El indicador de abajo muestra el avance (verificados, nuevos y descartados con el motivo) y **Cancelar** corta en el acto: lo que estaba a medio verificar no entra. Endpoints: `POST /api/scan/resolve` (lugar con contorno), `/api/scan/cities`, `/api/scan/city` (candidatos firmados, no guarda) y `/api/scan/verify` (verifica y guarda). Los colegios nuevos quedan en Redis (`schools:extra`) y los ve todo el equipo; sin Redis viven en la memoria de una instancia y la app lo avisa.
 
 ## Clientes de OrderEAT (World Dominion)
 
 Con `BRAIN_TOKEN` la app lee los sitios de World Dominion en OrderBrain general (`brain.ordereat.com/api/sites` y `/api/clients`) cada 15 minutos (`lib/brain.js`) y los cruza con la base: mismo Google Place, mismo predio (menos de 60 m) o nombre parecido a menos de 300 m.
 
+- Cada colegio lleva una **fase** con color: Activo (verde), Onboarding (amarillo), Cerrado (azul: firmó y no arrancó), Churn (rojo) y Propuesta enviada (violeta). Manda World Dominion; si no está ahí, sale de Pipedrive (embudo ONBOARDING, embudos de clientes, etapas Churn/DROPPED y la etapa de propuesta de los embudos de venta).
 - Los sitios en estado Cerrado, Onboarding o Activo quedan como **Cliente**: salen de «Para llamar», de la cola de llamadas y de las sugerencias del asistente, y la ficha avisa que no hay que prospectarlos. Esto pasa aunque Pipedrive no tenga el trato bien cargado.
 - Los sitios en Churn quedan marcados como **ex cliente**: se pueden contactar, pero la ficha pide hablar antes con el equipo de cuentas.
 - En el mapa de Prospectar, los clientes aparecen como rombos azules y los ex clientes con borde rojo. El botón «Clientes OrderEAT» los muestra u oculta.

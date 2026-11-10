@@ -4,3 +4,4 @@ data/cache.json
 data/touches.json
 .vercel
 .env*
+data/extra-schools.json

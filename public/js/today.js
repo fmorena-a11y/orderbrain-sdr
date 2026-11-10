@@ -48,6 +48,7 @@ function draw() {
 
   host.innerHTML = `<div class="page">
     ${baseErrorCallout()}
+    ${S.brain?.down ? `<div class="callout warn" style="margin-bottom:16px">${icon("alert")}<span>No pudimos leer los clientes de World Dominion: algún cliente puede aparecer en tu cola. Revisá en Pipedrive antes de llamar.</span></div>` : ""}
     <div class="page-head"><div><h1>${greeting()}, ${esc(firstName())}</h1><p>${esc(cap(new Intl.DateTimeFormat("es", { weekday: "long", day: "numeric", month: "long" }).format(new Date())))}</p></div></div>
     ${!S.me.pdUserId ? `<div class="callout warn" style="margin-bottom:16px">${icon("alert")}<span>Tu email (${esc(S.me.email)}) no coincide con ningún usuario de Pipedrive, así que no vemos tu agenda. Pedí que te den de alta con ese email.</span></div>` : ""}
     <section class="card hero" aria-label="Tu día">

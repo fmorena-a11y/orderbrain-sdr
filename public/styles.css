@@ -704,7 +704,8 @@ details.agent summary .sub { order: 3; }
 @media (max-width: 599px) { .scan-job { left: 16px; bottom: calc(76px + env(safe-area-inset-bottom)); } }
 .sj-bar { height: 3px; background: var(--surface-3); } .sj-bar span { display: block; height: 100%; background: var(--accent); transition: width .3s; }
 .sj-row { display: flex; align-items: center; gap: 10px; padding: 10px 10px 10px 14px; }
-.sj-row > .ico { color: var(--ok); }
+.sj-row > .ico, .sj-ic .ico { color: var(--ok); } .sj-ic { display: grid; place-items: center; flex: none; } .sj-ic[data-k="x"] .ico { color: var(--muted); }
+.scan-job [hidden] { display: none !important; }
 .sj-t { flex: 1; min-width: 0; } .sj-t b { display: block; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .sj-t small { color: var(--muted); font-size: 12.5px; }
 
 /* Clientes de OrderEAT (World Dominion): cuadrado con borde blanco, distinto de los círculos de colegios */
@@ -716,3 +717,30 @@ details.agent summary .sub { order: 3; }
 .map-toggle[aria-pressed="false"] { color: var(--muted); }
 .map-toggle[aria-pressed="false"] .ob-dot { background: transparent; border: 2px solid var(--muted); }
 .map-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* alternativas cuando el nombre del lugar es ambiguo («Puebla»: ciudad o estado) */
+.place-alts { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 8px; font-size: 13px; }
+.place-alts .chip { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chip.sm { min-height: 30px; padding: 0 10px; font-size: 12.5px; }
+.sj-t .warn-t { display: block; color: var(--warn, #B45309); margin-top: 2px; }
+
+/* Fase comercial: activo (verde), onboarding (amarillo), cerrado (azul), churn (rojo), propuesta enviada (violeta) */
+.pill.ph-activo { color: #15803D; background: #DCFCE7; }
+.pill.ph-onboarding { color: #854D0E; background: #FEF9C3; }
+.pill.ph-cerrado { color: #1D4ED8; background: #DBEAFE; }
+.pill.ph-churn { color: #B91C1C; background: #FEE2E2; }
+.pill.ph-propuesta { color: #6D28D9; background: #EDE9FE; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pill.ph-activo { color: #4ADE80; background: #12301D; } :root:not([data-theme="light"]) .pill.ph-onboarding { color: #FACC15; background: #33290A; } :root:not([data-theme="light"]) .pill.ph-cerrado { color: #93C5FD; background: #172554; } :root:not([data-theme="light"]) .pill.ph-churn { color: #F87171; background: #3A1515; } :root:not([data-theme="light"]) .pill.ph-propuesta { color: #C4B5FD; background: #2E1065; } }
+:root[data-theme="dark"] .pill.ph-activo { color: #4ADE80; background: #12301D; } :root[data-theme="dark"] .pill.ph-onboarding { color: #FACC15; background: #33290A; } :root[data-theme="dark"] .pill.ph-cerrado { color: #93C5FD; background: #172554; } :root[data-theme="dark"] .pill.ph-churn { color: #F87171; background: #3A1515; } :root[data-theme="dark"] .pill.ph-propuesta { color: #C4B5FD; background: #2E1065; }
+.map-toggle { flex-direction: column; align-items: flex-start; gap: 4px; padding: 8px 12px; }
+.map-toggle .mt-h { display: inline-flex; align-items: center; gap: 8px; }
+.map-toggle .mt-legend { display: flex; flex-wrap: wrap; gap: 4px 10px; font-weight: 500; font-size: 12px; color: var(--muted); }
+.map-toggle .mt-legend:empty { display: none; }
+.map-toggle .mt-legend i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; transform: rotate(45deg); margin-right: 5px; }
+.map-toggle[aria-pressed="false"] .mt-legend { display: none; }
+.map-toggle .demo-t { font-style: normal; font-size: 11px; font-weight: 700; color: var(--warn); background: var(--warn-soft); padding: 1px 6px; border-radius: 6px; }
+.lb img[hidden] { display: none; }
+.lb img.loading { min-height: 240px; background: #000 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M21 12a9 9 0 1 1-6.2-8.6'/%3E%3C/svg%3E") center / 28px no-repeat; }
+.lb-fail { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 240px; border-radius: 10px; background: var(--surface-2); color: var(--muted); padding: 24px; text-align: center; }
+.lb-fail[hidden] { display: none; }
+.lb-nav { display: inline-flex; align-items: center; gap: 6px; }

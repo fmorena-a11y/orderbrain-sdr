@@ -1,12 +1,14 @@
 import express from "express";
+import crypto from "crypto";
 import cookieSession from "cookie-session";
 import { OAuth2Client } from "google-auth-library";
 import path from "path";
 import { fileURLToPath } from "url";
 import * as pd from "./lib/pipedrive.js";
-import { schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet } from "./lib/store.js";
+import { schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId } from "./lib/store.js";
 import * as scan from "./lib/scan.js";
 import { ensureBrain, brainState } from "./lib/brain.js";
+import { verifyCandidates, enrichSources } from "./lib/enrich.js";
 import { research, studyEnabled, studyToHtml } from "./lib/study.js";
 import * as sales from "./lib/sales.js";
 import * as ai from "./lib/ai.js";
@@ -86,7 +88,7 @@ const wrap = fn => (req, res) => fn(req, res).catch(e => {
   if (status >= 500) console.error(e);
   res.status(status).json({ error: e instanceof pd.PipedriveError ? `Pipedrive: ${e.message}` : e.message });
 });
-const schoolParam = (req, res, next) => byId.has(req.params.id) ? next() : res.status(404).json({ error: "Colegio inexistente" });
+const schoolParam = (req, res, next) => { if (!byId.has(req.params.id)) return res.status(404).json({ error: "Colegio inexistente" }); req.params.id = canonicalId(req.params.id); next(); };
 
 // ---------- API
 app.get("/api/me", auth, (req, res) => res.json({
@@ -180,53 +182,83 @@ app.post("/api/activities/:id/move", auth, wrap(async (req, res) => {
   await pd.updateActivity(Number(req.params.id), { due_date: u.date, ...(u.time ? { due_time: u.time } : {}) });
   res.json({ ok: true });
 }));
-// ---------- buscador de zonas: «prospectá España», «Bogotá», «Provincia de Córdoba»
-// El navegador recorre las ciudades de a una (así cada pedido es corto y se ve el avance).
+// ---------- buscador de zonas: «prospectá España», «Bogotá», «Provincia de Córdoba», «Pocitos»
+// 1) /resolve ubica el lugar con su contorno. 2) /city trae de OpenStreetMap los colegios de una ciudad o de un
+// área exacta y devuelve candidatos firmados (no guarda nada). 3) /verify revisa cada candidato (web, Google, IA)
+// y recién ahí lo suma a la base. Así, cancelar no deja nada a medias y lo que entra está chequeado.
 const SCAN_MIN_POP = Number(process.env.RADAR_MIN_POP || 40000);
+const SCAN_SECRET = process.env.SESSION_SECRET || "dev-only-secret";
+const signRec = rec => crypto.createHmac("sha256", SCAN_SECRET).update("cand:" + JSON.stringify(rec)).digest("base64url");
+const sigOk = (rec, sig) => { const want = signRec(rec); return typeof sig === "string" && sig.length === want.length && crypto.timingSafeEqual(Buffer.from(sig), Buffer.from(want)); };
+const appCountry = place => { const known = Object.entries(MARKETS).find(([, m]) => m.code === place.cc); if (known) place.country = known[0]; return place; };
 app.post("/api/scan/resolve", auth, wrap(async (req, res) => {
-  const q = String(req.body?.q || "").trim().slice(0, 120);
-  if (q.length < 2) return res.status(400).json({ error: "Escribí un país, una provincia o una ciudad." });
-  const cached = await cacheGet("place:" + scan.norm(q));
+  const osm = String(req.body?.osm || "");
+  if (osm) {
+    const k = "place:osm:" + osm;
+    const place = (await cacheGet(k)) || await scan.lookupPlace(osm);
+    if (!place) return res.status(404).json({ error: "No encontré ese lugar." });
+    await cacheSet(k, place, 30 * 864e2);
+    return res.json(appCountry(place));
+  }
+  const q = String(req.body?.q || "").trim().slice(0, 120), nq = scan.norm(q);
+  if (nq.length < 2) return res.status(400).json({ error: "Escribí un país, una provincia, una ciudad o un barrio." });
+  const k = "place2:" + nq;
+  const cached = await cacheGet(k);
   const place = cached || await scan.resolvePlace(q);
   if (!place) return res.status(404).json({ error: `No encontré «${q}». Probá con otro nombre.` });
-  if (!cached) await cacheSet("place:" + scan.norm(q), place, 30 * 864e2);
-  // nombre del país como lo usa la app (México, Perú…) si es uno de los mercados conocidos
-  const known = Object.entries(MARKETS).find(([, m]) => m.code === place.cc);
-  if (known) place.country = known[0];
-  res.json(place);
+  if (!cached) await cacheSet(k, place, 30 * 864e2);
+  res.json(appCountry(place));
 }));
 app.post("/api/scan/cities", auth, wrap(async (req, res) => {
   const { cc, areaId } = req.body || {};
-  if (!/^[A-Z]{2}$/.test(cc || "") && !areaId) return res.status(400).json({ error: "Zona inválida" });
-  const k = areaId ? `cities:a${Number(areaId)}` : `cities:${cc}`;
+  if (!/^[A-Z]{2}$/.test(cc || "") && !Number(areaId)) return res.status(400).json({ error: "Zona inválida" });
+  const k = Number(areaId) ? `cities:a${Number(areaId)}` : `cities:${cc}`;
   let list = await cacheGet(k);
   if (!list) {
     const deadline = Date.now() + 240e3;
-    list = areaId ? await scan.citiesInArea(areaId, { minPop: SCAN_MIN_POP, deadline, reserve: 5 }) : await scan.citiesFor(cc, { minPop: SCAN_MIN_POP, deadline, reserve: 5 });
+    list = Number(areaId) ? await scan.citiesInArea(Number(areaId), { minPop: SCAN_MIN_POP, deadline, reserve: 5 }) : await scan.citiesFor(cc, { minPop: SCAN_MIN_POP, deadline, reserve: 5 });
     if (list.length) await cacheSet(k, list, 60 * 864e2);
   }
   res.json({ cities: list });
 }));
+// whole: todo el área (barrio, ciudad o provincia con contorno). Si no, un círculo alrededor de la ciudad,
+// recortado al área (areaId) o al país.
 app.post("/api/scan/city", auth, wrap(async (req, res) => {
-  const { cc, country, city } = req.body || {};
+  const { cc, country, city, areaId, radius, whole } = req.body || {};
   if (!/^[A-Z]{2}$/.test(cc || "") || !city || !Number.isFinite(+city.lat) || !Number.isFinite(+city.lng) || !String(city.name || "").trim()) return res.status(400).json({ error: "Ciudad inválida" });
   const c = { name: String(city.name).slice(0, 80), lat: +city.lat, lng: +city.lng, pop: Math.max(0, Number(city.pop) || 0) };
-  const els = await scan.scanCity(cc, c, { deadline: Date.now() + 200e3, reserve: 5, attempts: 3 });
-  const idx = scan.buildIndex(schools), fresh = [];
-  let updated = 0; const seen = [];
-  const today = new Date().toISOString().slice(0, 10);
+  const area = Number(areaId) > 0 ? Number(areaId) : null;
+  const opts = { deadline: Date.now() + 240e3, reserve: 5, attempts: 3 };
+  const els = whole && area ? await scan.scanArea(area, opts) : await scan.scanCity(cc, c, { ...opts, areaId: area, radius });
+  // se cruza contra la base y contra lo que va saliendo en esta misma búsqueda (sin duplicados)
+  const pool = schools.slice(), idx = scan.buildIndex(pool), candidates = [], seen = [];
+  const today = new Date().toISOString().slice(0, 10), cname = String(country || cc).slice(0, 60);
+  let skipped = 0;
   for (const e of els) {
-    const s = scan.fromOsm(e, c, cc, String(country || cc).slice(0, 60), today); if (!s) continue;
-    const k = scan.matchExisting(schools, idx, s);
-    if (k) { updated++; if (seen.length < 600 && byId.has(k.x.id)) seen.push(sales.schoolListItem(byId.get(k.x.id))); continue; }
-    // se arma el registro igual que en el radar, con id único
-    const tmp = []; const rec = scan.addTo(tmp, { ...idx, ids: new Set([...idx.ids, ...fresh.map(x => x.id)]), osm: idx.osm, byName: idx.byName }, s);
+    const s = scan.fromOsm(e, c, cc, cname, today); if (!s) { skipped++; continue; }
+    const k = scan.matchExisting(pool, idx, s);
+    if (k) { if (seen.length < 800 && byId.has(k.x.id)) seen.push(sales.schoolListItem(byId.get(k.x.id))); continue; }
+    const rec = scan.addTo(pool, idx, s);
     rec.src = "buscador"; rec.addedBy = req.session.user.email;
-    fresh.push(rec);
+    candidates.push({ rec, sig: signRec(rec) });
   }
-  const added = addSchools(fresh);
-  // «seen»: los que ya estaban, para que el navegador los tenga aunque otra instancia los haya sumado
-  res.json({ city: c.name, found: els.length, added: added.map(sales.schoolListItem), known: updated, seen });
+  res.json({ city: c.name, found: els.length, skipped, candidates: candidates.slice(0, 3000), seen });
+}));
+app.post("/api/scan/verify", auth, wrap(async (req, res) => {
+  const items = Array.isArray(req.body?.items) ? req.body.items.slice(0, 10) : [];
+  const recs = items.filter(x => x && x.rec && sigOk(x.rec, x.sig)).map(x => ({ ...x.rec }));
+  if (items.length && !recs.length) return res.status(400).json({ error: "Candidatos inválidos" });
+  // pudo entrar mientras tanto (otra búsqueda u otra instancia): se vuelve a cruzar
+  const idx = scan.buildIndex(schools), fresh = [];
+  for (const r of recs) {
+    if (scan.matchExisting(schools, idx, r)) continue;
+    let id = r.id, i = 2; while (byId.has(id)) id = `${r.id}-${i++}`; r.id = id;
+    fresh.push(r);
+  }
+  const { keep, drop } = await verifyCandidates(fresh);
+  const added = addSchools(keep);
+  // sin Redis en Vercel lo sumado vive en la memoria de una instancia: el navegador lo avisa
+  res.json({ added: added.map(sales.schoolListItem), dropped: drop, sources: enrichSources(), temporary: !kvEnabled && !!process.env.VERCEL });
 }));
 
 // Radar: lo que encontró el agente de prospección (scripts/radar.mjs).
