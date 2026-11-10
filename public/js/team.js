@@ -221,7 +221,7 @@ const RES_PILL = { done: "client", noshow: "lost", moved: "org", canceled: "stal
 const resPill = (r, past) => r ? `<span class="pill ${RES_PILL[r]}">${esc(DEMO_RES[r])}</span>` : past ? `<span class="pill unk" title="Nadie marcó si se hizo">?</span>` : "";
 const canMark = r => !!(r.ownerId && r.ownerId === S.me.pdUserId) || !!S.profile?.leader;
 function demoRow(r, past) {
-  const when = `${shortDay(r.date)}${r.time ? ` · ${r.time}` : ""}`, inner = `<b>${esc(r.name || "Colegio sin nombre")}</b><small>${esc(when)} · agendó ${esc(r.setter || "?")} · la da ${esc(r.owner || "?")}</small>`;
+  const when = `${shortDay(r.date)}${r.time ? ` · ${r.time}` : ""}`, inner = `<b>${esc(r.name || "Colegio sin nombre")}</b><small style="white-space:normal">${esc(when)} · agendó ${esc(r.setter || "?")} · la da ${esc(r.owner || "?")}</small>`;
   const open = r.schoolId ? `<button class="t" data-dsch="${esc(r.schoolId)}">${inner}</button>` : r.record ? `<button class="t" data-drec="${esc(r.record)}" title="Abrir la ficha">${inner}</button>` : `<div class="t">${inner}</div>`;
   const mark = past && (!r.result || r.result === "moved") && canMark(r) ? `<button class="btn sm" data-dres="${r.id}" data-time="${esc(r.time)}">Marcar</button>` : "";
   return `<div class="act"><span class="ty meeting" role="img" aria-label="Demo">${icon("video")}</span>${open}<div class="ops">${resPill(r.result, past)}${mark}</div></div>`;
