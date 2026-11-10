@@ -196,7 +196,7 @@ function followHtml() {
   const f = follow;
   if (!f) return '<div class="skel" style="margin:14px 0"></div>'.repeat(3);
   if (f.error) return `<div class="callout err">${icon("alert")}<span>No pudimos cargar el seguimiento: ${esc(f.error)}</span><button class="btn sm" id="fwRetry">Reintentar</button></div>`;
-  const dd = d => `${d.slice(8, 10)}/${d.slice(5, 7)}`;
+  const dd = d => `${d.slice(8, 10)}/${d.slice(5, 7)}${d.slice(0, 4) === f.today.slice(0, 4) ? "" : "/" + d.slice(2, 4)}`;
   const intro = `<p class="faint" style="margin:0 0 10px;font-size:13.5px">Para acompañar a cada uno, no para comparar: va en orden alfabético. Del ${dd(f.from)} al ${dd(f.today)}, desde las actividades y tratos de Pipedrive${f.at ? ` (leído ${esc(ago(f.at))})` : ""}.</p>`;
   if (!f.people.length) return intro + `<div class="empty">${icon("user")}<span>Nadie del equipo tiene perfil ni actividades esta semana.</span></div>`;
   const pdLink = id => S.pdWeb ? `${S.pdWeb}/deal/${id}` : "";
@@ -206,7 +206,7 @@ function followHtml() {
       <tbody>${f.people.map(p => `<tr><th scope="row">${esc(p.name)}${p.role ? `<small>${esc(p.role)}</small>` : ""}</th>${FCOLS.map(([k]) => `<td class="num">${p[k]}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
     <h3 style="margin:16px 0 6px;font-size:14px">Tratos abiertos sin próxima actividad</h3>
     ${alerts.length ? alerts.map(p => `<details class="follow-alert"><summary><b>${esc(p.name)}</b>: ${p.noNext} trato${p.noNext === 1 ? "" : "s"}</summary>
-      <ul>${p.deals.map(d => `<li>${pdLink(d.id) ? `<a href="${esc(pdLink(d.id))}" target="_blank" rel="noopener">${esc(d.title || "Trato " + d.id)}</a>` : esc(d.title || "Trato " + d.id)}${d.since ? ` <small class="faint">quieto desde el ${esc(dd(d.since))}</small>` : ""}</li>`).join("")}${p.noNext > p.deals.length ? `<li class="faint">y ${p.noNext - p.deals.length} más en Pipedrive</li>` : ""}</ul></details>`).join("")
+      <ul>${p.deals.map(d => `<li>${pdLink(d.id) ? `<a href="${esc(pdLink(d.id))}" target="_blank" rel="noopener">${esc(d.title || "Trato " + d.id)}</a>` : esc(d.title || "Trato " + d.id)}${d.since ? ` <small class="faint">sin cambios desde el ${esc(dd(d.since))}</small>` : ""}</li>`).join("")}${p.noNext > p.deals.length ? `<li class="faint">y ${p.noNext - p.deals.length} más en Pipedrive</li>` : ""}</ul></details>`).join("")
       : `<p class="faint" style="margin:0;font-size:13.5px">Todos los tratos abiertos tienen una próxima actividad.</p>`}`;
 }
 function drawFollow() {
