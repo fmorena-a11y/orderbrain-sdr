@@ -5,10 +5,12 @@ import { OAuth2Client } from "google-auth-library";
 import path from "path";
 import { fileURLToPath } from "url";
 import * as pd from "./lib/pipedrive.js";
-import { kv, key as kvKey, schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId, hiddenOsm, dropOsm, getProfile, setProfile, getProfiles, ROLES, syncArchived } from "./lib/store.js";
+import { kv, key as kvKey, schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId, hiddenOsm, dropOsm, getProfile, setProfile, getProfiles, ROLES, syncArchived, FILE_COUNTS } from "./lib/store.js";
 import { ARCHIVE_REASONS } from "./lib/archive.js";
 import * as scan from "./lib/scan.js";
-import { ensureBrain, brainState, brainDown, brainAdmin, saveBrainToken, brainTokenAlert } from "./lib/brain.js";
+import { ensureBrain, brainState, brainDown, brainAdmin, saveBrainToken, brainTokenAlert, brainSites } from "./lib/brain.js";
+import * as MX from "./lib/metrics.js";
+import { boardFor } from "./lib/demos.js";
 import { verifyCandidates, enrichSources } from "./lib/enrich.js";
 import { research, studyEnabled, studyToHtml } from "./lib/study.js";
 import * as sales from "./lib/sales.js";
@@ -208,22 +210,42 @@ app.get("/api/team/codes", auth, wrap(async (req, res) => {
   const m = await pd.meta();
   res.json({ url: `${req.protocol}://${req.get("host")}`, users: m.users.filter(u => u.email && (!DOMAIN || u.email.endsWith("@" + DOMAIN))).map(u => ({ id: u.id, name: u.name, email: u.email, code: personalCode(u.email) })) });
 }));
-// Seguimiento del equipo (solo líderes): qué hizo cada persona en la semana según Pipedrive, para acompañar (no es un ranking)
-app.get("/api/team/follow", auth, wrap(async (req, res) => {
-  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Solo un líder ve el seguimiento del equipo." });
-  res.json(await sales.teamFollow(req.tz));
-}));
 app.get("/api/team", auth, wrap(async (req, res) => {
   const [m, prs] = await Promise.all([pd.meta(), getProfiles()]);
   res.json(m.users.map(u => { const pr = prs[u.email]; return { id: u.id, name: pr?.name || u.name, role: pr ? ROLES[pr.role] : "" }; }));
 }));
 
-// Demos de la semana (todos): las agendadas en Pipedrive, quién la agendó, quién la da y el resultado. Sin ranking.
-app.get("/api/team/demos", auth, wrap(async (req, res) => res.json(await sales.teamDemos(req.tz))));
-// Métricas de demos (solo líderes): 30 o 90 días, por país
-app.get("/api/team/demo-metrics", auth, wrap(async (req, res) => {
-  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Solo un líder ve las métricas de demos." });
-  res.json(await sales.teamDemoMetrics(req.tz, { days: Number(req.query.days) === 90 ? 90 : 30, country: String(req.query.country || "").slice(0, 60) }));
+// Demos de la semana (todos): las cargadas en Pipedrive, quién la cargó, quién la da y el resultado. Sin ranking: cuántas
+// cargó cada uno solo lo ve un líder; los demás reciben lo suyo y el total (boardFor).
+app.get("/api/team/demos", auth, wrap(async (req, res) => {
+  const [r, leader] = await Promise.all([sales.teamDemos(req.tz), isLeader(req.session.user.email)]);
+  res.json(boardFor(r, { leader, me: req.session.user.pdUserId }));
+}));
+// ---------- Métricas (vista Métricas). Todos ven los totales y lo suyo; el desglose por persona es de los líderes
+// (/api/metrics/:section/people, 403 para los demás). Pipedrive se lee de a páginas y se guarda 10 minutos (lib/sales.js);
+// los cálculos están en lib/metrics.js. Cada respuesta dice de cuándo es y si la lista vino cortada (partial).
+const mxOpts = req => ({ days: Number(req.query.days) || 7, country: String(req.query.country || "").slice(0, 60) });
+const MX_LOAD = {
+  demos: req => sales.metricsDemos(req.tz, mxOpts(req)),
+  deals: req => sales.metricsDeals(req.tz, mxOpts(req)),
+  contacts: req => sales.metricsContacts(req.tz, mxOpts(req)),
+  archived: req => sales.metricsArchived(req.tz, mxOpts(req)),
+  // base de colegios: exacto (la lista de la app); los estados del cruce no van hasta comprobarlos con una muestra
+  base: async req => { const { country } = mxOpts(req), sy = await psync.status().catch(() => null), st = radarState();
+    return { country, at: new Date().toISOString(), ...MX.baseSummary(schools, { country }), file: FILE_COUNTS, added: schools.length - FILE_COUNTS.shown, radarAt: st.runs?.[0]?.at || null, syncAt: sy?.last?.finishedAt || null }; },
+  // clientes de OrderEAT: los sitios de World Dominion tal cual (sin token: no se inventa nada)
+  clients: async req => { const { country } = mxOpts(req), b = brainSites();
+    return b.enabled ? { country, enabled: true, demo: b.demo, at: b.dataAt, stale: b.stale, error: b.error, ...MX.clientsSummary(b.sites, { country }) } : { country, enabled: false }; },
+};
+app.get("/api/metrics/:section", auth, wrap(async (req, res) => {
+  const load = MX_LOAD[req.params.section]; if (!load) return res.status(404).json({ error: "No existe esa métrica." });
+  res.json(MX.splitView(req.params.section, await load(req), { me: req.session.user.pdUserId, email: req.session.user.email }).pub);
+}));
+app.get("/api/metrics/:section/people", auth, wrap(async (req, res) => {
+  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "El detalle por persona solo lo ve un líder." });
+  const load = MX_LOAD[req.params.section], v = load && MX.splitView(req.params.section, await load(req));
+  if (!v?.people) return res.status(404).json({ error: "Esa métrica no tiene detalle por persona." });
+  res.json(v.people);
 }));
 // ---------- sincronización masiva con Pipedrive (lib/sync.js). Solo lee de Pipedrive: corre también con READ_ONLY=1.
 // Cuántos colegios hay en cada estado (lo mismo que ve la lista: World Dominion manda, «unk» = sin revisar)
