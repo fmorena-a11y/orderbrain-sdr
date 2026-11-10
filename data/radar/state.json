@@ -6850,7 +6850,14 @@
   "CO|n703168221": "2026-11-10T19:20:22.617Z",
   "CO|n3377581135": "2026-11-10T19:21:46.317Z",
   "MX|Uruapan": "2026-11-10T19:29:20.064Z",
-  "MX|Xico": "2026-11-10T19:29:56.152Z"
+  "MX|Xico": "2026-11-10T19:29:56.152Z",
+  "PE|Chimbote": "2026-11-10T21:02:17.655Z",
+  "ES|n21323935": "2026-11-10T21:02:51.894Z",
+  "ES|n27000762": "2026-11-10T21:03:26.132Z",
+  "CO|n4323485991": "2026-11-10T21:03:57.668Z",
+  "CL|Antofagasta": "2026-11-10T21:04:46.608Z",
+  "CR|San José": "2026-11-10T21:05:28.131Z",
+  "MX|Cuernavaca": "2026-11-10T21:06:03.549Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -6872,9 +6879,79 @@
    "n": 1,
    "at": "2026-11-10T17:31:13.341Z",
    "error": "Overpass 504"
+  },
+  "MX|Villahermosa": {
+   "n": 1,
+   "at": "2026-11-10T21:16:01.357Z",
+   "error": "Overpass 504"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-10T21:01:37.801Z",
+   "cities": [
+    {
+     "cc": "PE",
+     "city": "Chimbote",
+     "found": 11,
+     "updated": 0,
+     "osm": 185
+    },
+    {
+     "cc": "ES",
+     "city": "Alicante",
+     "found": 50,
+     "updated": 0,
+     "osm": 206
+    },
+    {
+     "cc": "ES",
+     "city": "Bilbao",
+     "found": 57,
+     "updated": 0,
+     "osm": 219
+    },
+    {
+     "cc": "CO",
+     "city": "Palmira",
+     "found": 22,
+     "updated": 0,
+     "osm": 45
+    },
+    {
+     "cc": "CL",
+     "city": "Antofagasta",
+     "found": 58,
+     "updated": 3,
+     "osm": 130
+    },
+    {
+     "cc": "CR",
+     "city": "San José",
+     "found": 30,
+     "updated": 1,
+     "osm": 422
+    },
+    {
+     "cc": "MX",
+     "city": "Cuernavaca",
+     "found": 30,
+     "updated": 0,
+     "osm": 107
+    }
+   ],
+   "added": 258,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 31,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "MX|Villahermosa: Overpass 504"
+   ],
+   "minutes": 15.8,
+   "total": 14718
+  },
   {
    "at": "2026-11-10T19:16:25.962Z",
    "cities": [

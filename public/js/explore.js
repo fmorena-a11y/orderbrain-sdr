@@ -1,5 +1,5 @@
 // Prospectar: lista por país y ciudad + mapa, con cruce contra Pipedrive y sesión de llamadas.
-import { S, api, esc, norm, icon, pill, statusPill, stageTag, potTag, dotColor, PH, ST, cssVar, patchSchool, toast, ago, shortDay, scroller, brainStaleMsg, brainTokenCallout, callPill } from "./core.js";
+import { S, api, esc, norm, icon, pill, statusPill, stageTag, potTag, markOf, PH, ST, cssVar, patchSchool, toast, ago, shortDay, scroller, brainStaleMsg, brainTokenCallout, callPill } from "./core.js";
 import { openSchool, startSession } from "./school.js";
 import { baseErrorCallout } from "./app.js";
 
@@ -8,8 +8,9 @@ const E = S.explore;
 const CALLABLE = ["new", "org", "stalled", "lost", "unk"];
 const FILTERS = [["prospect", "Para llamar"], ["pot", "Alto potencial"], ["new", "Nunca contactado"], ["org", "En Pipe sin trato"], ["stalled", "Contactado sin avance"], ["lost", "Perdido"], ["unk", "Sin revisar"], ["open", "En proceso"], ["churn", "Churn"], ["client", "Cliente"], ["archived", "Archivados"], ["all", "Todos"]];
 const RANK = { new: 0, org: 1, stalled: 2, lost: 3, unk: 4, open: 5, churn: 6, client: 7, archived: 8 };
-// Colores fijos para los círculos de ciudad: el número en blanco se lee igual en modo claro y oscuro.
-const CITY = { pros: "#0E7490", unk: "#6B6B73", none: "#3F3F46" };
+// Burbujas de ciudad (styles.css, claro y oscuro): pros = el color de «para llamar» de cada tema, con el número legible (≥ 4,5:1);
+// unk = aro hueco (como «sin revisar» en el mapa de colegios); none = gris lleno.
+const CITY = { pros: "var(--city-pros)", unk: "var(--city-unk)", none: "var(--city-none)" };
 const PAGE = 150;
 let host, map, layer, canvas, brainLayer, brainBtn, busy = false, shown = PAGE;
 // Capa de clientes de OrderEAT (World Dominion de OrderBrain): prendida por defecto, se recuerda por persona.
@@ -175,9 +176,13 @@ function drawFilters() {
   const f = host.querySelector("#filters");
   const b = base();
   if ((!E.city && !E.q && !placeMode()) || !b.length || placeGrouped()) { f.innerHTML = ""; return; }
-  const cnt = {}; b.forEach(s => cnt[s.status] = (cnt[s.status] || 0) + 1);
+  const cnt = {}, marks = {}, col = {}; // marks: por estado, cómo se ven en el mapa (la fase manda: «Cliente» puede ser Activo, Cerrado…)
+  // se agrupan por color real y forma (churn de estado y de fase son la misma marca)
+  b.forEach(s => { cnt[s.status] = (cnt[s.status] || 0) + 1; const m = markOf(s), id = (col[m.c] ??= cssVar(m.c)) + m.sh, g = marks[s.status] ||= new Map(); g.set(id, { m, n: (g.get(id)?.n || 0) + 1 }); });
   cnt.prospect = b.filter(canCall).length; cnt.all = b.length; cnt.pot = b.filter(s => s.pot && canCall(s)).length;
-  f.innerHTML = FILTERS.filter(([k]) => k === "prospect" || k === "all" || cnt[k]).map(([k, l]) => `<button class="chip" data-f="${k}" aria-pressed="${E.filter === k}">${ST[k] ? `<span class="sdot" style="background:var(${ST[k].c})"></span>` : ""}${l} <b>${fmt(cnt[k] || 0)}</b></button>`).join("");
+  // el puntito del filtro es el mismo del mapa; si el grupo se ve de varias formas o colores, van los que hay (hasta 3, el más común primero)
+  const dots = k => { const ms = [...(marks[k]?.values() || [])].sort((x, y) => y.n - x.n).slice(0, 3); return ms.length ? `<span class="sdots" aria-hidden="true">${ms.map(({ m }) => `<span class="sdot sh-${m.sh}" style="--pd:var(${m.c});background:var(--pd)"></span>`).join("")}</span>` : ""; };
+  f.innerHTML = FILTERS.filter(([k]) => k === "prospect" || k === "all" || cnt[k]).map(([k, l]) => `<button class="chip" data-f="${k}" aria-pressed="${E.filter === k}">${ST[k] ? dots(k) : ""}${l} <b>${fmt(cnt[k] || 0)}</b></button>`).join("");
   f.querySelectorAll("button").forEach(b => b.onclick = () => { E.filter = b.dataset.f; shown = PAGE; drawAll(); toTop(); });
 }
 function schoolRow(s) {
@@ -192,7 +197,7 @@ function schoolRow(s) {
   if (s.attempts) bits.push(`${s.attempts} intento${s.attempts > 1 ? "s" : ""}`);
   if (!s.phone) bits.push("sin teléfono");
   const single = E.filter !== "prospect" && E.filter !== "all";
-  return `<button class="school-row" data-id="${esc(s.id)}"><span class="t"><b>${esc(s.name)}${stageTag(s) ? ` ${stageTag(s)}` : ""}${canCall(s) && potTag(s) ? ` ${potTag(s)}` : ""}</b>${bits.length ? `<small>${esc(bits.join(" · "))}</small>` : ""}${CALLABLE.includes(s.status) && !othersOwn(s) && !s.phase ? callPill(s) : ""}</span>${othersOwn(s) && CALLABLE.includes(s.status) ? `<span class="pill owner" title="Su organización en Pipedrive es de ${esc(s.ownerName || "otra persona")}">De ${esc((s.ownerName || "otra persona").split(" ")[0])}</span>` : single && !s.phase ? `<span class="sdot" title="${ST[s.status].l}" style="background:var(${ST[s.status].c})"></span>` : statusPill(s)}</button>`;
+  return `<button class="school-row" data-id="${esc(s.id)}"><span class="t"><b>${esc(s.name)}${stageTag(s) ? ` ${stageTag(s)}` : ""}${canCall(s) && potTag(s) ? ` ${potTag(s)}` : ""}</b>${bits.length ? `<small>${esc(bits.join(" · "))}</small>` : ""}${CALLABLE.includes(s.status) && !othersOwn(s) && !s.phase ? callPill(s) : ""}</span>${othersOwn(s) && CALLABLE.includes(s.status) ? `<span class="pill owner" title="Su organización en Pipedrive es de ${esc(s.ownerName || "otra persona")}">De ${esc((s.ownerName || "otra persona").split(" ")[0])}</span>` : single && !s.phase ? `<span class="sdot sh-${ST[s.status].sh}" title="${ST[s.status].l}" style="--pd:var(${ST[s.status].c});background:var(--pd)"></span>` : statusPill(s)}</button>`;
 }
 function checkCallout(list) {
   const unk = list.filter(s => s.status === "unk").length;
@@ -207,11 +212,12 @@ function drawList() {
   }
   if ((!E.city && !E.q && !placeMode()) || placeGrouped()) {
     const list = placeMode() ? placeList() : scope(), cs = citiesOf(list);
-    L.innerHTML = brainWarn() + `<div class="list-h"><span>${fmt(cs.length)} ciudades · ${fmt(list.length)} colegios</span><span class="legend"><i style="background:${CITY.pros}"></i>para llamar <i style="background:${CITY.unk}"></i>sin revisar</span></div>` + checkCallout(list) + cs.map(c => {
-      const n = c.items.length, k = {}; c.items.forEach(s => k[s.status] = (k[s.status] || 0) + 1);
+    L.innerHTML = brainWarn() + `<div class="list-h"><span>${fmt(cs.length)} ciudades · ${fmt(list.length)} colegios</span><span class="legend"><i class="pros"></i>para llamar <i class="unk"></i>sin revisar <i class="none"></i>nada para llamar</span></div>` + checkCallout(list) + cs.map(c => {
+      // la barrita usa los mismos colores que el mapa (la fase manda sobre el estado), en el orden de las referencias
+      const n = c.items.length, k = {}; c.items.forEach(s => { const m = markOf(s); (k[m.k] ||= { m, n: 0 }).n++; });
       const pros = c.items.filter(canCall).length;
-      const allUnk = k.unk === n;
-      return `<button class="city-row" data-city="${esc(c.city)}" data-country="${esc(c.country)}"><span class="t"><b>${esc(c.city)}</b><small>${E.country || placeMode() ? "" : esc(c.country) + " · "}${fmt(n)} colegios · ${fmt(pros)} para llamar</small>${allUnk ? "" : `<span class="bar" aria-hidden="true">${Object.keys(ST).map(x => k[x] ? `<span data-st="${x}" style="width:${k[x] / n * 100}%;background:var(${ST[x].c})"></span>` : "").join("")}</span>`}</span>${allUnk ? `<span class="tag">Sin revisar</span>` : icon("arrowRight", "faint")}</button>`;
+      const allUnk = k.unk?.n === n;
+      return `<button class="city-row" data-city="${esc(c.city)}" data-country="${esc(c.country)}"><span class="t"><b>${esc(c.city)}</b><small>${E.country || placeMode() ? "" : esc(c.country) + " · "}${fmt(n)} colegios · ${fmt(pros)} para llamar</small>${allUnk ? "" : `<span class="bar" aria-hidden="true">${LEG.map(x => k[x] ? `<span data-st="${x}" style="width:${k[x].n / n * 100}%;background:var(${k[x].m.c})"></span>` : "").join("")}</span>`}</span>${allUnk ? `<span class="tag">Sin revisar</span>` : icon("arrowRight", "faint")}</button>`;
     }).join("");
     L.querySelectorAll("[data-city]").forEach(b => b.onclick = () => openCity(b.dataset.country, b.dataset.city));
     bindCheck(); return;
@@ -270,9 +276,64 @@ function initMap() {
   } else L.tileLayer(B + "World_Street_Map/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, attribution: "© Esri, HERE, OpenStreetMap" }).addTo(map);
   layer = L.layerGroup().addTo(map);
   canvas = L.canvas({ padding: 0.3 });
+  markClass();
+  const Leg = L.Control.extend({ options: { position: "bottomleft" }, onAdd() {
+    const d = L.DomUtil.create("details", "map-legend"); d.open = matchMedia("(min-width: 600px)").matches; d.hidden = true;
+    d.innerHTML = `<summary>Referencias</summary><ul></ul>`; L.DomEvent.disableClickPropagation(d); L.DomEvent.disableScrollPropagation(d); legendEl = d; return d;
+  } });
+  map.addControl(new Leg());
   brainLayer = L.layerGroup(); if (showBrain) brainLayer.addTo(map);
   loadBrain();
   setTimeout(() => map.invalidateSize(), 50);
+}
+// Marca de un colegio en el lienzo: círculo (prospecto), cuadrado (trato en proceso), rombo (cliente), rombo hueco (churn) o cruz (archivado). Es el
+// CircleMarker de Leaflet (mismo clic, tooltip y zona de toque) con otra figura dibujada; el radio es la mitad de la diagonal del rombo.
+// Los círculos los dibuja Leaflet y redondea el radio a entero: por eso los radios de los círculos son enteros.
+let Mark;
+function markClass() {
+  if (Mark || !window.L) return;
+  Mark = L.CircleMarker.extend({
+    _updatePath() {
+      const sh = this.options.shape, r = this._renderer;
+      if ((sh !== "d" && sh !== "dr" && sh !== "q" && sh !== "x") || !r._ctx) return L.CircleMarker.prototype._updatePath.call(this);
+      if (!r._drawing || this._empty()) return;
+      const p = this._point, ctx = r._ctx, k = this._radius;
+      ctx.beginPath();
+      if (sh === "x") { // cruz: dos trazos con un borde blanco debajo, sin relleno
+        ctx.moveTo(p.x - k, p.y - k); ctx.lineTo(p.x + k, p.y + k); ctx.moveTo(p.x + k, p.y - k); ctx.lineTo(p.x - k, p.y + k);
+        ctx.save(); ctx.lineCap = "round"; ctx.lineWidth = this.options.weight + 3; ctx.strokeStyle = "#fff"; ctx.stroke();
+        ctx.lineWidth = this.options.weight; ctx.strokeStyle = this.options.color; ctx.stroke(); ctx.restore(); return;
+      }
+      if (sh === "d" || sh === "dr") { ctx.moveTo(p.x, p.y - k); ctx.lineTo(p.x + k, p.y); ctx.lineTo(p.x, p.y + k); ctx.lineTo(p.x - k, p.y); }
+      else { const h = k * 0.85; ctx.rect(p.x - h, p.y - h, 2 * h, 2 * h); }
+      ctx.closePath();
+      // rombo hueco: un borde blanco por fuera, como el resto de las marcas (sin él, en oscuro y con protanopía casi no se ve)
+      if (sh === "dr") { ctx.save(); ctx.lineJoin = "round"; ctx.lineWidth = this.options.weight + 3; ctx.strokeStyle = "#fff"; ctx.stroke(); ctx.restore(); }
+      r._fillStroke(ctx, this);
+    },
+  });
+}
+// orden de dibujo: lo apagado abajo, después lo que está para llamar («nunca contactado» encima de los demás) y arriba de todo los
+// clientes y ex clientes: son pocos y avisan «no llamar», así que no pueden quedar tapados. «Para llamar» resalta igual por color y tamaño.
+const Z = { archived: 0, unk: 1, stalled: 3, lost: 3, org: 4, lead: 4, open: 5, "ph-propuesta": 5, new: 7, client: 8, churn: 8, "ph-churn": 8, "ph-cerrado": 9, "ph-onboarding": 9, "ph-activo": 9 };
+// Referencias del mapa (abajo a la izquierda): solo lo que se ve, con cuántos hay. En el celular arranca cerrada.
+const LEG = ["new", "org", "lead", "stalled", "lost", "unk", "archived", "open", "ph-propuesta", "ph-activo", "ph-onboarding", "ph-cerrado", "ph-churn", "churn", "client"];
+let legendEl = null;
+function paintLegend(seen) {
+  if (!legendEl) return;
+  const item = (c, sh, l, n, big) => `<li><i class="lg sh-${sh}${big ? " big" : ""}" style="--pd:${c}"></i>${esc(l)}${n ? ` <b>${fmt(n)}</b>` : ""}</li>`;
+  let items;
+  if (!seen) items = [item(CITY.pros, "c", "Ciudad con colegios para llamar", 0, true), item(CITY.unk, "ring", "Solo sin revisar"), item(CITY.none, "c", "Nada para llamar")];
+  else {
+    const n = k => seen.get(k) || 0, both = n("churn") + n("ph-churn");
+    items = LEG.filter(k => k !== "churn" && n(k) || k === "churn" && !n("ph-churn") && n(k)).map(k => {
+      const m = k.startsWith("ph-") ? PH[k.slice(3)] : ST[k];
+      // «nunca contactado» (no «para llamar»: el filtro «Para llamar» incluye también En Pipe, Sin avance, Perdido y Sin revisar)
+      return item(`var(${m.c})`, m.sh, m.l, /churn$/.test(k) ? both : n(k), k === "new");
+    });
+  }
+  legendEl.hidden = !items.length;
+  legendEl.querySelector("ul").innerHTML = items.join("");
 }
 // fit: encuadrar solo cuando cambia lo que se mira (país, ciudad, búsqueda o lugar), no en cada refresco.
 let lastView = "";
@@ -285,18 +346,29 @@ function drawMap({ fit = true } = {}) {
     citiesOf(grouped ? placeList() : scope()).forEach(c => {
       const lat = c.items.reduce((a, s) => a + s.lat, 0) / c.items.length, lng = c.items.reduce((a, s) => a + s.lng, 0) / c.items.length;
       const pros = c.items.filter(s => ["new", "org", "stalled", "lost"].includes(s.status) && !othersOwn(s)).length, unk = c.items.filter(s => s.status === "unk").length;
-      const n = pros || unk || c.items.length, col = pros ? CITY.pros : unk ? CITY.unk : CITY.none, size = Math.min(56, 24 + Math.sqrt(n) * 3);
-      L.marker([lat, lng], { icon: L.divIcon({ className: "", iconSize: [size, size], html: `<div class="citydot" style="width:${size}px;height:${size}px;background:${col}">${n > 999 ? Math.round(n / 1000) + "k" : n}</div>` }), title: c.city, keyboard: true })
+      const n = pros || unk || c.items.length, kind = pros ? "pros" : unk ? "unk" : "none", size = Math.min(56, 24 + Math.sqrt(n) * 3);
+      L.marker([lat, lng], { icon: L.divIcon({ className: "", iconSize: [size, size], html: `<div class="citydot ${kind}" style="width:${size}px;height:${size}px">${n > 999 ? Math.round(n / 1000) + "k" : n}</div>` }), title: c.city, keyboard: true })
         .on("click", () => openCity(c.country, c.city)).bindTooltip(esc(`${c.city}: ${pros ? `${pros} para llamar` : unk ? `${unk} sin revisar` : "sin colegios para llamar"}`)).addTo(layer);
       pts.push([lat, lng]);
     });
+    paintLegend(null);
   } else {
-    const colors = Object.fromEntries(Object.entries(ST).map(([k, v]) => [k, cssVar(v.c)]));
-    (placeMode() ? visible() : applyFilter(E.q ? searchList() : scope())).forEach(s => {
-      L.circleMarker([s.lat, s.lng], { renderer: canvas, radius: s.phase ? 8 : 7, color: "#fff", weight: 2, fillColor: dotColor(s, colors), fillOpacity: 1 })
-        .on("click", () => openSchool(s.id)).bindTooltip(esc(`${s.name} · ${s.phase === "churn" && s.ob?.label ? s.ob.label : s.phase ? PH[s.phase].l : ST[s.status]?.l || ""}`)).addTo(layer);
+    const colors = Object.fromEntries([...Object.entries(ST).map(([k, v]) => [k, cssVar(v.c)]), ...Object.entries(PH).map(([k, v]) => ["ph-" + k, cssVar(v.c)])]);
+    const hole = cssVar("--surface") || "#fff", seen = new Map();
+    // «para llamar» arriba de todo; lo apagado (archivado, sin revisar) abajo
+    const list = (placeMode() ? visible() : applyFilter(E.q ? searchList() : scope())).map(s => [s, markOf(s)]).sort((a, b) => (Z[a[1].k] ?? 5) - (Z[b[1].k] ?? 5));
+    for (const [s, m] of list) {
+      seen.set(m.k, (seen.get(m.k) || 0) + 1);
+      const base = { renderer: canvas, color: "#fff", weight: 2, fillColor: colors[m.k], fillOpacity: 1, shape: m.sh };
+      // radios: «nunca contactado» 9 (18 px), los demás círculos 6 (12 px); rombo 8,5 (17 px de diagonal), cuadrado 7,5 (13 px de lado);
+      // rombo hueco 7,5 (con su borde de color y el blanco queda del tamaño del rombo lleno); cruz 4 (8 px)
+      const o = m.sh === "ring" ? { ...base, radius: 5, color: colors[m.k], weight: 2.5, fillColor: hole } : m.sh === "x" ? { ...base, radius: 4, color: colors[m.k], weight: 2.5 }
+        : m.sh === "dr" ? { ...base, radius: 7.5, color: colors[m.k], weight: 3, fillColor: hole }
+        : m.sh === "d" ? { ...base, radius: 8.5 } : m.sh === "q" ? { ...base, radius: 7.5 } : { ...base, radius: m.k === "new" ? 9 : 6 };
+      new Mark([s.lat, s.lng], o).on("click", () => openSchool(s.id)).bindTooltip(esc(`${s.name} · ${s.phase === "churn" && s.ob?.label ? s.ob.label : m.l}`)).addTo(layer);
       pts.push([s.lat, s.lng]);
-    });
+    }
+    paintLegend(seen);
   }
   if (E.place?.kind === "continent") {
     // un continente: se encuadra la región y se ven los colegios agrupados por ciudad (sin contorno propio)
@@ -349,7 +421,7 @@ function paintBrainBtn() {
   const c = { activo: 0, onboarding: 0, cerrado: 0, churn: 0 };
   for (const x of S.brain?.sites || []) c[x.churn ? "churn" : { Active: "activo", Onboarding: "onboarding", Closed: "cerrado" }[x.status] || "activo"]++;
   brainBtn.innerHTML = `<span class="mt-h"><i class="ob-dot"></i><span class="mt-l">Clientes OrderEAT</span> <b>${fmt(n)}</b>${S.brain?.demo ? ` <em class="demo-t">demo</em>` : ""}${S.brain?.error ? ` ${icon("alert", "sm")}` : ""}</span>
-    <span class="mt-legend">${Object.entries(c).filter(([, v]) => v).map(([k, v]) => `<span><i style="background:${PH[k].dot}"></i>${PH[k].l} ${fmt(v)}</span>`).join("")}</span>`;
+    <span class="mt-legend">${Object.entries(c).filter(([, v]) => v).map(([k, v]) => `<span><i class="${k}" style="background:var(${PH[k].c})"></i>${PH[k].l} ${fmt(v)}</span>`).join("")}</span>`;
 }
 function toggleBrain() {
   showBrain = !showBrain; try { localStorage.setItem("ob.brain", showBrain ? "1" : "0"); } catch {}
@@ -359,7 +431,7 @@ function drawBrain() {
   if (!brainLayer) return; brainLayer.clearLayers();
   for (const x of S.brain?.sites || []) {
     const ph = x.churn ? "churn" : { Active: "activo", Onboarding: "onboarding", Closed: "cerrado" }[x.status] || "activo";
-    const html = `<div class="ob-site" style="background:${PH[ph].dot}" aria-hidden="true"></div>`;
+    const html = ph === "churn" ? `<div class="ob-site churn" aria-hidden="true"></div>` : `<div class="ob-site" style="background:var(${PH[ph].c})" aria-hidden="true"></div>`;
     L.marker([x.lat, x.lng], { icon: L.divIcon({ className: "", iconSize: [16, 16], html }), zIndexOffset: 500, keyboard: false })
       .bindTooltip(esc(`${x.name}${x.client && x.client !== x.name ? ` (${x.client})` : ""} · ${x.churn ? (x.label === "Churn" ? "Churn: era cliente activo" : `${x.label}`) : `${x.label}: cliente de OrderEAT, no contactar`}`))
       .on("click", () => { if (x.schoolId && S.byId.has(x.schoolId)) openSchool(x.schoolId); })
