@@ -6,6 +6,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import * as pd from "./lib/pipedrive.js";
 import { kv, key as kvKey, schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId, hiddenOsm, dropOsm, getProfile, setProfile, getProfiles, ROLES, syncArchived } from "./lib/store.js";
+import { writesPipedrive } from "./lib/readonly.js";
 import { ARCHIVE_REASONS } from "./lib/archive.js";
 import * as scan from "./lib/scan.js";
 import { ensureBrain, brainState, brainDown, brainAdmin, saveBrainToken, brainTokenAlert } from "./lib/brain.js";
@@ -135,9 +136,8 @@ const auth = (req, res, next) => {
   req.tz = safeTz(req.get("x-tz"));
   next();
 };
-// READ_ONLY=1: nada se escribe en Pipedrive (para probar contra la cuenta real sin tocarla).
-// activities/ cubre marcar hecha, deshacer, mover y el resultado de una demo (demo-result, demo-rebook).
-if (process.env.READ_ONLY === "1") app.use((req, res, next) => req.method === "POST" && /^\/api\/(schools\/[^/]+\/(match|log|comment|prospect|convert|study\/note|enrich|deals\/|persons|archive|unarchive)|activities\/|proposals\/confirm)/.test(req.path) ? res.status(403).json({ error: "Modo solo lectura: no se escribe en Pipedrive." }) : next());
+// READ_ONLY=1: nada se escribe en Pipedrive (para probar contra la cuenta real sin tocarla). Las rutas, en lib/readonly.js.
+if (process.env.READ_ONLY === "1") app.use((req, res, next) => writesPipedrive(req.method, req.path) ? res.status(403).json({ error: "Modo solo lectura: no se escribe en Pipedrive." }) : next());
 const wrap = fn => (req, res) => fn(req, res).catch(e => {
   if (res.writableEnded || res.destroyed) return; // el navegador ya cortó (canceló): no hay a quién responder
   const status = e.status && e.status < 600 ? (e instanceof pd.PipedriveError && e.status >= 500 ? 502 : e.status) : 500;
@@ -273,9 +273,20 @@ app.get("/api/schools/:id", auth, schoolParam, wrap(async (req, res) => {
   res.json(await sales.schoolDetail(req.params.id, { force: req.query.refresh === "1", user: req.session.user, tz: req.tz }));
 }));
 app.post("/api/schools/:id/match", auth, schoolParam, wrap(async (req, res) => {
-  const { orgId, orgName } = req.body;
+  const { orgId, orgName } = req.body || {};
+  if (orgId !== null && !(Number(orgId) > 0)) return res.status(400).json({ error: "Falta la organización." });
   if (orgId === null) sales.unlinkSchool(req.params.id);
-  res.json(await sales.schoolDetail(req.params.id, { user: req.session.user, tz: req.tz, ...(orgId === null ? {} : { org: { id: Number(orgId), name: String(orgName || "") } }) }));
+  else await sales.linkSchool(req.params.id, { id: Number(orgId), name: String(orgName || "") });
+  res.json(await sales.schoolDetail(req.params.id, { user: req.session.user, tz: req.tz }));
+}));
+// «Es esta» → «¿Estás seguro?»: lo que dice Pipedrive de esa organización, para comparar con el colegio
+app.get("/api/schools/:id/org/:orgId", auth, schoolParam, wrap(async (req, res) => res.json(await sales.orgPreview(req.params.id, req.params.orgId, req.session.user))));
+// después de vincular: otras organizaciones que parecen el mismo colegio (lib/merge.js) y si podés fusionar cada una
+app.get("/api/schools/:id/dupes", auth, schoolParam, wrap(async (req, res) => res.json(await sales.dupesFor(req.params.id, req.session.user, { leader: await isLeader(req.session.user.email) }))));
+// «¿Querés fusionar?»: las elegidas pasan a la vinculada (keepId) con la fusión de Pipedrive. Controles en sales.mergeOrgs.
+app.post("/api/schools/:id/merge-orgs", auth, schoolParam, wrap(async (req, res) => {
+  const b = req.body || {}, user = req.session.user;
+  res.json(await sales.mergeOrgs(req.params.id, user, { keepId: b.keepId, mergeIds: b.mergeIds, leader: await isLeader(user.email), by: await signName(user), tz: req.tz }));
 }));
 app.get("/api/schools/:id/next", auth, schoolParam, (req, res) => res.json(sales.nextFor(req.params.id, req.query.outcome, req.query.channel, req.tz) || {}));
 app.post("/api/schools/:id/log", auth, schoolParam, wrap(async (req, res) => {

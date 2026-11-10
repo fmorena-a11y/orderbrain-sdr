@@ -868,3 +868,41 @@ details.agent summary .sub { order: 3; }
 .follow .num { text-align: right; font-variant-numeric: tabular-nums; }
 .follow-alert { padding: 6px 0; border-top: 1px solid var(--line); font-size: 14px; }
 .follow-alert ul { margin: 6px 0 0; padding-left: 20px; line-height: 1.6; }
+
+/* «Es esta»: comparar el colegio con la organización y fusionar duplicadas */
+.modal-box.mid { width: min(680px, 100%); }
+.cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 560px) { .cmp { grid-template-columns: 1fr; } }
+.cmp-col { border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; min-width: 0; display: grid; gap: 8px; align-content: start; }
+.cmp-col > .btn { justify-self: start; }
+.cmp-h { display: flex; gap: 6px; align-items: center; font-size: 12.5px; font-weight: 600; color: var(--muted); }
+.kv { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 10px; margin: 0; font-size: 13.5px; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+.kv ul { margin: 0; padding-left: 16px; }
+.dups { display: grid; gap: 8px; }
+.dup { display: flex; gap: 6px; align-items: flex-start; border: 1px solid var(--line); border-radius: 12px; padding: 10px 8px 10px 12px; }
+.dup label { display: flex; gap: 10px; align-items: flex-start; flex: 1; min-width: 0; cursor: pointer; }
+.dup input { accent-color: var(--accent); width: 18px; height: 18px; margin: 2px 0 0; flex: none; }
+/* la bloqueada: punteada, apagada y con candado (no es un consejo: no se puede marcar) */
+.dup.off { border-style: dashed; background: var(--surface-2); }
+.dup.off label { cursor: not-allowed; }
+.dup.off input { opacity: .45; }
+.dup.off .dup-b > b, .dup.off .dup-b > small:not(.dup-lock) { color: var(--faint); }
+.dup-b small.dup-lock { display: flex; gap: 6px; align-items: flex-start; color: var(--err); font-weight: 500; }
+.dup-lock .ico { flex: none; margin-top: 2px; }
+/* la que queda: fija arriba, sin casilla */
+.dup.keep { border-color: var(--line-2); background: var(--surface-2); padding-left: 14px; }
+.dup.keep .dup-b { flex: 1; }
+.dup-k { font-size: 11.5px; font-weight: 600; letter-spacing: .02em; color: var(--muted); }
+/* avisos de «¿Estás seguro?» y datos de cada candidata */
+#coWarn { display: grid; gap: 8px; }
+#coWarn:empty { display: none; }
+.cand-b { display: grid; gap: 2px; min-width: 0; }
+.cand-b small { color: var(--muted); font-size: 12.5px; overflow-wrap: anywhere; }
+.cand-b small.cand-flag { display: flex; gap: 6px; align-items: flex-start; color: var(--warn); }
+.cand-flag .ico, .cand-b > b .ico { flex: none; margin-top: 2px; }
+.dup-b { display: grid; gap: 2px; min-width: 0; font-size: 14px; }
+.dup-b small { color: var(--muted); font-size: 12.5px; overflow-wrap: anywhere; }
+.dup-b small.dup-why { display: flex; gap: 6px; align-items: flex-start; color: var(--warn); }
+.dup-why .ico { flex: none; margin-top: 2px; }

@@ -110,6 +110,9 @@ const P = {
   flame: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3.3.3 1.6 1.4 2.8 2.5 2.8Z"/>',
   chevDown: '<path d="m6 9 6 6 6-6"/>',
   move: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  merge: '<circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/>',
+  lock: '<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+  lead: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/>',
   building: '<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/>',
   bolt: '<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/>',
   list: '<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',
@@ -337,14 +340,16 @@ export function openMenu(anchor, items) {
 }
 
 // Modal simple. Devuelve el elemento; close() lo cierra.
-// locked: no se cierra con Esc ni tocando afuera (por ejemplo, el perfil obligatorio de la primera vez)
+// locked: no se cierra con Esc ni tocando afuera (por ejemplo, el perfil obligatorio de la primera vez). m.locked se puede
+// cambiar después (por ejemplo, mientras dice «Fusionando…»).
 export function modal(html, { onClose, locked = false } = {}) {
   const m = document.createElement("div"); m.className = "modal"; m.setAttribute("role", "dialog"); m.setAttribute("aria-modal", "true");
   m.innerHTML = `<div class="modal-box">${html}</div>`;
+  m.locked = locked;
   const close = () => { m.remove(); document.removeEventListener("keydown", key); onClose?.(); };
   // Esc cierra el modal, salvo que la búsqueda esté abierta encima
-  const key = e => { if (!locked && e.key === "Escape" && document.getElementById("palette").hidden) { e.stopPropagation(); close(); } };
-  m.addEventListener("pointerdown", e => { if (!locked && e.target === m) close(); });
+  const key = e => { if (!m.locked && e.key === "Escape" && document.getElementById("palette").hidden) { e.stopPropagation(); close(); } };
+  m.addEventListener("pointerdown", e => { if (!m.locked && e.target === m) close(); });
   document.addEventListener("keydown", key);
   document.body.appendChild(m);
   m.close = close;
