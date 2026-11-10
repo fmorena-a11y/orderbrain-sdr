@@ -114,6 +114,7 @@ const P = {
   bolt: '<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/>',
   list: '<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',
   moon: '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
+  archive: '<rect x="2" y="3" width="20" height="5" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12h4"/>',
 };
 export const icon = (n, cls = "") => `<svg class="ico ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[n] || ""}</svg>`;
 export function hydrateIcons(root = document) { root.querySelectorAll("[data-icon]").forEach(e => { if (!e.firstChild) e.innerHTML = icon(e.dataset.icon); }); }
@@ -126,7 +127,7 @@ export const TYPE_ICON = { call: "phone", meeting: "video", deadline: "whatsapp"
 export const ST = {
   new: { l: "Nunca contactado", c: "--st-new" }, org: { l: "En Pipe sin trato", c: "--st-org" },
   lead: { l: "Prospecto en Pipe", c: "--st-org" }, churn: { l: "Churn", c: "--st-churn" }, lost: { l: "Perdido", c: "--st-lost" }, stalled: { l: "Contactado sin avance", c: "--st-stalled" }, open: { l: "En proceso", c: "--st-open" },
-  client: { l: "Cliente", c: "--st-client" }, unk: { l: "Sin revisar", c: "--st-unk" },
+  client: { l: "Cliente", c: "--st-client" }, unk: { l: "Sin revisar", c: "--st-unk" }, archived: { l: "Archivado", c: "--st-arch" },
 };
 export const cssVar = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 export const pill = st => `<span class="pill ${st}">${ST[st]?.l || st}</span>`;

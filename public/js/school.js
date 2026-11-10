@@ -416,6 +416,7 @@ export async function startSession(ids, label = "tu territorio", { acts = null, 
     for (const a of acts) { const k = a.schoolId || a.record; if (k && !seen.has(k)) { seen.add(k); ids.push(k); S.session.acts[k] = a.id; } }
     for (const id of extra) if (!seen.has(id)) { seen.add(id); ids.push(id); }
   }
+  ids = ids.filter(id => !isArchived(id)); // los archivados no entran en ninguna sesión
   if (!ids.length) { S.session = null; return toast("No hay colegios para esta sesión.", { type: "err" }); }
   S.session.ids = ids;
   openAt(S.session, 0);
@@ -450,16 +451,19 @@ const myDeal = m => m?.openDealOwnerId ? m.openDealOwnerId === S.me.pdUserId : !
 function skipReason(v, mine = false) {
   if (v.status === "client") return "ya es cliente";
   if (v.status === "churn") return "es ex cliente";
+  if (v.status === "archived") return "está archivado";
   if (v.status === "open" && !mine) return "tiene un trato abierto";
   if (v.ownerId && S.me.pdUserId && v.ownerId !== S.me.pdUserId) return `es de ${v.ownerName || "otra persona"}`;
   return "";
 }
+// archivado en la app (los "lead:…"/"org:…" de la agenda son las fichas pd-lead-…/pd-org-…)
+const isArchived = id => S.byId.get(isRef(id) ? String(id).replace(/^(lead|org):/, "pd-$1-") : id)?.status === "archived";
 // ---------- render
 const focusKey = el => el && (el.id ? `#${el.id}` : ["tab", "oc", "ch", "f", "caf", "niv", "nd", "ph"].map(k => el.dataset?.[k] !== undefined ? `[data-${k}="${el.dataset[k]}"]` : "").find(Boolean));
 // «Lo voy a contactar»: se puede crear el prospecto si no es cliente, no tiene trato abierto ni prospecto, y no es de otra persona
 // Prospecto → trato: si tiene un prospecto abierto tuyo (o sin dueño) y todavía no hay trato abierto
 function canConvert(s, d) {
-  if (!d || !S.me.pdUserId || d.match?.status === "open" || ["client", "churn"].includes(s.status)) return false;
+  if (!d || !S.me.pdUserId || d.match?.status === "open" || d.archive || ["client", "churn", "archived"].includes(s.status)) return false;
   if (s.leadOnly) return !s.ownerId || s.ownerId === S.me.pdUserId || S.profile?.leader;
   return !!d.leads?.some(l => !l.ownerId || l.ownerId === S.me.pdUserId) || (!!S.profile?.leader && !!d.leads?.length);
 }
@@ -485,7 +489,7 @@ function convertDeal(s) {
 }
 function canProspect(s, m) {
   if (s.virtual || !D.data || m?.leadId || D.data.leads?.length || !S.me.pdUserId) return false;
-  if (["client", "open", "churn"].includes(s.status) || s.ob?.client) return false;
+  if (["client", "open", "churn", "archived"].includes(s.status) || s.ob?.client || D.data.archive) return false;
   if (s.ownerId && S.me.pdUserId && s.ownerId !== S.me.pdUserId) return false;
   return true;
 }
@@ -548,6 +552,45 @@ async function runProspect(s, task) {
     import("./explore.js").then(x => x.refreshExplore({ fit: false }));
   } catch (e) { if (D.prospecting === s.id) D.prospecting = false; if (D.id === s.id) draw(); toast(e.message, { type: "err" }); }
 }
+// ---------- archivar en la app: no clientes ni tratos abiertos de otra persona (salvo un líder). Desarchiva quien archivó o un líder.
+const canArchive = (s, d) => !!d && !d.archive && s.status !== "client" && !s.ob?.client && !(d.match?.status === "open" && !myDeal(d.match) && !S.profile?.leader);
+const canUnarchive = a => !!a && (!!S.profile?.leader || String(a.by || "").toLowerCase() === String(S.me.email || "").toLowerCase());
+const ddmmOf = iso => { const t = new Date(iso); return isNaN(t) ? "?" : `${String(t.getDate()).padStart(2, "0")}/${String(t.getMonth() + 1).padStart(2, "0")}`; };
+const archBox = a => `<div class="arch-box">${icon("archive")}<span>Archivado por <b>${esc(a.byName || "?")}</b> el ${ddmmOf(a.at)}: ${esc(a.reason)}${a.text ? ` — ${esc(a.text)}` : ""}</span>${canUnarchive(a) ? `<button class="btn sm" id="aUnarch">${D.archiving ? `<span class="spin"></span> Desarchivando…` : "Desarchivar"}</button>` : ""}</div>`;
+async function afterArchive(s, r) {
+  if (r.school) patchSchool(r.school);
+  toast(r.done.map(x => x.label).join(" · "), r.done.some(x => x.warn) ? { type: "info" } : {});
+  if (D.id === s.id) { D.data = await api(`/api/schools/${encodeURIComponent(s.id)}`).catch(() => D.data); }
+  S.today = null; S.agenda = null;
+  import("./explore.js").then(x => x.refreshExplore({ fit: false }));
+}
+function archiveSchool(s) {
+  if (D.archiving) return;
+  const reasons = S.archiveReasons || [];
+  const m = modal(`<div class="modal-h"><h3>${icon("archive")} Archivar</h3><button class="icon-btn" id="arX" aria-label="Cerrar">${icon("x")}</button></div>
+    <p class="muted" style="margin:-6px 0 0">${esc(s.name)} sale de la cola, de las sesiones y de «para llamar». En Pipedrive solo se toca lo tuyo o lo libre.</p>
+    <label class="field"><span>Motivo</span><select class="inp" id="arWhy"><option value="">Elegí el motivo</option>${reasons.map(r => `<option>${esc(r)}</option>`).join("")}</select></label>
+    <label class="field"><span>Caso <span class="faint" id="arOpt">opcional</span></span><textarea class="inp" id="arTxt" rows="3" maxlength="500" placeholder="Ej: es una academia de inglés, no un colegio"></textarea></label>
+    <div class="row"><button class="btn ghost" id="arNo">Cancelar</button><button class="btn primary" id="arGo" disabled>${icon("archive")} Archivar</button></div>`);
+  const why = m.querySelector("#arWhy"), txt = m.querySelector("#arTxt"), go = m.querySelector("#arGo");
+  const check = () => { const otro = why.value === "Otro"; m.querySelector("#arOpt").textContent = otro ? "obligatorio" : "opcional"; go.disabled = !why.value || (otro && !txt.value.trim()); };
+  why.onchange = txt.oninput = check;
+  m.querySelector("#arX").onclick = m.querySelector("#arNo").onclick = () => m.close();
+  go.onclick = async () => {
+    const body = { reason: why.value, text: txt.value.trim() }; m.close();
+    D.archiving = s.id; draw();
+    try { await afterArchive(s, await api(`/api/schools/${encodeURIComponent(s.id)}/archive`, { body })); }
+    catch (e) { toast(e.message, { type: "err" }); }
+    D.archiving = null; if (D.id === s.id) draw();
+  };
+}
+async function unarchiveSchool(s) {
+  if (D.archiving) return;
+  D.archiving = s.id; draw();
+  try { await afterArchive(s, await api(`/api/schools/${encodeURIComponent(s.id)}/unarchive`, { body: {} })); }
+  catch (e) { toast(e.message, { type: "err" }); }
+  D.archiving = null; if (D.id === s.id) draw();
+}
 function clientWarn(s, m) {
   if (s.ownerId && S.me.pdUserId && s.ownerId !== S.me.pdUserId && s.status !== "client") return `Esta organización es de ${s.ownerName || "otra persona"} en Pipedrive. No la contactes: si te interesa, hablalo con esa persona.`;
   if (s.status === "client") return s.ob && !s.ob.churn ? `Ya es cliente de OrderEAT en OrderBrain (${s.ob.label}${s.ob.client && s.ob.client !== s.name ? `, ${s.ob.client}` : ""}). No lo prospectes: si hay algo, avisale al equipo de cuentas.` : "Ya es cliente de OrderEAT. No lo prospectes: si hay algo, avisale al equipo de cuentas.";
@@ -581,6 +624,7 @@ function draw() {
       ${s.lastTouch ? `<span class="tag">Último: ${esc(s.lastTouch.outcome.toLowerCase())} ${esc(ago(s.lastTouch.at))}</span>` : ""}
       ${m?.openDealOwner ? `<span class="tag">${icon("deal", "sm")} Trato de ${esc(m.openDealOwner)}</span>` : ""}
     </div>
+    ${d?.archive ? archBox(d.archive) : ""}
     <div class="d-actions">
       ${phone ? `<a class="btn primary" id="aCall" href="${esc(telLink(phone))}">${icon("phone")} Llamar <span class="num">${esc(phone)}</span></a>` : sedePhones ? `<button class="btn primary" id="aSedes">${icon("phone")} Teléfonos de ${sedePhones} sede${sedePhones > 1 ? "s" : ""}</button>` : `<span class="btn" aria-disabled="true" title="No hay teléfono publicado">${icon("phone")} Sin teléfono</span>`}
       <button class="btn wa" id="aWa" ${notReady} aria-haspopup="menu">${icon("whatsapp")} WhatsApp</button>
@@ -590,6 +634,7 @@ function draw() {
       ${canConvert(s, d) ? `<button class="btn" id="aConvert" title="Pasa el prospecto a trato en el embudo del país. Las notas y actividades pasan al trato.">${D.converting === s.id ? `<span class="spin"></span> Convirtiendo…` : `${icon("deal")} Convertir a trato`}</button>` : ""}
       ${canProspect(s, m) ? `<button class="btn" id="aProspect" title="Crear el prospecto (y la organización si falta) a tu nombre en Pipedrive y buscar a quién contactar">${D.prospecting === s.id ? `<span class="spin"></span> Creando…` : `${icon("plus")} Crear prospecto`}</button>` : ""}
       <button class="btn" id="aEnrich" ${notReady} title="Buscar todo lo que hay del colegio (Pipedrive, su web, Google Maps y sedes) y dejarlo en una nota en Pipedrive">${enriching.has(s.id) ? `<span class="spin"></span> Buscando…` : `${icon("sparkles")} Enriquecer`}</button>
+      ${canArchive(s, d) ? `<button class="btn" id="aArchive" title="No es un colegio, cerró, duplicado…: sale de la cola y de las sesiones">${D.archiving === s.id ? `<span class="spin"></span> Archivando…` : `${icon("archive")} Archivar`}</button>` : ""}
       <button class="btn icon-only" id="aMore" aria-haspopup="menu" aria-label="Más: mapa, web y buscar al decisor" title="Mapa, web y buscar al decisor">${icon("nav")}</button>
     </div>
     ${D.inCall && D.tab !== "log" ? `<button class="call-banner" id="toLog">${icon("phone", "sm")} ¿Cortaste? Registrá cómo te fue ${icon("arrowRight", "sm")}</button>` : ""}
@@ -655,6 +700,8 @@ function bindTop(s, d) {
   el.querySelector("#aProspect")?.addEventListener("click", () => createProspect(s));
   el.querySelector("#aConvert")?.addEventListener("click", () => convertDeal(s));
   el.querySelector("#aEnrich")?.addEventListener("click", () => enrich(s));
+  el.querySelector("#aArchive")?.addEventListener("click", () => archiveSchool(s));
+  el.querySelector("#aUnarch")?.addEventListener("click", () => unarchiveSchool(s));
   el.querySelector("#aDemo").onclick = () => {
     D.result = null; D.form.outcome = "demo"; suggest(s); goTab("log");
     const date = $("drawer").querySelector('[data-f="demo.date"]');

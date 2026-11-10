@@ -6,8 +6,8 @@ import { baseErrorCallout } from "./app.js";
 const E = S.explore;
 // «Para llamar»: todo lo que no es cliente ni está en proceso (incluye los que todavía no se cruzaron con Pipe).
 const CALLABLE = ["new", "org", "stalled", "lost", "unk"];
-const FILTERS = [["prospect", "Para llamar"], ["pot", "Alto potencial"], ["new", "Nunca contactado"], ["org", "En Pipe sin trato"], ["stalled", "Contactado sin avance"], ["lost", "Perdido"], ["unk", "Sin revisar"], ["open", "En proceso"], ["churn", "Churn"], ["client", "Cliente"], ["all", "Todos"]];
-const RANK = { new: 0, org: 1, stalled: 2, lost: 3, unk: 4, open: 5, churn: 6, client: 7 };
+const FILTERS = [["prospect", "Para llamar"], ["pot", "Alto potencial"], ["new", "Nunca contactado"], ["org", "En Pipe sin trato"], ["stalled", "Contactado sin avance"], ["lost", "Perdido"], ["unk", "Sin revisar"], ["open", "En proceso"], ["churn", "Churn"], ["client", "Cliente"], ["archived", "Archivados"], ["all", "Todos"]];
+const RANK = { new: 0, org: 1, stalled: 2, lost: 3, unk: 4, open: 5, churn: 6, client: 7, archived: 8 };
 // Colores fijos para los círculos de ciudad: el número en blanco se lee igual en modo claro y oscuro.
 const CITY = { pros: "#0E7490", unk: "#6B6B73", none: "#3F3F46" };
 const PAGE = 150;

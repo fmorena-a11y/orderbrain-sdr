@@ -5,7 +5,8 @@ import { OAuth2Client } from "google-auth-library";
 import path from "path";
 import { fileURLToPath } from "url";
 import * as pd from "./lib/pipedrive.js";
-import { kv, key as kvKey, schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId, hiddenOsm, dropOsm, getProfile, setProfile, getProfiles, ROLES } from "./lib/store.js";
+import { kv, key as kvKey, schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId, hiddenOsm, dropOsm, getProfile, setProfile, getProfiles, ROLES, syncArchived } from "./lib/store.js";
+import { ARCHIVE_REASONS } from "./lib/archive.js";
 import * as scan from "./lib/scan.js";
 import { ensureBrain, brainState, brainDown, brainAdmin, saveBrainToken, brainTokenAlert } from "./lib/brain.js";
 import { verifyCandidates, enrichSources } from "./lib/enrich.js";
@@ -54,7 +55,7 @@ app.use((req, res, next) => {
 });
 // Trae de Redis lo que registraron otras instancias.
 app.use("/api", (req, res, next) => { // x-brain-down: cada respuesta dice si ESTA instancia tiene los clientes de World Dominion (si no, el navegador avisa)
-  Promise.all([sync(), syncExtras(), ensureBrain()]).finally(() => { res.setHeader("x-brain-down", brainDown() ? "1" : "0"); next(); }); });
+  Promise.all([sync(), syncExtras(), syncArchived(), ensureBrain()]).finally(() => { res.setHeader("x-brain-down", brainDown() ? "1" : "0"); next(); }); });
 
 // ---------- auth
 async function attachPipedriveUser(email) {
@@ -136,7 +137,7 @@ const auth = (req, res, next) => {
 };
 // READ_ONLY=1: nada se escribe en Pipedrive (para probar contra la cuenta real sin tocarla).
 // activities/ cubre marcar hecha, deshacer, mover y el resultado de una demo (demo-result, demo-rebook).
-if (process.env.READ_ONLY === "1") app.use((req, res, next) => req.method === "POST" && /^\/api\/(schools\/[^/]+\/(match|log|comment|prospect|convert|study\/note|enrich|deals\/|persons)|activities\/|proposals\/confirm)/.test(req.path) ? res.status(403).json({ error: "Modo solo lectura: no se escribe en Pipedrive." }) : next());
+if (process.env.READ_ONLY === "1") app.use((req, res, next) => req.method === "POST" && /^\/api\/(schools\/[^/]+\/(match|log|comment|prospect|convert|study\/note|enrich|deals\/|persons|archive|unarchive)|activities\/|proposals\/confirm)/.test(req.path) ? res.status(403).json({ error: "Modo solo lectura: no se escribe en Pipedrive." }) : next());
 const wrap = fn => (req, res) => fn(req, res).catch(e => {
   if (res.writableEnded || res.destroyed) return; // el navegador ya cortó (canceló): no hay a quién responder
   const status = e.status && e.status < 600 ? (e instanceof pd.PipedriveError && e.status >= 500 ? 502 : e.status) : 500;
@@ -182,7 +183,7 @@ app.get("/api/me", auth, wrap(async (req, res) => {
   const roles = leader ? { lider: ROLES.lider } : { sdr: ROLES.sdr, ae: ROLES.ae };
   res.json({
   user: req.session.user, profile: { complete: !!(pr?.name && (pr?.role || leader)), suggested: req.session.user.pdName || "", roles, leader }, ai: ai.aiEnabled(), study: studyEnabled(), demo: pd.DEMO, goal: DAILY_GOAL, pdWeb: pd.PD_WEB,
-  countries: [...new Set(schools.map(s => s.country))].sort(), markets: MARKETS, outcomes: sales.OUTCOMES, lostReasons: LOST_REASONS, types: TYPE_LABEL,
+  countries: [...new Set(schools.map(s => s.country))].sort(), markets: MARKETS, outcomes: sales.OUTCOMES, lostReasons: LOST_REASONS, archiveReasons: ARCHIVE_REASONS, types: TYPE_LABEL,
   });
 }));
 app.post("/api/me/profile", auth, wrap(async (req, res) => {
@@ -324,6 +325,16 @@ app.post("/api/schools/:id/comment", auth, schoolParam, wrap(async (req, res) =>
 app.post("/api/schools/:id/deals/:dealId", auth, schoolParam, wrap(async (req, res) => {
   if (!/^\d+$/.test(req.params.dealId)) return res.status(400).json({ error: "Trato inválido" });
   res.json(await sales.dealAction(req.params.id, await ownDeal(req.session.user, req.params.dealId), req.session.user, req.body || {}));
+}));
+// Archivar en la app (y en Pipedrive solo lo tuyo o lo libre). No clientes ni tratos abiertos de otra persona (salvo un líder).
+// Desarchivar: quien lo archivó o un líder. Las reglas están en lib/archive.js.
+app.post("/api/schools/:id/archive", auth, schoolParam, wrap(async (req, res) => {
+  const user = req.session.user, b = req.body || {};
+  res.json(await sales.archiveSchool(req.params.id, user, { leader: await isLeader(user.email), by: await signName(user), reason: String(b.reason || ""), text: String(b.text || "") }));
+}));
+app.post("/api/schools/:id/unarchive", auth, schoolParam, wrap(async (req, res) => {
+  const user = req.session.user;
+  res.json(await sales.unarchiveSchool(req.params.id, user, { leader: await isLeader(user.email), by: await signName(user) }));
 }));
 // Agregar un decisor (persona) a la organización del colegio o al prospecto: en lo ajeno solo un líder
 app.post("/api/schools/:id/persons", auth, schoolParam, wrap(async (req, res) => res.json(await sales.addDecisor(req.params.id, req.session.user, await isLeader(req.session.user.email), req.body || {}))));
