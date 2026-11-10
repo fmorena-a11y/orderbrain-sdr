@@ -165,7 +165,7 @@ function schoolRow(s) {
   if (placeMode() && s._d != null) bits.push(s._d < 1 ? `${Math.round(s._d * 1000)} m` : `${s._d.toFixed(1).replace(".", ",")} km`);
   if (!E.city) bits.push(s.city);
   if (s.lastTouch) bits.push(`${s.lastTouch.outcome} ${ago(s.lastTouch.at)}`);
-  else if (s.ob?.churn) bits.push("ex cliente OrderEAT");
+  else if (s.ob?.churn) bits.push(/activo|^churn$/i.test(s.ob.label) ? "ex cliente OrderEAT" : "firmó y no arrancó");
   else if (s.status === "lost" && s.detail) bits.push(s.detail.replace(/^Perdido \d{4}-\d{2}-\d{2}( · )?/, "") || "Perdido");
   else if (s.status === "stalled" && s.detail) bits.push(s.detail.replace(/^Contactado \d{4}-\d{2}-\d{2}, sin avance( · )?/, "") || "sin avance");
   if (s.attempts) bits.push(`${s.attempts} intento${s.attempts > 1 ? "s" : ""}`);

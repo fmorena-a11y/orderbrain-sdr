@@ -104,6 +104,7 @@ const P = {
   skip: '<path d="m5 4 10 8-10 8Z"/><path d="M19 5v14"/>',
   globe: '<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>',
   user: '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+  plus: '<path d="M12 5v14M5 12h14"/>',
   deal: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>',
   alert: '<circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>',
   flame: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3.3.3 1.6 1.4 2.8 2.5 2.8Z"/>',
@@ -131,7 +132,7 @@ export const PH = {
   activo: { l: "Activo", dot: "#16A34A" }, onboarding: { l: "Onboarding", dot: "#EAB308" }, cerrado: { l: "Cerrado", dot: "#2563EB" },
   churn: { l: "Churn", dot: "#DC2626" }, propuesta: { l: "Propuesta enviada", dot: "#7C3AED" },
 };
-export const statusPill = s => s?.phase && PH[s.phase] ? `<span class="pill ph-${s.phase}">${PH[s.phase].l}</span>` : pill(s?.status);
+export const statusPill = s => s?.phase && PH[s.phase] ? `<span class="pill ph-${s.phase}">${s.phase === "churn" && s.ob?.label ? s.ob.label : PH[s.phase].l}</span>` : pill(s?.status);
 export const dotColor = (s, colors) => s.phase && PH[s.phase] ? PH[s.phase].dot : colors[s.status];
 
 // ---------- fechas

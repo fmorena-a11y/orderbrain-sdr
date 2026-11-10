@@ -110,7 +110,7 @@ const auth = (req, res, next) => {
   next();
 };
 // READ_ONLY=1: nada se escribe en Pipedrive (para probar contra la cuenta real sin tocarla)
-if (process.env.READ_ONLY === "1") app.use((req, res, next) => req.method === "POST" && /^\/api\/(schools\/[^/]+\/(match|log|comment|study\/note)|activities\/|proposals\/confirm)/.test(req.path) ? res.status(403).json({ error: "Modo solo lectura: no se escribe en Pipedrive." }) : next());
+if (process.env.READ_ONLY === "1") app.use((req, res, next) => req.method === "POST" && /^\/api\/(schools\/[^/]+\/(match|log|comment|prospect|study\/note)|activities\/|proposals\/confirm)/.test(req.path) ? res.status(403).json({ error: "Modo solo lectura: no se escribe en Pipedrive." }) : next());
 const wrap = fn => (req, res) => fn(req, res).catch(e => {
   if (res.writableEnded || res.destroyed) return; // el navegador ya cortó (canceló): no hay a quién responder
   const status = e.status && e.status < 600 ? (e instanceof pd.PipedriveError && e.status >= 500 ? 502 : e.status) : 500;
@@ -177,6 +177,7 @@ app.post("/api/schools/:id/log", auth, schoolParam, wrap(async (req, res) => {
 }));
 const escHtml = v => String(v).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 // Comentario suelto: queda como nota en la organización de Pipedrive, sin registrar un contacto.
+app.post("/api/schools/:id/prospect", auth, schoolParam, wrap(async (req, res) => res.json(await sales.createProspect(req.params.id, req.session.user))));
 app.post("/api/schools/:id/comment", auth, schoolParam, wrap(async (req, res) => {
   const text = String(req.body?.text || "").trim().slice(0, 5000);
   if (!text) return res.status(400).json({ error: "Escribí el comentario." });

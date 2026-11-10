@@ -217,10 +217,35 @@ function prefetch() {
 
 // ---------- render
 const focusKey = el => el && (el.id ? `#${el.id}` : ["tab", "oc", "ch", "f", "caf", "niv", "nd", "ph"].map(k => el.dataset?.[k] !== undefined ? `[data-${k}="${el.dataset[k]}"]` : "").find(Boolean));
+// «Lo voy a contactar»: se puede crear el prospecto si no es cliente, no tiene trato abierto ni prospecto, y no es de otra persona
+function canProspect(s, m) {
+  if (s.virtual || !D.data || m?.leadId) return false;
+  if (["client", "open", "churn"].includes(s.status) || s.ob?.client) return false;
+  if (s.ownerId && S.me.pdUserId && s.ownerId !== S.me.pdUserId) return false;
+  return true;
+}
+async function createProspect(s) {
+  if (D.prospecting) return;
+  D.prospecting = true; draw();
+  try {
+    const r = await api(`/api/schools/${s.id}/prospect`, { body: {} });
+    patchSchool(r.school); D.prospecting = false;
+    const f = r.found || {};
+    const m = modal(`<div class="modal-h"><h3>${icon("checkCircle")} Prospecto creado</h3><button class="icon-btn" id="cpX" aria-label="Cerrar">${icon("x")}</button></div>
+      <ul class="writes">${r.done.map(x => `<li>${icon("check", "sm")}<span>${x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.label)}</a>` : esc(x.label)}</span></li>`).join("")}</ul>
+      <div class="sub-h">A quién contactar</div>
+      ${f.decisores?.length ? `<ul class="ticks">${f.decisores.map(d => `<li>${icon("user", "sm")}<span><b>${esc(d.nombre)}</b> · ${esc(d.cargo)}</span></li>`).join("")}</ul>` : `<p class="muted" style="margin:0">Todavía no tenemos el nombre del decisor. Preguntá en recepción quién maneja la cafetería${S.ai ? " o hacé el estudio del colegio" : ""}.</p>`}
+      ${f.phones?.length || f.emails?.length || f.whatsapp ? `<p style="margin:8px 0 0">${[...(f.phones || []).map(esc), f.whatsapp ? `WhatsApp ${esc(f.whatsapp)}` : "", ...(f.emails || []).map(esc)].filter(Boolean).join(" · ")}</p>` : ""}
+      <button class="btn primary block" id="cpGo" style="margin-top:14px">Listo</button>`);
+    m.querySelector("#cpX").onclick = m.querySelector("#cpGo").onclick = () => m.close();
+    api(`/api/schools/${s.id}`).then(nd => { if (D.id === s.id) { D.data = nd; draw(); } }).catch(() => {});
+    import("./explore.js").then(x => x.refreshExplore({ fit: false }));
+  } catch (e) { D.prospecting = false; draw(); toast(e.message, { type: "err" }); }
+}
 function clientWarn(s, m) {
   if (s.ownerId && S.me.pdUserId && s.ownerId !== S.me.pdUserId && s.status !== "client") return `Esta organización es de ${s.ownerName || "otra persona"} en Pipedrive. No la contactes: si te interesa, hablalo con esa persona.`;
   if (s.status === "client") return s.ob && !s.ob.churn ? `Ya es cliente de OrderEAT en OrderBrain (${s.ob.label}${s.ob.client && s.ob.client !== s.name ? `, ${s.ob.client}` : ""}). No lo prospectes: si hay algo, avisale al equipo de cuentas.` : "Ya es cliente de OrderEAT. No lo prospectes: si hay algo, avisale al equipo de cuentas.";
-  if (s.ob?.churn || s.phase === "churn") return "Ex cliente de OrderEAT (churn). Antes de contactar, hablá con el equipo de cuentas para saber por qué se fue.";
+  if (s.ob?.churn || s.phase === "churn") return s.ob?.label && s.ob.label !== "Churn" ? `${s.ob.label} en OrderEAT (firmó y no llegó a usarlo). Antes de contactar, hablá con el equipo de cuentas para saber qué pasó.` : "Ex cliente de OrderEAT (era activo y se dio de baja). Antes de contactar, hablá con el equipo de cuentas para saber por qué se fue.";
   if (s.status === "open") return `Tiene un trato abierto${m?.openDealOwner ? ` de ${m.openDealOwner}` : ""}. Coordiná con esa persona antes de contactar.`;
   return "";
 }
@@ -254,6 +279,7 @@ function draw() {
       <button class="btn wa" id="aWa" ${notReady} aria-haspopup="menu">${icon("whatsapp")} WhatsApp</button>
       <button class="btn" id="aMail" ${notReady} aria-haspopup="menu">${icon("mail")} Mail</button>
       <button class="btn" id="aDemo" ${notReady} ${s.status === "client" ? `disabled title="Ya es cliente"` : ""}>${icon("video")} Demo</button>
+      ${canProspect(s, m) ? `<button class="btn" id="aProspect" title="Crear el prospecto (y la organización si falta) a tu nombre en Pipedrive y buscar a quién contactar">${D.prospecting ? `<span class="spin"></span> Creando…` : `${icon("plus")} Crear prospecto`}</button>` : ""}
       <button class="btn icon-only" id="aMore" aria-haspopup="menu" aria-label="Más: mapa, web y buscar al decisor" title="Mapa, web y buscar al decisor">${icon("nav")}</button>
     </div>
     ${D.inCall && D.tab !== "log" ? `<button class="call-banner" id="toLog">${icon("phone", "sm")} ¿Cortaste? Registrá cómo te fue ${icon("arrowRight", "sm")}</button>` : ""}
@@ -307,6 +333,7 @@ function bindTop(s, d) {
   el.querySelector("#toLog")?.addEventListener("click", () => { D.result = null; goTab("log"); });
   el.querySelector("#aWa").onclick = e => templateMenu(e.currentTarget, s, d, "whatsapp");
   el.querySelector("#aMail").onclick = e => templateMenu(e.currentTarget, s, d, "mail");
+  el.querySelector("#aProspect")?.addEventListener("click", () => createProspect(s));
   el.querySelector("#aDemo").onclick = () => {
     D.result = null; D.form.outcome = "demo"; suggest(s); goTab("log");
     const date = $("drawer").querySelector('[data-f="demo.date"]');
