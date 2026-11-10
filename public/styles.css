@@ -758,3 +758,22 @@ details.agent summary .sub { order: 3; }
 .pill.owner { color: var(--muted); background: var(--surface-2); border: 1px dashed var(--line); }
 .pill.lead { color: var(--st-org); background: var(--st-org-bg); }
 .pill.churn { color: var(--st-churn); background: var(--st-churn-bg); }
+
+/* próximo paso / tarea: mini calendario a la vista, con atajos, hora y detalle al lado */
+.next-when { display: grid; grid-template-columns: minmax(230px, 280px) 1fr; gap: 14px; align-items: start; margin-top: 12px; }
+@media (max-width: 640px) { .next-when { grid-template-columns: 1fr; } }
+.next-side { display: grid; gap: 10px; align-content: start; }
+.mcal { border: 1px solid var(--line); border-radius: 12px; padding: 8px; background: var(--surface); }
+.mcal.off { opacity: .5; }
+.mcal-h { display: flex; align-items: center; justify-content: space-between; padding: 0 2px 6px; }
+.mcal-h b { font-size: 14px; text-transform: capitalize; }
+.icon-btn.sm { width: 30px; height: 30px; }
+.mcal-g { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.mcal-g .dow { font-size: 11px; color: var(--faint); text-align: center; padding: 2px 0 4px; font-weight: 600; }
+.mcal-g .d { height: 32px; border: 0; border-radius: 8px; background: transparent; color: var(--ink); font: 500 13px var(--font); cursor: pointer; }
+.mcal-g .d.wk { color: var(--muted); }
+.mcal-g .d:hover:not(:disabled) { background: var(--surface-2); }
+.mcal-g .d.today { box-shadow: inset 0 0 0 1.5px var(--accent); }
+.mcal-g .d.on, .mcal-g .d.on:hover:not(:disabled) { background: var(--accent); color: #fff; font-weight: 700; }
+.mcal-g .d:disabled { color: var(--faint); opacity: .45; cursor: default; }
+.mcal-g .d:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }

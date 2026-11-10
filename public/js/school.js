@@ -5,7 +5,24 @@ const coarse = () => matchMedia("(pointer: coarse)").matches;
 
 const D = { id: null, data: null, tab: "prep", form: null, activityId: null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null };
 const CH = [["call", "Llamada", "phone"], ["whatsapp", "WhatsApp", "whatsapp"], ["mail", "Mail", "mail"], ["visit", "Visita", "user"]];
-const NEXT_TYPES = [["", "Sin próximo paso"], ["call", "Llamada"], ["deadline", "WhatsApp"], ["task", "Mail"]];
+const NEXT_TYPES = [["", "Sin próximo paso"], ["call", "Llamada"], ["deadline", "WhatsApp"], ["task", "Mail"], ["contacto_decisor", "Contacto decisor"]];
+// Mini calendario del mes (para elegir el día del próximo paso o de la tarea sin abrir otro selector)
+const MONTHS = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+function miniCal(sel, min, disabled) {
+  const base = D.calMonth || (sel || min).slice(0, 7);
+  const [y, mo] = base.split("-").map(Number), first = new Date(Date.UTC(y, mo - 1, 1)), days = new Date(Date.UTC(y, mo, 0)).getUTCDate();
+  const lead = (first.getUTCDay() + 6) % 7; // semana empieza el lunes
+  const ymd = d => `${y}-${String(mo).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+  const cells = [...Array(lead).fill(""), ...Array.from({ length: days }, (_, i) => i + 1)];
+  const prevOk = base > min.slice(0, 7);
+  return `<div class="mcal${disabled ? " off" : ""}" role="group" aria-label="Elegí el día">
+    <div class="mcal-h"><button type="button" class="icon-btn sm" data-cal="-1" ${prevOk && !disabled ? "" : "disabled"} aria-label="Mes anterior">${icon("chevL", "sm")}</button><b>${MONTHS[mo - 1]} ${y}</b><button type="button" class="icon-btn sm" data-cal="1" ${disabled ? "disabled" : ""} aria-label="Mes siguiente">${icon("chevR", "sm")}</button></div>
+    <div class="mcal-g">${["L", "M", "M", "J", "V", "S", "D"].map(d => `<span class="dow">${d}</span>`).join("")}${cells.map(d => {
+      if (!d) return `<span></span>`;
+      const v = ymd(d), past = v < min, wk = [5, 6].includes((lead + d - 1) % 7);
+      return `<button type="button" class="d${v === sel ? " on" : ""}${v === min ? " today" : ""}${wk ? " wk" : ""}" data-day="${v}" ${past || disabled ? "disabled" : ""} aria-pressed="${v === sel}" aria-label="${d} de ${MONTHS[mo - 1]}">${d}</button>`;
+    }).join("")}</div></div>`;
+}
 const GOOD = ["callback", "info", "demo"];
 const CONNECTED = ["gatekeeper", "callback", "info", "demo", "not_now", "not_interested"];
 const QUALIFY = ["callback", "info", "demo", "not_now"];
@@ -450,7 +467,7 @@ function logBody(s, d) {
   const f = D.form, o = S.outcomes.find(x => x.id === f.outcome);
   const team = S.team || [];
   // el próximo paso es tuyo (cada uno trabaja lo suyo); un líder puede asignarlo a otra persona. La demo sí la puede dar otro.
-  const ownerOpts = (sel, any = S.me.role === "lider") => `<option value="">Para mí</option>${any ? team.filter(u => u.id !== S.me.pdUserId).map(u => `<option value="${u.id}" ${String(sel) === String(u.id) ? "selected" : ""}>Para ${esc(u.name)}</option>`).join("") : ""}`;
+  const ownerOpts = (sel, any = true) => `<option value="">Para mí</option>${any ? team.filter(u => u.id !== S.me.pdUserId).map(u => `<option value="${u.id}" ${String(sel) === String(u.id) ? "selected" : ""}>Para ${esc(u.name)}</option>`).join("") : ""}`;
   const act = D.activityId && d.activities?.find(a => a.id === D.activityId);
   const connected = CONNECTED.includes(f.outcome), qualify = QUALIFY.includes(f.outcome);
   const lostish = ["not_now", "not_interested"].includes(f.outcome) || (f.outcome === "no_answer" && f.lostReason);
@@ -490,25 +507,34 @@ function logBody(s, d) {
     ${lostish ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>Motivo</div>
       <select class="inp" data-f="lostReason"><option value="">Sin motivo (no cerrar)</option>${S.lostReasons.map(r => `<option ${f.lostReason === r ? "selected" : ""}>${esc(r.replace("  ", " "))}</option>`).join("")}</select>
       <p class="muted" style="margin:0;font-size:13.5px">${d.match.openDealId ? "El trato abierto se marca como perdido con este motivo." : "Queda en la nota. No hay trato abierto para cerrar."}</p></div>` : ""}
-    ${f.outcome ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>Próximo paso</div>
-      ${f.why ? `<div class="callout">${icon("sparkles")}<span>${esc(f.why)}</span></div>` : ""}
-      <div class="grid2"><label class="field"><span>Qué</span><select class="inp" data-f="next.type" data-touch>${NEXT_TYPES.map(([k, l]) => `<option value="${k}" ${f.next.type === k ? "selected" : ""}>${l}</option>`).join("")}</select></label>
-      <label class="field"><span>Para</span><select class="inp" data-f="next.ownerId" ${f.next.type ? "" : "disabled"}>${ownerOpts(f.next.ownerId)}</select></label>
-      <label class="field"><span>Día</span><input class="inp" type="date" data-f="next.date" data-touch value="${esc(f.next.date)}" min="${t}" ${f.next.type ? "" : "disabled"}></label>
-      <label class="field"><span>Hora <span class="faint">opcional</span></span><input class="inp" type="time" data-f="next.time" data-touch value="${esc(f.next.time)}" step="900" ${f.next.type ? "" : "disabled"}></label></div>
-      ${f.next.type ? `<div class="chips">${dates.map(([l, v]) => `<button class="chip" data-nd="${v}" aria-pressed="${f.next.date === v}">${l}</button>`).join("")}</div>` : ""}</div>` : ""}
+    ${f.outcome || !contactPending() ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>${f.outcome ? "Próximo paso" : `Tarea para más adelante <span class="faint" style="font-weight:400;font-size:13px">opcional · para vos o para alguien del equipo</span>`}</div>
+      ${f.outcome && f.why ? `<div class="callout">${icon("sparkles")}<span>${esc(f.why)}</span></div>` : ""}
+      <div class="grid2"><label class="field"><span>Qué</span><select class="inp" data-f="next.type" data-touch>${NEXT_TYPES.map(([k, l]) => `<option value="${k}" ${f.next.type === k ? "selected" : ""}>${k ? l : f.outcome ? l : "Sin tarea"}</option>`).join("")}</select></label>
+      <label class="field"><span>Para</span><select class="inp" data-f="next.ownerId" ${f.next.type ? "" : "disabled"}>${ownerOpts(f.next.ownerId)}</select></label></div>
+      ${f.next.type ? `<div class="next-when">${miniCal(f.next.date, t, false)}
+        <div class="next-side"><div class="chips">${dates.map(([l, v]) => `<button class="chip sm" data-nd="${v}" aria-pressed="${f.next.date === v}">${l}</button>`).join("")}</div>
+        <label class="field"><span>Hora <span class="faint">opcional</span></span><input class="inp" type="time" data-f="next.time" data-touch value="${esc(f.next.time)}" step="900"></label>
+        <label class="field"><span>Detalle <span class="faint">opcional</span></span><input class="inp" data-f="next.subject" value="${esc(f.next.subject || "")}" placeholder="Ej: llamar a la directora después de las 11" maxlength="140"></label>
+        <p class="muted" id="nextLine" style="margin:0;font-size:13px">${esc(nextLine(f))}</p></div></div>` : ""}</div>` : ""}
   </div>`;
+}
+// «Llamada el domingo, 20 de diciembre a las 11:30 · para Juan Diego»
+function nextLine(f) {
+  if (!f.next.type || !f.next.date) return "";
+  const who = f.next.ownerId ? (S.team || []).find(u => String(u.id) === String(f.next.ownerId))?.name : "";
+  return `${S.types[f.next.type] || "Tarea"} el ${dayLabel(f.next.date).toLowerCase()}${f.next.time ? ` a las ${f.next.time}` : ""} · para ${who || "vos"}`;
 }
 function pipeName(s) { const mk = S.markets[s.country]; return mk ? `${{ MX: "MX - SALES", PE: "PE - SALES", AR: "ARG - SALES", CL: "CHI - Sales", UY: "UY - SALES" }[mk.code] || "LatAm - SALES"}` : "el embudo del país"; }
 
 // Comentario suelto: solo si no hay un contacto en curso (recién llamaste o mandaste un mensaje desde la ficha).
 const contactPending = () => D.inCall || D.form.sent;
-const onlyComment = () => !D.form.outcome && !!D.form.text?.trim() && !contactPending();
+// comentario y/o tarea para más adelante, sin registrar un contacto
+const onlyComment = () => !D.form.outcome && !contactPending() && (!!D.form.text?.trim() || !!(D.form.next.type && D.form.next.date));
 const saveDisabled = s => D.saving || !(D.form.outcome || onlyComment()) || (s.status === "client" && D.form.outcome === "demo");
 const saveLabel = () => `${icon("check")} ${onlyComment() ? "Guardar comentario" : "Guardar en Pipedrive"}`;
 function summary(s, d) {
   const f = D.form;
-  if (onlyComment()) return `<b>Se guarda en Pipedrive:</b> comentario en la organización, sin registrar contacto<span class="kbd-hint faint"> · Ctrl + Enter</span>`;
+  if (onlyComment()) return `<b>Se guarda en Pipedrive:</b> comentario${f.next.type && f.next.date ? ` + ${esc((S.types[f.next.type] || "tarea").toLowerCase())} ${shortDay(f.next.date)}${f.next.ownerId ? ` para ${esc((S.team || []).find(u => String(u.id) === String(f.next.ownerId))?.name || "")}` : ""}` : ""}, sin registrar contacto<span class="kbd-hint faint"> · Ctrl + Enter</span>`;
   if (!f.outcome) return contactPending() ? `Elegí qué pasó con ${D.form.sent ? "el mensaje" : "la llamada"} para guardar.` : "Elegí qué pasó o dejá un comentario.";
   if (s.status === "client" && f.outcome === "demo") return "Ya es cliente: no se crea un trato nuevo.";
   const parts = ["contacto hecho", "nota"];
@@ -529,7 +555,12 @@ function bindLog(s, d) {
   });
   el.querySelectorAll("[data-caf]").forEach(b => b.onclick = () => { f.qual.cafeteria = f.qual.cafeteria === b.dataset.caf ? "" : b.dataset.caf; redrawLog(); });
   el.querySelectorAll("[data-niv]").forEach(b => b.onclick = () => { const v = b.dataset.niv; f.qual.niveles = f.qual.niveles.includes(v) ? f.qual.niveles.filter(x => x !== v) : [...f.qual.niveles, v]; b.setAttribute("aria-pressed", f.qual.niveles.includes(v)); });
-  el.querySelectorAll("[data-nd]").forEach(b => b.onclick = () => { f.next.date = b.dataset.nd; f.nextTouched = true; redrawLog(); });
+  el.querySelectorAll("[data-nd]").forEach(b => b.onclick = () => { f.next.date = b.dataset.nd; D.calMonth = null; f.nextTouched = true; redrawLog(); });
+  el.querySelectorAll("[data-day]").forEach(b => b.onclick = () => { f.next.date = b.dataset.day; f.nextTouched = true; redrawLog(); });
+  el.querySelectorAll("[data-cal]").forEach(b => b.onclick = () => {
+    const [y, m] = (D.calMonth || (f.next.date || today()).slice(0, 7)).split("-").map(Number), d = new Date(Date.UTC(y, m - 1 + Number(b.dataset.cal), 1));
+    D.calMonth = d.toISOString().slice(0, 7); redrawLog();
+  });
   el.querySelectorAll("[data-quick]").forEach(b => b.onclick = () => { const ta = el.querySelector('[data-f="text"]'); ta.value = (ta.value.trim() ? ta.value.trim() + ". " : "") + b.dataset.quick; f.text = ta.value; ta.focus(); });
   el.querySelectorAll("[data-f]").forEach(inp => {
     const ev = inp.tagName === "SELECT" || inp.type === "checkbox" ? "change" : "input";
@@ -540,6 +571,7 @@ function bindLog(s, d) {
       else if (inp.dataset.f === "lostReason") redrawLog();
       else {
         const sum = el.querySelector("#sum"); if (sum) sum.innerHTML = summary(s, d);
+        const nl = el.querySelector("#nextLine"); if (nl) nl.textContent = nextLine(f);
         const sv = el.querySelector("#save"); if (sv && !D.saving) { sv.disabled = saveDisabled(s); sv.innerHTML = saveLabel(); }
       }
     });
@@ -558,7 +590,7 @@ async function saveLog(s, d) {
     outcome: f.outcome, channel: f.channel, text: f.text, ai: f.ai,
     contact: f.contact.name ? f.contact : null, qual: f.qual,
     demo: f.outcome === "demo" ? { ...f.demo, ownerId: f.demo.ownerId ? Number(f.demo.ownerId) : undefined } : null,
-    next: f.next.type ? { type: f.next.type, date: f.next.date, time: f.next.time || undefined, ownerId: f.next.ownerId ? Number(f.next.ownerId) : undefined } : null,
+    next: f.next.type ? { type: f.next.type, date: f.next.date, time: f.next.time || undefined, ownerId: f.next.ownerId ? Number(f.next.ownerId) : undefined, subject: f.next.subject || undefined } : null,
     lost: f.lostReason ? { reason: f.lostReason } : null,
     completeActivityId: D.activityId && f.completeAct ? D.activityId : null,
   };
@@ -580,7 +612,8 @@ async function saveComment(s) {
   const f = D.form;
   D.saving = true; redrawLog();
   try {
-    const r = await api(`/api/schools/${s.id}/comment`, { body: { text: f.text } });
+    const task = f.next.type && f.next.date ? { type: f.next.type, date: f.next.date, time: f.next.time || undefined, ownerId: f.next.ownerId ? Number(f.next.ownerId) : undefined, subject: f.next.subject || undefined } : null;
+    const r = await api(`/api/schools/${s.id}/comment`, { body: { text: f.text, task } });
     if (D.id !== s.id) return;
     D.result = { ...r, form: JSON.parse(JSON.stringify(f)) };
     if (r.school) patchSchool(r.school);

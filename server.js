@@ -178,14 +178,29 @@ app.post("/api/schools/:id/log", auth, schoolParam, wrap(async (req, res) => {
 const escHtml = v => String(v).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 // Comentario suelto: queda como nota en la organización de Pipedrive, sin registrar un contacto.
 app.post("/api/schools/:id/prospect", auth, schoolParam, wrap(async (req, res) => res.json(await sales.createProspect(req.params.id, req.session.user))));
+// Comentario y/o tarea para más adelante (para quien registra o para otra persona del equipo), sin registrar un contacto.
 app.post("/api/schools/:id/comment", auth, schoolParam, wrap(async (req, res) => {
-  const text = String(req.body?.text || "").trim().slice(0, 5000);
-  if (!text) return res.status(400).json({ error: "Escribí el comentario." });
-  const rec = await sales.ensureOrg(req.params.id);
-  const by = req.session.user.name || req.session.user.email;
-  await pd.addNote({ content: `<b>Comentario</b><br>${escHtml(text).replace(/\n/g, "<br>")}<br><br><i>Cargado por ${escHtml(by)} desde OrderBrain SDR</i>`, orgId: rec.orgId, dealId: rec.openDealId || undefined });
-  const orgUrl = `${pd.PD_WEB}/organization/${rec.orgId}`;
-  res.json({ done: [{ label: "Comentario en Pipedrive", url: orgUrl }], school: sales.schoolSummary(byId.get(req.params.id)), orgUrl });
+  const text = String(req.body?.text || "").trim().slice(0, 5000), t = req.body?.task || null, user = req.session.user;
+  const task = t && TYPE_LABEL[t.type] && /^\d{4}-\d{2}-\d{2}$/.test(t.date || "") ? t : null;
+  if (t && !task) return res.status(400).json({ error: "Elegí el tipo y el día de la tarea." });
+  if (task?.time && !/^\d{2}:\d{2}$/.test(task.time)) return res.status(400).json({ error: "Hora inválida." });
+  if (!text && !task) return res.status(400).json({ error: "Escribí el comentario o elegí una tarea." });
+  const s = byId.get(req.params.id), by = user.name || user.email;
+  const m = await pd.meta(), owner = task?.ownerId ? m.users.find(u => u.id === Number(task.ownerId)) : null;
+  if (task?.ownerId && !owner) return res.status(400).json({ error: "Esa persona no está en el equipo." });
+  const rec = s.leadOnly ? null : await sales.ensureOrg(req.params.id, user.pdUserId || null);
+  const target = s.leadOnly ? { leadId: s.leadId } : { orgId: rec.orgId, dealId: rec.openDealId || undefined };
+  const url = s.leadOnly ? `${pd.PD_WEB}/leads/inbox/${s.leadId}` : `${pd.PD_WEB}/organization/${rec.orgId}`;
+  const done = [];
+  if (task) {
+    const u = toUtc(task.date, task.time, req.tz);
+    await pd.addActivity({ subject: String(task.subject || "").trim().slice(0, 140) || `${TYPE_LABEL[task.type]} · ${s.name}`, type: task.type, dueDate: u.date, dueTime: u.time, ...target, ownerId: owner?.id || user.pdUserId, note: text ? escHtml(text).slice(0, 1000) : "" });
+    done.push({ label: `${TYPE_LABEL[task.type]} el ${task.date.slice(8, 10)}/${task.date.slice(5, 7)}${task.time ? " a las " + task.time : ""} para ${owner && owner.id !== user.pdUserId ? owner.name : "vos"}`, url });
+  }
+  const taskLine = task ? `<br><b>Tarea:</b> ${escHtml(TYPE_LABEL[task.type])} el ${escHtml(task.date)}${task.time ? " " + escHtml(task.time) : ""} para ${escHtml(owner?.name || by)}` : "";
+  await pd.addNote({ content: `<b>Comentario</b>${text ? "<br>" + escHtml(text).replace(/\n/g, "<br>") : ""}${taskLine}<br><br><i>Cargado por ${escHtml(by)} desde OrderBrain SDR</i>`, ...target });
+  done.push({ label: s.leadOnly ? "Comentario en el prospecto" : "Comentario en Pipedrive", url });
+  res.json({ done, school: sales.schoolSummary(s), orgUrl: url });
 }));
 app.get("/api/schools/:id/photos", auth, schoolParam, wrap(async (req, res) => {
   res.set("cache-control", "private, max-age=3600");
