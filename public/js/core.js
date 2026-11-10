@@ -140,11 +140,15 @@ export function satLink(s, { w = 800, h = 480, span = 0.0035 } = {}) {
 export const mapsSearch = s => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + " " + s.city)}`;
 
 // ---------- piezas de interfaz
-export function toast(msg, { type = "", action, href, ms = 4200 } = {}) {
+export function toast(msg, { type = "", action, href, ms } = {}) {
   const t = document.createElement("div"); t.className = "toast " + type; t.setAttribute("role", type === "err" ? "alert" : "status");
-  t.innerHTML = `${icon(type === "err" ? "alert" : "checkCircle")}<span>${esc(msg)}</span>${href ? `<a href="${esc(href)}" target="_blank" rel="noopener">${esc(action || "Abrir")}</a>` : action ? `<button>${esc(action.label)}</button>` : ""}`;
-  if (action?.fn) t.querySelector("button").onclick = () => { action.fn(); t.remove(); };
-  $("toasts").appendChild(t); setTimeout(() => t.remove(), ms);
+  const ic = type === "err" ? "alert" : type === "info" ? "clock" : "checkCircle";
+  t.innerHTML = `${icon(ic)}<span>${esc(msg)}</span>${href ? `<a href="${esc(href)}" target="_blank" rel="noopener">${esc(action || "Abrir")}</a>` : action ? `<button data-act>${esc(action.label)}</button>` : ""}<button class="x" aria-label="Cerrar aviso">×</button>`;
+  if (action?.fn) t.querySelector("[data-act]").onclick = () => { action.fn(); t.remove(); };
+  t.querySelector(".x").onclick = () => t.remove();
+  $("toasts").appendChild(t);
+  // los errores y los avisos con acción duran más
+  setTimeout(() => t.remove(), ms || (type === "err" ? 9000 : action ? 7000 : 4200));
 }
 export async function copy(text) { try { await navigator.clipboard.writeText(text); toast("Copiado"); } catch { toast("No se pudo copiar", { type: "err" }); } }
 

@@ -159,6 +159,7 @@ app.get("/api/today", auth, wrap(async (req, res) => {
 }));
 app.get("/api/my-activities", auth, wrap(async (req, res) => res.json(await sales.myActivities(req.session.user))));
 app.post("/api/activities/:id/done", auth, wrap(async (req, res) => { await pd.updateActivity(Number(req.params.id), { done: true }); res.json({ ok: true }); }));
+app.post("/api/activities/:id/undone", auth, wrap(async (req, res) => { await pd.updateActivity(Number(req.params.id), { done: false }); res.json({ ok: true }); }));
 app.post("/api/activities/:id/move", auth, wrap(async (req, res) => {
   const { date, time } = req.body || {};
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date || "")) return res.status(400).json({ error: "Fecha inválida" });

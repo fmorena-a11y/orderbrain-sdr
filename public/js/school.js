@@ -1,6 +1,7 @@
 // Ficha del colegio: preparar el contacto, registrar el resultado e historial. Incluye el modo sesión.
 import { $, S, api, esc, icon, pill, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, ago, TYPE_ICON,
   telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink } from "./core.js";
+const coarse = () => matchMedia("(pointer: coarse)").matches;
 
 const D = { id: null, data: null, tab: "prep", form: null, activityId: null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null };
 const CH = [["call", "Llamada", "phone"], ["whatsapp", "WhatsApp", "whatsapp"], ["mail", "Mail", "mail"], ["visit", "Visita", "user"]];
@@ -8,7 +9,12 @@ const NEXT_TYPES = [["", "Sin próximo paso"], ["call", "Llamada"], ["deadline",
 const GOOD = ["callback", "info", "demo"];
 const CONNECTED = ["gatekeeper", "callback", "info", "demo", "not_now", "not_interested"];
 const QUALIFY = ["callback", "info", "demo", "not_now"];
-const QUICK = ["Cafetería concesionada", "Cafetería propia", "Ya usan otro sistema", "Pidió que mande mail", "Llamar en otro horario", "Habló el director", "Decisor de vacaciones"];
+// Atajos para la nota, según lo que pasó (los datos de calificación tienen sus propios campos).
+const QUICK = {
+  no_answer: ["Buzón de voz", "Daba ocupado", "Llamar en otro horario"], gatekeeper: ["Pidió que mande mail", "Decisor de vacaciones", "Llamar después de las 11"],
+  callback: ["Pidió que llame en otro horario", "Quiere verlo con dirección"], info: ["Pidió precios", "Pidió que mande mail"], demo: ["Quiere verlo con dirección", "Suma al concesionario"],
+  not_now: ["Renuevan la concesión el año que viene", "Ya tienen presupuesto cerrado"], not_interested: ["Ya usan otro sistema", "No quieren app para familias"], bad_data: ["Teléfono fuera de servicio", "El colegio cerró"],
+};
 const NIVELES = ["Preescolar", "Primaria", "Secundaria", "Prepa", "Universidad"];
 
 export const drawerOpen = () => !$("drawer").hidden;
@@ -20,11 +26,15 @@ const newForm = () => ({ channel: "call", outcome: null, contact: { name: "", ro
 export async function openSchool(id, { activityId = null, tab = null, keepSession = false } = {}) {
   if (!S.byId.has(id)) return toast("Colegio inexistente", { type: "err" });
   if (!keepSession) S.session = null;
-  Object.assign(D, { id, data: null, form: newForm(), activityId, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null, tab: tab || (activityId ? "log" : "prep") });
+  if ($("drawer").hidden) D.opener = document.activeElement;
+  import("./app.js").then(m => m.rememberSchool(id));
+  Object.assign(D, { inCall: false, id, data: null, form: newForm(), activityId, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null, tab: tab || (activityId ? "log" : "prep") });
   $("drawer").hidden = false; $("scrim").hidden = false;
   $("scrim").onclick = closeSchool;
+  $("app").inert = true; // lo de atrás no recibe foco ni clics mientras la ficha está abierta
+  $("drawer").scrollTop = 0;
   draw();
-  $("drawer").focus?.();
+  $("drawer").querySelector("#dClose")?.focus();
   load();
   loadPhotos(id);
   loadStudy(id);
@@ -51,7 +61,8 @@ async function loadStudy(id, { refresh = false } = {}) {
     D.study = st; D.studyWorking = false; redraw();
   } catch (e) { if (D.id !== id) return; D.studyWorking = false; D.studyErr = e.message; redraw(); }
 }
-function keepScroll(fn) { const b = $("drawer").querySelector("#dBody"); const top = b?.scrollTop || 0; fn(); const nb = $("drawer").querySelector("#dBody"); if (nb) nb.scrollTop = top; }
+// Redibuja sin perder el scroll (en celular scrollea toda la ficha; en escritorio, el cuerpo).
+function keepScroll(fn) { const dr = $("drawer"), b = dr.querySelector("#dBody"); const t1 = dr.scrollTop, t2 = b?.scrollTop || 0; fn(); dr.scrollTop = t1; const nb = dr.querySelector("#dBody"); if (nb) nb.scrollTop = t2; }
 async function loadPhotos(id) {
   let list = [];
   try { list = (await api(`/api/schools/${id}/photos`)).photos || []; } catch {}
@@ -73,12 +84,12 @@ function gallery(s) {
 }
 function bindGallery(s) {
   const g = $("drawer").querySelector("#gallery"); if (!g) return;
-  g.querySelectorAll("img").forEach(img => img.addEventListener("error", () => img.closest(".ph")?.remove()));
+  g.querySelectorAll("img").forEach(img => img.addEventListener("error", () => { img.closest(".ph")?.remove(); if (!g.querySelector(".ph")) g.remove(); }));
   g.querySelectorAll("[data-ph]").forEach(b => b.onclick = () => lightbox(s, +b.dataset.ph));
 }
 function lightbox(s, start) {
   const list = photoList(s); let i = start;
-  const m = modal(`<div class="lb"><img id="lbImg" alt=""><div class="lb-bar"><span id="lbCap" class="faint"></span><span class="lb-nav">${list.length > 1 ? `<button class="icon-btn" id="lbPrev" aria-label="Anterior">${icon("arrowLeft")}</button><button class="icon-btn" id="lbNext" aria-label="Siguiente">${icon("arrowRight")}</button>` : ""}<button class="icon-btn" id="lbClose" aria-label="Cerrar">${icon("x")}</button></span></div></div>`);
+  const m = modal(`<div class="lb"><img id="lbImg" alt="Foto del colegio"><div class="lb-bar"><span id="lbCap" class="faint"></span><span class="lb-nav">${list.length > 1 ? `<button class="icon-btn" id="lbPrev" aria-label="Anterior">${icon("arrowLeft")}</button><button class="icon-btn" id="lbNext" aria-label="Siguiente">${icon("arrowRight")}</button>` : ""}<button class="icon-btn" id="lbClose" aria-label="Cerrar">${icon("x")}</button></span></div></div>`, { onClose: () => $("drawer").querySelector(`[data-ph="${i}"]`)?.focus() });
   m.querySelector(".modal-box").classList.add("wide");
   const show = () => { const p = list[i]; m.querySelector("#lbImg").src = p.kind === "sat" ? satLink(s, { w: 1400, h: 900 }) : p.url; m.querySelector("#lbCap").textContent = `${i + 1} de ${list.length} · ${p.credit || KIND[p.kind]}`; };
   const go = d => { i = (i + d + list.length) % list.length; show(); };
@@ -86,12 +97,27 @@ function lightbox(s, start) {
   m.querySelector("#lbNext")?.addEventListener("click", () => go(1));
   m.querySelector("#lbClose").onclick = () => m.close();
   m.addEventListener("keydown", e => { if (e.key === "ArrowLeft") go(-1); if (e.key === "ArrowRight") go(1); });
+  // deslizar para pasar de foto en el celular
+  let x0 = null; const img = m.querySelector("#lbImg");
+  img.addEventListener("pointerdown", e => (x0 = e.clientX));
+  img.addEventListener("pointerup", e => { if (x0 === null) return; const dx = e.clientX - x0; x0 = null; if (dx > 40) go(-1); else if (dx < -40) go(1); });
   show();
 }
 export function closeSchool() {
   $("drawer").hidden = true; $("scrim").hidden = true; D.id = null;
-  if (S.session) { const n = S.session.done; S.session = null; if (n) toast(`Sesión terminada: ${n} contacto${n > 1 ? "s" : ""} registrado${n > 1 ? "s" : ""}`); }
-  import("./app.js").then(m => (S.view === "hoy" || S.view === "agenda") && m.rerender());
+  $("app").inert = false;
+  const ss = S.session; S.session = null;
+  if (ss) {
+    const n = ss.done, left = ss.ids.length - ss.i - 1;
+    if (left > 0) { S.lastSession = ss; toast(`Sesión en pausa: ${n} contacto${n === 1 ? "" : "s"} registrado${n === 1 ? "" : "s"}, faltan ${left}`, { action: { label: "Retomar", fn: resumeSession } }); }
+    else { S.lastSession = null; toast(`Sesión terminada: ${n} contacto${n === 1 ? "" : "s"} registrado${n === 1 ? "" : "s"}`); }
+  }
+  import("./app.js").then(m => (S.view === "hoy" || S.view === "agenda") && m.rerender()).then(() => { if (D.opener?.isConnected) D.opener.focus(); });
+}
+export function resumeSession() {
+  const ss = S.lastSession; if (!ss) return;
+  S.lastSession = null; S.session = ss;
+  openSchool(ss.ids[ss.i], { keepSession: true, activityId: ss.acts[ss.ids[ss.i]] || null, tab: "prep" });
 }
 async function load(opts = {}) {
   const id = D.id;
@@ -127,7 +153,7 @@ export async function startSession(ids, label = "tu territorio") {
 function sessionGo(delta) {
   const ss = S.session; if (!ss) return;
   const i = ss.i + delta;
-  if (i >= ss.ids.length) { toast("Llegaste al final de la sesión"); return closeSchool(); }
+  if (i >= ss.ids.length) { ss.i = ss.ids.length - 1; return closeSchool(); }
   if (i < 0) return;
   ss.i = i;
   openSchool(ss.ids[i], { keepSession: true, activityId: ss.acts[ss.ids[i]] || null, tab: "prep" });
@@ -147,50 +173,68 @@ function prefetch() {
 }
 
 // ---------- render
+const focusKey = el => el && (el.id ? `#${el.id}` : ["tab", "oc", "ch", "f", "caf", "niv", "nd", "ph"].map(k => el.dataset?.[k] !== undefined ? `[data-${k}="${el.dataset[k]}"]` : "").find(Boolean));
+function clientWarn(s, m) {
+  if (s.status === "client") return "Ya es cliente de OrderEAT. No lo prospectes: si hay algo, avisale al equipo de cuentas.";
+  if (s.status === "open") return `Tiene un trato abierto${m?.openDealOwner ? ` de ${m.openDealOwner}` : ""}. Coordiná con esa persona antes de contactar.`;
+  return "";
+}
 function draw() {
   const el = $("drawer"); if (!D.id) return;
+  const fk = el.contains(document.activeElement) ? focusKey(document.activeElement) : null;
   const s = S.byId.get(D.id), d = D.data, m = d?.match, ss = S.session;
   const phone = s.phone || "";
   const mk = d?.market || S.markets[s.country] || {};
   const nHist = d ? (d.notes?.length || 0) + (d.touches?.length || 0) : 0;
+  const notReady = !d ? `disabled title="${D.err ? "No se pudo cargar la ficha" : "Cargando la ficha…"}"` : "";
+  el.setAttribute("aria-busy", d ? "false" : "true");
   el.innerHTML = `
+  ${ss ? `<div class="d-session"><span class="progress" aria-hidden="true"><span style="width:${(ss.i + 1) / ss.ids.length * 100}%"></span></span>
+    <span class="lbl">${icon("play", "sm")} <b>${ss.i + 1}</b>/${ss.ids.length}<span class="hide-sm"> · sesión</span></span>
+    <button class="btn sm ghost" id="prev" ${ss.i ? "" : "disabled"} aria-label="Colegio anterior">${icon("arrowLeft", "sm")}</button><button class="btn sm" id="skip">${icon("skip", "sm")} Saltar</button></div>` : ""}
   <div class="d-top">
-    <div class="d-bar">
-      ${ss ? `<div class="session"><span>${icon("play", "sm")} Sesión · <b>${ss.i + 1} de ${ss.ids.length}</b></span><span class="progress"><span style="width:${(ss.i + 1) / ss.ids.length * 100}%"></span></span>
-        <button class="btn sm ghost" id="prev" ${ss.i ? "" : "disabled"} aria-label="Anterior">${icon("arrowLeft", "sm")}</button><button class="btn sm" id="skip">${icon("skip", "sm")} Saltar</button></div>` : `<div class="session"></div>`}
-      ${d?.orgUrl ? `<a class="icon-btn" href="${esc(d.orgUrl)}" target="_blank" rel="noopener" title="Abrir en Pipedrive" aria-label="Abrir en Pipedrive">${icon("external")}</a>` : ""}
-      <button class="icon-btn" id="dClose" aria-label="Cerrar (Esc)" title="Cerrar (Esc)">${icon("x")}</button>
-    </div>
-    <div class="d-title"><div><h2>${esc(s.name)}</h2><div class="sub">${esc([s.addr, s.city, s.country].filter(Boolean).join(", "))}</div></div>${pill(s.status)}</div>
+    <div class="d-title"><div class="tt"><h2 id="dTitle">${esc(s.name)}</h2><div class="sub">${esc([s.addr, s.city, s.country].filter(Boolean).join(", "))}</div></div>
+      <div class="d-tr">${pill(s.status)}${d?.orgUrl ? `<a class="icon-btn" href="${esc(d.orgUrl)}" target="_blank" rel="noopener" title="Abrir en Pipedrive" aria-label="Abrir en Pipedrive">${icon("external")}</a>` : ""}<button class="icon-btn" id="dClose" aria-label="Cerrar ficha" title="Cerrar (Esc)">${icon("x")}</button></div></div>
     <div class="d-meta">
-      ${mk.espacio ? `<span class="tag" title="Vocabulario del mercado">${icon("globe", "sm")} ${esc(s.country)} · «${esc(mk.espacio)}» · ${mk.trato === "vos" ? "vos" : "tú"}</span>` : ""}
-      ${s.rating ? `<span class="tag">★ ${esc(s.rating)}</span>` : ""}
-      ${s.found ? `<span class="tag" title="Encontrado por el radar el ${esc(s.found)}">${icon("target", "sm")} Radar</span>` : ""}
-      ${(s.opp || []).map(o => `<span class="tag">${esc(o)}</span>`).join("")}
+      ${pill(s.status)}
+      ${mk.espacio ? `<span class="tag" title="Decí «${esc(mk.espacio)}» y tratá de ${mk.trato === "vos" ? "vos" : "tú"}">«${esc(mk.espacio)}» · ${mk.trato === "vos" ? "vos" : "tú"}</span>` : ""}
+      ${s.hours ? `<span class="tag" title="Horario">${icon("clock", "sm")} ${esc(s.hours)}</span>` : ""}
+      ${s.rating ? `<span class="tag" title="Reseñas en Google">★ ${esc(s.rating)}</span>` : ""}
+      ${(s.opp || []).filter(o => !/^Privado confirmado/.test(o)).map(o => `<span class="tag">${esc(o)}</span>`).join("")}
       ${d?.attempts ? `<span class="tag">${d.attempts} intento${d.attempts > 1 ? "s" : ""} sin respuesta</span>` : ""}
       ${s.lastTouch ? `<span class="tag">Último: ${esc(s.lastTouch.outcome.toLowerCase())} ${esc(ago(s.lastTouch.at))}</span>` : ""}
       ${m?.openDealOwner ? `<span class="tag">${icon("deal", "sm")} Trato de ${esc(m.openDealOwner)}</span>` : ""}
     </div>
     <div class="d-actions">
-      ${phone ? `<a class="btn primary" id="aCall" href="${esc(telLink(phone))}">${icon("phone")} Llamar <span class="num" style="opacity:.85;font-weight:400">${esc(phone)}</span></a>` : `<span class="btn" aria-disabled="true">${icon("phone")} Sin teléfono</span>`}
-      <button class="btn wa" id="aWa">${icon("whatsapp")} WhatsApp ${icon("chevDown", "sm")}</button>
-      <button class="btn" id="aMail">${icon("mail")} Mail ${icon("chevDown", "sm")}</button>
-      <button class="btn" id="aDemo">${icon("video")} <span>Demo</span></button>
-      <button class="btn icon-only" id="aMore" aria-label="Más: mapa, web y buscar al decisor" title="Mapa, web y buscar al decisor">${icon("nav")}</button>
+      ${phone ? `<a class="btn primary" id="aCall" href="${esc(telLink(phone))}">${icon("phone")} Llamar <span class="num">${esc(phone)}</span></a>` : `<span class="btn" aria-disabled="true" title="No hay teléfono publicado">${icon("phone")} Sin teléfono</span>`}
+      <button class="btn wa" id="aWa" ${notReady} aria-haspopup="menu">${icon("whatsapp")} WhatsApp</button>
+      <button class="btn" id="aMail" ${notReady} aria-haspopup="menu">${icon("mail")} Mail</button>
+      <button class="btn" id="aDemo" ${notReady} ${s.status === "client" ? `disabled title="Ya es cliente"` : ""}>${icon("video")} Demo</button>
+      <button class="btn icon-only" id="aMore" aria-haspopup="menu" aria-label="Más: mapa, web y buscar al decisor" title="Mapa, web y buscar al decisor">${icon("nav")}</button>
     </div>
-    <div class="tabs" role="tablist">
-      ${[["prep", "Preparar"], ["log", "Registrar"], ["hist", "Historial"]].map(([k, l]) => `<button class="tab" role="tab" data-tab="${k}" aria-selected="${D.tab === k}">${l}${k === "hist" && nHist ? `<span class="n">${nHist}</span>` : ""}</button>`).join("")}
-    </div>
+    ${D.inCall && D.tab !== "log" ? `<button class="call-banner" id="toLog">${icon("phone", "sm")} ¿Cortaste? Registrá cómo te fue ${icon("arrowRight", "sm")}</button>` : ""}
   </div>
-  <div class="d-body" id="dBody">${D.err ? `<div class="callout err">${icon("alert")}<span>${esc(D.err)} <button class="linkbtn" id="retry">Reintentar</button></span></div>` : !d ? loadingBody() : D.tab === "prep" ? prepBody(s, d) : D.tab === "log" ? (D.result ? resultBody(s, d) : logBody(s, d)) : histBody(s, d)}</div>
-  ${D.tab === "log" && d && !D.result ? `<div class="d-foot"><div class="sum" id="sum">${summary(s, d)}</div><button class="btn primary lg" id="save" ${D.saving || !D.form.outcome ? "disabled" : ""}>${D.saving ? `<span class="spin"></span> Guardando…` : `${icon("check")} Guardar en Pipedrive`}</button></div>` : ""}`;
+  <div class="tabs" role="tablist" aria-label="Secciones de la ficha">
+    ${[["prep", "Preparar"], ["log", "Registrar"], ["hist", "Historial"]].map(([k, l]) => `<button class="tab" role="tab" id="tab-${k}" data-tab="${k}" aria-selected="${D.tab === k}" aria-controls="dBody" tabindex="${D.tab === k ? 0 : -1}">${l}${k === "hist" && nHist ? `<span class="n">${nHist}</span>` : ""}</button>`).join("")}
+  </div>
+  <div class="d-body" id="dBody" role="tabpanel" aria-labelledby="tab-${D.tab}">${D.err ? `<div class="callout err">${icon("alert")}<span>No se pudo cargar la ficha: ${esc(D.err)}</span><button class="btn sm" id="retry">Reintentar</button></div>` : !d ? loadingBody() : D.tab === "prep" ? prepBody(s, d) : D.tab === "log" ? (D.result ? resultBody(s, d) : logBody(s, d)) : histBody(s, d)}</div>
+  ${D.tab === "log" && d && !D.result ? `<div class="d-foot"><div class="sum" id="sum">${summary(s, d)}</div><button class="btn primary lg" id="save" ${D.saving || !D.form.outcome || (s.status === "client" && D.form.outcome === "demo") ? "disabled" : ""}>${D.saving ? `<span class="spin"></span> Guardando…` : `${icon("check")} Guardar en Pipedrive`}</button></div>` : ""}`;
   bindTop(s, d);
-  if (!d) return;
-  if (D.tab === "prep") bindPrep(s, d);
-  if (D.tab === "log") D.result ? bindResult(s, d) : bindLog(s, d);
-  if (D.tab === "hist") bindHist(s, d);
+  if (d) {
+    if (D.tab === "prep") bindPrep(s, d);
+    if (D.tab === "log") D.result ? bindResult(s, d) : bindLog(s, d);
+    if (D.tab === "hist") bindHist(s, d);
+  }
+  if (fk) el.querySelector(fk)?.focus();
 }
 const loadingBody = () => `<div class="stack">${[1, 2, 3].map(() => `<div class="sec"><div class="skel" style="width:40%"></div><div class="skel" style="margin-top:12px"></div><div class="skel" style="margin-top:8px;width:80%"></div></div>`).join("")}</div>`;
+function goTab(tab) {
+  D.tab = tab; draw();
+  // en celular la ficha entera scrollea: se lleva a las pestañas; en escritorio, el cuerpo al inicio
+  const el = $("drawer"), tabs = el.querySelector(".tabs");
+  if (el.scrollTop > tabs.offsetTop) el.scrollTop = tabs.offsetTop;
+  el.querySelector("#dBody").scrollTop = 0;
+}
 
 function bindTop(s, d) {
   const el = $("drawer");
@@ -198,16 +242,32 @@ function bindTop(s, d) {
   el.querySelector("#retry")?.addEventListener("click", () => { D.err = null; draw(); load(); });
   el.querySelector("#prev")?.addEventListener("click", () => sessionGo(-1));
   el.querySelector("#skip")?.addEventListener("click", () => sessionGo(1));
-  el.querySelectorAll("[data-tab]").forEach(b => b.onclick = () => { D.tab = b.dataset.tab; draw(); el.querySelector("#dBody").scrollTop = 0; });
-  el.querySelector("#aCall")?.addEventListener("click", () => setTimeout(() => { D.form.channel = "call"; D.tab = "log"; D.result = null; draw(); }, 400));
+  const tabs = [...el.querySelectorAll("[data-tab]")];
+  tabs.forEach((b, k) => {
+    b.onclick = () => goTab(b.dataset.tab);
+    b.onkeydown = e => { const n = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0; if (n) { e.preventDefault(); const t = tabs[(k + n + tabs.length) % tabs.length]; goTab(t.dataset.tab); $("drawer").querySelector(`[data-tab="${t.dataset.tab}"]`).focus(); } };
+  });
+  // Llamar no saca del guion: en celular, al volver de la llamada se abre Registrar; en escritorio queda un aviso.
+  el.querySelector("#aCall")?.addEventListener("click", () => {
+    D.inCall = true; D.form.channel = "call"; draw();
+    if (coarse()) {
+      const back = () => { if (document.visibilityState !== "visible") return; document.removeEventListener("visibilitychange", back); if (D.inCall && D.id === s.id) { D.result = null; goTab("log"); } };
+      document.addEventListener("visibilitychange", back);
+    }
+  });
+  el.querySelector("#toLog")?.addEventListener("click", () => { D.result = null; goTab("log"); });
   el.querySelector("#aWa").onclick = e => templateMenu(e.currentTarget, s, d, "whatsapp");
   el.querySelector("#aMail").onclick = e => templateMenu(e.currentTarget, s, d, "mail");
-  el.querySelector("#aDemo").onclick = () => { D.tab = "log"; D.result = null; D.form.outcome = "demo"; suggest(s); draw(); };
+  el.querySelector("#aDemo").onclick = () => {
+    D.result = null; D.form.outcome = "demo"; suggest(s); goTab("log");
+    const date = $("drawer").querySelector('[data-f="demo.date"]');
+    date?.closest(".step")?.scrollIntoView({ block: "start" }); date?.focus();
+  };
   el.querySelector("#aMore").onclick = e => openMenu(e.currentTarget, [
     { label: "Cómo llegar", sub: "Google Maps con la ruta", fn: () => open(mapsDir(s)) },
     { label: "Ver en Google Maps", sub: "Fotos, reseñas y horarios", fn: () => open(mapsSearch(s)) },
-    ...(s.web ? [{ label: "Sitio web", sub: s.web, fn: () => open(s.web) }] : []),
-    { label: "Buscar el decisor en Google", sub: `«director» o «administración» de ${s.name}`, fn: () => open(`https://www.google.com/search?q=${encodeURIComponent(`"${s.name}" ${s.city} director OR administración OR cafetería`)}`) },
+    ...(s.web ? [{ label: "Sitio web", sub: s.web.replace(/^https?:\/\/(www\.)?/, ""), fn: () => open(s.web) }] : []),
+    { label: "Buscar al decisor en Google", sub: `Director o administración de ${s.name}`, fn: () => open(`https://www.google.com/search?q=${encodeURIComponent(`"${s.name}" ${s.city} director OR administración OR cafetería`)}`) },
   ]);
 }
 const open = url => window.open(url, "_blank", "noopener");
@@ -216,18 +276,19 @@ const open = url => window.open(url, "_blank", "noopener");
 const FIT = { alto: ["new", "Encaje alto"], medio: ["lost", "Encaje medio"], bajo: ["client", "Encaje bajo"] };
 const known = v => v && !/^(sin datos|desconocid|no (se )?encontr|n\/a|-)/i.test(String(v).trim());
 function studyCard(s) {
-  if (D.studyWorking) return `<div class="sec study working"><h3><span class="l">${icon("sparkles")} Estudio del colegio</span></h3>
-    <div class="study-progress"><span class="spin"></span><div><b>Investigando el colegio en la web…</b><p class="muted">Leo su sitio, redes y noticias para armarte el perfil, los decisores y el guion. Tarda 1 o 2 minutos; podés ir llamando mientras.</p></div></div></div>`;
-  if (D.studyErr) return `<div class="callout warn">${icon("alert")}<span>No se pudo hacer el estudio: ${esc(D.studyErr)} <button class="linkbtn" id="stRetry">Reintentar</button></span></div>`;
+  if (D.studyWorking) return `<section class="sec study working" aria-live="polite"><h3><span class="l">${icon("sparkles")} Estudio del colegio</span></h3>
+    <div class="study-progress"><span class="spin"></span><div><b>Investigando el colegio en la web…</b><p class="muted">Leo su sitio, redes y noticias para armar el perfil y los decisores. Tarda 1 o 2 minutos; podés ir llamando mientras.</p></div></div></section>`;
+  if (D.studyErr) return `<div class="callout warn">${icon("alert")}<span>No se pudo hacer el estudio: ${esc(D.studyErr)}</span><button class="btn sm" id="stRetry">Reintentar</button></div>`;
   const st = D.study; if (!st) return "";
   const pf = st.perfil || {};
-  const facts = [["Niveles", (pf.niveles || []).join(", ")], ["Alumnos", pf.alumnos], ["Cuota", pf.cuota], ["Segmento", pf.segmento], ["Cafetería", [st.cafeteria?.modelo !== "desconocido" && st.cafeteria?.modelo, st.cafeteria?.detalle].filter(Boolean).join(" · ")], ["Red o congregación", pf.red], ["Idiomas", pf.idiomas], ["Sedes", pf.sedes], ["Antigüedad", pf.antiguedad]].filter(([, v]) => known(v));
+  const caf = [st.cafeteria?.modelo !== "desconocido" && st.cafeteria?.modelo, st.cafeteria?.detalle].filter(Boolean).join(" · ");
+  const facts = [["Niveles", (pf.niveles || []).join(", ")], ["Alumnos", pf.alumnos], ["Cuota", pf.cuota], ["Segmento", pf.segmento], ["Cafetería", caf], ["Red o congregación", pf.red], ["Idiomas", pf.idiomas], ["Sedes", pf.sedes], ["Antigüedad", pf.antiguedad]].filter(([, v]) => known(v));
   const c = st.contacto || {};
   const [fcls, flbl] = FIT[st.fit] || FIT.medio;
-  return `<div class="sec study">
-    <h3><span class="l">${icon("sparkles")} Estudio del colegio</span><span class="pill ${fcls}" title="${esc(st.fit_razon || "")}">${flbl}</span></h3>
+  const nf = st.fuentes?.length || 0;
+  return `<section class="sec study" aria-labelledby="stH">
+    <h3><span class="l" id="stH">${icon("sparkles")} Estudio del colegio</span><span class="pill ${fcls}" title="${esc(st.fit_razon || "")}">${flbl}</span></h3>
     <p class="lead">${esc(st.resumen)}</p>
-    ${st.angulo ? `<div class="callout ok">${icon("bolt")}<span><b>Ángulo:</b> ${esc(st.angulo)}</span></div>` : ""}
     ${facts.length ? `<dl class="facts">${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>` : ""}
     ${st.decisores?.length ? `<div class="sub-h">Decisores</div>${st.decisores.map(x => `<div class="person"><div class="t"><b>${esc(x.nombre)}</b><small>${esc(x.cargo)}${x.fuente ? ` · ${/^https?:/.test(x.fuente) ? `<a href="${esc(x.fuente)}" target="_blank" rel="noopener">fuente</a>` : esc(x.fuente)}` : ""}</small></div></div>`).join("")}` : ""}
     ${(c.telefonos?.length || c.emails?.length || c.redes?.length || c.whatsapp) ? `<div class="sub-h">Contacto</div><div class="chips">
@@ -238,50 +299,40 @@ function studyCard(s) {
     ${(st.senales?.length || st.riesgos?.length) ? `<div class="two-col">
       ${st.senales?.length ? `<div><div class="sub-h">Señales de oportunidad</div><ul class="ticks ok">${st.senales.map(x => `<li>${icon("check", "sm")}<span>${esc(x)}</span></li>`).join("")}</ul></div>` : ""}
       ${st.riesgos?.length ? `<div><div class="sub-h">A tener en cuenta</div><ul class="ticks warn">${st.riesgos.map(x => `<li>${icon("alert", "sm")}<span>${esc(x)}</span></li>`).join("")}</ul></div>` : ""}</div>` : ""}
-    ${st.proximo_paso ? `<p style="margin:12px 0 0"><b>Próximo paso sugerido:</b> ${esc(st.proximo_paso)}</p>` : ""}
     <div class="study-foot">
-      ${st.fuentes?.length ? `<details><summary>${st.fuentes.length} fuentes</summary><ul>${st.fuentes.map(f => `<li><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.titulo || f.url)}</a></li>`).join("")}</ul></details>` : "<span></span>"}
-      <span class="actions"><span class="faint">Actualizado ${esc(ago(st.at))}</span><button class="btn sm ghost" id="stNote">${icon("note", "sm")} Guardar en Pipedrive</button><button class="btn sm ghost" id="stRefresh" aria-label="Actualizar estudio" title="Volver a investigar">${icon("refresh", "sm")}</button></span>
+      ${nf ? `<details><summary>${nf} fuente${nf === 1 ? "" : "s"}</summary><ul>${st.fuentes.map(f => `<li><a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.titulo || f.url)}</a></li>`).join("")}</ul></details>` : "<span></span>"}
+      <span class="actions"><span class="faint">Actualizado ${esc(ago(st.at))}</span><button class="btn sm ghost" id="stNote">${icon("note", "sm")} Guardar en Pipedrive</button><button class="btn sm ghost icon-only" id="stRefresh" aria-label="Volver a investigar" title="Volver a investigar">${icon("refresh", "sm")}</button></span>
     </div>
-  </div>`;
+  </section>`;
 }
 function prepBody(s, d) {
   const p = d.playbook, b = D.study || null, m = d.match;
-  const sit = p.situacion, apertura = b?.apertura || p.apertura, preguntas = b?.preguntas?.length ? b.preguntas : p.preguntas, objeciones = b?.objeciones?.length ? b.objeciones : p.objeciones, cierre = p.cierre;
-  const warn = s.status === "client" ? "Ya es cliente de OrderEAT. No lo prospectes: si hay algo, avisale al equipo de cuentas." : s.status === "open" ? `Tiene un trato abierto${m.openDealOwner ? ` de ${m.openDealOwner}` : ""}. Coordiná con esa persona antes de contactar.` : "";
+  const me = (S.me.name || "").split(/[\s.@_]/)[0];
+  const apertura = (b?.apertura || p.apertura).replace(/\[tu nombre\]/g, me);
+  const preguntas = b?.preguntas?.length ? b.preguntas : p.preguntas, objeciones = b?.objeciones?.length ? b.objeciones : p.objeciones;
+  const cierre = p.cierre.replace("[día]", shortDay(nextBusinessDay(today()))).replace("[hora]", "10:00");
+  const angulo = b?.angulo || s.pitch;
+  const decisor = b?.decisores?.[0];
+  const warn = clientWarn(s, m);
   const cands = !m.confirmed ? (m.candidates || []) : [];
-  const me = (S.me.name || "").split(" ")[0];
   return `<div class="stack">
-    ${gallery(s)}
     ${warn ? `<div class="callout warn">${icon("alert")}<span>${esc(warn)}</span></div>` : ""}
+    ${cands.length ? `<section class="sec"><h3><span class="l">${icon("building")} ¿Es alguna de estas organizaciones de Pipedrive?</span></h3>${m.orgId ? `<p class="muted" style="margin:0 0 6px">Ahora está vinculado a <b>${esc(m.orgName)}</b>.</p>` : ""}${cands.map(c => `<div class="cand"><span>${esc(c.name)}</span><button class="btn sm" data-org="${c.id}" data-name="${esc(c.name)}">Es esta</button></div>`).join("")}${m.orgId ? `<div class="cand"><span class="muted">Ninguna de estas</span><button class="btn sm ghost" id="unlink">Desvincular</button></div>` : ""}</section>` : ""}
+    ${gallery(s)}
+    <section class="sec"><h3><span class="l">${icon("phone")} Primeros 15 segundos</span></h3>
+      <div class="say">${esc(apertura)}<button class="icon-btn" data-copy="${esc(apertura)}" aria-label="Copiar apertura">${icon("copy")}</button></div>
+      <p class="muted" style="margin:10px 0 0;font-size:13.5px">${decisor ? `Preguntá por <b>${esc(decisor.nombre)}</b> (${esc(decisor.cargo)}).` : `Si atiende recepción, pedí el nombre de quien maneja la ${esc(d.market.espacio)} y su mejor horario.`}</p>
+    </section>
+    <section class="sec"><h3><span class="l">${icon("target")} Situación</span></h3>
+      <p style="margin:0">${esc(p.situacion)} <b>${esc(p.objetivo)}</b></p>
+      ${angulo ? `<div class="callout ok" style="margin-top:10px">${icon("bolt")}<span><b>Ángulo:</b> ${esc(angulo)}</span></div>` : ""}
+    </section>
+    <section class="sec"><h3><span class="l">${icon("list")} Preguntas para calificar</span></h3>
+      <ol class="qnum">${preguntas.map(q => `<li>${esc(q)}</li>`).join("")}</ol>
+    </section>
+    <section class="sec"><h3><span class="l">${icon("alert")} Si te dice…</span></h3>${objeciones.map((o, i) => `<details class="obj" ${i === 0 ? "open" : ""}><summary>${esc(o.o)}</summary><p>${esc(o.r)}</p></details>`).join("")}</section>
+    <section class="sec"><h3><span class="l">${icon("video")} Cierre</span></h3><div class="say">${esc(cierre)}<button class="icon-btn" data-copy="${esc(cierre)}" aria-label="Copiar cierre">${icon("copy")}</button></div></section>
     ${studyCard(s)}
-    ${cands.length ? `<div class="sec"><h3><span class="l">${icon("building")} ¿Es alguna de estas organizaciones de Pipedrive?</span></h3>${m.orgId ? `<p class="muted" style="margin:0 0 6px">Ahora está vinculado a <b>${esc(m.orgName)}</b>.</p>` : ""}${cands.map(c => `<div class="cand"><span>${esc(c.name)}</span><button class="btn sm" data-org="${c.id}" data-name="${esc(c.name)}">Es esta</button></div>`).join("")}${m.orgId ? `<div class="cand"><span class="muted">Ninguna de estas</span><button class="btn sm ghost" id="unlink">Desvincular</button></div>` : ""}</div>` : ""}
-    <div class="sec">
-      <h3><span class="l">${icon("target")} Situación y objetivo</span></h3>
-      <p style="margin:0 0 8px">${esc(sit)}</p>
-
-      <p class="muted" style="margin:0"><b>Objetivo:</b> ${esc(p.objetivo)}</p>
-
-      ${s.pitch ? `<div class="callout info" style="margin-top:10px">${icon("bolt")}<span>${esc(s.pitch)}</span></div>` : ""}
-    </div>
-    <div class="sec"><h3><span class="l">${icon("phone")} Primeros 15 segundos</span></h3>
-      <div class="say">${esc(apertura.replace(/\[tu nombre\]/g, me))}<button class="icon-btn" data-copy="${esc(apertura.replace(/\[tu nombre\]/g, me))}" aria-label="Copiar">${icon("copy")}</button></div>
-      <p class="muted" style="margin:10px 0 0;font-size:13.5px">Si atiende recepción: pedí el nombre de quien maneja la ${esc(d.market.espacio)} y el mejor horario. Anotalo en Registrar.</p>
-    </div>
-    <div class="sec"><h3><span class="l">${icon("list")} Preguntas para calificar</span><span class="faint" style="font-size:12.5px;font-weight:500">Marcá las que ya respondió</span></h3>
-      <ul class="qlist">${preguntas.map((q, i) => `<li><label><input type="checkbox" data-q="${i}" ${D.form.asked?.[i] ? "checked" : ""}><span>${esc(q)}</span></label></li>`).join("")}</ul>
-    </div>
-    <div class="sec"><h3><span class="l">${icon("alert")} Si te dice…</span></h3>${objeciones.map((o, i) => `<details class="obj" ${i === 0 ? "open" : ""}><summary>${esc(o.o)}</summary><p>${esc(o.r)}</p></details>`).join("")}</div>
-    <div class="sec"><h3><span class="l">${icon("video")} Cierre</span></h3><div class="say">${esc(cierre)}<button class="icon-btn" data-copy="${esc(cierre)}" aria-label="Copiar">${icon("copy")}</button></div></div>
-    <div class="sec"><h3><span class="l">${icon("building")} Datos del colegio</span></h3>
-      <div class="grid2" style="font-size:14px">
-        <div><span class="muted">Teléfono</span><br>${s.phone ? `<a href="${esc(telLink(s.phone))}">${esc(s.phone)}</a>` : "No publicado"}</div>
-        <div><span class="muted">Web</span><br>${s.web ? `<a href="${esc(s.web)}" target="_blank" rel="noopener">${esc(s.web.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, ""))}</a>` : "—"}</div>
-        ${s.hours ? `<div><span class="muted">Horario</span><br>${esc(s.hours)}</div>` : ""}${s.zone ? `<div><span class="muted">Zona</span><br>${esc(s.zone)}</div>` : ""}
-        <div><span class="muted">En Pipedrive</span><br>${esc(m.detail || "—")}</div>
-      </div>
-    </div>
-    <button class="btn primary lg block" id="toLog">${icon("note")} Registrar qué pasó</button>
   </div>`;
 }
 function bindPrep(s, d) {
@@ -298,10 +349,8 @@ function bindPrep(s, d) {
   el.querySelectorAll("[data-stwa]").forEach(b => b.onclick = () => templateMenu(b, s, d, "whatsapp", { phone: b.dataset.stwa }));
   el.querySelectorAll("[data-stmail]").forEach(b => b.onclick = () => templateMenu(b, s, d, "mail", { email: b.dataset.stmail }));
   el.querySelectorAll("[data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy));
-  el.querySelectorAll("[data-q]").forEach(c => c.onchange = () => { D.form.asked = { ...(D.form.asked || {}), [c.dataset.q]: c.checked }; });
   el.querySelectorAll("[data-org]").forEach(b => b.onclick = () => { D.data = null; draw(); load({ match: { orgId: +b.dataset.org, orgName: b.dataset.name } }); });
   el.querySelector("#unlink")?.addEventListener("click", () => { D.data = null; draw(); load({ match: { orgId: null } }); });
-  el.querySelector("#toLog").onclick = () => { D.tab = "log"; draw(); };
 }
 
 // ---------- Registrar
@@ -317,7 +366,7 @@ async function suggest(s) {
     redrawLog();
   } catch {}
 }
-function redrawLog() { const b = $("drawer").querySelector("#dBody"); const top = b?.scrollTop || 0; draw(); const nb = $("drawer").querySelector("#dBody"); if (nb) nb.scrollTop = top; }
+function redrawLog() { keepScroll(draw); }
 
 function logBody(s, d) {
   const f = D.form, o = S.outcomes.find(x => x.id === f.outcome);
@@ -326,14 +375,18 @@ function logBody(s, d) {
   const act = D.activityId && d.activities?.find(a => a.id === D.activityId);
   const connected = CONNECTED.includes(f.outcome), qualify = QUALIFY.includes(f.outcome);
   const lostish = ["not_now", "not_interested"].includes(f.outcome) || (f.outcome === "no_answer" && f.lostReason);
-  const t = today();
+  const t = today(), nb = nextBusinessDay(t);
+  const warn = clientWarn(s, d.match);
+  const pre = S.markets[s.country]?.prefix ? `+${S.markets[s.country].prefix} …` : "Teléfono";
+  const dates = [["Hoy", t], ["Mañana", addDays(t, 1)], ...(nb !== addDays(t, 1) ? [["Próx. hábil", nb]] : []), ["En 1 semana", addDays(t, 7)], ["En 1 mes", addDays(t, 30)], ["En 3 meses", addDays(t, 90)]];
   let n = 0;
   return `<div class="stack">
+    ${warn ? `<div class="callout warn">${icon("alert")}<span>${esc(warn)}</span></div>` : ""}
     ${act ? `<label class="callout info toggle" style="color:var(--st-org)"><input type="checkbox" data-f="completeAct" ${f.completeAct ? "checked" : ""}> Marcar como hecha: <b>${esc(act.subject)}</b></label>` : ""}
     <div class="sec step"><div class="step-h"><span class="n">${++n}</span>¿Por dónde fue el contacto?</div>
       <div class="seg" role="group">${CH.map(([k, l, ic]) => `<button data-ch="${k}" aria-pressed="${f.channel === k}">${icon(ic, "sm")} ${l}</button>`).join("")}</div></div>
     <div class="sec step"><div class="step-h"><span class="n">${++n}</span>¿Qué pasó?</div>
-      <div class="outcomes">${S.outcomes.map(x => `<button class="oc ${GOOD.includes(x.id) ? "good" : ""}" data-oc="${x.id}" aria-pressed="${f.outcome === x.id}"><b>${esc(x.label)}</b><small>${esc(x.hint)}</small></button>`).join("")}</div></div>
+      <div class="outcomes">${S.outcomes.map(x => `<button class="oc ${GOOD.includes(x.id) ? "good" : ""}" data-oc="${x.id}" aria-pressed="${f.outcome === x.id}" ${x.id === "demo" && s.status === "client" ? `disabled title="Ya es cliente"` : ""}><b>${esc(x.label)}</b><small>${esc(x.hint)}</small></button>`).join("")}</div></div>
     ${f.outcome === "demo" ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>La demo</div>
       <div class="grid3"><label class="field"><span>Día</span><input class="inp" type="date" data-f="demo.date" value="${esc(f.demo.date)}" min="${t}"></label>
       <label class="field"><span>Hora (tu hora local)</span><input class="inp" type="time" data-f="demo.time" value="${esc(f.demo.time)}" step="900"></label>
@@ -343,7 +396,7 @@ function logBody(s, d) {
     ${connected ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>${f.outcome === "gatekeeper" ? "¿Quién es el decisor?" : "¿Con quién hablaste?"} <span class="faint" style="font-weight:400;font-size:13px">opcional, se crea como contacto</span></div>
       <div class="grid2"><label class="field"><span>Nombre</span><input class="inp" data-f="contact.name" value="${esc(f.contact.name)}" placeholder="Ej: Laura Gómez" autocomplete="off"></label>
       <label class="field"><span>Cargo</span><input class="inp" data-f="contact.role" value="${esc(f.contact.role)}" placeholder="Directora, administrador, concesionario" list="roles"></label>
-      <label class="field"><span>Teléfono / WhatsApp</span><input class="inp" type="tel" data-f="contact.phone" value="${esc(f.contact.phone)}" placeholder="+52 …"></label>
+      <label class="field"><span>Teléfono / WhatsApp</span><input class="inp" type="tel" data-f="contact.phone" value="${esc(f.contact.phone)}" placeholder="${esc(pre)}"></label>
       <label class="field"><span>Email</span><input class="inp" type="email" data-f="contact.email" value="${esc(f.contact.email)}" placeholder="nombre@colegio.edu"></label></div>
       <datalist id="roles"><option>Director/a</option><option>Administrador/a</option><option>Concesionario/a de la ${esc(d.market.espacio)}</option><option>Coordinador/a de servicios</option><option>Dueño/a</option></datalist></div>` : ""}
     ${qualify ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>Calificación <span class="faint" style="font-weight:400;font-size:13px">lo que sepas</span></div>
@@ -360,10 +413,10 @@ function logBody(s, d) {
       <label class="field"><span>Para</span><select class="inp" data-f="next.ownerId" ${f.next.type ? "" : "disabled"}>${ownerOpts(f.next.ownerId)}</select></label>
       <label class="field"><span>Día</span><input class="inp" type="date" data-f="next.date" data-touch value="${esc(f.next.date)}" min="${t}" ${f.next.type ? "" : "disabled"}></label>
       <label class="field"><span>Hora <span class="faint">opcional</span></span><input class="inp" type="time" data-f="next.time" data-touch value="${esc(f.next.time)}" step="900" ${f.next.type ? "" : "disabled"}></label></div>
-      ${f.next.type ? `<div class="chips">${[["Hoy", t], ["Mañana", addDays(t, 1)], ["Próx. hábil", nextBusinessDay(t)], ["En 1 semana", addDays(t, 7)], ["En 1 mes", addDays(t, 30)], ["En 3 meses", addDays(t, 90)]].map(([l, v]) => `<button class="chip" data-nd="${v}" aria-pressed="${f.next.date === v}">${l}</button>`).join("")}</div>` : ""}</div>` : ""}
+      ${f.next.type ? `<div class="chips">${dates.map(([l, v]) => `<button class="chip" data-nd="${v}" aria-pressed="${f.next.date === v}">${l}</button>`).join("")}</div>` : ""}</div>` : ""}
     ${f.outcome ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>Notas <span class="faint" style="font-weight:400;font-size:13px">lo que te dijeron, con tus palabras</span></div>
       <textarea class="inp" data-f="text" placeholder="Ej: atendió la secretaria, la cafetería la maneja un concesionario (Don Pedro), llamar después de las 11.">${esc(f.text)}</textarea>
-      <div class="quick">${QUICK.map(q => `<button data-quick="${esc(q)}">+ ${esc(q)}</button>`).join("")}</div>
+      ${(QUICK[f.outcome] || []).length ? `<div class="quick">${QUICK[f.outcome].map(q => `<button data-quick="${esc(q)}">+ ${esc(q)}</button>`).join("")}</div>` : ""}
       ${S.ai ? `<label class="toggle"><input type="checkbox" data-f="ai" ${f.ai ? "checked" : ""}> Ordenar la nota con IA (resumen, decisor, objeción e interés)</label>` : ""}</div>` : ""}
   </div>`;
 }
@@ -371,12 +424,13 @@ function pipeName(s) { const mk = S.markets[s.country]; return mk ? `${{ MX: "MX
 
 function summary(s, d) {
   const f = D.form; if (!f.outcome) return "Elegí qué pasó para guardar.";
+  if (s.status === "client" && f.outcome === "demo") return "Ya es cliente: no se crea un trato nuevo.";
   const parts = ["contacto hecho", "nota"];
   if (f.contact.name) parts.push("contacto");
-  if (f.outcome === "demo") parts.push(d.match.openDealId ? "demo" : "trato + demo");
+  if (f.outcome === "demo") parts.push(`${d.match.openDealId ? "demo" : "trato + demo"} ${f.demo.date ? shortDay(f.demo.date) : ""} ${f.demo.time || ""}`.trim());
   if (f.next.type && f.next.date) parts.push(`${S.types[f.next.type]?.toLowerCase() || "actividad"} ${shortDay(f.next.date)}`);
   if (f.lostReason && d.match.openDealId) parts.push("trato perdido");
-  return `<b>Se guarda en Pipedrive:</b> ${esc(parts.join(" · "))}<br><span class="faint">Ctrl + Enter para guardar</span>`;
+  return `<b>Se guarda en Pipedrive:</b> ${esc(parts.join(" · "))}<span class="kbd-hint faint"> · Ctrl + Enter</span>`;
 }
 function setPath(obj, path, val) { const ks = path.split("."); let o = obj; ks.slice(0, -1).forEach(k => (o = o[k])); o[ks.at(-1)] = val; }
 function bindLog(s, d) {
@@ -417,7 +471,7 @@ async function saveLog(s, d) {
   try {
     const r = await api(`/api/schools/${s.id}/log`, { body });
     if (D.id !== s.id) return;
-    D.result = { ...r, form: JSON.parse(JSON.stringify(f)) };
+    D.result = { ...r, form: JSON.parse(JSON.stringify(f)) }; D.inCall = false;
     patchSchool(r.school);
     S.today = null; S.agenda = null;
     if (S.session) S.session.done++;
@@ -498,12 +552,12 @@ function bindHist(s, d) {
 
 // ---------- WhatsApp y mail con plantillas
 function templateMenu(anchor, s, d, channel, to = {}) {
-  if (!d) return toast("Esperá a que cargue la ficha");
+  if (!d) return toast(D.err ? "No se pudo cargar la ficha. Tocá Reintentar." : "Cargando la ficha…", { type: D.err ? "err" : "info" });
   const list = d.templates.filter(t => t.channel === channel);
   const recommended = channel === "whatsapp" ? (s.status === "lost" ? "reactivate" : d.attempts ? "after_call" : "intro") : (s.status === "lost" ? "mail_reactivate" : "mail_info");
   list.sort((a, b) => (b.id === recommended) - (a.id === recommended));
   openMenu(anchor, [{ head: channel === "whatsapp" ? "Mensaje de WhatsApp" : "Mail desde Gmail" },
-    ...list.map(t => ({ label: t.label + (t.id === recommended ? " · sugerido" : ""), sub: t.text.split("\n")[0], fn: () => {
+    ...list.map(t => ({ label: t.label + (t.id === recommended ? " · sugerido" : ""), sub: channel === "mail" ? t.subject || "" : t.text.split("\n").find(x => x.length > 12) || t.text, fn: () => {
       let text = t.text; if (to.name) text = text.replace(/^Hola(?=[,\s])/, `Hola ${to.name.split(" ")[0]}`);
       messageModal(s, d, { ...t, text }, { phone: to.phone, email: to.email, logAfter: true });
     } })),
@@ -513,9 +567,11 @@ function templateMenu(anchor, s, d, channel, to = {}) {
 function messageModal(s, d, t, { phone, email, logAfter }) {
   const isMail = t.channel === "mail";
   const defPhone = phone || d.persons?.find(p => p.phone)?.phone || s.phone || "";
-  const defMail = email || d.persons?.find(p => p.email)?.email || "";
-  const m = modal(`<h3>${isMail ? icon("mail") : icon("whatsapp")} ${esc(t.label)} · ${esc(s.name)}</h3>
-    <label class="field"><span>Para</span><input class="inp" id="mTo" value="${esc(isMail ? defMail : defPhone)}" placeholder="${isMail ? "email@colegio.edu" : "+52 …"}"></label>
+  const defMail = email || d.persons?.find(p => p.email)?.email || D.study?.contacto?.emails?.[0] || s.email || "";
+  const pre = S.markets[s.country]?.prefix ? `+${S.markets[s.country].prefix} …` : "Teléfono";
+  const m = modal(`<div class="modal-h"><h3>${isMail ? icon("mail") : icon("whatsapp")} ${esc(t.label)}</h3><button class="icon-btn" id="mClose" aria-label="Cerrar">${icon("x")}</button></div>
+    <p class="muted" style="margin:-8px 0 0">${esc(s.name)}</p>
+    <label class="field"><span>Para</span><input class="inp" id="mTo" type="${isMail ? "email" : "tel"}" value="${esc(isMail ? defMail : defPhone)}" placeholder="${isMail ? "email@colegio.edu" : esc(pre)}"></label>
     ${isMail ? `<label class="field"><span>Asunto</span><input class="inp" id="mSub" value="${esc(t.subject || "")}"></label>` : ""}
     <label class="field"><span>Mensaje</span><textarea class="inp" id="mText" rows="${isMail ? 12 : 8}">${esc(t.text)}</textarea></label>
     ${/\[(día|hora|tu nombre)\]/.test(t.text) ? `<p class="callout warn" style="margin:0">${icon("alert")}<span>Completá lo que está entre corchetes antes de mandar.</span></p>` : ""}
@@ -526,6 +582,9 @@ function messageModal(s, d, t, { phone, email, logAfter }) {
     </div>
     ${!isMail ? `<p class="faint" style="margin:0;font-size:12.5px">Se abre WhatsApp Web o la app. Si usás Volt, la conversación queda en el CRM automáticamente.</p>` : ""}`);
   const q = sel => m.querySelector(sel);
+  q("#mClose").onclick = () => m.close();
+  // en el celular no se abre el teclado de entrada: el foco va a la acción principal
+  if (coarse()) setTimeout(() => q("#mGo").focus(), 0);
   q("#mCopy").onclick = () => copy(q("#mText").value);
   q("#mAi")?.addEventListener("click", async e => {
     const b = e.currentTarget; b.disabled = true; b.innerHTML = `<span class="spin"></span> Reescribiendo…`;
