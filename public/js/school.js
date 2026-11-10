@@ -224,6 +224,8 @@ async function loadHistory(id, d) {
   try { HIST.set(id, await api(`/api/schools/${encodeURIComponent(id)}/history`)); } catch { HIST.delete(id); return; }
   if (D.id === id && D.tab === "prep") keepScroll(draw);
 }
+// corta un texto largo con «…» (que no parezca otra cosa: «el 10/1» por «el 10/11»)
+const clip = (t, n) => t.length > n ? t.slice(0, n - 1).trimEnd() + "…" : t;
 const INFO_LABEL = k => k.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/_/g, " ").replace(/^./, c => c.toUpperCase());
 function historySec(s) {
   const h = HIST.get(s.id); if (!h) return "";
@@ -235,7 +237,7 @@ function historySec(s) {
       ${Object.keys(b.info || {}).length ? `<div class="faint" style="font-size:12.5px;margin-top:4px">${Object.entries(b.info).map(([k, v]) => `${esc(INFO_LABEL(k))}: ${esc(/^\d{4}-\d{2}-\d{2}/.test(String(v)) ? day(v) : String(v))}`).join(" · ")}</div>` : ""}</div>` : ""}
     ${deals.length ? `<div class="sub-h">Tratos en Pipedrive${h.orgs > 1 ? ` (${h.orgs} organizaciones con este nombre)` : ""}</div>${deals.map(x => `<div class="act"><span class="ty">${icon("deal")}</span><div class="t"><b><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a></b>
       <small>${esc([x.pipeline, x.stage].filter(Boolean).join(" · "))} · ${x.status === "won" ? `ganado ${day(x.won)}` : x.status === "lost" ? `perdido ${day(x.lost)}${x.lostReason ? ` · «${esc(x.lostReason)}»` : ""}` : `abierto desde ${day(x.added)}`}${x.owner ? ` · ${esc(x.owner)}` : ""}</small></div></div>`).join("")}` : ""}
-    ${h.notes.length ? `<div class="sub-h">Últimas notas</div>${h.notes.slice(0, 4).map(n => `<details class="obj"><summary>${day(n.at)}${n.author ? ` · ${esc(n.author)}` : ""}${n.deal ? ` · ${esc(n.deal)}` : ""} — ${esc(n.text.split("\n")[0].slice(0, 90))}</summary><p style="white-space:pre-wrap">${esc(n.text)}</p></details>`).join("")}` : ""}
+    ${h.notes.length ? `<div class="sub-h">Últimas notas</div>${h.notes.slice(0, 4).map(n => `<details class="obj"><summary>${day(n.at)}${n.author ? ` · ${esc(n.author)}` : ""}${n.deal ? ` · ${esc(n.deal)}` : ""} — ${esc(clip(n.text.split("\n")[0], 90))}</summary><p style="white-space:pre-wrap">${esc(n.text)}</p></details>`).join("")}` : ""}
     ${h.slack?.msgs?.length ? `<div class="sub-h">En Slack (lanzamientos y bajas)</div>${h.slack.msgs.map(m => { const f = m.fields || {};
       const head = m.kind ? `${esc(m.kind)}${f.reason ? ` — ${esc(f.reason.slice(0, 90))}` : ""}` : esc(m.text.slice(0, 90));
       const who = [f.account && `Account: ${f.account}`, f.onboarder && `Onboarder: ${f.onboarder}`, f.author && `Cargó: ${f.author}`].filter(Boolean).join(" · ");
@@ -778,7 +780,8 @@ function prepBody(s, d) {
       <p style="margin:0">${esc(p.situacion)} <b>${esc(p.objetivo)}</b></p>
       ${angulo ? `<div class="callout ok" style="margin-top:10px">${icon("bolt")}<span><b>Ángulo:</b> ${esc(angulo)}</span></div>` : ""}
     </section>
-    ${cands.length ? `<section class="sec"><h3><span class="l">${icon("building")} ¿Es alguna de estas organizaciones de Pipedrive?</span></h3>${m.orgId ? `<p class="muted" style="margin:0 0 6px">Ahora está vinculado a <b>${esc(m.orgName)}</b>.</p>` : ""}${cands.map(c => `<div class="cand"><span>${esc(c.name)}</span><button class="btn sm" data-org="${c.id}" data-name="${esc(c.name)}">Es esta</button></div>`).join("")}${m.orgId ? `<div class="cand"><span class="muted">Ninguna de estas</span><button class="btn sm ghost" id="unlink">Desvincular</button></div>` : ""}</section>` : ""}
+    ${cands.length ? `<section class="sec"><h3><span class="l">${icon("building")} ¿Es alguna de estas organizaciones de Pipedrive?</span></h3>${m.orgId ? `<p class="muted" style="margin:0 0 6px">Ahora está vinculado a <b>${esc(m.orgName)}</b>.</p>` : ""}${cands.map(c => candRow(c, d.cands?.[c.id])).join("")}${m.orgId ? `<div class="cand"><span class="muted">Ninguna de estas</span><button class="btn sm ghost" id="unlink">Desvincular</button></div>` : ""}</section>` : ""}
+    ${!cands.length && !s.virtual && m.confirmed && !m.auto && m.dupeCount > 0 ? `<section class="sec"><div class="cand"><span class="cand-b"><b>${icon("merge", "sm")} Parece cargada ${m.dupeCount === 1 ? "1 vez más" : `${m.dupeCount} veces más`} en Pipedrive</b><small>Además de «${esc(m.orgName)}». Podés revisarlas y fusionarlas.</small></span><button class="btn sm" id="dupReview">Revisar</button></div></section>` : ""}
     <section class="sec"><h3><span class="l">${icon("list")} Preguntas para calificar</span></h3>
       <ol class="qnum">${preguntas.map(q => `<li>${esc(q)}</li>`).join("")}</ol>
     </section>
@@ -804,8 +807,161 @@ function bindPrep(s, d) {
   el.querySelectorAll("[data-sdopen]").forEach(b => b.onclick = () => openSchool(b.dataset.sdopen));
   el.querySelectorAll("[data-stmail]").forEach(b => b.onclick = () => templateMenu(b, s, d, "mail", { email: b.dataset.stmail }));
   el.querySelectorAll("[data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy));
-  el.querySelectorAll("[data-org]").forEach(b => b.onclick = () => { D.data = null; draw(); load({ match: { orgId: +b.dataset.org, orgName: b.dataset.name } }); });
+  el.querySelectorAll("[data-org]").forEach(b => b.onclick = () => confirmOrg(s, +b.dataset.org, b.dataset.name, b));
   el.querySelector("#unlink")?.addEventListener("click", () => { D.data = null; draw(); load({ match: { orgId: null } }); });
+  el.querySelector("#dupReview")?.addEventListener("click", e => reviewDupes(s, e.currentTarget));
+}
+
+// ---------- «Es esta» → ¿Estás seguro? (comparar) → vincular → ¿Querés fusionar? (otras organizaciones del mismo colegio)
+const DEAL_ST = { open: "abierto", won: "ganado", lost: "perdido" };
+const placeOf = o => [o.city, o.region, o.country].filter(Boolean).join(", ");
+const ownerOf = o => o.owner || (o.ownerId ? "otra persona" : "libre (cuenta general)");
+const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+const callout = (level, text) => `<div class="callout ${level}">${icon("alert")}<span>${esc(text)}</span></div>`;
+// una candidata de la lista: ciudad y dueño en Pipedrive (con cuatro «Colegio Valladolid», es lo que las distingue)
+function candRow(c, x) {
+  const mine = x?.ownerId && x.ownerId === S.me.pdUserId;
+  const sub = x ? [x.place || "sin ciudad en Pipedrive", mine ? "tuya" : x.ownerId ? `de ${x.owner || "otra persona"}` : "libre", `id ${c.id}`].join(" · ") : `id ${c.id}`;
+  const flag = x?.linked ? `Ya está vinculada a ${x.linked}` : x?.other ? "Es de otra ciudad" : "";
+  return `<div class="cand"><span class="cand-b"><span>${esc(c.name)}</span><small>${esc(sub)}</small>${flag ? `<small class="cand-flag">${icon("alert", "sm")}<span>${esc(flag)}</span></small>` : ""}</span><button class="btn sm" data-org="${c.id}" data-name="${esc(c.name)}">Es esta</button></div>`;
+}
+// los tratos, prospectos y actividades de una organización, uno por línea
+const dealLine = x => [x.title, x.pipeline, x.stage, DEAL_ST[x.status] || x.status, x.owner && `de ${x.owner}`].filter(Boolean).join(" · ");
+const actLine = x => [x.subject, x.due && fmtDay(x.due), x.owner && `de ${x.owner}`].filter(Boolean).join(" · ");
+const fmtDay = v => new Intl.DateTimeFormat("es", { day: "numeric", month: "short" }).format(new Date(v + "T12:00:00"));
+const listOr = (l, line, none) => l?.length ? `<ul>${l.slice(0, 5).map(x => `<li>${esc(line(x))}</li>`).join("")}${l.length > 5 ? `<li class="faint">y ${l.length - 5} más</li>` : ""}</ul>` : `<span class="faint">${none}</span>`;
+const personsTxt = o => o.persons == null ? "no pude verlas" : o.personsMore ? "20 o más" : String(o.persons);
+function orgFacts(o) {
+  return `<dl class="kv"><dt>Nombre</dt><dd><b>${esc(o.name)}</b>${o.client ? ` <span class="tag">Cliente</span>` : ""} <span class="faint">id ${o.id}</span></dd>
+    <dt>Ciudad</dt><dd>${placeOf(o) ? esc(placeOf(o)) : `<span class="faint">sin ciudad en Pipedrive</span>`}</dd>
+    ${o.addr ? `<dt>Dirección</dt><dd>${esc(o.addr)}</dd>` : ""}
+    <dt>Dueño</dt><dd>${esc(ownerOf(o))}</dd>
+    <dt>Tratos</dt><dd>${listOr(o.deals, dealLine, "ninguno")}</dd>
+    <dt>Prospectos</dt><dd>${o.leads == null ? `<span class="faint">no pude verlos</span>` : listOr(o.leads, x => [x.title, x.owner && `de ${x.owner}`].filter(Boolean).join(" · "), "ninguno abierto")}</dd>
+    <dt>Pendientes</dt><dd>${o.acts == null ? `<span class="faint">no pude verlas</span>` : listOr(o.acts, actLine, "ninguna")}</dd>
+    <dt>Personas</dt><dd>${esc(personsTxt(o))}</dd></dl>`;
+}
+// después de vincular: lo que se vio de la ficha depende de la organización, se vuelve a pedir (como en load)
+function afterLink(s, d) {
+  HIST.delete(s.id); SEDES.delete(s.id); S.today = null; S.agenda = null;
+  if (D.id === s.id) { D.data = d; patchSchool(d.school); draw(); loadSedes(s.id); loadHistory(s.id, d); }
+}
+// por qué no se ofrece fusionar (dupesFor sin duplicadas)
+const noDupesMsg = (name, r) => r.stop ? `Vinculado a «${name}». ${r.stop}.` : `Vinculado a «${name}»`;
+function confirmOrg(s, orgId, orgName, anchor) {
+  const m = modal(`<div class="modal-h"><h3>${icon("building")} ¿Estás seguro?</h3><button class="icon-btn" id="coX" aria-label="Cerrar">${icon("x")}</button></div>
+    <p class="muted" style="margin:-6px 0 0">Compará antes de vincular el colegio con esta organización de Pipedrive.</p>
+    <div id="coWarn" aria-live="polite"></div>
+    <div class="cmp">
+      <div class="cmp-col"><div class="cmp-h">${icon("map", "sm")} En la base</div><dl class="kv"><dt>Nombre</dt><dd><b>${esc(s.name)}</b></dd>
+        <dt>Ciudad</dt><dd>${esc([s.city, s.country].filter(Boolean).join(", ")) || `<span class="faint">sin ciudad</span>`}</dd>${s.addr ? `<dt>Dirección</dt><dd>${esc(s.addr)}</dd>` : ""}</dl></div>
+      <div class="cmp-col"><div class="cmp-h">${icon("building", "sm")} En Pipedrive</div><div id="coOrg" aria-live="polite"><p class="muted" style="margin:0"><span class="spin"></span> Trayendo ${esc(orgName)}…</p></div></div>
+    </div>
+    <div class="row"><button class="btn ghost" id="coNo">Cancelar</button><button class="btn primary" id="coGo" disabled>${icon("check")} Sí, es esta</button></div>`, { onClose: () => anchor?.isConnected && anchor.focus() });
+  const q = sel => m.querySelector(sel), url = `/api/schools/${encodeURIComponent(s.id)}`;
+  q(".modal-box").classList.add("mid");
+  q("#coX").onclick = q("#coNo").onclick = () => m.close();
+  api(`${url}/org/${orgId}`).then(r => {
+    q("#coOrg").innerHTML = `${orgFacts(r.org)}<a class="btn sm ghost" href="${esc(r.org.url)}" target="_blank" rel="noopener">${icon("external", "sm")} Abrir en Pipedrive</a>`;
+    // primero lo que dice que no es esta (rojo), después lo que conviene revisar (ámbar)
+    q("#coWarn").innerHTML = (r.warnings || []).map(w => callout(w.level === "err" ? "err" : "warn", w.text)).join("");
+    orgName = r.org.name || orgName;
+  }).catch(e => { q("#coOrg").innerHTML = callout("err", `No pude traer lo que dice Pipedrive: ${e.message}`); })
+    .finally(() => { if (m.isConnected) q("#coGo").disabled = false; });
+  q("#coGo").onclick = async e => {
+    const go = e.currentTarget; go.disabled = true; go.innerHTML = `<span class="spin"></span> Vinculando…`;
+    // mientras vincula y busca duplicadas, no se cierra (Esc o tocar afuera lo cerraban sin avisar el resultado)
+    m.locked = true; q("#coX").disabled = q("#coNo").disabled = true;
+    let d;
+    try { d = await api(`${url}/match`, { body: { orgId, orgName } }); }
+    catch (err) { m.locked = false; q("#coX").disabled = q("#coNo").disabled = false; go.disabled = false; go.innerHTML = `${icon("check")} Sí, es esta`; return toast(err.message, { type: "err" }); }
+    afterLink(s, d);
+    q(".modal-box").innerHTML = `<div class="modal-h"><h3>${icon("checkCircle")} Vinculado a ${esc(orgName)}</h3></div><p class="muted" style="margin:0"><span class="spin"></span> Buscando si está cargada más de una vez…</p>`;
+    let r;
+    try { r = await api(`${url}/dupes`); }
+    catch (err) { m.close(); return toast(`Vinculado a «${orgName}». No pude buscar duplicadas: ${err.message}`, { type: "info", ms: 8000 }); }
+    seenDupes(s, r);
+    if (!r.dupes?.length) { m.close(); return toast(noDupesMsg(orgName, r), r.stop ? { type: "info", ms: 9000 } : {}); }
+    m.locked = false;
+    mergeStep(s, m, r, { linked: true });
+  };
+}
+// lo que encontró /dupes también lo guarda el servidor (dupeCount): la ficha de atrás muestra «Parece cargada N veces más»
+function seenDupes(s, r) {
+  const n = r.stop ? 0 : r.dupes?.length || 0;
+  if (D.id === s.id && D.data?.match && (D.data.match.dupeCount || 0) !== n) { D.data.match.dupeCount = n; keepScroll(draw); }
+}
+// «Revisar» desde la ficha (Parece cargada N veces más): la misma pregunta, sin volver a vincular
+async function reviewDupes(s, anchor) {
+  const m = modal(`<div class="modal-h"><h3>${icon("merge")} Buscando duplicadas…</h3></div><p class="muted" style="margin:0"><span class="spin"></span> Buscando si está cargada más de una vez…</p>`, { locked: true, onClose: () => anchor?.isConnected && anchor.focus() });
+  m.querySelector(".modal-box").classList.add("mid");
+  let r;
+  try { r = await api(`/api/schools/${encodeURIComponent(s.id)}/dupes`); }
+  catch (err) { m.close(); return toast(`No pude buscar duplicadas: ${err.message}`, { type: "err" }); }
+  seenDupes(s, r);
+  if (!r.dupes?.length) { m.close(); return toast(r.stop ? `${r.stop}.` : "Ya no hay otras organizaciones para fusionar", { type: "info", ms: r.stop ? 9000 : 4200 }); }
+  m.locked = false;
+  mergeStep(s, m, r, { linked: false });
+}
+// qué dice cada organización en «¿Querés fusionar?»: ciudad, dueño, tratos, prospectos, pendientes, personas e id
+const orgSub = o => [placeOf(o) || "sin ciudad en Pipedrive", o.owner ? `de ${o.owner}` : o.ownerId ? "de otra persona" : "libre",
+  o.deals.length ? plural(o.deals.length, "trato", "tratos") + ` (${[...new Set(o.deals.map(x => DEAL_ST[x.status] || x.status))].join(", ")})` : "sin tratos",
+  o.leads == null ? "" : o.leads.length ? plural(o.leads.length, "prospecto", "prospectos") : "",
+  o.acts?.length ? plural(o.acts.length, "pendiente", "pendientes") : "",
+  o.persons == null ? "" : !o.persons ? "sin personas" : plural(o.personsMore ? 20 : o.persons, "persona", "personas") + (o.personsMore ? " o más" : ""), `id ${o.id}`].filter(Boolean).join(" · ");
+// «También hay «Instituto Valladolid Primaria» en Morelia y «Colegio Valladolid» en Aguascalientes, Mexicali y 6 más»
+const joinY = l => l.length > 1 ? `${l.slice(0, -1).join(", ")} y ${l.at(-1)}` : l[0] || "";
+const citiesTxt = c => c.length > 3 ? `${c.slice(0, 2).join(", ")} y ${c.length - 2} más` : joinY(c);
+function elsewhereTxt(o) {
+  const g = o.elsewhereAt || [];
+  if (!g.length) return o.elsewhere ? `hay ${plural(o.elsewhere, "colegio", "colegios")} con este nombre en otras ciudades` : "";
+  const parts = g.slice(0, 3).map(x => `«${x.name}» en ${x.cities.length ? citiesTxt(x.cities) : "otra ciudad"}`);
+  const rest = g.slice(3).reduce((n, x) => n + Math.max(1, x.cities.length), 0);
+  return `también hay ${joinY(rest ? [...parts, `${plural(rest, "colegio", "colegios")} más`] : parts)}`;
+}
+// lo bloqueado: qué hacer (un cliente ya dice que lo fusiona un líder; si no se pudo leer, probar después)
+const blockHint = b => /líder/.test(b) ? "" : /^No pude/.test(b) ? ": probá de nuevo en un rato" : ": avisale a esa persona o a un líder";
+function mergeStep(s, m, r, { linked = true } = {}) {
+  const q = sel => m.querySelector(sel), k = r.keep;
+  q(".modal-box").classList.add("mid");
+  q(".modal-box").innerHTML = `<div class="modal-h"><h3>${icon("merge")} ¿Querés fusionar?</h3><button class="icon-btn" id="mgX" aria-label="Cerrar">${icon("x")}</button></div>
+    <p class="muted" style="margin:-6px 0 0">${linked ? "Quedó vinculado. " : ""}${r.dupes.length === 1 ? "Esta organización parece el mismo colegio" : "Estas organizaciones parecen el mismo colegio"}. Las que marques pasan a la que queda.</p>
+    <div class="dup keep"><span class="dup-b"><span class="dup-k">Queda</span><b>${esc(k.name)}</b>${k.client ? ` <span class="tag">Cliente</span>` : ""}<small>${esc(orgSub(k))}</small></span>
+      <a class="icon-btn" href="${esc(k.url)}" target="_blank" rel="noopener" aria-label="Abrir ${esc(k.name)} en Pipedrive" title="Abrir en Pipedrive">${icon("external")}</a></div>
+    <div class="dups" role="group" aria-label="Organizaciones para fusionar">${r.dupes.map(o => `<div class="dup${o.block ? " off" : ""}"><label><input type="checkbox" data-mid="${o.id}" ${o.block ? "disabled" : o.sameCity ? "checked" : ""}>
+      <span class="dup-b"><b>${esc(o.name)}</b>${o.client ? ` <span class="tag">Cliente</span>` : ""}<small>${esc(orgSub(o))}</small>
+      ${o.block ? `<small class="dup-lock">${icon("lock", "sm")}<span>${esc(o.block + blockHint(o.block))}</span></small>` : !o.sameCity ? `<small class="dup-why">${icon("alert", "sm")}<span>${esc(`No dice la ciudad${o.elsewhere ? ` y ${elsewhereTxt(o)}` : ""}: fijate que sea este.`)}</span></small>` : ""}</span></label>
+      <a class="icon-btn" href="${esc(o.url)}" target="_blank" rel="noopener" aria-label="Abrir ${esc(o.name)} en Pipedrive" title="Abrir en Pipedrive">${icon("external")}</a></div>`).join("")}</div>
+    ${callout("warn", `Las marcadas se borran de Pipedrive y todo (tratos, prospectos, personas, notas y actividades) pasa a «${k.name}» (id ${k.id}). No se puede deshacer.`)}
+    ${r.keepBlock ? callout("err", `«${k.name}»: ${r.keepBlock}. Avisale a esa persona o a un líder.`) : r.dupes.some(o => o.client) ? `<div class="callout info">${icon("alert")}<span>Hay un cliente: revisá que sea la misma sede antes de fusionar.</span></div>` : ""}
+    <div class="row"><button class="btn ghost" id="mgNo">No fusionar</button><button class="btn primary" id="mgGo">${icon("merge")} Fusionar</button></div>`;
+  const boxes = [...m.querySelectorAll("[data-mid]")], go = q("#mgGo");
+  const check = () => { go.disabled = !!r.keepBlock || !boxes.some(b => b.checked); };
+  boxes.forEach(b => b.onchange = check); check();
+  // sin fusionar: la ficha sigue mostrando «Parece cargada N veces más · Revisar»
+  q("#mgX").onclick = q("#mgNo").onclick = () => { m.close(); toast(`${linked ? `Vinculado a «${k.name}». ` : ""}Podés fusionar después desde la ficha.`, { type: "info" }); };
+  (boxes.find(b => !b.disabled) || q("#mgNo")).focus();
+  go.onclick = async () => {
+    const mergeIds = boxes.filter(b => b.checked).map(b => +b.dataset.mid);
+    go.disabled = true; go.innerHTML = `<span class="spin"></span> Fusionando…`; boxes.forEach(b => b.disabled = true);
+    // mientras fusiona, no se cierra: la fusión sigue igual en Pipedrive y no se vería el resultado
+    m.locked = true; q("#mgX").disabled = q("#mgNo").disabled = true;
+    try {
+      const x = await api(`/api/schools/${encodeURIComponent(s.id)}/merge-orgs`, { body: { keepId: k.id, mergeIds } });
+      if (x.school) patchSchool(x.school);
+      m.locked = false;
+      if (m.isConnected) {
+        q(".modal-box").innerHTML = `<div class="modal-h"><h3>${icon("checkCircle")} ${x.done.some(y => y.warn) ? "Fusionado en parte" : "Listo"}</h3></div>${writesList(x.done)}<button class="btn primary block" id="mgOk">Listo</button>`;
+        q("#mgOk").onclick = () => m.close(); q("#mgOk").focus();
+      } else toast(`Listo: ${x.done[0]?.label || "fusionado"}`, { type: x.done.some(y => y.warn) ? "info" : "", ms: 9000 });
+      HIST.delete(s.id); SEDES.delete(s.id); S.today = null; S.agenda = null;
+      if (D.id === s.id) load({ refresh: true });
+    } catch (err) {
+      m.locked = false; q("#mgX").disabled = q("#mgNo").disabled = false;
+      toast(err.message, { type: "err" });
+      boxes.forEach((b, i) => b.disabled = !!r.dupes[i].block); go.innerHTML = `${icon("merge")} Fusionar`; check();
+    }
+  };
 }
 
 // ---------- Registrar
