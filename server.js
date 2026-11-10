@@ -202,18 +202,20 @@ app.post("/api/scan/city", auth, wrap(async (req, res) => {
   const c = { name: String(city.name).slice(0, 80), lat: +city.lat, lng: +city.lng, pop: Math.max(0, Number(city.pop) || 0) };
   const els = await scan.scanCity(cc, c, { deadline: Date.now() + 200e3, reserve: 5, attempts: 3 });
   const idx = scan.buildIndex(schools), fresh = [];
-  let updated = 0;
+  let updated = 0; const seen = [];
   const today = new Date().toISOString().slice(0, 10);
   for (const e of els) {
     const s = scan.fromOsm(e, c, cc, String(country || cc).slice(0, 60), today); if (!s) continue;
-    if (scan.matchExisting(schools, idx, s)) { updated++; continue; }
+    const k = scan.matchExisting(schools, idx, s);
+    if (k) { updated++; if (seen.length < 600 && byId.has(k.x.id)) seen.push(sales.schoolListItem(byId.get(k.x.id))); continue; }
     // se arma el registro igual que en el radar, con id único
     const tmp = []; const rec = scan.addTo(tmp, { ...idx, ids: new Set([...idx.ids, ...fresh.map(x => x.id)]), osm: idx.osm, byName: idx.byName }, s);
     rec.src = "buscador"; rec.addedBy = req.session.user.email;
     fresh.push(rec);
   }
   const added = addSchools(fresh);
-  res.json({ city: c.name, found: els.length, added: added.map(sales.schoolListItem), known: updated });
+  // «seen»: los que ya estaban, para que el navegador los tenga aunque otra instancia los haya sumado
+  res.json({ city: c.name, found: els.length, added: added.map(sales.schoolListItem), known: updated, seen });
 }));
 
 // Radar: lo que encontró el agente de prospección (scripts/radar.mjs).

@@ -78,8 +78,9 @@ async function start(place, cities) {
     for (let attempt = 0; attempt < 2 && !ok && !job.cancel; attempt++) {
       try {
         const r = await api("/api/scan/city", { body: { cc: place.cc, country: place.country, city: cities[job.i] } });
-        r.added.forEach(patchSchool); job.added += r.added.length; job.found += r.found; ok = true;
-        if (r.added.length) refresh();
+        const before = S.schools.length;
+        r.added.forEach(patchSchool); (r.seen || []).forEach(patchSchool); job.added += r.added.length; job.found += r.found; ok = true;
+        if (r.added.length || S.schools.length > before) refresh();
       } catch (e) { if (attempt) { job.errors++; job.lastError = e.message; } else await new Promise(res => setTimeout(res, 4000)); }
     }
   }
@@ -95,7 +96,7 @@ function drawJob() {
   const n = job.cities.length, pct = Math.round(Math.min(job.i, n) / n * 100);
   const city = job.cities[Math.min(job.i, n - 1)]?.name || "";
   el.innerHTML = `<div class="sj-bar"><span style="width:${job.running ? pct : 100}%"></span></div>
-    <div class="sj-row">${job.running ? `<span class="spin"></span>` : icon("checkCircle")}<div class="sj-t"><b>${job.running ? `Buscando en ${esc(job.label)}` : `${esc(job.label)}: listo`}</b><small>${job.running ? `${esc(city)} · ${fmt(job.i)}/${fmt(n)} ciudades · ` : ""}${fmt(job.added)} colegios nuevos</small></div>
+    <div class="sj-row">${job.running ? `<span class="spin"></span>` : icon("checkCircle")}<div class="sj-t"><b>${job.running ? `Buscando en ${esc(job.label)}` : `${esc(job.label)}: listo`}</b><small>${job.running ? `${esc(city)} · ${fmt(job.i)}/${fmt(n)} ciudades · ` : ""}${fmt(job.added)} colegios nuevos${job.errors ? ` · ${fmt(job.errors)} sin respuesta` : ""}</small></div>
     <button class="btn sm" id="sjSee">Ver</button>${job.running ? `<button class="btn sm ghost" id="sjStop">Cancelar</button>` : `<button class="icon-btn" id="sjX" aria-label="Cerrar">${icon("x")}</button>`}</div>`;
   el.querySelector("#sjSee").onclick = () => {
     S.explore.country = job.place.country; S.explore.city = job.place.kind === "city" ? job.place.city.name : null; S.explore.q = ""; S.explore.filter = "prospect";
