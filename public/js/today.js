@@ -34,7 +34,7 @@ function draw() {
   const acts = (activities.items || []).map(a => ({ ...a, ...localAct(a) }));
   const late = acts.filter(a => a.date < t), now = acts.filter(a => a.date === t), soon = acts.filter(a => a.date > t && a.date <= addDays(t, 7));
   const pct = Math.min(100, Math.round(stats.todayTouches / Math.max(1, stats.goal) * 100));
-  const fresh = queue.filter(q => q.status !== "lost"), revive = queue.filter(q => q.status === "lost");
+  const fresh = queue.filter(q => q.status !== "lost" && q.status !== "stalled"), revive = queue.filter(q => q.status === "lost" || q.status === "stalled");
   const sessionCount = new Set([...late, ...now].filter(a => a.schoolId).map(a => a.schoolId)).size + Math.min(queue.length, 25);
   const left = Math.max(0, stats.goal - stats.todayTouches);
   const msg = !left ? "Meta cumplida. Lo que sumes ahora es extra."

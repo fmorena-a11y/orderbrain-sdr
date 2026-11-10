@@ -5,9 +5,9 @@ import { baseErrorCallout } from "./app.js";
 
 const E = S.explore;
 // «Para llamar»: todo lo que no es cliente ni está en proceso (incluye los que todavía no se cruzaron con Pipe).
-const CALLABLE = ["new", "org", "lost", "unk"];
-const FILTERS = [["prospect", "Para llamar"], ["new", "Nunca contactado"], ["org", "En Pipe sin trato"], ["lost", "Perdido"], ["unk", "Sin revisar"], ["open", "En proceso"], ["client", "Cliente"], ["all", "Todos"]];
-const RANK = { new: 0, org: 1, lost: 2, unk: 3, open: 4, client: 5 };
+const CALLABLE = ["new", "org", "stalled", "lost", "unk"];
+const FILTERS = [["prospect", "Para llamar"], ["new", "Nunca contactado"], ["org", "En Pipe sin trato"], ["stalled", "Contactado sin avance"], ["lost", "Perdido"], ["unk", "Sin revisar"], ["open", "En proceso"], ["client", "Cliente"], ["all", "Todos"]];
+const RANK = { new: 0, org: 1, stalled: 2, lost: 3, unk: 4, open: 5, client: 6 };
 // Colores fijos para los círculos de ciudad: el número en blanco se lee igual en modo claro y oscuro.
 const CITY = { pros: "#00813A", unk: "#6B6B73", none: "#3F3F46" };
 const PAGE = 150;
@@ -163,6 +163,7 @@ function schoolRow(s) {
   if (s.lastTouch) bits.push(`${s.lastTouch.outcome} ${ago(s.lastTouch.at)}`);
   else if (s.ob?.churn) bits.push("ex cliente OrderEAT");
   else if (s.status === "lost" && s.detail) bits.push(s.detail.replace(/^Perdido \d{4}-\d{2}-\d{2}( · )?/, "") || "Perdido");
+  else if (s.status === "stalled" && s.detail) bits.push(s.detail.replace(/^Contactado \d{4}-\d{2}-\d{2}, sin avance( · )?/, "") || "sin avance");
   if (s.attempts) bits.push(`${s.attempts} intento${s.attempts > 1 ? "s" : ""}`);
   if (!s.phone) bits.push("sin teléfono");
   const single = E.filter !== "prospect" && E.filter !== "all";
@@ -257,7 +258,7 @@ function drawMap({ fit = true } = {}) {
   if ((!E.city && !E.q && !placeMode()) || grouped) {
     citiesOf(grouped ? placeList() : scope()).forEach(c => {
       const lat = c.items.reduce((a, s) => a + s.lat, 0) / c.items.length, lng = c.items.reduce((a, s) => a + s.lng, 0) / c.items.length;
-      const pros = c.items.filter(s => ["new", "org", "lost"].includes(s.status)).length, unk = c.items.filter(s => s.status === "unk").length;
+      const pros = c.items.filter(s => ["new", "org", "stalled", "lost"].includes(s.status)).length, unk = c.items.filter(s => s.status === "unk").length;
       const n = pros || unk || c.items.length, col = pros ? CITY.pros : unk ? CITY.unk : CITY.none, size = Math.min(56, 24 + Math.sqrt(n) * 3);
       L.marker([lat, lng], { icon: L.divIcon({ className: "", iconSize: [size, size], html: `<div class="citydot" style="width:${size}px;height:${size}px;background:${col}">${n > 999 ? Math.round(n / 1000) + "k" : n}</div>` }), title: c.city, keyboard: true })
         .on("click", () => openCity(c.country, c.city)).bindTooltip(esc(`${c.city}: ${pros ? `${pros} para llamar` : unk ? `${unk} sin revisar` : "sin colegios para llamar"}`)).addTo(layer);

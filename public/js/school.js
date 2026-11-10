@@ -625,7 +625,7 @@ function bindHist(s, d) {
 function templateMenu(anchor, s, d, channel, to = {}) {
   if (!d) return toast(D.err ? "No se pudo cargar la ficha. Tocá Reintentar." : "Cargando la ficha…", { type: D.err ? "err" : "info" });
   const list = d.templates.filter(t => t.channel === channel);
-  const recommended = channel === "whatsapp" ? (s.status === "lost" ? "reactivate" : d.attempts ? "after_call" : "intro") : (s.status === "lost" ? "mail_reactivate" : "mail_info");
+  const recommended = channel === "whatsapp" ? (s.status === "lost" || s.status === "stalled" ? "reactivate" : d.attempts ? "after_call" : "intro") : (s.status === "lost" || s.status === "stalled" ? "mail_reactivate" : "mail_info");
   list.sort((a, b) => (b.id === recommended) - (a.id === recommended));
   openMenu(anchor, [{ head: channel === "whatsapp" ? "Mensaje de WhatsApp" : "Mail desde Gmail" },
     ...list.map(t => ({ label: t.label + (t.id === recommended ? " · sugerido" : ""), sub: channel === "mail" ? t.subject || "" : t.text.split("\n").find(x => x.length > 12) || t.text, fn: () => {

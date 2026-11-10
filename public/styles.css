@@ -8,7 +8,7 @@
   --ok: #00813A; --ok-soft: #E0F7E7; --warn: #8A5A00; --warn-soft: #FFF5DB; --err: #B91C1C; --err-soft: #FEECEC;
   --st-new: #007535;   --st-new-bg: #E3F6EA;
   --st-org: #1D4ED8;   --st-org-bg: #E6EEFF;
-  --st-lost: #A15C00;  --st-lost-bg: #FFF1DC;
+  --st-lost: #A15C00;  --st-lost-bg: #FFF1DC; --st-stalled: #4B5E78; --st-stalled-bg: #E7EDF5;
   --st-open: #6D28D9;  --st-open-bg: #F0E9FF;
   --st-client: #52525B; --st-client-bg: #EEEEF0;
   --st-unk: #62626A;   --st-unk-bg: #F1F1F3;
@@ -27,7 +27,7 @@
     --accent: #E0153F; --accent-hover: #F02A52; --accent-soft: #3A1620; --accent-ink: #FF7A90;
     --ok: #4ADE80; --ok-soft: #12301D; --warn: #FBBF24; --warn-soft: #33270A; --err: #F87171; --err-soft: #3A1515;
     --st-new: #4ADE80; --st-new-bg: #12301D; --st-org: #7AA2FF; --st-org-bg: #17213D;
-    --st-lost: #FBBF24; --st-lost-bg: #33270A; --st-open: #B794FF; --st-open-bg: #261A40;
+    --st-lost: #FBBF24; --st-lost-bg: #33270A; --st-stalled: #9FB3CC; --st-stalled-bg: #1E2733; --st-open: #B794FF; --st-open-bg: #261A40;
     --st-client: #A1A1AA; --st-client-bg: #26272B; --st-unk: #8A8A93; --st-unk-bg: #222327;
     --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 8px 24px -8px rgb(0 0 0 / .6);
     --shadow-lg: 0 24px 60px -12px rgb(0 0 0 / .7);
@@ -41,7 +41,7 @@
   --accent: #E0153F; --accent-hover: #F02A52; --accent-soft: #3A1620; --accent-ink: #FF7A90;
   --ok: #4ADE80; --ok-soft: #12301D; --warn: #FBBF24; --warn-soft: #33270A; --err: #F87171; --err-soft: #3A1515;
   --st-new: #4ADE80; --st-new-bg: #12301D; --st-org: #7AA2FF; --st-org-bg: #17213D;
-  --st-lost: #FBBF24; --st-lost-bg: #33270A; --st-open: #B794FF; --st-open-bg: #261A40;
+  --st-lost: #FBBF24; --st-lost-bg: #33270A; --st-stalled: #9FB3CC; --st-stalled-bg: #1E2733; --st-open: #B794FF; --st-open-bg: #261A40;
   --st-client: #A1A1AA; --st-client-bg: #26272B; --st-unk: #8A8A93; --st-unk-bg: #222327;
   --shadow: 0 1px 2px rgb(0 0 0 / .4), 0 8px 24px -8px rgb(0 0 0 / .6);
   --shadow-lg: 0 24px 60px -12px rgb(0 0 0 / .7);
@@ -108,6 +108,7 @@ textarea.inp { min-height: 88px; resize: vertical; line-height: 1.45; }
 .pill.new { color: var(--st-new); background: var(--st-new-bg); }
 .pill.org { color: var(--st-org); background: var(--st-org-bg); }
 .pill.lost { color: var(--st-lost); background: var(--st-lost-bg); }
+.pill.stalled { color: var(--st-stalled); background: var(--st-stalled-bg); }
 .pill.open { color: var(--st-open); background: var(--st-open-bg); }
 .pill.client { color: var(--st-client); background: var(--st-client-bg); }
 .pill.unk { color: var(--st-unk); background: var(--st-unk-bg); }

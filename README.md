@@ -76,6 +76,19 @@ Cada colegio nuevo pasa por un control antes de entrar a la base (`lib/enrich.js
 
 El indicador de abajo muestra el avance (verificados, nuevos y descartados con el motivo) y **Cancelar** corta en el acto: lo que estaba a medio verificar no entra. Endpoints: `POST /api/scan/resolve` (lugar con contorno), `/api/scan/cities`, `/api/scan/city` (candidatos firmados, no guarda) y `/api/scan/verify` (verifica y guarda). Los colegios nuevos quedan en Redis (`schools:extra`) y los ve todo el equipo; sin Redis viven en la memoria de una instancia y la app lo avisa.
 
+## Estados de cada colegio
+
+| Estado | Qué significa | De dónde sale |
+|---|---|---|
+| Nunca contactado | No figura en Pipedrive | Pipedrive |
+| En Pipe sin trato | La organización existe pero nunca tuvo un trato | Pipedrive |
+| Contactado sin avance | Se lo contactó y no se llegó a mandar propuesta | Trato perdido antes de PROPOSAL SENT |
+| Propuesta enviada | La propuesta está mandada y el trato sigue abierto | Etapa PROPOSAL SENT |
+| Perdido | Se mandó la propuesta y no se cerró | Trato perdido en PROPOSAL SENT, CLOSING, HOT DEALS o negociación |
+| Onboarding | Se está capacitando al personal y poniéndolo en marcha | World Dominion (o embudo ONBOARDING) |
+| Activo | Ya funciona con OrderEAT | World Dominion (o embudos de clientes) |
+| Churn | Era cliente y se cayó | World Dominion (o etapa Churn) |
+
 ## Clientes de OrderEAT (World Dominion)
 
 Con `BRAIN_TOKEN` la app lee los sitios de World Dominion en OrderBrain general (`brain.ordereat.com/api/sites` y `/api/clients`) cada 15 minutos (`lib/brain.js`) y los cruza con la base: mismo Google Place, mismo predio (menos de 60 m) o nombre parecido a menos de 300 m.

@@ -118,7 +118,7 @@ export const TYPE_ICON = { call: "phone", meeting: "video", deadline: "whatsapp"
 // ---------- estados de colegio
 export const ST = {
   new: { l: "Nunca contactado", c: "--st-new" }, org: { l: "En Pipe sin trato", c: "--st-org" },
-  lost: { l: "Perdido", c: "--st-lost" }, open: { l: "En proceso", c: "--st-open" },
+  lost: { l: "Perdido", c: "--st-lost" }, stalled: { l: "Contactado sin avance", c: "--st-stalled" }, open: { l: "En proceso", c: "--st-open" },
   client: { l: "Cliente", c: "--st-client" }, unk: { l: "Sin revisar", c: "--st-unk" },
 };
 export const cssVar = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
