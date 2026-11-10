@@ -961,7 +961,7 @@ details.agent summary .sub { order: 3; }
 .mx-bar { display: grid; grid-template-columns: minmax(0, 13em) minmax(0, 1fr) minmax(2.5em, auto); gap: 10px; align-items: center; font-size: 13.5px; }
 .mx-bar .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink-2); }
 .mx-bar .track { height: 10px; display: block; }
-.mx-bar .fill { display: block; height: 100%; border-radius: 0 4px 4px 0; background: var(--st-org); }
+.mx-bar .fill { display: block; height: 100%; border-radius: 0 4px 4px 0; background: var(--info); }
 .mx-bar b { font-variant-numeric: tabular-nums; text-align: right; font-weight: 600; }
 @media (max-width: 480px) { .mx-bar { grid-template-columns: minmax(0, 1fr) auto; row-gap: 3px; } .mx-bar .track { grid-column: 1 / -1; grid-row: 2; } }
 .mx-stages { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px; color: var(--ink-2); }
