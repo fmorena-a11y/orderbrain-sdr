@@ -6838,7 +6838,9 @@
   "VE|n313507005": "2026-11-10T14:17:10.449Z",
   "DO|n3710926351": "2026-11-10T14:17:45.258Z",
   "AR|Corrientes": "2026-11-10T14:18:22.606Z",
-  "PE|Cuzco": "2026-11-10T14:19:02.254Z"
+  "PE|Cuzco": "2026-11-10T14:19:02.254Z",
+  "MX|Nuevo Laredo": "2026-11-10T14:55:59.819Z",
+  "DO|n2322572886": "2026-11-10T14:56:43.597Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -6850,9 +6852,45 @@
    "n": 1,
    "at": "2026-11-10T11:46:00.662Z",
    "error": "The operation was aborted due to timeout"
+  },
+  "MX|Veracruz": {
+   "n": 1,
+   "at": "2026-11-10T15:07:26.050Z",
+   "error": "Overpass 504"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-10T14:55:22.843Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Nuevo Laredo",
+     "found": 6,
+     "updated": 0,
+     "osm": 43
+    },
+    {
+     "cc": "DO",
+     "city": "Santo Domingo Oeste",
+     "found": 1,
+     "updated": 0,
+     "osm": 337
+    }
+   ],
+   "added": 7,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 4,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "MX|Veracruz: Overpass 504",
+    "AR|Santa Fe: sin tiempo en esta corrida"
+   ],
+   "minutes": 19.3,
+   "total": 14054
+  },
   {
    "at": "2026-11-10T14:06:06.344Z",
    "cities": [

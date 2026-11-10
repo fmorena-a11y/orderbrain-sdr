@@ -24350,7 +24350,7 @@
   "lat": -33.490642,
   "lng": -70.669845,
   "addr": "Balakireff 4631",
-  "phone": "",
+  "phone": "+569225225128",
   "web": "https://www.escuelalaronda.cl/",
   "email": "sensapaz@yahoo.es",
   "levels": [],
@@ -24362,7 +24362,8 @@
   "src": "osm",
   "osm": "n906403106",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-padre-hurtado-de-pudahuel",
@@ -24640,7 +24641,7 @@
   "lat": -33.482431,
   "lng": -70.665366,
   "addr": "Enrique Matte 2150",
-  "phone": "",
+  "phone": "+56232685130",
   "web": "https://colegioalessandri.cl/",
   "email": "escuela30@terra.cl",
   "levels": [],
@@ -24651,7 +24652,8 @@
   "src": "osm",
   "osm": "n906407588",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-liceo-de-adultos-luis-gomez-catalan",
@@ -26440,7 +26442,7 @@
   "lat": -33.528564,
   "lng": -70.635221,
   "addr": "Avenida Santa Rosa 7766",
-  "phone": "",
+  "phone": "+569 5819 5443",
   "web": "https://www.hogardecristo.cl/sumate/colegio-betania/",
   "email": "sandra.diaz@fupal.cl",
   "levels": [],
@@ -26451,7 +26453,9 @@
   "src": "osm",
   "osm": "n906421396",
   "found": "2026-11-09",
-  "img": "https://hogardecristo.cl/sumate/wp-content/uploads/2026/10/Banner-Colegio-Betania-scaled-e1792761075435.jpg"
+  "img": "https://hogardecristo.cl/sumate/wp-content/uploads/2026/10/Banner-Colegio-Betania-scaled-e1792761075435.jpg",
+  "whatsapp": "+56953700444",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-escuela-particular-javiera-carrera",
@@ -26936,7 +26940,8 @@
   "src": "osm",
   "osm": "n906424217",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-el-encuentro",
@@ -27262,7 +27267,7 @@
   "lat": -33.454796,
   "lng": -70.630956,
   "addr": "Porvenir 56",
-  "phone": "",
+  "phone": "+56222224779",
   "web": "https://cap.educacionadventista.com/",
   "email": "colegio.porvenir@gmail.com",
   "levels": [],
@@ -27273,7 +27278,8 @@
   "src": "osm",
   "osm": "n906431470",
   "found": "2026-11-09",
-  "img": "https://cap.educacionadventista.com/assets/images/fachada-padrao.jpg"
+  "img": "https://cap.educacionadventista.com/assets/images/fachada-padrao.jpg",
+  "webAt": "2026-11-10"
  },
  {
   "id": "santiago-colegio-oratorio-don-bosco",
@@ -284523,6 +284529,148 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1031992961",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "nuevo-laredo-instituto-de-ciencias-y-estudios-superiores-de-tamaulipas",
+  "name": "Instituto De Ciencias Y Estudios Superiores De Tamaulipas",
+  "city": "Nuevo Laredo",
+  "country": "México",
+  "lat": 27.456511,
+  "lng": -99.527202,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5721429070",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "nuevo-laredo-upn-universidad-pedagogica-nacional-unidad-284-de-nuevo-laredo",
+  "name": "UPN Universidad Pedagógica Nacional, Unidad 284 de Nuevo Laredo",
+  "city": "Nuevo Laredo",
+  "country": "México",
+  "lat": 27.487087,
+  "lng": -99.506135,
+  "addr": "",
+  "phone": "+52 867 712 4712",
+  "web": "http://www.lef.upn.mx/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5758616988",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "nuevo-laredo-preparatoria-municipal-de-nuevo-laredo-jose-vasconcelos",
+  "name": "Preparatoria Municipal de Nuevo Laredo José Vasconcelos",
+  "city": "Nuevo Laredo",
+  "country": "México",
+  "lat": 27.461802,
+  "lng": -99.540666,
+  "addr": "Boulevard Municipio Libre",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7192937685",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "nuevo-laredo-universidad-tecnologica-de-nuevo-laredo-tamaulipas",
+  "name": "Universidad Tecnológica de Nuevo Laredo Tamaulipas",
+  "city": "Nuevo Laredo",
+  "country": "México",
+  "lat": 27.462924,
+  "lng": -99.600747,
+  "addr": "",
+  "phone": "+52 867 890 0000",
+  "web": "http://www.utnuevolaredo.edu.mx/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w609105173",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "nuevo-laredo-new-land-elementary-school",
+  "name": "New Land Elementary School",
+  "city": "Nuevo Laredo",
+  "country": "México",
+  "lat": 27.494849,
+  "lng": -99.519229,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1182056071",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "nuevo-laredo-colegio-johann-gutemberg-a-c",
+  "name": "Colegio Johann Gutemberg A.C.",
+  "city": "Nuevo Laredo",
+  "country": "México",
+  "lat": 27.484783,
+  "lng": -99.509476,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1182074087",
+  "found": "2026-11-10"
+ },
+ {
+  "id": "santo-domingo-oeste-liceo-hato-dama",
+  "name": "Liceo  Hato Dama",
+  "city": "Santo Domingo Oeste",
+  "country": "República Dominicana",
+  "lat": 18.477764,
+  "lng": -70.108178,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w468790300",
   "found": "2026-11-10"
  }
 ]
