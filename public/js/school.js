@@ -205,10 +205,38 @@ async function load(opts = {}) {
     else d = await api(`/api/schools/${id}${opts.refresh ? "?refresh=1" : ""}`);
     if (D.id !== id) return;
     D.data = d; D.err = null; patchSchool(d.school);
+    loadSedes(id);
     const why = S.session && !opts.refresh && opts.match === undefined && skipReason(d.school, !!D.activityId && myDeal(d.match));
     if (why) { toast(`${d.school.name}: ${why}, lo salteé`); return sessionGo(1); }
   } catch (e) { if (D.id === id) D.err = e.message; }
   if (D.id === id) draw();
+}
+
+// ---------- sedes del colegio (planteles): se piden aparte para no demorar la ficha
+const SEDES = new Map();
+async function loadSedes(id) {
+  const c = SEDES.get(id); if (c && (c.loading || Date.now() - c.at < 10 * 60e3)) return;
+  SEDES.set(id, { loading: true, at: Date.now() });
+  try { SEDES.set(id, { v: await api(`/api/schools/${encodeURIComponent(id)}/sedes`), at: Date.now() }); }
+  catch { SEDES.delete(id); return; }
+  if (D.id === id && SEDES.get(id)?.v?.sedes?.length) keepScroll(draw);
+}
+const sedesOf = id => SEDES.get(id)?.v?.sedes || [];
+function sedesSec(s) {
+  const L = sedesOf(s.id); if (!L.length) return "";
+  const link = (u, t) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a>`;
+  return `<section class="sec" id="sedes"><h3><span class="l">${icon("building")} ${L.length} sedes</span></h3>
+    <div class="sedes">${L.map(z => `<div class="sede${z.here ? " here" : ""}">
+      <div class="sede-h"><b>${esc(z.name)}</b>${z.here ? `<span class="tag">esta ficha</span>` : ""}${z.ownerId && z.ownerId !== S.me.pdUserId ? `<span class="tag">de ${esc(z.owner || "otra persona")}</span>` : ""}</div>
+      ${z.phones.map(p => `<div class="sede-row"><a class="sede-tel" href="${esc(telLink(p))}">${icon("phone", "sm")} ${esc(p)}</a>${p.replace(/\D/g, "").length >= 10 ? `<button class="linkbtn" data-sdwa="${esc(p)}">WhatsApp</button>` : ""}</div>`).join("")}
+      ${z.emails.map(e => `<div class="sede-row"><button class="linkbtn" data-sdmail="${esc(e)}">${icon("mail", "sm")} ${esc(e)}</button></div>`).join("")}
+      ${z.addr ? `<div class="sede-row"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(z.addr)}" target="_blank" rel="noopener">${icon("map", "sm")} ${esc(z.addr)}</a></div>` : ""}
+      ${!z.phones.length && !z.emails.length && !z.addr ? `<div class="sede-row faint">Sin teléfono ni dirección cargados.</div>` : ""}
+      <div class="sede-f">${[z.url && link(z.url, "Organización en Pipedrive"), ...z.leads.map((l, i) => link(l.url, `Prospecto${z.leads.length > 1 ? ` ${i + 1}` : ""}${l.archived ? " (archivado)" : ""}`)),
+        z.schoolId && !z.here ? `<button class="linkbtn" data-sdopen="${esc(z.schoolId)}">Abrir su ficha</button>` : "", `Fuente: ${esc(z.src.join(", "))}`].filter(Boolean).join(" · ")}</div>
+    </div>`).join("")}</div>
+    ${L.some(z => z.src.includes("Web")) ? `<p class="faint" style="margin:8px 0 0;font-size:12.5px">Los números de la web van como los publica el colegio, sin código de área.</p>` : ""}
+  </section>`;
 }
 
 // ---------- sesión de llamadas
@@ -343,7 +371,8 @@ function draw() {
   const el = $("drawer"); if (!D.id) return;
   const fk = el.contains(document.activeElement) ? focusKey(document.activeElement) : null;
   const s = S.byId.get(D.id), d = D.data, m = d?.match, ss = S.session;
-  const phone = s.phone || "";
+  const here = sedesOf(s.id).find(z => z.here), sedePhones = sedesOf(s.id).filter(z => z.phones.length).length;
+  const phone = s.phone || here?.phones[0] || "";
   const mk = d?.market || S.markets[s.country] || {};
   const nHist = d ? (d.notes?.length || 0) + (d.touches?.length || 0) : 0;
   const notReady = !d ? `disabled title="${D.err ? "No se pudo cargar la ficha" : "Cargando la ficha…"}"` : "";
@@ -365,7 +394,7 @@ function draw() {
       ${m?.openDealOwner ? `<span class="tag">${icon("deal", "sm")} Trato de ${esc(m.openDealOwner)}</span>` : ""}
     </div>
     <div class="d-actions">
-      ${phone ? `<a class="btn primary" id="aCall" href="${esc(telLink(phone))}">${icon("phone")} Llamar <span class="num">${esc(phone)}</span></a>` : `<span class="btn" aria-disabled="true" title="No hay teléfono publicado">${icon("phone")} Sin teléfono</span>`}
+      ${phone ? `<a class="btn primary" id="aCall" href="${esc(telLink(phone))}">${icon("phone")} Llamar <span class="num">${esc(phone)}</span></a>` : sedePhones ? `<button class="btn primary" id="aSedes">${icon("phone")} Teléfonos de ${sedePhones} sede${sedePhones > 1 ? "s" : ""}</button>` : `<span class="btn" aria-disabled="true" title="No hay teléfono publicado">${icon("phone")} Sin teléfono</span>`}
       <button class="btn wa" id="aWa" ${notReady} aria-haspopup="menu">${icon("whatsapp")} WhatsApp</button>
       <button class="btn" id="aMail" ${notReady} aria-haspopup="menu">${icon("mail")} Mail</button>
       <button class="btn" id="aDemo" ${notReady} ${s.status === "client" ? `disabled title="Ya es cliente"` : ""}>${icon("video")} Demo</button>
@@ -413,6 +442,7 @@ function bindTop(s, d) {
     b.onkeydown = e => { const n = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0; if (n) { e.preventDefault(); const t = tabs[(k + n + tabs.length) % tabs.length]; goTab(t.dataset.tab); $("drawer").querySelector(`[data-tab="${t.dataset.tab}"]`).focus(); } };
   });
   // Llamar no saca del guion: en celular, al volver de la llamada se abre Registrar; en escritorio queda un aviso.
+  el.querySelector("#aSedes")?.addEventListener("click", () => { if (D.tab !== "prep") goTab("prep"); setTimeout(() => $("drawer").querySelector("#sedes")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50); });
   el.querySelector("#aCall")?.addEventListener("click", () => {
     D.inCall = true; D.form.channel = "call"; draw();
     if (coarse()) {
@@ -485,6 +515,7 @@ function prepBody(s, d) {
   const cands = !m.confirmed ? (m.candidates || []) : [];
   return `<div class="stack">
     ${warn ? `<div class="callout warn">${icon("alert")}<span>${esc(warn)}</span></div>` : ""}
+    ${sedesSec(s)}
     ${s.lat == null ? "" : gallery(s)}
     <section class="sec"><h3><span class="l">${icon("phone")} Primeros 15 segundos</span></h3>
       <div class="say">${esc(apertura)}<button class="icon-btn" data-copy="${esc(apertura)}" aria-label="Copiar apertura">${icon("copy")}</button></div>
@@ -515,6 +546,9 @@ function bindPrep(s, d) {
     b.disabled = false;
   });
   el.querySelectorAll("[data-stwa]").forEach(b => b.onclick = () => templateMenu(b, s, d, "whatsapp", { phone: b.dataset.stwa }));
+  el.querySelectorAll("[data-sdwa]").forEach(b => b.onclick = () => templateMenu(b, s, d, "whatsapp", { phone: b.dataset.sdwa }));
+  el.querySelectorAll("[data-sdmail]").forEach(b => b.onclick = () => templateMenu(b, s, d, "mail", { email: b.dataset.sdmail }));
+  el.querySelectorAll("[data-sdopen]").forEach(b => b.onclick = () => openSchool(b.dataset.sdopen));
   el.querySelectorAll("[data-stmail]").forEach(b => b.onclick = () => templateMenu(b, s, d, "mail", { email: b.dataset.stmail }));
   el.querySelectorAll("[data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy));
   el.querySelectorAll("[data-org]").forEach(b => b.onclick = () => { D.data = null; draw(); load({ match: { orgId: +b.dataset.org, orgName: b.dataset.name } }); });
@@ -779,24 +813,28 @@ function templateMenu(anchor, s, d, channel, to = {}) {
   openMenu(anchor, [{ head: channel === "whatsapp" ? "Mensaje de WhatsApp" : "Mail desde Gmail" },
     ...list.map(t => ({ label: t.label + (t.id === recommended ? " · sugerido" : ""), sub: channel === "mail" ? t.subject || "" : t.text.split("\n").find(x => x.length > 12) || t.text, fn: () => {
       let text = t.text; if (to.name) text = text.replace(/^Hola(?=[,\s])/, `Hola ${to.name.split(" ")[0]}`);
-      messageModal(s, d, { ...t, text }, { phone: to.phone, email: to.email, logAfter: true });
+      messageModal(s, d, { ...t, text }, { phone: to.phone, email: to.email, name: to.name, logAfter: true });
     } })),
-    { label: "Mensaje en blanco", sub: "Escribir desde cero", fn: () => messageModal(s, d, { channel, label: "Mensaje", text: "", subject: "" }, { phone: to.phone, email: to.email, logAfter: true }) },
+    { label: "Mensaje en blanco", sub: "Escribir desde cero", fn: () => messageModal(s, d, { channel, label: "Mensaje", text: "", subject: "" }, { phone: to.phone, email: to.email, name: to.name, logAfter: true }) },
   ]);
 }
-function messageModal(s, d, t, { phone, email, logAfter }) {
+function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
   const isMail = t.channel === "mail";
-  const defPhone = phone || d.persons?.find(p => p.phone)?.phone || s.phone || "";
+  // para WhatsApp solo sirve un número completo (con código de área): uno local de 7 dígitos de la web no llega
+  const full = p => String(p || "").replace(/\D/g, "").length >= 10;
+  const defPhone = phone || [...(d.persons || []).map(p => p.phone), s.phone, ...sedesOf(s.id).filter(z => z.here).flatMap(z => z.phones)].find(p => p && (isMail || full(p))) || "";
   const defMail = email || d.persons?.find(p => p.email)?.email || D.study?.contacto?.emails?.[0] || s.email || "";
   const pre = S.markets[s.country]?.prefix ? `+${S.markets[s.country].prefix} …` : "Teléfono";
   const m = modal(`<div class="modal-h"><h3>${isMail ? icon("mail") : icon("whatsapp")} ${esc(t.label)}</h3><button class="icon-btn" id="mClose" aria-label="Cerrar">${icon("x")}</button></div>
     <p class="muted" style="margin:-8px 0 0">${esc(s.name)}</p>
     <label class="field"><span>Para</span><input class="inp" id="mTo" type="${isMail ? "email" : "tel"}" value="${esc(isMail ? defMail : defPhone)}" placeholder="${isMail ? "email@colegio.edu" : esc(pre)}"></label>
     ${isMail ? `<label class="field"><span>Asunto</span><input class="inp" id="mSub" value="${esc(t.subject || "")}"></label>` : ""}
+    <div class="field"><label for="mCtx"><span>¿Qué querés decirle?</span></label>
+      <textarea class="inp" id="mCtx" rows="2" placeholder="Ej: me pasó tu contacto el de sistemas; la concesionaria anterior dejó los planteles y quiero retomar"></textarea>
+      <div class="row" style="justify-content:flex-start;margin-top:6px"><button class="btn sm" id="mAi">${icon("sparkles", "sm")} Armar mensaje</button><span class="faint" id="mAiNote" style="font-size:12.5px">${S.ai ? "Usa lo que escribas y lo que dice Pipedrive (notas, tratos, contactos)." : "Arma el mensaje con tu contexto y la forma de escribir de la casa."}</span></div></div>
     <label class="field"><span>Mensaje</span><textarea class="inp" id="mText" rows="${isMail ? 12 : 8}">${esc(t.text)}</textarea></label>
     ${/\[(día|hora|tu nombre)\]/.test(t.text) ? `<p class="callout warn" style="margin:0">${icon("alert")}<span>Completá lo que está entre corchetes antes de mandar.</span></p>` : ""}
     <div class="row">
-      ${S.ai ? `<button class="btn ghost" id="mAi">${icon("sparkles")} Mejorar con IA</button>` : ""}
       <button class="btn" id="mCopy">${icon("copy")} Copiar</button>
       <button class="btn ${isMail ? "primary" : "wa"}" id="mGo">${isMail ? `${icon("mail")} Abrir en Gmail` : `${icon("whatsapp")} Abrir WhatsApp`}</button>
     </div>
@@ -806,11 +844,17 @@ function messageModal(s, d, t, { phone, email, logAfter }) {
   // en el celular no se abre el teclado de entrada: el foco va a la acción principal
   if (coarse()) setTimeout(() => q("#mGo").focus(), 0);
   q("#mCopy").onclick = () => copy(q("#mText").value);
-  q("#mAi")?.addEventListener("click", async e => {
-    const b = e.currentTarget; b.disabled = true; b.innerHTML = `<span class="spin"></span> Reescribiendo…`;
-    try { const r = await api(`/api/schools/${s.id}/draft`, { body: { channel: t.channel, purpose: t.label, contact: d.persons?.[0]?.name || "", base: q("#mText").value } }); q("#mText").value = r.text || q("#mText").value; if (r.subject && q("#mSub")) q("#mSub").value = r.subject; }
-    catch (err) { toast(err.message, { type: "err" }); }
-    b.disabled = false; b.innerHTML = `${icon("sparkles")} Mejorar con IA`;
+  // Armar el mensaje: con IA, con tu contexto + lo que sabe Pipedrive; sin IA, tu contexto en la plantilla de la casa
+  q("#mAi").addEventListener("click", async e => {
+    const b = e.currentTarget, ctx = q("#mCtx").value.trim(), cur = q("#mText").value.trim();
+    if (!ctx && !cur) { q("#mCtx").focus(); return toast("Escribí qué querés decirle y lo armo", { type: "err" }); }
+    b.disabled = true; b.innerHTML = `<span class="spin"></span> Armando…`;
+    try {
+      const r = await api(`/api/schools/${s.id}/draft`, { body: { channel: t.channel, purpose: t.label, contact: name || d.persons?.[0]?.name || "", base: t.text && cur === t.text.trim() && ctx ? "" : cur, context: ctx } });
+      if (r.text) q("#mText").value = r.text; if (r.subject && q("#mSub")) q("#mSub").value = r.subject;
+      q("#mAiNote").textContent = r.mode === "ia" ? "Listo. Revisalo antes de mandar." : "Armado con la plantilla de la casa. Revisalo antes de mandar (con la clave de IA queda redactado a medida).";
+    } catch (err) { toast(err.message, { type: "err" }); }
+    b.disabled = false; b.innerHTML = `${icon("sparkles", "sm")} Armar mensaje`;
   });
   q("#mGo").onclick = () => {
     const to = q("#mTo").value.trim(), text = q("#mText").value;

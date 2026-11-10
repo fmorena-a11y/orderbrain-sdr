@@ -798,3 +798,13 @@ details.agent summary .sub { order: 3; }
 .code-row .t b { display: block; } .code-row .t small { color: var(--muted); font-size: 12.5px; }
 .code-row code { font: 600 14px ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--surface-2); padding: 4px 8px; border-radius: 8px; letter-spacing: .5px; }
 @media (max-width: 600px) { .code-row { grid-template-columns: 1fr auto; } .code-row .btn { grid-column: 1 / -1; } }
+
+/* sedes de un colegio */
+.sedes { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.sede { border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; display: grid; gap: 6px; font-size: 13.5px; min-width: 0; }
+.sede.here { border-color: var(--accent, #E0153F); }
+.sede-h { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.sede-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; overflow-wrap: anywhere; }
+.sede-row a, .sede-f a { color: inherit; }
+.sede-tel { font-weight: 600; font-variant-numeric: tabular-nums; text-decoration: none; display: inline-flex; gap: 6px; align-items: center; }
+.sede-f { color: var(--muted); font-size: 12.5px; }

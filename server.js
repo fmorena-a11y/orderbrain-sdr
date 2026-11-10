@@ -16,6 +16,7 @@ import { photosFor, googleEnabled } from "./lib/photos.js";
 import fs from "fs";
 import { MARKETS, LOST_REASONS, TYPE_LABEL, DAILY_GOAL } from "./lib/config.js";
 import { safeTz, toUtc } from "./lib/time.js";
+import { composeMessage, templates } from "./lib/playbook.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -294,9 +295,15 @@ app.post("/api/schools/:id/study/note", auth, schoolParam, wrap(async (req, res)
   res.json({ ok: true, orgUrl: `${pd.PD_WEB}/organization/${rec.orgId}` });
 }));
 app.get("/api/schools/:id/brief", auth, schoolParam, wrap(async (req, res) => res.json(await ai.brief(req.params.id, { user: req.session.user }))));
+app.get("/api/schools/:id/sedes", auth, schoolParam, wrap(async (req, res) => res.json(await sales.sedesFor(req.params.id))));
+// Redactar un mensaje: con IA usa el contexto que escribe el SDR + lo que sabe Pipedrive; sin IA, la plantilla de la casa.
 app.post("/api/schools/:id/draft", auth, schoolParam, wrap(async (req, res) => {
-  const { channel, purpose, contact, base } = req.body || {};
-  res.json(await ai.draft(req.params.id, { channel: channel === "mail" ? "mail" : "whatsapp", purpose: String(purpose || "avanzar a una demo").slice(0, 200), contact: String(contact || "").slice(0, 80), base: String(base || "").slice(0, 3000), user: req.session.user }));
+  const b = req.body || {}, channel = b.channel === "mail" ? "mail" : "whatsapp", user = req.session.user;
+  const p = { channel, purpose: String(b.purpose && b.purpose !== "Mensaje" ? b.purpose : "avanzar un paso: llegar al decisor o agendar una demo").slice(0, 200), contact: String(b.contact || "").slice(0, 80), base: String(b.base || "").slice(0, 3000), context: String(b.context || "").slice(0, 2000) };
+  const s = byId.get(req.params.id), me = (await getProfile(user.email).catch(() => null))?.name || sales.signer(user);
+  if (!ai.aiEnabled()) return res.json({ ...composeMessage(s, { channel, context: p.context, contact: p.contact, me }), mode: "plantilla" });
+  const examples = templates(s, { me, contact: p.contact }).filter(t => t.channel === channel).slice(0, 3).map(t => t.text);
+  res.json({ ...await ai.draft(req.params.id, { ...p, pdContext: await sales.draftContext(req.params.id).catch(() => ""), examples, user: { ...user, name: me } }), mode: "ia" });
 }));
 
 // Hoy: métricas, agenda propia y a quién contactar.
