@@ -852,22 +852,35 @@ app.post("/api/scan/resolve", auth, wrap(async (req, res) => {
     await cacheSet(k, place, place.boundaryFailed ? 600 : 30 * 864e2);
     return res.json(appCountry(place));
   }
-  const q = String(req.body?.q || "").trim().slice(0, 120), nq = scan.norm(q);
-  if (nq.length < 2) return res.status(400).json({ error: "Escribí un país, una provincia, una ciudad o un barrio." });
+  const q = String(req.body?.q || "").trim().slice(0, 200), nq = scan.norm(q);
+  if (nq.length < 2) return res.status(400).json({ error: "Escribí un país, una provincia, una ciudad, un barrio o una dirección." });
   // continentes y regiones grandes: los países del equipo que caen ahí
   const cont = CONTINENTS.find(c => c.re.test(nq));
   if (cont) {
     const names = Object.entries(MARKETS).filter(([, m]) => cont.codes.includes(m.code)).map(([n]) => n);
     return res.json({ kind: "continent", name: cont.name, label: cont.name, countries: names, codes: cont.codes, lat: cont.lat, lng: cont.lng, bbox: cont.bbox, city: { name: cont.name, lat: cont.lat, lng: cont.lng, pop: 0 }, alts: [] });
   }
-  // se busca en los países donde trabaja el equipo, con prioridad para el país elegido en la app
+  // se busca en los países donde trabaja el equipo, con prioridad para el país elegido en la app (cc). hard: el país lo
+  // escribió la persona («…, México»). Si el texto dice el país o el estado («Pue.», «CABA»), manda el texto.
   const prefer = /^[A-Z]{2}$/.test(req.body?.cc || "") ? req.body.cc : "";
-  const k = `place4:${prefer}:${nq}`;
+  const given = req.body?.hard && prefer ? prefer : "";
+  const a = scan.parseAddress(q, { cc: given });
+  // copia por texto normalizado («No. 47» = «47», «Col.» = «Colonia»); el país elegido cuenta solo si el texto no dice otro
+  const k = `place5:${a.cc ? "=" + a.cc : prefer}:${a.key}`;
   const cached = await cacheGet(k);
-  const place = cached || await scan.resolvePlace(q, { codes: Object.values(MARKETS).map(m => m.code).filter(c => /^[A-Z]{2}$/.test(c)), prefer });
-  if (!place) return res.status(404).json({ error: `No encontré «${q}». Probá con otro nombre.` });
-  // si el contorno falló por un error pasajero, se guarda solo unos minutos para reintentar pronto
-  if (!cached) await cacheSet(k, place, place.boundaryFailed ? 600 : 30 * 864e2);
+  const place = cached || await scan.resolvePlace(q, { codes: Object.values(MARKETS).map(m => m.code).filter(c => /^[A-Z]{2}$/.test(c)), prefer, cc: given });
+  if (!place) {
+    const country = Object.entries(MARKETS).find(([, m]) => m.code === a.cc)?.[0] || "";
+    const mx = a.cc === "MX" || (!a.cc && a.soft === "MX");
+    // una dirección: ni la calle ni la colonia ni la ciudad aparecieron (si la ciudad aparecía, se mostraba la ciudad)
+    const error = a.isAddress
+      ? `No encontré «${q}»${a.city ? ` ni la ciudad «${a.city}»` : ""}. Escribí ${mx ? "la colonia" : "el barrio"} y la ciudad (por ejemplo: «${mx ? "Col. Centro, Puebla" : "Palermo, Buenos Aires"}»).`
+      : `No encontré «${q}». Probá con otro nombre o sumá la ciudad.`;
+    return res.status(404).json({ error, country });
+  }
+  // un error pasajero (contorno, OpenStreetMap a medias) se guarda solo unos minutos para reintentar pronto; un fallo de red
+  // no se guarda (resolvePlace tira error y responde 503)
+  if (!cached) await cacheSet(k, place, place.boundaryFailed || place.partial ? 600 : 30 * 864e2);
   res.json(appCountry(place));
 }));
 app.post("/api/scan/cities", auth, wrap(async (req, res) => {

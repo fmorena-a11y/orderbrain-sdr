@@ -163,11 +163,13 @@ function drawAll({ fit = true } = {}) {
 
 // ---------- ubicar en el mapa
 // ¿lo escrito es un lugar? «Puebla», «México, Puebla», «Palermo, Buenos Aires»: con coma, o igual a una ciudad o un país
-// de la base («Puebla» también es «Puebla de Zaragoza»). Entonces Enter ubica y contornea en vez de buscar por nombre.
+// de la base («Puebla» también es «Puebla de Zaragoza»), o una dirección («Calle Bugambilias 47», «Col. Centro»).
+// Entonces Enter ubica y contornea en vez de buscar por nombre.
 let CITY_SET = null;
+const ADDRESS_RE = /^\s*(calle|c\.|av\.?|avda\.?|avenida|blvd\.?|blvrd\.?|boulevard|bulevar|calz\.?|calzada|carrera|cra\.?|cl+\.?|diagonal|transversal|jr\.?|jir[oó]n|pasaje|camino|privada|prolongaci[oó]n|paseo|eje|perif[eé]rico|circuito|cerrada|andador|ruta)\s+\S.*\d|\b(col\.|colonia|fracc\.|c\.\s?p\.)\s*\S/i;
 function looksLikePlace(text) {
   const t = norm(text); if (!t) return false;
-  if (/,/.test(text)) return true;
+  if (/,/.test(text) || ADDRESS_RE.test(text)) return true;
   CITY_SET ||= new Set(S.schools.map(x => norm(x.city)).filter(Boolean));
   return S.countries.some(c => norm(c) === t) || CITY_SET.has(t) || [...CITY_SET].some(c => c.startsWith(t + " de "));
 }
@@ -186,22 +188,34 @@ async function locate(text, { osm } = {}) {
   box.innerHTML = `<p class="muted place-msg"><span class="spin"></span> Ubicando «${esc(text)}»…</p>`;
   try {
     const sc = splitCountry(text);
-    const place = await api("/api/scan/resolve", { body: osm ? { osm } : { q: sc.q, cc: sc.cc || S.markets[E.country]?.code || "" } });
+    // hard: el país lo escribió la persona; si no, el chip elegido solo da prioridad (si el texto dice otro país, manda el texto)
+    const place = await api("/api/scan/resolve", { body: osm ? { osm } : { q: sc.q, cc: sc.cc || S.markets[E.country]?.code || "", hard: !!sc.cc } });
     // si mientras tanto escribió otra cosa o pidió otro lugar, esta respuesta ya no sirve
     if (!host.isConnected || seq !== locSeq) return;
     E.place = place; E.q = ""; E.city = null; E.filter = "prospect"; shown = PAGE; host.querySelector("#q").value = ""; PDS.cancel(); E.pd = null;
+    // el país del lugar (o «Todos» si no hay colegios de ese país), aunque el chip dijera otro
     E.country = S.countries.includes(place.country) ? place.country : null;
     drawAll(); toTop();
-  } catch (e) { if (seq === locSeq) box.innerHTML = `<div class="callout err place-msg">${icon("alert")}<span>${esc(e.message)}</span></div>`; }
+  } catch (e) {
+    if (seq !== locSeq) return;
+    // no se encontró, pero el texto dice otro país que el chip («…, Pue.» con «Ecuador» elegido): la lista deja de decir «en Ecuador»
+    const c = e.data?.country;
+    if (c && E.country && c !== E.country) { E.country = S.countries.includes(c) ? c : null; drawCountries(); drawList(); drawMap(); }
+    box.innerHTML = `<div class="callout err place-msg">${icon("alert")}<span>${esc(e.message)}</span></div>`;
+  }
 }
 function drawPlace() {
   const box = host.querySelector("#placeBox"), p = E.place;
   if (!p) { box.innerHTML = ""; return; }
   const n = placeList().length;
   const where = p.kind === "continent" ? `en ${fmt((p.countries || []).length)} país${(p.countries || []).length === 1 ? "" : "es"}` : p.geo ? `en ${esc(placeName(p))}` : `a menos de ${String(p.radius || 3).replace(".", ",")} km`;
-  const kind = { continent: "Región del mundo", country: "País", region: "Provincia o estado", city: "Ciudad", spot: p.geo || /suburb|neighbourhood|quarter|city_district|borough/.test(p.type || "") ? "Barrio" : /road|street|highway/.test(p.type || "") ? "Calle" : "Dirección" }[p.kind] || "";
-  box.innerHTML = `<div class="place-card"><span class="pin">${icon("nav", "sm")}</span><div class="t"><b>${esc(p.label)}</b><small>${kind ? `${kind} · ` : ""}${fmt(n)} colegio${n === 1 ? "" : "s"} ${where}</small></div>
-    <button class="btn sm" id="pScan" title="Buscar colegios privados nuevos en esta zona y verificarlos">${icon("refresh", "sm")} ${n ? "Buscar más" : "Buscar colegios"}</button><button class="icon-btn" id="pX" aria-label="Quitar ubicación">${icon("x")}</button></div>
+  // found: qué encontró la búsqueda de una dirección (el número, la calle, la colonia, el código postal o la ciudad)
+  const col = p.cc === "MX" ? "Colonia" : "Barrio";
+  const kind = { house: "Dirección", near: "Dirección aproximada", corner: "Cruce de calles", street: "Calle", colonia: col, postcode: "Código postal", city: "Ciudad", region: "Provincia o estado" }[p.found]
+    || { continent: "Región del mundo", country: "País", region: "Provincia o estado", city: "Ciudad", spot: p.geo || /suburb|neighbourhood|quarter|city_district|borough/.test(p.type || "") ? "Barrio" : /road|street|highway/.test(p.type || "") ? "Calle" : "Dirección" }[p.kind] || "";
+  box.innerHTML = `<div class="place-card"><span class="pin">${icon("nav", "sm")}</span><div class="t"><b title="${esc(p.label)}">${esc(p.label)}</b><small>${kind ? `${kind} · ` : ""}${fmt(n)} colegio${n === 1 ? "" : "s"} ${where}</small></div>
+    <button class="btn sm" id="pScan" title="Buscar colegios privados nuevos en esta zona y verificarlos">${icon("refresh", "sm")} ${n ? "Buscar más" : "Buscar colegios"}</button><button class="icon-btn" id="pX" aria-label="Quitar ubicación">${icon("x")}</button>
+    ${p.note ? `<p class="place-note">${esc(p.note)}</p>` : ""}</div>
     ${p.alts?.length ? `<div class="place-alts"><span class="faint">¿Buscabas otro?</span>${p.alts.map(a => `<button class="chip sm" data-osm="${esc(a.osm)}">${esc(a.label)}</button>`).join("")}</div>` : ""}`;
   box.querySelector("#pX").onclick = () => { E.place = null; locSeq++; drawAll(); };
   box.querySelector("#pScan").onclick = () => import("./scan.js").then(m => m.scanPlace(p));
