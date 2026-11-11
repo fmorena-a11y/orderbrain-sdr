@@ -6927,7 +6927,8 @@
   "AR|José C. Paz": "2026-11-11T17:16:58.925Z",
   "HN|n1055485024": "2026-11-11T17:17:45.732Z",
   "CL|Rancagua": "2026-11-11T17:25:20.722Z",
-  "AR|San Salvador de Jujuy": "2026-11-11T17:33:07.765Z"
+  "AR|San Salvador de Jujuy": "2026-11-11T17:33:07.765Z",
+  "ES|n240423025": "2026-11-11T19:20:09.626Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -6964,9 +6965,37 @@
    "n": 1,
    "at": "2026-11-11T13:43:57.671Z",
    "error": "The operation was aborted due to timeout"
+  },
+  "DO|n250651467": {
+   "n": 1,
+   "at": "2026-11-11T19:34:44.816Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-11T19:19:37.682Z",
+   "cities": [
+    {
+     "cc": "ES",
+     "city": "Granada",
+     "found": 58,
+     "updated": 0,
+     "osm": 225
+    }
+   ],
+   "added": 58,
+   "enriched": 0,
+   "photos": 11,
+   "contacts": 21,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "DO|n250651467: The operation was aborted due to timeout"
+   ],
+   "minutes": 16.9,
+   "total": 17040
+  },
   {
    "at": "2026-11-11T17:16:13.383Z",
    "cities": [

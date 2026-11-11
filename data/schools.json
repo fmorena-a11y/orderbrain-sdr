@@ -118,7 +118,9 @@
    "Secundaria",
    "Prepa"
   ],
-  "img": ""
+  "img": "",
+  "whatsapp": "+5491127425000",
+  "webAt": "2026-11-11"
  },
  {
   "name": "Colegio Jesús María",
@@ -251,7 +253,9 @@
   "web": "https://www.asc.edu.mx/",
   "email": "hello@asc.edu.mx",
   "osm": "w900468292",
-  "img": ""
+  "img": "",
+  "whatsapp": "+526141489103",
+  "webAt": "2026-11-11"
  },
  {
   "name": "Colegio Mundo Bilingüe",
@@ -397,7 +401,9 @@
   "web": "https://www.cumbresmexico.com/",
   "email": "informes@cumbresmexico.com",
   "osm": "n12552651083",
-  "img": "https://www.cumbresmexico.com/api/og/cumbres-international-school-mexico"
+  "img": "https://www.cumbresmexico.com/api/og/cumbres-international-school-mexico",
+  "whatsapp": "+525579794660",
+  "webAt": "2026-11-11"
  },
  {
   "name": "Woodland School",
@@ -669,7 +675,8 @@
   "web": "https://www.cortazarvirtual.com.ar/",
   "email": "institutojuliocortazarmdq@gmail.com",
   "osm": "w766368963",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "name": "Leonardo Da Vinci School",
@@ -954,7 +961,9 @@
   "pitch": "Grande y tradicional, mucho volumen en recreos.",
   "zone": "Este",
   "id": "piura-colegio-salesiano-don-bosco",
-  "img": "https://salesianospiura.edu.pe/img/seo-og.jpg"
+  "img": "https://salesianospiura.edu.pe/img/seo-og.jpg",
+  "email": "consultas@salesianospiura.edu.pe",
+  "webAt": "2026-11-11"
  },
  {
   "name": "Colegio San Ignacio de Loyola",
@@ -968,7 +977,9 @@
   "maps": "https://maps.google.com/?cid=13609435797927787522",
   "zone": "Este",
   "id": "piura-colegio-san-ignacio-de-loyola",
-  "img": "https://www.csil.edu.pe/wp-content/uploads/2021/05/cropped-111.jpg"
+  "img": "https://www.csil.edu.pe/wp-content/uploads/2021/05/cropped-111.jpg",
+  "email": "direccion@csil.edu.pe",
+  "webAt": "2026-11-11"
  },
  {
   "name": "Colegio Santa Mónica y San Agustín",
@@ -984,7 +995,9 @@
   "pitch": "En Google figura como «Santa Monica College».",
   "zone": "Este",
   "id": "piura-colegio-santa-monica-y-san-agustin",
-  "img": ""
+  "img": "",
+  "email": "casageneral-es@hsmcj.org",
+  "webAt": "2026-11-11"
  },
  {
   "name": "Colegio Turicará",
@@ -1000,7 +1013,8 @@
   "zone": "Norte",
   "id": "piura-colegio-turicara",
   "img": "",
-  "osm": "w374303245"
+  "osm": "w374303245",
+  "webAt": "2026-11-11"
  },
  {
   "name": "Colegio Vallesol",
@@ -1055,7 +1069,9 @@
   "pitch": "Cadena: la alimentación probablemente se decide en Lima.",
   "zone": "Norte",
   "id": "piura-innova-schools-los-ejidos",
-  "img": "https://www.innovaschools.edu.pe/sites/default/files/2026-06/OpenGraph-Innova-Schools.webp"
+  "img": "https://www.innovaschools.edu.pe/sites/default/files/2026-06/OpenGraph-Innova-Schools.webp",
+  "whatsapp": "+51908882503",
+  "webAt": "2026-11-11"
  },
  {
   "name": "Innova Schools Progreso",
@@ -1071,7 +1087,9 @@
   "pitch": "Cadena; el teléfono es la central de Lima.",
   "zone": "Sur",
   "id": "piura-innova-schools-progreso",
-  "img": "https://www.innovaschools.edu.pe/sites/default/files/2026-06/OpenGraph-Innova-Schools.webp"
+  "img": "https://www.innovaschools.edu.pe/sites/default/files/2026-06/OpenGraph-Innova-Schools.webp",
+  "whatsapp": "+51908882503",
+  "webAt": "2026-11-11"
  },
  {
   "name": "Madre del Buen Consejo",
@@ -1113,7 +1131,9 @@
   "pitch": "De los colegios de mujeres mejor valorados de la ciudad.",
   "zone": "Centro-oeste",
   "id": "piura-our-lady-of-lourdes-school",
-  "img": "https://static.wixstatic.com/media/233bcb_f8c5760f8851437cb5fbbf0138df29d4.png/v1/fit/w_2500,h_1330,al_c/233bcb_f8c5760f8851437cb5fbbf0138df29d4.png"
+  "img": "https://static.wixstatic.com/media/233bcb_f8c5760f8851437cb5fbbf0138df29d4.png/v1/fit/w_2500,h_1330,al_c/233bcb_f8c5760f8851437cb5fbbf0138df29d4.png",
+  "email": "secretariacl@lourdessjt.edu.pe",
+  "webAt": "2026-11-11"
  },
  {
   "name": "Parroquial Niño Jesús de Praga",
@@ -1153,7 +1173,9 @@
   "pitch": "Del Arzobispado, muy bien valorado.",
   "zone": "Centro-oeste",
   "id": "piura-san-jose-obrero",
-  "img": ""
+  "img": "",
+  "email": "cepsanjoseobrero@hotmail.com",
+  "webAt": "2026-11-11"
  },
  {
   "name": "Colegio México Nuevo Campus Puebla",
@@ -2989,7 +3011,8 @@
   "src": "osm",
   "osm": "n4170744699",
   "found": "2026-11-09",
-  "img": "https://www.magister.edu.pe/wp-content/uploads/2026/05/Untitled-1.jpg"
+  "img": "https://www.magister.edu.pe/wp-content/uploads/2026/05/Untitled-1.jpg",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-colegio-monserrat",
@@ -3067,7 +3090,8 @@
   "src": "osm",
   "osm": "n4331307092",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-universidad-sergio-bernales",
@@ -3090,7 +3114,8 @@
   "src": "osm",
   "osm": "n4334426184",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-montalvo-instituto",
@@ -331595,7 +331620,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n12465998289",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "oaxaca-de-juarez-colegio-mundo-feliz",
@@ -331682,9 +331708,9 @@
   "lat": 17.081049,
   "lng": -96.719224,
   "addr": "Calzada Porfirio Díaz 109",
-  "phone": "",
+  "phone": "8000000438",
   "web": "https://www.ieu.edu.mx/",
-  "email": "",
+  "email": "contacto@ieu.edu.mx",
   "levels": [
    "Universidad"
   ],
@@ -331694,7 +331720,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w313912076",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://ieu.edu.mx/wp-content/uploads/2020/06/ieu-bachillerato-ejecutivo.jpg",
+  "webAt": "2026-11-11"
  },
  {
   "id": "oaxaca-de-juarez-universidad-mundo-maya-2",
@@ -331774,7 +331802,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w352006211",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "oaxaca-de-juarez-instituto-multidisciplinario-de-especializacion",
@@ -332741,7 +332771,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1117847107",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "gijon-colegio-andolina",
@@ -332905,9 +332936,9 @@
   "lat": 42.830573,
   "lng": -2.747573,
   "addr": "Paduleta kalea 24",
-  "phone": "",
+  "phone": "(+34) 606 360 353",
   "web": "https://aiurrimontessori.com/",
-  "email": "",
+  "email": "kaixo@aiurrimontessori.com",
   "levels": [
    "Primaria"
   ],
@@ -332917,7 +332948,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1175874817",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://aiurrimontessori.com/wp-content/uploads/2026/04/Polygon-5-2.png",
+  "webAt": "2026-11-11"
  },
  {
   "id": "vitoria-colegio-arenales-nclic",
@@ -332994,7 +333027,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n9078412930",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "floridablanca-colegio-aspaen-saucara",
@@ -333300,7 +333334,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w936197484",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "santiago-del-estero-colegio-la-asuncion",
@@ -334114,7 +334150,7 @@
   "addr": "Vélez Sarsfield",
   "phone": "",
   "web": "https://www.ucse.edu.ar/",
-  "email": "",
+  "email": "secyt@ucse.edu.ar",
   "levels": [
    "Universidad"
   ],
@@ -334124,7 +334160,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w256575634",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://www.ucse.edu.ar/wp-content/uploads/2019/09/logo_ucse-e1568123600906.png",
+  "webAt": "2026-11-11"
  },
  {
   "id": "santiago-del-estero-escuela-san-francisco",
@@ -334415,7 +334453,7 @@
   "addr": "Avenida Playa Ancha 850",
   "phone": "",
   "web": "https://www.upla.cl/",
-  "email": "",
+  "email": "ayudainformatica@upla.cl",
   "levels": [
    "Universidad"
   ],
@@ -334425,7 +334463,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w33724476",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://www.upla.cl/portada/wp-content/uploads/2023/12/casacentral.jpg",
+  "webAt": "2026-11-11"
  },
  {
   "id": "valparaiso-universidad-de-valparaiso-gimnasio-polideportivo",
@@ -335255,7 +335295,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w137201452",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "la-paz-colegio-california",
@@ -337550,7 +337591,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w429717919",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "chosica-colegio-saco-oliveros",
@@ -337570,7 +337613,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w439945772",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "chosica-colegio-marcelino-champagnat",
@@ -337591,7 +337635,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w484114416",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "sucre-universidad-andina-simon-bolivar",
@@ -338019,9 +338064,9 @@
   "lat": -19.046507,
   "lng": -65.261538,
   "addr": "Calle Batalla de Junín 691",
-  "phone": "",
+  "phone": "59146460533",
   "web": "https://sagradocorazon.edu.bo/",
-  "email": "",
+  "email": "sagradocorazon@sagradocotrazon.edu.bo",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -338029,7 +338074,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w856589540",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "sucre-centro-educativo-multifuncional-villa-armonia",
@@ -338382,13 +338429,15 @@
   "addr": "",
   "phone": "",
   "web": "https://colegiokalilgibran.com/",
-  "email": "",
+  "email": "admin@colegiokalilgibran.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "n7500229469",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "el-tigre-colegio-divino-maestro",
@@ -339643,7 +339692,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w154830157",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "temuco-colegio-centenario-de-temuco",
@@ -339818,7 +339869,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w394372400",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "temuco-liceo-tecnico-centenario",
@@ -340308,7 +340361,7 @@
   "lat": -38.724951,
   "lng": -72.628377,
   "addr": "Callejón Chispa 15-A",
-  "phone": "",
+  "phone": "+6281380009898",
   "web": "https://claudiomattetemuco.cl/",
   "email": "",
   "levels": [],
@@ -340319,7 +340372,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1319361712",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://res.cloudinary.com/dxnliqb73/image/upload/v1791914412/image_84_gdy6c9.webp",
+  "whatsapp": "+6281380009898",
+  "webAt": "2026-11-11"
  },
  {
   "id": "temuco-george-chaytor-english-college",
@@ -340340,7 +340396,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1575040081",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://www.georgechaytor.cl/wp-content/uploads/2023/05/OG-george-chaytor.jpg",
+  "webAt": "2026-11-11"
  },
  {
   "id": "temuco-universidad-de-la-frontera-2",
@@ -340362,7 +340420,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r4296616",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://www.ufro.cl/wp-content/uploads/2024/08/signal-icon.png",
+  "webAt": "2026-11-11"
  },
  {
   "id": "garcia-instituto-juventud-secundaria",
@@ -342330,9 +342390,9 @@
   "lat": -34.190009,
   "lng": -70.705848,
   "addr": "",
-  "phone": "",
+  "phone": "722214433",
   "web": "http://csfm.cl/",
-  "email": "",
+  "email": "contacto@csfm.cl",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -342340,7 +342400,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n11981831460",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://f4db4eed1b.clvaw-cdnwnd.com/81cd0cbf40770090a84b9125b7cc0d8a/200001421-354d0354d2/700/WhatsApp%20Image%202026-11-11%20at%2011.16.38.jpeg?ph=f4db4eed1b",
+  "webAt": "2026-11-11"
  },
  {
   "id": "rancagua-colegio-leonardo-da-vinci",
@@ -342376,7 +342438,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w111831318",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "rancagua-colegio-pequeno-mozart",
@@ -342412,7 +342475,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w112024174",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "rancagua-colegio-santa-filomena",
@@ -342504,7 +342568,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w143577337",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "rancagua-liceo-maria-luisa-bombal",
@@ -342662,7 +342727,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w146813071",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "rancagua-colegio-nahuelcura",
@@ -342796,7 +342862,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w164137480",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "rancagua-colegio-gabriela-mistral",
@@ -342842,7 +342909,7 @@
   "lat": -34.164237,
   "lng": -70.742011,
   "addr": "Avenida Libertador Bernardo O'Higgins 611",
-  "phone": "",
+  "phone": "+56229030000",
   "web": "https://www.uoh.cl/",
   "email": "",
   "levels": [
@@ -342854,7 +342921,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w164285843",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "rancagua-colegio-aurora-de-chile",
@@ -342872,7 +342941,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w164422317",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "rancagua-colegio-las-americas",
@@ -342978,7 +343048,7 @@
   "addr": "Avenida San Juan 382",
   "phone": "",
   "web": "https://www.colegiocsa.cl",
-  "email": "",
+  "email": "secretaria@colegiocsa.cl",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -342986,7 +343056,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w175953857",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://i0.wp.com/csa.csa.colegiocsa.cl/wp-content/uploads/2021/04/cropped-insignia-csa-1.jpg?fit=512%2C512&#038;ssl=1",
+  "webAt": "2026-11-11"
  },
  {
   "id": "rancagua-liceo-simon-bolivar",
@@ -343004,7 +343076,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w176708138",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "rancagua-instituto-hermanas-esclavas-del-corazon-de-jesus",
@@ -343061,7 +343134,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w181952885",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "rancagua-colegio-jean-piaget",
@@ -343079,7 +343153,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w182211452",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "rancagua-liceo-de-ninas-de-rancagua",
@@ -343151,7 +343227,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w195383255",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "rancagua-instituto-rancagua",
@@ -343223,7 +343300,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w396603936",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "rancagua-liceo-santa-cruz-de-triana",
@@ -343297,7 +343376,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w559230853",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "rancagua-colegio-el-cobre",
@@ -343315,7 +343395,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w560392062",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "rancagua-colegio-paulo-freire",
@@ -343423,7 +343504,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w566812729",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "rancagua-instituto-profesional-aiep",
@@ -343607,7 +343690,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1116365835",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "rancagua-colegio-edumaster-college",
@@ -343735,7 +343819,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1201574708",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c159ede4-8fdd-49b0-9328-50f276979dbb/id-preview-7330bc9c--e7ed2e0c-ab53-4c38-b95c-94470ae7d665.lovable.app-1773018681215.png",
+  "webAt": "2026-11-11"
  },
  {
   "id": "rancagua-instituto-profesional-los-lagos-rancagua",
@@ -344119,7 +344205,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w458943004",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "san-salvador-de-jujuy-colegio-secundario-43",
@@ -344215,6 +344302,1159 @@
   "private": "probable",
   "src": "osm",
   "osm": "w539465956",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-san-agustin",
+  "name": "Colegio San Agustín",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.188223,
+  "lng": -3.608083,
+  "addr": "Calle Doctor Barraquer 4",
+  "phone": "+34 958 27 62 29",
+  "web": "https://www.colegiosanagustin.org.es",
+  "email": "c-sanagustin@colegiosanagustin.org.es",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n811229447",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-espacio-v-centenario-de-la-universidad-de-granada",
+  "name": "Espacio V Centenario de la Universidad de Granada",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.186008,
+  "lng": -3.604244,
+  "addr": "Avenida de Madrid",
+  "phone": "",
+  "web": "https://patrimonio.ugr.es/bienes/antigua-facultad-de-medicina/",
+  "email": "espaciovcentenario@ugr.es",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5343444921",
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
+ },
+ {
+  "id": "granada-academia-enrique-romero",
+  "name": "Academia Enrique Romero",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.190295,
+  "lng": -3.607012,
+  "addr": "Calle Doctor Rojas Ballesteros",
+  "phone": "+34 958 09 20 86",
+  "web": "https://academiaenriqueromero.com",
+  "email": "info@academiaenriqueromero.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5776745152",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-ilustre-colegio-oficial-de-dentistas-de-granada",
+  "name": "Ilustre Colegio Oficial de Dentistas de Granada",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.164888,
+  "lng": -3.607348,
+  "addr": "Calle Maestro Montero",
+  "phone": "+34 958 52 29 53",
+  "web": "https://colegiodentistasgranada.org/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6033790229",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-universidad-de-granada",
+  "name": "Universidad de Granada",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.180901,
+  "lng": -3.600011,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n10696753112",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-academia-alpe",
+  "name": "Academia ALPE",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.184837,
+  "lng": -3.608144,
+  "addr": "Calle Doctor Jiménez Díaz 3",
+  "phone": "+34 958 29 44 18",
+  "web": "https://academia-alpe.com/",
+  "email": "info@academia-alpe.com",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n11574548019",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-parroquial-escolania-virgen-de-las-angustias",
+  "name": "Colegio Parroquial Escolania Virgen de las Angustias",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.170085,
+  "lng": -3.597582,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13633974849",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-concertado-divino-maestro",
+  "name": "Colegio Concertado Divino Maestro",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.185974,
+  "lng": -3.591189,
+  "addr": "Placeta de la Cruz de Piedra 2",
+  "phone": "+34 958 27 86 81",
+  "web": "https://www.divinomaestrogranada.com",
+  "email": "codimagra@yahoo.es",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w98866734",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-nuestra-senora-de-la-consolacion",
+  "name": "Colegio Nuestra Señora de la Consolación",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.192431,
+  "lng": -3.626322,
+  "addr": "Calle Arzobispo Guerrero 23",
+  "phone": "+34 958 20 27 14",
+  "web": "https://www.colegio-laconsolacion.com",
+  "email": "contacto@colegiolaconsolacion.com",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w104739940",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-ave-maria-san-isidro",
+  "name": "Colegio Ave Maria San Isidro",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.191192,
+  "lng": -3.604735,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w107123482",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-mayor-albaycin",
+  "name": "Colegio Mayor Albaycin",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.179558,
+  "lng": -3.607345,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w120442867",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-juan-xxiii-chana",
+  "name": "Colegio Juan XXIII Chana",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.185163,
+  "lng": -3.624343,
+  "addr": "Calle Pintor Rafael García Bonillo 1",
+  "phone": "+34 958 20 01 62",
+  "web": "https://juanxxiiichana.com/",
+  "email": "contacto@juanxxiiichana.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w120460552",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-santo-tomas-de-villanueva",
+  "name": "Colegio Santo Tomás de Villanueva",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.179922,
+  "lng": -3.615154,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w120512221",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-escuela-internacional-de-gerencia",
+  "name": "Escuela Internacional de Gerencia",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.197874,
+  "lng": -3.630428,
+  "addr": "Calle Periodista Eduardo Molina Fajardo 38",
+  "phone": "+34 958 22 29 14",
+  "web": "https://esgerencia.com",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w120521585",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-san-isidoro",
+  "name": "Colegio San Isidoro",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.174975,
+  "lng": -3.611397,
+  "addr": "Calle Profesor Luis Molina Gómez 1",
+  "phone": "+34 958 20 21 08",
+  "web": "http://www.cisidoro.com",
+  "email": "info@cisidoro.com",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w120728786",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-regina-mundi",
+  "name": "Colegio Regina Mundi",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.174,
+  "lng": -3.610867,
+  "addr": "Calle Arabial 63",
+  "phone": "+34 958 25 07 50",
+  "web": "https://www.colegioreginamundi.com",
+  "email": "info@colegioreginamundi.com",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w120728803",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-el-carmelo",
+  "name": "Colegio El Carmelo",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.155311,
+  "lng": -3.605737,
+  "addr": "Calle Padre Francisco Palau y Quer 19",
+  "phone": "+34 958 81 26 11",
+  "web": "https://elcarmelogranada.es/",
+  "email": "colegio@elcarmelogranada.es",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w121819167",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-juan-xxiii-zaidin",
+  "name": "Colegio Juan XXIII Zaidín",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.150771,
+  "lng": -3.604661,
+  "addr": "Camino de Santa Juliana 5",
+  "phone": "+34 958 81 24 11",
+  "web": "https://juanxxiiizaidin.com",
+  "email": "info@juanxxiiizaidin.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w121852547",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-diocesano-internacional-virgen-de-gracia",
+  "name": "Colegio Diocesano Internacional Virgen de Gracia",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.172792,
+  "lng": -3.605806,
+  "addr": "Calle Músico Vicente Zarzo",
+  "phone": "+34 958 26 08 16",
+  "web": "https://www.colegiovirgendegracia.org/",
+  "email": "info@colegiovirgendegracia.org",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w124051323",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-la-asuncion",
+  "name": "Colegio La Asunción",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.176765,
+  "lng": -3.607193,
+  "addr": "Calle Martínez de la Rosa 5",
+  "phone": "+34 958 20 17 31",
+  "web": "https://www.asunciongranada.es/",
+  "email": "asuncion@asunciongranada.es",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w124056019",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-la-presentacion",
+  "name": "Colegio La Presentación",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.178634,
+  "lng": -3.605142,
+  "addr": "Calle Gran Capitán 14",
+  "phone": "+34 958 20 19 11",
+  "web": "https://www.lapresentacion.com/granada",
+  "email": "secretariagranada@lapresentacion.com",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w124059484",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-sagrada-familia-pureza-de-maria",
+  "name": "Colegio Sagrada Familia Pureza de María",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.182811,
+  "lng": -3.604681,
+  "addr": "Calle Santa Bárbara 14",
+  "phone": "+34 958 20 51 11",
+  "web": "https://pmaria-granada.org",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w124079481",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-compania-de-maria",
+  "name": "Colegio Compañía de María",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.18841,
+  "lng": -3.611842,
+  "addr": "Avenida de Andalucía 10 bis",
+  "phone": "+34 958 20 42 11",
+  "web": "https://ciamariagranada.org",
+  "email": "info@ciamariagranada.org",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w124082266",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-salesiano-san-juan-bosco",
+  "name": "Colegio Salesiano San Juan Bosco",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.158835,
+  "lng": -3.603777,
+  "addr": "Calle Almuñécar 9",
+  "phone": "+34 958 81 16 11",
+  "web": "https://granada.salesianos.edu/colegio",
+  "email": "secretaria.granadasjb@salesianos.edu",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w154314914",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-de-educacion-infantil-nazaret-siervas-del-evangelio",
+  "name": "Colegio de Educación Infantil Nazaret Siervas del Evangelio",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.175167,
+  "lng": -3.60558,
+  "addr": "Calle Obispo Hurtado 6",
+  "phone": "+34 958 25 47 34",
+  "web": "https://colegionazaretgranada.es",
+  "email": "info@colegionazaretgranada.es",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w154318607",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-ave-maria-san-cristobal",
+  "name": "Colegio Ave María San Cristobal",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.184163,
+  "lng": -3.596323,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w157280062",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-caja-granada",
+  "name": "Colegio Caja Granada",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.162011,
+  "lng": -3.600215,
+  "addr": "Avenida de América 1",
+  "phone": "+34 958 81 21 11",
+  "web": "https://www.colegiocajagranada.com/",
+  "email": "info@colegiocajagranada.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w157680789",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-san-jose",
+  "name": "Colegio San José",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.200641,
+  "lng": -3.599772,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w158066024",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-santa-cristina",
+  "name": "Colegio Santa Cristina",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.198145,
+  "lng": -3.597397,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w158066025",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-juan-xxiii-cartuja",
+  "name": "Colegio Juan XXIII Cartuja",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.199779,
+  "lng": -3.603485,
+  "addr": "Calle Periodista Luis de Vicente 1",
+  "phone": "+34 958 15 15 60",
+  "web": "https://juanxxiiicartuja.com/",
+  "email": "colegio@juanxxiiicartuja.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w158419605",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-de-educacion-infantil-y-primaria-virgen-de-fatima",
+  "name": "Colegio de Educación Infantil y Primaria Virgen de Fátima",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.16277,
+  "lng": -3.553435,
+  "addr": "Calle Alisos",
+  "phone": "+34 958 893713",
+  "web": "",
+  "email": "18004574.edu@juntadeandalucia.es",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w158504158",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-padre-manjon",
+  "name": "Colegio Padre Manjón",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.196006,
+  "lng": -3.603908,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w161286333",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-rectorado-de-la-universidad-de-granada",
+  "name": "Rectorado de la Universidad de Granada",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.184916,
+  "lng": -3.601113,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w161288804",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-escolapios-granada-genil",
+  "name": "Colegio Escolapios Granada Genil",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.167776,
+  "lng": -3.594534,
+  "addr": "Paseo de los Basilios 2",
+  "phone": "+34 958 18 40 40",
+  "web": "https://www.granada.escolapiosemaus.org",
+  "email": "infogranadagenil@escolapiosemaus.org",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w182398269",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-sagrado-corazon",
+  "name": "Colegio Sagrado Corazón",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.168234,
+  "lng": -3.592998,
+  "addr": "Paseo de los Basilios 3",
+  "phone": "",
+  "web": "https://granada.fesofiabarat.es",
+  "email": "secretaria.granada@fesofiabarat.es",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w182399378",
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-ave-maria-la-quinta",
+  "name": "Colegio Ave María La Quinta",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.165809,
+  "lng": -3.590084,
+  "addr": "Avenida de Cervantes 4",
+  "phone": "+34 958 12 31 52",
+  "web": "https://laquinta.amgr.es/",
+  "email": "direccion@laquinta.amgr.es",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w182401684",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-escuela-hogar-madre-teresa",
+  "name": "Escuela Hogar Madre Teresa",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.180117,
+  "lng": -3.591534,
+  "addr": "Calle San Juan de los Reyes 81",
+  "phone": "+34 958 22 29 25",
+  "web": "https://lapresentacion.com/ehogarmadreteresa",
+  "email": "escuelahogarmadreteresa@gmail.com",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w197139221",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-servicios-centrales-de-la-universidad-de-granada",
+  "name": "Servicios Centrales de la Universidad de Granada",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.183831,
+  "lng": -3.600439,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w197145022",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-santa-maria-jesuitinas",
+  "name": "Colegio Santa María Jesuitinas",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.169711,
+  "lng": -3.613664,
+  "addr": "Calle Virgen Blanca 25",
+  "phone": "+34 958 25 05 00",
+  "web": "http://www.colegiosantamariagranada.es",
+  "email": "smariagr@planalfa.es",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w205320927",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-esclavas-de-la-inmaculada-nina",
+  "name": "Colegio Esclavas de la Inmaculada Niña",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.159392,
+  "lng": -3.588021,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w230611265",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-sagrado-corazon-2",
+  "name": "Colegio Sagrado Corazón",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.208211,
+  "lng": -3.63358,
+  "addr": "Calle del Horno 15",
+  "phone": "+34 958 42 09 26",
+  "web": "https://sacomar.es",
+  "email": "info@cevsagradocorazonmaracena.es",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w346516559",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-cristo-de-la-yedra",
+  "name": "Colegio Cristo de la Yedra",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.188942,
+  "lng": -3.599619,
+  "addr": "Paseo de Cartuja 2",
+  "phone": "+34 958 16 00 60",
+  "web": "http://jesus-maria.net/cristoyedra",
+  "email": "d.general.cristo@jesus-maria.net",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w365183753",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-ave-maria-albolote",
+  "name": "Colegio Ave María Albolote",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.228607,
+  "lng": -3.653133,
+  "addr": "Calle Ave María",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w489103730",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-santa-maria-micaela",
+  "name": "Colegio Santa María Micaela",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.191437,
+  "lng": -3.625373,
+  "addr": "Calle Doctor Medina Olmos 9",
+  "phone": "958272761",
+  "web": "https://colegiosantamariamicaelagranada.es/",
+  "email": "stamicaela2@gmail.com",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w607916692",
+  "found": "2026-11-11",
+  "img": "https://colegiosantamariamicaelagranada.es/wp-content/uploads/sites/6/2025/08/IMG_4546-1-min.jpg",
+  "webAt": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-santo-domingo-vistillas",
+  "name": "Colegio Santo Domingo Vistillas",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.170471,
+  "lng": -3.588057,
+  "addr": "Calle Vistillas de Los Ángeles 2",
+  "phone": "+34 958 22 55 44",
+  "web": "https://www.santodomingo-vistillas.es",
+  "email": "colegio@santodomingo-vistillas.com",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w608716580",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-maria-nebrera",
+  "name": "Colegio María Nebrera",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.1583,
+  "lng": -3.574281,
+  "addr": "Calle Ojos del Salado",
+  "phone": "+34 958 71 55 32",
+  "web": "https://colegiomarianebrera.es",
+  "email": "info@colegiomarianebrera.es",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w615019912",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-mulhacen",
+  "name": "Colegio Mulhacén",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.199437,
+  "lng": -3.651044,
+  "addr": "Carretera de Granada a Badajoz 10",
+  "phone": "+34 958 806 800",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w631685292",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-mercedarias",
+  "name": "Colegio Mercedarias",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.174296,
+  "lng": -3.595461,
+  "addr": "Plaza del Padre Suárez 4",
+  "phone": "",
+  "web": "http://colegiomercedariasgranada.com/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w639429811",
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-monaita",
+  "name": "Colegio Monaita",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.205525,
+  "lng": -3.653408,
+  "addr": "Calle Acequia de la Madraza",
+  "phone": "+34 958 80 69 40",
+  "web": "https://attendis.com/colegio/monaita-mulhacen",
+  "email": "secretaria.monaita@monaita-mulhacen.com",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w701034104",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-escolapios-granada-cartuja",
+  "name": "Colegio Escolapios Granada Cartuja",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.200696,
+  "lng": -3.60301,
+  "addr": "Calle Luz Casanova 4",
+  "phone": "+34 958 15 03 78",
+  "web": "https://www.escolapioscartuja.org",
+  "email": "escolapioscartuja@escolapiosemaus.org",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w844807152",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-hermanos-maristas-la-inmaculada",
+  "name": "Colegio Hermanos Maristas La Inmaculada",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.175925,
+  "lng": -3.605732,
+  "addr": "Calle Sócrates 8",
+  "phone": "+34 958 28 32 11",
+  "web": "https://www.maristasgranada.com",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w851451409",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-centro-docente-privado-lux-mundi",
+  "name": "Centro Docente Privado Lux Mundi",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.134498,
+  "lng": -3.574847,
+  "addr": "Calle Durán 6",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria",
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1072240444",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-de-educacion-especial-santa-teresa-de-jesus",
+  "name": "Colegio de Educación Especial Santa Teresa de Jesús",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.154049,
+  "lng": -3.598937,
+  "addr": "Calle Santa Adela 45",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1094121399",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-cerrilo-de-maracena",
+  "name": "Colegio Cerrilo de Maracena",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.203403,
+  "lng": -3.627102,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1106762276",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-centro-de-educacion-infantil-aldeas-infantiles-sos",
+  "name": "Centro de Educación Infantil Aldeas Infantiles SOS",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.189292,
+  "lng": -3.59358,
+  "addr": "Carretera de Murcia 69",
+  "phone": "+34 958 20 62 13",
+  "web": "",
+  "email": "ceigranada@aldeasinfantiles.es",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1108306249",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-santa-maria-del-llano",
+  "name": "Colegio Santa María del Llano",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.126939,
+  "lng": -3.628317,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.santamariadelllano.com",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1141932827",
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-de-educacion-infantil-y-primaria-javier-imbroda",
+  "name": "Colegio de Educación Infantil y Primaria Javier Imbroda",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.108574,
+  "lng": -3.637404,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1221486104",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "granada-colegio-ave-maria-casa-madre",
+  "name": "Colegio Ave María Casa Madre",
+  "city": "Granada",
+  "country": "España",
+  "lat": 37.181047,
+  "lng": -3.585255,
+  "addr": "Cuesta del Chapiz",
+  "phone": "+34 958 22 14 60",
+  "web": "https://casamadre.amgr.es",
+  "email": "colegio@casamadre.amgr.es",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r14382090",
   "found": "2026-11-11"
  }
 ]
