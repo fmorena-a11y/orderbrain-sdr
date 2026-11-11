@@ -6857,7 +6857,71 @@
   "CO|n4323485991": "2026-11-10T21:03:57.668Z",
   "CL|Antofagasta": "2026-11-10T21:04:46.608Z",
   "CR|San José": "2026-11-10T21:05:28.131Z",
-  "MX|Cuernavaca": "2026-11-10T21:06:03.549Z"
+  "MX|Cuernavaca": "2026-11-10T21:06:03.549Z",
+  "CL|Viña del Mar": "2026-11-10T22:59:28.006Z",
+  "MX|Ensenada": "2026-11-11T01:25:59.793Z",
+  "ES|n289643197": "2026-11-11T01:26:32.003Z",
+  "MX|Ciudad Obregón": "2026-11-11T01:27:04.790Z",
+  "PE|Pucallpa": "2026-11-11T01:27:33.151Z",
+  "PR|n53200527": "2026-11-11T01:28:13.798Z",
+  "MX|Ixtapaluca": "2026-11-11T01:28:44.751Z",
+  "PY|n319466986": "2026-11-11T01:29:19.172Z",
+  "CO|n299736407": "2026-11-11T01:29:47.545Z",
+  "CO|n293168610": "2026-11-11T01:30:24.403Z",
+  "MX|Benito Juárez": "2026-11-11T01:30:58.747Z",
+  "MX|Playa del Carmen": "2026-11-11T01:37:04.374Z",
+  "MX|Santa Catarina": "2026-11-11T01:37:39.662Z",
+  "ES|n29333339": "2026-11-11T01:38:08.457Z",
+  "MX|Gómez Palacio": "2026-11-11T01:38:48.478Z",
+  "AR|Bahía Blanca": "2026-11-11T03:08:44.924Z",
+  "EC|n249597057": "2026-11-11T03:09:20.896Z",
+  "PY|n2647252986": "2026-11-11T03:15:42.201Z",
+  "VE|n333554748": "2026-11-11T03:16:28.211Z",
+  "MX|Los Mochis": "2026-11-11T03:17:09.274Z",
+  "MX|Pachuca": "2026-11-11T03:17:42.212Z",
+  "MX|Tampico": "2026-11-11T03:18:33.153Z",
+  "ES|n29272534": "2026-11-11T03:19:06.555Z",
+  "CO|n9632105989": "2026-11-11T03:19:38.445Z",
+  "MX|Tehuacán": "2026-11-11T03:20:36.543Z",
+  "ES|n21750062": "2026-11-11T03:21:16.455Z",
+  "AR|Neuquén": "2026-11-11T05:17:53.641Z",
+  "CO|n1834139017": "2026-11-11T05:18:33.782Z",
+  "PE|Tacna": "2026-11-11T05:19:17.194Z",
+  "VE|n373782315": "2026-11-11T05:25:59.297Z",
+  "PE|Ica": "2026-11-11T05:26:37.163Z",
+  "MX|Ciudad Nicolás Romero": "2026-11-11T05:27:07.380Z",
+  "PA|n339209702": "2026-11-11T05:27:46.499Z",
+  "CO|n285481028": "2026-11-11T05:28:19.504Z",
+  "AR|Posadas": "2026-11-11T05:28:55.565Z",
+  "VE|n792183738": "2026-11-11T05:29:28.699Z",
+  "VE|n110331573": "2026-11-11T05:30:02.699Z",
+  "EC|n249599781": "2026-11-11T05:30:39.834Z",
+  "PE|Juliaca": "2026-11-11T07:36:36.995Z",
+  "BO|n319780564": "2026-11-11T07:37:07.212Z",
+  "VE|n1958966047": "2026-11-11T07:37:32.678Z",
+  "MX|Heroica Nogales": "2026-11-11T07:38:02.593Z",
+  "MX|Oaxaca de Juárez": "2026-11-11T07:38:34.048Z",
+  "PA|n3422725352": "2026-11-11T07:39:04.080Z",
+  "ES|n529391484": "2026-11-11T07:39:24.246Z",
+  "ES|n27000791": "2026-11-11T07:39:49.229Z",
+  "CO|n311485508": "2026-11-11T07:46:43.913Z",
+  "AR|Santiago del Estero": "2026-11-11T07:47:18.059Z",
+  "CL|Valparaíso": "2026-11-11T07:47:47.274Z",
+  "DO|n250651421": "2026-11-11T07:48:13.849Z",
+  "VE|n268928372": "2026-11-11T07:48:49.631Z",
+  "MX|La Paz": "2026-11-11T07:49:23.119Z",
+  "VE|n4655472352": "2026-11-11T09:14:11.707Z",
+  "MX|San Francisco de Campeche": "2026-11-11T09:14:38.400Z",
+  "AR|Gregorio de Laferrere": "2026-11-11T09:15:15.222Z",
+  "AR|Paraná": "2026-11-11T09:20:09.452Z",
+  "DO|n1898769269": "2026-11-11T09:20:50.029Z",
+  "VE|n3575721762": "2026-11-11T09:21:17.573Z",
+  "PE|Chosica": "2026-11-11T09:28:51.610Z",
+  "BO|n313764484": "2026-11-11T11:22:25.644Z",
+  "MX|Monclova": "2026-11-11T11:23:11.911Z",
+  "VE|n416823077": "2026-11-11T11:23:49.271Z",
+  "CL|Temuco": "2026-11-11T11:24:34.333Z",
+  "MX|García": "2026-11-11T11:32:03.307Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -6884,9 +6948,582 @@
    "n": 1,
    "at": "2026-11-10T21:16:01.357Z",
    "error": "Overpass 504"
+  },
+  "MX|Ciudad Victoria": {
+   "n": 1,
+   "at": "2026-11-10T23:13:15.021Z",
+   "error": "Overpass 502"
+  },
+  "AR|Formosa": {
+   "n": 1,
+   "at": "2026-11-11T13:43:57.671Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-11T13:30:31.374Z",
+   "cities": [],
+   "added": 0,
+   "enriched": 0,
+   "photos": 14,
+   "contacts": 22,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "AR|Formosa: The operation was aborted due to timeout"
+   ],
+   "minutes": 15.1,
+   "total": 16784
+  },
+  {
+   "at": "2026-11-11T11:14:34.929Z",
+   "cities": [
+    {
+     "cc": "BO",
+     "city": "Sucre",
+     "found": 27,
+     "updated": 0,
+     "osm": 72
+    },
+    {
+     "cc": "MX",
+     "city": "Monclova",
+     "found": 7,
+     "updated": 0,
+     "osm": 63
+    },
+    {
+     "cc": "VE",
+     "city": "El Tigre",
+     "found": 15,
+     "updated": 0,
+     "osm": 46
+    },
+    {
+     "cc": "CL",
+     "city": "Temuco",
+     "found": 95,
+     "updated": 0,
+     "osm": 200
+    },
+    {
+     "cc": "MX",
+     "city": "García",
+     "found": 3,
+     "updated": 0,
+     "osm": 71
+    }
+   ],
+   "added": 147,
+   "enriched": 0,
+   "photos": 12,
+   "contacts": 19,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 19.3,
+   "total": 16784
+  },
+  {
+   "at": "2026-11-11T09:13:46.327Z",
+   "cities": [
+    {
+     "cc": "VE",
+     "city": "Valera",
+     "found": 19,
+     "updated": 0,
+     "osm": 50
+    },
+    {
+     "cc": "MX",
+     "city": "San Francisco de Campeche",
+     "found": 5,
+     "updated": 0,
+     "osm": 45
+    },
+    {
+     "cc": "AR",
+     "city": "Gregorio de Laferrere",
+     "found": 3,
+     "updated": 0,
+     "osm": 240
+    },
+    {
+     "cc": "AR",
+     "city": "Paraná",
+     "found": 60,
+     "updated": 0,
+     "osm": 190
+    },
+    {
+     "cc": "DO",
+     "city": "San Francisco de Macorís",
+     "found": 10,
+     "updated": 0,
+     "osm": 33
+    },
+    {
+     "cc": "VE",
+     "city": "Ciudad Ojeda",
+     "found": 5,
+     "updated": 0,
+     "osm": 14
+    },
+    {
+     "cc": "PE",
+     "city": "Chosica",
+     "found": 5,
+     "updated": 0,
+     "osm": 79
+    }
+   ],
+   "added": 107,
+   "enriched": 0,
+   "photos": 13,
+   "contacts": 17,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 17.2,
+   "total": 16637
+  },
+  {
+   "at": "2026-11-11T07:36:04.964Z",
+   "cities": [
+    {
+     "cc": "PE",
+     "city": "Juliaca",
+     "found": 10,
+     "updated": 0,
+     "osm": 207
+    },
+    {
+     "cc": "BO",
+     "city": "Oruro",
+     "found": 27,
+     "updated": 0,
+     "osm": 80
+    },
+    {
+     "cc": "VE",
+     "city": "Guarenas",
+     "found": 8,
+     "updated": 0,
+     "osm": 26
+    },
+    {
+     "cc": "MX",
+     "city": "Heroica Nogales",
+     "found": 5,
+     "updated": 0,
+     "osm": 22
+    },
+    {
+     "cc": "MX",
+     "city": "Oaxaca de Juárez",
+     "found": 151,
+     "updated": 2,
+     "osm": 549
+    },
+    {
+     "cc": "PA",
+     "city": "La Chorrera",
+     "found": 20,
+     "updated": 0,
+     "osm": 38
+    },
+    {
+     "cc": "ES",
+     "city": "Gijón",
+     "found": 26,
+     "updated": 0,
+     "osm": 102
+    },
+    {
+     "cc": "ES",
+     "city": "Vitoria",
+     "found": 3,
+     "updated": 0,
+     "osm": 104
+    },
+    {
+     "cc": "CO",
+     "city": "Floridablanca",
+     "found": 18,
+     "updated": 0,
+     "osm": 441
+    },
+    {
+     "cc": "AR",
+     "city": "Santiago del Estero",
+     "found": 44,
+     "updated": 0,
+     "osm": 171
+    },
+    {
+     "cc": "CL",
+     "city": "Valparaíso",
+     "found": 13,
+     "updated": 0,
+     "osm": 301
+    },
+    {
+     "cc": "DO",
+     "city": "Baní",
+     "found": 7,
+     "updated": 0,
+     "osm": 17
+    },
+    {
+     "cc": "VE",
+     "city": "Mérida",
+     "found": 30,
+     "updated": 0,
+     "osm": 85
+    },
+    {
+     "cc": "MX",
+     "city": "La Paz",
+     "found": 5,
+     "updated": 0,
+     "osm": 39
+    }
+   ],
+   "added": 367,
+   "enriched": 0,
+   "photos": 10,
+   "contacts": 23,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 14.5,
+   "total": 16530
+  },
+  {
+   "at": "2026-11-11T05:17:12.482Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Neuquén",
+     "found": 72,
+     "updated": 0,
+     "osm": 239
+    },
+    {
+     "cc": "CO",
+     "city": "Riohacha",
+     "found": 89,
+     "updated": 1,
+     "osm": 218
+    },
+    {
+     "cc": "PE",
+     "city": "Tacna",
+     "found": 20,
+     "updated": 0,
+     "osm": 205
+    },
+    {
+     "cc": "VE",
+     "city": "San Cristóbal",
+     "found": 46,
+     "updated": 0,
+     "osm": 83
+    },
+    {
+     "cc": "PE",
+     "city": "Ica",
+     "found": 16,
+     "updated": 0,
+     "osm": 243
+    },
+    {
+     "cc": "MX",
+     "city": "Ciudad Nicolás Romero",
+     "found": 1,
+     "updated": 0,
+     "osm": 144
+    },
+    {
+     "cc": "PA",
+     "city": "Colón",
+     "found": 7,
+     "updated": 0,
+     "osm": 15
+    },
+    {
+     "cc": "CO",
+     "city": "Sincelejo",
+     "found": 77,
+     "updated": 5,
+     "osm": 197
+    },
+    {
+     "cc": "AR",
+     "city": "Posadas",
+     "found": 85,
+     "updated": 4,
+     "osm": 262
+    },
+    {
+     "cc": "VE",
+     "city": "Punto Fijo",
+     "found": 11,
+     "updated": 0,
+     "osm": 27
+    },
+    {
+     "cc": "VE",
+     "city": "Puerto La Cruz",
+     "found": 2,
+     "updated": 0,
+     "osm": 231
+    },
+    {
+     "cc": "EC",
+     "city": "Santo Domingo de los Tsáchilas",
+     "found": 77,
+     "updated": 0,
+     "osm": 164
+    }
+   ],
+   "added": 503,
+   "enriched": 0,
+   "photos": 17,
+   "contacts": 24,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 15.2,
+   "total": 16163
+  },
+  {
+   "at": "2026-11-11T03:07:53.495Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Bahía Blanca",
+     "found": 13,
+     "updated": 0,
+     "osm": 81
+    },
+    {
+     "cc": "EC",
+     "city": "Quevedo",
+     "found": 20,
+     "updated": 0,
+     "osm": 72
+    },
+    {
+     "cc": "PY",
+     "city": "Lambaré",
+     "found": 0,
+     "updated": 0,
+     "osm": 477
+    },
+    {
+     "cc": "VE",
+     "city": "Cabimas",
+     "found": 2,
+     "updated": 0,
+     "osm": 9
+    },
+    {
+     "cc": "MX",
+     "city": "Los Mochis",
+     "found": 8,
+     "updated": 0,
+     "osm": 33
+    },
+    {
+     "cc": "MX",
+     "city": "Pachuca",
+     "found": 36,
+     "updated": 1,
+     "osm": 159
+    },
+    {
+     "cc": "MX",
+     "city": "Tampico",
+     "found": 8,
+     "updated": 0,
+     "osm": 43
+    },
+    {
+     "cc": "ES",
+     "city": "Valladolid",
+     "found": 70,
+     "updated": 0,
+     "osm": 167
+    },
+    {
+     "cc": "CO",
+     "city": "Arauca",
+     "found": 27,
+     "updated": 0,
+     "osm": 70
+    },
+    {
+     "cc": "MX",
+     "city": "Tehuacán",
+     "found": 5,
+     "updated": 0,
+     "osm": 53
+    },
+    {
+     "cc": "ES",
+     "city": "Córdoba",
+     "found": 78,
+     "updated": 0,
+     "osm": 148
+    }
+   ],
+   "added": 267,
+   "enriched": 0,
+   "photos": 18,
+   "contacts": 30,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 14.9,
+   "total": 15660
+  },
+  {
+   "at": "2026-11-11T01:25:23.361Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Ensenada",
+     "found": 28,
+     "updated": 0,
+     "osm": 271
+    },
+    {
+     "cc": "ES",
+     "city": "Palma",
+     "found": 22,
+     "updated": 1,
+     "osm": 157
+    },
+    {
+     "cc": "MX",
+     "city": "Ciudad Obregón",
+     "found": 8,
+     "updated": 0,
+     "osm": 40
+    },
+    {
+     "cc": "PE",
+     "city": "Pucallpa",
+     "found": 13,
+     "updated": 0,
+     "osm": 181
+    },
+    {
+     "cc": "PR",
+     "city": "San Juan",
+     "found": 35,
+     "updated": 1,
+     "osm": 149
+    },
+    {
+     "cc": "MX",
+     "city": "Ixtapaluca",
+     "found": 1,
+     "updated": 0,
+     "osm": 74
+    },
+    {
+     "cc": "PY",
+     "city": "Ciudad del Este",
+     "found": 56,
+     "updated": 1,
+     "osm": 218
+    },
+    {
+     "cc": "CO",
+     "city": "Popayán",
+     "found": 166,
+     "updated": 0,
+     "osm": 309
+    },
+    {
+     "cc": "CO",
+     "city": "Armenia",
+     "found": 36,
+     "updated": 0,
+     "osm": 138
+    },
+    {
+     "cc": "MX",
+     "city": "Benito Juárez",
+     "found": 1,
+     "updated": 0,
+     "osm": 44
+    },
+    {
+     "cc": "MX",
+     "city": "Playa del Carmen",
+     "found": 28,
+     "updated": 0,
+     "osm": 99
+    },
+    {
+     "cc": "MX",
+     "city": "Santa Catarina",
+     "found": 12,
+     "updated": 0,
+     "osm": 107
+    },
+    {
+     "cc": "ES",
+     "city": "Las Palmas de Gran Canaria",
+     "found": 62,
+     "updated": 2,
+     "osm": 186
+    },
+    {
+     "cc": "MX",
+     "city": "Gómez Palacio",
+     "found": 1,
+     "updated": 0,
+     "osm": 61
+    }
+   ],
+   "added": 469,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 29,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 14.7,
+   "total": 15393
+  },
+  {
+   "at": "2026-11-10T22:57:40.207Z",
+   "cities": [
+    {
+     "cc": "CL",
+     "city": "Viña del Mar",
+     "found": 206,
+     "updated": 1,
+     "osm": 389
+    }
+   ],
+   "added": 206,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 32,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "MX|Ciudad Victoria: Overpass 502"
+   ],
+   "minutes": 17.2,
+   "total": 14924
+  },
   {
    "at": "2026-11-10T21:01:37.801Z",
    "cities": [
