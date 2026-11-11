@@ -680,17 +680,21 @@ app.post("/api/schools/:id/comment", auth, schoolParam, wrap(async (req, res) =>
   const m = await pd.meta(), owner = task?.ownerId ? m.users.find(u => u.id === Number(task.ownerId)) : null;
   if (task?.ownerId && !owner) return res.status(400).json({ error: "Esa persona no está en el equipo." });
   const rec = s.leadOnly ? null : await sales.ensureOrg(req.params.id, user.pdUserId);
-  const target = s.leadOnly ? { leadId: s.leadId } : { orgId: rec.orgId, dealId: rec.openDealId || undefined };
-  const url = s.leadOnly ? `${pd.PD_WEB}/leads/inbox/${s.leadId}` : `${pd.PD_WEB}/organization/${rec.orgId}`;
-  const done = [];
+  const done = [], warns = [];
+  // sin trato abierto y con un prospecto abierto tuyo o libre de la organización: el comentario y la tarea van al prospecto
+  const leadT = !s.leadOnly && !rec.openDealId ? (await sales.contactLead(req.params.id, rec, user, [], warns))?.id || null : null;
+  const target = s.leadOnly ? { leadId: s.leadId } : leadT ? { orgId: rec.orgId, leadId: leadT } : { orgId: rec.orgId, dealId: rec.openDealId || undefined };
+  const url = s.leadOnly || leadT ? `${pd.PD_WEB}/leads/inbox/${s.leadOnly ? s.leadId : leadT}` : `${pd.PD_WEB}/organization/${rec.orgId}`;
   if (task) {
     const u = toUtc(task.date, task.time, req.tz);
     await pd.addActivity({ subject: String(task.subject || "").trim().slice(0, 140) || `${TYPE_LABEL[task.type]} · ${s.name}`, type: task.type, dueDate: u.date, dueTime: u.time, ...target, ownerId: owner?.id || user.pdUserId, note: text ? escHtml(text).slice(0, 1000) : "" });
     done.push({ label: `${TYPE_LABEL[task.type]} el ${task.date.slice(8, 10)}/${task.date.slice(5, 7)}${task.time ? " a las " + task.time : ""} para ${owner && owner.id !== user.pdUserId ? owner.name : "vos"}`, url });
   }
   const taskLine = task ? `<br><b>Tarea:</b> ${escHtml(TYPE_LABEL[task.type])} el ${escHtml(task.date)}${task.time ? " " + escHtml(task.time) : ""} para ${escHtml(owner?.name || by)}` : "";
-  await pd.addNote({ content: `<b>Comentario</b>${text ? "<br>" + escHtml(text).replace(/\n/g, "<br>") : ""}${taskLine}<br><br><i>Cargado por ${escHtml(by)} desde OrderBrain SDR</i>`, ...target });
-  done.push({ label: s.leadOnly ? "Comentario en el prospecto" : "Comentario en Pipedrive", url });
+  const noteHtml = `<b>Comentario</b>${text ? "<br>" + escHtml(text).replace(/\n/g, "<br>") : ""}${taskLine}<br><br><i>Cargado por ${escHtml(by)} desde OrderBrain SDR</i>`;
+  await pd.addNote({ content: noteHtml, ...target }).catch(e => { if (!leadT) throw e; return pd.addNote({ content: noteHtml, leadId: leadT }); });
+  done.push({ label: s.leadOnly || leadT ? "Comentario en el prospecto" : "Comentario en Pipedrive", url });
+  for (const w of warns) done.push({ label: w, warn: true });
   if (doneId) await pd.updateActivity(doneId, { done: true }).then(() => done.push({ label: "Actividad pendiente marcada como hecha" }), () => done.push({ label: "No pude marcar la actividad como hecha: hacelo desde la agenda.", warn: true }));
   if (gone) done.push({ label: "La actividad ya no está en Pipedrive.", warn: true });
   const out = { done, school: sales.schoolSummary(s), orgUrl: url };
