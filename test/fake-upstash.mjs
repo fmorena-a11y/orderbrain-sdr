@@ -42,9 +42,11 @@ export async function fakeUpstash() {
       default: throw new Error("comando no soportado: " + cmd);
     }
   }
+  const state = { down: false }; // down: responde 503 a todo (Redis caído)
   const srv = http.createServer((req, res) => {
     let body = ""; req.on("data", c => body += c);
     req.on("end", async () => {
+      if (state.down) { res.writeHead(503); res.end("caído"); return; }
       const cmds = JSON.parse(body || "[]");
       for (const c of cmds) { log.push(c); for (const h of hooks) await h(c, { run }); }
       const out = cmds.map(c => { try { return { result: run(c) }; } catch (e) { return { error: e.message }; } });
@@ -52,5 +54,5 @@ export async function fakeUpstash() {
     });
   });
   await new Promise(r => srv.listen(0, "127.0.0.1", r));
-  return { url: `http://127.0.0.1:${srv.address().port}`, run, log, hooks, hash, str, ttl: k => exp.has(k) ? Math.round((exp.get(k) - Date.now()) / 1000) : -1, close: () => srv.close() };
+  return { url: `http://127.0.0.1:${srv.address().port}`, run, log, hooks, hash, str, down: on => { state.down = !!on; }, ttl: k => exp.has(k) ? Math.round((exp.get(k) - Date.now()) / 1000) : -1, close: () => srv.close() };
 }

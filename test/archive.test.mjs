@@ -36,7 +36,8 @@ test("archivePlan: en Pipedrive solo lo tuyo o lo libre", () => {
   assert.equal(p.orgNote, false); assert.equal(p.orgOthers, true);
   assert.equal(archivePlan({ me: 7, org: { id: 1, ownerId: null } }).orgNote, true);
   assert.equal(archivePlan({ me: 7, org: { id: 1, ownerId: 7 } }).orgNote, true);
-  assert.deepEqual(archivePlan({ me: 7 }), { archive: [], others: [], orgNote: false, orgOthers: false, otherOwner: null });
+  assert.deepEqual(archivePlan({ me: 7 }), { archive: [], others: [], orgNote: false, orgOthers: false, otherOwner: null, otherOwners: [] });
+  assert.deepEqual(p.otherOwners, [8]); // todos los dueños ajenos (para ver si un líder de equipo los lidera a todos)
 });
 test("archivePlan.otherOwner y archiveError: lo de otra persona (organización, prospecto o cruce) solo lo archiva un líder", () => {
   assert.equal(archivePlan({ me: 7, leads: [{ id: "a", ownerId: 8 }], org: { id: 1, ownerId: 7 } }).otherOwner, 8);

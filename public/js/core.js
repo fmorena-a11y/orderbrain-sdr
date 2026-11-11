@@ -20,6 +20,24 @@ export const S = {
 function load(k, d) { try { const v = localStorage.getItem("ob." + k); return v ? JSON.parse(v) : d; } catch { return d; } }
 export function save(k, v) { try { localStorage.setItem("ob." + k, JSON.stringify(v)); } catch {} }
 export const loadPref = load;
+
+// ---------- equipos (lib/teams.js): S.profile.scope = { on, admin, all, led, member, teams, lead } (lo manda /api/me)
+// ¿Actúa como líder sobre lo de esta persona? (dirección y los fijos, o cualquier líder sin equipos: de todos; un líder de
+// equipo: de su gente). El servidor lo vuelve a controlar.
+export const leadsOver = (id = null, email = "") => { const l = S.profile?.scope?.lead; return l === "all" || (!!l && ((id != null && l.ids?.includes(Number(id))) || (!!email && l.emails?.includes(String(email).toLowerCase())))); };
+export const leadsAll = () => S.profile?.scope?.lead === "all";
+// Equipo que se mira en Métricas y Equipo (dirección: uno o «Toda la cuenta»; un líder con varios: uno de los suyos). "" = el
+// de siempre. «Toda la cuenta» no es la suma de los equipos: incluye a la gente sin equipo y a las cuentas generales.
+export const teamChoices = () => { const sc = S.profile?.scope; return !S.profile?.leader || !sc?.on ? [] : sc.all ? [{ id: "all", name: "Toda la cuenta" }, ...sc.teams] : sc.teams; };
+export function teamView() { const c = teamChoices(), v = load("team.view", ""); return c.some(t => t.id === v) ? v : ""; }
+export const teamQuery = () => { const v = teamView(); return v ? `team=${encodeURIComponent(v)}` : ""; };
+export const setTeamView = v => save("team.view", v || "");
+// selector «Equipo» (solo si hay más de uno para elegir)
+export function teamSelect(id = "teamSel") {
+  const c = teamChoices(); if (c.length < 2) return "";
+  const cur = teamView() || c[0].id;
+  return `<label class="field team-pick" style="margin:0"><span>Equipo</span><select class="inp" id="${id}">${c.map(t => `<option value="${esc(t.id)}" ${t.id === cur ? "selected" : ""}>${esc(t.name)}</option>`).join("")}</select></label>`;
+}
 // ---------- modo claro / oscuro (se recuerda; si nunca se eligió, sigue al sistema)
 export const isDark = () => document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
 export function applyTheme(t) {

@@ -2,7 +2,8 @@
 // Reglas: un número solo se muestra si su definición es exacta; si no se puede saber (o Pipedrive cortó la lista), «?».
 // Un SDR ve lo suyo y los totales del equipo; el desglose por persona es de los líderes (rutas …/people, 403 para los demás),
 // en orden alfabético y sin puestos. Los cálculos están en lib/metrics.js; las lecturas, en lib/sales.js.
-import { S, api, esc, icon, ago, TZ, save, loadPref } from "./core.js";
+// Con equipos, todo es del equipo elegido (dirección: uno o «Toda la cuenta»; un líder: el suyo): el servidor filtra y corta con 403.
+import { S, api, esc, icon, ago, TZ, save, loadPref, teamSelect, teamView, teamQuery, setTeamView } from "./core.js";
 
 let host, seq = 0;
 const F = { days: [7, 30, 90].includes(loadPref("mx.days", 7)) ? loadPref("mx.days", 7) : 7, country: loadPref("mx.country", "") };
@@ -10,7 +11,7 @@ const SECTIONS = ["demos", "deals", "contacts", "base", "clients", "archived"], 
 // «activity» es solo por persona: la pide solo un líder (las dos rutas dan 403 a los demás)
 // lo leído por filtro (volver a la vista lo muestra al instante y se actualiza atrás)
 const cache = new Map();
-const keyOf = () => `${F.days}|${F.country}`;
+const keyOf = () => `${F.days}|${F.country}|${teamView()}`;
 let D = { people: {} };
 
 export function renderMetrics(el) {
@@ -20,7 +21,7 @@ export function renderMetrics(el) {
   load();
 }
 function load() {
-  const my = ++seq, k = keyOf(), q = `?days=${F.days}&country=${encodeURIComponent(F.country)}`, leader = !!S.profile?.leader;
+  const tq = teamQuery(), my = ++seq, k = keyOf(), q = `?days=${F.days}&country=${encodeURIComponent(F.country)}${tq ? "&" + tq : ""}`, leader = !!S.profile?.leader;
   const prev = cache.get(k), box = prev ? { ...prev, people: { ...prev.people } } : { people: {} }; cache.set(k, box); D = box;
   // cada respuesta va a la caja de SU filtro (si mientras tanto se cambió el filtro, no pisa lo que se ve)
   const done = () => { if (my === seq && host?.isConnected) draw(); };
@@ -56,22 +57,26 @@ function table(cols, rows, first = "Persona") {
   return `<div class="follow-wrap"><table class="follow"><thead><tr><th scope="col">${esc(first)}</th>${cols.map(([, l]) => `<th scope="col" class="num">${esc(l)}</th>`).join("")}</tr></thead>
     <tbody>${rows.map(r => `<tr><th scope="row">${esc(pname(r))}</th>${cols.map(([k]) => `<td class="num">${fmt(typeof k === "function" ? k(r) : r[k])}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
 }
-const leaderOnly = '<span class="mx-tag">solo líderes</span>';
+const leaderOnly = '<span class="mx-tag">solo líderes y dirección</span>';
 const peopleOf = s => D.people[s];
 const peopleBlock = (s, fn) => { const p = peopleOf(s); return !S.profile?.leader ? "" : !p ? sk(2) : p.error ? err("el detalle por persona", p.error) : fn(p.data); };
 
 // ---------- indicadores grandes (fila de arriba)
 const sum = (o, ...k) => o ? k.reduce((s, x) => s + (o[x] || 0), 0) : null;
+// el equipo elegido (lo dice el servidor en cada respuesta); null = sin equipos o toda la cuenta
+const teamOf = () => { const sc = (D.demos?.data || D.deals?.data || D.clients?.data)?.scope; return sc?.on && sc.team ? sc.team : null; };
 function kpis() {
   const d = D.demos?.data, c = D.deals?.data, cl = D.clients?.data, leader = !!S.profile?.leader;
+  // con un equipo elegido, las dos de la derecha no son del equipo: se dice
+  const acct = teamOf() ? "de toda la cuenta, no solo del equipo: " : "";
   const pd = (r, k) => r ? `Pipedrive · ${readTxt(k)}` : "";
   const tiles = [
     { l: "Demos cargadas por el equipo", v: d && !d.partial.created ? d.loaded.totals.people : null, wait: !D.demos, sub: d && !d.partial.created ? `creadas en Pipedrive en el período por una persona (Demo y No Show). Aparte: ${fmt(d.loaded.totals.auto)} entradas automáticas${d.loaded.totals.dups ? ` y ${fmt(d.loaded.totals.dups)} duplicadas` : ""}` : "creadas en Pipedrive en el período por una persona (Demo y No Show)", src: pd(d, d?.at.created), mine: !leader && d && !d.partial.created ? `vos: ${fmt(d.loaded.mine?.total || 0)}` : "" },
     { l: "Demos hechas", v: d && !d.partial.held ? sum(d.held.totals, "appDone", "done") : null, wait: !D.demos, sub: "las que tenían fecha en el período (no son las cargadas): hechas en Pipedrive o marcadas «se hizo» en la app", src: pd(d, d?.at.held) },
     { l: "No-show", v: d && !d.partial.held ? sum(d.held.totals, "appNoshow", "noshow") : null, wait: !D.demos, sub: "con fecha en el período, pasadas a «No Show» o marcadas en la app", src: pd(d, d?.at.held) },
     { l: "Tratos ganados", v: c && !c.partial.won ? c.won.n : null, wait: !D.deals, sub: "embudos de venta, ganados por primera vez en el período (sin archivados)", src: pd(c, c?.at), mine: !leader && c && !c.partial.won ? `vos: ${fmt(c.mine.wonOwner)} como dueño · ${fmt(c.mine.wonSdr)} como SDR` : "" },
-    { l: "Clientes activos", v: cl?.enabled && !cl.unknown ? cl.activeClients : null, wait: !D.clients, sub: cl && !cl.enabled ? "sin token de World Dominion" : cl?.unknown ? "World Dominion no respondió" : `clientes con al menos un sitio Activo en World Dominion${cl ? ` (${fmt(cl.activeSites)} sitios activos)` : ""}`, src: cl?.enabled && !cl.unknown ? `World Dominion · datos de ${dmhm(cl.at)}${cl.demo ? " (prueba)" : ""}` : "" },
-    { l: "Colegios para llamar", v: null, sub: "falta comprobar el cruce con Pipedrive con una muestra revisada a mano", src: "" },
+    { l: "Clientes activos", v: cl?.enabled && !cl.unknown ? cl.activeClients : null, wait: !D.clients, sub: acct + (cl && !cl.enabled ? "sin token de World Dominion" : cl?.unknown ? "World Dominion no respondió" : `clientes con al menos un sitio Activo en World Dominion${cl ? ` (${fmt(cl.activeSites)} sitios activos)` : ""}`), src: cl?.enabled && !cl.unknown ? `World Dominion · datos de ${dmhm(cl.at)}${cl.demo ? " (prueba)" : ""}` : "" },
+    { l: "Colegios para llamar", v: null, sub: acct + "falta comprobar el cruce con Pipedrive con una muestra revisada a mano", src: "" },
   ];
   return `<section class="mx-kpis" aria-label="Indicadores del período">${tiles.map(t => `<div class="card mx-kpi"><span class="l">${esc(t.l)}</span>
     ${t.wait ? '<div class="skel" style="height:30px;width:70px;margin:4px 0"></div>' : `<b>${fmt(t.v)}</b>`}<small>${esc(t.sub)}</small>${t.mine ? `<small class="mine">${esc(t.mine)}</small>` : ""}${t.src ? `<small class="src">${esc(t.src)}</small>` : ""}</div>`).join("")}</section>`;
@@ -172,7 +177,7 @@ function baseCard() {
       <h3 class="mx-h">${F.country ? "Por ciudad" : "Por país"}</h3>${bars(rows, { label: x => x.key === "?" ? "Sin dato" : x.key })}
       ${soon("Estados (para llamar, en Pipe, clientes, sin revisar)", "dependen del cruce automático con Pipedrive. Los vamos a mostrar, con la fecha del cruce, después de revisar a mano una muestra de cada estado.")}`;
   })();
-  return `<section class="card" aria-labelledby="mxE"><div class="card-h"><h2 id="mxE">${icon("building")} Base de colegios</h2><span class="sub">la lista de la app</span></div><div class="card-b">${body}</div></section>`;
+  return `<section class="card" aria-labelledby="mxE"><div class="card-h"><h2 id="mxE">${icon("building")} Base de colegios</h2><span class="sub">la lista de la app${S.profile?.scope?.on ? " · de toda la cuenta" : ""}</span></div><div class="card-b">${body}</div></section>`;
 }
 
 // ---------- F. Clientes de OrderEAT (World Dominion)
@@ -190,7 +195,7 @@ function clientsCard() {
       ${note("Directo de World Dominion, no del cruce con la base: es lo que está cargado hoy, no tiene período.")}
       ${soon("Motivos y fechas de churn", "World Dominion no trae ni fecha ni motivo, y el aviso de Orderito en Slack es texto libre y no siempre llega.")}`;
   })();
-  return `<section class="card" aria-labelledby="mxF"><div class="card-h"><h2 id="mxF">${icon("globe")} Clientes de OrderEAT</h2><span class="sub">World Dominion</span></div><div class="card-b">${body}</div></section>`;
+  return `<section class="card" aria-labelledby="mxF"><div class="card-h"><h2 id="mxF">${icon("globe")} Clientes de OrderEAT</h2><span class="sub">World Dominion${S.profile?.scope?.on ? " · de toda la cuenta" : ""}</span></div><div class="card-b">${body}</div></section>`;
 }
 
 // ---------- G. Archivados
@@ -225,7 +230,7 @@ let swipeObs = null;
 function activityCard() {
   const r = peopleOf("activity");
   const body = !r ? sk(4) : r.error ? err("la actividad por persona", r.error) : (() => {
-    const a = r.data, P = a.partial || {}, per = periodTxt(a), tz = tzName(a.tz);
+    const a = r.data, P = a.partial || {}, per = periodTxt(a), tz = tzName(a.tz), team = a.scope?.on && a.scope.team ? a.scope.team : null;
     // columnas: los tipos con alguna en las dos primeras tablas (las de cuentas generales van en su columna)
     const cols = a.types.filter(t => a.dated?.byType[t.key] || a.late?.byType[t.key]);
     const head = [...cols.map(t => [t.name + (t.active ? "" : " (desactivado)"), t.known ? `Tipo «${t.name}» en Pipedrive` : "Este tipo no está en la lista de tipos de la cuenta: se muestra su clave"]),
@@ -239,7 +244,7 @@ function activityCard() {
     return `<div class="callout warn" style="margin-bottom:10px">${icon("alert")}<span>Es lo que cada uno cargó en Pipedrive con ese tipo: si alguien carga un mail como LinkedIn o un WhatsApp como llamada, se cuenta como ese tipo.</span></div>
       ${F.country ? `<div class="callout info" style="margin-bottom:10px">${icon("alert")}<span>El filtro de país no aplica acá: una actividad no dice de qué país es. Se cuenta todo.</span></div>` : ""}
       ${a.typesKnown ? "" : `<div class="callout warn" style="margin-bottom:10px">${icon("alert")}<span>No pudimos leer los nombres de los tipos de la cuenta: cada columna lleva la clave del tipo.</span></div>`}
-      ${src("Pipedrive, actividades de toda la cuenta", readTxt(a.at), per)}
+      ${src(team ? `Pipedrive, actividades de la gente de ${team.name} (no solo las de la app)` : "Pipedrive, actividades de toda la cuenta", readTxt(a.at), per)}
       <h3 class="mx-h">Hechas con fecha en el período, por tipo</h3>
       ${P.updated || P.ahead ? cut("actividades hechas") : ""}
       ${actTable(head, a.rows, x => cells(x.dated), cells(D1))}
@@ -251,10 +256,10 @@ function activityCard() {
       <h3 class="mx-h">Vencidas sin hacer, hoy</h3>
       ${P.pending ? cut("actividades sin hacer") : ""}
       ${actTable([["Vencidas", "Sin hacer y con fecha anterior a hoy"], ["Vencieron en el período", `De las vencidas, las que tienen fecha del ${dm(a.period?.from)} en adelante`]], a.rows, x => x.overdue ? [x.overdue.n, x.overdue.inPeriod] : [null, null], O ? [O.n, O.inPeriod] : [null, null])}
-      ${note(`«Vencidas»: sin hacer y con fecha anterior a hoy (${dm(a.period?.to)}, hora de ${esc(tz)}), de cualquier tipo y de toda la cuenta. Es la foto de ahora. «Vencieron en el período»: de esas, las que tienen fecha del ${dm(a.period?.from)} en adelante.`)}
+      ${note(`«Vencidas»: sin hacer y con fecha anterior a hoy (${dm(a.period?.to)}, hora de ${esc(tz)}), de cualquier tipo y ${team ? `de la gente de ${esc(team.name)}` : "de toda la cuenta"}. Es la foto de ahora. «Vencieron en el período»: de esas, las que tienen fecha del ${dm(a.period?.from)} en adelante.`)}
       ${note("Orden alfabético (con el nombre del perfil de la app); las cuentas generales (cada una en su fila) y los usuarios que ya no están activos en Pipedrive van al final. Aparece quien tiene alguna actividad en estas tablas o usa la app.")}`;
   })();
-  return `<section class="card wide" aria-labelledby="mxB"><div class="card-h"><h2 id="mxB">${icon("users")} Actividad por persona</h2><span class="sub">solo lo ven los líderes</span></div><div class="card-b">${body}</div></section>`;
+  return `<section class="card wide" aria-labelledby="mxB"><div class="card-h"><h2 id="mxB">${icon("users")} Actividad por persona</h2><span class="sub">solo lo ven los líderes y dirección</span></div><div class="card-b">${body}</div></section>`;
 }
 
 // ---------- vista
@@ -266,13 +271,16 @@ function draw() {
   if (!host) return;
   const leader = !!S.profile?.leader, any = D.demos?.data || D.deals?.data;
   const per = any ? periodTxt(any) : "";
+  // de qué equipo son los números (lo dice el servidor en cada respuesta)
+  const sc = any?.scope, who = !sc?.on ? "" : sc.team ? `Equipo ${sc.team.name}: totales y personas solo de su gente (base de colegios, clientes y colegios para llamar son de toda la cuenta).` : "Toda la cuenta: también la gente sin equipo y las cuentas generales, por eso no es la suma de los equipos.";
   host.innerHTML = `<div class="page mx">
     <div class="page-head"><div><h1>Métricas</h1><p>Lo exacto del período, con su fuente y su hora. «?» es que no se puede saber.</p></div></div>
     <div class="mx-filters">
       <div class="chips" role="group" aria-label="Período">${[7, 30, 90].map(n => `<button class="chip" data-mxd="${n}" aria-pressed="${F.days === n}">${n} días</button>`).join("")}</div>
+      ${teamSelect("mxTeam")}
       <label class="field" style="margin:0"><span>País</span><select class="inp" id="mxCountry"><option value="">Todos</option>${countries().map(c => `<option value="${esc(c)}" ${F.country === c ? "selected" : ""}>${esc(c)}</option>`).join("")}<option value="?" ${F.country === "?" ? "selected" : ""}>Sin país</option></select></label>
     </div>
-    <p class="mx-src" style="margin:0 0 14px">${esc(per ? per[0].toUpperCase() + per.slice(1) : "")}${per ? " · " : ""}${leader ? "Ves el total y el detalle por persona (en orden alfabético, para acompañar)." : "Ves tus números y los totales del equipo."}</p>
+    <p class="mx-src" style="margin:0 0 14px">${esc(per ? per[0].toUpperCase() + per.slice(1) : "")}${per ? " · " : ""}${who ? esc(who) + " " : ""}${leader ? "Ves el total y el detalle por persona (en orden alfabético, para acompañar)." : "Ves tus números y los totales del equipo."}</p>
     ${kpis()}
     <div class="mx-grid">
       ${demosCard()}
@@ -285,6 +293,7 @@ function draw() {
     </div></div>`;
   host.querySelectorAll("[data-mxd]").forEach(b => b.onclick = () => { F.days = Number(b.dataset.mxd); save("mx.days", F.days); load(); draw(); });
   host.querySelector("#mxCountry").onchange = e => { F.country = e.target.value; save("mx.country", F.country); load(); draw(); };
+  host.querySelector("#mxTeam")?.addEventListener("change", e => { setTeamView(e.target.value); D = cache.get(keyOf()) || { people: {} }; load(); draw(); });
   host.querySelectorAll("[data-mxretry]").forEach(b => b.onclick = () => { cache.delete(keyOf()); load(); draw(); });
   // el aviso de deslizar: ahora, cuando terminan de cargar las letras y cada vez que cambia el ancho
   fitSwipe(); document.fonts?.ready.then(() => host?.isConnected && fitSwipe());
