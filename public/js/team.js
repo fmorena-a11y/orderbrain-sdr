@@ -3,7 +3,7 @@
 import { S, api, esc, icon, ago, copy, toast, pill, setSchools, ST, DEMO_RES, shortDay } from "./core.js";
 import { openSchool, openRecord } from "./school.js";
 import { demoResultMenu } from "./today.js";
-import { brainBadge } from "./app.js";
+import { brainBadge, refreshMe } from "./app.js";
 
 let host;
 const CH_ICON = { call: "phone", whatsapp: "whatsapp", mail: "mail", visit: "user" };
@@ -21,11 +21,69 @@ async function refresh() {
   S.team7 = { demos, feed };
   if (host?.isConnected) draw();
 }
-// Accesos (solo líderes): el código personal de cada persona y un botón para copiar la invitación
+// Accesos (solo líderes y dirección): el código personal de cada persona, un botón para copiar la invitación y su acceso
+// (Equipo · Líder · Dirección con cargo). Lo fijo (definido por el administrador) no se puede bajar y nadie se saca el suyo:
+// el servidor manda qué opciones van deshabilitadas (choices) y vuelve a controlar todo al guardar.
 let codes = null;
+const accDraft = new Map(); // email → { level, title, busy, err }: lo que estás eligiendo en cada fila (sobrevive a redibujar)
 async function loadCodes() { try { codes = await api("/api/team/codes"); } catch (e) { codes = { error: e.message, users: [] }; } if (host?.isConnected) draw(); }
+const fShort = v => new Intl.DateTimeFormat("es", { day: "numeric", month: "short" }).format(new Date(v));
+const accTag = u => u.access?.level !== "equipo" ? `<span class="acc-tag lead">${esc(u.access.label)}</span>` : u.role ? `<span class="acc-tag">${esc(u.role)}</span>` : "";
+function accNote(u) {
+  const a = u.access, why = [];
+  if (a.fixed) why.push(a.fixed === "direccion" ? "Dirección definida por el administrador" : "Líder definido por el administrador");
+  if (u.me && a.level !== "equipo") why.push("no podés sacarte tu propio acceso");
+  if (a.by && a.at) why.push(`lo cambió ${a.by} el ${fShort(a.at)}`);
+  return why.join(" · ");
+}
+function accHtml(u) {
+  const d = accDraft.get(u.email) || {}, level = d.level ?? u.access.level, title = d.title ?? u.access.title ?? "";
+  const dirty = level !== u.access.level || (level === "direccion" && title.trim() !== (u.access.title || ""));
+  const id = `acc-${u.id}`, note = accNote(u);
+  return `<div class="acc" data-acc="${esc(u.email)}">
+    <label class="acc-f"><span>Acceso</span><select class="inp" id="${id}" data-acc-level ${d.busy ? "disabled" : ""}>${u.choices.map(c => `<option value="${c.level}" ${c.level === level ? "selected" : ""} ${c.disabled ? "disabled" : ""}>${esc(c.level === "direccion" ? "Dirección (CEO, CTO…)" : c.label)}${c.disabled ? ` (${esc(c.why)})` : ""}</option>`).join("")}</select></label>
+    ${level === "direccion" ? `<label class="acc-f acc-title"><span>Cargo <small class="faint">opcional</small></span><input class="inp" data-acc-title maxlength="24" value="${esc(title)}" placeholder="CEO, CTO, COO…" autocomplete="off" ${d.busy ? "disabled" : ""}></label>` : ""}
+    <button class="btn sm ${dirty ? "primary" : ""}" data-acc-save ${dirty && !d.busy ? "" : "disabled"}>${d.busy ? "Guardando…" : "Guardar"}</button>
+    ${note ? `<small class="acc-note">${esc(note)}</small>` : ""}
+    ${d.err ? `<div class="callout err acc-err" role="alert">${icon("alert")}<span>${esc(d.err)}</span></div>` : ""}
+  </div>`;
+}
 const codesHtml = c => c.error ? `<div class="callout err">${icon("alert")}<span>${esc(c.error)}</span></div>`
-  : `<div class="codes">${c.users.map(u => `<div class="code-row"><span class="t"><b>${esc(u.name)}</b><small>${esc(u.email)}</small></span><code>${esc(u.code)}</code><button class="btn sm" data-invite="${u.id}">${icon("copy", "sm")} Copiar invitación</button></div>`).join("")}</div>`;
+  : `<p class="faint" style="margin:0 0 6px;font-size:13.5px">Líder y Dirección ven todo lo de líder: Métricas, estos accesos, sincronizar y World Dominion. Dirección es para los founders (CEO, CTO…).</p>
+  <div class="codes">${c.users.map(u => `<div class="code-row"><span class="t"><b>${esc(u.name)}${u.me ? " (vos)" : ""} ${accTag(u)}</b><small>${esc(u.email)}</small></span><code>${esc(u.code)}</code><button class="btn sm" data-invite="${u.id}">${icon("copy", "sm")} Copiar invitación</button>${accHtml(u)}</div>`).join("")}</div>`;
+function drawCodes() {
+  const box = host?.isConnected && host.querySelector("#codes"); if (!box || !codes) return;
+  // si estabas escribiendo el cargo, el foco vuelve al mismo campo después de redibujar
+  const f = document.activeElement, keep = box.contains(f) ? { email: f.closest("[data-acc]")?.dataset.acc, title: f.matches("[data-acc-title]"), pos: f.selectionStart } : null;
+  box.innerHTML = codesHtml(codes);
+  box.querySelectorAll("[data-invite]").forEach(b => b.onclick = () => {
+    const u = codes.users.find(x => String(x.id) === b.dataset.invite); if (!u) return;
+    copy(`Hola ${u.name.split(" ")[0]}! Entrá a OrderBrain SDR: ${codes.url}\nTu email: ${u.email}\nTu código personal: ${u.code}\n(No lo compartas: es solo tuyo.)`);
+  });
+  box.querySelectorAll("[data-acc]").forEach(row => {
+    const email = row.dataset.acc, u = codes.users.find(x => x.email === email); if (!u) return;
+    const set = patch => { accDraft.set(email, { ...(accDraft.get(email) || {}), ...patch, err: "" }); drawCodes(); };
+    row.querySelector("[data-acc-level]").onchange = e => set({ level: e.target.value });
+    const t = row.querySelector("[data-acc-title]");
+    if (t) { t.oninput = () => { accDraft.set(email, { ...(accDraft.get(email) || {}), title: t.value, err: "" }); const b = row.querySelector("[data-acc-save]"), dirty = (accDraft.get(email).level ?? u.access.level) !== u.access.level || t.value.trim() !== (u.access.title || ""); b.disabled = !dirty; b.classList.toggle("primary", dirty); };
+      t.onkeydown = e => { if (e.key === "Enter") { e.preventDefault(); saveAccess(u); } }; }
+    row.querySelector("[data-acc-save]").onclick = () => saveAccess(u);
+  });
+  if (keep?.email) { const el = box.querySelector(`[data-acc="${CSS.escape(keep.email)}"] ${keep.title ? "[data-acc-title]" : "[data-acc-level]"}`); if (el && !el.disabled) { el.focus(); if (keep.title && keep.pos != null) try { el.setSelectionRange(keep.pos, keep.pos); } catch {} } }
+}
+async function saveAccess(u) {
+  const d = accDraft.get(u.email) || {}, level = d.level ?? u.access.level, title = (d.title ?? u.access.title ?? "").trim();
+  if (d.busy) return;
+  accDraft.set(u.email, { ...d, busy: true, err: "" }); drawCodes();
+  try {
+    const r = await api("/api/team/access", { body: { email: u.email, level, title } });
+    codes.users = codes.users.map(x => x.email === u.email ? r.user : x); accDraft.delete(u.email); drawCodes();
+    const first = u.name.split(" ")[0];
+    toast(r.user.access.level === "equipo" ? `Listo: ${first} ya no tiene acceso de líder` : `Listo: ${first} ahora es ${r.user.access.label}`);
+    if (u.me) refreshMe(); // tu propio cargo: el menú de cuenta al día
+    api("/api/team").then(t => { S.team = t; }).catch(() => {}); // los roles que ve el resto de la app
+  } catch (e) { accDraft.set(u.email, { ...(accDraft.get(u.email) || {}), busy: false, err: e.message }); drawCodes(); }
+}
 // Sincronizar con Pipedrive (solo líderes): cruza toda la base de una vez. El servidor trabaja ~40 s por pedido y
 // el navegador repite hasta terminar; «Pausar» deja de pedir (lo hecho queda guardado y se sigue después).
 // Si la está siguiendo otra pestaña, otro líder o el cron (sync.active), no se ofrece «Seguir»: se mira cada 5 s.
@@ -211,7 +269,7 @@ function demoRow(r) {
 function demosHtml(d) {
   const intro = `<p class="faint" style="margin:0 0 8px;font-size:13.5px">Quién la cargó: en las de la app, quien dice la nota; si no, quien la creó en Pipedrive. Del ${esc(shortDay(d.from))} al ${esc(shortDay(d.to))}${d.at ? ` · Pipedrive, leído ${esc(ago(d.at))}` : ""}.${S.profile?.leader ? ' Las métricas están en <a href="#/metricas">Métricas</a>.' : ""}</p>`;
   // por persona solo a los líderes (orden alfabético, sin puestos); a los demás, lo suyo y el total
-  const ppl = d.people ? (d.people.length ? `<div class="follow-wrap"><table class="follow"><thead><tr><th scope="col">Cargó <span class="mx-tag">solo líderes</span></th><th scope="col" class="num">Ya pasaron</th><th scope="col" class="num">Próximas</th></tr></thead>
+  const ppl = d.people ? (d.people.length ? `<div class="follow-wrap"><table class="follow"><thead><tr><th scope="col">Cargó <span class="mx-tag">solo líderes y dirección</span></th><th scope="col" class="num">Ya pasaron</th><th scope="col" class="num">Próximas</th></tr></thead>
     <tbody>${d.people.map(p => `<tr><th scope="row">${esc(p.auto ? "Entrada automática, sin agendador" : p.name || (p.id ? "Usuario no activo en Pipedrive" : "?"))}${p.id && p.id === S.me.pdUserId ? " (vos)" : ""}</th><td class="num">${p.recent}</td><td class="num">${p.upcoming}</td></tr>`).join("")}</tbody></table></div>` : "")
     : d.mine ? `<p style="margin:0 0 6px;font-size:14px">Cargadas por vos: <b>${d.mine.recent}</b> ya pasaron y <b>${d.mine.upcoming}</b> próximas. Todo el equipo: ${d.total.recent} y ${d.total.upcoming}.</p>` : "";
   const sec = (h, l) => `<h3 style="margin:14px 0 4px;font-size:14px">${h} <small class="faint">${l.length}</small></h3>${l.length ? l.map(demoRow).join("") : `<p class="faint" style="margin:0;font-size:13.5px">Ninguna.</p>`}`;
@@ -241,20 +299,16 @@ function draw() {
       <section class="card" aria-labelledby="hFd"><div class="card-h"><h2 id="hFd">${icon("clock")} Actividad reciente</h2></div><div class="card-b">${feed}</div></section>
     </div>
     ${S.profile?.leader ? `<section class="card" style="margin-top:16px" aria-labelledby="hAc"><div class="card-h"><h2 id="hAc">${icon("user")} Accesos del equipo</h2><span class="sub">cada persona entra con su email y su código personal</span></div>
-      <div class="card-b" id="codes">${codes ? codesHtml(codes) : '<div class="skel" style="margin:14px 0"></div>'.repeat(3)}</div></section>
+      <div class="card-b" id="codes">${'<div class="skel" style="margin:14px 0"></div>'.repeat(3)}</div></section>
     <section class="card" style="margin-top:16px" aria-labelledby="hSy"><div class="card-h"><h2 id="hSy">${icon("refresh")} Sincronizar con Pipedrive</h2><span class="sub">cruza toda la base de colegios de una vez</span></div>
       <div class="card-b" id="syncBox" aria-live="polite"></div></section>
     <section class="card" style="margin-top:16px" aria-labelledby="hWd"><div class="card-h"><h2 id="hWd">${icon("globe")} World Dominion</h2><span class="sub">qué colegios ya son clientes de OrderEAT</span></div>
       <div class="card-b" id="wdBox"></div></section>` : ""}
     </div>`;
   host.querySelectorAll("[data-retry]").forEach(b => b.onclick = () => { S.team7 = null; draw(); refresh(); });
-  if (S.profile?.leader && !codes) loadCodes();
+  if (S.profile?.leader) { if (!codes) loadCodes(); else drawCodes(); }
   if (S.profile?.leader) { drawSync(); if (!syncing) loadSync(); }
   if (S.profile?.leader) { drawWd(); if (!wdBusy && Date.now() - wdAt > 20e3) loadWd(); }
-  host.querySelectorAll("[data-invite]").forEach(b => b.onclick = () => {
-    const u = codes.users.find(x => String(x.id) === b.dataset.invite); if (!u) return;
-    copy(`Hola ${u.name.split(" ")[0]}! Entrá a OrderBrain SDR: ${codes.url}\nTu email: ${u.email}\nTu código personal: ${u.code}\n(No lo compartas: es solo tuyo.)`);
-  });
   host.querySelectorAll("[data-id]").forEach(b => b.onclick = () => openSchool(b.dataset.id));
   host.querySelectorAll("[data-dsch]").forEach(b => b.onclick = () => openSchool(b.dataset.dsch));
   host.querySelectorAll("[data-drec]").forEach(b => b.onclick = () => openRecord(b.dataset.drec));

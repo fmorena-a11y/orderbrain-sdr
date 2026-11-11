@@ -5,7 +5,8 @@ import { OAuth2Client } from "google-auth-library";
 import path from "path";
 import { fileURLToPath } from "url";
 import * as pd from "./lib/pipedrive.js";
-import { kv, key as kvKey, schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId, hiddenOsm, dropOsm, getProfile, setProfile, getProfiles, ROLES, syncArchived, FILE_COUNTS } from "./lib/store.js";
+import { kv, key as kvKey, schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId, hiddenOsm, dropOsm, getProfile, setProfile, getProfiles, ROLES, syncArchived, FILE_COUNTS, getAccessMap, setAccess } from "./lib/store.js";
+import * as ACC from "./lib/access.js";
 import { writesPipedrive } from "./lib/readonly.js";
 import { ARCHIVE_REASONS } from "./lib/archive.js";
 import * as scan from "./lib/scan.js";
@@ -75,13 +76,18 @@ async function attachPipedriveUser(email) {
   catch { return {}; }
 }
 app.get("/auth/config", (req, res) => res.json({ googleClientId: GOOGLE_CLIENT_ID, devLogin: DEV_OK, codeLogin: !!TEAM_CODE, domain: DOMAIN, demo: pd.DEMO }));
-// Líderes: quien conectó Pipedrive (dueño del token) y los emails de LEADER_EMAILS. El rol no se elige: lo define esto.
-const LEADERS = (process.env.LEADER_EMAILS || "").split(",").map(e => e.trim().toLowerCase()).filter(Boolean);
-async function isLeader(email) {
+// Acceso de líder (lib/access.js): líderes y dirección (founders: CEO, CTO…) ven lo mismo. Fijo (no se saca desde la app):
+// quien conectó Pipedrive (dueño del token) y LEADER_EMAILS son líderes, FOUNDER_EMAILS dirección. Lo demás lo asigna un
+// líder en Equipo › Accesos del equipo (getAccessMap). El rol no se elige en el perfil: lo define esto.
+const LEADERS = ACC.parseEmails(process.env.LEADER_EMAILS), FOUNDERS = ACC.parseEmails(process.env.FOUNDER_EMAILS);
+const ownerEmail = async () => { try { return (await pd.tokenOwner()).email || ""; } catch { return ""; } };
+const fixedOf = (email, owner) => ACC.fixedLevel(email, { owner, leaders: LEADERS, founders: FOUNDERS });
+async function accessFor(email, { fresh = false } = {}) {
   email = String(email || "").toLowerCase();
-  if (LEADERS.includes(email)) return true;
-  try { return (await pd.tokenOwner()).email === email; } catch { return false; }
+  const [owner, map] = await Promise.all([ownerEmail(), getAccessMap({ fresh })]);
+  return ACC.accessOf({ fixed: fixedOf(email, owner), assigned: map[email] || null });
 }
+async function isLeader(email) { return (await accessFor(email)).leader; }
 // Código personal: cada persona entra con su email y SU código (derivado del email con la clave del servidor),
 // así nadie entra como otro sabiendo un código compartido. El código de equipo solo sirve para los líderes.
 const B32 = "abcdefghjkmnpqrstuvwxyz23456789";
@@ -189,28 +195,34 @@ const schoolParam = (req, res, next) => {
 
 // ---------- API
 // Perfil: nombre completo y rol. Si la persona ya lo cargó, manda sobre el nombre que viene de Google o Pipedrive.
-// El rol «Líder» lo define el servidor (isLeader); el perfil solo elige entre SDR y Account Executive.
-const withProfile = (u, pr, leader) => {
-  const role = leader ? "lider" : pr?.role === "lider" ? "sdr" : pr?.role || "";
-  return pr ? { ...u, name: pr.name, role, roleLabel: ROLES[role] || "" } : { ...u, role, roleLabel: ROLES[role] || "" };
+// «Líder» y «Dirección» los define el servidor (accessFor); el perfil solo elige entre SDR y Account Executive (el rol base,
+// que vuelve a valer si le sacan el acceso). role: "lider" para los dos (lo que miran los permisos); roleLabel lo que se muestra.
+const baseRole = pr => pr?.role && pr.role !== "lider" && Object.hasOwn(ROLES, pr.role) ? pr.role : "";
+const withProfile = (u, pr, acc) => {
+  const role = acc.leader ? "lider" : baseRole(pr);
+  return { ...u, ...(pr ? { name: pr.name } : {}), role, roleLabel: acc.leader ? ACC.accessLabel(acc) : ROLES[role] || "", access: acc.level, title: acc.title };
 };
+const accessView = acc => ({ level: acc.level, label: ACC.accessLabel(acc), title: acc.title, fixed: acc.fixed, by: acc.by, at: acc.at });
+// el rol al día (no el de la sesión, que puede ser de antes de que le dieran o sacaran el acceso)
+const liveUser = async user => { const acc = await accessFor(user.email); return { ...user, role: acc.leader ? "lider" : user.role === "lider" ? "" : user.role }; };
 app.get("/api/me", auth, wrap(async (req, res) => {
-  const [pr, leader] = await Promise.all([getProfile(req.session.user.email), isLeader(req.session.user.email)]);
-  req.session.user = withProfile(req.session.user, pr, leader);
-  const roles = leader ? { lider: ROLES.lider } : { sdr: ROLES.sdr, ae: ROLES.ae };
+  const [pr, acc] = await Promise.all([getProfile(req.session.user.email), accessFor(req.session.user.email)]);
+  req.session.user = withProfile(req.session.user, pr, acc);
+  const roles = acc.leader ? { lider: ROLES.lider } : { sdr: ROLES.sdr, ae: ROLES.ae };
   res.json({
-  user: req.session.user, profile: { complete: !!(pr?.name && (pr?.role || leader)), suggested: req.session.user.pdName || "", roles, leader }, ai: ai.aiEnabled(), study: studyEnabled(), demo: pd.DEMO, goal: DAILY_GOAL, pdWeb: pd.PD_WEB, sessionMax: sessions.MAX_ITEMS,
+  user: req.session.user, profile: { complete: !!(pr?.name && (baseRole(pr) || acc.leader)), suggested: req.session.user.pdName || "", roles, leader: acc.leader, access: accessView(acc) }, ai: ai.aiEnabled(), study: studyEnabled(), demo: pd.DEMO, goal: DAILY_GOAL, pdWeb: pd.PD_WEB, sessionMax: sessions.MAX_ITEMS,
   countries: [...new Set(schools.map(s => s.country))].sort(), markets: MARKETS, outcomes: sales.OUTCOMES, lostReasons: LOST_REASONS, archiveReasons: ARCHIVE_REASONS, types: TYPE_LABEL,
   });
 }));
 app.post("/api/me/profile", auth, wrap(async (req, res) => {
   const name = String(req.body?.name || "").replace(/\s+/g, " ").trim().slice(0, 80), role = String(req.body?.role || "");
   if (name.split(" ").filter(w => w.length > 1).length < 2) return res.status(400).json({ error: "Escribí tu nombre y apellido." });
-  const leader = await isLeader(req.session.user.email);
-  const r = leader ? "lider" : role;
-  if (!Object.hasOwn(ROLES, r) || (r === "lider" && !leader)) return res.status(400).json({ error: "Elegí tu rol en el equipo (SDR o Account Executive)." });
+  // Líder y Dirección no se eligen: con acceso de líder se guarda el rol base que tenía (o «lider» si nunca eligió)
+  const [acc, prev] = await Promise.all([accessFor(req.session.user.email), getProfile(req.session.user.email)]);
+  const r = acc.leader ? baseRole(prev) || "lider" : role;
+  if (!Object.hasOwn(ROLES, r) || (r === "lider" && !acc.leader)) return res.status(400).json({ error: "Elegí tu rol en el equipo (SDR o Account Executive)." });
   const pr = await setProfile(req.session.user.email, { name, role: r });
-  req.session.user = withProfile(req.session.user, pr, leader);
+  req.session.user = withProfile(req.session.user, pr, acc);
   res.json({ user: req.session.user });
 }));
 // ---------- Gmail de cada persona (lib/gmail.js): conectar una vez, firma y estado. Nada de esto devuelve tokens.
@@ -283,15 +295,40 @@ app.get("/api/records/:kind/:rid", auth, wrap(async (req, res) => {
   res.json(await sales.openRecord(req.params.kind, req.params.rid));
 }));
 app.get("/api/schools", auth, (req, res) => res.json(schools.map(sales.schoolListItem)));
-// Accesos del equipo: el código personal de cada persona (solo lo ve un líder, para pasárselo)
+// Accesos del equipo (solo líderes y dirección): el código personal de cada persona, para pasárselo, y su acceso
+// (Equipo · Líder · Dirección con cargo). Lo fijo (dueño del token, LEADER_EMAILS, FOUNDER_EMAILS) se muestra sin poder bajarlo.
+const teamUsers = m => m.users.filter(u => u.email && (!DOMAIN || u.email.endsWith("@" + DOMAIN)));
+// rol que ve el equipo: el acceso si es de líder («Líder», «Dirección · CEO»); si no, SDR o Account Executive del perfil
+const roleOf = (acc, pr) => acc.leader ? ACC.accessLabel(acc) : ROLES[baseRole(pr)] || "";
+async function accessRows(me, { fresh = false } = {}) {
+  const [m, prs, owner, map] = await Promise.all([pd.meta(), getProfiles(), ownerEmail(), getAccessMap({ fresh })]);
+  return teamUsers(m).map(u => {
+    const acc = ACC.accessOf({ fixed: fixedOf(u.email, owner), assigned: map[u.email] || null });
+    return { id: u.id, name: prs[u.email]?.name || u.name, email: u.email, code: personalCode(u.email), role: roleOf(acc, prs[u.email]), me: u.email === me,
+      access: accessView(acc), choices: ACC.accessChoices({ actorEmail: me, targetEmail: u.email, target: acc }) };
+  });
+}
 app.get("/api/team/codes", auth, wrap(async (req, res) => {
-  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Solo un líder ve los accesos del equipo." });
-  const m = await pd.meta();
-  res.json({ url: `${req.protocol}://${req.get("host")}`, users: m.users.filter(u => u.email && (!DOMAIN || u.email.endsWith("@" + DOMAIN))).map(u => ({ id: u.id, name: u.name, email: u.email, code: personalCode(u.email) })) });
+  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Solo un líder o alguien de dirección ve los accesos del equipo." });
+  res.json({ url: `${req.protocol}://${req.get("host")}`, users: await accessRows(req.session.user.email) });
+}));
+// Cambiar el acceso de una persona: { email, level: equipo|lider|direccion, title } (el cargo solo con dirección).
+// No escribe en Pipedrive (READ_ONLY no aplica). Reglas en lib/access.js (changeError): un SDR, 403 antes de leer nada.
+app.post("/api/team/access", auth, wrap(async (req, res) => {
+  const me = String(req.session.user.email || "").toLowerCase(), actor = await accessFor(me, { fresh: true });
+  if (!actor.leader) return res.status(403).json({ error: "Solo un líder o alguien de dirección cambia los accesos del equipo." });
+  const email = String(req.body?.email || "").trim().toLowerCase(), level = String(req.body?.level || "");
+  const known = teamUsers(await pd.meta()).some(u => u.email === email);
+  const target = await accessFor(email, { fresh: true });
+  const err = ACC.changeError({ actorEmail: me, actor, targetEmail: email, target, level, known });
+  if (err) return res.status(err.status).json({ error: err.error });
+  await setAccess(email, ACC.accessRecord({ level, title: req.body?.title, by: me, byName: (await signName(req.session.user)) || req.session.user.name || me, at: new Date().toISOString() }));
+  const row = (await accessRows(me)).find(u => u.email === email);
+  res.json({ user: row });
 }));
 app.get("/api/team", auth, wrap(async (req, res) => {
-  const [m, prs] = await Promise.all([pd.meta(), getProfiles()]);
-  res.json(m.users.map(u => { const pr = prs[u.email]; return { id: u.id, name: pr?.name || u.name, role: pr ? ROLES[pr.role] : "" }; }));
+  const [m, prs, owner, map] = await Promise.all([pd.meta(), getProfiles(), ownerEmail(), getAccessMap()]);
+  res.json(m.users.map(u => { const pr = prs[u.email]; return { id: u.id, name: pr?.name || u.name, role: roleOf(ACC.accessOf({ fixed: fixedOf(u.email, owner), assigned: map[u.email] || null }), pr) }; }));
 }));
 
 // Demos de la semana (todos): las cargadas en Pipedrive, quién la cargó, quién la da y el resultado. Sin ranking: cuántas
@@ -325,18 +362,18 @@ const MX_LOAD = {
 const MX_LEADERS = new Set(["activity"]);
 // solo las secciones de MX_LOAD (no lo heredado de Object: «constructor», «toString»…)
 const mxLoad = section => Object.hasOwn(MX_LOAD, section) ? MX_LOAD[section] : null;
-// Métricas entera es solo para líderes (pedido del líder): a los demás, 403 antes de leer nada
+// Métricas entera es solo para líderes y dirección (pedido del líder): a los demás, 403 antes de leer nada
 app.get("/api/metrics/:section", auth, wrap(async (req, res) => {
-  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Métricas solo lo ven los líderes." });
+  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Métricas solo lo ven los líderes y dirección." });
   const load = mxLoad(req.params.section); if (!load) return res.status(404).json({ error: "No existe esa métrica." });
   if (MX_LEADERS.has(req.params.section)) {
-    if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Esto solo lo ve un líder." });
+    if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Esto solo lo ven los líderes y dirección." });
     return res.json(MX.splitView(req.params.section, await load(req)).people);
   }
   res.json(MX.splitView(req.params.section, await load(req), { me: req.session.user.pdUserId, email: req.session.user.email }).pub);
 }));
 app.get("/api/metrics/:section/people", auth, wrap(async (req, res) => {
-  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "El detalle por persona solo lo ve un líder." });
+  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "El detalle por persona solo lo ven los líderes y dirección." });
   const load = mxLoad(req.params.section), v = load && MX.splitView(req.params.section, await load(req));
   if (!v?.people) return res.status(404).json({ error: "Esa métrica no tiene detalle por persona." });
   res.json(v.people);
@@ -785,7 +822,7 @@ app.get("/api/stats", auth, (req, res) => res.json(sales.stats(req.session.user,
 app.post("/api/chat", auth, wrap(async (req, res) => {
   const messages = Array.isArray(req.body.messages) ? req.body.messages : [];
   if (!messages.length) return res.status(400).json({ error: "Mensaje vacío" });
-  res.json(await ai.chat({ user: req.session.user, messages, focus: byId.has(req.body.focus) ? req.body.focus : null, tz: req.tz }));
+  res.json(await ai.chat({ user: await liveUser(req.session.user), messages, focus: byId.has(req.body.focus) ? req.body.focus : null, tz: req.tz }));
 }));
 app.post("/api/proposals/confirm", auth, wrap(async (req, res) => {
   const token = String(req.body?.id || "");
@@ -805,7 +842,7 @@ app.post("/api/proposals/confirm", auth, wrap(async (req, res) => {
   res.json(out);
 }));
 async function confirmProposal(p, req) {
-  const user = req.session.user;
+  const user = await liveUser(req.session.user);
   let orgId = p.orgId, dealId = p.dealId, leadId = null;
   const vs = p.schoolId && byId.get(p.schoolId);
   if (vs?.leadOnly) leadId = vs.leadId; // ficha de un prospecto sin organización: se escribe en el prospecto

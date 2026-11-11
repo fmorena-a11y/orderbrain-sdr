@@ -56,7 +56,7 @@ function table(cols, rows, first = "Persona") {
   return `<div class="follow-wrap"><table class="follow"><thead><tr><th scope="col">${esc(first)}</th>${cols.map(([, l]) => `<th scope="col" class="num">${esc(l)}</th>`).join("")}</tr></thead>
     <tbody>${rows.map(r => `<tr><th scope="row">${esc(pname(r))}</th>${cols.map(([k]) => `<td class="num">${fmt(typeof k === "function" ? k(r) : r[k])}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
 }
-const leaderOnly = '<span class="mx-tag">solo líderes</span>';
+const leaderOnly = '<span class="mx-tag">solo líderes y dirección</span>';
 const peopleOf = s => D.people[s];
 const peopleBlock = (s, fn) => { const p = peopleOf(s); return !S.profile?.leader ? "" : !p ? sk(2) : p.error ? err("el detalle por persona", p.error) : fn(p.data); };
 
@@ -254,7 +254,7 @@ function activityCard() {
       ${note(`«Vencidas»: sin hacer y con fecha anterior a hoy (${dm(a.period?.to)}, hora de ${esc(tz)}), de cualquier tipo y de toda la cuenta. Es la foto de ahora. «Vencieron en el período»: de esas, las que tienen fecha del ${dm(a.period?.from)} en adelante.`)}
       ${note("Orden alfabético (con el nombre del perfil de la app); las cuentas generales (cada una en su fila) y los usuarios que ya no están activos en Pipedrive van al final. Aparece quien tiene alguna actividad en estas tablas o usa la app.")}`;
   })();
-  return `<section class="card wide" aria-labelledby="mxB"><div class="card-h"><h2 id="mxB">${icon("users")} Actividad por persona</h2><span class="sub">solo lo ven los líderes</span></div><div class="card-b">${body}</div></section>`;
+  return `<section class="card wide" aria-labelledby="mxB"><div class="card-h"><h2 id="mxB">${icon("users")} Actividad por persona</h2><span class="sub">solo lo ven los líderes y dirección</span></div><div class="card-b">${body}</div></section>`;
 }
 
 // ---------- vista

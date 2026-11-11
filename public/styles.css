@@ -204,6 +204,7 @@ textarea.inp { min-height: 88px; resize: vertical; line-height: 1.45; }
 .me .who { min-width: 0; flex: 1; }
 .me .who b { display: block; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .me .who small { color: var(--err); font-size: 12px; }
+.me .who small.role { display: block; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .page { max-width: 1240px; margin: 0 auto; padding: 28px 32px 64px; }
 .page-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
 .page-head h1 { font-size: 26px; font-weight: 700; }
@@ -883,9 +884,20 @@ details.agent summary .sub { order: 3; }
 .codes { display: grid; gap: 4px; }
 .code-row { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 8px 4px; border-bottom: 1px solid var(--line); }
 .code-row:last-child { border-bottom: 0; }
-.code-row .t b { display: block; } .code-row .t small { color: var(--muted); font-size: 12.5px; }
+.code-row .t b { display: block; } .code-row .t small { display: block; color: var(--muted); font-size: 12.5px; overflow-wrap: anywhere; }
 .code-row code { font: 600 14px ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--surface-2); padding: 4px 8px; border-radius: 8px; letter-spacing: .5px; }
-@media (max-width: 600px) { .code-row { grid-template-columns: 1fr auto; } .code-row .btn { grid-column: 1 / -1; } }
+/* acceso de cada persona: Equipo · Líder · Dirección (con cargo) */
+.acc-tag { display: inline-block; vertical-align: 1px; margin-left: 4px; font-size: 11.5px; font-weight: 600; padding: 1px 8px; border-radius: 999px; background: var(--surface-2); color: var(--muted); white-space: nowrap; }
+.acc-tag.lead { background: var(--accent-soft); color: var(--accent-ink, var(--accent)); }
+.acc { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: flex-end; gap: 6px 10px; margin-top: -2px; }
+.acc-f { display: grid; gap: 3px; font-size: 12.5px; color: var(--muted); font-weight: 600; min-width: 0; }
+.acc-f .inp { min-height: 34px; padding: 5px 10px; font-size: 13.5px; font-weight: 400; color: var(--ink); }
+.acc-f select.inp { width: auto; max-width: 100%; }
+.acc-title .inp { width: 150px; }
+.acc .btn { min-height: 34px; }
+.acc-note { flex-basis: 100%; color: var(--muted); font-size: 12.5px; }
+.acc-err { flex-basis: 100%; margin: 0; }
+@media (max-width: 600px) { .code-row { grid-template-columns: 1fr auto; } .code-row > .btn { grid-column: 1 / -1; } .acc-f { flex: 1 1 200px; } .acc-title { flex-basis: 96px; } .acc-f select.inp, .acc-title .inp { width: 100%; } }
 
 /* sedes de un colegio */
 .sedes { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
