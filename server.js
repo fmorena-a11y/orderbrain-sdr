@@ -5,8 +5,9 @@ import { OAuth2Client } from "google-auth-library";
 import path from "path";
 import { fileURLToPath } from "url";
 import * as pd from "./lib/pipedrive.js";
-import { kv, key as kvKey, schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId, hiddenOsm, dropOsm, getProfile, setProfile, getProfiles, ROLES, syncArchived, FILE_COUNTS, getAccessMap, setAccess } from "./lib/store.js";
+import { kv, key as kvKey, schools, byId, sync, flush, kvEnabled, getStudy, setStudy, withLock, addSchools, syncExtras, cacheGet, cacheSet, canonicalId, hiddenOsm, dropOsm, getProfile, setProfile, getProfiles, ROLES, syncArchived, FILE_COUNTS, getAccessMap, setAccess, getTeams, saveTeams } from "./lib/store.js";
 import * as ACC from "./lib/access.js";
+import * as TM from "./lib/teams.js";
 import { writesPipedrive } from "./lib/readonly.js";
 import { ARCHIVE_REASONS } from "./lib/archive.js";
 import * as scan from "./lib/scan.js";
@@ -76,20 +77,34 @@ async function attachPipedriveUser(email) {
   catch { return {}; }
 }
 app.get("/auth/config", (req, res) => res.json({ googleClientId: GOOGLE_CLIENT_ID, devLogin: DEV_OK, codeLogin: !!TEAM_CODE, domain: DOMAIN, demo: pd.DEMO }));
-// Acceso de líder (lib/access.js): líderes y dirección (founders: CEO, CTO…) ven lo mismo. Fijo (no se saca desde la app):
-// quien conectó Pipedrive (dueño del token) y LEADER_EMAILS son líderes, FOUNDER_EMAILS dirección. Lo demás lo asigna un
-// líder en Equipo › Accesos del equipo (getAccessMap). El rol no se elige en el perfil: lo define esto.
+// Acceso de líder (lib/access.js) y equipos (lib/teams.js). Fijo (no se saca desde la app): quien conectó Pipedrive (dueño
+// del token) y LEADER_EMAILS son líderes, FOUNDER_EMAILS dirección; los dos ven todos los equipos y los arman. Lo demás lo
+// asigna dirección en Equipo (getAccessMap, getTeams). Con equipos, un líder de equipo ve y toca solo lo de su gente.
+// El rol no se elige en el perfil: lo define esto.
 const LEADERS = ACC.parseEmails(process.env.LEADER_EMAILS), FOUNDERS = ACC.parseEmails(process.env.FOUNDER_EMAILS);
 const ownerEmail = async () => { try { return (await pd.tokenOwner()).email || ""; } catch { return ""; } };
 const fixedOf = (email, owner) => ACC.fixedLevel(email, { owner, leaders: LEADERS, founders: FOUNDERS });
-async function accessFor(email, { fresh = false } = {}) {
-  email = String(email || "").toLowerCase();
-  const [owner, map] = await Promise.all([ownerEmail(), getAccessMap({ fresh })]);
-  return ACC.accessOf({ fixed: fixedOf(email, owner), assigned: map[email] || null });
+const lc = e => String(e || "").trim().toLowerCase();
+// quién mira: acceso, si es admin (dirección o fijo), si ve todo (all), qué equipos lidera y de cuál es miembro
+async function viewerFor(email, { fresh = false } = {}) {
+  email = lc(email);
+  const [owner, map, raw] = await Promise.all([ownerEmail(), getAccessMap({ fresh }), getTeams({ fresh })]);
+  const T = TM.normTeams(raw);
+  return { ...TM.viewerOf({ email, fixed: fixedOf(email, owner), assigned: map[email] || null, T }), T, map, owner };
 }
-async function isLeader(email) { return (await accessFor(email)).leader; }
+const otherViewer = (v, email, T = v.T) => TM.viewerOf({ email, fixed: fixedOf(email, v.owner), assigned: v.map[lc(email)] || null, T });
+// sobre lo de quién actúa como líder: true (todos), false (solo lo suyo) o { ids, emails } (la gente de sus equipos sin acceso
+// de líder: ni otro líder, ni dirección, ni un fijo, aunque estén en su equipo; eso lo hace un admin)
+const scopeOf = (v, users) => TM.leadScope(v, v.T, users, { isLead: e => otherViewer(v, e).leader });
+async function leadScopeFor(email) {
+  const v = await viewerFor(email); if (!v.leader) return false; if (v.all) return true;
+  return scopeOf(v, (await pd.meta()).users);
+}
+const httpErr = e => Object.assign(new Error(e.error), { status: e.status });
 // Código personal: cada persona entra con su email y SU código (derivado del email con la clave del servidor),
-// así nadie entra como otro sabiendo un código compartido. El código de equipo solo sirve para los líderes.
+// así nadie entra como otro sabiendo un código compartido. El código del equipo (TEAM_ACCESS_CODE) solo sirve para los
+// fijos (dueño del token, LEADER_EMAILS, FOUNDER_EMAILS): con equipos, un líder que lo tuviera entraría como dirección o
+// como el líder de otro equipo. Los líderes de equipo y la dirección asignada en la app entran con su código personal.
 const B32 = "abcdefghjkmnpqrstuvwxyz23456789";
 function personalCode(email) {
   const h = crypto.createHmac("sha256", SCAN_SECRET).update("code:" + String(email).toLowerCase()).digest();
@@ -115,7 +130,7 @@ app.post("/auth/code", async (req, res) => {
   const keys = ["ip:" + ip, "em:" + email];
   if (await tooMany(keys)) return res.status(429).json({ error: "Demasiados intentos. Probá de nuevo en 15 minutos." });
   const validEmail = /^[^@\s]+@[^@\s]+$/.test(email) && (!DOMAIN || email.endsWith("@" + DOMAIN));
-  const ok = validEmail && (same(code, personalCode(email)) || (same(code, TEAM_CODE.toLowerCase()) && await isLeader(email)));
+  const ok = validEmail && (same(code, personalCode(email)) || (same(code, TEAM_CODE.toLowerCase()) && ACC.teamCodeOk(fixedOf(email, await ownerEmail()))));
   await new Promise(r => setTimeout(r, 400));
   if (!ok) return res.status(401).json({ error: DOMAIN && email && !email.endsWith("@" + DOMAIN) ? `Usá tu email @${DOMAIN}.` : "Email o código incorrecto. Tu código personal te lo pasa el líder del equipo." });
   await clearTries(keys);
@@ -167,23 +182,24 @@ const wrap = fn => (req, res) => fn(req, res).catch(e => {
   const code = typeof e.code === "string" && /^[a-z][a-z_]{1,40}$/.test(e.code) ? { code: e.code } : {};
   res.status(status).json({ error: e instanceof pd.PipedriveError ? `Pipedrive: ${e.message}` : e.message, ...code });
 });
-// Cada uno cambia solo sus actividades (marcar hecha, deshacer, reprogramar); un líder puede con todas.
+// Cada uno cambia solo sus actividades (marcar hecha, deshacer, reprogramar); un líder, las de la gente de sus equipos
+// (dirección y los fijos, o cualquier líder si no hay equipos: todas).
 async function ownActivity(user, id, { missingOk } = {}) {
   const a = await pd.getActivity(Number(id));
   if (!a && missingOk) return null;
   if (!a) throw Object.assign(new Error("No encontré esa actividad en Pipedrive."), { status: 404 });
   const owner = a.owner_id ?? a.user_id ?? a.assigned_to_user_id ?? null;
   if (owner && user.pdUserId && Number(owner) === Number(user.pdUserId)) return a;
-  if (await isLeader(user.email)) return a;
+  if (TM.canLead(await leadScopeFor(user.email), { id: owner })) return a;
   throw Object.assign(new Error("Esa actividad es de otra persona en Pipedrive: no la podés cambiar."), { status: 403 });
 }
-// Lo mismo con los tratos: solo el dueño del trato (owner_id/user_id) o un líder.
+// Lo mismo con los tratos: solo el dueño del trato (owner_id/user_id) o un líder (de un equipo: si el dueño es de su gente).
 async function ownDeal(user, id) {
   const d = await pd.getDeal(Number(id));
   if (!d) throw Object.assign(new Error("No encontré ese trato en Pipedrive."), { status: 404 });
   const owner = d.owner_id ?? d.user_id ?? null;
   if (owner && user.pdUserId && Number(owner) === Number(user.pdUserId)) return d;
-  if (await isLeader(user.email)) return d;
+  if (TM.canLead(await leadScopeFor(user.email), { id: owner })) return d;
   throw Object.assign(new Error("Ese trato es de otra persona en Pipedrive: no lo podés cambiar."), { status: 403 });
 }
 // las fichas de Pipedrive (prospectos y organizaciones fuera de la base) se rearman si esta instancia no las tiene
@@ -195,22 +211,31 @@ const schoolParam = (req, res, next) => {
 
 // ---------- API
 // Perfil: nombre completo y rol. Si la persona ya lo cargó, manda sobre el nombre que viene de Google o Pipedrive.
-// «Líder» y «Dirección» los define el servidor (accessFor); el perfil solo elige entre SDR y Account Executive (el rol base,
-// que vuelve a valer si le sacan el acceso). role: "lider" para los dos (lo que miran los permisos); roleLabel lo que se muestra.
+// «Líder» y «Dirección» los define el servidor (viewerFor); el perfil solo elige entre SDR y Account Executive (el rol base,
+// que vuelve a valer si le sacan el acceso). role: "lider" para los dos (lo que miran los permisos); roleLabel lo que se
+// muestra: «Dirección · CEO», «Líder · SDR México», «SDR · SDR México» (con equipos) o «Líder», «SDR» (sin equipos).
 const baseRole = pr => pr?.role && pr.role !== "lider" && Object.hasOwn(ROLES, pr.role) ? pr.role : "";
-const withProfile = (u, pr, acc) => {
-  const role = acc.leader ? "lider" : baseRole(pr);
-  return { ...u, ...(pr ? { name: pr.name } : {}), role, roleLabel: acc.leader ? ACC.accessLabel(acc) : ROLES[role] || "", access: acc.level, title: acc.title };
+const labelOf = (acc, T, email, pr) => TM.roleLabel({ acc, T, email, base: ROLES[baseRole(pr)] || "" });
+const withProfile = (u, pr, v) => {
+  const role = v.leader ? "lider" : baseRole(pr);
+  return { ...u, ...(pr ? { name: pr.name } : {}), role, roleLabel: labelOf(v.acc, v.T, u.email, pr), access: v.acc.level, title: v.acc.title };
 };
-const accessView = acc => ({ level: acc.level, label: ACC.accessLabel(acc), title: acc.title, fixed: acc.fixed, by: acc.by, at: acc.at });
-// el rol al día (no el de la sesión, que puede ser de antes de que le dieran o sacaran el acceso)
-const liveUser = async user => { const acc = await accessFor(user.email); return { ...user, role: acc.leader ? "lider" : user.role === "lider" ? "" : user.role }; };
+const accessView = acc => ({ level: acc.level, label: ACC.accessLabel(acc), title: acc.title, fixed: acc.fixed, by: acc.by, at: acc.at, ...(acc.stale ? { stale: true } : {}) });
+// Lo que sabe el navegador de los equipos de quien mira: si hay equipos, si es admin o ve todo, qué equipos puede elegir
+// (Métricas y Equipo) y sobre la gente de quién actúa como líder (lead: "all" o { ids, emails }; un miembro, null).
+async function scopeView(v) {
+  const m = await pd.meta().catch(() => ({ users: [] })), nm = id => TM.teamById(v.T, id)?.name || "";
+  return { on: v.on, admin: v.admin, all: v.all, led: v.led.map(id => ({ id, name: nm(id) })), member: v.member ? { id: v.member, name: nm(v.member) } : null,
+    teams: TM.viewableTeams(v, v.T).map(t => ({ id: t.id, name: t.name })), lead: TM.scopeOut(scopeOf(v, m.users)), ...(v.unknown ? { unknown: true } : {}) };
+}
+// el rol al día (no el de la sesión, que puede ser de antes de que le dieran o sacaran el acceso) y sobre quién actúa como líder
+const liveUser = async user => { const v = await viewerFor(user.email); return { ...user, role: v.leader ? "lider" : user.role === "lider" ? "" : user.role, leads: v.leader ? v.all || scopeOf(v, (await pd.meta()).users) : false }; };
 app.get("/api/me", auth, wrap(async (req, res) => {
-  const [pr, acc] = await Promise.all([getProfile(req.session.user.email), accessFor(req.session.user.email)]);
-  req.session.user = withProfile(req.session.user, pr, acc);
-  const roles = acc.leader ? { lider: ROLES.lider } : { sdr: ROLES.sdr, ae: ROLES.ae };
+  const [pr, v] = await Promise.all([getProfile(req.session.user.email), viewerFor(req.session.user.email)]);
+  req.session.user = withProfile(req.session.user, pr, v);
+  const roles = v.leader ? { lider: ROLES.lider } : { sdr: ROLES.sdr, ae: ROLES.ae };
   res.json({
-  user: req.session.user, profile: { complete: !!(pr?.name && (baseRole(pr) || acc.leader)), suggested: req.session.user.pdName || "", roles, leader: acc.leader, access: accessView(acc) }, ai: ai.aiEnabled(), study: studyEnabled(), demo: pd.DEMO, goal: DAILY_GOAL, pdWeb: pd.PD_WEB, sessionMax: sessions.MAX_ITEMS,
+  user: req.session.user, profile: { complete: !!(pr?.name && (baseRole(pr) || v.leader || v.acc.stale)), suggested: req.session.user.pdName || "", roles, leader: v.leader, access: accessView(v.acc), scope: await scopeView(v) }, ai: ai.aiEnabled(), study: studyEnabled(), demo: pd.DEMO, goal: DAILY_GOAL, pdWeb: pd.PD_WEB, sessionMax: sessions.MAX_ITEMS,
   countries: [...new Set(schools.map(s => s.country))].sort(), markets: MARKETS, outcomes: sales.OUTCOMES, lostReasons: LOST_REASONS, archiveReasons: ARCHIVE_REASONS, types: TYPE_LABEL,
   });
 }));
@@ -218,11 +243,11 @@ app.post("/api/me/profile", auth, wrap(async (req, res) => {
   const name = String(req.body?.name || "").replace(/\s+/g, " ").trim().slice(0, 80), role = String(req.body?.role || "");
   if (name.split(" ").filter(w => w.length > 1).length < 2) return res.status(400).json({ error: "Escribí tu nombre y apellido." });
   // Líder y Dirección no se eligen: con acceso de líder se guarda el rol base que tenía (o «lider» si nunca eligió)
-  const [acc, prev] = await Promise.all([accessFor(req.session.user.email), getProfile(req.session.user.email)]);
-  const r = acc.leader ? baseRole(prev) || "lider" : role;
-  if (!Object.hasOwn(ROLES, r) || (r === "lider" && !acc.leader)) return res.status(400).json({ error: "Elegí tu rol en el equipo (SDR o Account Executive)." });
+  const [v, prev] = await Promise.all([viewerFor(req.session.user.email), getProfile(req.session.user.email)]);
+  const r = v.leader ? baseRole(prev) || "lider" : role;
+  if (!Object.hasOwn(ROLES, r) || (r === "lider" && !v.leader)) return res.status(400).json({ error: "Elegí tu rol en el equipo (SDR o Account Executive)." });
   const pr = await setProfile(req.session.user.email, { name, role: r });
-  req.session.user = withProfile(req.session.user, pr, acc);
+  req.session.user = withProfile(req.session.user, pr, v);
   res.json({ user: req.session.user });
 }));
 // ---------- Gmail de cada persona (lib/gmail.js): conectar una vez, firma y estado. Nada de esto devuelve tokens.
@@ -295,59 +320,155 @@ app.get("/api/records/:kind/:rid", auth, wrap(async (req, res) => {
   res.json(await sales.openRecord(req.params.kind, req.params.rid));
 }));
 app.get("/api/schools", auth, (req, res) => res.json(schools.map(sales.schoolListItem)));
-// Accesos del equipo (solo líderes y dirección): el código personal de cada persona, para pasárselo, y su acceso
-// (Equipo · Líder · Dirección con cargo). Lo fijo (dueño del token, LEADER_EMAILS, FOUNDER_EMAILS) se muestra sin poder bajarlo.
+// Accesos del equipo (líderes y dirección): el código personal de cada persona, para pasárselo, su acceso (Miembro · Líder ·
+// Dirección con cargo) y su equipo. Dirección y los fijos ven a todos y cambian accesos y equipos; un líder de equipo ve a su
+// gente (con código) y a la gente sin equipo (free, sin código: para sumarla). Lo fijo (dueño del token, LEADER_EMAILS,
+// FOUNDER_EMAILS) se muestra sin poder bajarlo. A quien no es admin nunca le llega el código de alguien con acceso de líder,
+// de dirección o fijo (aunque sea colíder o haya quedado en su equipo): con ese código entraría como esa persona.
 const teamUsers = m => m.users.filter(u => u.email && (!DOMAIN || u.email.endsWith("@" + DOMAIN)));
-// rol que ve el equipo: el acceso si es de líder («Líder», «Dirección · CEO»); si no, SDR o Account Executive del perfil
-const roleOf = (acc, pr) => acc.leader ? ACC.accessLabel(acc) : ROLES[baseRole(pr)] || "";
-async function accessRows(me, { fresh = false } = {}) {
-  const [m, prs, owner, map] = await Promise.all([pd.meta(), getProfiles(), ownerEmail(), getAccessMap({ fresh })]);
-  return teamUsers(m).map(u => {
-    const acc = ACC.accessOf({ fixed: fixedOf(u.email, owner), assigned: map[u.email] || null });
-    return { id: u.id, name: prs[u.email]?.name || u.name, email: u.email, code: personalCode(u.email), role: roleOf(acc, prs[u.email]), me: u.email === me,
-      access: accessView(acc), choices: ACC.accessChoices({ actorEmail: me, targetEmail: u.email, target: acc }) };
-  });
+async function accessRows(v) {
+  const [m, prs] = await Promise.all([pd.meta(), getProfiles()]), T = v.T;
+  const rowOf = u => {
+    const e = lc(u.email), o = otherViewer(v, e), hide = !TM.showsCode(v, o);
+    return { id: u.id, name: prs[e]?.name || u.name, email: e, code: hide ? null : personalCode(e), role: labelOf(o.acc, T, e, prs[e]), me: e === v.email,
+      access: accessView(o.acc), team: { member: o.member, led: o.led }, choices: v.admin ? ACC.accessChoices({ actorEmail: v.email, targetEmail: e, target: o.acc }) : null };
+  };
+  const users = teamUsers(m);
+  if (v.admin || !v.on) return { users: users.map(rowOf), free: [] };
+  const mine = new Set(v.led.flatMap(id => TM.peopleOf(TM.teamById(T, id))));
+  const free = users.filter(u => !mine.has(lc(u.email)) && !TM.teamOfPerson(T, u.email)).map(rowOf).filter(r => !r.access.fixed && r.access.level === "equipo")
+    .map(({ id, name, email, role }) => ({ id, name, email, role }));
+  return { users: users.filter(u => mine.has(lc(u.email))).map(rowOf), free };
 }
+const teamList = T => TM.sortedTeams(T).map(t => ({ id: t.id, name: t.name }));
 app.get("/api/team/codes", auth, wrap(async (req, res) => {
-  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Solo un líder o alguien de dirección ve los accesos del equipo." });
-  res.json({ url: `${req.protocol}://${req.get("host")}`, users: await accessRows(req.session.user.email) });
+  const v = await viewerFor(req.session.user.email);
+  if (!v.leader) return res.status(403).json({ error: "Solo un líder o alguien de dirección ve los accesos del equipo." });
+  res.json({ url: `${req.protocol}://${req.get("host")}`, on: v.on, admin: v.admin, teams: v.admin ? teamList(v.T) : teamList(v.T).filter(t => v.led.includes(t.id)), ...(await accessRows(v)) });
 }));
-// Cambiar el acceso de una persona: { email, level: equipo|lider|direccion, title } (el cargo solo con dirección).
-// No escribe en Pipedrive (READ_ONLY no aplica). Reglas en lib/access.js (changeError): un SDR, 403 antes de leer nada.
+// Cambios de equipos y accesos: de a uno entre instancias (withLock), releyendo todo adentro. No escriben en Pipedrive.
+const TEAMS_BUSY = { busy: "Otra persona está cambiando los equipos. Probá de nuevo en unos segundos." };
+const byNameOf = async user => (await signName(user)) || user.name || user.email;
+// Cambiar el acceso de una persona (solo dirección o un líder fijo): { email, level: equipo|lider|direccion, title, team }.
+// team (con equipos): miembro → de ese equipo ("" ninguno) y deja de liderar; líder → lidera ese equipo (obligatorio si no
+// lidera ninguno); dirección → sale de todos los equipos (está arriba de todos). Sin team, el equipo no cambia. Reglas:
+// lib/access.js changeError.
 app.post("/api/team/access", auth, wrap(async (req, res) => {
-  const me = String(req.session.user.email || "").toLowerCase(), actor = await accessFor(me, { fresh: true });
-  if (!actor.leader) return res.status(403).json({ error: "Solo un líder o alguien de dirección cambia los accesos del equipo." });
-  const email = String(req.body?.email || "").trim().toLowerCase(), level = String(req.body?.level || "");
-  const known = teamUsers(await pd.meta()).some(u => u.email === email);
-  const target = await accessFor(email, { fresh: true });
-  const err = ACC.changeError({ actorEmail: me, actor, targetEmail: email, target, level, known });
-  if (err) return res.status(err.status).json({ error: err.error });
-  await setAccess(email, ACC.accessRecord({ level, title: req.body?.title, by: me, byName: (await signName(req.session.user)) || req.session.user.name || me, at: new Date().toISOString() }));
-  const row = (await accessRows(me)).find(u => u.email === email);
-  res.json({ user: row });
+  const me = lc(req.session.user.email), pre = await viewerFor(me, { fresh: true });
+  if (!pre.admin) return res.status(403).json({ error: pre.leader ? "Los accesos los cambia dirección. Vos sumás o sacás gente de tu equipo." : "Solo dirección cambia los accesos del equipo." });
+  const email = lc(req.body?.email), level = String(req.body?.level || ""), team = req.body?.team == null ? undefined : String(req.body.team);
+  const known = teamUsers(await pd.meta()).some(u => lc(u.email) === email), byName = await byNameOf(req.session.user);
+  await withLock("teams", async () => {
+    const v = await viewerFor(me, { fresh: true }), T = v.T, t = otherViewer(v, email);
+    if (team && !TM.teamById(T, team)) throw httpErr({ status: 404, error: "Ese equipo ya no existe." });
+    const err = ACC.changeError({ actorEmail: me, actor: v.acc, targetEmail: email, target: t.acc, level, known, teams: v.on, team, leads: t.led.length });
+    if (err) throw httpErr(err);
+    let N = null;
+    if (v.on && level === "equipo" && (team !== undefined || t.led.length)) N = TM.placeMember(T, email, team !== undefined ? team || null : t.member);
+    else if (v.on && level === "lider" && team) N = TM.placeLeader(T, email, team, { isDir: e => fixedOf(e, v.owner) === "direccion" });
+    else if (v.on && level === "lider" && team === "") N = TM.placeMember(T, email, null); // un líder fijo sin equipo
+    else if (v.on && level === "direccion" && (t.member || t.led.length)) N = TM.placeMember(T, email, null);
+    if (N?.error) throw httpErr(N.error);
+    await setAccess(email, ACC.accessRecord({ level, title: req.body?.title, by: me, byName, at: new Date().toISOString() }));
+    if (N) await saveTeams(TM.normTeams(N.T));
+  }, TEAMS_BUSY);
+  const v = await viewerFor(me), r = await accessRows(v);
+  res.json({ user: r.users.find(u => u.email === email), users: r.users, teams: teamList(v.T) });
 }));
 app.get("/api/team", auth, wrap(async (req, res) => {
-  const [m, prs, owner, map] = await Promise.all([pd.meta(), getProfiles(), ownerEmail(), getAccessMap()]);
-  res.json(m.users.map(u => { const pr = prs[u.email]; return { id: u.id, name: pr?.name || u.name, role: roleOf(ACC.accessOf({ fixed: fixedOf(u.email, owner), assigned: map[u.email] || null }), pr) }; }));
+  const [m, prs, v] = await Promise.all([pd.meta(), getProfiles(), viewerFor(req.session.user.email)]);
+  res.json(m.users.map(u => { const e = lc(u.email), pr = prs[e]; return { id: u.id, name: pr?.name || u.name, role: labelOf(otherViewer(v, e).acc, v.T, e, pr), team: TM.teamOfPerson(v.T, e) }; }));
+}));
+// ---------- Equipos (lib/teams.js): dirección (y los fijos) los crean, renombran y borran y eligen sus líderes; el líder de
+// un equipo suma o saca miembros (gente sin equipo). Cada uno ve los suyos (dirección, todos). Después de cada cambio, el
+// acceso guardado de quien empezó o dejó de liderar queda igual a lo que lidera (accessSync).
+async function teamsOut(v, T = v.T) {
+  const [m, prs] = await Promise.all([pd.meta(), getProfiles()]), users = new Map(m.users.map(u => [lc(u.email), u]));
+  const person = e => ({ email: e, name: prs[e]?.name || users.get(e)?.name || e, id: users.get(e)?.id || null });
+  const w = { ...v, ...otherViewer(v, v.email, T) };
+  const all = teamUsers(m).map(u => lc(u.email)).map(e => ({ e, o: otherViewer(v, e, T) }));
+  // dirección no se suma a ningún equipo: no se ofrece
+  const cands = all.filter(x => x.e !== w.email && x.o.acc.level !== "direccion").map(({ e, o }) => ({ ...person(e), team: TM.teamOfPerson(T, e), member: o.member, led: o.led, leads: o.led.length > 0, level: o.acc.level, fixed: !!o.acc.fixed }));
+  return { on: TM.hasTeams(T), admin: w.admin, teams: TM.teamsView(w, T, person),
+    // para elegir: dirección, toda la gente (con su equipo); un líder de equipo, la gente sin equipo y sin acceso de líder
+    people: w.admin ? cands : w.led.length ? cands.filter(c => !c.team && c.level === "equipo" && !c.fixed) : [],
+    // a dirección: quienes eran líderes antes de los equipos y todavía no lideran uno (sin equipo no ven Métricas)
+    stale: w.admin && TM.hasTeams(T) ? all.filter(x => x.o.acc.stale).map(x => person(x.e)) : [] };
+}
+app.get("/api/teams", auth, wrap(async (req, res) => res.json(await teamsOut(await viewerFor(req.session.user.email)))));
+async function changeTeams(req, fn) {
+  const me = lc(req.session.user.email), byName = await byNameOf(req.session.user);
+  const { v, T } = await withLock("teams", async () => {
+    const v = await viewerFor(me, { fresh: true }), r = await fn(v, v.T);
+    if (r.error) throw httpErr(r.error);
+    const N = TM.normTeams(r.T), at = new Date().toISOString();
+    for (const x of TM.accessSync(v.T, N, v.map)) await setAccess(x.email, ACC.accessRecord({ level: x.level, by: me, byName, at }));
+    await saveTeams(N);
+    return { v, T: N };
+  }, TEAMS_BUSY);
+  return teamsOut({ ...v, map: await getAccessMap() }, T);
+}
+const tid = () => "t" + crypto.randomBytes(6).toString("hex");
+app.post("/api/teams", auth, wrap(async (req, res) => {
+  const v0 = await viewerFor(req.session.user.email); const e = TM.adminError(v0); if (e) return res.status(e.status).json({ error: e.error });
+  const by = await byNameOf(req.session.user);
+  res.json(await changeTeams(req, (v, T) => TM.adminError(v) ? { error: TM.adminError(v) } : TM.createTeam(T, { id: tid(), name: req.body?.name, by, at: new Date().toISOString() })));
+}));
+// { name } renombra; { leaders: [emails] } deja esos líderes (los de otros equipos siguen liderando aquellos; si eran miembros, dejan su equipo)
+app.patch("/api/teams/:tid", auth, wrap(async (req, res) => {
+  const v0 = await viewerFor(req.session.user.email); const e = TM.adminError(v0); if (e) return res.status(e.status).json({ error: e.error });
+  const b = req.body || {}, known = new Set(teamUsers(await pd.meta()).map(u => lc(u.email)));
+  if (b.name === undefined && !Array.isArray(b.leaders)) return res.status(400).json({ error: "No hay nada para cambiar." });
+  res.json(await changeTeams(req, (v, T) => {
+    if (TM.adminError(v)) return { error: TM.adminError(v) };
+    let r = { T };
+    if (b.name !== undefined) r = TM.renameTeam(r.T, req.params.tid, b.name);
+    if (!r.error && Array.isArray(b.leaders)) r = TM.setLeaders(r.T, req.params.tid, b.leaders.slice(0, 20), { known: x => known.has(x), isDir: x => otherViewer(v, x, T).acc.level === "direccion" });
+    return r;
+  }));
+}));
+app.delete("/api/teams/:tid", auth, wrap(async (req, res) => {
+  const v0 = await viewerFor(req.session.user.email); const e = TM.adminError(v0); if (e) return res.status(e.status).json({ error: e.error });
+  res.json(await changeTeams(req, (v, T) => TM.adminError(v) ? { error: TM.adminError(v) } : TM.deleteTeam(T, req.params.tid)));
+}));
+// { email, action: "add" | "remove" }: el líder de ESE equipo o dirección. Un miembro, 403; el líder de otro equipo, 403.
+app.post("/api/teams/:tid/members", auth, wrap(async (req, res) => {
+  const v0 = await viewerFor(req.session.user.email);
+  if (!v0.leader) return res.status(403).json({ error: "Solo el líder del equipo o dirección cambia quién está en el equipo." });
+  const email = lc(req.body?.email), add = req.body?.action === "add";
+  if (!add && req.body?.action !== "remove") return res.status(400).json({ error: "¿Sumar o sacar?" });
+  const known = teamUsers(await pd.meta()).some(u => lc(u.email) === email);
+  res.json(await changeTeams(req, (v, T) => TM.memberChange(v, T, { teamId: req.params.tid, email, add, known, target: otherViewer(v, email).acc })));
 }));
 
-// Demos de la semana (todos): las cargadas en Pipedrive, quién la cargó, quién la da y el resultado. Sin ranking: cuántas
-// cargó cada uno solo lo ve un líder; los demás reciben lo suyo y el total (boardFor).
+// Lo de líder que se mira por equipo (Métricas, Equipo): ?team= (lib/teams.js pickTeam). Un líder de otro equipo, 403.
+const teamInfo = (T, id) => id ? { id, name: TM.teamById(T, id)?.name || "" } : null;
+async function viewTeam(req) {
+  const v = await viewerFor(req.session.user.email), m = await pd.meta();
+  const f = TM.viewFilter(v, v.T, m.users, String(req.query.team || ""));
+  if (f.error) throw httpErr(f.error);
+  return { v, filter: f.filter, team: teamInfo(v.T, f.id), self: !!f.self, unknown: !!f.unknown };
+}
+// Demos de la semana: las cargadas en Pipedrive, quién la cargó, quién la da y el resultado. Sin ranking: cuántas cargó
+// cada uno solo lo ve un líder; los demás reciben lo suyo y el total (boardFor). Con equipos, solo las de su gente
+// (un líder: el equipo elegido; un miembro: su equipo; sin equipo: las suyas).
 app.get("/api/team/demos", auth, wrap(async (req, res) => {
-  const [r, leader] = await Promise.all([sales.teamDemos(req.tz), isLeader(req.session.user.email)]);
-  res.json(boardFor(r, { leader, me: req.session.user.pdUserId }));
+  const t = await viewTeam(req), r = await sales.teamDemos(req.tz, t.filter);
+  res.json({ ...boardFor(r, { leader: t.v.leader, me: req.session.user.pdUserId }), team: t.team, self: t.self, ...(t.unknown ? { unknown: true } : {}) });
 }));
-// ---------- Métricas (vista Métricas). Todos ven los totales y lo suyo; el desglose por persona es de los líderes
-// (/api/metrics/:section/people, 403 para los demás). Pipedrive se lee de a páginas y se guarda 10 minutos (lib/sales.js);
-// los cálculos están en lib/metrics.js. Cada respuesta dice de cuándo es y si la lista vino cortada (partial).
-const mxOpts = req => ({ days: Number(req.query.days) || 7, country: String(req.query.country || "").slice(0, 60) });
+// ---------- Métricas (vista Métricas): solo líderes y dirección (los totales, lo suyo y el desglose por persona; a los demás,
+// 403 antes de leer nada). Con equipos, todo es del equipo elegido (?team=, lib/teams.js pickTeam): totales y por persona,
+// solo su gente; dirección elige un equipo o «Toda la cuenta»; un líder de equipo, solo los suyos (otro equipo: 403). La base de
+// colegios y los clientes de World Dominion son de toda la cuenta. Pipedrive se lee de a páginas y se guarda 10 minutos
+// (lib/sales.js); los cálculos están en lib/metrics.js. Cada respuesta dice de cuándo es y si la lista vino cortada (partial).
+const mxOpts = (req, team = null) => ({ days: Number(req.query.days) || 7, country: String(req.query.country || "").slice(0, 60), team });
 const MX_LOAD = {
-  demos: req => sales.metricsDemos(req.tz, mxOpts(req)),
-  deals: req => sales.metricsDeals(req.tz, mxOpts(req)),
-  contacts: req => sales.metricsContacts(req.tz, mxOpts(req)),
-  archived: req => sales.metricsArchived(req.tz, mxOpts(req)),
+  demos: (req, team) => sales.metricsDemos(req.tz, mxOpts(req, team)),
+  deals: (req, team) => sales.metricsDeals(req.tz, mxOpts(req, team)),
+  contacts: (req, team) => sales.metricsContacts(req.tz, mxOpts(req, team)),
+  archived: (req, team) => sales.metricsArchived(req.tz, mxOpts(req, team)),
   // actividad por persona: todo es por persona (solo líderes); el país no aplica (una actividad no dice de qué país es)
-  activity: req => sales.metricsActivity(req.tz, mxOpts(req)),
+  activity: (req, team) => sales.metricsActivity(req.tz, mxOpts(req, team)),
   // base de colegios: exacto (la lista de la app); los estados del cruce no van hasta comprobarlos con una muestra
   base: async req => { const { country } = mxOpts(req), sy = await psync.status().catch(() => null), st = radarState();
     return { country, at: new Date().toISOString(), ...MX.baseSummary(schools, { country }), file: FILE_COUNTS, added: schools.length - FILE_COUNTS.shown, radarAt: st.runs?.[0]?.at || null, syncAt: sy?.last?.finishedAt || null }; },
@@ -362,34 +483,41 @@ const MX_LOAD = {
 const MX_LEADERS = new Set(["activity"]);
 // solo las secciones de MX_LOAD (no lo heredado de Object: «constructor», «toString»…)
 const mxLoad = section => Object.hasOwn(MX_LOAD, section) ? MX_LOAD[section] : null;
-// Métricas entera es solo para líderes y dirección (pedido del líder): a los demás, 403 antes de leer nada
+// Métricas entera es solo para líderes y dirección (pedido del líder): a los demás, 403 antes de leer nada. Después, el equipo.
+async function mxTeam(req, msg) {
+  const v = await viewerFor(req.session.user.email);
+  if (!v.leader) throw httpErr(v.unknown ? TM.TEAMS_DOWN : { status: 403, error: v.acc.stale ? TM.STALE_MSG : msg });
+  const p = TM.pickTeam(v, v.T, String(req.query.team || ""));
+  if (p.error) throw httpErr(p.error);
+  return { filter: p.id ? TM.filterOf(v.T, [p.id], (await pd.meta()).users) : null, team: teamInfo(v.T, p.id), on: v.on };
+}
+const withTeam = (o, t) => o && typeof o === "object" ? { ...o, scope: { team: t.team, on: t.on } } : o;
 app.get("/api/metrics/:section", auth, wrap(async (req, res) => {
-  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Métricas solo lo ven los líderes y dirección." });
+  const t = await mxTeam(req, "Métricas solo lo ven los líderes y dirección.");
   const load = mxLoad(req.params.section); if (!load) return res.status(404).json({ error: "No existe esa métrica." });
-  if (MX_LEADERS.has(req.params.section)) {
-    if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Esto solo lo ven los líderes y dirección." });
-    return res.json(MX.splitView(req.params.section, await load(req)).people);
-  }
-  res.json(MX.splitView(req.params.section, await load(req), { me: req.session.user.pdUserId, email: req.session.user.email }).pub);
+  if (MX_LEADERS.has(req.params.section)) return res.json(withTeam(MX.splitView(req.params.section, await load(req, t.filter)).people, t));
+  res.json(withTeam(MX.splitView(req.params.section, await load(req, t.filter), { me: req.session.user.pdUserId, email: req.session.user.email }).pub, t));
 }));
 app.get("/api/metrics/:section/people", auth, wrap(async (req, res) => {
-  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "El detalle por persona solo lo ven los líderes y dirección." });
-  const load = mxLoad(req.params.section), v = load && MX.splitView(req.params.section, await load(req));
+  const t = await mxTeam(req, "El detalle por persona solo lo ven los líderes y dirección.");
+  const load = mxLoad(req.params.section), v = load && MX.splitView(req.params.section, await load(req, t.filter));
   if (!v?.people) return res.status(404).json({ error: "Esa métrica no tiene detalle por persona." });
-  res.json(v.people);
+  res.json(withTeam(v.people, t));
 }));
+// Sincronizar y World Dominion son de toda la cuenta: quien ve todo (dirección y los fijos; sin equipos, cualquier líder)
+async function allOnly(req, res, msg) { const v = await viewerFor(req.session.user.email); if (v.all) return true; res.status(403).json({ error: v.leader ? "Esto es de toda la cuenta: lo maneja dirección." : msg }); return false; }
 // ---------- sincronización masiva con Pipedrive (lib/sync.js). Solo lee de Pipedrive: corre también con READ_ONLY=1.
 // Cuántos colegios hay en cada estado (lo mismo que ve la lista: World Dominion manda, «unk» = sin revisar)
 const stateCounts = () => { const c = {}; for (const s of schools) { const st = sales.schoolListItem(s).status; c[st] = (c[st] || 0) + 1; } return c; };
 // cron: hay CRON_SECRET (el cron diario sigue lo que quede en pausa)
 const syncView = async r => ({ ...r, counts: stateCounts(), total: schools.length, cron: !!process.env.CRON_SECRET });
 app.get("/api/admin/sync", auth, wrap(async (req, res) => {
-  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Solo un líder sincroniza con Pipedrive." });
+  if (!(await allOnly(req, res, "Solo un líder sincroniza con Pipedrive."))) return;
   res.json(await syncView(await psync.status(req.session.user.name || req.session.user.email)));
 }));
 // Hace un paso (hasta ~40 s) y devuelve el progreso; el navegador lo repite hasta terminar.
 app.post("/api/admin/sync", auth, wrap(async (req, res) => {
-  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Solo un líder sincroniza con Pipedrive." });
+  if (!(await allOnly(req, res, "Solo un líder sincroniza con Pipedrive."))) return;
   res.json(await syncView(await psync.step({ budgetMs: Math.min(280, Math.max(5, Number(process.env.SYNC_STEP_SECONDS) || 40)) * 1e3, full: req.body?.full === true, by: req.session.user.name || req.session.user.email })));
 }));
 // Vercel Cron (vercel.json): manda «Authorization: Bearer $CRON_SECRET». Sin CRON_SECRET la ruta no existe.
@@ -404,12 +532,12 @@ app.get("/api/cron/sync", wrap(async (req, res) => {
 }));
 // ---------- World Dominion (lib/brain.js): estado y token, solo líderes. El token entra acá y nunca vuelve al navegador.
 app.get("/api/admin/brain", auth, wrap(async (req, res) => {
-  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Solo un líder ve el estado de World Dominion." });
+  if (!(await allOnly(req, res, "Solo un líder ve el estado de World Dominion."))) return;
   res.json(await brainAdmin());
 }));
 // Lo prueba contra OrderBrain antes de guardarlo; si falla, 400 con el motivo y no se guarda.
 app.post("/api/admin/brain", auth, wrap(async (req, res) => {
-  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Solo un líder carga el token de World Dominion." });
+  if (!(await allOnly(req, res, "Solo un líder carga el token de World Dominion."))) return;
   res.json(await saveBrainToken(req.body?.token, req.session.user.name || req.session.user.email));
 }));
 
@@ -435,11 +563,11 @@ app.post("/api/schools/:id/match", auth, schoolParam, wrap(async (req, res) => {
 // «Es esta» → «¿Estás seguro?»: lo que dice Pipedrive de esa organización, para comparar con el colegio
 app.get("/api/schools/:id/org/:orgId", auth, schoolParam, wrap(async (req, res) => res.json(await sales.orgPreview(req.params.id, req.params.orgId, req.session.user))));
 // después de vincular: otras organizaciones que parecen el mismo colegio (lib/merge.js) y si podés fusionar cada una
-app.get("/api/schools/:id/dupes", auth, schoolParam, wrap(async (req, res) => res.json(await sales.dupesFor(req.params.id, req.session.user, { leader: await isLeader(req.session.user.email) }))));
+app.get("/api/schools/:id/dupes", auth, schoolParam, wrap(async (req, res) => res.json(await sales.dupesFor(req.params.id, req.session.user, { leader: await leadScopeFor(req.session.user.email) }))));
 // «¿Querés fusionar?»: las elegidas pasan a la vinculada (keepId) con la fusión de Pipedrive. Controles en sales.mergeOrgs.
 app.post("/api/schools/:id/merge-orgs", auth, schoolParam, wrap(async (req, res) => {
   const b = req.body || {}, user = req.session.user;
-  res.json(await sales.mergeOrgs(req.params.id, user, { keepId: b.keepId, mergeIds: b.mergeIds, leader: await isLeader(user.email), by: await signName(user), tz: req.tz }));
+  res.json(await sales.mergeOrgs(req.params.id, user, { keepId: b.keepId, mergeIds: b.mergeIds, leader: await leadScopeFor(user.email), by: await signName(user), tz: req.tz }));
 }));
 app.get("/api/schools/:id/next", auth, schoolParam, (req, res) => res.json(sales.nextFor(req.params.id, req.query.outcome, req.query.channel, req.tz) || {}));
 app.post("/api/schools/:id/log", auth, schoolParam, wrap(async (req, res) => {
@@ -516,7 +644,7 @@ if (pd.DEMO) app.get("/api/demo/mail/:id", auth, schoolParam, wrap(async (req, r
 // Comentario suelto: queda como nota en la organización de Pipedrive, sin registrar un contacto.
 app.post("/api/schools/:id/prospect", auth, schoolParam, wrap(async (req, res) => res.json(await sales.createProspect(req.params.id, req.session.user, req.body?.task || null, req.tz))));
 // prospecto → trato (conversión de Pipedrive). Solo el dueño del prospecto o un líder.
-app.post("/api/schools/:id/convert", auth, schoolParam, wrap(async (req, res) => res.json(await sales.convertToDeal(req.params.id, req.session.user, { leader: await isLeader(req.session.user.email), country: String(req.body?.country || "") }))));
+app.post("/api/schools/:id/convert", auth, schoolParam, wrap(async (req, res) => res.json(await sales.convertToDeal(req.params.id, req.session.user, { leader: await leadScopeFor(req.session.user.email), country: String(req.body?.country || "") }))));
 // Comentario y/o tarea para más adelante (para quien registra o para otra persona del equipo), sin registrar un contacto.
 app.post("/api/schools/:id/comment", auth, schoolParam, wrap(async (req, res) => {
   const text = String(req.body?.text || "").trim().slice(0, 5000), t = req.body?.task || null, user = req.session.user;
@@ -557,14 +685,14 @@ app.post("/api/schools/:id/deals/:dealId", auth, schoolParam, wrap(async (req, r
 // Desarchivar: quien lo archivó o un líder. Las reglas están en lib/archive.js.
 app.post("/api/schools/:id/archive", auth, schoolParam, wrap(async (req, res) => {
   const user = req.session.user, b = req.body || {};
-  res.json(await sales.archiveSchool(req.params.id, user, { leader: await isLeader(user.email), by: await signName(user), reason: String(b.reason || ""), text: String(b.text || "") }));
+  res.json(await sales.archiveSchool(req.params.id, user, { leader: await leadScopeFor(user.email), by: await signName(user), reason: String(b.reason || ""), text: String(b.text || "") }));
 }));
 app.post("/api/schools/:id/unarchive", auth, schoolParam, wrap(async (req, res) => {
   const user = req.session.user;
-  res.json(await sales.unarchiveSchool(req.params.id, user, { leader: await isLeader(user.email), by: await signName(user) }));
+  res.json(await sales.unarchiveSchool(req.params.id, user, { leader: await leadScopeFor(user.email), by: await signName(user) }));
 }));
 // Agregar un decisor (persona) a la organización del colegio o al prospecto: en lo ajeno solo un líder
-app.post("/api/schools/:id/persons", auth, schoolParam, wrap(async (req, res) => res.json(await sales.addDecisor(req.params.id, req.session.user, await isLeader(req.session.user.email), req.body || {}))));
+app.post("/api/schools/:id/persons", auth, schoolParam, wrap(async (req, res) => res.json(await sales.addDecisor(req.params.id, req.session.user, await leadScopeFor(req.session.user.email), req.body || {}))));
 app.get("/api/schools/:id/photos", auth, schoolParam, wrap(async (req, res) => {
   res.set("cache-control", "private, max-age=3600");
   // sin web en la base, la que encontró «Enriquecer» (de Pipedrive o de una sede), con su fuente
@@ -649,7 +777,7 @@ app.post("/api/activities/:id/move", auth, wrap(async (req, res) => {
   const u = toUtc(date, tm, req.tz);
   await pd.updateActivity(Number(req.params.id), { due_date: u.date, ...(u.time ? { due_time: u.time } : {}) });
   // si es una demo, el recordatorio para confirmarla se mueve con ella
-  const done = await sales.demoMoved(a, req.session.user, { date, time: tm }, req.tz, await isLeader(req.session.user.email)).catch(e => [{ label: `No pude mover el recordatorio para confirmar la demo: ${e.message}`, warn: true }]);
+  const done = await sales.demoMoved(a, req.session.user, { date, time: tm }, req.tz, await leadScopeFor(req.session.user.email)).catch(e => [{ label: `No pude mover el recordatorio para confirmar la demo: ${e.message}`, warn: true }]);
   res.json({ ok: true, done });
 }));
 // Resultado de una demo (tuya, o cualquiera si sos líder): se hizo, no se presentó, se reprogramó o se canceló.
@@ -657,7 +785,7 @@ app.post("/api/activities/:id/move", auth, wrap(async (req, res) => {
 const signName = async user => (await getProfile(user.email).catch(() => null))?.name || "";
 app.post("/api/activities/:id/demo-result", auth, wrap(async (req, res) => {
   const a = await ownActivity(req.session.user, req.params.id), b = req.body || {};
-  res.json(await sales.markDemo(a, req.session.user, { result: String(b.result || ""), date: b.date, time: b.time, by: await signName(req.session.user) }, req.tz, await isLeader(req.session.user.email)));
+  res.json(await sales.markDemo(a, req.session.user, { result: String(b.result || ""), date: b.date, time: b.time, by: await signName(req.session.user) }, req.tz, await leadScopeFor(req.session.user.email)));
 }));
 app.post("/api/activities/:id/demo-rebook", auth, wrap(async (req, res) => {
   const a = await ownActivity(req.session.user, req.params.id), b = req.body || {};
@@ -812,10 +940,11 @@ app.get("/api/radar", auth, (req, res) => {
 // a los líderes, además, si el token de World Dominion falta, venció, vence pronto o lo rechazaron (sin el token)
 app.get("/api/brain", auth, wrap(async (req, res) => {
   const out = brainState();
-  if (await isLeader(req.session.user.email)) out.token = await brainTokenAlert();
+  if ((await viewerFor(req.session.user.email)).all) out.token = await brainTokenAlert();
   res.json(out);
 }));
-app.get("/api/feed", auth, wrap(async (req, res) => res.json(await sales.teamFeed())));
+// actividad reciente: con equipos, solo lo de su gente (un líder: el equipo elegido; un miembro: su equipo; sin equipo: lo suyo)
+app.get("/api/feed", auth, wrap(async (req, res) => { const t = await viewTeam(req); res.json(await sales.teamFeed(t.filter)); }));
 app.get("/api/stats", auth, (req, res) => res.json(sales.stats(req.session.user, req.tz)));
 
 // ---------- asistente
@@ -852,10 +981,11 @@ async function confirmProposal(p, req) {
     const exact = hits.find(h => pd.norm(h.name) === pd.norm(p.colegio));
     orgId = exact ? exact.id : (await pd.createOrganization({ name: p.colegio, ownerId: user.pdUserId })).id;
   }
-  // cada uno trabaja lo suyo: una organización de otra persona solo admite agendarle una demo (o lo hace un líder)
-  if (orgId && !(p.kind === "activity" && p.type === "meeting") && user.role !== "lider") {
+  // cada uno trabaja lo suyo: una organización de otra persona solo admite agendarle una demo (o lo hace un líder: de un
+  // equipo, si es de su gente)
+  if (orgId && !(p.kind === "activity" && p.type === "meeting") && user.leads !== true) {
     const o = (await pd.orgsByIds([orgId]))[0];
-    if (o?.ownerId && user.pdUserId && o.ownerId !== user.pdUserId) throw Object.assign(new Error("Esa organización es de otra persona en Pipedrive."), { status: 409 });
+    if (o?.ownerId && user.pdUserId && o.ownerId !== user.pdUserId && !TM.canLead(user.leads, { id: o.ownerId })) throw Object.assign(new Error("Esa organización es de otra persona en Pipedrive."), { status: 409 });
   }
   const by = sales.signer(user);
   const target = leadId ? { leadId } : { orgId, dealId };

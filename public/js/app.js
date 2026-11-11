@@ -109,8 +109,9 @@ function avatar() {
 }
 function drawMe() {
   const off = !S.me.pdUserId;
-  // debajo del nombre: «Líder» o «Dirección · CEO» (el acceso que dio el servidor); sin usuario en Pipedrive, eso manda
-  $("me").innerHTML = `${avatar()}<span class="who"><b>${esc(S.me.name)}</b>${off ? "<small>Sin usuario en Pipedrive</small>" : S.profile?.leader && S.me.roleLabel ? `<small class="role">${esc(S.me.roleLabel)}</small>` : ""}</span>`;
+  // debajo del nombre: «Dirección · CEO», «Líder · SDR México», «SDR · SDR México» (lo arma el servidor con el acceso y el
+  // equipo); sin usuario en Pipedrive, eso manda
+  $("me").innerHTML = `${avatar()}<span class="who"><b>${esc(S.me.name)}</b>${off ? "<small>Sin usuario en Pipedrive</small>" : S.me.roleLabel ? `<small class="role">${esc(S.me.roleLabel)}</small>` : ""}</span>`;
   $("me").title = off ? "Tu email no coincide con un usuario de Pipedrive" : `${S.me.name}${S.me.roleLabel ? ` · ${S.me.roleLabel}` : ""} · conectado a Pipedrive`;
   $("topMe").innerHTML = avatar();
 }
@@ -128,10 +129,12 @@ function accountMenu(anchor) {
   ]);
 }
 function profileDialog({ required = false } = {}) {
-  // «Líder» y «Dirección» los define el servidor (quien conectó Pipedrive, la lista del administrador o un líder en
-  // Equipo › Accesos del equipo); los demás eligen SDR o AE
-  const leader = !!S.profile?.leader, acc = S.profile?.access || {};
-  const accWhy = acc.fixed ? "definido por el administrador" : acc.by ? `te lo dio ${acc.by} en Equipo` : "lo asigna un líder en Equipo";
+  // «Líder» y «Dirección» los define el servidor (quien conectó Pipedrive, la lista del administrador, dirección en Equipo o
+  // liderar un equipo); los demás eligen SDR o AE. El equipo lo arma dirección (o su líder suma a la gente).
+  const leader = !!S.profile?.leader, acc = S.profile?.access || {}, sc = S.profile?.scope || {};
+  const accWhy = acc.fixed ? "definido por el administrador" : acc.by ? `te lo dio ${acc.by} en Equipo` : "lo asigna dirección en Equipo";
+  const teamTxt = acc.stale ? "Eras líder antes de los equipos. Ahora hay equipos: pedile a dirección que te asigne el tuyo (mientras, sin Métricas)."
+    : !sc.on ? "" : sc.member ? `Equipo: ${sc.member.name}` : sc.led?.length ? "" : leader ? "" : "Todavía no estás en un equipo: te suma su líder o dirección.";
   const roles = S.profile?.roles || { sdr: "SDR", ae: "Account Executive" };
   const cur = leader ? "lider" : S.me.role && S.me.role !== "lider" ? S.me.role : "";
   const name = S.profile?.complete ? S.me.name : (S.profile?.suggested || "");
@@ -139,7 +142,7 @@ function profileDialog({ required = false } = {}) {
     ${required ? `<p class="muted" style="margin:-6px 0 0">Se usa en los saludos y en Equipo. En Pipedrive tus notas se firman con tu usuario de Pipedrive.</p>` : ""}
     <form id="pfF" class="stack" style="gap:14px">
       <label class="field"><span>Nombre y apellido</span><input class="inp" id="pfName" value="${esc(name)}" autocomplete="name" placeholder="Ej: Javiera Tejos" required></label>
-      <div class="field"><span>Rol en el equipo</span>${leader ? `<p class="muted" style="margin:0"><b>${esc(acc.label || S.me.roleLabel || "Líder")}</b> · ${esc(accWhy)}</p>` : `<div class="seg" role="radiogroup" aria-label="Rol en el equipo">${Object.entries(roles).map(([k, l]) => `<button type="button" role="radio" data-role="${k}" aria-checked="${cur === k}" aria-pressed="${cur === k}">${esc(l)}</button>`).join("")}</div>`}</div>
+      <div class="field"><span>Rol en el equipo</span>${leader ? `<p class="muted" style="margin:0"><b>${esc(S.me.roleLabel || acc.label || "Líder")}</b> · ${esc(accWhy)}</p>` : `<div class="seg" role="radiogroup" aria-label="Rol en el equipo">${Object.entries(roles).map(([k, l]) => `<button type="button" role="radio" data-role="${k}" aria-checked="${cur === k}" aria-pressed="${cur === k}">${esc(l)}</button>`).join("")}</div>`}${teamTxt ? `<small class="faint">${esc(teamTxt)}</small>` : ""}</div>
       ${required ? "" : `<div class="field"><span>Mail desde la app</span><div class="gm-box" id="pfGmail">${gmailProfileHtml(S.gmail)}</div></div>`}
       <p class="err" id="pfErr" role="alert" style="margin:0;color:var(--err)"></p>
       <button class="btn primary block" id="pfGo">Guardar</button>
@@ -187,6 +190,8 @@ function route() {
   const v = (location.hash.match(/^#\/(\w+)/) || [])[1];
   S.view = VIEWS[v] && views().some(([k]) => k === v) ? v : "hoy";
   if (v && v !== S.view) history.replaceState(null, "", "#/" + S.view); // una vista que no te toca (Métricas para un SDR) vuelve a Hoy
+  // a quien era líder antes de los equipos y quedó sin equipo, decirle por qué no ve Métricas
+  if (v === "metricas" && S.view !== v && S.profile?.access?.stale) toast("Ahora hay equipos: pedile a dirección que te asigne el tuyo. Mientras, Métricas no se ve.");
   $("nav").querySelectorAll("[data-v]").forEach(b => { if (b.dataset.v === S.view) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
   document.title = `${VIEWS[S.view].label} · OrderBrain SDRs`;
   const main = $("main");

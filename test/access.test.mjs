@@ -32,7 +32,9 @@ test("quién es líder: dueño del token, LEADER_EMAILS, FOUNDER_EMAILS (direcci
   assert.equal(acc("sdr@ordereat.com").level, "equipo");
   // asignado desde la app
   const cto = acc("cto@ordereat.com", { level: "direccion", title: "CTO", byName: "Ana Ruiz", at: "2026-11-11T10:00:00Z" });
-  assert.deepEqual({ ...cto }, { level: "direccion", leader: true, fixed: null, title: "CTO", by: "Ana Ruiz", at: "2026-11-11T10:00:00Z" });
+  assert.deepEqual({ ...cto }, { level: "direccion", leader: true, fixed: null, admin: true, title: "CTO", by: "Ana Ruiz", at: "2026-11-11T10:00:00Z" });
+  // admin (arma equipos y cambia accesos): dirección y los fijos; un líder asignado, no
+  assert.deepEqual([acc("dueno@ordereat.com").admin, acc("ceo@ordereat.com").admin, acc("x@ordereat.com", { level: "lider" }).admin, acc("sdr@ordereat.com").admin], [true, true, false, false]);
   assert.equal(acc("x@ordereat.com", { level: "lider" }).leader, true);
   // sacado (queda el registro de quién lo sacó): vuelve a equipo
   assert.equal(acc("x@ordereat.com", { level: "equipo", by: "ana@ordereat.com" }).leader, false);
@@ -64,7 +66,7 @@ test("cómo se muestra: «Dirección · CEO», «Dirección», «Líder» o nada
   assert.equal(accessRecord({ level: "direccion", title: " CEO ", by: "a@x.com", at: "t" }).title, "CEO");
 });
 
-test("quién puede cambiar qué: un SDR nada (403), ni a otro ni a sí mismo; un líder o dirección, a cualquiera del Pipedrive", () => {
+test("quién puede cambiar qué: un SDR nada (403), ni a otro ni a sí mismo; un líder fijo o dirección, a cualquiera del Pipedrive; un líder asignado, nada", () => {
   const sdr = acc("sdr@ordereat.com"), lider = acc("dueno@ordereat.com"), dir = acc("cto@ordereat.com", { level: "direccion", title: "CTO" });
   const ch = (actorEmail, actor, targetEmail, level, known = true) => changeError({ actorEmail, actor, targetEmail, target: acc(targetEmail), level, known });
   for (const [t, l] of [["otro@ordereat.com", "direccion"], ["sdr@ordereat.com", "lider"], ["sdr@ordereat.com", "direccion"], ["dueno@ordereat.com", "equipo"]]) {
@@ -78,6 +80,25 @@ test("quién puede cambiar qué: un SDR nada (403), ni a otro ni a sí mismo; un
   assert.equal(ch("dueno@ordereat.com", lider, "otro@ordereat.com", "rey")?.status, 400);
   assert.equal(ch("dueno@ordereat.com", lider, "otro@ordereat.com", "constructor")?.status, 400);
   assert.equal(ch("dueno@ordereat.com", lider, "fuera@gmail.com", "lider", false)?.status, 404);
+  // un líder asignado (o de un equipo) no cambia accesos: 403 con el aviso de que suma gente a su equipo
+  const asig = acc("x@ordereat.com", { level: "lider" }), e = ch("x@ordereat.com", asig, "otro@ordereat.com", "lider");
+  assert.equal(e?.status, 403); assert.match(e.error, /dirección/);
+});
+test("con equipos, «Líder» es de un equipo: hay que elegirlo (salvo que ya lidere uno o sea fijo)", () => {
+  const dir = acc("cto@ordereat.com", { level: "direccion" }), t = acc("otro@ordereat.com");
+  const ch = (o = {}) => changeError({ actorEmail: "cto@ordereat.com", actor: dir, targetEmail: "otro@ordereat.com", target: t, level: "lider", known: true, teams: true, ...o });
+  assert.equal(ch()?.status, 400); assert.match(ch().error, /equipo/);
+  assert.equal(ch({ team: "" })?.status, 400);
+  assert.equal(ch({ team: "tabcd1" }), null);
+  assert.equal(ch({ leads: 1 }), null); // ya lidera uno: el equipo no cambia
+  assert.equal(ch({ teams: false }), null); // sin equipos, como antes
+  assert.equal(changeError({ actorEmail: "cto@ordereat.com", actor: dir, targetEmail: "dueno@ordereat.com", target: acc("dueno@ordereat.com"), level: "lider", known: true, teams: true }), null); // un líder fijo ve todo igual
+  // con equipos, lo asignado «lider» sin liderar un equipo no cuenta (queda marcado para elegirle uno)
+  const old = accessOf({ assigned: { level: "lider" }, teams: true });
+  assert.deepEqual([old.level, old.leader, old.stale], ["equipo", false, true]);
+  assert.equal(accessOf({ assigned: { level: "lider" }, teams: true, leads: true }).leader, true);
+  assert.equal(accessOf({ teams: true, leads: true }).level, "lider"); // liderar un equipo da acceso de líder
+  assert.equal(accessOf({ assigned: { level: "direccion" }, teams: true }).level, "direccion");
 });
 
 test("nadie se saca a sí mismo el acceso (sí puede cambiar su cargo o pasar de dirección a líder)", () => {
@@ -92,7 +113,7 @@ test("nadie se saca a sí mismo el acceso (sí puede cambiar su cargo o pasar de
 });
 
 test("lo de env o del dueño del token no se saca desde la app (y se muestra fijo)", () => {
-  const lider = acc("x@ordereat.com", { level: "lider" });
+  const lider = acc("x@ordereat.com", { level: "direccion" });
   for (const [t, l, st] of [["dueno@ordereat.com", "equipo", 409], ["lider@ordereat.com", "equipo", 409], ["ceo@ordereat.com", "lider", 409], ["ceo@ordereat.com", "equipo", 409]]) {
     const e = changeError({ actorEmail: "x@ordereat.com", actor: lider, targetEmail: t, target: acc(t), level: l, known: true });
     assert.equal(e?.status, st, `${t} → ${l}`); assert.match(e.error, /administrador/);

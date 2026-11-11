@@ -1,5 +1,5 @@
 // Ficha del colegio: preparar el contacto, registrar el resultado e historial. Incluye el modo sesión.
-import { $, S, api, esc, icon, pill, statusPill, stageTag, potTag, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, workOrder, ago, TYPE_ICON,
+import { $, S, api, esc, icon, pill, statusPill, stageTag, potTag, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, workOrder, ago, TYPE_ICON, leadsOver, leadsAll,
   telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile, callQueue, callGuess, demoDue, archivedRef, archivedAct, norm, cap } from "./core.js";
 import { loadGmail, connectGmail, gmailWaiting, sigPreview, sigLabel } from "./gmail.js";
 // «la cafetería», «el casino», «el bar escolar»
@@ -302,8 +302,9 @@ function historySec(s) {
   </section>`;
 }
 
-// ---------- tratos y decisores desde la ficha, sin abrir Pipedrive. Cada uno lo suyo; un líder, todo (el servidor lo vuelve a controlar).
-const mineOrLeader = ownerId => !!S.profile?.leader || (!!ownerId && ownerId === S.me.pdUserId);
+// ---------- tratos y decisores desde la ficha, sin abrir Pipedrive. Cada uno lo suyo; un líder, lo de la gente de sus equipos
+// (dirección: todo). El servidor lo vuelve a controlar.
+const mineOrLeader = ownerId => (!!ownerId && ownerId === S.me.pdUserId) || leadsOver(ownerId);
 // Solo tratos de venta abiertos: los de clientes (onboarding, clientes, performance) se cambian en Pipedrive.
 const stageAt = (x, id) => (x.stages || []).findIndex(st => st.id === id);
 function dealOpsHtml(x) {
@@ -348,7 +349,7 @@ function dealConfirm(s, x, body, title) {
 }
 const writesList = done => `<ul class="writes">${done.map(x => `<li${x.warn ? ' class="warn"' : ""}>${icon(x.warn ? "alert" : "check", "sm")}<span>${x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.label)}</a>` : esc(x.label)}</span></li>`).join("")}</ul>`;
 // Agregar decisor: persona en la organización (o en el prospecto) a tu nombre. En lo de otra persona, no (salvo líder).
-const canAddPerson = s => !!S.me.pdUserId && (!!S.profile?.leader || !(s.ownerId && s.ownerId !== S.me.pdUserId));
+const canAddPerson = s => !!S.me.pdUserId && !(s.ownerId && s.ownerId !== S.me.pdUserId && !leadsOver(s.ownerId));
 function addDecisor(s, d) {
   const where = s.leadOnly ? "en el prospecto" : d.match?.orgId ? `en ${d.match.orgName || "la organización"}` : "en una organización nueva";
   const m = modal(`<div class="modal-h"><h3>${icon("user")} Agregar decisor</h3><button class="icon-btn" id="adX" aria-label="Cerrar">${icon("x")}</button></div>
@@ -605,8 +606,8 @@ const focusKey = el => el && (el.id ? `#${el.id}` : ["tab", "oc", "ch", "f", "ca
 // Prospecto → trato: si tiene un prospecto abierto tuyo (o sin dueño) y todavía no hay trato abierto
 function canConvert(s, d) {
   if (!d || !S.me.pdUserId || d.match?.status === "open" || d.archive || ["client", "churn", "archived"].includes(s.status)) return false;
-  if (s.leadOnly) return !s.ownerId || s.ownerId === S.me.pdUserId || S.profile?.leader;
-  return !!d.leads?.some(l => !l.ownerId || l.ownerId === S.me.pdUserId) || (!!S.profile?.leader && !!d.leads?.length);
+  if (s.leadOnly) return !s.ownerId || s.ownerId === S.me.pdUserId || leadsOver(s.ownerId);
+  return !!d.leads?.some(l => !l.ownerId || l.ownerId === S.me.pdUserId || leadsOver(l.ownerId));
 }
 function convertDeal(s) {
   if (D.converting) return;
@@ -695,11 +696,12 @@ async function runProspect(s, task) {
 }
 // ---------- archivar en la app: no clientes ni lo de otra persona (trato abierto, organización o prospecto; salvo un líder).
 // Desarchiva quien archivó, quien lo tiene en Pipedrive o un líder. El servidor revisa lo mismo.
-const theirs = id => !!id && id !== S.me.pdUserId;
+// de otra persona que no es de tu gente (si sos líder de un equipo, lo de tu gente cuenta como tuyo)
+const theirs = id => !!id && id !== S.me.pdUserId && !leadsOver(id);
 const othersOwn = (s, d) => theirs(s.ownerId) || !!d.leads?.some(l => theirs(l.ownerId)) || (!!s.leadOnly && (!("leadOwnerId" in d) || theirs(d.leadOwnerId)));
 const ownsIt = (s, d) => !!S.me.pdUserId && (s.ownerId === S.me.pdUserId || !!d?.leads?.some(l => l.ownerId === S.me.pdUserId) || d?.leadOwnerId === S.me.pdUserId);
-const canArchive = (s, d) => !!d && !d.archive && s.status !== "client" && !s.ob?.client && (!!S.profile?.leader || (!(d.match?.status === "open" && !myDeal(d.match)) && !othersOwn(s, d)));
-const canUnarchive = (a, s, d) => !!a && (!!S.profile?.leader || String(a.by || "").toLowerCase() === String(S.me.email || "").toLowerCase() || ownsIt(s, d));
+const canArchive = (s, d) => !!d && !d.archive && s.status !== "client" && !s.ob?.client && (leadsAll() || (!(d.match?.status === "open" && !myDeal(d.match) && !leadsOver(d.match.openDealOwnerId)) && !othersOwn(s, d)));
+const canUnarchive = (a, s, d) => !!a && (leadsOver(null, a.by) || String(a.by || "").toLowerCase() === String(S.me.email || "").toLowerCase() || ownsIt(s, d));
 const ddmmOf = iso => { const t = new Date(iso); return isNaN(t) ? "?" : `${String(t.getDate()).padStart(2, "0")}/${String(t.getMonth() + 1).padStart(2, "0")}`; };
 const archBox = (a, s, d) => `<div class="arch-box">${icon("archive")}<span>Archivado por <b>${esc(a.byName || "?")}</b> el ${ddmmOf(a.at)}: ${esc(a.reason)}${a.text ? ` — ${esc(a.text)}` : ""}</span>${canUnarchive(a, s, d) ? `<button class="btn sm" id="aUnarch">${D.archiving ? `<span class="spin"></span> Desarchivando…` : "Desarchivar"}</button>` : ""}</div>`;
 async function afterArchive(s, r) {
@@ -1422,7 +1424,7 @@ function histBody(s, d) {
   return `<div class="stack">
     ${d.persons?.length || canAddPerson(s) ? `<div class="sec"><h3><span class="l">${icon("users")} Contactos</span>${canAddPerson(s) ? `<button class="btn sm ghost" id="addDec">${icon("plus", "sm")} Agregar decisor</button>` : ""}</h3>${d.persons?.length ? "" : `<p class="muted" style="margin:0">Todavía no hay contactos cargados.</p>`}${(d.persons || []).map(p => `<div class="person"><div class="av" style="width:34px;height:34px;border-radius:50%;background:var(--surface-3);display:grid;place-items:center;font-weight:600;font-size:13px">${initials(p.name)}</div><div class="t"><b>${esc(p.name)}</b><small>${esc([p.phone, p.email].filter(Boolean).join(" · ") || "Sin datos")}</small></div>
       ${p.phone ? `<a class="icon-btn" href="${esc(telLink(p.phone))}" aria-label="Llamar">${icon("phone")}</a><button class="icon-btn" data-pwa="${esc(p.phone)}" data-pname="${esc(p.name)}" aria-label="WhatsApp">${icon("whatsapp")}</button>` : ""}${p.email ? `<button class="icon-btn" data-pmail="${esc(p.email)}" data-pname="${esc(p.name)}" aria-label="Mail">${icon("mail")}</button>` : ""}</div>`).join("")}</div>` : ""}
-    ${d.activities?.length ? `<div class="sec"><h3><span class="l">${icon("calendar")} Pendientes</span></h3>${d.activities.map(a => { const l = localAct(a); return `<div class="act"><span class="ty ${a.type}">${icon(TYPE_ICON[a.type] || "check")}</span><div class="t"><b>${esc(a.subject)}</b><small class="${l.date < today() ? "late" : ""}">${esc(a.typeLabel)} · ${esc(dayLabel(l.date))}${l.time ? ` ${l.time}` : ""} · ${esc(a.owner)}</small></div><div class="ops">${a.type === "meeting" && demoDue(l) ? (a.ownerId === S.me.pdUserId || S.profile?.leader ? `<button class="btn sm" data-hdemo="${a.id}" data-time="${esc(l.time)}">¿Se hizo la demo?</button>` : "") : a.ownerId === S.me.pdUserId ? `<button class="icon-btn" data-hdone="${a.id}" aria-label="Marcar como hecha" title="Marcar como hecha">${icon("check")}</button>` : ""}</div></div>`; }).join("")}</div>` : ""}
+    ${d.activities?.length ? `<div class="sec"><h3><span class="l">${icon("calendar")} Pendientes</span></h3>${d.activities.map(a => { const l = localAct(a); return `<div class="act"><span class="ty ${a.type}">${icon(TYPE_ICON[a.type] || "check")}</span><div class="t"><b>${esc(a.subject)}</b><small class="${l.date < today() ? "late" : ""}">${esc(a.typeLabel)} · ${esc(dayLabel(l.date))}${l.time ? ` ${l.time}` : ""} · ${esc(a.owner)}</small></div><div class="ops">${a.type === "meeting" && demoDue(l) ? (a.ownerId === S.me.pdUserId || leadsOver(a.ownerId) ? `<button class="btn sm" data-hdemo="${a.id}" data-time="${esc(l.time)}">¿Se hizo la demo?</button>` : "") : a.ownerId === S.me.pdUserId ? `<button class="icon-btn" data-hdone="${a.id}" aria-label="Marcar como hecha" title="Marcar como hecha">${icon("check")}</button>` : ""}</div></div>`; }).join("")}</div>` : ""}
     ${d.deals?.length ? `<div class="sec"><h3><span class="l">${icon("deal")} Tratos</span></h3>${d.deals.map(x => `<div class="act"><span class="ty">${icon("deal")}</span><div class="t"><b><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a></b><small>${esc(x.pipeline)} · ${esc(x.stage)} · ${x.status === "won" ? "ganado" : x.status === "lost" ? "perdido" + (x.lostReason ? ` (${esc(x.lostReason)})` : "") : "abierto"}${x.owner ? ` · ${esc(x.owner)}` : ""} · ${esc(x.updated)}</small>${dealOpsHtml(x)}</div></div>`).join("")}</div>` : ""}
     <div class="sec"><h3><span class="l">${icon("clock")} Historial</span>${m.checkedAt ? `<button class="btn sm ghost" id="refresh">${icon("refresh", "sm")} Actualizar</button>` : ""}</h3>
       ${items.length ? `<div class="timeline">${items.map(i => i.mail ? mailItem(i.mail) : `<div class="tl"><span class="ic">${icon(i.ic)}</span><div><div class="h">${i.h} · ${esc(ago(i.at))}</div>${i.p ? `<p>${esc(i.p)}</p>` : ""}</div></div>`).join("")}</div>` : `<div class="empty">${icon("note")}<span>Todavía no hay contactos ni notas. Lo que registres aparece acá y en Pipedrive.</span></div>`}
