@@ -1087,6 +1087,43 @@ details.gm-sig summary { cursor: pointer; font-size: 12.5px; color: var(--muted)
 .tl-meta { font-size: 12.5px; margin-top: 2px; }
 details.tl-body summary { cursor: pointer; font-size: 13px; color: var(--accent-ink); margin-top: 4px; width: fit-content; }
 details.tl-body p { margin: 6px 0 0; padding: 10px 12px; border-radius: 10px; background: var(--surface-2); white-space: pre-wrap; font-size: 14px; color: var(--ink-2); overflow-wrap: anywhere; }
+/* Historial completo: fecha a la derecha, nota entera (las largas se abren con «Ver todo») */
+.tl-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.tl-top b { min-width: 0; overflow-wrap: anywhere; }
+.tl-date { flex: none; font-size: 12.5px; color: var(--ink-2); font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tl-txt { overflow-wrap: anywhere; }
+.tl-txt.clamp { display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+.tl-more { font-size: 13px; margin-top: 4px; }
+.tl-rows { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 6px; font-size: 13px; color: var(--ink-2); }
+.tl-rows b { font-weight: 600; color: var(--muted); }
+.tl-phone .ic { background: var(--info-bg); color: var(--info); }
+.tl-whatsapp .ic { background: var(--ty-wa-bg); color: var(--ty-wa); }
+.tl-video .ic { background: var(--ty-meeting-bg); color: var(--ty-meeting); }
+.tl-lead .ic, .tl-deal .ic { background: var(--surface-3); color: var(--ink-2); }
+.tl-count { font-weight: 500; font-size: 13px; }
+.tl-load { width: 100%; justify-content: center; margin-top: 8px; }
+/* Resumen para la próxima llamada */
+.cb h3 { flex-wrap: wrap; }
+.cb-tools { display: inline-flex; align-items: center; gap: 6px; margin-left: auto; }
+.cb-ai { display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; }
+.cb-head { margin: 0 0 10px; font-size: 14px; color: var(--ink-2); }
+.cb-say { font-size: 15px; }
+.cb-k { display: block; font-size: 12px; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
+.cb-src { margin: 6px 0 0; font-size: 12.5px; }
+.cb-ask { margin: 10px 0 0; font-size: 14px; }
+.cb-warn { margin-top: 10px; }
+.cb-more { margin-top: 10px; }
+.cb-more > summary { cursor: pointer; font-size: 13px; color: var(--accent-ink); font-weight: 500; width: fit-content; }
+.cb-h { font-size: 13px; font-weight: 600; color: var(--ink); margin: 12px 0 4px; }
+.cb-list { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 14px; color: var(--ink-2); }
+.cb-list li { overflow-wrap: anywhere; }
+.cb-list li.late { color: var(--err); font-weight: 600; }
+.cb-from { display: block; font-size: 12px; }
+.cb-noted { margin: 10px 0 0; font-size: 14px; color: var(--ink-2); overflow-wrap: anywhere; }
+.cb-log .cb-src { display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; }
+.cb-cold .btn { flex: none; margin-left: auto; }
+/* lo de una organización con el mismo nombre y sin ciudad: está, pero no entra en el resumen */
+.tl-aside { opacity: .78; }
 @media (max-width: 599px) {
   /* en el celular, Enviar (o Conectar) va primero y a lo ancho */
   .mact .row #mSend, .mact .row #mConnect { flex: 1 1 100%; order: -1; justify-content: center; }

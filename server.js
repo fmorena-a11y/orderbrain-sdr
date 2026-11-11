@@ -151,6 +151,17 @@ const auth = (req, res, next) => {
   req.tz = safeTz(req.get("x-tz"));
   next();
 };
+// Historial: lo que la app escribe de una ficha (contactos, mails, comentarios, tratos, actividades) cambia la versión de su
+// línea de tiempo en el store (todas las instancias dejan de usar su copia), antes de escribir y otra vez justo antes de
+// responder (la escritura en Redis se espera con flush), así el próximo pedido la vuelve a leer de Pipedrive.
+const dropOnWrite = idOf => (req, res, next) => {
+  if (req.method === "GET") return next();
+  const id = idOf(req); sales.dropTimeline(id);
+  const json = res.json.bind(res); res.json = body => { sales.dropTimeline(id); return json(body); };
+  next();
+};
+app.use("/api/schools/:id", dropOnWrite(req => req.params.id));
+app.use("/api/activities", dropOnWrite(() => null));
 // READ_ONLY=1: nada se escribe en Pipedrive (para probar contra la cuenta real sin tocarla). Las rutas, en lib/readonly.js.
 if (process.env.READ_ONLY === "1") app.use((req, res, next) => writesPipedrive(req.method, req.path) ? res.status(403).json({ error: "Modo solo lectura: no se escribe en Pipedrive." }) : next());
 const wrap = fn => (req, res) => fn(req, res).catch(e => {
@@ -567,6 +578,12 @@ app.post("/api/schools/:id/study/note", auth, schoolParam, wrap(async (req, res)
 app.get("/api/schools/:id/brief", auth, schoolParam, wrap(async (req, res) => res.json(await ai.brief(req.params.id, { user: req.session.user }))));
 app.get("/api/schools/:id/enrich", auth, schoolParam, wrap(async (req, res) => res.json({ data: await sales.getEnrich(req.params.id) })));
 app.post("/api/schools/:id/enrich", auth, schoolParam, wrap(async (req, res) => res.json(await sales.enrichSchool(req.params.id, req.session.user, (await getProfile(req.session.user.email).catch(() => null))?.name))));
+// Historial completo (de a 50, «Cargar más» con offset) y el resumen para la próxima llamada por reglas; con IA, aparte.
+const meName = async req => (await getProfile(req.session.user.email).catch(() => null))?.name || req.session.user.name || "";
+// refresh=1 («Actualizar») y fresh=1 (recién escribió algo de esta ficha): se vuelve a leer Pipedrive
+app.get("/api/schools/:id/timeline", auth, schoolParam, wrap(async (req, res) => res.json(await sales.timelineFor(req.params.id,
+  { user: req.session.user, tz: req.tz, me: await meName(req), offset: req.query.offset, limit: req.query.limit, force: req.query.refresh === "1" || req.query.fresh === "1" }))));
+app.get("/api/schools/:id/call-brief", auth, schoolParam, wrap(async (req, res) => res.json(await sales.callBriefFor(req.params.id, { user: req.session.user, tz: req.tz, me: await meName(req), force: req.query.refresh === "1" }))));
 app.get("/api/schools/:id/history", auth, schoolParam, wrap(async (req, res) => res.json(await sales.historyFor(req.params.id))));
 app.get("/api/schools/:id/sedes", auth, schoolParam, wrap(async (req, res) => res.json(await sales.sedesFor(req.params.id))));
 // Redactar un mensaje: con IA usa el contexto que escribe el SDR + lo que sabe Pipedrive; sin IA, la plantilla de la casa.
@@ -802,6 +819,8 @@ app.post("/api/proposals/confirm", auth, wrap(async (req, res) => {
   try { out = await confirmProposal(p, req); }
   catch (e) { await ai.releaseProposal(token); throw e; }
   await ai.finishProposal(token, "done", out.orgUrl);
+  // la nota o la actividad nueva tiene que verse ya en el Historial de esa ficha
+  await sales.dropTimeline(p.schoolId || null);
   res.json(out);
 }));
 async function confirmProposal(p, req) {
