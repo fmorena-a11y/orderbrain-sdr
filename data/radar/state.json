@@ -6872,7 +6872,18 @@
   "MX|Playa del Carmen": "2026-11-11T01:37:04.374Z",
   "MX|Santa Catarina": "2026-11-11T01:37:39.662Z",
   "ES|n29333339": "2026-11-11T01:38:08.457Z",
-  "MX|Gómez Palacio": "2026-11-11T01:38:48.478Z"
+  "MX|Gómez Palacio": "2026-11-11T01:38:48.478Z",
+  "AR|Bahía Blanca": "2026-11-11T03:08:44.924Z",
+  "EC|n249597057": "2026-11-11T03:09:20.896Z",
+  "PY|n2647252986": "2026-11-11T03:15:42.201Z",
+  "VE|n333554748": "2026-11-11T03:16:28.211Z",
+  "MX|Los Mochis": "2026-11-11T03:17:09.274Z",
+  "MX|Pachuca": "2026-11-11T03:17:42.212Z",
+  "MX|Tampico": "2026-11-11T03:18:33.153Z",
+  "ES|n29272534": "2026-11-11T03:19:06.555Z",
+  "CO|n9632105989": "2026-11-11T03:19:38.445Z",
+  "MX|Tehuacán": "2026-11-11T03:20:36.543Z",
+  "ES|n21750062": "2026-11-11T03:21:16.455Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -6907,6 +6918,97 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-11T03:07:53.495Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Bahía Blanca",
+     "found": 13,
+     "updated": 0,
+     "osm": 81
+    },
+    {
+     "cc": "EC",
+     "city": "Quevedo",
+     "found": 20,
+     "updated": 0,
+     "osm": 72
+    },
+    {
+     "cc": "PY",
+     "city": "Lambaré",
+     "found": 0,
+     "updated": 0,
+     "osm": 477
+    },
+    {
+     "cc": "VE",
+     "city": "Cabimas",
+     "found": 2,
+     "updated": 0,
+     "osm": 9
+    },
+    {
+     "cc": "MX",
+     "city": "Los Mochis",
+     "found": 8,
+     "updated": 0,
+     "osm": 33
+    },
+    {
+     "cc": "MX",
+     "city": "Pachuca",
+     "found": 36,
+     "updated": 1,
+     "osm": 159
+    },
+    {
+     "cc": "MX",
+     "city": "Tampico",
+     "found": 8,
+     "updated": 0,
+     "osm": 43
+    },
+    {
+     "cc": "ES",
+     "city": "Valladolid",
+     "found": 70,
+     "updated": 0,
+     "osm": 167
+    },
+    {
+     "cc": "CO",
+     "city": "Arauca",
+     "found": 27,
+     "updated": 0,
+     "osm": 70
+    },
+    {
+     "cc": "MX",
+     "city": "Tehuacán",
+     "found": 5,
+     "updated": 0,
+     "osm": 53
+    },
+    {
+     "cc": "ES",
+     "city": "Córdoba",
+     "found": 78,
+     "updated": 0,
+     "osm": 148
+    }
+   ],
+   "added": 267,
+   "enriched": 0,
+   "photos": 18,
+   "contacts": 30,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 14.9,
+   "total": 15660
+  },
   {
    "at": "2026-11-11T01:25:23.361Z",
    "cities": [
