@@ -298261,7 +298261,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w325084811",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "san-jose-saint-peter-s-high-school",
@@ -298408,9 +298410,9 @@
   "lat": 9.936946,
   "lng": -84.142987,
   "addr": "",
-  "phone": "",
+  "phone": "50640019900",
   "web": "https://www.ttu.edu/costa-rica/",
-  "email": "",
+  "email": "info.costarica@ttu.edu",
   "levels": [
    "Universidad"
   ],
@@ -298421,7 +298423,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w562298490",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://cdn.prod.website-files.com/65d557bb883e686ab2106178/6669401d34966b090a0ee497_Home-image-1%402x.jpg",
+  "whatsapp": "+50640019939",
+  "webAt": "2026-11-11"
  },
  {
   "id": "san-jose-saint-vincent-school",
@@ -298483,7 +298488,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1164194413",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "san-jose-hometwo-montessori",
@@ -298655,7 +298661,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n3129672602",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "cuernavaca-colegio-williams",
@@ -298691,7 +298698,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n8978824152",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "cuernavaca-instituto-educativo-pricenton",
@@ -299054,9 +299062,9 @@
   "lat": 18.931943,
   "lng": -99.238042,
   "addr": "",
-  "phone": "",
+  "phone": "7773184572",
   "web": "https://www.univac.edu.mx/",
-  "email": "",
+  "email": "contacto@univac.edu.mx",
   "levels": [
    "Universidad"
   ],
@@ -299066,7 +299074,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1026584188",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.univac.edu.mx/wp-content/themes/royal/images/staticks/facebook-default.jpg",
+  "whatsapp": "+527775342012",
+  "webAt": "2026-11-11"
  },
  {
   "id": "cuernavaca-el-colegio-de-morelos",
@@ -299814,7 +299825,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n10047620259",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "vina-del-mar-colegio-espanol",
@@ -299854,7 +299866,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n10762159405",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "vina-del-mar-liceo-santa-teresa",
@@ -300654,7 +300668,7 @@
   "lat": -32.962081,
   "lng": -71.542725,
   "addr": "",
-  "phone": "",
+  "phone": "+56991476730",
   "web": "https://colegiolosbosques.cl/",
   "email": "",
   "levels": [],
@@ -300662,7 +300676,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n11778355348",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+56991476730",
+  "webAt": "2026-11-11"
  },
  {
   "id": "vina-del-mar-centro-educativo-luz-de-esperanza",
@@ -300716,7 +300733,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n11954689986",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://educacionalaltopequen.cl/wp-content/uploads/2018/09/logo-pequen.jpg",
+  "webAt": "2026-11-11"
  },
  {
   "id": "vina-del-mar-colegio-profesor-huguet",
@@ -301263,7 +301282,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w313491847",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "vina-del-mar-universidad-adolfo-ibanez-campus-vina-del-mar",
@@ -301628,7 +301648,7 @@
   "lat": -33.027167,
   "lng": -71.550779,
   "addr": "Montaña 810",
-  "phone": "",
+  "phone": "+56996335141",
   "web": "https://www.liceoguillermorivera.cl/",
   "email": "liceoguillermoriveracotapos@gmail.com",
   "levels": [],
@@ -301636,7 +301656,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w549644353",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://liceoguillermorivera.cl/img/fachada.webp",
+  "whatsapp": "+56996335141",
+  "webAt": "2026-11-11"
  },
  {
   "id": "vina-del-mar-colegio-arturo-edwards",
@@ -302244,7 +302267,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w675898110",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "vina-del-mar-colegio-roberto-bravo",
@@ -302523,7 +302547,7 @@
   "lat": -33.028327,
   "lng": -71.533734,
   "addr": "Los Fresnos 91",
-  "phone": "",
+  "phone": "+56322507504",
   "web": "https://eico.uv.cl/",
   "email": "",
   "levels": [
@@ -302535,7 +302559,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w828065213",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://eico.uv.cl/images/banners/foto4_v2.jpg",
+  "webAt": "2026-11-11"
  },
  {
   "id": "vina-del-mar-colegio-alimapu",
@@ -302691,15 +302717,18 @@
   "lat": -33.021418,
   "lng": -71.542291,
   "addr": "3 Norte 216",
-  "phone": "",
+  "phone": "+56936884346",
   "web": "https://montessorivinadelmar.cl/",
-  "email": "",
+  "email": "secretariavmc1@gmail.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w1064239194",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+56936884346",
+  "webAt": "2026-11-11"
  },
  {
   "id": "vina-del-mar-escuela-centro-educativo-rapa-nui",
@@ -302987,7 +303016,7 @@
   "lat": -33.035445,
   "lng": -71.594833,
   "addr": "Avenida España 1680",
-  "phone": "",
+  "phone": "6000231000",
   "web": "https://www.utfsm.cl/",
   "email": "",
   "levels": [
@@ -303000,7 +303029,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r8187017",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://usm.cl/wp-content/uploads/2020/12/logo.png",
+  "webAt": "2026-11-11"
  },
  {
   "id": "vina-del-mar-colegio-aconcagua",
@@ -303460,7 +303491,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n14262988101",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "ensenada-unifront-colegio-ensenada",
@@ -303470,7 +303503,7 @@
   "lat": 31.880408,
   "lng": -116.61577,
   "addr": "Avenida Miramar esq. Calle 18 700",
-  "phone": "",
+  "phone": "+526461783139",
   "web": "https://unifront.mx/",
   "email": "",
   "levels": [],
@@ -303478,7 +303511,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w117140700",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "whatsapp": "+526461783139",
+  "webAt": "2026-11-11"
  },
  {
   "id": "ensenada-colegio-mexico",
@@ -303642,7 +303678,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w91877805",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "palma-colegio-de-san-cayetano",
@@ -303652,9 +303689,9 @@
   "lat": 39.575348,
   "lng": 2.624045,
   "addr": "",
-  "phone": "",
+  "phone": "971220575",
   "web": "https://www.colegiosancayetano.com/",
-  "email": "",
+  "email": "csc@colegiosancayetano.com",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -303662,7 +303699,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w108941337",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://colegiosancayetano.com/wp-content/themes/sc-theme/img/dron.jpg",
+  "webAt": "2026-11-11"
  },
  {
   "id": "palma-centre-concertat-centro-internacional-de-educacion",
@@ -303756,9 +303795,9 @@
   "lat": 39.56561,
   "lng": 2.625167,
   "addr": "",
-  "phone": "",
+  "phone": "+34971739260",
   "web": "https://lfipalma.es/",
-  "email": "",
+  "email": "secretaria.palma@mlfmonde.org",
   "levels": [],
   "opp": [
    "Bilingüe o internacional"
@@ -303766,7 +303805,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w302888911",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "palma-the-academy-educacio-primaria",
@@ -303910,13 +303951,15 @@
   "addr": "",
   "phone": "",
   "web": "https://www.queenscollege.es/",
-  "email": "",
+  "email": "info@queenscollege.es",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w422698661",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "palma-centre-concertat-arcangel-sant-rafel",
@@ -306360,7 +306403,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5902350185",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "popayan-colegio",
@@ -309387,7 +309431,7 @@
   "addr": "Carrera 2A",
   "phone": "",
   "web": "https://www.unicauca.edu.co/",
-  "email": "",
+  "email": "ventanillaelectronica@unicauca.edu.co",
   "levels": [
    "Universidad"
   ],
@@ -309397,7 +309441,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w95174585",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://www.unicauca.edu.co/wp-content/uploads/2023/07/Documentos_Publicos@300x-1024x864.png",
+  "webAt": "2026-11-11"
  },
  {
   "id": "popayan-liceo-cervantes-sede-norte",
@@ -309457,7 +309503,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w107867325",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "popayan-laboratorio-y-oficinas-de-la-universidad-del-cauca",
@@ -309689,7 +309736,7 @@
   "addr": "",
   "phone": "",
   "web": "https://www.uniquindio.edu.co/",
-  "email": "",
+  "email": "contactenos@uniquindio.edu.co",
   "levels": [
    "Universidad"
   ],
@@ -309699,7 +309746,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w181927289",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "armenia-gimnasio-los-robles",
@@ -309973,9 +310022,9 @@
   "lat": 4.541771,
   "lng": -75.667789,
   "addr": "",
-  "phone": "",
+  "phone": "018000410203",
   "web": "https://www.uniremington.edu.co/armenia/",
-  "email": "",
+  "email": "libia.gutierrez@uniremington.edu.co",
   "levels": [
    "Universidad"
   ],
@@ -309986,7 +310035,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w326160831",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "armenia-colegio-de-la-sagrada-familia-hermanas-capuchinas",
@@ -310178,9 +310229,9 @@
   "lat": 4.53096,
   "lng": -75.641409,
   "addr": "",
-  "phone": "",
+  "phone": "+573135758515",
   "web": "https://www.pmw.edu.co/",
-  "email": "",
+  "email": "administracion@pmw.edu.co",
   "levels": [],
   "opp": [
    "Privado confirmado en el mapa"
@@ -310188,7 +310239,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w530128262",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "whatsapp": "+573135758515",
+  "webAt": "2026-11-11"
  },
  {
   "id": "armenia-universidad-antonio-narino",
@@ -310370,7 +310424,7 @@
   "lat": 20.681322,
   "lng": -87.047519,
   "addr": "Avenida Xel-Ha mz 031, lote 001, Playa del Sol",
-  "phone": "",
+  "phone": "+5215611422526",
   "web": "https://humanitas.edu.mx/",
   "email": "",
   "levels": [
@@ -310382,7 +310436,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n13948218855",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://cloudinary-assets.dostuffmedia.com/res/dostuff-media/image/upload/venue-471080/1635014689.jpg",
+  "whatsapp": "+5215611422526",
+  "webAt": "2026-11-11"
  },
  {
   "id": "playa-del-carmen-instituto-livier",
@@ -310424,7 +310481,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n14060355774",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "playa-del-carmen-ceic",
@@ -310632,7 +310691,7 @@
   "lat": 20.620415,
   "lng": -87.079798,
   "addr": "",
-  "phone": "",
+  "phone": "+525637329946",
   "web": "https://www.escuelamanuelacosta.edu.mx/",
   "email": "",
   "levels": [
@@ -310648,7 +310707,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w917209019",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://escuelamanuelacosta.edu.mx/favImage.png",
+  "whatsapp": "+525637329946",
+  "webAt": "2026-11-11"
  },
  {
   "id": "playa-del-carmen-la-salle-instituto-playa-del-carmen",
@@ -310906,7 +310968,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1549686756",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "playa-del-carmen-colegio-ingles-playa",
@@ -310956,7 +311020,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1567146379",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "playa-del-carmen-instituto-tepeyac-xcaret",
@@ -311174,15 +311240,18 @@
   "lat": 25.657737,
   "lng": -100.436718,
   "addr": "Calle 16 de Septiembre 313",
-  "phone": "",
+  "phone": "+528183368367",
   "web": "https://www.nezaldi.edu.mx/",
-  "email": "",
+  "email": "admisiones@nezaldi.edu.mx",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w728914247",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://www.nezaldi.edu.mx/wp-content/uploads/2026/05/modelo-hero3.jpg",
+  "whatsapp": "+528129122300",
+  "webAt": "2026-11-11"
  },
  {
   "id": "santa-catarina-american-institute-of-monterrey-santa-catarina-campus",
@@ -312287,7 +312356,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w834350122",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "las-palmas-de-gran-canaria-colegio-de-educacion-infantil-y-primaria-valencia",
@@ -312327,7 +312397,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1303693441",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "las-palmas-de-gran-canaria-centro-privado-de-educacion-infantil-primaria-y-secundaria-sagrada-fam",
@@ -312372,7 +312444,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1325599350",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://fundacionloyola.com/sanignacio/wp-content/uploads/2024/11/Web-Cartel-Puertas-Abiertas-Infantil-4.png",
+  "webAt": "2026-11-11"
  },
  {
   "id": "las-palmas-de-gran-canaria-colegio-heidelberg",
@@ -312644,7 +312718,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w268935171",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://secure.gravatar.com/blavatar/576bcd643177a6623a2b2d490d80a1dc59d3d8d157ff1d2da73a46588e336397?s=200&#038;ts=1794410695",
+  "webAt": "2026-11-11"
  },
  {
   "id": "bahia-blanca-instituto-superior-juan-xxiii",
@@ -312654,9 +312730,9 @@
   "lat": -38.71775,
   "lng": -62.271608,
   "addr": "Vieytes 286",
-  "phone": "",
+  "phone": "02914562117",
   "web": "https://www.juan23.edu.ar/",
-  "email": "",
+  "email": "secretaria@juan23.edu.ar",
   "levels": [
    "Universidad"
   ],
@@ -312666,7 +312742,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w271638685",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://www.juan23.edu.ar/wp-content/uploads/2026/04/20260424_foto_home_01_v2-1024x576.jpg",
+  "webAt": "2026-11-11"
  },
  {
   "id": "bahia-blanca-colegio-la-inmaculada",
@@ -312676,15 +312754,17 @@
   "lat": -38.725122,
   "lng": -62.266769,
   "addr": "Berutti 379",
-  "phone": "",
+  "phone": "(0291) 456-2272 // 4558724 // 4556102",
   "web": "https://www.lainmaculada.edu.ar/",
-  "email": "",
+  "email": "comunicacion@lainmaculada.edu.ar",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w274838735",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "bahia-blanca-colegio-victoria-ocampo",
@@ -312725,7 +312805,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w942001460",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "bahia-blanca-instituto-maria-auxiliadora",
@@ -313278,7 +313359,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w626261719",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "los-mochis-instituto-politecnico-nacional",
@@ -313782,7 +313864,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1117534812",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "pachuca-universidad-humanista-de-hidalgo",
@@ -313805,7 +313889,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1125524735",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "pachuca-colegio-pilares",
@@ -313984,7 +314070,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1416995124",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "pachuca-colegio-real-de-minas-2",
@@ -314220,7 +314307,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5176145442",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "valladolid-universidad-isabel-i",
@@ -314499,7 +314587,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w199746996",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "valladolid-colegio-de-educacion-infantil-y-primaria-francisco-de-quevedo-y-villeg",
@@ -314766,7 +314856,7 @@
   "lat": 41.626111,
   "lng": -4.715748,
   "addr": "Calle del Padre Julio Chevalier 2",
-  "phone": "",
+  "phone": "983001000",
   "web": "https://www.uemc.es/",
   "email": "",
   "levels": [
@@ -314779,7 +314869,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w319445278",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "valladolid-colegio-de-educacion-infantil-vicente-aleixandre",
@@ -314895,7 +314987,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w367713339",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://ceipjosezorrilla.com/logojz.png",
+  "webAt": "2026-11-11"
  },
  {
   "id": "valladolid-colegio-ave-maria",
@@ -317063,15 +317157,17 @@
   "lat": 37.911518,
   "lng": -4.793349,
   "addr": "",
-  "phone": "",
+  "phone": "957 27 56 00",
   "web": "https://betica-mudarra.org/",
-  "email": "",
+  "email": "informacion@betica-mudarra.org",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w366915378",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "cordoba-colegio-de-educacion-infantil-y-primaria-averroes",
@@ -317257,15 +317353,17 @@
   "lat": 37.926476,
   "lng": -4.80485,
   "addr": "Calle Cerrillo 1",
-  "phone": "",
+  "phone": "+34957405507",
   "web": "https://colegioalauda.org/",
-  "email": "",
+  "email": "información@colegioalauda.org",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w436583816",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://colegioalauda.com/wp-content/uploads/2024/07/Robot.png",
+  "webAt": "2026-11-11"
  },
  {
   "id": "cordoba-colegio-de-educacion-infantil-y-primaria-torre-malmuerta",
@@ -317365,7 +317463,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w688946192",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "cordoba-colegio-almanzor",
@@ -317403,7 +317503,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w693565069",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://ceipvistaalegre14.wordpress.com/wp-content/uploads/2019/12/cropped-logocole-2-2.jpg?w=200",
+  "webAt": "2026-11-11"
  },
  {
   "id": "cordoba-colegio-de-educacion-infantil-y-primaria-antonio-gala",
@@ -317503,7 +317605,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1085883775",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "cordoba-colegio-cordoba",
@@ -317708,7 +317811,7 @@
   "lat": -38.951327,
   "lng": -68.066384,
   "addr": "Salta 340",
-  "phone": "",
+  "phone": "+543513972573",
   "web": "https://21.edu.ar/sedes-y-centros/centro-de-formacion-novaedu-neuquen",
   "email": "",
   "levels": [
@@ -317721,7 +317824,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n10253650921",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "whatsapp": "+543513972573",
+  "webAt": "2026-11-11"
  },
  {
   "id": "neuquen-iga-neuquen",
@@ -317741,7 +317847,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n10263409449",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://iga-la.com/arg/wp-content/uploads/sites/2/2025/05/pretty-hispanic-female-student-smiling-and-looking-CFSPSYT.jpg",
+  "webAt": "2026-11-11"
  },
  {
   "id": "neuquen-instituto-superior-de-ensenanza-del-comahue",
@@ -317779,7 +317887,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n10897819254",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "neuquen-instituto-isiv",
@@ -317799,7 +317908,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n10897819255",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "neuquen-instituto-terciario-de-la-patagonia",
@@ -317817,7 +317927,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n10917033654",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "neuquen-red-pascal-cipolletti",
@@ -317840,7 +317952,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n12024661087",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "neuquen-iga-cipolletti",
@@ -340190,6 +340303,211 @@
   "private": "probable",
   "src": "osm",
   "osm": "w722544846",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "higuey-centro-educativo-hermanos-trejo",
+  "name": "Centro Educativo Hermanos Trejo",
+  "city": "Higüey",
+  "country": "República Dominicana",
+  "lat": 18.61105,
+  "lng": -68.715296,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4153981724",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "higuey-liceo-profesor-antonio-desi-jose",
+  "name": "Liceo Profesor Antonio Desi \"José\"",
+  "city": "Higüey",
+  "country": "República Dominicana",
+  "lat": 18.61997,
+  "lng": -68.730518,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w864492071",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "higuey-centro-educativo-eusebio-cedano",
+  "name": "Centro Educativo Eusebio Cedano",
+  "city": "Higüey",
+  "country": "República Dominicana",
+  "lat": 18.629682,
+  "lng": -68.772042,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w864500863",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "higuey-liceo-secundario-juan-pablo-duarte",
+  "name": "Liceo Secundario Juan Pablo Duarte",
+  "city": "Higüey",
+  "country": "República Dominicana",
+  "lat": 18.60232,
+  "lng": -68.709588,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w865181616",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "bajos-de-haina-liceo-musical-pablo-claudio",
+  "name": "Liceo Musical Pablo Claudio",
+  "city": "Bajos de Haina",
+  "country": "República Dominicana",
+  "lat": 18.418187,
+  "lng": -70.109185,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2444568748",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "bajos-de-haina-centro-educativo-villa-mercedes",
+  "name": "Centro Educativo Villa Mercedes",
+  "city": "Bajos de Haina",
+  "country": "República Dominicana",
+  "lat": 18.409699,
+  "lng": -70.104465,
+  "addr": "Calle Las Caobas",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w405358875",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "bajos-de-haina-los-constituyentes-colegio-inicial-y-basico",
+  "name": "Los Constituyentes Colegio Inicial y Basico",
+  "city": "Bajos de Haina",
+  "country": "República Dominicana",
+  "lat": 18.415832,
+  "lng": -70.095299,
+  "addr": "Calle G",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w413737270",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "bajos-de-haina-colegio-pena-de-horeb",
+  "name": "Colegio Peña de Horeb",
+  "city": "Bajos de Haina",
+  "country": "República Dominicana",
+  "lat": 18.424291,
+  "lng": -70.101958,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1079800126",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "bajos-de-haina-universidad-eugenio-maria-de-hostos",
+  "name": "Universidad Eugenio María de Hostos",
+  "city": "Bajos de Haina",
+  "country": "República Dominicana",
+  "lat": 18.421786,
+  "lng": -70.099006,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1169199598",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "bajos-de-haina-instituto-politecnico-padre-zegri",
+  "name": "Instituto Politécnico Padre Zegrí",
+  "city": "Bajos de Haina",
+  "country": "República Dominicana",
+  "lat": 18.375953,
+  "lng": -70.053272,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1251793367",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "bajos-de-haina-liceo-vespertino-profesor-juan-bosch",
+  "name": "Liceo Vespertino Profesor Juan Bosch",
+  "city": "Bajos de Haina",
+  "country": "República Dominicana",
+  "lat": 18.384269,
+  "lng": -70.054289,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1251793382",
   "found": "2026-11-11"
  }
 ]
