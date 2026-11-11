@@ -6858,7 +6858,21 @@
   "CL|Antofagasta": "2026-11-10T21:04:46.608Z",
   "CR|San José": "2026-11-10T21:05:28.131Z",
   "MX|Cuernavaca": "2026-11-10T21:06:03.549Z",
-  "CL|Viña del Mar": "2026-11-10T22:59:28.006Z"
+  "CL|Viña del Mar": "2026-11-10T22:59:28.006Z",
+  "MX|Ensenada": "2026-11-11T01:25:59.793Z",
+  "ES|n289643197": "2026-11-11T01:26:32.003Z",
+  "MX|Ciudad Obregón": "2026-11-11T01:27:04.790Z",
+  "PE|Pucallpa": "2026-11-11T01:27:33.151Z",
+  "PR|n53200527": "2026-11-11T01:28:13.798Z",
+  "MX|Ixtapaluca": "2026-11-11T01:28:44.751Z",
+  "PY|n319466986": "2026-11-11T01:29:19.172Z",
+  "CO|n299736407": "2026-11-11T01:29:47.545Z",
+  "CO|n293168610": "2026-11-11T01:30:24.403Z",
+  "MX|Benito Juárez": "2026-11-11T01:30:58.747Z",
+  "MX|Playa del Carmen": "2026-11-11T01:37:04.374Z",
+  "MX|Santa Catarina": "2026-11-11T01:37:39.662Z",
+  "ES|n29333339": "2026-11-11T01:38:08.457Z",
+  "MX|Gómez Palacio": "2026-11-11T01:38:48.478Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -6893,6 +6907,118 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-11T01:25:23.361Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Ensenada",
+     "found": 28,
+     "updated": 0,
+     "osm": 271
+    },
+    {
+     "cc": "ES",
+     "city": "Palma",
+     "found": 22,
+     "updated": 1,
+     "osm": 157
+    },
+    {
+     "cc": "MX",
+     "city": "Ciudad Obregón",
+     "found": 8,
+     "updated": 0,
+     "osm": 40
+    },
+    {
+     "cc": "PE",
+     "city": "Pucallpa",
+     "found": 13,
+     "updated": 0,
+     "osm": 181
+    },
+    {
+     "cc": "PR",
+     "city": "San Juan",
+     "found": 35,
+     "updated": 1,
+     "osm": 149
+    },
+    {
+     "cc": "MX",
+     "city": "Ixtapaluca",
+     "found": 1,
+     "updated": 0,
+     "osm": 74
+    },
+    {
+     "cc": "PY",
+     "city": "Ciudad del Este",
+     "found": 56,
+     "updated": 1,
+     "osm": 218
+    },
+    {
+     "cc": "CO",
+     "city": "Popayán",
+     "found": 166,
+     "updated": 0,
+     "osm": 309
+    },
+    {
+     "cc": "CO",
+     "city": "Armenia",
+     "found": 36,
+     "updated": 0,
+     "osm": 138
+    },
+    {
+     "cc": "MX",
+     "city": "Benito Juárez",
+     "found": 1,
+     "updated": 0,
+     "osm": 44
+    },
+    {
+     "cc": "MX",
+     "city": "Playa del Carmen",
+     "found": 28,
+     "updated": 0,
+     "osm": 99
+    },
+    {
+     "cc": "MX",
+     "city": "Santa Catarina",
+     "found": 12,
+     "updated": 0,
+     "osm": 107
+    },
+    {
+     "cc": "ES",
+     "city": "Las Palmas de Gran Canaria",
+     "found": 62,
+     "updated": 2,
+     "osm": 186
+    },
+    {
+     "cc": "MX",
+     "city": "Gómez Palacio",
+     "found": 1,
+     "updated": 0,
+     "osm": 61
+    }
+   ],
+   "added": 469,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 29,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 14.7,
+   "total": 15393
+  },
   {
    "at": "2026-11-10T22:57:40.207Z",
    "cities": [
