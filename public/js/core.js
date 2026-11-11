@@ -70,6 +70,8 @@ export async function api(path, opts = {}) {
   const bd = r.headers.get("x-brain-down"); if (bd !== null) S.brainDown = bd === "1";
   if (r.status === 401 && !path.startsWith("/auth")) { onUnauthorized(); throw new Error("Iniciá sesión."); }
   if (!r.ok) throw Object.assign(new Error(j.error || `Error ${r.status}`), { status: r.status, code: typeof j.code === "string" ? j.code : "" });
+  // algo se escribió (contacto, mail, comentario, actividad…): la ficha abierta vuelve a leer su Historial (school.js)
+  if ((opts.method || (opts.body ? "POST" : "GET")) !== "GET") dispatchEvent(new CustomEvent("ob:wrote", { detail: { path } }));
   return j;
 }
 
