@@ -1,5 +1,5 @@
 // OrderBrain SDR · arranque, navegación, cuenta, búsqueda rápida y atajos.
-import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, statusPill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo, modal, toast, brainTokenMsg } from "./core.js";
+import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, statusPill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo, modal, toast, brainTokenMsg, digits } from "./core.js";
 import { renderToday } from "./today.js";
 import { renderExplore } from "./explore.js";
 import { renderAgenda } from "./agenda.js";
@@ -9,6 +9,7 @@ import { renderMetrics } from "./metrics.js";
 import { openSchool, closeSchool, drawerOpen, startSession } from "./school.js";
 import { openAssistant, closeAssistant } from "./chat.js";
 import { loadGmail, gmailReturn, gmailProfileHtml, bindGmailProfile } from "./gmail.js";
+import { pdSearcher, pdFlat, pdTitle, pdLinesHtml, pdBadge, pdCount, pdNameHit, openPd, isPhoneQ, isMailQ, PD_MIN } from "./pdsearch.js";
 
 const VIEWS = {
   hoy: { label: "Hoy", icon: "sun", render: renderToday },
@@ -204,24 +205,38 @@ addEventListener("hashchange", route);
 export function rerender() { route(); }
 
 // ---------- búsqueda rápida (Ctrl K, / o la lupa)
-// Vacía: recientes y los siguientes de la cola. Al escribir: colegios y acciones.
-const PAL = { items: [], sel: 0, ret: null };
+// Vacía: recientes y los siguientes de la cola. Al escribir: colegios (hasta 3 si también se busca en Pipedrive, con «Ver
+// todos en Prospectar»), «Ubicar en el mapa», lo que hay en Pipedrive (personas, organizaciones, prospectos y tratos, en vivo
+// y con espera de ≈350 ms; primero lo que se llama así) y acciones. Lo de Pipedrive va después de lo que ya estaba: cuando
+// llega no corre nada de lugar, y la selección se guarda por ítem (no por posición), así Enter hace lo mismo tarde lo que
+// tarde Pipedrive. Con resultados de Pipedrive, arriba un atajo «En Pipedrive: N» para bajar hasta ahí.
+const PAL = { items: [], sel: 0, ret: null, pd: null }, PALS = pdSearcher(), PAL_PD = 8, PAL_SCH = 3;
+const PD_IC = { person: "user", organization: "building", lead: "lead", deal: "deal" };
+function palPd() {
+  let sync = true;
+  PALS.run($("palIn").value, st => { PAL.pd = st; if (!sync && !$("palette").hidden) renderPalette({ keep: true }); });
+  sync = false;
+}
 export function rememberSchool(id) { const r = [id, ...loadPref("recent", []).filter(x => x !== id)].slice(0, 6); save("recent", r); }
 function openPalette() {
   closeMenu();
   PAL.ret = document.activeElement;
   $("app").inert = true; document.querySelector(".skip").inert = true;
-  $("palette").hidden = false; $("palIn").value = ""; renderPalette(); $("palIn").focus();
+  $("palette").hidden = false; $("palIn").value = ""; PALS.cancel(); PAL.pd = null; renderPalette(); $("palIn").focus();
 }
 function closePalette(picked = false) {
-  $("palette").hidden = true;
+  $("palette").hidden = true; PALS.cancel();
   $("app").inert = drawerOpen(); document.querySelector(".skip").inert = drawerOpen();
   if (!picked) PAL.ret?.focus?.();
 }
-function renderPalette() {
-  const raw = $("palIn").value, q = norm(raw);
+// Prospectar con lo escrito (pd: bajar hasta lo de Pipedrive cuando llegue)
+const toExplore = (q, pd = false) => { Object.assign(S.explore, { q, place: null, city: null, pd: null, pdScroll: pd }); go("prospectar"); };
+function renderPalette({ keep = false } = {}) {
+  const raw = $("palIn").value, q = norm(raw), t = raw.trim();
+  const prevKey = keep ? PAL.items[PAL.sel]?.key : null;
   const row = (i, ic, title, sub, right = "") => `<button class="pal-item" role="option" data-i="${i}" aria-selected="${i === 0}">${icon(ic)}<span class="t"><b>${esc(title)}</b><small>${esc(sub)}</small></span>${right}</button>`;
   const sections = [];
+  let jump = "";
   if (!q) {
     const recent = loadPref("recent", []).map(id => S.byId.get(id)).filter(Boolean);
     const next = (S.today?.queue || []).filter(s => !recent.some(r => r.id === s.id)).slice(0, 4).map(s => S.byId.get(s.id) || s);
@@ -231,36 +246,66 @@ function renderPalette() {
       { a: { label: "Buscar colegios en una zona…", sub: "Un país, una provincia o una ciudad: los sumo al mapa", ic: "globe", fn: () => import("./scan.js").then(m => m.openScanDialog()) } },
       ...(S.ai ? [{ a: { label: "Abrir asistente", sub: "Que agende, cargue notas o arme un guion", ic: "sparkles", fn: () => openAssistant() } }] : [])]]);
   } else {
-    const schools = q.length >= 2 ? S.schools.filter(s => norm(`${s.name} ${s.city} ${s.country}`).includes(q)).slice(0, 8) : [];
+    // un teléfono también encuentra el colegio por sus dígitos (los últimos 8, con o sin código de país)
+    const ph = isPhoneQ(raw) ? digits(raw) : "", key = ph.slice(-Math.min(ph.length, 8));
+    // con la búsqueda en Pipedrive, hasta 3 colegios (lo de Pipedrive tiene que verse sin bajar); el tope no depende de
+    // lo que responda Pipedrive, para que nada se mueva cuando llega
+    const pdOn = t.length >= PD_MIN, all = q.length >= 2 ? S.schools.filter(s => norm(`${s.name} ${s.city} ${s.country}`).includes(q) || (key && digits(s.phone).includes(key))) : [];
+    const schools = all.slice(0, pdOn ? PAL_SCH : 8);
     const actions = [
       ...views().filter(([k]) => k !== S.view).map(([k, v]) => ({ label: `Ir a ${v.label}`, sub: "", ic: v.icon, fn: () => go(k) })),
       { label: "Empezar sesión de llamadas", sub: "", ic: "play", fn: () => startSession() },
       { label: isDark() ? "Modo claro" : "Modo oscuro", sub: "Tema", ic: isDark() ? "sun" : "moon", fn: toggleTheme },
       ...(S.ai ? [{ label: "Abrir asistente", sub: "", ic: "sparkles", fn: () => openAssistant() }] : []),
     ].filter(a => norm(a.label + " " + a.sub).includes(q));
-    if (schools.length) sections.push(["Colegios", schools.map(s => ({ s }))]);
-    if (raw.trim().length >= 3) sections.push(["En el mapa", [
-      { a: { label: `Ubicar «${raw.trim()}» en el mapa`, sub: "Ciudad, barrio o dirección, con los colegios de alrededor", ic: "nav", fn: () => import("./explore.js").then(m => { m.locateFromOutside(raw.trim()); go("prospectar"); }) } },
-      { a: { label: `Buscar colegios en «${raw.trim()}»`, sub: "Busca los privados que faltan y los suma al mapa", ic: "globe", fn: () => import("./scan.js").then(m => m.openScanDialog(raw.trim())) } },
+    if (schools.length) sections.push(["Colegios", [...schools.map(s => ({ s })),
+      ...(all.length > schools.length ? [{ a: { key: "a:schools", label: `Ver los ${all.length.toLocaleString("es-MX")} colegios en Prospectar`, sub: "Todos los de la base que coinciden", ic: "list", fn: () => toExplore(t) } }] : [])]]);
+    const place = t.length >= 3 && !isPhoneQ(raw) && !isMailQ(raw);
+    if (place) sections.push(["En el mapa", [
+      { a: { key: "a:locate", label: `Ubicar «${t}» en el mapa`, sub: "Ciudad, barrio o dirección, con los colegios de alrededor", ic: "nav", fn: () => import("./explore.js").then(m => { m.locateFromOutside(t); go("prospectar"); }) } },
     ]]);
+    // «Buscar colegios en…» va con las acciones, al final (así lo de Pipedrive queda más arriba)
+    if (place) actions.unshift({ key: "a:scan", label: `Buscar colegios en «${t}»`, sub: "Busca los privados que faltan y los suma al mapa", ic: "globe", fn: () => import("./scan.js").then(m => m.openScanDialog(t)) });
+    const pd = PAL.pd;
+    if (pd) {
+      // primero lo que se llama así (una persona «Laura Gómez» al buscar «laura»), después en el orden de Pipedrive
+      const flat = pdFlat(pd.data), all = [...flat.filter(x => pdNameHit(x, t)), ...flat.filter(x => !pdNameHit(x, t))], more = all.length > PAL_PD || pd.data?.more;
+      const msg = pd.state === "loading" ? `<div class="pal-msg muted"><span class="spin"></span> Buscando en Pipedrive…</div>`
+        : pd.state === "err" ? `<div class="pal-msg callout warn">${icon("alert")}<span>No pude buscar en Pipedrive: ${esc(String(pd.err).replace(/^Pipedrive:\s*/, ""))}</span></div>`
+        : !all.length ? `<div class="pal-msg muted">Nada en Pipedrive con «${esc(pd.q)}».</div>` : "";
+      const n = all.length ? ` · ${pdCount(all.length, pd.data?.more)}` : "";
+      sections.push([`En Pipedrive${n}`, [...(msg ? [{ msg }] : []), ...all.slice(0, PAL_PD).map(x => ({ pd: x })),
+        ...(more ? [{ a: { key: "a:pdall", label: pd.data?.more ? "Ver todo en Prospectar" : `Ver ${all.length - PAL_PD === 1 ? "el otro resultado" : `los otros ${all.length - PAL_PD}`} en Prospectar`, sub: "Todo lo que hay en Pipedrive con lo que escribiste, con «Ver más» por grupo", ic: "search", fn: () => toExplore(t, true) } }] : [])], "palPdH"]);
+      // si arriba hay otras secciones, un atajo en la primera para bajar hasta lo de Pipedrive
+      if (all.length && sections.length > 1) jump = `<button type="button" class="pal-jump" data-pal-jump tabindex="-1">En Pipedrive: ${pdCount(all.length, pd.data?.more, true)} ${icon("chevDown", "sm")}</button>`;
+    }
     if (actions.length) sections.push(["Acciones", actions.map(a => ({ a }))]);
   }
   PAL.items = []; let html = "";
-  for (const [h, list] of sections) {
-    html += `<div class="pal-h">${h}</div>`;
+  sections.forEach(([h, list, id], si) => {
+    html += `<div class="pal-h"${id ? ` id="${id}"` : ""}><span>${esc(h)}</span>${si === 0 ? jump : ""}</div>`;
     for (const it of list) {
       const i = PAL.items.length;
-      if (it.s) { PAL.items.push({ fn: () => openSchool(it.s.id) }); html += row(i, "building", it.s.name, `${it.s.city}, ${it.s.country}`, it.s.status ? statusPill(it.s) : ""); }
-      else { PAL.items.push(it.a); html += row(i, it.a.ic, it.a.label, it.a.sub); }
+      if (it.msg) { html += it.msg; continue; }
+      if (it.s) { PAL.items.push({ key: `s:${it.s.id}`, fn: () => openSchool(it.s.id) }); html += row(i, "building", it.s.name, `${it.s.city}, ${it.s.country}`, it.s.status ? statusPill(it.s) : ""); }
+      else if (it.pd) {
+        const x = it.pd; PAL.items.push({ key: `pd:${x.type}:${x.id}`, fn: () => openPd(x) });
+        html += `<div class="pal-row"><button class="pal-item" role="option" data-i="${i}" aria-selected="false">${icon(PD_IC[x.type] || "search")}<span class="t"><b>${esc(pdTitle(x))}</b>${pdLinesHtml(x)}</span>${pdBadge(x)}</button><a class="pal-ext" href="${esc(x.url)}" target="_blank" rel="noopener" title="Abrir en Pipedrive" aria-label="Abrir «${esc(pdTitle(x))}» en Pipedrive">${icon("external", "sm")}</a></div>`;
+      }
+      else { PAL.items.push({ key: it.a.key || `a:${it.a.label}`, ...it.a }); html += row(i, it.a.ic, it.a.label, it.a.sub); }
     }
-  }
-  PAL.sel = 0;
+  });
+  // la selección sigue en el mismo ítem (si ya no está, vuelve al primero); nunca se mueve sola cuando llega Pipedrive
+  const at = prevKey ? PAL.items.findIndex(x => x.key === prevKey) : 0;
+  PAL.sel = Math.max(0, at);
   $("palList").innerHTML = html || `<div class="empty">Nada coincide con «${esc(raw)}».</div>`;
-  $("palList").querySelectorAll("[data-i]").forEach(b => { b.onclick = () => pick(+b.dataset.i); b.onmousemove = () => setSel(+b.dataset.i); });
+  $("palList").querySelectorAll("[data-i]").forEach(b => { b.setAttribute("aria-selected", +b.dataset.i === PAL.sel); b.onclick = () => pick(+b.dataset.i); b.onmousemove = () => setSel(+b.dataset.i); });
+  const j = $("palList").querySelector("[data-pal-jump]");
+  if (j) { j.onmousedown = e => e.preventDefault(); j.onclick = () => { const h = $("palPdH"), L = $("palList"); if (h) L.scrollTo({ top: L.scrollTop + h.getBoundingClientRect().top - L.getBoundingClientRect().top - 4, behavior: "smooth" }); }; }
 }
 function setSel(i) { PAL.sel = i; $("palList").querySelectorAll("[data-i]").forEach(b => b.setAttribute("aria-selected", +b.dataset.i === i)); $("palList").querySelector(`[data-i="${i}"]`)?.scrollIntoView({ block: "nearest" }); }
 function pick(i) { const it = PAL.items[i]; if (!it) return; closePalette(true); it.fn(); }
-$("palIn").addEventListener("input", renderPalette);
+$("palIn").addEventListener("input", () => { palPd(); renderPalette(); });
 $("palIn").addEventListener("keydown", e => {
   if (e.key === "ArrowDown") { e.preventDefault(); setSel(Math.min(PAL.sel + 1, PAL.items.length - 1)); }
   if (e.key === "ArrowUp") { e.preventDefault(); setSel(Math.max(PAL.sel - 1, 0)); }

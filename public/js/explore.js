@@ -1,7 +1,8 @@
 // Prospectar: lista por país y ciudad + mapa, con cruce contra Pipedrive y sesión de llamadas.
-import { S, api, esc, norm, icon, pill, statusPill, stageTag, potTag, markOf, PH, ST, cssVar, patchSchool, toast, ago, shortDay, scroller, brainStaleMsg, brainTokenCallout, callPill } from "./core.js";
+import { S, api, esc, norm, icon, pill, statusPill, stageTag, potTag, markOf, PH, ST, cssVar, patchSchool, toast, ago, shortDay, scroller, brainStaleMsg, brainTokenCallout, callPill, digits } from "./core.js";
 import { openSchool, startSession } from "./school.js";
 import { baseErrorCallout } from "./app.js";
+import { pdSearcher, pdSectionHtml, bindPd, pdNamed, isPhoneQ, isMailQ, PD_MIN } from "./pdsearch.js";
 
 const E = S.explore;
 // «Para llamar»: todo lo que no es cliente ni está en proceso (incluye los que todavía no se cruzaron con Pipe).
@@ -17,7 +18,11 @@ let host, map, layer, canvas, brainLayer, brainBtn, busy = false, shown = PAGE;
 let showBrain = (() => { try { return localStorage.getItem("ob.brain") !== "0"; } catch { return true; } })();
 
 const scope = () => S.schools.filter(s => (!E.country || s.country === E.country) && (!E.city || s.city === E.city));
-const searchList = () => { const q = norm(E.q); return S.schools.filter(s => (!E.country || s.country === E.country) && norm(`${s.name} ${s.city} ${s.addr || ""}`).includes(q)); };
+// por nombre, ciudad o dirección; un teléfono, por sus dígitos (los últimos 8: con o sin código de país, con o sin espacios)
+const searchList = () => {
+  const q = norm(E.q), ph = isPhoneQ(E.q) ? digits(E.q) : "", key = ph.slice(-Math.min(ph.length, 8));
+  return S.schools.filter(s => (!E.country || s.country === E.country) && (norm(`${s.name} ${s.city} ${s.addr || ""}`).includes(q) || (key && digits(s.phone).includes(key))));
+};
 // de otra persona: la organización en Pipedrive tiene otro dueño (cada uno trabaja lo suyo)
 export const othersOwn = s => !!(s.ownerId && S.me?.pdUserId && s.ownerId !== S.me.pdUserId);
 const canCall = s => CALLABLE.includes(s.status) && !othersOwn(s);
@@ -76,8 +81,8 @@ export function renderExplore(el) {
     <section class="explore-list" aria-label="Colegios">
       <div class="explore-top">
         <h1>Prospectar</h1>
-        <label class="sr" for="q">Buscar colegio</label>
-        <form id="qf" class="q-row" role="search"><input class="inp" id="q" type="search" placeholder="Colegio o ubicación (ciudad, barrio, dirección)" value="${esc(E.q)}" autocomplete="off" enterkeyhint="search"><button type="button" class="btn icon-only" id="locate" title="Ubicar en el mapa" aria-label="Ubicar en el mapa">${icon("nav")}</button></form>
+        <label class="sr" for="q">Buscar colegio, lugar o en Pipedrive</label>
+        <form id="qf" class="q-row" role="search"><input class="inp" id="q" type="search" placeholder="Colegio, lugar, teléfono, email o persona" value="${esc(E.q)}" autocomplete="off" enterkeyhint="search"><button type="button" class="btn icon-only" id="locate" title="Ubicar en el mapa" aria-label="Ubicar en el mapa">${icon("nav")}</button></form>
         <div id="placeBox"></div>
         <div class="chips scroll-row" id="countries" role="group" aria-label="País"></div>
         <div class="crumb" id="crumb"></div>
@@ -93,10 +98,21 @@ export function renderExplore(el) {
   </div>`;
   el.querySelectorAll(".scroll-row").forEach(scroller);
   const q = el.querySelector("#q");
-  q.oninput = () => { E.q = q.value; E.place = null; locSeq++; shown = PAGE; drawAll(); toTop(); };
-  // Enter: si el texto coincide con colegios de la base, se queda en esa lista; si no, ubica el lugar en el mapa.
-  // El botón de la flecha siempre ubica.
-  el.querySelector("#qf").onsubmit = e => { e.preventDefault(); if (!E.q.trim() || looksLikePlace(q.value) || !searchList().length) locate(q.value); };
+  q.oninput = () => { E.q = q.value; E.place = null; locSeq++; shown = PAGE; pdQuery(); drawAll(); toTop(); };
+  // Enter: un teléfono o un email se quedan en la lista (colegios y Pipedrive). Un lugar conocido (con coma, o una ciudad o
+  // un país de la base) se ubica en el mapa. Si no, se queda en la lista si coincide con colegios de la base o si en
+  // Pipedrive hay algo que se llama así (pdNamed: el nombre empieza con lo escrito, o una persona); si no, se ubica
+  // («Metepec» se ubica aunque en Pipedrive esté «Nook Junior School Metepec»). El botón de la flecha siempre ubica.
+  el.querySelector("#qf").onsubmit = async e => {
+    e.preventDefault(); const t = q.value;
+    if (!t.trim()) return locate(t);
+    if (isPhoneQ(t) || isMailQ(t)) return;
+    if (looksLikePlace(t)) return locate(t);
+    if (searchList().length) return;
+    const st = await PDS.done; // lo que encontró Pipedrive con lo escrito (espera si todavía está buscando)
+    if (E.q !== t || E.place || pdNamed(st?.data, t)) return;
+    locate(t);
+  };
   el.querySelector("#locate").onclick = () => locate(q.value);
   el.querySelector("#sess").onclick = () => {
     const ids = callable().map(s => s.id); // startSession toma los primeros S.sessionMax y lo avisa
@@ -107,6 +123,35 @@ export function renderExplore(el) {
   initMap();
   drawAll();
   if (E.pendingLocate) { const t = E.pendingLocate; E.pendingLocate = null; q.value = t; locate(t); }
+  else if (E.q) pdQuery(); // volviste a Prospectar con una búsqueda: lo de Pipedrive se trae de nuevo (o de la copia de 60 s)
+}
+
+// ---------- también en Pipedrive: con cualquier búsqueda (aunque sea el nombre de una ciudad: «Rosario», «León» también son
+// personas), mientras no se ubicó un lugar, debajo de los colegios de la base va la sección «En Pipedrive» (personas,
+// organizaciones, prospectos y tratos de toda la cuenta, en vivo, con «Ver más» por grupo). Si Pipedrive falla, un aviso.
+const PDS = pdSearcher();
+const pdOn = () => !E.place && E.q.trim().length >= PD_MIN;
+function pdQuery() {
+  if (!pdOn()) { PDS.cancel(); E.pd = null; drawPd(); return; }
+  PDS.run(E.q, st => { E.pd = st; drawPd(); });
+}
+const pdRetry = () => { PDS.cancel(); pdQuery(); };
+const pdJumpLabel = () => { const st = E.pd, d = st?.state === "ok" ? st.data : null; return `En Pipedrive${d ? `: ${fmt(d.total ?? 0)}${d.more ? "+" : ""}` : st?.state === "loading" ? "…" : ""}`; };
+function drawPd() {
+  const box = host?.isConnected && host.querySelector("#pdBox"); if (!box) return;
+  const jump = host.querySelector("#pdJump"); if (jump) jump.innerHTML = `${pdJumpLabel()} ${icon("chevDown", "sm")}`;
+  box.innerHTML = pdSectionHtml(E.pd);
+  bindPd(box, E.pd, pdRetry, drawPd);
+  // viniste de «Ver todo en Prospectar» (búsqueda rápida): cuando llega, se baja hasta lo de Pipedrive
+  if (E.pdScroll && E.pd?.state !== "loading") { E.pdScroll = false; if (E.pd) requestAnimationFrame(toPd); }
+}
+// Bajar hasta la sección de Pipedrive sin que quede tapada: en celular la barra de búsqueda queda fija arriba (sticky),
+// así que el margen es su alto.
+function toPd() {
+  const box = host?.isConnected && host.querySelector("#pdBox"); if (!box) return;
+  const top = host.querySelector(".explore-top"), fixed = top && getComputedStyle(top).position === "sticky" ? top.getBoundingClientRect().height : 0;
+  box.style.scrollMarginTop = `${Math.ceil(fixed) + 8}px`;
+  box.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 // Al cambiar de ciudad, país, filtro o búsqueda, la lista vuelve arriba (en celular scrollea .explore-list; si no, .explore-scroll).
@@ -144,7 +189,7 @@ async function locate(text, { osm } = {}) {
     const place = await api("/api/scan/resolve", { body: osm ? { osm } : { q: sc.q, cc: sc.cc || S.markets[E.country]?.code || "" } });
     // si mientras tanto escribió otra cosa o pidió otro lugar, esta respuesta ya no sirve
     if (!host.isConnected || seq !== locSeq) return;
-    E.place = place; E.q = ""; E.city = null; E.filter = "prospect"; shown = PAGE; host.querySelector("#q").value = "";
+    E.place = place; E.q = ""; E.city = null; E.filter = "prospect"; shown = PAGE; host.querySelector("#q").value = ""; PDS.cancel(); E.pd = null;
     E.country = S.countries.includes(place.country) ? place.country : null;
     drawAll(); toTop();
   } catch (e) { if (seq === locSeq) box.innerHTML = `<div class="callout err place-msg">${icon("alert")}<span>${esc(e.message)}</span></div>`; }
@@ -231,10 +276,15 @@ function drawList() {
     : placeMode()
     ? `<div class="empty">${icon("nav")}<span>Todavía no hay colegios cargados en ${esc(placeName(E.place))}.</span><button class="btn primary sm" id="nearScan">${icon("refresh", "sm")} Buscar colegios acá</button></div>`
     : E.q
-    ? `<div class="empty">${icon("search")}<span>Ningún colegio de la base coincide con «${esc(E.q)}»${E.country ? ` en ${esc(E.country)}` : ""}.</span><button class="btn primary sm" id="loc">${icon("nav", "sm")} Ubicar «${esc(E.q)}» en el mapa</button>${E.country ? `<button class="btn sm" id="allC">Buscar en todos los países</button>` : ""}</div>`
+    // «del mapa»: son los colegios de la app; lo que hay en Pipedrive va abajo (no quiere decir que no exista)
+    ? `<div class="empty${pdOn() ? " compact" : ""}">${icon("search")}<span>Ningún colegio del mapa coincide con «${esc(E.q)}»${E.country ? ` en ${esc(E.country)}` : ""}.${pdOn() ? " Abajo, lo que hay en Pipedrive." : ""}</span>${isPhoneQ(E.q) || isMailQ(E.q) ? "" : `<button class="btn ${pdOn() ? "" : "primary "}sm" id="loc">${icon("nav", "sm")} Ubicar «${esc(E.q)}» en el mapa</button>`}${E.country ? `<button class="btn sm" id="allC">Buscar en todos los países</button>` : ""}</div>`
     : `<div class="empty">${icon("list")}<span>Nada con este filtro.</span><button class="btn sm" id="fAll">Ver todos</button></div>`;
-  L.innerHTML = brainWarn() + checkCallout(bl) + `<div class="list-h"><span>${fmt(a.length)} colegio${a.length === 1 ? "" : "s"}</span></div>`
-    + (a.length ? a.slice(0, shown).map(schoolRow).join("") + (a.length > shown ? `<button class="btn ghost sm block" id="moreS">Ver ${fmt(Math.min(PAGE, a.length - shown))} más</button>` : "") : empty);
+  L.innerHTML = brainWarn() + checkCallout(bl) + `<div class="list-h"><span>${fmt(a.length)} colegio${a.length === 1 ? "" : "s"}${E.q && pdOn() ? " del mapa" : ""}</span>${E.q && pdOn() && a.length > 3 ? `<button class="btn ghost sm pd-jump" id="pdJump">${pdJumpLabel()} ${icon("chevDown", "sm")}</button>` : ""}</div>`
+    + (a.length ? a.slice(0, shown).map(schoolRow).join("") + (a.length > shown ? `<button class="btn ghost sm block" id="moreS">Ver ${fmt(Math.min(PAGE, a.length - shown))} más</button>` : "") : empty)
+    + (E.q && !placeMode() ? `<div id="pdBox" class="pd-box">${pdSectionHtml(E.pd)}</div>` : "");
+  if (E.q && !placeMode()) bindPd(L.querySelector("#pdBox"), E.pd, pdRetry, drawPd);
+  // con muchos colegios, lo de Pipedrive queda abajo: este botón lleva hasta ahí
+  L.querySelector("#pdJump")?.addEventListener("click", toPd);
   L.querySelector("#allC")?.addEventListener("click", () => { E.country = null; drawAll(); });
   L.querySelector("#loc")?.addEventListener("click", () => locate(E.q));
   L.querySelector("#nearScan")?.addEventListener("click", () => import("./scan.js").then(m => m.scanPlace(E.place)));

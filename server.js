@@ -330,6 +330,16 @@ app.get("/api/records/:kind/:rid", auth, wrap(async (req, res) => {
   if (!["lead", "org"].includes(req.params.kind)) return res.status(400).json({ error: "Ficha inválida" });
   res.json(await sales.openRecord(req.params.kind, req.params.rid));
 }));
+// Búsqueda en toda la base de Pipedrive (personas, organizaciones, prospectos y tratos), en vivo y solo lectura: cualquiera
+// con sesión (es la misma cuenta de Pipedrive). Tope por persona para que una búsqueda trabada no agote la cuota del token.
+// type (+ cursor, term): «Ver más» de un grupo, la página siguiente de ese tipo.
+app.get("/api/pd-search", auth, wrap(async (req, res) => {
+  const str = k => typeof req.query[k] === "string" ? req.query[k] : "";
+  if ((await bump(`pds:${req.session.user.email}`, 60)) > 90) return res.status(429).json({ error: "Muchas búsquedas seguidas: esperá un minuto." });
+  res.json(await (str("type") ? sales.pdSearchMore(str("q"), str("type"), str("cursor"), str("term")) : sales.pdSearch(str("q"))));
+}));
+// ficha de una persona de Pipedrive (sus datos, su organización, tratos, prospectos, actividades y notas)
+app.get("/api/pd-person/:id", auth, wrap(async (req, res) => res.json(await sales.personCard(req.params.id))));
 app.get("/api/schools", auth, (req, res) => res.json(schools.map(sales.schoolListItem)));
 // Accesos del equipo (líderes y dirección): el código personal de cada persona, para pasárselo, su acceso (Miembro · Líder ·
 // Dirección con cargo) y su equipo. Dirección y los fijos ven a todos y cambian accesos y equipos; un líder de equipo ve a su

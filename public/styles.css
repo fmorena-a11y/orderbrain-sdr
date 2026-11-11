@@ -1161,3 +1161,57 @@ details.tl-body p { margin: 6px 0 0; padding: 10px 12px; border-radius: 10px; ba
   .mact .row #mSend, .mact .row #mConnect { flex: 1 1 100%; order: -1; justify-content: center; }
   .mact .row .btn { flex: 1 1 auto; justify-content: center; }
 }
+
+/* Búsqueda en toda la base de Pipedrive (public/js/pdsearch.js): sección «En Pipedrive» de Prospectar, búsqueda rápida y la
+   ficha mínima de una persona sin organización. «Abrir en Pipedrive» va siempre al lado de cada resultado. */
+.pd-box { margin-top: 8px; border-top: 1px solid var(--line); }
+.pd-box:empty { display: none; }
+.pd-h { padding-top: 12px; }
+.pd-h > span:first-child { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--ink); }
+.pd-gh { font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 600; padding: 10px 10px 2px; }
+.pd-gh b { color: var(--faint); font-weight: 600; margin-left: 2px; }
+.pd-msg { margin: 6px 4px; padding: 6px; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+.callout.pd-msg { flex-wrap: wrap; padding: 10px 12px; }
+.callout.pd-msg span { flex: 1 1 200px; }
+.pd-more { font-size: 12.5px; padding: 2px 10px 6px; margin: 0; }
+.pd-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 2px; }
+.pd-row .school-row { grid-template-columns: auto minmax(0, 1fr) auto; }
+.pd-row .school-row:disabled { cursor: default; color: inherit; }
+@media (hover: hover) { .pd-row .school-row:disabled:hover { background: none; } }
+.pd-row .school-row .t > .pill, .pd-row .school-row > .tag { justify-self: end; }
+.pd-ic, .pp-ic { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; background: var(--surface-2); color: var(--muted); flex: none; }
+.school-row small.pd-hint { white-space: normal; color: var(--faint); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.pd-ext { display: inline-flex; align-items: center; gap: 4px; min-height: 40px; padding: 8px; border-radius: 8px; color: var(--muted); font-size: 12.5px; text-decoration: none; white-space: nowrap; }
+.pd-ext:hover { background: var(--surface-2); color: var(--ink); }
+@media (max-width: 600px) { .pd-ext .lbl { display: none; } .pd-ext { min-width: 40px; justify-content: center; } }
+.empty.compact { padding: 10px 10px 8px; gap: 6px; }
+.empty.compact > .ico { display: none; }
+.pal-row { display: flex; align-items: center; gap: 2px; }
+.pal-row .pal-item { flex: 1; min-width: 0; }
+.pal-item small { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pal-ext { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 9px; color: var(--muted); flex: none; }
+.pal-ext:hover { background: var(--surface-2); color: var(--ink); }
+.pal-msg { padding: 8px 12px; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+.pal-msg.callout { margin: 4px 6px; }
+.pp-sec { display: grid; gap: 4px; }
+.pp-sec h4 { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 0; font-weight: 600; }
+.pp-sec h4 b { color: var(--faint); font-weight: 600; }
+.pp-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 4px 0; }
+.pp-line .v { font-weight: 600; overflow-wrap: anywhere; }
+.pp-act { display: inline-flex; flex-wrap: wrap; gap: 6px; margin-left: auto; align-items: center; }
+.pp-acts { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.pp-acts li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: start; }
+.pp-acts .t b { display: block; font-weight: 600; }
+.pp-acts small { display: block; color: var(--muted); font-size: 12.5px; }
+.pp-acts small.pp-note { color: var(--ink); white-space: pre-line; margin-top: 2px; }
+.pp-notep { padding: 8px 10px; border-radius: 10px; background: var(--surface-2); }
+.pp-notep p { margin: 2px 0 0; font-size: 14px; white-space: pre-line; overflow-wrap: anywhere; }
+.list-h .pd-jump { margin: -6px -6px -6px 0; color: var(--ink); font-weight: 600; }
+/* dos renglones por resultado: qué es y cómo se contacta (hasta 2 líneas) y de quién es (no se corta por lo de arriba) */
+.school-row small.pd-what, .pal-item small.pd-what { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
+.pd-more-btn { margin: 2px 0 6px; }
+.pal-h { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.pal-jump { display: inline-flex; align-items: center; gap: 4px; border: 0; background: var(--surface-2); color: var(--ink); border-radius: 999px; padding: 3px 10px; font: inherit; font-size: 12px; text-transform: none; letter-spacing: 0; font-weight: 600; cursor: pointer; }
+.pal-jump:hover { background: var(--surface-3); }
+/* en pantallas altas, más lugar para que lo de Pipedrive entre sin bajar (en celular, con el teclado abierto, queda 50vh) */
+@media (min-width: 600px) and (min-height: 700px) { .palette-list { max-height: min(62vh, 640px); } }
