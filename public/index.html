@@ -37,13 +37,13 @@
 <div class="shell" id="app" hidden>
   <header class="topbar" id="topbar">
     <div class="brand"><div class="logo-mark" aria-hidden="true"></div><span>OrderBrain SDRs</span><span class="demo-pill" id="demoPill2" hidden title="Modo demo: Pipedrive de prueba, los cambios no llegan a tu cuenta real">Demo</span></div>
-    <button class="icon-btn" id="topSearch" aria-label="Buscar colegio"><span data-icon="search"></span></button>
+    <button class="icon-btn" id="topSearch" aria-label="Buscar colegio, persona o teléfono"><span data-icon="search"></span></button>
     <button class="icon-btn" id="topAssist" aria-label="Asistente de ventas" hidden><span data-icon="sparkles"></span></button>
     <button class="me" id="topMe" aria-label="Tu cuenta" aria-haspopup="menu"></button>
   </header>
   <nav class="rail" aria-label="Secciones">
     <div class="rail-brand"><div class="logo-mark" aria-hidden="true"></div><span>OrderBrain SDRs</span><span class="demo-pill" id="demoPill" hidden title="Modo demo: Pipedrive de prueba, los cambios no llegan a tu cuenta real">Demo</span></div>
-    <button class="search-trigger" id="openPalette" aria-label="Buscar (Ctrl K)"><span data-icon="search"></span><span class="lbl">Buscar colegio</span><kbd>Ctrl K</kbd></button>
+    <button class="search-trigger" id="openPalette" aria-label="Buscar (Ctrl K)"><span data-icon="search"></span><span class="lbl">Buscar en todo</span><kbd>Ctrl K</kbd></button>
     <div class="nav" id="nav"></div>
     <div class="rail-foot">
       <button class="nav-item" id="assistBtn" hidden title="Asistente de ventas"><span data-icon="sparkles"></span><span class="lbl">Asistente</span></button>
@@ -68,7 +68,7 @@
 
 <div class="palette" id="palette" hidden role="dialog" aria-modal="true" aria-label="Buscar">
   <div class="palette-box">
-    <div class="palette-in"><span data-icon="search"></span><input id="palIn" placeholder="Buscar colegio o ciudad" autocomplete="off" aria-label="Buscar"><kbd>Esc</kbd></div>
+    <div class="palette-in"><span data-icon="search"></span><input id="palIn" placeholder="Colegio, ciudad, teléfono, email o persona" autocomplete="off" aria-label="Buscar"><kbd>Esc</kbd></div>
     <div class="palette-list" id="palList" role="listbox"></div>
   </div>
 </div>
