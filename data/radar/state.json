@@ -6928,7 +6928,16 @@
   "HN|n1055485024": "2026-11-11T17:17:45.732Z",
   "CL|Rancagua": "2026-11-11T17:25:20.722Z",
   "AR|San Salvador de Jujuy": "2026-11-11T17:33:07.765Z",
-  "ES|n240423025": "2026-11-11T19:20:09.626Z"
+  "ES|n240423025": "2026-11-11T19:20:09.626Z",
+  "ES|n288139569": "2026-11-11T20:57:58.799Z",
+  "MX|Chilpancingo de los Bravo": "2026-11-11T20:58:39.182Z",
+  "MX|Puerto Vallarta": "2026-11-11T21:06:16.637Z",
+  "PY|n1438326327": "2026-11-11T21:06:59.779Z",
+  "MX|Toluca": "2026-11-11T21:07:44.719Z",
+  "MX|Silao": "2026-11-11T21:08:20.492Z",
+  "DO|n250447847": "2026-11-11T21:08:55.350Z",
+  "VE|n1257860038": "2026-11-11T21:09:44.551Z",
+  "ES|n260379284": "2026-11-11T21:10:32.573Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -6973,6 +6982,83 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-11T20:57:21.604Z",
+   "cities": [
+    {
+     "cc": "ES",
+     "city": "Terrassa",
+     "found": 3,
+     "updated": 0,
+     "osm": 126
+    },
+    {
+     "cc": "MX",
+     "city": "Chilpancingo de los Bravo",
+     "found": 2,
+     "updated": 0,
+     "osm": 36
+    },
+    {
+     "cc": "MX",
+     "city": "Puerto Vallarta",
+     "found": 24,
+     "updated": 0,
+     "osm": 203
+    },
+    {
+     "cc": "PY",
+     "city": "Luque",
+     "found": 34,
+     "updated": 0,
+     "osm": 293
+    },
+    {
+     "cc": "MX",
+     "city": "Toluca",
+     "found": 199,
+     "updated": 9,
+     "osm": 925
+    },
+    {
+     "cc": "MX",
+     "city": "Silao",
+     "found": 5,
+     "updated": 0,
+     "osm": 25
+    },
+    {
+     "cc": "DO",
+     "city": "La Vega",
+     "found": 16,
+     "updated": 0,
+     "osm": 56
+    },
+    {
+     "cc": "VE",
+     "city": "Guanare",
+     "found": 7,
+     "updated": 0,
+     "osm": 19
+    },
+    {
+     "cc": "ES",
+     "city": "Cartagena",
+     "found": 48,
+     "updated": 0,
+     "osm": 100
+    }
+   ],
+   "added": 338,
+   "enriched": 0,
+   "photos": 12,
+   "contacts": 17,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 15,
+   "total": 17378
+  },
   {
    "at": "2026-11-11T19:19:37.682Z",
    "cities": [
