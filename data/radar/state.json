@@ -6883,7 +6883,19 @@
   "ES|n29272534": "2026-11-11T03:19:06.555Z",
   "CO|n9632105989": "2026-11-11T03:19:38.445Z",
   "MX|Tehuacán": "2026-11-11T03:20:36.543Z",
-  "ES|n21750062": "2026-11-11T03:21:16.455Z"
+  "ES|n21750062": "2026-11-11T03:21:16.455Z",
+  "AR|Neuquén": "2026-11-11T05:17:53.641Z",
+  "CO|n1834139017": "2026-11-11T05:18:33.782Z",
+  "PE|Tacna": "2026-11-11T05:19:17.194Z",
+  "VE|n373782315": "2026-11-11T05:25:59.297Z",
+  "PE|Ica": "2026-11-11T05:26:37.163Z",
+  "MX|Ciudad Nicolás Romero": "2026-11-11T05:27:07.380Z",
+  "PA|n339209702": "2026-11-11T05:27:46.499Z",
+  "CO|n285481028": "2026-11-11T05:28:19.504Z",
+  "AR|Posadas": "2026-11-11T05:28:55.565Z",
+  "VE|n792183738": "2026-11-11T05:29:28.699Z",
+  "VE|n110331573": "2026-11-11T05:30:02.699Z",
+  "EC|n249599781": "2026-11-11T05:30:39.834Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -6918,6 +6930,104 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-11T05:17:12.482Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Neuquén",
+     "found": 72,
+     "updated": 0,
+     "osm": 239
+    },
+    {
+     "cc": "CO",
+     "city": "Riohacha",
+     "found": 89,
+     "updated": 1,
+     "osm": 218
+    },
+    {
+     "cc": "PE",
+     "city": "Tacna",
+     "found": 20,
+     "updated": 0,
+     "osm": 205
+    },
+    {
+     "cc": "VE",
+     "city": "San Cristóbal",
+     "found": 46,
+     "updated": 0,
+     "osm": 83
+    },
+    {
+     "cc": "PE",
+     "city": "Ica",
+     "found": 16,
+     "updated": 0,
+     "osm": 243
+    },
+    {
+     "cc": "MX",
+     "city": "Ciudad Nicolás Romero",
+     "found": 1,
+     "updated": 0,
+     "osm": 144
+    },
+    {
+     "cc": "PA",
+     "city": "Colón",
+     "found": 7,
+     "updated": 0,
+     "osm": 15
+    },
+    {
+     "cc": "CO",
+     "city": "Sincelejo",
+     "found": 77,
+     "updated": 5,
+     "osm": 197
+    },
+    {
+     "cc": "AR",
+     "city": "Posadas",
+     "found": 85,
+     "updated": 4,
+     "osm": 262
+    },
+    {
+     "cc": "VE",
+     "city": "Punto Fijo",
+     "found": 11,
+     "updated": 0,
+     "osm": 27
+    },
+    {
+     "cc": "VE",
+     "city": "Puerto La Cruz",
+     "found": 2,
+     "updated": 0,
+     "osm": 231
+    },
+    {
+     "cc": "EC",
+     "city": "Santo Domingo de los Tsáchilas",
+     "found": 77,
+     "updated": 0,
+     "osm": 164
+    }
+   ],
+   "added": 503,
+   "enriched": 0,
+   "photos": 17,
+   "contacts": 24,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 15.2,
+   "total": 16163
+  },
   {
    "at": "2026-11-11T03:07:53.495Z",
    "cities": [
