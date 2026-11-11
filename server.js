@@ -325,7 +325,9 @@ const MX_LOAD = {
 const MX_LEADERS = new Set(["activity"]);
 // solo las secciones de MX_LOAD (no lo heredado de Object: «constructor», «toString»…)
 const mxLoad = section => Object.hasOwn(MX_LOAD, section) ? MX_LOAD[section] : null;
+// Métricas entera es solo para líderes (pedido del líder): a los demás, 403 antes de leer nada
 app.get("/api/metrics/:section", auth, wrap(async (req, res) => {
+  if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Métricas solo lo ven los líderes." });
   const load = mxLoad(req.params.section); if (!load) return res.status(404).json({ error: "No existe esa métrica." });
   if (MX_LEADERS.has(req.params.section)) {
     if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Esto solo lo ve un líder." });

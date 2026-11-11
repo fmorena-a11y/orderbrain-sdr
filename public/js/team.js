@@ -209,7 +209,7 @@ function demoRow(r) {
   return `<div class="act"><span class="ty meeting" role="img" aria-label="Demo">${icon("video")}</span>${open}<div class="ops">${resPill(r)}${mark}</div></div>`;
 }
 function demosHtml(d) {
-  const intro = `<p class="faint" style="margin:0 0 8px;font-size:13.5px">Quién la cargó: en las de la app, quien dice la nota; si no, quien la creó en Pipedrive. Del ${esc(shortDay(d.from))} al ${esc(shortDay(d.to))}${d.at ? ` · Pipedrive, leído ${esc(ago(d.at))}` : ""}. Las métricas están en <a href="#/metricas">Métricas</a>.</p>`;
+  const intro = `<p class="faint" style="margin:0 0 8px;font-size:13.5px">Quién la cargó: en las de la app, quien dice la nota; si no, quien la creó en Pipedrive. Del ${esc(shortDay(d.from))} al ${esc(shortDay(d.to))}${d.at ? ` · Pipedrive, leído ${esc(ago(d.at))}` : ""}.${S.profile?.leader ? ' Las métricas están en <a href="#/metricas">Métricas</a>.' : ""}</p>`;
   // por persona solo a los líderes (orden alfabético, sin puestos); a los demás, lo suyo y el total
   const ppl = d.people ? (d.people.length ? `<div class="follow-wrap"><table class="follow"><thead><tr><th scope="col">Cargó <span class="mx-tag">solo líderes</span></th><th scope="col" class="num">Ya pasaron</th><th scope="col" class="num">Próximas</th></tr></thead>
     <tbody>${d.people.map(p => `<tr><th scope="row">${esc(p.auto ? "Entrada automática, sin agendador" : p.name || (p.id ? "Usuario no activo en Pipedrive" : "?"))}${p.id && p.id === S.me.pdUserId ? " (vos)" : ""}</th><td class="num">${p.recent}</td><td class="num">${p.upcoming}</td></tr>`).join("")}</tbody></table></div>` : "")

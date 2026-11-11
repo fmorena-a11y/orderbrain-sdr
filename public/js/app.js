@@ -18,6 +18,9 @@ const VIEWS = {
   equipo: { label: "Equipo", icon: "users", render: renderTeam },
   metricas: { label: "Métricas", icon: "chart", render: renderMetrics },
 };
+// Métricas: solo líderes (el servidor también corta con 403)
+const LEADER_ONLY = new Set(["metricas"]);
+const views = () => Object.entries(VIEWS).filter(([k]) => !LEADER_ONLY.has(k) || S.profile?.leader);
 const show = id => { for (const x of ["boot", "login", "app"]) $(x).hidden = x !== id; };
 
 // ---------- login
@@ -160,7 +163,7 @@ function toggleTheme() {
 
 // ---------- navegación
 function renderNav() {
-  $("nav").innerHTML = Object.entries(VIEWS).map(([k, v], i) => `<button class="nav-item" data-v="${k}" title="${v.label} (${i + 1})" aria-keyshortcuts="${i + 1}" ${S.view === k ? 'aria-current="page"' : ""}>${icon(v.icon)}<span class="lbl">${v.label}</span></button>`).join("");
+  $("nav").innerHTML = views().map(([k, v], i) => `<button class="nav-item" data-v="${k}" title="${v.label} (${i + 1})" aria-keyshortcuts="${i + 1}" ${S.view === k ? 'aria-current="page"' : ""}>${icon(v.icon)}<span class="lbl">${v.label}</span></button>`).join("");
   $("nav").querySelectorAll("[data-v]").forEach(b => b.onclick = () => { go(b.dataset.v); $("main").focus({ preventScroll: true }); });
 }
 // n: cantidad pendiente, o "!" con label (un aviso)
@@ -175,7 +178,8 @@ export function go(view) { if (location.hash !== "#/" + view) location.hash = "#
 function route() {
   closeMenu();
   const v = (location.hash.match(/^#\/(\w+)/) || [])[1];
-  S.view = VIEWS[v] ? v : "hoy";
+  S.view = VIEWS[v] && views().some(([k]) => k === v) ? v : "hoy";
+  if (v && v !== S.view) history.replaceState(null, "", "#/" + S.view); // una vista que no te toca (Métricas para un SDR) vuelve a Hoy
   $("nav").querySelectorAll("[data-v]").forEach(b => { if (b.dataset.v === S.view) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
   document.title = `${VIEWS[S.view].label} · OrderBrain SDRs`;
   const main = $("main");
@@ -217,7 +221,7 @@ function renderPalette() {
   } else {
     const schools = q.length >= 2 ? S.schools.filter(s => norm(`${s.name} ${s.city} ${s.country}`).includes(q)).slice(0, 8) : [];
     const actions = [
-      ...Object.entries(VIEWS).filter(([k]) => k !== S.view).map(([k, v]) => ({ label: `Ir a ${v.label}`, sub: "", ic: v.icon, fn: () => go(k) })),
+      ...views().filter(([k]) => k !== S.view).map(([k, v]) => ({ label: `Ir a ${v.label}`, sub: "", ic: v.icon, fn: () => go(k) })),
       { label: "Empezar sesión de llamadas", sub: "", ic: "play", fn: () => startSession() },
       { label: isDark() ? "Modo claro" : "Modo oscuro", sub: "Tema", ic: isDark() ? "sun" : "moon", fn: toggleTheme },
       ...(S.ai ? [{ label: "Abrir asistente", sub: "", ic: "sparkles", fn: () => openAssistant() }] : []),
@@ -271,7 +275,7 @@ addEventListener("keydown", e => {
   }
   if (typing || overlay || e.ctrlKey || e.metaKey || e.altKey) return;
   if (e.key === "/") { e.preventDefault(); openPalette(); }
-  if (!drawerOpen()) { const k = Object.keys(VIEWS)[Number(e.key) - 1]; if (/^[1-9]$/.test(e.key) && k) { go(k); $("main").focus({ preventScroll: true }); } }
+  if (!drawerOpen()) { const k = views().map(([x]) => x)[Number(e.key) - 1]; if (/^[1-9]$/.test(e.key) && k) { go(k); $("main").focus({ preventScroll: true }); } }
 });
 
 start();
