@@ -282891,7 +282891,7 @@
   "lat": 19.503819,
   "lng": -96.856428,
   "addr": "Avenida de los Álamos 4, La Pradera",
-  "phone": "",
+  "phone": "+522284220962",
   "web": "https://colegio.ueh.edu.mx/colegio/",
   "email": "",
   "levels": [],
@@ -282899,7 +282899,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1509458419",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+522284220962",
+  "webAt": "2026-11-11"
  },
  {
   "id": "xalapa-enriquez-colegio-valladolid",
@@ -283406,7 +283409,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w530703426",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "puerto-ordaz-u-e-colegio-monte-carmelo",
@@ -283470,7 +283474,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w530820019",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "puerto-ordaz-u-e-colegio-violeta-parra",
@@ -284007,7 +284012,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n7160470985",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "corrientes-centro-del-nino-especial",
@@ -285187,7 +285194,7 @@
   "addr": "",
   "phone": "",
   "web": "https://andinoschool.edu.pe/",
-  "email": "",
+  "email": "info@andinoschool.edu.pe",
   "levels": [],
   "opp": [
    "Bilingüe o internacional"
@@ -285195,7 +285202,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n6568041951",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "cuzco-colegio-469",
@@ -285269,7 +285278,7 @@
   "lat": -13.537239,
   "lng": -71.904029,
   "addr": "",
-  "phone": "",
+  "phone": "+51984041723",
   "web": "https://www.uandina.edu.pe/",
   "email": "",
   "levels": [
@@ -285281,7 +285290,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w38092573",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.uandina.edu.pe/assets/og/default.jpg",
+  "whatsapp": "+51984041723",
+  "webAt": "2026-11-11"
  },
  {
   "id": "cuzco-colegio-arturo-palomino",
@@ -287530,9 +287542,9 @@
   "lat": -31.640153,
   "lng": -60.693511,
   "addr": "Pasaje Hermanos de La Salle 3251",
-  "phone": "",
+  "phone": "(0342) 4520-146/47/48",
   "web": "https://www.lasallejobson.edu.ar/",
-  "email": "",
+  "email": "info@lasallejobson.edu.ar",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)",
@@ -287541,7 +287553,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w271928531",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "santa-fe-escuela-particular-incorporada-1414-san-arnoldo-janssen",
@@ -287686,7 +287700,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r7948976",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.ucsf.edu.ar/wp-content/uploads/2021/04/LOGO-NEGATIVO.png",
+  "webAt": "2026-11-11"
  },
  {
   "id": "pasto-universidad-cooperativa-de-colombia",
@@ -290150,7 +290166,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w172082237",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "pasto-liceo-de-la-universidad-de-narino",
@@ -290190,7 +290208,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w551242214",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "pasto-colegio-san-francisco-javier",
@@ -290864,7 +290884,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n10312997042",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "resistencia-instituto-superior-dardo-rocha",
@@ -290874,9 +290895,9 @@
   "lat": -27.454735,
   "lng": -58.988972,
   "addr": "Arturo Frondizi 376",
-  "phone": "",
+  "phone": "+5493624687658",
   "web": "https://www.iesdr.edu.ar/index.php",
-  "email": "",
+  "email": "decaad.subs@gmail.com",
   "levels": [],
   "opp": [
    "Privado confirmado en el mapa"
@@ -290884,7 +290905,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n10315955570",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+5493624687658",
+  "webAt": "2026-11-11"
  },
  {
   "id": "resistencia-instituto-superior-de-nivel-terciario",
@@ -290924,7 +290948,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n10315955573",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "resistencia-unidad-educativa-de-gestion-privada-132-instituto-superior-de-diseno",
@@ -291068,7 +291093,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n10554845016",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "resistencia-instituto-superior-de-neuropsicologia",
@@ -291440,7 +291466,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w226439753",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "resistencia-crecer-con-todos",
@@ -291550,7 +291578,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1054219208",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "resistencia-colegio-san-roque",
@@ -291679,7 +291709,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n13535906635",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "celaya-westminster-royal-college",
@@ -292117,7 +292149,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w691747681",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "celaya-instituto-celayense-seccion-basica",
@@ -292177,7 +292211,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n9784069015",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/276021170_4958176424270230_1526696971973952278_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1080&ctp=s720x720&_nc_cat=102&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=pu3d6itTjBMQ7kNvwHtR15k&_nc_oc=AdottEziZ_-nz-nAk1olMytKLncJJXurNwnAjEFi5iTdxd2lPWNEi65HxqcZZq4JANE&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&_nc_gid=3uNtZ_amHNWzaa2J87zAdg&_nc_ss=7c289&oh=00_AQQjvVNEYh0EiOwpFMVM5HRXXMvsh7Qfq1KEo3H6ujcQ8Q&oe=6AFA2F3A",
+  "webAt": "2026-11-11"
  },
  {
   "id": "cumana-liceo-rafael-castro-machado",
@@ -293235,7 +293271,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n8060585129",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "buenaventura-colegio-naval-jose-prudencio-padilla",
@@ -293312,7 +293349,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w39363980",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "neiva-colegio-maria-auxiiadora",
@@ -293440,7 +293479,7 @@
   "lat": 2.906618,
   "lng": -75.267072,
   "addr": "Calle 22 Sur 34A - 01",
-  "phone": "",
+  "phone": "+576088688745",
   "web": "https://institutoscoutjosemarti.edu.co/",
   "email": "",
   "levels": [],
@@ -293450,7 +293489,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w314284195",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+573143700072",
+  "webAt": "2026-11-11"
  },
  {
   "id": "neiva-colegio-santa-clara-de-hungria",
@@ -293490,7 +293532,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w338901371",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "neiva-colegio-cooperativo-utrahuilca",
@@ -293536,7 +293579,7 @@
   "lat": 2.936629,
   "lng": -75.242952,
   "addr": "Carrera 55 #8-108",
-  "phone": "",
+  "phone": "576088771347",
   "web": "http://www.yumana.edu.co",
   "email": "",
   "levels": [],
@@ -293544,7 +293587,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w746405775",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://aspaen.edu.co/yumana/wp-content/uploads/sites/40/2023/04/img-027.jpg",
+  "whatsapp": "+573176352575",
+  "webAt": "2026-11-11"
  },
  {
   "id": "neiva-colombus-american-school",
@@ -293554,7 +293600,7 @@
   "lat": 2.854716,
   "lng": -75.284094,
   "addr": "Via Neiva - Campoalegre",
-  "phone": "",
+  "phone": "1.800.458.556 / 1.800.532.2112",
   "web": "https://colombus.edu.co/",
   "email": "",
   "levels": [],
@@ -293564,7 +293610,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w746407787",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colombus.edu.co/wp-content/uploads/2024/04/Logos-Colombus.png",
+  "webAt": "2026-11-11"
  },
  {
   "id": "neiva-gimnasio-kid-explorer-s",
@@ -293659,7 +293707,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n7413779160",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/307016950_404442448511228_3608580062172703470_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1076&ctp=s720x720&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=ErI2WavuT4sQ7kNvwF4o8eN&_nc_oc=AdplXz9pGwSEQSfgKSlMm-w6y6eABQ4OqIWUa-d2HJ_LGGSTqW3sNZHmrvChmNN9atM&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&_nc_gid=y4iOA6NM611BxflGHFdsVQ&_nc_ss=7c289&oh=00_AQTzQ26SRCPu8Sqz1xxgTZ-tntF1NuhUT9W2Fs_q6smSJA&oe=6AFA43F6",
+  "webAt": "2026-11-11"
  },
  {
   "id": "uruapan-universidad-don-vasco",
@@ -294254,7 +294304,7 @@
   "lat": 38.347184,
   "lng": -0.502315,
   "addr": "Carrer de Sant Doménec 70",
-  "phone": "",
+  "phone": "+34623182333",
   "web": "https://www.alinur.es/centro-educacion-formacion/",
   "email": "",
   "levels": [],
@@ -294264,7 +294314,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n6313823034",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.alinur.es/wp-content/uploads/2021/04/logo-alinur.png",
+  "webAt": "2026-11-11"
  },
  {
   "id": "alicante-academia-foguerer",
@@ -294643,7 +294695,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w37869544",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "alicante-colegio-santa-faz",
@@ -295085,7 +295139,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w802542994",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://pca.ua.es/es/cabecera.jpg",
+  "webAt": "2026-11-11"
  },
  {
   "id": "alicante-escuela-infantil-montessori",
@@ -295095,7 +295151,7 @@
   "lat": 38.354559,
   "lng": -0.496084,
   "addr": "",
-  "phone": "",
+  "phone": "965256245",
   "web": "https://www.alicantemontessori.com",
   "email": "",
   "levels": [],
@@ -295103,7 +295159,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1180616063",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "alicante-colegio-jesus-maria-asis",
@@ -295271,7 +295329,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w40321136",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "bilbao-colegio-txipilota",
@@ -295309,7 +295369,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w41733143",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "bilbao-centro-privado-de-ensenanza-infantil-primaria-y-secundaria-san-vicente",
@@ -295319,9 +295380,9 @@
   "lat": 43.298858,
   "lng": -2.995588,
   "addr": "",
-  "phone": "",
+  "phone": "+34944377103",
   "web": "https://www.paulesbarakaldo.com/",
-  "email": "",
+  "email": "barakaldo@paules.es",
   "levels": [
    "Primaria",
    "Secundaria"
@@ -295333,7 +295394,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w56125241",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "bilbao-colegio-de-educacion-infantil-y-primaria-ibaibe-haur-eta-lehen-hezkunt",
@@ -295455,9 +295518,9 @@
   "lat": 43.255249,
   "lng": -2.933896,
   "addr": "",
-  "phone": "",
+  "phone": "94 421 21 09",
   "web": "https://coamibilbao.net",
-  "email": "",
+  "email": "direccion@coamibilbao.net",
   "levels": [],
   "opp": [
    "Privado confirmado en el mapa"
@@ -295465,7 +295528,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w146669288",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://coamibilbao.net/wp-content/uploads/2026/02/e7b494bc-56ba-4629-923c-8b809a133d4f-e1771505638460-1.jpg",
+  "whatsapp": "+34644428817",
+  "webAt": "2026-11-11"
  },
  {
   "id": "bilbao-colegio-el-regato-ikastetxea",
@@ -295600,7 +295666,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w174482524",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "bilbao-colegio-el-carmen-indautxu",
@@ -295673,7 +295740,7 @@
   "lat": 43.269831,
   "lng": -2.95506,
   "addr": "Madariaga etorbidea 67",
-  "phone": "",
+  "phone": "944470950",
   "web": "https://lasallebilbao.com/",
   "email": "",
   "levels": [],
@@ -295684,7 +295751,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w185205751",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://lasallebilbao.com/wp-content/uploads/2026/10/sin-titulo-1-de-1-5.jpg",
+  "webAt": "2026-11-11"
  },
  {
   "id": "bilbao-cep-birjinetxe-lhi",
@@ -295770,9 +295839,9 @@
   "lat": 43.315905,
   "lng": -2.917313,
   "addr": "",
-  "phone": "",
+  "phone": "944533308",
   "web": "https://www.colegiourdaneta.com/",
-  "email": "",
+  "email": "lopdgdd@colegiourdaneta.com",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)",
@@ -295781,7 +295850,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w202190184",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegiourdaneta.org/content/uploads/2019/04/home1-img0211.jpg",
+  "webAt": "2026-11-11"
  },
  {
   "id": "bilbao-deustuko-unibertsitatea",
@@ -296243,7 +296314,7 @@
   "lat": 43.30831,
   "lng": -3.004087,
   "addr": "",
-  "phone": "",
+  "phone": "944960806",
   "web": "https://lasallesestao.eus/",
   "email": "",
   "levels": [],
@@ -296254,7 +296325,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1193717525",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "bilbao-colegio-privado-de-educacion-especial-zabaloetxe-goikoa",
@@ -296400,9 +296473,9 @@
   "lat": 3.541711,
   "lng": -76.290503,
   "addr": "",
-  "phone": "",
+  "phone": "+576044488388",
   "web": "https://www.upb.edu.co",
-  "email": "",
+  "email": "asesoria.integral@upb.edu.co",
   "levels": [
    "Universidad"
   ],
@@ -296412,7 +296485,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n12833954259",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://portal.upb.edu.co/wp-content/uploads/2026/09/Banner-home-90-anos-1.jpg",
+  "whatsapp": "+3136035630",
+  "webAt": "2026-11-11"
  },
  {
   "id": "palmira-centro-educativo-santa-barbara",
@@ -297169,7 +297245,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w112699216",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "antofagasta-instituto-cientifico-educacional-jose-maza-sancho",
@@ -297207,7 +297285,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w145478722",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "antofagasta-colegio-ingles-san-jose",
@@ -297229,7 +297308,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w145481479",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "antofagasta-liceo-experimental-artistico-aplicacion",
@@ -297247,7 +297328,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w145482270",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "antofagasta-the-antofagasta-baptist-college",
@@ -297400,7 +297482,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w186985268",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "antofagasta-eagle-school",
@@ -297478,7 +297561,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w192544104",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "antofagasta-colegio-universitario-antonio-rendic",
@@ -297488,7 +297572,7 @@
   "lat": -23.699466,
   "lng": -70.421559,
   "addr": "Universidad de Antofagasta 02700",
-  "phone": "",
+  "phone": "552537710",
   "web": "https://www.arendic.cl/index.php",
   "email": "",
   "levels": [],
@@ -297496,7 +297580,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w195650072",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+56957211050",
+  "webAt": "2026-11-11"
  },
  {
   "id": "antofagasta-colegio-san-luis",
@@ -297516,7 +297603,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w198207031",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "antofagasta-liceo-marta-narea-diaz",
@@ -297534,7 +297623,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w199258417",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "antofagasta-instituto-profesional-aiep",
@@ -297544,7 +297634,7 @@
   "lat": -23.648147,
   "lng": -70.399755,
   "addr": "José de San Martín 2413",
-  "phone": "",
+  "phone": "+566004501500",
   "web": "https://www.aiep.cl/",
   "email": "",
   "levels": [
@@ -297554,7 +297644,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w241960862",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://aiep.cl/assets/uploads/2026/04/AIEP-Bellavista.webp",
+  "whatsapp": "+56953327839",
+  "webAt": "2026-11-11"
  },
  {
   "id": "antofagasta-colegio-santo-tomas",
@@ -297574,7 +297667,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w298410216",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "antofagasta-universidad-del-alba-campus-ossa",
@@ -297618,7 +297712,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w305207847",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "antofagasta-instituto-santa-maria-antofagasta",
@@ -297630,7 +297725,7 @@
   "addr": "Maipú 941",
   "phone": "",
   "web": "https://www.colegioisma.cl/",
-  "email": "",
+  "email": "isma@colegioisma.cl",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -297638,7 +297733,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w305642848",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://static.wixstatic.com/media/4c7fa5_b31dafe8590440b3bed00d1ad600ca7b%7Emv2.png/v1/fit/w_2500,h_1330,al_c/4c7fa5_b31dafe8590440b3bed00d1ad600ca7b%7Emv2.png",
+  "webAt": "2026-11-11"
  },
  {
   "id": "antofagasta-instituto-superior-de-comercio-jerardo-munoz-campos",
@@ -297648,15 +297745,18 @@
   "lat": -23.653093,
   "lng": -70.399181,
   "addr": "Manuel Antonio Matta 2176",
-  "phone": "",
+  "phone": "+56982876461",
   "web": "https://www.isca.cl/",
-  "email": "",
+  "email": "contacto@isca.cl",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w305808991",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+56982876461",
+  "webAt": "2026-11-11"
  },
  {
   "id": "antofagasta-liceo-de-hombres-mario-bahamonde-silva",
@@ -297674,7 +297774,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w305808992",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "antofagasta-colegio-misionero-jose-lancaster",
@@ -297806,7 +297907,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1086337393",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "antofagasta-universidad-de-catolica-del-norte",
@@ -297816,7 +297918,7 @@
   "lat": -23.68169,
   "lng": -70.409955,
   "addr": "Avenida Angamos 0610",
-  "phone": "",
+  "phone": "+56552355000",
   "web": "https://www.ucn.cl/",
   "email": "",
   "levels": [
@@ -297828,7 +297930,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r11521645",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "san-jose-colegio-adventista",
@@ -297868,7 +297972,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w61358956",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "san-jose-universidad-latinoamericana-de-ciencia-y-tecnologia-ulacit",
@@ -297891,7 +297996,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w64765759",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "san-jose-lincoln-school",
@@ -297901,9 +298007,9 @@
   "lat": 9.971073,
   "lng": -84.066631,
   "addr": "",
-  "phone": "",
+  "phone": "+50622476600",
   "web": "https://www.lincoln.ed.cr/en/",
-  "email": "",
+  "email": "info@lincoln.ed.cr",
   "levels": [],
   "opp": [
    "Privado confirmado en el mapa"
@@ -297911,7 +298017,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w85224410",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+50687985001",
+  "webAt": "2026-11-11"
  },
  {
   "id": "san-jose-country-day-school",
@@ -298013,7 +298122,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w321523735",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "san-jose-colegio-bilingue-la-sabana",

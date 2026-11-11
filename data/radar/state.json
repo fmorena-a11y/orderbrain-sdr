@@ -6953,9 +6953,29 @@
    "n": 1,
    "at": "2026-11-10T23:13:15.021Z",
    "error": "Overpass 502"
+  },
+  "AR|Formosa": {
+   "n": 1,
+   "at": "2026-11-11T13:43:57.671Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-11T13:30:31.374Z",
+   "cities": [],
+   "added": 0,
+   "enriched": 0,
+   "photos": 14,
+   "contacts": 22,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "AR|Formosa: The operation was aborted due to timeout"
+   ],
+   "minutes": 15.1,
+   "total": 16784
+  },
   {
    "at": "2026-11-11T11:14:34.929Z",
    "cities": [
