@@ -676,28 +676,9 @@ app.post("/api/schools/:id/comment", auth, schoolParam, wrap(async (req, res) =>
   let doneId = Number(req.body?.completeActivityId) || null;
   const gone = !!doneId && !(await ownActivity(user, doneId, { missingOk: true }));
   if (gone) doneId = null;
-  const s = byId.get(req.params.id), by = sales.signer(user);
   const m = await pd.meta(), owner = task?.ownerId ? m.users.find(u => u.id === Number(task.ownerId)) : null;
   if (task?.ownerId && !owner) return res.status(400).json({ error: "Esa persona no está en el equipo." });
-  const rec = s.leadOnly ? null : await sales.ensureOrg(req.params.id, user.pdUserId);
-  const done = [], warns = [];
-  // sin trato abierto y con un prospecto abierto tuyo o libre de la organización: el comentario y la tarea van al prospecto
-  const leadT = !s.leadOnly && !rec.openDealId ? (await sales.contactLead(req.params.id, rec, user, [], warns))?.id || null : null;
-  const target = s.leadOnly ? { leadId: s.leadId } : leadT ? { orgId: rec.orgId, leadId: leadT } : { orgId: rec.orgId, dealId: rec.openDealId || undefined };
-  const url = s.leadOnly || leadT ? `${pd.PD_WEB}/leads/inbox/${s.leadOnly ? s.leadId : leadT}` : `${pd.PD_WEB}/organization/${rec.orgId}`;
-  if (task) {
-    const u = toUtc(task.date, task.time, req.tz);
-    await pd.addActivity({ subject: String(task.subject || "").trim().slice(0, 140) || `${TYPE_LABEL[task.type]} · ${s.name}`, type: task.type, dueDate: u.date, dueTime: u.time, ...target, ownerId: owner?.id || user.pdUserId, note: text ? escHtml(text).slice(0, 1000) : "" });
-    done.push({ label: `${TYPE_LABEL[task.type]} el ${task.date.slice(8, 10)}/${task.date.slice(5, 7)}${task.time ? " a las " + task.time : ""} para ${owner && owner.id !== user.pdUserId ? owner.name : "vos"}`, url });
-  }
-  const taskLine = task ? `<br><b>Tarea:</b> ${escHtml(TYPE_LABEL[task.type])} el ${escHtml(task.date)}${task.time ? " " + escHtml(task.time) : ""} para ${escHtml(owner?.name || by)}` : "";
-  const noteHtml = `<b>Comentario</b>${text ? "<br>" + escHtml(text).replace(/\n/g, "<br>") : ""}${taskLine}<br><br><i>Cargado por ${escHtml(by)} desde OrderBrain SDR</i>`;
-  await pd.addNote({ content: noteHtml, ...target }).catch(e => { if (!leadT) throw e; return pd.addNote({ content: noteHtml, leadId: leadT }); });
-  done.push({ label: s.leadOnly || leadT ? "Comentario en el prospecto" : "Comentario en Pipedrive", url });
-  for (const w of warns) done.push({ label: w, warn: true });
-  if (doneId) await pd.updateActivity(doneId, { done: true }).then(() => done.push({ label: "Actividad pendiente marcada como hecha" }), () => done.push({ label: "No pude marcar la actividad como hecha: hacelo desde la agenda.", warn: true }));
-  if (gone) done.push({ label: "La actividad ya no está en Pipedrive.", warn: true });
-  const out = { done, school: sales.schoolSummary(s), orgUrl: url };
+  const out = await sales.commentSchool(req.params.id, user, { text, task, owner, doneId, gone, by: await signName(user) }, req.tz);
   await inSession(req, out, sessions.commentStep(req.body?.session?.ref, { next: task ? { ...task, ownerId: owner?.id || user.pdUserId } : null, ...stepBy(req) }));
   res.json(out);
 }));
@@ -751,8 +732,11 @@ app.post("/api/schools/:id/study/note", auth, schoolParam, wrap(async (req, res)
     return res.json({ ok: true, orgUrl: `${pd.PD_WEB}/leads/inbox/${s.leadId}` });
   }
   const rec = await sales.ensureOrg(req.params.id, req.session.user.pdUserId);
-  await pd.addNote({ content: studyToHtml(s, st), orgId: rec.orgId, dealId: rec.openDealId });
-  res.json({ ok: true, orgUrl: `${pd.PD_WEB}/organization/${rec.orgId}` });
+  // con un prospecto abierto tuyo o libre (y sin trato abierto), en el prospecto y su organización
+  const l = await sales.openLeadFor(req.params.id, rec, req.session.user.pdUserId), html = studyToHtml(s, st);
+  if (l) await pd.addNote({ content: html, orgId: rec.orgId, leadId: l.id }).catch(() => pd.addNote({ content: html, leadId: l.id }));
+  else await pd.addNote({ content: html, orgId: rec.orgId, dealId: rec.openDealId });
+  res.json({ ok: true, orgUrl: l ? `${pd.PD_WEB}/leads/inbox/${l.id}` : `${pd.PD_WEB}/organization/${rec.orgId}` });
 }));
 app.get("/api/schools/:id/brief", auth, schoolParam, wrap(async (req, res) => res.json(await ai.brief(req.params.id, { user: req.session.user }))));
 app.get("/api/schools/:id/enrich", auth, schoolParam, wrap(async (req, res) => res.json({ data: await sales.getEnrich(req.params.id) })));
@@ -1013,19 +997,23 @@ app.post("/api/proposals/confirm", auth, wrap(async (req, res) => {
   catch (e) { await ai.releaseProposal(token); throw e; }
   await ai.finishProposal(token, "done", out.orgUrl);
   // la nota o la actividad nueva tiene que verse ya en el Historial de esa ficha
-  await sales.dropTimeline(p.schoolId || null);
+  await sales.dropTimeline(out.schoolId || p.schoolId || null);
   res.json(out);
 }));
 async function confirmProposal(p, req) {
   const user = await liveUser(req.session.user);
-  let orgId = p.orgId, dealId = p.dealId, leadId = null;
-  const vs = p.schoolId && byId.get(p.schoolId);
+  let orgId = p.orgId, dealId = p.dealId, leadId = null, sid = p.schoolId, rec = null;
+  const vs = sid && byId.get(sid);
   if (vs?.leadOnly) leadId = vs.leadId; // ficha de un prospecto sin organización: se escribe en el prospecto
-  else if (!orgId && p.schoolId) { const rec = await sales.ensureOrg(p.schoolId, user.pdUserId); orgId = rec.orgId; dealId = dealId || rec.openDealId; }
-  if (!orgId && !leadId) {
-    const hits = await pd.searchOrganizations(p.colegio, 5);
-    const exact = hits.find(h => pd.norm(h.name) === pd.norm(p.colegio));
-    orgId = exact ? exact.id : (await pd.createOrganization({ name: p.colegio, ownerId: user.pdUserId })).id;
+  else {
+    if (!orgId && !sid) {
+      const hits = await pd.searchOrganizations(p.colegio, 5);
+      const exact = hits.find(h => pd.norm(h.name) === pd.norm(p.colegio));
+      orgId = exact ? exact.id : (await pd.createOrganization({ name: p.colegio, ownerId: user.pdUserId })).id;
+    }
+    // la ficha de esa organización (el colegio cruzado o la de Pipedrive): su trato abierto o su prospecto
+    if (orgId) sid = (await sales.openRecord("org", orgId).catch(() => null))?.id || null;
+    if (sid) { rec = await sales.ensureOrg(sid, user.pdUserId); orgId = rec.orgId; dealId = dealId || rec.openDealId || null; }
   }
   // cada uno trabaja lo suyo: una organización de otra persona solo admite agendarle una demo (o lo hace un líder: de un
   // equipo, si es de su gente)
@@ -1033,17 +1021,24 @@ async function confirmProposal(p, req) {
     const o = (await pd.orgsByIds([orgId]))[0];
     if (o?.ownerId && user.pdUserId && o.ownerId !== user.pdUserId && !TM.canLead(user.leads, { id: o.ownerId })) throw Object.assign(new Error("Esa organización es de otra persona en Pipedrive."), { status: 409 });
   }
-  const by = sales.signer(user);
-  const target = leadId ? { leadId } : { orgId, dealId };
+  const by = sales.signer(user), done = [], warns = [];
+  // sin trato abierto, como un contacto: al prospecto abierto tuyo o libre, o a uno nuevo a tu nombre (con su organización)
+  const leadR = !leadId && !dealId && sid && rec ? await sales.workLead(sid, rec, user, done, warns) : null;
+  if (leadR) leadId = leadR.id;
+  const target = leadR ? { orgId, leadId, personId: leadR.personId || undefined } : leadId ? { leadId } : { orgId, dealId };
   if (p.kind === "activity") {
     const u = toUtc(p.date, p.time, p.tz || req.tz);
     await pd.addActivity({ subject: p.subject, type: p.type, dueDate: u.date, dueTime: u.time, durationMin: p.durationMin, ...target, ownerId: p.owner.id, note: p.note ? `${p.note}\n\n(Agendado por ${by} desde OrderBrain SDR)` : `Agendado por ${by} desde OrderBrain SDR` });
-    if (p.type === "meeting") await sales.demoReminder({ name: vs?.name || p.colegio, ...target, date: p.date, time: p.time, tz: p.tz || req.tz, user }).catch(e => console.warn("Recordatorio de demo:", e.message));
+    if (p.type === "meeting") await sales.demoReminder({ name: (sid && byId.get(sid)?.name) || vs?.name || p.colegio, ...target, date: p.date, time: p.time, tz: p.tz || req.tz, user }).catch(e => console.warn("Recordatorio de demo:", e.message));
   } else {
     const esc = s => String(s).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
-    await pd.addNote({ content: `<b>Nota desde el asistente</b><br>${esc(p.text).replace(/\n/g, "<br>")}<br><br><i>Cargado por ${esc(by)} desde OrderBrain SDR</i>`, ...target });
+    const html = `<b>Nota desde el asistente</b><br>${esc(p.text).replace(/\n/g, "<br>")}<br><br><i>Cargado por ${esc(by)} desde OrderBrain SDR</i>`;
+    await pd.addNote({ content: html, ...target }).catch(e => { if (!leadR) throw e; return pd.addNote({ content: html, leadId }); });
   }
-  return { ok: true, orgUrl: leadId ? `${pd.PD_WEB}/leads/inbox/${leadId}` : `${pd.PD_WEB}/organization/${orgId}` };
+  if (leadR?.created) { await sales.markWorked(sid, rec).catch(() => {}); await sales.enrichNewLead(sid, user, done).catch(() => {}); }
+  for (const w of warns) done.push({ label: w, warn: true });
+  const where = leadId ? sales.whereOf({ lead: leadR || { id: leadId, title: vs?.name || p.colegio, url: `${pd.PD_WEB}/leads/inbox/${leadId}` } }) : sales.whereOf({ dealId, orgId, orgName: (sid && byId.get(sid)?.name) || p.colegio });
+  return { ok: true, orgUrl: leadId ? `${pd.PD_WEB}/leads/inbox/${leadId}` : `${pd.PD_WEB}/organization/${orgId}`, done, ...where, schoolId: sid || null };
 }
 app.post("/api/proposals/discard", auth, wrap(async (req, res) => {
   const token = String(req.body?.id || "");

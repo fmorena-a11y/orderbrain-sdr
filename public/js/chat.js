@@ -44,14 +44,14 @@ function propCard(p) {
       : `<h4>Nota para ${esc(p.colegio)}</h4><p style="margin:0 0 10px;white-space:pre-wrap">${esc(p.text)}</p>`;
     const foot = state === "pending" ? `<div class="r"><button class="btn primary sm" data-ok>${icon("check", "sm")} Confirmar</button><button class="btn sm" data-no>Descartar</button></div>`
       : state === "busy" ? `<p class="muted" style="margin:0"><span class="spin"></span> Guardando en Pipedrive…</p>`
-      : state === "done" ? `<p class="muted" style="margin:0">${icon("check", "sm")} ${p.kind === "activity" ? "Creada" : "Guardada"} en Pipedrive · <a href="${esc(extra)}" target="_blank" rel="noopener">abrir</a></p>`
+      : state === "done" ? `<p class="muted" style="margin:0">${icon("check", "sm")} ${p.kind === "activity" ? "Creada" : "Guardada"} ${extra?.where?.kind === "lead" ? `en el prospecto «${esc(extra.where.title || p.colegio)}»${extra.where.created ? " (creado a tu nombre)" : ""}` : "en Pipedrive"} · <a href="${esc(extra?.orgUrl || extra)}" target="_blank" rel="noopener">abrir</a></p>${(extra?.done || []).filter(x => x.warn).map(x => `<p class="callout warn" style="margin:6px 0 0">${esc(x.label)}</p>`).join("")}`
       : state === "no" ? `<p class="muted" style="margin:0">Descartada</p>`
       : `<p class="callout err" style="margin:0 0 8px">${esc(extra)}</p><div class="r"><button class="btn sm" data-ok>Reintentar</button></div>`;
     d.className = "prop" + (["done", "no"].includes(state) ? " done" : ""); d.innerHTML = body + foot;
     d.querySelector("[data-ok]")?.addEventListener("click", async () => {
       draw("busy");
       try {
-        const r = await api("/api/proposals/confirm", { body: { id: p.id } }); draw("done", r.orgUrl); S.today = null; S.agenda = null;
+        const r = await api("/api/proposals/confirm", { body: { id: p.id } }); draw("done", r); S.today = null; S.agenda = null;
         toast(p.kind === "activity" ? "Actividad creada en Pipedrive" : "Nota guardada en Pipedrive");
         C.turns.push({ role: "user", content: `(Confirmé: ${p.kind === "activity" ? `${p.typeLabel} "${p.subject}" el ${p.date} para ${p.owner.name}` : "la nota"} en ${p.colegio}.)` }, { role: "assistant", content: "Listo, quedó en Pipedrive." });
       } catch (e) { draw("err", e.message); }

@@ -193,10 +193,13 @@ test("sendMail: colegio nuevo → org a tu nombre, actividad «Mail» hecha con 
   const call = acts.find(a => a.type === "call" && !a.done);
   assert.ok(call); assert.equal(call.owner_id, 2); assert.deepEqual(r.mail.autoNext, { id: call.id, type: "call", date: call.due_date, time: "" });
   assert.deepEqual(r.logged, { pipedrive: true, history: true });
-  const notes = await pd.notesForOrg(m.orgId, 10);
+  // sin trato ni prospecto: el mail queda en un prospecto nuevo a tu nombre (con la organización), que se enriquece
+  const notes = (await pd.notesForOrg(m.orgId, 10)).filter(n => /^<b>Mail enviado/.test(n.content));
   assert.equal(notes.length, 1);
   assert.match(notes[0].content, /^<b>Mail enviado<\/b> a direccion@colegio\.edu\.mx<br><b>Asunto:<\/b> OrderEAT para la cafetería<br><br>Hola,/);
   assert.match(notes[0].content, /Enviado por Juan Diego Pérez desde OrderBrain SDR/);
+  assert.ok(mail.lead_id); assert.equal(notes[0].lead_id, mail.lead_id); assert.equal(call.lead_id, mail.lead_id);
+  assert.equal(r.where.kind, "lead"); assert.equal(r.where.created, true); assert.equal(r.lead.id, mail.lead_id);
   const t = touchesFor(s.id); assert.equal(t.length, 1);
   assert.deepEqual([t[0].outcome, t[0].channel, t[0].mailId, t[0].connected], ["sent", "mail", r.mail.id, false]);
   const ml = await mailsFor(s.id); assert.equal(ml.length, 1); assert.match(ml[0].body, /<b>Te escribo<\/b>/);

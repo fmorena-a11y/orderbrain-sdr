@@ -396,7 +396,12 @@ async function enrich(s) {
     ENR.set(s.id, r.data); SEDES.delete(s.id);
     if (D.id === s.id) D.photos = r.photos || D.photos;
     const n = r.data.nuevos || 0, see = D.id === s.id && D.tab !== "prep" ? { action: { label: "Ver datos", fn: () => goTab("prep") } } : {};
-    toast(r.note.saved ? `Listo: ${n} dato${n === 1 ? "" : "s"} nuevo${n === 1 ? "" : "s"} en una nota de Pipedrive` : `${n ? `Encontré ${n} dato${n === 1 ? "" : "s"} nuevo${n === 1 ? "" : "s"}. ` : ""}${r.note.reason || ""}`, r.note.saved ? { href: r.note.url, action: "Abrir" } : { type: n ? "info" : "err", ...see });
+    // campos del prospecto completados (solo los vacíos) y la nota: lo que pasó con cada uno, corto
+    const fl = r.fields?.saved?.length ? `Completé en el prospecto: ${r.fields.saved.join(", ")}.` : "", fw = r.fields?.reason || "";
+    const nn = `${n} dato${n === 1 ? "" : "s"} nuevo${n === 1 ? "" : "s"}`;
+    const msg = r.note.saved ? [`Listo: ${nn} en una nota ${r.note.lead ? "del prospecto" : "de Pipedrive"}.`, fl, fw]
+      : [fl, n ? `Encontré ${nn}.` : "", fl && !n ? "No había nada nuevo para una nota." : r.note.reason || "", fw];
+    toast(msg.filter(Boolean).join(" "), r.note.saved || fl ? { href: r.note.url || r.fields.url, action: "Abrir" } : { type: n ? "info" : "err", ...see });
     loadSedes(s.id);
     if (S.study && !D.study && !D.studyWorking && S.byId.get(s.id)?.lat != null) loadStudy(s.id, { refresh: true }); // con IA, además el estudio (decisores)
   } catch (e) { toast(e.message, { type: "err" }); }
@@ -419,7 +424,7 @@ function enrichSec(s) {
   const groups = Object.entries(KIND_E).map(([k, [ic, label]]) => [label, ic, e.items.filter(x => x.kind === k)]).filter(([, , l]) => l.length);
   const nt = e.note || {}, fecha = esc(new Intl.DateTimeFormat("es", { day: "numeric", month: "numeric" }).format(new Date(e.at)));
   return `<section class="sec" id="enrichSec"><h3><span class="l">${icon("building")} Datos del colegio</span><span class="faint" style="font-size:12.5px;font-weight:500">Enriquecido el ${fecha} por ${esc(e.by)}</span></h3>
-    <p class="faint" style="margin:0 0 10px;font-size:13px">${nt.saved ? `${icon("check", "sm")} Quedó en una nota de Pipedrive · <a href="${esc(nt.url)}" target="_blank" rel="noopener">abrir</a>` : nt.reason ? `${icon("alert", "sm")} ${esc(nt.reason)}` : ""}</p>
+    <p class="faint" style="margin:0 0 10px;font-size:13px">${nt.saved ? `${icon("check", "sm")} Quedó en una nota ${nt.lead ? "del prospecto" : "de Pipedrive"} · <a href="${esc(nt.url)}" target="_blank" rel="noopener">abrir</a>` : nt.reason ? `${icon("alert", "sm")} ${esc(nt.reason)}` : ""}${e.fields?.saved?.length ? `<br>${icon("check", "sm")} Completé en el prospecto: ${esc(e.fields.saved.join(", "))}` : ""}</p>
     ${groups.length ? `<div class="enr">${groups.map(([label, ic, l]) => `<div class="enr-g"><div class="sub-h">${icon(ic, "sm")} ${esc(label)}</div>${l.map(row).join("")}</div>`).join("")}</div>` : `<p class="muted" style="margin:0">No encontré teléfonos, mails ni web.</p>`}
     ${e.rating ? `<p class="muted" style="margin:8px 0 0">Google Maps: ${esc(String(e.rating.value))}★ · ${esc(String(e.rating.count))} reseñas</p>` : ""}
     ${e.decisores.length ? `<div class="sub-h" style="margin-top:10px">Decisores</div>${e.decisores.map(d => `<div class="sede-row"><b>${esc(d.nombre)}</b>${d.cargo ? `<span class="muted">${esc(d.cargo)}</span>` : ""}</div>`).join("")}` : ""}
@@ -676,7 +681,7 @@ async function runProspect(s, task) {
   D.prospecting = s.id; draw();
   try {
     const r = await api(`/api/schools/${s.id}/prospect`, { body: { task } });
-    patchSchool(r.school);
+    patchSchool(r.school); gotLead(s, r);
     ENR.delete(s.id); loadEnrich(s.id); // la nota de «Enriquecer» pudo quedar guardada recién
     if (D.id === s.id) api(`/api/schools/${encodeURIComponent(s.id)}`).then(nd => { if (D.id === s.id) { D.data = nd; draw(); } }).catch(() => {});
     if (D.prospecting === s.id) D.prospecting = false;
@@ -1161,7 +1166,8 @@ const mailDefaultNext = f => { const b = liveBase(f), fb = f.mail.fallback || { 
 function mailFollowBody(s, d) {
   const f = D.form, ml = f.mail, warns = (ml.done || []).filter(x => x.warn), pdOk = ml.logged?.pipedrive !== false, histOk = ml.logged?.history !== false;
   const b = liveBase(f), auto = !!b && b === ml.autoNext, act = ml.act;
-  const where = pdOk && histOk ? "Ya quedó en Pipedrive y en Historial." : !pdOk ? "En Pipedrive no quedó: registralo a mano." : "Quedó en Pipedrive; en el historial de la app no.";
+  const w = ml.where, inPd = w?.kind === "lead" ? `el prospecto <a href="${esc(w.url)}" target="_blank" rel="noopener">«${esc(w.title || "")}»</a>${w.created ? " (creado a tu nombre)" : ""}` : "Pipedrive";
+  const where = pdOk && histOk ? `Ya quedó en ${inPd} y en Historial.` : !pdOk ? esc("En Pipedrive no quedó: registralo a mano.") : `Quedó en ${inPd}; en el historial de la app no.`;
   return `<div class="stack">
     <div class="callout ${pdOk ? "ok" : "warn"}">${icon(pdOk ? "checkCircle" : "alert")}<span><b>${pdOk ? "Mail enviado" : "Salió el mail"}</b> a ${esc(ml.to)} · «${esc(ml.subject)}». ${where}</span></div>
     ${warns.map(x => `<div class="callout warn">${icon("alert")}<span>${esc(x.label)}</span></div>`).join("")}
@@ -1253,7 +1259,7 @@ function summary(s, d) {
     if (f.next.type && f.next.date && !sameAsBase(f)) return `<b>Se guarda en Pipedrive:</b> ${esc(kindOf(f.next.type))} ${shortDay(f.next.date)}${f.next.time ? ` ${esc(f.next.time)}` : ""}${b ? auto ? " (cambia la automática)" : " (mueve la que ya tenías)" : ""}${f.mail.act && f.completeAct ? " y la de la agenda queda hecha" : ""}.${esc(tail)}<span class="kbd-hint faint"> · Ctrl + Enter</span>`;
     return esc(`${b ? `Queda ${baseDesc(b, auto)}` : "Sin próximo paso"}${f.mail.act && f.completeAct ? " y la de la agenda queda hecha" : ""}.${tail}`);
   }
-  if (onlyComment()) return `<b>Se guarda en Pipedrive:</b> comentario${f.next.type && f.next.date ? ` + ${esc((S.types[f.next.type] || "tarea").toLowerCase())} ${shortDay(f.next.date)}${f.next.ownerId ? ` para ${esc((S.team || []).find(u => String(u.id) === String(f.next.ownerId))?.name || "")}` : ""}` : ""}, sin registrar contacto<span class="kbd-hint faint"> · Ctrl + Enter</span>`;
+  if (onlyComment()) return `<b>Se guarda ${esc(whereNext(s, d))}:</b> comentario${f.next.type && f.next.date ? ` + ${esc((S.types[f.next.type] || "tarea").toLowerCase())} ${shortDay(f.next.date)}${f.next.ownerId ? ` para ${esc((S.team || []).find(u => String(u.id) === String(f.next.ownerId))?.name || "")}` : ""}` : ""}, sin registrar contacto<span class="kbd-hint faint"> · Ctrl + Enter</span>`;
   if (!f.outcome) return contactPending() ? `Elegí qué pasó con ${D.form.sent ? "el mensaje" : "la llamada"} para guardar.` : "Elegí qué pasó o dejá un comentario.";
   if (s.status === "client" && f.outcome === "demo") return "Ya es cliente: no se crea un trato nuevo.";
   const parts = ["contacto hecho", "nota"];
@@ -1261,7 +1267,24 @@ function summary(s, d) {
   if (f.outcome === "demo") parts.push(`${d.match.openDealId ? "demo" : "trato + demo"} ${f.demo.date ? shortDay(f.demo.date) : ""} ${f.demo.time || ""}`.trim());
   if (f.next.type && f.next.date) parts.push(`${S.types[f.next.type]?.toLowerCase() || "actividad"} ${shortDay(f.next.date)}`);
   if (f.lostReason && d.match.openDealId) parts.push("trato perdido");
-  return `<b>Se guarda en Pipedrive:</b> ${esc(parts.join(" · "))}<span class="kbd-hint faint"> · Ctrl + Enter</span>`;
+  return `<b>Se guarda ${esc(f.outcome === "demo" ? "en Pipedrive" : whereNext(s, d))}:</b> ${esc(parts.join(" · "))}<span class="kbd-hint faint"> · Ctrl + Enter</span>`;
+}
+// Dónde va a quedar lo que se registra (lo decide el servidor, workLead de lib/sales.js): el trato abierto; si no, el
+// prospecto abierto tuyo o libre o, si no tiene, uno nuevo a tu nombre. Cliente o de otra persona: la organización.
+function whereNext(s, d) {
+  if (s.leadOnly) return "en el prospecto";
+  if (d?.match?.openDealId) return "en el trato";
+  const l = (d?.leads || []).find(x => !x.ownerId || x.ownerId === S.me.pdUserId);
+  if (l) return `en el prospecto «${l.title}»`;
+  if (s.virtual || d?.leads?.length || s.status === "client" || s.ob?.client || ["activo", "onboarding"].includes(s.phase) || (s.ownerId && S.me.pdUserId && s.ownerId !== S.me.pdUserId)) return "en Pipedrive";
+  return "en un prospecto nuevo a tu nombre";
+}
+// Lo registrado quedó en un prospecto (quizás recién creado): la ficha lo muestra ya, sin recargar (la etiqueta
+// «Prospecto», el botón al prospecto y «Convertir a trato»)
+function gotLead(s, r) {
+  const l = r?.lead; if (!l?.id || D.id !== s.id || !D.data || s.leadOnly) return;
+  D.data.leads = [{ id: l.id, title: l.title || s.name, ownerId: l.ownerId ?? S.me.pdUserId ?? null, owner: "", url: l.url }, ...(D.data.leads || []).filter(x => x.id !== l.id)];
+  if (D.data.match) D.data.match = { ...D.data.match, leadId: l.id };
 }
 function setPath(obj, path, val) { const ks = path.split("."); let o = obj; ks.slice(0, -1).forEach(k => (o = o[k])); o[ks.at(-1)] = val; }
 function bindLog(s, d) {
@@ -1326,7 +1349,7 @@ async function saveLog(s, d) {
     sessionLogged(r, { kind: "contact", channel: f.channel, outcome: f.outcome }, body.session);
     if (D.id !== s.id) return;
     D.result = { ...r, form: JSON.parse(JSON.stringify(f)) }; D.inCall = false; D.call = null;
-    patchSchool(r.school);
+    patchSchool(r.school); gotLead(s, r);
     S.today = null; S.agenda = null;
     import("./explore.js").then(m => m.refreshExplore());
     D.saving = false; draw(); toTabs();
@@ -1346,7 +1369,7 @@ async function saveMailNext(s) {
     const r = await api(`/api/schools/${s.id}/mail/next`, { body: { mailId: f.mail.id, next, moveActivityId: b?.id || null, completeActivityId: doneId } });
     if (D.id !== s.id) return;
     if (doneId) D.activityId = null;
-    D.result = { ...r, done: [{ label: `Mail enviado a ${f.mail.to} · «${f.mail.subject}»`, url: f.mail.url || undefined }, ...r.done], form: JSON.parse(JSON.stringify(f)) };
+    D.result = { ...r, where: f.mail.where || null, done: [{ label: `Mail enviado a ${f.mail.to} · «${f.mail.subject}»`, url: f.mail.url || undefined }, ...r.done], form: JSON.parse(JSON.stringify(f)) };
     if (r.school) patchSchool(r.school);
     S.today = null; S.agenda = null;
     D.saving = false; draw(); toTabs();
@@ -1363,9 +1386,19 @@ async function saveComment(s) {
     if (D.id !== s.id) return;
     D.result = { ...r, form: JSON.parse(JSON.stringify(f)) };
     if (r.school) patchSchool(r.school);
+    gotLead(s, r);
     D.saving = false; draw(); toTabs();
     api(`/api/schools/${s.id}`).then(nd => { if (D.id === s.id) { D.data = nd; if (D.tab !== "log") draw(); } }).catch(() => {});
   } catch (e) { D.saving = false; redrawLog(); toast(e.message, { type: "err" }); }
+}
+// Arriba del resultado: dónde quedó (con enlace) y si se creó el prospecto
+function whereDone(w) {
+  const a = (url, t) => url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${t}</a>` : t;
+  // (un solo bloque de texto adentro del título: .sec h3 es flex y separaría el enlace)
+  if (w?.kind === "lead") return `<h3><span>Guardado en el prospecto ${a(w.url, `«${esc(w.title || "")}»`)}</span></h3>${w.created ? `<p class="muted" style="margin:-4px 0 0">${icon("lead", "sm")} Prospecto creado a tu nombre</p>` : ""}`;
+  if (w?.kind === "deal") return `<h3><span>Guardado en el ${a(w.url, "trato")}</span></h3>`;
+  if (w?.kind === "org") return `<h3><span>Guardado en la organización ${a(w.url, `«${esc(w.title || "")}»`)}</span></h3>`;
+  return `<h3>Guardado en Pipedrive</h3>`;
 }
 function resultBody(s, d) {
   const r = D.result, f = r.form, ss = S.session;
@@ -1380,7 +1413,7 @@ function resultBody(s, d) {
   if (f.outcome === "no_answer" && tpl("after_call")) extra.push(`<button class="btn wa" data-tpl="after_call">${icon("whatsapp")} Mandar WhatsApp ahora</button>`);
   return `<div class="sec done-card">
     <div class="big">${icon("check")}</div>
-    <h3>Guardado en Pipedrive</h3>
+    ${whereDone(r.where)}
     <ul class="writes">${r.done.map(x => `<li${x.warn ? ' class="warn"' : ""}>${icon(x.warn ? "alert" : "check", "sm")}<span>${x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.label)}</a>` : esc(x.label)}</span></li>`).join("")}</ul>
     ${extra.length ? `<div class="d-actions" style="justify-content:center;margin:6px 0 0">${extra.join("")}</div>` : ""}
     <div class="d-actions" style="justify-content:center">
@@ -1792,6 +1825,7 @@ async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
 // Después de enviar: Registrar se abre con el mail ya registrado (canal mail y lo enviado) para elegir el próximo paso
 function afterMailSent(s, r, { logAfter, completed }) {
   if (r.school) patchSchool(r.school);
+  gotLead(s, r);
   S.today = null; S.agenda = null;
   if (S.session) S.session.done++;
   import("./explore.js").then(x => x.refreshExplore());
@@ -1807,7 +1841,7 @@ function afterMailSent(s, r, { logAfter, completed }) {
     const a = !completed && D.activityId ? (D.data?.activities || []).find(x => x.id === D.activityId) : null;
     const f = newForm();
     Object.assign(f, { channel: "mail", sent: true, text: `Mandé mail: ${r.mail.subject}`, why: !r.mail.autoNext && !r.mail.pendingNext ? r.suggest?.why || "" : "",
-      mail: { ...r.mail, done: r.done || [], logged: r.logged || null, fallback: r.fallback || null, act: a && a.type !== "meeting" ? { id: a.id, subject: a.subject, type: a.type } : null } });
+      mail: { ...r.mail, done: r.done || [], logged: r.logged || null, fallback: r.fallback || null, where: r.where || null, act: a && a.type !== "meeting" ? { id: a.id, subject: a.subject, type: a.type } : null } });
     f.completeAct = !!f.mail.act;
     f.next = mailDefaultNext(f);
     D.form = f; D.tab = "log"; D.result = null; draw(); toTabs();
