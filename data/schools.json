@@ -258254,7 +258254,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w282267920",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-los-prados",
@@ -258312,7 +258313,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w286586185",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-san-manuel",
@@ -258332,7 +258335,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w286586189",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-pablo-freire",
@@ -258388,7 +258392,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w311780887",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-domingo-lozano",
@@ -258400,7 +258406,7 @@
   "addr": "Calle Virgen de la Esperanza",
   "phone": "",
   "web": "https://www.ceipdomingolozano.com/",
-  "email": "",
+  "email": "colegio@ceipdomingolozano.com",
   "levels": [
    "Primaria"
   ],
@@ -258408,7 +258414,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w321451890",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQdArCzrH4WtDpFDF3KJSL4RQf46VlpUvrTCF9TVto-Atu9-TLVfE3mM8c2aoLchn3MEFf1qzbyw1l5Vmlum-1DvNRSaoeu48BldjYUjkn3Dte3fcV5ZV3BHpm_8iSALA3MWmYdSTmLSXly80u6pRhAoaWW1dqyeYPLA-XLRvJn9okv96bX8QHr35M2Ykl4=w16383",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-ciudad-de-mobile",
@@ -258428,7 +258436,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w338170184",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-concertado-santa-luisa-de-marillac",
@@ -258468,7 +258477,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w345184878",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-hans-christian-andersen",
@@ -258522,7 +258532,7 @@
   "addr": "2",
   "phone": "",
   "web": "https://santamariadelosangeles.es",
-  "email": "",
+  "email": "cdp@santamariadelosangeles.es",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)",
@@ -258531,7 +258541,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w347252247",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://santamariadelosangeles.es/wp-content/uploads/2016/10/logo.png",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-ciudad-de-popayan",
@@ -258543,7 +258555,7 @@
   "addr": "Avenida Obispo Ángel Herrera Oria 86",
   "phone": "",
   "web": "https://ceipciudaddepopayan.com",
-  "email": "",
+  "email": "29003831.edu@juntadeandalucia.es",
   "levels": [
    "Primaria"
   ],
@@ -258551,7 +258563,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w347252248",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://static.wixstatic.com/media/509514_cbed7613ce0046e0abead5839d3a375a~mv2.jpg/v1/fill/w_589,h_382,al_c/509514_cbed7613ce0046e0abead5839d3a375a~mv2.jpg",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-giner-de-los-rios",
@@ -258561,7 +258575,7 @@
   "lat": 36.712508,
   "lng": -4.44352,
   "addr": "Avenida José Ortega y Gasset 8",
-  "phone": "",
+  "phone": "951298737",
   "web": "https://www.ceipginerdelosrios.org",
   "email": "",
   "levels": [
@@ -258571,7 +258585,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w347252249",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-luis-de-gongora",
@@ -258591,7 +258607,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w347252250",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegongora.wordpress.com/wp-content/uploads/2022/05/cropped-escudo-gongora-nuevo.png",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-rafael-davila-diaz",
@@ -258629,7 +258647,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w347252257",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-instituto-santa-rosa-de-lima",
@@ -258731,7 +258751,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w372679151",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-antonio-machado",
@@ -258771,7 +258792,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w454552282",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-cristo-rey",
@@ -258792,7 +258814,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w454563594",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-nuestra-senora-del-pilar",
@@ -258850,7 +258873,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w456780647",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-los-guindos",
@@ -258882,13 +258907,15 @@
   "addr": "Avenida Santiago Ramón y Cajal 41",
   "phone": "",
   "web": "https://csagradafamilia.fundacionunicaja.com",
-  "email": "",
+  "email": "baja@fundacionunicaja.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w466184444",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-misioneras-cruzadas-de-la-iglesia",
@@ -258926,7 +258953,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w466373100",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-alhucemas",
@@ -259006,7 +259034,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w468399141",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-la-reina",
@@ -259062,7 +259091,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w473425667",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-maria-zambrano",
@@ -259084,7 +259114,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w473579824",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-san-juan-de-dios",
@@ -259154,9 +259185,9 @@
   "lat": 36.726599,
   "lng": -4.40884,
   "addr": "Calle Ferrándiz 54-56",
-  "phone": "",
+  "phone": "+34952250693",
   "web": "https://malaga.fesd.es",
-  "email": "",
+  "email": "malaga@fesd.es",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)",
@@ -259165,7 +259196,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w486091840",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-salesianos-san-bartolome-de-malaga",
@@ -259203,7 +259236,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w488298051",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-el-limonar",
@@ -259221,7 +259256,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w488298052",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-andalucia",
@@ -259257,7 +259294,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w490191205",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-lex-flavia-malacitana",
@@ -259287,9 +259325,9 @@
   "lat": 36.731813,
   "lng": -4.415878,
   "addr": "Calle Santa María Micaela 11",
-  "phone": "",
+  "phone": "+34952251794",
   "web": "https://adoratricesmalaga.es/",
-  "email": "",
+  "email": "info@adoratricesmalaga.es",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)",
@@ -259298,7 +259336,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w490305333",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+34697279225",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-miguel-de-cervantes",
@@ -259338,7 +259379,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w495070823",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-fuente-alegre",
@@ -259390,13 +259433,15 @@
   "addr": "Calle Lope de Rueda 181",
   "phone": "",
   "web": "https://colegioeuropamalaga.com",
-  "email": "",
+  "email": "albasecretaria@colegioeuropamalaga.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w495706001",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-ramon-simonet",
@@ -259416,7 +259461,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w516924601",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-bergamin",
@@ -259456,7 +259502,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w532516594",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-severo-ochoa",
@@ -259476,7 +259523,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w535669246",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-manuel-garbayo",
@@ -259528,7 +259576,7 @@
   "addr": "Calle Alemania 14",
   "phone": "",
   "web": "https://www.colegiogarcialorca.com/",
-  "email": "",
+  "email": "29009685.edu@juntadeandalucia.es",
   "levels": [
    "Primaria"
   ],
@@ -259536,7 +259584,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w540638051",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-luis-bunuel",
@@ -259556,7 +259606,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w544095500",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-san-patricio",
@@ -259596,7 +259648,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w550893304",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-san-estanislao-de-kostka",
@@ -259616,7 +259669,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w550921068",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-angeles-custodios",
@@ -259634,7 +259689,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w550921882",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-sagrado-corazon",
@@ -259754,7 +259811,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w550956588",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-intelhorce",
@@ -259774,7 +259832,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w557646034",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-pablo-neruda",
@@ -259824,9 +259884,9 @@
   "lat": 36.725552,
   "lng": -4.480521,
   "addr": "Calle Navarro Ledesma 168",
-  "phone": "",
+  "phone": "951298573",
   "web": "https://www.ceiprevellodetoro.org",
-  "email": "",
+  "email": "29005047.edu@juntadeandalucia.es",
   "levels": [
    "Primaria"
   ],
@@ -259834,7 +259894,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w564053046",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-instituto-de-educacion-secundario-torre-atalaya",
@@ -259852,7 +259914,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w564053047",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-ghandi",
@@ -259890,7 +259954,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w571373931",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-francisco-de-quevedo",
@@ -259958,7 +260023,7 @@
   "lat": 36.723045,
   "lng": -4.473718,
   "addr": "Calle Eolo 10",
-  "phone": "",
+  "phone": "+34 952006801",
   "web": "https://universidadeuropea.com/conocenos/andalucia/",
   "email": "",
   "levels": [
@@ -259970,7 +260035,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w622726888",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://universidadeuropea.com/resources/media/images/universidad-europea-malaga-1440x4.2e16d0ba.fill-767x384.webp",
+  "whatsapp": "+34697920810",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-la-biznaga",
@@ -260076,9 +260144,9 @@
   "lat": 36.738775,
   "lng": -4.381451,
   "addr": "Calle Centáurea 8",
-  "phone": "",
+  "phone": "+34 952 290 149",
   "web": "https://www.britishschoolmalaga.com",
-  "email": "",
+  "email": "reception@britishschoolmalaga.com",
   "levels": [],
   "opp": [
    "Bilingüe o internacional",
@@ -260087,7 +260155,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w646898212",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.britishschoolmalaga.com/IB%20-%20Britisch%20School%20of%20Malaga/favicon.png",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-liceo-frances-internacional-de-malaga",
@@ -260099,7 +260169,7 @@
   "addr": "Calle Los Flamencos 36",
   "phone": "",
   "web": "https://lfmalaga.com",
-  "email": "",
+  "email": "courrier@lfmalaga.com",
   "levels": [],
   "opp": [
    "Bilingüe o internacional"
@@ -260107,7 +260177,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w652029525",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://lfmalaga.com/wp-content/uploads/2022/04/Vanessa-et-Jeremy-342-1024x682.jpg",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-constitucion-1978",
@@ -260157,9 +260229,9 @@
   "lat": 36.725623,
   "lng": -4.377893,
   "addr": "Calle Los Arcángeles 26",
-  "phone": "",
+  "phone": "952 290 300",
   "web": "https://www.sagradocorazonmalaga.es",
-  "email": "",
+  "email": "colegio@sagradocorazonmalaga.es",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -260167,7 +260239,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w660677562",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.sagradocorazonmalaga.es/wp-content/uploads/2024/04/ESOL-cambridge.jpg",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-leon-xiii",
@@ -260303,7 +260377,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w779866222",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-academia-santa-teresa",
@@ -260381,7 +260456,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w945296146",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-salvador-allende",
@@ -260401,7 +260477,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w981847986",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://sites.google.com/sitesv-images-rt/APXyLQfLjTkbX0mhUxIRCpv7n6-nJjmqcwhgfsazEWxTPaAuo3tESuLAVs6tF739lINdWeA7Mv1Jt6MlJr72q_g5yocJDTT0M9TzKP2YYE4VU3E2yhvkdGpXdROo8soW08m3KDsJqa6i6wVY8-0XhzqOb2Cd-_ZflWsm-jYoVw6XAedVtUkdQeSm8DqL8aRgPog=w16383",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-el-atabal",
@@ -260419,7 +260497,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w981960760",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-cupiana",
@@ -260439,7 +260519,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w997965983",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "malaga-colegio-alfonso-x",
@@ -260449,7 +260530,7 @@
   "lat": 36.724557,
   "lng": -4.457585,
   "addr": "Avenida Carlos de Haya 157",
-  "phone": "",
+  "phone": "952 272 543",
   "web": "http://www.colegioalfonsox.com",
   "email": "",
   "levels": [],
@@ -260457,7 +260538,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1006415619",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-malaga-instituto-de-management",
@@ -260513,7 +260596,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1077939703",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegiolosrosales.net/uploads/images/fachada-2-colegio-los-rosales.jpg",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-maria-de-la-o",
@@ -260535,7 +260620,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1159200236",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegiomariadelao.com/s/img/emotionheader25215497.gif",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-la-colina",
@@ -260573,7 +260660,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r6913217",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-colegio-lope-de-vega",
@@ -260583,15 +260672,17 @@
   "lat": 36.723131,
   "lng": -4.433469,
   "addr": "Calle Cataluña 13",
-  "phone": "",
+  "phone": "952 30 53 93",
   "web": "https://colegiolopedevega.es",
-  "email": "",
+  "email": "secretaria@colegiolopedevega.es",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "r7741925",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegiolopedevega.es/wp-content/uploads/2023/01/cropped-logo-colegio-lope-de-vega-malaga.png",
+  "webAt": "2026-11-11"
  },
  {
   "id": "malaga-universidad-de-malaga",
@@ -260633,7 +260724,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "r10565935",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "apodaca-colegio-laura-vicuna-apodaca",
@@ -260953,7 +261045,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n7968848719",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "salta-colegio-santa-isabel-de-hungria",
@@ -260973,7 +261066,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n10749322749",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://alvesstarter.files.wordpress.com/2020/06/jenn-evelyn-ann-uydoe_ayjqs-unsplash.jpg",
+  "webAt": "2026-11-11"
  },
  {
   "id": "salta-colegio-santa-isabel-de-hungria-colegio-santa-isabel-de-hungria",
@@ -261137,7 +261232,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w101221232",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "salta-colegio-belgrano",
@@ -261245,7 +261342,7 @@
   "addr": "",
   "phone": "",
   "web": "https://www.uzzicollege.edu.ar/",
-  "email": "",
+  "email": "primario@uzzicollege.edu.ar",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -261253,7 +261350,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w367884469",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "salta-colegio-san-cayetano",
@@ -334791,6 +334890,2264 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1495283052",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "valera-liceo-rafael-rangel",
+  "name": "Liceo Rafael Rangel",
+  "city": "Valera",
+  "country": "Venezuela",
+  "lat": 9.315773,
+  "lng": -70.603594,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2502345449",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "valera-jardin-de-infancia-y-liceo-basico-cuba",
+  "name": "Jardín de Infancia y Liceo Básico Cuba",
+  "city": "Valera",
+  "country": "Venezuela",
+  "lat": 9.345854,
+  "lng": -70.577401,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4007684524",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "valera-u-e-liceo-rafael-quevedo-urbina",
+  "name": "U.E. Liceo Rafael Quevedo Urbina",
+  "city": "Valera",
+  "country": "Venezuela",
+  "lat": 9.334624,
+  "lng": -70.582234,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4007684525",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "valera-u-e-liceo-basico-rafael-benito-perdomo-y-u-e-e-de-cuba-extension-benit",
+  "name": "U.E. Liceo Básico Rafael Benito Perdomo y U.E.E. de Cuba Extensión Benito Perdomo",
+  "city": "Valera",
+  "country": "Venezuela",
+  "lat": 9.344819,
+  "lng": -70.581635,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4007764973",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "valera-u-e-liceo-julio-sanchez-vivas",
+  "name": "U.E. Liceo Julio Sánchez Vivas",
+  "city": "Valera",
+  "country": "Venezuela",
+  "lat": 9.371296,
+  "lng": -70.577313,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4007916785",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "valera-unidad-educativa-colegio-madre-rafols",
+  "name": "UNIDAD EDUCATIVA Colegio \"Madre Rafols\"",
+  "city": "Valera",
+  "country": "Venezuela",
+  "lat": 9.315003,
+  "lng": -70.612248,
+  "addr": "Calle 10",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5253349482",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "valera-colegio-privado-domingo-savio",
+  "name": "Colegio Privado \"Domingo Savio\"",
+  "city": "Valera",
+  "country": "Venezuela",
+  "lat": 9.313932,
+  "lng": -70.610129,
+  "addr": "Calle 10",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5253366356",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "valera-colegio-privado-los-cedros",
+  "name": "Colegio Privado Los Cedros",
+  "city": "Valera",
+  "country": "Venezuela",
+  "lat": 9.296034,
+  "lng": -70.617624,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5256614052",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "valera-colegio-privado-ignacio-martin-burk",
+  "name": "Colegio Privado Ignacio Martín Burk",
+  "city": "Valera",
+  "country": "Venezuela",
+  "lat": 9.29706,
+  "lng": -70.616669,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5256616577",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "valera-universidad-simon-rodriguez",
+  "name": "universidad Simón Rodríguez",
+  "city": "Valera",
+  "country": "Venezuela",
+  "lat": 9.29583,
+  "lng": -70.60671,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13805250901",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "valera-liceo-basico-sabana-libre",
+  "name": "Liceo Básico Sabana Libre",
+  "city": "Valera",
+  "country": "Venezuela",
+  "lat": 9.336234,
+  "lng": -70.645491,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w258677751",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "valera-centro-educativo-de-capacitacion-laboral-fe-y-alegria",
+  "name": "Centro Educativo de Capacitación Laboral - Fe y Alegría",
+  "city": "Valera",
+  "country": "Venezuela",
+  "lat": 9.325365,
+  "lng": -70.602267,
+  "addr": "",
+  "phone": "+58 271 4150942",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w397840767",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "valera-colegio-rafael-eloy",
+  "name": "Colegio Rafael Eloy",
+  "city": "Valera",
+  "country": "Venezuela",
+  "lat": 9.305096,
+  "lng": -70.608389,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w545666550",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "valera-colegio-privado-republica-de-venezuela",
+  "name": "Colegio Privado Republica de Venezuela",
+  "city": "Valera",
+  "country": "Venezuela",
+  "lat": 9.305558,
+  "lng": -70.607908,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w545666883",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "valera-colegio-privado-monsenor-mejias",
+  "name": "Colegio Privado Monseñor Mejias",
+  "city": "Valera",
+  "country": "Venezuela",
+  "lat": 9.304671,
+  "lng": -70.609386,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w545666915",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "valera-colegio-privado-juan-jose-andrade",
+  "name": "Colegio Privado Juan Jose Andrade",
+  "city": "Valera",
+  "country": "Venezuela",
+  "lat": 9.297437,
+  "lng": -70.616239,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w545669215",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "valera-colegio-jose-gregorio",
+  "name": "Colegio Jose Gregorio",
+  "city": "Valera",
+  "country": "Venezuela",
+  "lat": 9.299227,
+  "lng": -70.615682,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w545670408",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "valera-liceo-basico-antonio-nicolas-briceno",
+  "name": "Liceo Básico Antonio Nicolás Briceño",
+  "city": "Valera",
+  "country": "Venezuela",
+  "lat": 9.325282,
+  "lng": -70.608127,
+  "addr": "Sector I Moron",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w599084467",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "valera-universidad-valle-del-momboy",
+  "name": "Universidad Valle del Momboy",
+  "city": "Valera",
+  "country": "Venezuela",
+  "lat": 9.316458,
+  "lng": -70.599743,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w959110417",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "san-francisco-de-campeche-preparatoria-instituto-campechano",
+  "name": "Preparatoria Instituto Campechano",
+  "city": "San Francisco de Campeche",
+  "country": "México",
+  "lat": 19.850457,
+  "lng": -90.529882,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5408941142",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "san-francisco-de-campeche-colegio-luis-pasteur",
+  "name": "Colegio Luis Pasteur",
+  "city": "San Francisco de Campeche",
+  "country": "México",
+  "lat": 19.842564,
+  "lng": -90.514227,
+  "addr": "Avenida Gobernadores",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5600177521",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "san-francisco-de-campeche-universidad-interamericana-para-el-desarrollo-campus-campeche",
+  "name": "Universidad Interamericana para el Desarrollo, Campus Campeche",
+  "city": "San Francisco de Campeche",
+  "country": "México",
+  "lat": 19.820658,
+  "lng": -90.562911,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w576506716",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "san-francisco-de-campeche-instituto-mendoza",
+  "name": "Instituto Mendoza",
+  "city": "San Francisco de Campeche",
+  "country": "México",
+  "lat": 19.847301,
+  "lng": -90.517783,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w577266021",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "san-francisco-de-campeche-preparatoria-fray-angelico",
+  "name": "Preparatoria Fray Angélico",
+  "city": "San Francisco de Campeche",
+  "country": "México",
+  "lat": 19.815323,
+  "lng": -90.520356,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w585490776",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "gregorio-de-laferrere-instituto-superior-tecnologico-blaise-pascal",
+  "name": "Instituto Superior Tecnològico Blaise Pascal",
+  "city": "Gregorio de Laferrere",
+  "country": "Argentina",
+  "lat": -34.769427,
+  "lng": -58.646599,
+  "addr": "Puerto Argentino 4238",
+  "phone": "+54 2202 42-3336",
+  "web": "http://www.institutopascal.edu.ar",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3380517401",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "gregorio-de-laferrere-colegio-hogar-san-mauricio",
+  "name": "Colegio Hogar San Mauricio",
+  "city": "Gregorio de Laferrere",
+  "country": "Argentina",
+  "lat": -34.782435,
+  "lng": -58.641563,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11222659334",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "gregorio-de-laferrere-addr-city-gonzalez-catan-addr-housenumber-6067-addr-postcode-1759-addr",
+  "name": "addr:city=González Catan addr:housenumber=6067 addr:postcode=1759 addr:street=Enrique Simón Pérez building=school name=Instituto González Catán - Jardín Monigote",
+  "city": "Gregorio de Laferrere",
+  "country": "Argentina",
+  "lat": -34.785092,
+  "lng": -58.629171,
+  "addr": "Enrique Simón Pérez",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n14105605938",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-136-juan-xxiii",
+  "name": "Escuela 136 Juan XXIII",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.736671,
+  "lng": -60.548942,
+  "addr": "Los ceibos y los Zorzales",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n3613915728",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-privada-7-doctor-enrique-carbo",
+  "name": "Escuela Privada 7 Doctor Enrique Carbó",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.734033,
+  "lng": -60.51648,
+  "addr": "Avenida Francisco Ramírez 1780",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n3742021149",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-119-braulio-perez-marcio",
+  "name": "Escuela 119 Braulio Pérez Marcio",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.745552,
+  "lng": -60.507548,
+  "addr": "Los Dragones de Entre Ríos 680",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n3821559380",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-22-san-antonio-maria-gianelli",
+  "name": "Escuela 22 San Antonio Maria Gianelli",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.743834,
+  "lng": -60.55565,
+  "addr": "Los Yaros E Indios Bohanes Anacleto Medina Sur",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n3838897980",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-24-san-jose-obrero",
+  "name": "Escuela 24 San José Obrero",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.765373,
+  "lng": -60.499816,
+  "addr": "Bernardo O'Higgins y Avenida Zanni",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n4139320454",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-instituto-edu-pro-184",
+  "name": "Instituto Edu Pro 184",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.74146,
+  "lng": -60.530524,
+  "addr": "Manuel Belgrano 626",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n4672363514",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-36-santa-teresita",
+  "name": "Escuela 36 Santa Teresita",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.741639,
+  "lng": -60.511699,
+  "addr": "3 de Febrero 994",
+  "phone": "+54 343 424 8967",
+  "web": "http://santateresitaparana.com.ar/escuela36/",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n4864512432",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-privada-vivi-marin-instituto-de-estilo-diseno",
+  "name": "Privada Vivi Marin Instituto De Estilo & Diseño",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.731822,
+  "lng": -60.524295,
+  "addr": "Uruguay 339",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9163713812",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-nuestra-senora-de-lujan",
+  "name": "Nuestra Señora De Luján",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.755996,
+  "lng": -60.511169,
+  "addr": "Pacto Union Nacional 1050",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9293520210",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-jesus-el-maestro-d-187",
+  "name": "Escuela Jesús El Maestro D 187",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.748209,
+  "lng": -60.489268,
+  "addr": "Gobernador Manuel Crespo",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9377460580",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-nuestra-senora-de-la-divina-providencia-especial-19",
+  "name": "Escuela Nuestra Señora De La Divina Providencia Especial 19",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.77557,
+  "lng": -60.549041,
+  "addr": "José María Paz 1416",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9379591786",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-187-el-madero",
+  "name": "Escuela 187 El Madero",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.773861,
+  "lng": -60.524988,
+  "addr": "Avenida Francisco Ramírez 5536",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9379627387",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-209-el-madero",
+  "name": "Escuela 209 El Madero",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.773491,
+  "lng": -60.524917,
+  "addr": "Avenida Francisco Ramírez 5536",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9379627458",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-instituto-superior-santa-teresita",
+  "name": "Instituto Superior Santa Teresita",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.741874,
+  "lng": -60.511662,
+  "addr": "3 de Febrero 994",
+  "phone": "+54 343 424 8967",
+  "web": "http://santateresitaparana.com.ar/escuela36/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9380600777",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-instituto-superior-fons-vitae",
+  "name": "Instituto Superior FONS VITAE",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.729039,
+  "lng": -60.530498,
+  "addr": "Buenos Aires",
+  "phone": "+54 343 4231211",
+  "web": "",
+  "email": "instfonsvitae@gmail.com",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9382284892",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-188-galileo-galilei",
+  "name": "Escuela 188 Galileo Galilei",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.727851,
+  "lng": -60.528153,
+  "addr": "San Martín 535",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9382284893",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-172-privada-instituto-siglo-xxi",
+  "name": "Escuela 172 Privada Instituto Siglo XXI",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.728831,
+  "lng": -60.53357,
+  "addr": "Cervantes 335",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9389417929",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-instituto-gonzalez-pecotche-174",
+  "name": "Instituto Gonzalez Pecotche 174",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.733456,
+  "lng": -60.527194,
+  "addr": "9 de Julio 23",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9389417930",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-heraclia-ruiz-diaz",
+  "name": "Escuela Heraclia Ruiz Diaz",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.740017,
+  "lng": -60.516323,
+  "addr": "Brasil 1050",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9389417931",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-161-el-buen-pastor",
+  "name": "Escuela 161 El Buen Pastor",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.765417,
+  "lng": -60.510343,
+  "addr": "Artigas 1747",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9389417936",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-181-club-atletico-estudiantes",
+  "name": "Escuela 181 Club Atlético Estudiantes",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.720541,
+  "lng": -60.539755,
+  "addr": "Nux y Panamá",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9389417937",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-20-ceferino-namuncura",
+  "name": "Escuela 20 Ceferino Namuncura",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.722089,
+  "lng": -60.514517,
+  "addr": "Cornelio Saavedra 976",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9389417950",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-171-privada-plaza-mayor",
+  "name": "Escuela 171 Privada Plaza Mayor",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.721983,
+  "lng": -60.53504,
+  "addr": "Catamarca 580",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9392960876",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-127-privada-pastor-enrique-marconi",
+  "name": "Escuela 127 Privada Pastor Enrique Marconi",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.761237,
+  "lng": -60.500118,
+  "addr": "Gazzano Basavilbaso Y Celestino Marco",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9392960877",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-173-parana-high-school",
+  "name": "Escuela 173 Parana High School",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.727258,
+  "lng": -60.541878,
+  "addr": "Patagonia 57",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Prepa"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9392960911",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-124-privada-nuestra-senora-la-esperanza",
+  "name": "Escuela 124 Privada Nuestra Señora La Esperanza",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.733912,
+  "lng": -60.497259,
+  "addr": "Gendarmeria Nacional 1300",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9392960912",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-100-santa-lucia",
+  "name": "Escuela 100 Santa Lucia",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.760697,
+  "lng": -60.526423,
+  "addr": "Sarobe 300",
+  "phone": "",
+  "web": "",
+  "email": "educasantalucia@yahoo.com.ar",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9392989821",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-2-santa-ana",
+  "name": "Escuela 2 Santa Ana",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.754102,
+  "lng": -60.503574,
+  "addr": "Pastorelli 753",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9392989897",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-116-san-joaquin",
+  "name": "Escuela 116 San Joaquin",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.758135,
+  "lng": -60.503412,
+  "addr": "Juan Garrigó 1113",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9392989931",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-129-san-francisco-de-borja",
+  "name": "Escuela 129 San Francisco De Borja",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.76061,
+  "lng": -60.490462,
+  "addr": "Carlos T. Sourigues 1100",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9392989961",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-217-angelina-vergara-onetto",
+  "name": "Escuela 217 Angelina Vergara Onetto",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.754609,
+  "lng": -60.497698,
+  "addr": "Almafuerte 1599",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9393133434",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-instituto-sur",
+  "name": "Instituto Sur",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.729318,
+  "lng": -60.527022,
+  "addr": "Corrientes 284",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9393133455",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-6-la-salle",
+  "name": "Escuela 6 La Salle",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.724674,
+  "lng": -60.530019,
+  "addr": "Santa Fe 474",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9393133474",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-5-virgen-de-la-medalla-milagrosa",
+  "name": "Escuela 5 Virgen De La Medalla Milagrosa",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.75354,
+  "lng": -60.493348,
+  "addr": "El Talar 1981",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9393276695",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-8-manuel-alberti",
+  "name": "Escuela 8 Manuel Alberti",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.744391,
+  "lng": -60.517723,
+  "addr": "Dean J. Alvarez 56",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9393276708",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-88-maria-auxiliadora",
+  "name": "Escuela 88 Maria Auxiliadora",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.727898,
+  "lng": -60.507832,
+  "addr": "Fragata Sarmiento 2310",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9393276709",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-99-maria-reina-inmaculada",
+  "name": "Escuela 99 Maria Reina Inmaculada",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.724055,
+  "lng": -60.518412,
+  "addr": "Manuel Dorrego",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9393276711",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-154-michelangelo",
+  "name": "Escuela 154 Michelangelo",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.730711,
+  "lng": -60.526314,
+  "addr": "San Juan 254",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9393276732",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-156-miguel-de-cervantes-saavedra",
+  "name": "Escuela 156 Miguel De Cervantes Saavedra",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.737269,
+  "lng": -60.529691,
+  "addr": "9 de Julio 351",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9393276733",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-rosalia-de-borger-3",
+  "name": "Rosalia De Borger 3",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.744679,
+  "lng": -60.517424,
+  "addr": "Dean J. Alvarez 56",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9393276734",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-9-rosario-vera-penaloza",
+  "name": "Escuela 9 Rosario Vera Peñaloza",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.738842,
+  "lng": -60.527683,
+  "addr": "Presidente Illia 380",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9393289422",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-221-santa-rafaela-maria",
+  "name": "Escuela 221 Santa Rafaela Maria",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.751525,
+  "lng": -60.486009,
+  "addr": "Mario Monti 970",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9393289433",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-1-justo-jose-de-urquiza",
+  "name": "Escuela 1 Justo José De Urquiza",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.732948,
+  "lng": -60.528841,
+  "addr": "Su Santidad Fransisco 15",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9393289448",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-instituto-nuestra-senora-del-huerto",
+  "name": "Instituto Nuestra Señora Del Huerto",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.733062,
+  "lng": -60.528703,
+  "addr": "Su Santidad Fransisco 15",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9394770442",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-instituto-nuestra-senora-de-la-merced",
+  "name": "Instituto Nuestra Señora De La Merced",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.738753,
+  "lng": -60.527873,
+  "addr": "Presidente Illia 380",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9394770444",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-santa-maria-del-rosario",
+  "name": "Santa Maria Del Rosario",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.765239,
+  "lng": -60.489877,
+  "addr": "Ovidio Lagos 1451",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9399866850",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-san-joaquin",
+  "name": "San Joaquin",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.758469,
+  "lng": -60.503452,
+  "addr": "Juan Garrigó 1113",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9399866869",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-instituto-santa-lucia",
+  "name": "Instituto Santa Lucia",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.760604,
+  "lng": -60.526236,
+  "addr": "Sarobe 300",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9400495542",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-instituto-modelo-bilingue-michelangelo-113",
+  "name": "Instituto Modelo Bilingue Michelangelo 113",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.73062,
+  "lng": -60.525382,
+  "addr": "Rosario del Tala 242",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9400495543",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-instituto-cristo-redentor",
+  "name": "Instituto Cristo Redentor",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.744529,
+  "lng": -60.518021,
+  "addr": "Dean J. Alvarez 98",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9400554304",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-instituto-cristiano-evangelico-bautista",
+  "name": "Instituto Cristiano Evangelico Bautista",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.761218,
+  "lng": -60.500354,
+  "addr": "Gazzano Basavilbaso Y Celestino Marco",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9401240075",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-instituto-ceferino-namuncura",
+  "name": "Instituto Ceferino Namuncura",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.737036,
+  "lng": -60.528957,
+  "addr": "Gualeguaychú 230",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9401240077",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-instituto-cristiano-educacion-sec-williams-morris",
+  "name": "Instituto Cristiano Educación Sec. Williams Morris",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.742484,
+  "lng": -60.518853,
+  "addr": "Gualeguaychú 960",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9401240078",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-high-school",
+  "name": "High School",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.727411,
+  "lng": -60.54195,
+  "addr": "Patagonia 37",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9401240079",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-escuela-secundaria-de-gestion-social-pablo-de-tarso-242",
+  "name": "Escuela Secundaria De Gestión Social Pablo De Tarso 242",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.743612,
+  "lng": -60.556015,
+  "addr": "Los Yaros E Indios Bohanes Anacleto Medina Sur",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9402604341",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-instituto-superior-madre-teresa-de-calcuta",
+  "name": "Instituto Superior Madre Teresa De Calcuta",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.72903,
+  "lng": -60.531641,
+  "addr": "Santa Fe 214",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9421649803",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-instituto-superior-formacion-docente-cristo-redentor-d-212",
+  "name": "Instituto Superior Formación Docente Cristo Redentor D-212",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.744288,
+  "lng": -60.517906,
+  "addr": "Dean J. Alvarez 56",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9421649804",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-instituto-superior-eter-d211",
+  "name": "Instituto Superior Eter D211",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.731437,
+  "lng": -60.528422,
+  "addr": "Corrientes 139",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9421649805",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-instituto-superior-del-cae-d-238",
+  "name": "Instituto Superior Del Cae D-238",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.720742,
+  "lng": -60.539462,
+  "addr": "Nux 770",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9421649806",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "parana-instituto-superior-de-corretaje-inmobiliario-d-247",
+  "name": "Instituto Superior De Corretaje Inmobiliario D-247",
+  "city": "Paraná",
+  "country": "Argentina",
+  "lat": -31.737078,
+  "lng": -60.529086,
+  "addr": "Gualeguaychú 230",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9421649807",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "san-francisco-de-macoris-colegio-la-altagracia",
+  "name": "Colegio La Altagracia",
+  "city": "San Francisco de Macorís",
+  "country": "República Dominicana",
+  "lat": 19.28901,
+  "lng": -70.263531,
+  "addr": "Antonio Guzman Fernandez",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2127064311",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "san-francisco-de-macoris-colegio-santa-rosa",
+  "name": "Colegio Santa Rosa",
+  "city": "San Francisco de Macorís",
+  "country": "República Dominicana",
+  "lat": 19.294597,
+  "lng": -70.24974,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2127071317",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "san-francisco-de-macoris-liceo-ercilia-pepin",
+  "name": "Liceo Ercilia Pepin",
+  "city": "San Francisco de Macorís",
+  "country": "República Dominicana",
+  "lat": 19.292076,
+  "lng": -70.245699,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2127071856",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "san-francisco-de-macoris-liceo-sur",
+  "name": "Liceo Sur",
+  "city": "San Francisco de Macorís",
+  "country": "República Dominicana",
+  "lat": 19.280929,
+  "lng": -70.25845,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2720351535",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "san-francisco-de-macoris-colegio-renacimiento",
+  "name": "Colegio Renacimiento",
+  "city": "San Francisco de Macorís",
+  "country": "República Dominicana",
+  "lat": 19.295471,
+  "lng": -70.255482,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2723696275",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "san-francisco-de-macoris-liceo-pedro-henriquez-urena",
+  "name": "Liceo Pedro Henriquez Ureña",
+  "city": "San Francisco de Macorís",
+  "country": "República Dominicana",
+  "lat": 19.314292,
+  "lng": -70.275147,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3583222895",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "san-francisco-de-macoris-colegio-san-vincente-de-paul",
+  "name": "Colegio San Vincente de Paul",
+  "city": "San Francisco de Macorís",
+  "country": "República Dominicana",
+  "lat": 19.29935,
+  "lng": -70.259858,
+  "addr": "27 de febrero",
+  "phone": "8095882680",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4841624630",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "san-francisco-de-macoris-universidad-catolica-nordestana",
+  "name": "Universidad Católica Nordestana",
+  "city": "San Francisco de Macorís",
+  "country": "República Dominicana",
+  "lat": 19.340111,
+  "lng": -70.26633,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w202764840",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "san-francisco-de-macoris-centro-educativo-salome-urena",
+  "name": "Centro Educativo Salome Ureña",
+  "city": "San Francisco de Macorís",
+  "country": "República Dominicana",
+  "lat": 19.235291,
+  "lng": -70.278395,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w424216478",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "san-francisco-de-macoris-liceo-coronel-rafael-tomas-fernandez-dominguez",
+  "name": "Liceo Coronel Rafael Tomás Fernández Domínguez",
+  "city": "San Francisco de Macorís",
+  "country": "República Dominicana",
+  "lat": 19.32299,
+  "lng": -70.267579,
+  "addr": "Carretera Madaja",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w558957141",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "ciudad-ojeda-unidad-educativa-julio-chevalier",
+  "name": "Unidad Educativa Julio Chevalier",
+  "city": "Ciudad Ojeda",
+  "country": "Venezuela",
+  "lat": 10.194091,
+  "lng": -71.316859,
+  "addr": "Cae Arismendi",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2305890195",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "ciudad-ojeda-liceo-doctor-raul-cuenca",
+  "name": "Liceo Doctor Raúl Cuenca",
+  "city": "Ciudad Ojeda",
+  "country": "Venezuela",
+  "lat": 10.194569,
+  "lng": -71.299774,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6597206080",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "ciudad-ojeda-universidad-alonso-de-ojeda",
+  "name": "Universidad Alonso de Ojeda",
+  "city": "Ciudad Ojeda",
+  "country": "Venezuela",
+  "lat": 10.191123,
+  "lng": -71.298549,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6597208132",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "ciudad-ojeda-universidad-alonso-de-ojeda-principal",
+  "name": "Universidad Alonso de Ojeda - Principal",
+  "city": "Ciudad Ojeda",
+  "country": "Venezuela",
+  "lat": 10.214247,
+  "lng": -71.288296,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w390606396",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "ciudad-ojeda-instituto-juan-xxiii",
+  "name": "Instituto Juan XXIII",
+  "city": "Ciudad Ojeda",
+  "country": "Venezuela",
+  "lat": 10.220161,
+  "lng": -71.33715,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w777879599",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "chosica-colegio-peruano-aleman-beata-imelda",
+  "name": "Colegio Peruano Alemán Beata Imelda",
+  "city": "Chosica",
+  "country": "Perú",
+  "lat": -11.957876,
+  "lng": -76.734899,
+  "addr": "Avenida Las Flores 29000",
+  "phone": "+51 1 3603119",
+  "web": "https://cbi.edu.pe/",
+  "email": "secretaria@cbi.edu.pe",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w429707572",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "chosica-colegio-nuevo-mundo",
+  "name": "Colegio Nuevo Mundo",
+  "city": "Chosica",
+  "country": "Perú",
+  "lat": -11.960414,
+  "lng": -76.738051,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w429707599",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "chosica-colegio-santa-rosa",
+  "name": "Colegio Santa Rosa",
+  "city": "Chosica",
+  "country": "Perú",
+  "lat": -11.936175,
+  "lng": -76.698072,
+  "addr": "Jirón Tacna 430",
+  "phone": "",
+  "web": "https://santarosachosica.edu.pe/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w429717919",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "chosica-colegio-saco-oliveros",
+  "name": "Colegio Saco Oliveros",
+  "city": "Chosica",
+  "country": "Perú",
+  "lat": -11.973111,
+  "lng": -76.756831,
+  "addr": "La Victoria 346, CHACLACAYO",
+  "phone": "",
+  "web": "https://sacooliveros.edu.pe/index.php/colegios/sedes/chaclacayo",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w439945772",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "chosica-colegio-marcelino-champagnat",
+  "name": "Colegio Marcelino Champagnat",
+  "city": "Chosica",
+  "country": "Perú",
+  "lat": -11.918043,
+  "lng": -76.669108,
+  "addr": "Avenida Micaela Bastidas 561",
+  "phone": "",
+  "web": "https://maristasperu.pe/unidades/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w484114416",
   "found": "2026-11-11"
  }
 ]

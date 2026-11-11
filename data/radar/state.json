@@ -6909,7 +6909,14 @@
   "CL|Valparaíso": "2026-11-11T07:47:47.274Z",
   "DO|n250651421": "2026-11-11T07:48:13.849Z",
   "VE|n268928372": "2026-11-11T07:48:49.631Z",
-  "MX|La Paz": "2026-11-11T07:49:23.119Z"
+  "MX|La Paz": "2026-11-11T07:49:23.119Z",
+  "VE|n4655472352": "2026-11-11T09:14:11.707Z",
+  "MX|San Francisco de Campeche": "2026-11-11T09:14:38.400Z",
+  "AR|Gregorio de Laferrere": "2026-11-11T09:15:15.222Z",
+  "AR|Paraná": "2026-11-11T09:20:09.452Z",
+  "DO|n1898769269": "2026-11-11T09:20:50.029Z",
+  "VE|n3575721762": "2026-11-11T09:21:17.573Z",
+  "PE|Chosica": "2026-11-11T09:28:51.610Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -6944,6 +6951,69 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-11T09:13:46.327Z",
+   "cities": [
+    {
+     "cc": "VE",
+     "city": "Valera",
+     "found": 19,
+     "updated": 0,
+     "osm": 50
+    },
+    {
+     "cc": "MX",
+     "city": "San Francisco de Campeche",
+     "found": 5,
+     "updated": 0,
+     "osm": 45
+    },
+    {
+     "cc": "AR",
+     "city": "Gregorio de Laferrere",
+     "found": 3,
+     "updated": 0,
+     "osm": 240
+    },
+    {
+     "cc": "AR",
+     "city": "Paraná",
+     "found": 60,
+     "updated": 0,
+     "osm": 190
+    },
+    {
+     "cc": "DO",
+     "city": "San Francisco de Macorís",
+     "found": 10,
+     "updated": 0,
+     "osm": 33
+    },
+    {
+     "cc": "VE",
+     "city": "Ciudad Ojeda",
+     "found": 5,
+     "updated": 0,
+     "osm": 14
+    },
+    {
+     "cc": "PE",
+     "city": "Chosica",
+     "found": 5,
+     "updated": 0,
+     "osm": 79
+    }
+   ],
+   "added": 107,
+   "enriched": 0,
+   "photos": 13,
+   "contacts": 17,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 17.2,
+   "total": 16637
+  },
   {
    "at": "2026-11-11T07:36:04.964Z",
    "cities": [
