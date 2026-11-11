@@ -6939,7 +6939,14 @@
   "VE|n1257860038": "2026-11-11T21:09:44.551Z",
   "ES|n260379284": "2026-11-11T21:10:32.573Z",
   "EC|n2163462352": "2026-11-11T21:51:04.769Z",
-  "MX|Tapachula": "2026-11-11T22:04:17.203Z"
+  "MX|Tapachula": "2026-11-11T22:04:17.203Z",
+  "CL|Concepción": "2026-11-11T23:14:27.398Z",
+  "DO|n250651104": "2026-11-11T23:15:21.287Z",
+  "PE|Ayacucho": "2026-11-11T23:15:56.233Z",
+  "BO|n4098894827": "2026-11-11T23:16:42.926Z",
+  "ES|n1235110932": "2026-11-11T23:17:30.670Z",
+  "VE|n333674478": "2026-11-11T23:18:08.179Z",
+  "MX|Coatzacoalcos": "2026-11-11T23:24:27.443Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -6984,6 +6991,69 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-11T23:08:04.418Z",
+   "cities": [
+    {
+     "cc": "CL",
+     "city": "Concepción",
+     "found": 135,
+     "updated": 2,
+     "osm": 242
+    },
+    {
+     "cc": "DO",
+     "city": "San Pedro de Macorís",
+     "found": 6,
+     "updated": 0,
+     "osm": 25
+    },
+    {
+     "cc": "PE",
+     "city": "Ayacucho",
+     "found": 28,
+     "updated": 2,
+     "osm": 263
+    },
+    {
+     "cc": "BO",
+     "city": "Tarija",
+     "found": 27,
+     "updated": 0,
+     "osm": 176
+    },
+    {
+     "cc": "ES",
+     "city": "La Coruña",
+     "found": 25,
+     "updated": 0,
+     "osm": 123
+    },
+    {
+     "cc": "VE",
+     "city": "Turmero",
+     "found": 1,
+     "updated": 0,
+     "osm": 26
+    },
+    {
+     "cc": "MX",
+     "city": "Coatzacoalcos",
+     "found": 6,
+     "updated": 1,
+     "osm": 53
+    }
+   ],
+   "added": 228,
+   "enriched": 0,
+   "photos": 12,
+   "contacts": 19,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 17.8,
+   "total": 17636
+  },
   {
    "at": "2026-11-11T21:50:15.549Z",
    "cities": [
