@@ -6923,7 +6923,11 @@
   "CL|Temuco": "2026-11-11T11:24:34.333Z",
   "MX|García": "2026-11-11T11:32:03.307Z",
   "DO|n250651118": "2026-11-11T15:16:29.807Z",
-  "DO|n250651548": "2026-11-11T15:23:44.760Z"
+  "DO|n250651548": "2026-11-11T15:23:44.760Z",
+  "AR|José C. Paz": "2026-11-11T17:16:58.925Z",
+  "HN|n1055485024": "2026-11-11T17:17:45.732Z",
+  "CL|Rancagua": "2026-11-11T17:25:20.722Z",
+  "AR|San Salvador de Jujuy": "2026-11-11T17:33:07.765Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -6963,6 +6967,48 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-11T17:16:13.383Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "José C. Paz",
+     "found": 52,
+     "updated": 0,
+     "osm": 213
+    },
+    {
+     "cc": "HN",
+     "city": "Choloma",
+     "found": 1,
+     "updated": 0,
+     "osm": 14
+    },
+    {
+     "cc": "CL",
+     "city": "Rancagua",
+     "found": 115,
+     "updated": 0,
+     "osm": 181
+    },
+    {
+     "cc": "AR",
+     "city": "San Salvador de Jujuy",
+     "found": 19,
+     "updated": 0,
+     "osm": 125
+    }
+   ],
+   "added": 187,
+   "enriched": 0,
+   "photos": 14,
+   "contacts": 21,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 18.5,
+   "total": 16982
+  },
   {
    "at": "2026-11-11T15:08:55.159Z",
    "cities": [
