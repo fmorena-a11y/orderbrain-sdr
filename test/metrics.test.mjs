@@ -267,3 +267,117 @@ test("C1 ganados por la primera fecha de ganado (won_time se puede editar)", () 
   const r = M.dealsSummary({ won, period: { from: "2026-11-01", to: "2026-11-10", days: 10 }, tz: TZ, users, ...ctx2 });
   assert.deepEqual(r.won.list.map(d => d.id), [6313, 5391]);
 });
+
+// ---------- B. Actividad por persona
+const TYPES = [{ key: "call", name: "Llamada" }, { key: "meeting", name: "Demo" }, { key: "task", name: "Mail" }, { key: "deadline", name: "WhatsApp" }, { key: "email", name: "LinkedIn" }, { key: "lunch", name: "No Show", active: false }];
+const a = (id, extra) => ({ id, type: "call", owner_id: 2, creator_user_id: 2, done: true, due_date: "2026-11-06", due_time: "", done_time: "2026-11-06T15:00:00Z", update_time: "2026-11-06T15:00:00Z", ...extra });
+const B = { types: TYPES, users, profiles, free, period, tz: TZ, today: "2026-11-10" };
+
+test("B hechas con fecha en el período: por dueño y por tipo tal como está; las de cuentas generales aparte", () => {
+  const done = [
+    a(1), a(2, { type: "email" }), // un mail cargado como «LinkedIn» cuenta como LinkedIn
+    a(3, { type: "task", creator_user_id: 99 }), // tarea automática (la creó la cuenta general): aparte, no en «Mail»
+    a(4, { type: "aircall_outbound_unanswere" }), // tipo que no está en la lista de la cuenta: con su clave
+    a(5, { owner_id: 3, creator_user_id: 2 }), // la creó otra persona: va a nombre del dueño
+    a(6, { due_date: "2026-11-11", due_time: "02:30", done_time: "2026-11-04T10:00:00Z" }), // las 23:30 del 10 en Montevideo: adentro (hecha antes de su fecha)
+    a(7, { due_date: "2026-11-04", due_time: "02:00" }), // las 23:00 del 3: no es del período (y se marcó el 6: «cerrada con fecha anterior»)
+    a(8, { due_date: "2026-11-12", done_time: "2026-11-08T10:00:00Z" }), // fecha futura, hecha antes: cuenta el 12, no ahora
+    a(9, { done: false }), a(10, { deleted: true }),
+    a(11, { owner_id: 99, creator_user_id: 99, type: "meeting" }), // a nombre de la cuenta general
+    a(12, { owner_id: 55 }), // usuario no activo
+    a(13, { due_date: "", due_time: "", done_time: "2026-11-05T12:00:00Z" }), // sin fecha: la de hecha
+    a(1, { type: "call" }), // la misma actividad en dos lecturas: una vez
+  ];
+  const r = M.activitySummary({ ...B, done, users: [...users, { id: 99, name: "OrderEAT", email: "g@x" }] });
+  assert.deepEqual(r.dated, { byType: { call: 5, email: 1, aircall_outbound_unanswere: 1 }, auto: 2, total: 9, autoByType: { task: 1, meeting: 1 } });
+  assert.deepEqual(r.types.map(t => [t.key, t.name, t.known]), [["call", "Llamada", true], ["meeting", "Demo", true], ["task", "Mail", true], ["email", "LinkedIn", true], ["aircall_outbound_unanswere", "aircall_outbound_unanswere", false]]);
+  const z = r.rows.find(x => x.id === 2);
+  assert.deepEqual(z.dated, { byType: { call: 3, email: 1, aircall_outbound_unanswere: 1 }, auto: 1, autoByType: { task: 1 }, total: 6 });
+  assert.deepEqual(r.rows.find(x => x.id === 3).dated.byType, { call: 1 });
+  // orden: personas en orden alfabético (con el nombre del perfil), después la cuenta general (con su nombre) y el usuario no activo
+  assert.deepEqual(r.rows.map(x => [x.name, x.id, !!x.free, !!x.inactive]), [["Ana Pérez", 3, false, false], ["Zoe", 2, false, false], ["OrderEAT", 99, true, false], ["", 55, false, true]]);
+  assert.deepEqual(r.rows.find(x => x.id === 99).dated, { byType: {}, auto: 1, autoByType: { meeting: 1 }, total: 1 });
+});
+
+test("B Aircall: las crea la cuenta general (como en la cuenta real) y van en su columna de tipo, no en «cuentas generales»", () => {
+  // del 05/11 al 11/11 de una persona: llamadas suyas, no atendidas de Aircall creadas por la cuenta general, una atendida
+  // de Aircall creada por ella misma y una tarea automática de diio (esa sí va aparte)
+  const done = [
+    a(1), a(2, { type: "deadline" }),
+    a(3, { type: "aircall_outbound_unanswere", creator_user_id: 99 }), a(4, { type: "aircall_outbound_unanswere", creator_user_id: 99 }),
+    a(5, { type: "aircall_outbound_answered_", creator_user_id: 2 }),
+    a(6, { type: "task", creator_user_id: 99 }),
+    a(7, { type: "aircall_outbound_unanswere", creator_user_id: 99, due_date: "2026-10-01", done_time: "2026-11-09T14:00:00Z" }), // vencida vieja cerrada ahora
+  ];
+  const r = M.activitySummary({ ...B, done });
+  const z = r.rows.find(x => x.id === 2);
+  assert.deepEqual(z.dated, { byType: { call: 1, deadline: 1, aircall_outbound_unanswere: 2, aircall_outbound_answered_: 1 }, auto: 1, autoByType: { task: 1 }, total: 6 });
+  assert.deepEqual(z.late, { byType: { aircall_outbound_unanswere: 1 }, auto: 0, autoByType: {}, total: 1 });
+  assert.deepEqual(r.dated.autoByType, { task: 1 }); // nada de Aircall en «cuentas generales»
+  assert.equal(r.rows.some(x => x.free), false); // la cuenta general no es dueña de nada: no tiene fila
+  assert.equal(M.isAircall("aircall_outbound_unanswere"), true); assert.equal(M.isAircall("call"), false); assert.equal(M.isAircall(null), false);
+});
+
+test("B cada cuenta general en su fila, con su nombre: no se juntan OrderEAT y Contacto OrderEAT", () => {
+  const two = new Set([99, 98]), us = [...users, { id: 99, name: "OrderEAT", email: "g@x" }, { id: 98, name: "Contacto OrderEAT", email: "c@x" }];
+  const done = [a(1, { owner_id: 99, creator_user_id: 99, type: "task" })];
+  const pending = [a(2, { owner_id: 99, creator_user_id: 99, done: false, due_date: "2026-11-05" }),
+    a(3, { owner_id: 98, creator_user_id: 98, done: false, due_date: "2026-11-02" }), a(4, { owner_id: 98, creator_user_id: 98, done: false, due_date: "2023-08-01" })];
+  const r = M.activitySummary({ ...B, free: two, users: us, done, pending });
+  const g = r.rows.filter(x => x.free).map(x => [x.id, x.name, x.overdue.n, x.overdue.inPeriod, x.dated.total, x.dated.auto]);
+  assert.deepEqual(g, [[98, "Contacto OrderEAT", 2, 0, 0, 0], [99, "OrderEAT", 1, 1, 1, 1]]); // en orden alfabético, cada una lo suyo
+  assert.deepEqual(r.overdue, { n: 3, inPeriod: 1 });
+  // sin nombre (no es usuario activo): igual una fila por id
+  const n = M.activitySummary({ ...B, free: two, users, pending });
+  assert.deepEqual(n.rows.filter(x => x.free).map(x => [x.id, x.name, x.overdue.n]).sort((x, y) => x[0] - y[0]), [[98, "", 2], [99, "", 1]]);
+});
+
+test("B cerradas en el período con fecha anterior: aparte, por la hora en que se marcaron", () => {
+  const done = [
+    a(1, { due_date: "2026-09-10", done_time: "2026-11-09T14:00:00Z" }), // vencida de septiembre cerrada el 9: cuenta
+    a(2, { due_date: "2026-11-03", done_time: "2026-11-04T02:00:00Z" }), // cerrada a las 23:00 del 3 (Montevideo): fuera
+    a(3, { due_date: "2026-11-01", done_time: "2026-11-04T03:00:00Z", type: "task", creator_user_id: 99 }), // automática: aparte
+    a(4, { due_date: "2026-11-05", done_time: "2026-11-09T14:00:00Z" }), // fecha en el período: es de la otra cuenta
+    a(5, { due_date: "2026-10-01", done_time: null, update_time: "2026-11-08T10:00:00Z" }), // sin hora de hecha y cambiada en el período: no se sabe
+    a(6, { due_date: "2026-10-01", done_time: null, update_time: "2026-10-08T10:00:00Z" }), // sin hora de hecha pero sin cambios desde antes: no
+  ];
+  const r = M.activitySummary({ ...B, done });
+  assert.deepEqual(r.late, { byType: { call: 1 }, auto: 1, total: 2, autoByType: { task: 1 }, unknown: 1 });
+  assert.equal(r.dated.total, 1);
+  assert.deepEqual(r.rows.find(x => x.id === 2).late, { byType: { call: 1 }, auto: 1, autoByType: { task: 1 }, total: 2 });
+});
+
+test("B vencidas sin hacer, hoy: fecha anterior a hoy en la zona de quien mira; de esas, las del período", () => {
+  const pending = [
+    a(1, { done: false, due_date: "2026-08-01" }), a(2, { done: false, due_date: "2026-11-05" }),
+    a(3, { done: false, due_date: "2026-11-10" }), // hoy: no está vencida
+    a(4, { done: false, due_date: "2026-11-10", due_time: "02:00" }), // las 23:00 del 9 en Montevideo: vencida, en el período
+    a(5, { done: false, due_date: "2026-11-04", due_time: "02:00" }), // las 23:00 del 3: vencida, antes del período
+    a(6, { done: true, due_date: "2026-11-05" }), a(7, { done: false, due_date: "" }),
+    a(8, { done: false, due_date: "2026-11-01", owner_id: 3 }),
+  ];
+  const r = M.activitySummary({ ...B, pending });
+  assert.deepEqual(r.overdue, { n: 5, inPeriod: 2 });
+  assert.deepEqual(r.rows.find(x => x.id === 2).overdue, { n: 4, inPeriod: 2 });
+  assert.deepEqual(r.rows.find(x => x.id === 3).overdue, { n: 1, inPeriod: 0 });
+});
+
+test("B lista cortada: lo que depende de esa lectura queda «?» (null); los que usan la app van aunque estén en cero", () => {
+  const r = M.activitySummary({ ...B, done: [a(1)], pending: [a(2, { done: false, due_date: "2026-11-01" })], include: [4, 99], partial: { ahead: true } });
+  assert.equal(r.dated, null); assert.ok(r.late); assert.deepEqual(r.overdue, { n: 1, inPeriod: 0 });
+  assert.deepEqual(r.known, { dated: false, late: true, overdue: true });
+  assert.ok(r.rows.every(x => x.dated === null));
+  const m = r.rows.find(x => x.id === 4); assert.deepEqual([m.name, m.late.total, m.overdue.n], ["Matías", 0, 0]); // en cero, pero está
+  assert.equal(r.rows.some(x => x.id === 99), false); // la cuenta general no va por estar en include
+  const u = M.activitySummary({ ...B, done: [a(1)], partial: { updated: true } });
+  assert.equal(u.dated, null); assert.equal(u.late, null);
+  assert.equal(M.activitySummary({ ...B, pending: [a(2, { done: false, due_date: "2026-11-01" })], partial: { pending: true } }).overdue, null);
+});
+
+test("B: solo líderes (splitView no da nada para todos) y la fecha de la actividad", () => {
+  const v = M.splitView("activity", { rows: [] });
+  assert.equal(v.pub, null); assert.deepEqual(v.people, { rows: [] });
+  assert.equal(M.actDay({ due_date: "2026-11-11", due_time: "02:30:00" }, TZ), "2026-11-10");
+  assert.equal(M.actDay({ due_date: "2026-11-11", due_time: null }, TZ), "2026-11-11");
+  assert.equal(M.actDay({ due_date: null, done_time: "2026-11-11T02:00:00Z" }, TZ), "2026-11-10");
+});

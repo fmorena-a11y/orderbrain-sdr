@@ -972,6 +972,15 @@ details.agent summary .sub { order: 3; }
 /* las tablas de Métricas, al ancho de su contenido (los números cerca del nombre) */
 .mx .follow { width: auto; min-width: min(100%, 460px); }
 .mx .follow th.num, .mx .follow td.num { padding-left: 14px; }
+.mx .follow tfoot th, .mx .follow tfoot td { border-top: 2px solid var(--line); font-weight: 700; }
+.mx .follow tfoot th { position: sticky; left: 0; z-index: 1; background: var(--surface); }
+.mx .follow.mx-act thead th.num { min-width: 76px; }
+/* los nombres largos (de tipo o «Cargadas por cuentas generales/automáticas») en dos líneas, no en cinco */
+.mx .follow.mx-act thead th.num.long { min-width: 160px; }
+.mx .follow.mx-act td small.mx-sub { display: block; max-width: 160px; margin-left: auto; font-weight: 400; font-size: 11.5px; color: var(--muted); white-space: normal; }
+/* «Deslizá la tabla…»: lo muestra metrics.js solo si la tabla no entra (hidden si entra) */
+.mx-swipe { margin: 0 0 4px; font-size: 12.5px; color: var(--faint); }
+.mx-swipe[hidden] { display: none; }
 /* barra de abajo del celular con 6 secciones: la etiqueta un poco más chica para que «Prospectar» y «Métricas» entren enteras */
 @media (max-width: 420px) and (min-height: 521px), (max-width: 420px) and (orientation: portrait) { .nav-item { font-size: 10.5px; padding-inline: 0; } }
 /* «Es esta»: comparar el colegio con la organización y fusionar duplicadas */

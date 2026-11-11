@@ -235,7 +235,7 @@ function draw() {
     }).join("") : `<div class="empty">${icon("note")}<span>Sin actividad todavía.</span></div>`;
   }
   host.innerHTML = `<div class="page">
-    <div class="page-head"><div><h1>Equipo</h1><p>Demos y actividad reciente</p></div></div>
+    <div class="page-head"><div><h1>Equipo</h1><p>Demos y actividad reciente</p></div>${S.profile?.leader ? `<a class="btn" href="#/metricas">${icon("chart", "sm")} Ver métricas</a>` : ""}</div>
     <div class="two">
       <section class="card" aria-labelledby="hRk"><div class="card-h"><h2 id="hRk">${icon("video")} Demos</h2><span class="sub">últimos 7 días y próximas 2 semanas</span></div><div class="card-b">${rank}</div></section>
       <section class="card" aria-labelledby="hFd"><div class="card-h"><h2 id="hFd">${icon("clock")} Actividad reciente</h2></div><div class="card-b">${feed}</div></section>

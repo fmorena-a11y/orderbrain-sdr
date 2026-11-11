@@ -60,7 +60,9 @@ if (process.env.VERCEL && !kvEnabled) console.warn("⚠ Sin Redis (KV_REST_API_U
 // Antes de responder, espera que se guarden las escrituras pendientes (en Vercel la función se congela después).
 app.use((req, res, next) => {
   const json = res.json.bind(res);
-  res.json = body => { flush().then(() => json(body), () => json(body)); return res; };
+  // si lo que se manda no se puede pasar a JSON (o falla al mandar), 500 en vez de un rechazo suelto que tira el proceso
+  const send = body => { try { json(body); } catch (e) { console.error(e); if (!res.headersSent) try { res.status(500); json({ error: "No pudimos armar la respuesta." }); } catch { /* nada más que hacer */ } } };
+  res.json = body => { flush().then(() => send(body), () => send(body)); return res; };
   next();
 });
 // Trae de Redis lo que registraron otras instancias.
@@ -307,6 +309,8 @@ const MX_LOAD = {
   deals: req => sales.metricsDeals(req.tz, mxOpts(req)),
   contacts: req => sales.metricsContacts(req.tz, mxOpts(req)),
   archived: req => sales.metricsArchived(req.tz, mxOpts(req)),
+  // actividad por persona: todo es por persona (solo líderes); el país no aplica (una actividad no dice de qué país es)
+  activity: req => sales.metricsActivity(req.tz, mxOpts(req)),
   // base de colegios: exacto (la lista de la app); los estados del cruce no van hasta comprobarlos con una muestra
   base: async req => { const { country } = mxOpts(req), sy = await psync.status().catch(() => null), st = radarState();
     return { country, at: new Date().toISOString(), ...MX.baseSummary(schools, { country }), file: FILE_COUNTS, added: schools.length - FILE_COUNTS.shown, radarAt: st.runs?.[0]?.at || null, syncAt: sy?.last?.finishedAt || null }; },
@@ -317,13 +321,21 @@ const MX_LOAD = {
     if (b.down || (!b.sites.length && (b.error || !b.dataAt))) return { country, enabled: true, unknown: true, demo: b.demo, error: b.error || "" };
     return { country, enabled: true, demo: b.demo, at: b.dataAt, stale: b.stale, error: b.error, ...MX.clientsSummary(b.sites, { country }) }; },
 };
+// secciones que son solo por persona: las dos rutas cortan con 403 a quien no es líder (antes de leer nada)
+const MX_LEADERS = new Set(["activity"]);
+// solo las secciones de MX_LOAD (no lo heredado de Object: «constructor», «toString»…)
+const mxLoad = section => Object.hasOwn(MX_LOAD, section) ? MX_LOAD[section] : null;
 app.get("/api/metrics/:section", auth, wrap(async (req, res) => {
-  const load = MX_LOAD[req.params.section]; if (!load) return res.status(404).json({ error: "No existe esa métrica." });
+  const load = mxLoad(req.params.section); if (!load) return res.status(404).json({ error: "No existe esa métrica." });
+  if (MX_LEADERS.has(req.params.section)) {
+    if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "Esto solo lo ve un líder." });
+    return res.json(MX.splitView(req.params.section, await load(req)).people);
+  }
   res.json(MX.splitView(req.params.section, await load(req), { me: req.session.user.pdUserId, email: req.session.user.email }).pub);
 }));
 app.get("/api/metrics/:section/people", auth, wrap(async (req, res) => {
   if (!(await isLeader(req.session.user.email))) return res.status(403).json({ error: "El detalle por persona solo lo ve un líder." });
-  const load = MX_LOAD[req.params.section], v = load && MX.splitView(req.params.section, await load(req));
+  const load = mxLoad(req.params.section), v = load && MX.splitView(req.params.section, await load(req));
   if (!v?.people) return res.status(404).json({ error: "Esa métrica no tiene detalle por persona." });
   res.json(v.people);
 }));

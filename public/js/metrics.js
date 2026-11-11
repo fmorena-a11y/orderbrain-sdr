@@ -6,7 +6,8 @@ import { S, api, esc, icon, ago, TZ, save, loadPref } from "./core.js";
 
 let host, seq = 0;
 const F = { days: [7, 30, 90].includes(loadPref("mx.days", 7)) ? loadPref("mx.days", 7) : 7, country: loadPref("mx.country", "") };
-const SECTIONS = ["demos", "deals", "contacts", "base", "clients", "archived"], PEOPLE = ["demos", "deals", "contacts", "archived"];
+const SECTIONS = ["demos", "deals", "contacts", "base", "clients", "archived"], PEOPLE = ["demos", "deals", "contacts", "archived", "activity"];
+// «activity» es solo por persona: la pide solo un líder (las dos rutas dan 403 a los demás)
 // lo leído por filtro (volver a la vista lo muestra al instante y se actualiza atrás)
 const cache = new Map();
 const keyOf = () => `${F.days}|${F.country}`;
@@ -36,7 +37,7 @@ const tzName = tz => String(tz || TZ).split("/").pop().replace(/_/g, " ");
 const periodTxt = r => r?.period ? `del ${dm(r.period.from)} al ${dm(r.period.to)} (hora de ${tzName(r.tz)})` : "";
 const readTxt = iso => iso ? `leído ${ago(iso)} (${hm(iso)})` : "";
 const src = (...parts) => `<p class="mx-src">${parts.filter(Boolean).map(esc).join(" · ")}</p>`;
-const pname = r => r.auto ? "Entrada automática, sin agendador" : r.free ? "Cuenta general de Pipedrive" : r.none ? "Sin SDR cargado" : r.inactive ? "Usuario no activo en Pipedrive" : r.name || "?";
+const pname = r => r.auto ? "Entrada automática, sin agendador" : r.free ? "Cuentas generales de Pipedrive" : r.none ? "Sin SDR cargado" : r.inactive ? "Usuario no activo en Pipedrive" : r.name || "?";
 const sk = n => '<div class="skel" style="margin:12px 0"></div>'.repeat(n);
 const err = (what, e) => `<div class="callout err">${icon("alert")}<span>No pudimos cargar ${what}: ${esc(e)}</span><button class="btn sm" data-mxretry>Reintentar</button></div>`;
 const cut = what => `<div class="callout warn" style="margin:6px 0 10px">${icon("alert")}<span>Pipedrive devolvió la lista cortada (${what}): esos números quedan en «?».</span></div>`;
@@ -208,11 +209,53 @@ function archivedCard() {
   return `<section class="card" aria-labelledby="mxG"><div class="card-h"><h2 id="mxG">${icon("archive")} Archivados</h2><span class="sub">OrderBrain</span></div><div class="card-b">${body}</div></section>`;
 }
 
-// ---------- B. Actividad por persona (líderes): no es exacta todavía
-const activityCard = () => `<section class="card wide" aria-labelledby="mxB"><div class="card-h"><h2 id="mxB">${icon("users")} Actividad por persona</h2><span class="sub">solo lo ven los líderes</span></div><div class="card-b">
-  <p style="margin:0 0 8px"><b>Próximamente.</b> Contar llamadas, WhatsApp y mails por persona coincide uno a uno con Pipedrive, pero el tipo de actividad no dice el canal:</p>
-  <ul class="mx-why"><li>Hay mails cargados con el tipo «LinkedIn».</li><li>diio crea tareas automáticas con el tipo «Mail».</li><li>Aircall carga las llamadas no atendidas con su propio tipo.</li><li>Hay WhatsApp anotados como llamada.</li><li>Se cierran vencidas viejas, que se cuentan como hechas hoy.</li></ul>
-  <p class="mx-note">Si lo querés, lo único exacto que podemos sumar ya es «Vencidas sin hacer, hoy», por persona y con total.</p></div></section>`;
+// ---------- B. Actividad por persona (solo líderes): lo cargado en Pipedrive, por dueño y por tipo TAL COMO ESTÁ
+// (el tipo no siempre dice el canal: se avisa arriba, fijo). Tres tablas que no se mezclan; orden alfabético, sin puestos.
+const apname = r => r.free ? (r.name ? `${r.name} (cuenta general)` : `Cuenta general de Pipedrive (${r.id})`) : r.inactive ? `Usuario no activo en Pipedrive (${r.id})` : r.name || "Sin dueño";
+// head: [nombre, title]; un valor de celda puede ser { n, sub }: el número y debajo, chico, qué lo compone
+// el aviso de deslizar va en cada tabla pero se muestra solo si de verdad no entra (fitSwipe, después de dibujar)
+function actTable(head, rows, cells, total) {
+  const td = v => v && typeof v === "object" ? `<td class="num">${fmt(v.n)}${v.sub ? `<small class="mx-sub">${esc(v.sub)}</small>` : ""}</td>` : `<td class="num">${fmt(v)}</td>`;
+  return `<p class="mx-swipe" hidden>Deslizá la tabla de costado para ver todas las columnas.</p><div class="follow-wrap"><table class="follow mx-act"><thead><tr><th scope="col">A nombre de</th>${head.map(([l, t]) => `<th scope="col" class="num${l.length > 24 ? " long" : ""}"${t ? ` title="${esc(t)}"` : ""}>${esc(l)}</th>`).join("")}</tr></thead>
+    <tbody>${rows.map(r => `<tr><th scope="row">${esc(apname(r))}</th>${cells(r).map(td).join("")}</tr>`).join("")}</tbody>
+    <tfoot><tr><th scope="row">Total</th>${total.map(td).join("")}</tr></tfoot></table></div>`;
+}
+function fitSwipe() { host?.querySelectorAll(".mx-swipe").forEach(p => { const w = p.nextElementSibling; p.hidden = !(w && w.scrollWidth > w.clientWidth + 1); }); }
+let swipeObs = null;
+function activityCard() {
+  const r = peopleOf("activity");
+  const body = !r ? sk(4) : r.error ? err("la actividad por persona", r.error) : (() => {
+    const a = r.data, P = a.partial || {}, per = periodTxt(a), tz = tzName(a.tz);
+    // columnas: los tipos con alguna en las dos primeras tablas (las de cuentas generales van en su columna)
+    const cols = a.types.filter(t => a.dated?.byType[t.key] || a.late?.byType[t.key]);
+    const head = [...cols.map(t => [t.name + (t.active ? "" : " (desactivado)"), t.known ? `Tipo «${t.name}» en Pipedrive` : "Este tipo no está en la lista de tipos de la cuenta: se muestra su clave"]),
+      ["Cargadas por cuentas generales/\u200bautomáticas", "Las creó una cuenta general de Pipedrive, no una persona (por ejemplo, las tareas automáticas de diio). Debajo de cada número, de qué tipo son. Las de Aircall no van acá: van en su columna de tipo."], ["Total"]];
+    // las de cuentas generales, con su desglose por tipo debajo del número («Mail 2 · Demo 1»)
+    const tname = k => a.types.find(t => t.key === k)?.name || k;
+    const autoSub = b => Object.entries(b.autoByType || {}).sort((x, y) => y[1] - x[1] || tname(x[0]).localeCompare(tname(y[0]), "es")).map(([k, n]) => `${tname(k)} ${fmt(n)}`).join(" · ");
+    const cells = b => b ? [...cols.map(t => b.byType[t.key] || 0), { n: b.auto, sub: autoSub(b) }, b.total] : [...cols.map(() => null), null, null];
+    const aircall = a.types.some(t => /^aircall_/i.test(t.key) && (a.dated?.byType[t.key] || a.late?.byType[t.key]));
+    const D1 = a.dated, L = a.late, O = a.overdue;
+    return `<div class="callout warn" style="margin-bottom:10px">${icon("alert")}<span>Es lo que cada uno cargó en Pipedrive con ese tipo: si alguien carga un mail como LinkedIn o un WhatsApp como llamada, se cuenta como ese tipo.</span></div>
+      ${F.country ? `<div class="callout info" style="margin-bottom:10px">${icon("alert")}<span>El filtro de país no aplica acá: una actividad no dice de qué país es. Se cuenta todo.</span></div>` : ""}
+      ${a.typesKnown ? "" : `<div class="callout warn" style="margin-bottom:10px">${icon("alert")}<span>No pudimos leer los nombres de los tipos de la cuenta: cada columna lleva la clave del tipo.</span></div>`}
+      ${src("Pipedrive, actividades de toda la cuenta", readTxt(a.at), per)}
+      <h3 class="mx-h">Hechas con fecha en el período, por tipo</h3>
+      ${P.updated || P.ahead ? cut("actividades hechas") : ""}
+      ${actTable(head, a.rows, x => cells(x.dated), cells(D1))}
+      ${note(`Actividades marcadas hechas cuya fecha (la de la actividad en Pipedrive, en hora de ${esc(tz)}; si no tiene, el día en que se marcó hecha) cae en el período. Van a nombre del dueño de la actividad, la haya creado quien la haya creado. Una columna por cada tipo con alguna, con el nombre del tipo en Pipedrive. «Cargadas por cuentas generales/automáticas»: las creó una cuenta general de Pipedrive, no una persona (por ejemplo, las tareas automáticas de diio); no están en las columnas de tipo y debajo de cada número dice de qué tipo son.${aircall ? " Las de Aircall van en su columna de tipo aunque las haya creado una cuenta general: Aircall las carga así." : ""} Una marcada hecha antes de su fecha cuenta el día de su fecha.`)}
+      <h3 class="mx-h">Cerradas en el período con fecha anterior</h3>
+      ${P.updated ? cut("actividades hechas") : ""}
+      ${actTable(head, a.rows, x => cells(x.late), cells(L))}
+      ${note(`Vencidas de antes del período que se marcaron hechas en el período (por el día en que se marcaron). No están en la tabla de arriba. Las columnas cuentan igual que arriba.${L?.unknown ? ` Además, ${fmt(L.unknown)} hechas no tienen hora de hecha en Pipedrive: no se sabe si se cerraron en el período y no se cuentan.` : ""}`)}
+      <h3 class="mx-h">Vencidas sin hacer, hoy</h3>
+      ${P.pending ? cut("actividades sin hacer") : ""}
+      ${actTable([["Vencidas", "Sin hacer y con fecha anterior a hoy"], ["Vencieron en el período", `De las vencidas, las que tienen fecha del ${dm(a.period?.from)} en adelante`]], a.rows, x => x.overdue ? [x.overdue.n, x.overdue.inPeriod] : [null, null], O ? [O.n, O.inPeriod] : [null, null])}
+      ${note(`«Vencidas»: sin hacer y con fecha anterior a hoy (${dm(a.period?.to)}, hora de ${esc(tz)}), de cualquier tipo y de toda la cuenta. Es la foto de ahora. «Vencieron en el período»: de esas, las que tienen fecha del ${dm(a.period?.from)} en adelante.`)}
+      ${note("Orden alfabético (con el nombre del perfil de la app); las cuentas generales (cada una en su fila) y los usuarios que ya no están activos en Pipedrive van al final. Aparece quien tiene alguna actividad en estas tablas o usa la app.")}`;
+  })();
+  return `<section class="card wide" aria-labelledby="mxB"><div class="card-h"><h2 id="mxB">${icon("users")} Actividad por persona</h2><span class="sub">solo lo ven los líderes</span></div><div class="card-b">${body}</div></section>`;
+}
 
 // ---------- vista
 function countries() {
@@ -233,14 +276,18 @@ function draw() {
     ${kpis()}
     <div class="mx-grid">
       ${demosCard()}
+      ${leader ? activityCard() : ""}
       ${dealsCard()}
       ${contactsCard()}
       ${archivedCard()}
       ${baseCard()}
       ${clientsCard()}
-      ${leader ? activityCard() : ""}
     </div></div>`;
   host.querySelectorAll("[data-mxd]").forEach(b => b.onclick = () => { F.days = Number(b.dataset.mxd); save("mx.days", F.days); load(); draw(); });
   host.querySelector("#mxCountry").onchange = e => { F.country = e.target.value; save("mx.country", F.country); load(); draw(); };
   host.querySelectorAll("[data-mxretry]").forEach(b => b.onclick = () => { cache.delete(keyOf()); load(); draw(); });
+  // el aviso de deslizar: ahora, cuando terminan de cargar las letras y cada vez que cambia el ancho
+  fitSwipe(); document.fonts?.ready.then(() => host?.isConnected && fitSwipe());
+  if (!swipeObs && window.ResizeObserver) swipeObs = new ResizeObserver(() => host?.isConnected && fitSwipe());
+  if (swipeObs) { swipeObs.disconnect(); swipeObs.observe(host); }
 }
