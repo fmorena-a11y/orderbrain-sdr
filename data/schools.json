@@ -4708,7 +4708,8 @@
   "src": "osm",
   "osm": "n6615001429",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-institucion-educativa-privada-leonard-euler",
@@ -4747,7 +4748,8 @@
   "src": "osm",
   "osm": "n7561201969",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-instituto-santa-rosa-2",
@@ -4768,7 +4770,8 @@
   "src": "osm",
   "osm": "n7905599975",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-yataco-academy",
@@ -4863,7 +4866,9 @@
   "src": "osm",
   "osm": "n11599197932",
   "found": "2026-11-09",
-  "img": "https://www.cientifica.edu.pe/wp-content/uploads/2026/10/ranking-desktop-azul-octubre-v2.webp"
+  "img": "https://www.cientifica.edu.pe/wp-content/uploads/2026/10/ranking-desktop-azul-octubre-v2.webp",
+  "whatsapp": "+51955656442",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-institucion-educativa-privada-ricardo-palma",
@@ -5038,7 +5043,8 @@
   "src": "osm",
   "osm": "w52967820",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-universidad-peruana-cayetano-heredia-campo-central",
@@ -5197,7 +5203,8 @@
   "src": "osm",
   "osm": "w127709115",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-san-silvestre-school",
@@ -5221,7 +5228,8 @@
   "src": "osm",
   "osm": "w129904656",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-colegio-santa-maria-marianista",
@@ -5245,7 +5253,8 @@
   "src": "osm",
   "osm": "w146846899",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-universidad-m-champagnat",
@@ -5268,7 +5277,8 @@
   "src": "osm",
   "osm": "w147185094",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-colegio-santisimo-nombre-de-jesus",
@@ -5352,7 +5362,9 @@
   "src": "osm",
   "osm": "w158617358",
   "found": "2026-11-09",
-  "img": "https://www.ulima.edu.pe/sites/default/files/jfu-images/ULima_Video%20institucional.jpg"
+  "img": "https://www.ulima.edu.pe/sites/default/files/jfu-images/ULima_Video%20institucional.jpg",
+  "whatsapp": "+51999967160",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-centro-de-estudios-preuniversitarios-de-la-universidad-de-lima",
@@ -5398,7 +5410,9 @@
   "src": "osm",
   "osm": "w160555361",
   "found": "2026-11-09",
-  "img": "https://www.recoleta.edu.pe/images/logo-recoleta-2025.png"
+  "img": "https://www.recoleta.edu.pe/images/logo-recoleta-2025.png",
+  "whatsapp": "+965007584",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-colegio-italiano-antonio-raimondi",
@@ -5422,7 +5436,8 @@
   "src": "osm",
   "osm": "w160698066",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-instituto-san-ignacio-de-loyola",
@@ -5607,7 +5622,9 @@
   "src": "osm",
   "osm": "w220415161",
   "found": "2026-11-09",
-  "img": "https://www.ucv.edu.pe/uploads/images/iucv/UCV-OG.webp"
+  "img": "https://www.ucv.edu.pe/uploads/images/iucv/UCV-OG.webp",
+  "whatsapp": "+5112024342",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-colegio-villa-per-se",
@@ -5674,7 +5691,8 @@
   "src": "osm",
   "osm": "w257348902",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-colegio-san-pedro-de-chorrillos",
@@ -5706,7 +5724,7 @@
   "addr": "Alonso de Molina 1625",
   "phone": "+51 1 3177200",
   "web": "https://www.esan.edu.pe/",
-  "email": "",
+  "email": "informes@esan.edu.pe",
   "levels": [
    "Universidad"
   ],
@@ -5717,7 +5735,8 @@
   "src": "osm",
   "osm": "w274692575",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-colegio-san-jose-maristas",
@@ -5752,14 +5771,16 @@
   "addr": "Avenida Alvarez Calderon 761",
   "phone": "+51 1 4402235",
   "web": "https://www.ssccbelen.edu.pe/",
-  "email": "",
+  "email": "informes@ssccbelen.edu.pe",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w284935771",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+51950480362",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-universidad-santo-domingo-de-guzman",
@@ -5783,7 +5804,8 @@
   "src": "osm",
   "osm": "w285827604",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-universidad-tecnologica-del-peru",
@@ -5817,7 +5839,7 @@
   "addr": "Jiron Aldebarán 160",
   "phone": "+511 2171200",
   "web": "https://pad.edu/",
-  "email": "",
+  "email": "informes@pad.edu",
   "levels": [
    "Universidad"
   ],
@@ -5828,7 +5850,8 @@
   "src": "osm",
   "osm": "w293107608",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-universidad-inca-garcilazo-de-la-vega-2",
@@ -5871,7 +5894,9 @@
   "src": "osm",
   "osm": "w298244428",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+51981378514",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-instituto-idat-sede-lima-centro",
@@ -5901,7 +5926,7 @@
   "addr": "Avenida Garcilaso de la Vega 1880",
   "phone": "+51 1 3327461",
   "web": "https://www.ulasamericas.edu.pe/",
-  "email": "",
+  "email": "informes@ulasamericas.edu.pe",
   "levels": [
    "Universidad"
   ],
@@ -5912,7 +5937,9 @@
   "src": "osm",
   "osm": "w298459855",
   "found": "2026-11-09",
-  "img": "https://www.ulasamericas.edu.pe/wp-content/uploads/2026/09/logo_upa_2026.png"
+  "img": "https://www.ulasamericas.edu.pe/wp-content/uploads/2026/09/logo_upa_2026.png",
+  "whatsapp": "+51987112052",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-universidad-del-pacifico",
@@ -5935,7 +5962,8 @@
   "src": "osm",
   "osm": "w310523619",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-centro-de-idiomas-britanico",
@@ -5981,7 +6009,9 @@
   "src": "osm",
   "osm": "w326855710",
   "found": "2026-11-09",
-  "img": "https://web2021.uap.edu.pe/wp-content/uploads/2021/07/LOGO-GRIS-UAP-4-300x58.png"
+  "img": "https://web2021.uap.edu.pe/wp-content/uploads/2021/07/LOGO-GRIS-UAP-4-300x58.png",
+  "whatsapp": "+51986024302",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-universidad-femenina-del-sagrado-corazon",
@@ -5993,7 +6023,7 @@
   "addr": "Avenida Los Frutales 953",
   "phone": "+51 1 4364641",
   "web": "http://www.unife.edu.pe/",
-  "email": "",
+  "email": "admision@unife.edu.pe",
   "levels": [
    "Universidad"
   ],
@@ -6005,7 +6035,8 @@
   "src": "osm",
   "osm": "w331618378",
   "found": "2026-11-09",
-  "img": "https://unife.edu.pe/wp-content/uploads/logo_unife_verde-1.png"
+  "img": "https://unife.edu.pe/wp-content/uploads/logo_unife_verde-1.png",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-colegio-tupac-amaru",
@@ -6046,7 +6077,8 @@
   "src": "osm",
   "osm": "w360056176",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-fetzer-academy",
@@ -6166,7 +6198,8 @@
   "src": "osm",
   "osm": "w370731934",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-instituto-manuel-gonzales-prada",
@@ -6185,7 +6218,8 @@
   "src": "osm",
   "osm": "w370732346",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-academia-aduni-2",
@@ -6204,7 +6238,9 @@
   "src": "osm",
   "osm": "w371056612",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+51991969999",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-universidad-cientifica-del-sur-2",
@@ -6227,7 +6263,9 @@
   "src": "osm",
   "osm": "w371941313",
   "found": "2026-11-09",
-  "img": "https://www.cientifica.edu.pe/wp-content/uploads/2026/10/ranking-desktop-azul-octubre-v2.webp"
+  "img": "https://www.cientifica.edu.pe/wp-content/uploads/2026/10/ranking-desktop-azul-octubre-v2.webp",
+  "whatsapp": "+51955656442",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-institucion-educativa-privada-villa-esperanza",
@@ -6273,7 +6311,9 @@
   "src": "osm",
   "osm": "w379598570",
   "found": "2026-11-09",
-  "img": "https://web2021.uap.edu.pe/wp-content/uploads/2021/07/LOGO-GRIS-UAP-4-300x58.png"
+  "img": "https://web2021.uap.edu.pe/wp-content/uploads/2021/07/LOGO-GRIS-UAP-4-300x58.png",
+  "whatsapp": "+51986024302",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-instituto-de-educacion-superior-tecnologico-simon-bolivar",
@@ -6292,7 +6332,8 @@
   "src": "osm",
   "osm": "w380883897",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-colegio-b-group",
@@ -6509,14 +6550,15 @@
   "addr": "Pío XII 358",
   "phone": "+51 1 4373117",
   "web": "https://pio.edu.pe/",
-  "email": "",
+  "email": "admision@pio.edu.pe",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w403116791",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-colegio-peruano-aleman-augusto-weberbauer",
@@ -6601,14 +6643,16 @@
   "addr": "Avenida Don Augusto",
   "phone": "+51 1 7197390",
   "web": "http://www.stgeorgescollege.edu.pe",
-  "email": "",
+  "email": "admision@stgeorges.edu.pe",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w403719146",
   "found": "2026-11-09",
-  "img": "https://www.stgeorges.edu.pe/SA%20-%20St%20George%27s%20College/logo/favicon.png"
+  "img": "https://www.stgeorges.edu.pe/SA%20-%20St%20George%27s%20College/logo/favicon.png",
+  "whatsapp": "+51940324142",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-colegio-villa-alarife",
@@ -6627,7 +6671,8 @@
   "src": "osm",
   "osm": "w403719147",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-colegio-trilce",
@@ -6668,7 +6713,8 @@
   "src": "osm",
   "osm": "w403726092",
   "found": "2026-11-09",
-  "img": "https://www.cambridge.edu.pe/sites/school53/files/logo.png"
+  "img": "https://www.cambridge.edu.pe/sites/school53/files/logo.png",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-instituto-carrion",
@@ -6727,7 +6773,9 @@
   "src": "osm",
   "osm": "w405578314",
   "found": "2026-11-09",
-  "img": "https://capeco.edu.pe/wp-content/uploads/2026/09/ChatGPT-Image-4-sept-2026-07_40_23-p.m-e1788569250209.png"
+  "img": "https://capeco.edu.pe/wp-content/uploads/2026/09/ChatGPT-Image-4-sept-2026-07_40_23-p.m-e1788569250209.png",
+  "whatsapp": "+51959389544",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-universidad-de-ciencias-y-humanidades",
@@ -6773,7 +6821,9 @@
   "src": "osm",
   "osm": "w405584319",
   "found": "2026-11-09",
-  "img": "https://www.upn.edu.pe/sites/default/files/imagen-metatag.jpg"
+  "img": "https://www.upn.edu.pe/sites/default/files/imagen-metatag.jpg",
+  "whatsapp": "+51958754444",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-instituto-superior-tecnologico-antenor-orrego-espinoza",
@@ -6866,7 +6916,8 @@
   "src": "osm",
   "osm": "w410087498",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-colegio-jose-olaya-balandra",
@@ -6924,7 +6975,8 @@
   "src": "osm",
   "osm": "w416499884",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-colegio-privado-cristina-beatriz",
@@ -7045,7 +7097,8 @@
   "src": "osm",
   "osm": "w426255445",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-colegio-ilvem",
@@ -7245,7 +7298,8 @@
   "src": "osm",
   "osm": "w435535466",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-instituto-arzobispo-loayza",
@@ -7286,7 +7340,8 @@
   "src": "osm",
   "osm": "w435545539",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-instituto-empresarial-de-la-universidad-alas-peruanas",
@@ -7522,7 +7577,9 @@
   "src": "osm",
   "osm": "w435838258",
   "found": "2026-11-09",
-  "img": "https://web2021.uap.edu.pe/wp-content/uploads/2021/07/LOGO-GRIS-UAP-4-300x58.png"
+  "img": "https://web2021.uap.edu.pe/wp-content/uploads/2021/07/LOGO-GRIS-UAP-4-300x58.png",
+  "whatsapp": "+51986024302",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-centro-educativo-particular-divino-redentor",
@@ -7699,7 +7756,8 @@
   "src": "osm",
   "osm": "w436267029",
   "found": "2026-11-09",
-  "img": "https://www.uarm.edu.pe/wp-content/uploads/2024/10/notas-web-logo.jpg"
+  "img": "https://www.uarm.edu.pe/wp-content/uploads/2024/10/notas-web-logo.jpg",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-institucion-educativa-privada-pre-universitario",
@@ -8009,7 +8067,9 @@
   "src": "osm",
   "osm": "w436588420",
   "found": "2026-11-09",
-  "img": "https://web2021.uap.edu.pe/wp-content/uploads/2021/07/LOGO-GRIS-UAP-4-300x58.png"
+  "img": "https://web2021.uap.edu.pe/wp-content/uploads/2021/07/LOGO-GRIS-UAP-4-300x58.png",
+  "whatsapp": "+51986024302",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-academia-trilce",
@@ -8143,7 +8203,8 @@
   "src": "osm",
   "osm": "w436892432",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-universidad-peruana-de-ciencias-e-informatica",
@@ -8186,7 +8247,8 @@
   "src": "osm",
   "osm": "w436947950",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-i-e-p-los-angeles-de-dios",
@@ -8216,7 +8278,7 @@
   "addr": "Jirón Medrano Silva 165",
   "phone": "+51 1 2305000",
   "web": "https://www.utec.edu.pe/",
-  "email": "",
+  "email": "admisionpregrado@utec.edu.pe",
   "levels": [
    "Universidad"
   ],
@@ -8227,7 +8289,9 @@
   "src": "osm",
   "osm": "w437212067",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+51971491354",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-universidad-peruana-de-ciencias-aplicadas-2",
@@ -8276,7 +8340,9 @@
   "src": "osm",
   "osm": "w437330220",
   "found": "2026-11-09",
-  "img": "https://www.upsjb.edu.pe/wp-content/uploads/2024/09/Diseno-sin-titulo-3.png"
+  "img": "https://www.upsjb.edu.pe/wp-content/uploads/2024/09/Diseno-sin-titulo-3.png",
+  "whatsapp": "+51948780735",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-colegio-flor-de-oro",
@@ -8708,7 +8774,8 @@
   "src": "osm",
   "osm": "w437682086",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-universidad-privada-del-norte",
@@ -8957,7 +9024,8 @@
   "src": "osm",
   "osm": "w437875682",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-colegio-particular-san-rafael",
@@ -9477,7 +9545,8 @@
   "src": "osm",
   "osm": "w439098237",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-iep-dolce-corazon-de-jesus",
@@ -9617,7 +9686,8 @@
   "src": "osm",
   "osm": "w439241360",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-colegio-privado-liceo-san-juan",
@@ -9705,7 +9775,8 @@
   "src": "osm",
   "osm": "w439956594",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-colegio-montessori-innova",
@@ -9931,7 +10002,9 @@
   "src": "osm",
   "osm": "w442227842",
   "found": "2026-11-09",
-  "img": "https://www.nslm.edu.pe/imagenes/emp-de-servicios-educativos-privados-srl-meta-18072026123200.png"
+  "img": "https://www.nslm.edu.pe/imagenes/emp-de-servicios-educativos-privados-srl-meta-18072026123200.png",
+  "whatsapp": "+51953726781",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-colegio-de-santo-tomas",
@@ -10419,7 +10492,8 @@
   "src": "osm",
   "osm": "w451612936",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-colegio-fe-y-alegria-43",
@@ -10494,7 +10568,8 @@
   "src": "osm",
   "osm": "w454578934",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-11"
  },
  {
   "id": "lima-i-e-p-maria-reina-de-los-apostoles",
@@ -10556,7 +10631,9 @@
   "src": "osm",
   "osm": "w454698473",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+51932258065",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-i-e-p-la-sagrada-familia",
@@ -10606,14 +10683,16 @@
   "addr": "Avenida Paseo de la República 7930",
   "phone": "+51 1 5190500",
   "web": "https://www.champagnat.edu.pe/",
-  "email": "",
+  "email": "oficialprotecciondatos@maristas.edu.pe",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w458012514",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+51941838179",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-universidad-federico-villareal-oquendo",
@@ -10731,7 +10810,9 @@
   "src": "osm",
   "osm": "w468829184",
   "found": "2026-11-09",
-  "img": "https://www.nslm.edu.pe/imagenes/emp-de-servicios-educativos-privados-srl-meta-18072026123200.png"
+  "img": "https://www.nslm.edu.pe/imagenes/emp-de-servicios-educativos-privados-srl-meta-18072026123200.png",
+  "whatsapp": "+51953726781",
+  "webAt": "2026-11-11"
  },
  {
   "id": "lima-universidad-de-san-martin-de-porres-4",
@@ -352049,6 +352130,590 @@
   "private": "probable",
   "src": "osm",
   "osm": "r14691615",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "manta-colegio-jaime-estrada-bonilla",
+  "name": "Colegio Jaime Estrada Bonilla",
+  "city": "Manta",
+  "country": "Ecuador",
+  "lat": -1.00334,
+  "lng": -80.672893,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4137200837",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "manta-colegio-del-pacifico",
+  "name": "Colegio del Pacìfico",
+  "city": "Manta",
+  "country": "Ecuador",
+  "lat": -0.958984,
+  "lng": -80.711118,
+  "addr": "Avenida 113",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4485483289",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "manta-colegio-guadalupe-larriva",
+  "name": "Colegio Guadalupe Larriva",
+  "city": "Manta",
+  "country": "Ecuador",
+  "lat": -0.949722,
+  "lng": -80.66714,
+  "addr": "vía manta - jaramijo",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4621531589",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "manta-unidad-educativa-particular-seneca",
+  "name": "Unidad Educativa Particular Seneca",
+  "city": "Manta",
+  "country": "Ecuador",
+  "lat": -0.960351,
+  "lng": -80.70575,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n4927301623",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "manta-unidad-educativa-particular-lev-vigotsky",
+  "name": "Unidad Educativa Particular Lev Vigotsky",
+  "city": "Manta",
+  "country": "Ecuador",
+  "lat": -0.979089,
+  "lng": -80.718696,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5735268223",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "manta-instituto-tecnologico-superior-luis-arboleda-martinez",
+  "name": "Instituto Tecnológico Superior Luis Arboleda Martínez",
+  "city": "Manta",
+  "country": "Ecuador",
+  "lat": -0.95053,
+  "lng": -80.736931,
+  "addr": "Calle 17",
+  "phone": "(05) 2620216 / 2621879",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w62163869",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "manta-colegio-4-de-noviembre",
+  "name": "Colegio 4 de Noviembre",
+  "city": "Manta",
+  "country": "Ecuador",
+  "lat": -0.950132,
+  "lng": -80.738735,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w62163870",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "manta-colegio-leonit-aviat",
+  "name": "Colegio Leonit Aviat",
+  "city": "Manta",
+  "country": "Ecuador",
+  "lat": -0.953122,
+  "lng": -80.711373,
+  "addr": "Avenida 105",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w411828696",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "manta-unidad-educativa-maria-auxiliadora",
+  "name": "Unidad Educativa María Auxiliadora",
+  "city": "Manta",
+  "country": "Ecuador",
+  "lat": -0.958801,
+  "lng": -80.703578,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w412107897",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "manta-unidad-educativa-san-jose",
+  "name": "Unidad Educativa San Jose",
+  "city": "Manta",
+  "country": "Ecuador",
+  "lat": -0.954268,
+  "lng": -80.712418,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w412764237",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "manta-unidad-educativa-paquisha",
+  "name": "Unidad Educativa Paquisha",
+  "city": "Manta",
+  "country": "Ecuador",
+  "lat": -0.989712,
+  "lng": -80.706333,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w607111048",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "manta-unidad-educativa-26-de-junio",
+  "name": "Unidad Educativa 26 de Junio",
+  "city": "Manta",
+  "country": "Ecuador",
+  "lat": -0.990452,
+  "lng": -80.704924,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w610379447",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "manta-unidad-educativa-julio-pierregrosse",
+  "name": "Unidad Educativa Julio Pierregrosse",
+  "city": "Manta",
+  "country": "Ecuador",
+  "lat": -0.953924,
+  "lng": -80.752208,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w848200546",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "manta-unidad-educativa-el-porvenir",
+  "name": "Unidad Educativa El Porvenir",
+  "city": "Manta",
+  "country": "Ecuador",
+  "lat": -0.968185,
+  "lng": -80.713762,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1159579348",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "manta-instituto-universitario-quito-metropolitano-campus-manta",
+  "name": "Instituto Universitario Quito Metropolitano Campus Manta",
+  "city": "Manta",
+  "country": "Ecuador",
+  "lat": -0.957256,
+  "lng": -80.749872,
+  "addr": "",
+  "phone": "+593 99 881 5675",
+  "web": "https://itsqmet.edu.ec/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1300257240",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "manta-instituto-superior-tecnologico-luis-arboleda-martinez",
+  "name": "Instituto Superior Tecnológico Luis Arboleda Martinez",
+  "city": "Manta",
+  "country": "Ecuador",
+  "lat": -0.983877,
+  "lng": -80.69476,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.istlam.edu.ec",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1301154674",
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-11"
+ },
+ {
+  "id": "manta-unidad-educativa-particular-manabi",
+  "name": "Unidad Educativa Particular Manabí",
+  "city": "Manta",
+  "country": "Ecuador",
+  "lat": -0.956055,
+  "lng": -80.764628,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1312066479",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "manta-unidad-educativa-internacional-oceano-pacifico",
+  "name": "Unidad Educativa Internacional Océano Pacífico",
+  "city": "Manta",
+  "country": "Ecuador",
+  "lat": -0.950232,
+  "lng": -80.732851,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1313600205",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "tapachula-colegio-izapa",
+  "name": "Colegio IZAPA",
+  "city": "Tapachula",
+  "country": "México",
+  "lat": 14.930361,
+  "lng": -92.251949,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n303573884",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "tapachula-instituto-tapachula",
+  "name": "Instituto Tapachula",
+  "city": "Tapachula",
+  "country": "México",
+  "lat": 14.916419,
+  "lng": -92.252483,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n303610977",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "tapachula-prepa-1",
+  "name": "Prepa 1",
+  "city": "Tapachula",
+  "country": "México",
+  "lat": 14.905761,
+  "lng": -92.25917,
+  "addr": "1a Calle Oriente",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n441719945",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "tapachula-universidad-san-cristobal",
+  "name": "Universidad San Cristóbal",
+  "city": "Tapachula",
+  "country": "México",
+  "lat": 14.905739,
+  "lng": -92.259742,
+  "addr": "5a Avenida Norte",
+  "phone": "9621181072",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5994408799",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "tapachula-universidad-maya",
+  "name": "Universidad Maya",
+  "city": "Tapachula",
+  "country": "México",
+  "lat": 14.902359,
+  "lng": -92.269139,
+  "addr": "10a Calle Poniente",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9916421649",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "tapachula-colegio-la-paz",
+  "name": "Colegio la paz",
+  "city": "Tapachula",
+  "country": "México",
+  "lat": 14.883297,
+  "lng": -92.250554,
+  "addr": "Calle Durazno",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11247436215",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "tapachula-universidad-valle-del-grijalva",
+  "name": "Universidad Valle del Grijalva",
+  "city": "Tapachula",
+  "country": "México",
+  "lat": 14.89336,
+  "lng": -92.276527,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w364439339",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "tapachula-colegio-miguel-hidalgo",
+  "name": "Colegio Miguel Hidalgo",
+  "city": "Tapachula",
+  "country": "México",
+  "lat": 14.900326,
+  "lng": -92.252848,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w544477492",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "tapachula-escuela-preparatoria-eduardo-javier-albores-gonzalez",
+  "name": "Escuela Preparatoria \"Eduardo Javier Albores González\"",
+  "city": "Tapachula",
+  "country": "México",
+  "lat": 14.894597,
+  "lng": -92.242758,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w548662955",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "tapachula-instituto-cumbres",
+  "name": "Instituto Cumbres",
+  "city": "Tapachula",
+  "country": "México",
+  "lat": 14.930803,
+  "lng": -92.273922,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w887446011",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "tapachula-iesch-universidad-salazar",
+  "name": "IESCH Universidad Salazar",
+  "city": "Tapachula",
+  "country": "México",
+  "lat": 14.890745,
+  "lng": -92.271144,
+  "addr": "Calle Ignacio Ramírez Trigésima Oriente",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1088897684",
+  "found": "2026-11-11"
+ },
+ {
+  "id": "tapachula-colegio-constancia-y-trabajo",
+  "name": "Colegio Constancia y Trabajo",
+  "city": "Tapachula",
+  "country": "México",
+  "lat": 14.855623,
+  "lng": -92.27084,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1088981917",
   "found": "2026-11-11"
  }
 ]
