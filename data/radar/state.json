@@ -7007,7 +7007,10 @@
   "CO|n3797489181": "2026-11-12T13:35:57.601Z",
   "CL|Puerto Montt": "2026-11-12T13:43:33.294Z",
   "AR|Moreno": "2026-11-12T13:44:50.139Z",
-  "MX|Chetumal": "2026-11-12T13:52:15.290Z"
+  "MX|Chetumal": "2026-11-12T13:52:15.290Z",
+  "CO|n703166719": "2026-11-12T15:20:30.298Z",
+  "AR|Berazategui": "2026-11-12T15:21:07.493Z",
+  "ES|n30044584": "2026-11-12T15:21:58.354Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7054,9 +7057,51 @@
    "n": 1,
    "at": "2026-11-12T07:51:13.378Z",
    "error": "The operation was aborted due to timeout"
+  },
+  "SV|n4113164339": {
+   "n": 1,
+   "at": "2026-11-12T15:33:20.185Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-12T15:14:13.036Z",
+   "cities": [
+    {
+     "cc": "CO",
+     "city": "Florencia",
+     "found": 42,
+     "updated": 0,
+     "osm": 99
+    },
+    {
+     "cc": "AR",
+     "city": "Berazategui",
+     "found": 6,
+     "updated": 0,
+     "osm": 171
+    },
+    {
+     "cc": "ES",
+     "city": "Albacete",
+     "found": 25,
+     "updated": 0,
+     "osm": 123
+    }
+   ],
+   "added": 73,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "SV|n4113164339: The operation was aborted due to timeout"
+   ],
+   "minutes": 19.3,
+   "total": 19024
+  },
   {
    "at": "2026-11-12T13:34:13.843Z",
    "cities": [

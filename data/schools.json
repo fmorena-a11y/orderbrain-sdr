@@ -383429,5 +383429,1479 @@
   "src": "osm",
   "osm": "w1289700896",
   "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-corporacion-educativa-instituto-amigos-jean-piaget",
+  "name": "Corporación educativa instituto amigos jean Piaget",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.596678,
+  "lng": -75.581021,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4275652791",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-otra-sigla-cambridge-school-imperial-eagles",
+  "name": "Otra-Sigla Cambridge School Imperial Eagles",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.613052,
+  "lng": -75.609877,
+  "addr": "",
+  "phone": "+57 310 7511240",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480716715",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-preesc-travesuras",
+  "name": "Preesc Travesuras",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.612293,
+  "lng": -75.610172,
+  "addr": "",
+  "phone": "+57 608 4351673",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480716797",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-otra-sigla-establecimiento-educativo-abc-de-la-escucha",
+  "name": "Otra-Sigla Establecimiento Educativo Abc De La Escucha",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.617124,
+  "lng": -75.60446,
+  "addr": "",
+  "phone": "+57 314 2949283",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480716914",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-magic-world-school",
+  "name": "Magic World School",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.608282,
+  "lng": -75.607383,
+  "addr": "",
+  "phone": "+57 608 4344259",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480716970",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-institucion-inforph",
+  "name": "Institución Inforph",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.62248,
+  "lng": -75.613212,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480716995",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-liceo-superior-primeras-luces",
+  "name": "Liceo Superior Primeras Luces",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.624315,
+  "lng": -75.605187,
+  "addr": "",
+  "phone": "+57 313 2228468",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717034",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-escuela-las-palmeras",
+  "name": "Escuela Las Palmeras",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.619911,
+  "lng": -75.591232,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717051",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-otra-sigla-childrens-school",
+  "name": "Otra-Sigla Childrens School",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.636049,
+  "lng": -75.606953,
+  "addr": "",
+  "phone": "+57 317 7280844",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717110",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-corporacion-educ-de-la-amazonia-coramazonia",
+  "name": "Corporación Educ de la Amazonia Coramazonia",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.621583,
+  "lng": -75.60224,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717166",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-colegio-jorge-isaac",
+  "name": "Colegio Jorge Isaac",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.612211,
+  "lng": -75.604128,
+  "addr": "",
+  "phone": "+57 608 4357191",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717249",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-colegio-la-reforma",
+  "name": "Colegio La Reforma",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.611546,
+  "lng": -75.60754,
+  "addr": "",
+  "phone": "+57 608 4353628",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717308",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-otra-sigla-establecimiento-educativo-childrens-school",
+  "name": "Otra-Sigla Establecimiento Educativo Childrens School",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.624029,
+  "lng": -75.608118,
+  "addr": "",
+  "phone": "+57 317 7280844",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717365",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-institucion-excelencia-humana-y-academica",
+  "name": "Institución Excelencia Humana y Academica",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.613989,
+  "lng": -75.613151,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717447",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-institucion-pedag-inf-los-nenitos",
+  "name": "Institución Pedag Inf Los Nenitos",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.608088,
+  "lng": -75.60862,
+  "addr": "",
+  "phone": "+57 608 4357612",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717504",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-institucion-educativa-celestin-freinet",
+  "name": "Institución Educativa Celestin Freinet",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.614221,
+  "lng": -75.617533,
+  "addr": "",
+  "phone": "+57 320 3431318",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717560",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-liceo-pedagogico-escuela-ludica-montessori",
+  "name": "Liceo Pedagogico Escuela Ludica Montessori",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.613218,
+  "lng": -75.60774,
+  "addr": "",
+  "phone": "+57 314 3928386",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717683",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-otra-sigla-jrd-inf-suenos-y-aventuras",
+  "name": "Otra-Sigla Jrd Inf Sueños Y Aventuras",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.610552,
+  "lng": -75.604147,
+  "addr": "",
+  "phone": "+57 310 4834816",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717701",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-colegio-preesc-comfaca",
+  "name": "Colegio Preesc Comfaca",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.598975,
+  "lng": -75.582673,
+  "addr": "",
+  "phone": "+57 608 4357471",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717758",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-ong-escuela-de-capac-petrolera-ecapetrol",
+  "name": "Ong Escuela de Capac Petrolera Ecapetrol",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.614309,
+  "lng": -75.616377,
+  "addr": "",
+  "phone": "+57 608 4352959",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717816",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-centro-educativo-chiquitines-creativos",
+  "name": "Centro Educativo Chiquitines Creativos",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.611866,
+  "lng": -75.609427,
+  "addr": "",
+  "phone": "+57 608 4359655",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717899",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-preesc-francisquito-de-asis",
+  "name": "Preesc Francisquito de Asis",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.609375,
+  "lng": -75.608967,
+  "addr": "",
+  "phone": "+57 608 4356984",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717955",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-otra-sigla-politecnico-nacional-de-artes-y-oficios-ponao",
+  "name": "Otra-Sigla Politecnico Nacional De Artes Y Oficios Ponao",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.619182,
+  "lng": -75.614013,
+  "addr": "",
+  "phone": "+57 314 4601015",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480718012",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-otra-sigla-sky-kid-s-school",
+  "name": "Otra-Sigla Sky Kid´s School",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.624159,
+  "lng": -75.604914,
+  "addr": "",
+  "phone": "+57 317 4185430",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480718135",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-colegio-mi-pequeno-mundo",
+  "name": "Colegio Mi Pequeño Mundo",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.622078,
+  "lng": -75.612836,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480718152",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-fundacion-circulo-de-excelencia-academica-funcea",
+  "name": "Fundacion Círculo De Excelencia Académica Funcea",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.59717,
+  "lng": -75.603248,
+  "addr": "",
+  "phone": "+57 312 3971196",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480718210",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-institucion-pedag-rafael-pombo",
+  "name": "Institución Pedag Rafael Pombo",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.636143,
+  "lng": -75.614235,
+  "addr": "",
+  "phone": "+57 608 4368423",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480718268",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-otra-sigla-predemonte-amazonico-marco-aurelio-chary-yane",
+  "name": "Otra-Sigla Predemonte Amazonico Marco Aurelio Chary Yañe",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.618335,
+  "lng": -75.61087,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480718350",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-corporacion-educ-amigos-inst-jean-piaget",
+  "name": "Corporación Educ Amigos Inst Jean Piaget",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.592658,
+  "lng": -75.569543,
+  "addr": "",
+  "phone": "+57 608 4356671",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480718408",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-jardin-infantil-happy-kids",
+  "name": "Jardín Infantil Happy Kids",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.619192,
+  "lng": -75.605622,
+  "addr": "",
+  "phone": "+57 608 4361791",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480718466",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-preesc-huellitas",
+  "name": "Preesc Huellitas",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.613434,
+  "lng": -75.608205,
+  "addr": "",
+  "phone": "+57 608 4347625",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480718524",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-otra-sigla-jardin-infantil-world-kids",
+  "name": "Otra-Sigla Jardín Infantil World Kids",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.61134,
+  "lng": -75.614112,
+  "addr": "",
+  "phone": "+57 311 5824660",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480718590",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-jardin-infantil-bosque-santana",
+  "name": "Jardín Infantil Bosque Santana",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.613197,
+  "lng": -75.60974,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480718606",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-otra-sigla-establecimiento-educativo-santa-teresista-del",
+  "name": "Otra-Sigla Establecimiento Educativo Santa Teresista Del",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.629927,
+  "lng": -75.593091,
+  "addr": "",
+  "phone": "+57 312 4918912",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480718664",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-instituto-tecnico-industrial-sede-principal",
+  "name": "Instituto Tecnico Industrial (Sede Principal)",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.62429,
+  "lng": -75.610684,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w507336998",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-colegio-domingo-savio",
+  "name": "Colegio Domingo Savio",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.623013,
+  "lng": -75.614405,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w507338548",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-universidad-de-la-amazonia",
+  "name": "Universidad de la Amazonia",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.620267,
+  "lng": -75.604288,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w507438092",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-universidad-de-la-amazonia-sede-centro",
+  "name": "Universidad de la Amazonía (Sede Centro)",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.60712,
+  "lng": -75.606536,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w596579335",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-colegio-ciudadela-siglo-xi",
+  "name": "Colegio Ciudadela Siglo XI",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.621506,
+  "lng": -75.602146,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w624254119",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-instituto-educativo-normal-superior",
+  "name": "Instituto Educativo Normal Superior",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.604376,
+  "lng": -75.593257,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w717951249",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-colegio-comfaca",
+  "name": "Colegio COMFACA",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.595738,
+  "lng": -75.642412,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1286677778",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "florencia-colegio-sagrados-corazones",
+  "name": "Colegio Sagrados Corazones",
+  "city": "Florencia",
+  "country": "Colombia",
+  "lat": 1.612369,
+  "lng": -75.615114,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r9661972",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "berazategui-colegio-secundario-maria-teresa-de-avila",
+  "name": "Colegio Secundario Maria Teresa de Avila",
+  "city": "Berazategui",
+  "country": "Argentina",
+  "lat": -34.82912,
+  "lng": -58.188487,
+  "addr": "Calle 459 939",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n2555501121",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "berazategui-colegio-rio-de-la-plata-sur",
+  "name": "Colegio \"Rio de La Plata Sur\"",
+  "city": "Berazategui",
+  "country": "Argentina",
+  "lat": -34.82448,
+  "lng": -58.184678,
+  "addr": "Calle 63 2042",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n2555512571",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "berazategui-southern-international-school",
+  "name": "Southern International School",
+  "city": "Berazategui",
+  "country": "Argentina",
+  "lat": -34.803249,
+  "lng": -58.164703,
+  "addr": "",
+  "phone": "+54 11 4215-3636",
+  "web": "https://www.intschools.org/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2646215571",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "berazategui-instituto-mariano-moreno",
+  "name": "Instituto mariano moreno",
+  "city": "Berazategui",
+  "country": "Argentina",
+  "lat": -34.798997,
+  "lng": -58.171478,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4823396924",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "berazategui-colegio-nazareth",
+  "name": "Colegio Nazareth",
+  "city": "Berazategui",
+  "country": "Argentina",
+  "lat": -34.715904,
+  "lng": -58.256351,
+  "addr": "Sarmiento",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w546917237",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "berazategui-colegio-mancedo",
+  "name": "Colegio Mancedo",
+  "city": "Berazategui",
+  "country": "Argentina",
+  "lat": -34.718882,
+  "lng": -58.256408,
+  "addr": "",
+  "phone": "",
+  "web": "http://www.midlandscollege.edu.ar/",
+  "email": "",
+  "levels": [
+   "Primaria",
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1003309057",
+  "found": "2026-11-12",
+  "imgTry": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-de-educacion-infantil-y-primaria-pedro-simon-abril",
+  "name": "Colegio de Educación Infantil y Primaria Pedro Simón Abril",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.996741,
+  "lng": -1.872383,
+  "addr": "Calle Hermanos Pinzón 13",
+  "phone": "+34 967 239 616",
+  "web": "https://ceip-pedrosimonabrilalbacete.centros.castillalamancha.es/",
+  "email": "02003764.ceip@educastillalamancha.es",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w114200650",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-de-educacion-infantil-y-primaria-diego-velazquez",
+  "name": "Colegio de Educación Infantil y Primaria Diego Velázquez",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.999579,
+  "lng": -1.863812,
+  "addr": "",
+  "phone": "",
+  "web": "http://ceip-diegovelazquez.centros.castillalamancha.es/",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142018274",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-de-educacion-infantil-y-primaria-jose-maria-peman",
+  "name": "Colegio de Educación Infantil y Primaria José María Pemán",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.994813,
+  "lng": -1.867995,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142018275",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-de-educacion-infantil-y-primaria-san-cristobal",
+  "name": "Colegio de Educación Infantil y Primaria San Cristóbal",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.994193,
+  "lng": -1.867954,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142018277",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-de-educacion-infantil-y-primaria-cristobal-valera",
+  "name": "Colegio de Educación Infantil y Primaria Cristóbal Valera",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.997788,
+  "lng": -1.858646,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142018278",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-concertado-sagrado-corazon",
+  "name": "Colegio Concertado Sagrado Corazón",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.999329,
+  "lng": -1.861832,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142018279",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-cc-colegio-diocesano",
+  "name": "CC Colegio Diocesano",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.990035,
+  "lng": -1.848101,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142028440",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-concertado-azorin",
+  "name": "Colegio Concertado Azorín",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.985663,
+  "lng": -1.864516,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142028441",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-de-educacion-infantil-y-primaria-severo-ochoa",
+  "name": "Colegio de Educación Infantil y Primaria Severo Ochoa",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.987603,
+  "lng": -1.865806,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142028442",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-de-educacion-infantil-y-primaria-cervantes",
+  "name": "Colegio de Educación Infantil y Primaria Cervantes",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.990382,
+  "lng": -1.850465,
+  "addr": "Calle Santa Quiteria 37",
+  "phone": "+34 967 213 313",
+  "web": "https://ceip-cervantesalbacete.centros.castillalamancha.es/",
+  "email": "02000064.ceip@educastillalamancha.es",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142028444",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-de-educacion-infantil-y-primaria-benjamin-palencia",
+  "name": "Colegio de Educación Infantil y Primaria Benjamín Palencia",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.987534,
+  "lng": -1.86804,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142030240",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-escuelas-pias-de-albacete",
+  "name": "Colegio Escuelas Pías de Albacete",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.990478,
+  "lng": -1.855063,
+  "addr": "Calle San José de Calasanz 7",
+  "phone": "",
+  "web": "https://www.escolapiosalbacete.org/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142036456",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-de-educacion-infantil-y-primaria-federico-mayor-zaragoza",
+  "name": "Colegio de Educación Infantil y Primaria Federico Mayor Zaragoza",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.997886,
+  "lng": -1.849449,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142100467",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-de-educacion-infantil-y-primaria-jose-serna",
+  "name": "Colegio de Educación Infantil y Primaria José Serna",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.999482,
+  "lng": -1.849474,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142104526",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-de-educacion-infantil-y-primaria-san-anton",
+  "name": "Colegio de Educación Infantil y Primaria San Antón",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.999407,
+  "lng": -1.852181,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142104527",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-de-educacion-infantil-y-primaria-antonio-machado",
+  "name": "Colegio de Educación Infantil y Primaria Antonio Machado",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.980776,
+  "lng": -1.847932,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142117733",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-de-educacion-infantil-y-primaria-virgen-de-los-llanos",
+  "name": "Colegio de Educación Infantil y Primaria Virgen de los Llanos",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.986825,
+  "lng": -1.849478,
+  "addr": "Calle del Amparo 14",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142117734",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-de-educacion-infantil-y-primaria-principe-felipe",
+  "name": "Colegio de Educación Infantil y Primaria Príncipe Felipe",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.987212,
+  "lng": -1.851441,
+  "addr": "Calle del Amparo 3",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142117741",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-de-educacion-infantil-y-primaria-ana-soto",
+  "name": "Colegio de Educación Infantil y Primaria Ana Soto",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 39.005502,
+  "lng": -1.863513,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w173932804",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-de-educacion-infantil-y-primaria-ilustracion",
+  "name": "Colegio de Educación Infantil y Primaria Ilustración",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 39.007139,
+  "lng": -1.876121,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w262895918",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-de-educacion-infantil-y-primaria-san-pablo",
+  "name": "Colegio de Educación Infantil y Primaria San Pablo",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.99271,
+  "lng": -1.877402,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w283816230",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-colegio-de-educacion-infantil-y-primaria-parque-sur",
+  "name": "Colegio de Educación Infantil y Primaria Parque Sur",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.984947,
+  "lng": -1.855189,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w419853676",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-universidad-de-castilla-la-mancha-campus-de-albacete",
+  "name": "Universidad de Castilla La Mancha Campus de Albacete",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.979184,
+  "lng": -1.85679,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w449340479",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-universidad-de-castilla-la-mancha-campus-biosanitario",
+  "name": "Universidad de Castilla La Mancha Campus Biosanitario",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.982533,
+  "lng": -1.844954,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1022431379",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "albacete-instituto-de-desarrollo-regional",
+  "name": "Instituto de Desarrollo Regional",
+  "city": "Albacete",
+  "country": "España",
+  "lat": 38.977968,
+  "lng": -1.856971,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r6673979",
+  "found": "2026-11-12"
  }
 ]
