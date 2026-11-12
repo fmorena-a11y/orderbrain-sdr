@@ -20351,7 +20351,8 @@
   "src": "osm",
   "osm": "w667775692",
   "found": "2026-11-09",
-  "img": "https://www.unitec.mx/hubfs/01.UNITEC/oferta-academica/campus/losreyes.webp"
+  "img": "https://www.unitec.mx/hubfs/01.UNITEC/oferta-academica/campus/losreyes.webp",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-de-mexico-universidad-insurgentes-plantel-tlalpan",
@@ -21135,7 +21136,8 @@
   "src": "osm",
   "osm": "w875344116",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-de-mexico-universidad-etac",
@@ -23496,7 +23498,8 @@
   "src": "osm",
   "osm": "n906399176",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-colegio-getsemani",
@@ -23632,7 +23635,8 @@
   "src": "osm",
   "osm": "n906399218",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-colegio-saint-arieli",
@@ -25836,7 +25840,9 @@
   "src": "osm",
   "osm": "n906418454",
   "found": "2026-11-09",
-  "img": "https://colonial.cl/wp-content/uploads/2026/07/admision-2027-destacada-wordpress.jpg"
+  "img": "https://colonial.cl/wp-content/uploads/2026/07/admision-2027-destacada-wordpress.jpg",
+  "whatsapp": "+56963141580",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-colegio-particular-nidal",
@@ -27032,7 +27038,8 @@
   "src": "osm",
   "osm": "n906423066",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-colegio-raices-altazor",
@@ -27593,7 +27600,8 @@
   "src": "osm",
   "osm": "n906434932",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-colegio-isabel-la-catolica",
@@ -32456,7 +32464,7 @@
   "addr": "Nuestra Señora del Rosario 850",
   "phone": "+56 2 2424 6100",
   "web": "https://www.dsstgo.cl/",
-  "email": "",
+  "email": "colegio@dsstgo.cl",
   "levels": [],
   "opp": [
    "Bilingüe o internacional"
@@ -32465,7 +32473,8 @@
   "src": "osm",
   "osm": "w31624476",
   "found": "2026-11-09",
-  "img": "https://dsstgo.cl/wp-content/uploads/2024/07/LOGO-WEBSEITE.png"
+  "img": "https://dsstgo.cl/wp-content/uploads/2024/07/LOGO-WEBSEITE.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-colegio-maipo",
@@ -32958,7 +32967,8 @@
   "src": "osm",
   "osm": "w60206720",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-colegio-los-aromos",
@@ -33207,7 +33217,8 @@
   "src": "osm",
   "osm": "w95096934",
   "found": "2026-11-09",
-  "img": "https://colegiolosandes.cl/wp-content/uploads/2024/05/1200x630-los-andes.png"
+  "img": "https://colegiolosandes.cl/wp-content/uploads/2024/05/1200x630-los-andes.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-colegio-the-newland-school",
@@ -35200,7 +35211,8 @@
   "src": "osm",
   "osm": "w180082042",
   "found": "2026-11-09",
-  "img": "https://www.colegiosfjh.cl/wp-content/uploads/sites/7/2026/08/Bienvenido-a-SFJH-1.jpg?w=855"
+  "img": "https://www.colegiosfjh.cl/wp-content/uploads/sites/7/2026/08/Bienvenido-a-SFJH-1.jpg?w=855",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-liceo-tecnico-profesional-la-florida",
@@ -35552,7 +35564,8 @@
   "src": "osm",
   "osm": "w219669395",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-colegio-terraustral",
@@ -36126,7 +36139,8 @@
   "src": "osm",
   "osm": "w248014290",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-liceo-experimental-manuel-de-salas",
@@ -36297,14 +36311,15 @@
   "addr": "Avenida Longitudinal 1081",
   "phone": "+56 2 2744 55 24",
   "web": "http://www.bostoncollege.cl",
-  "email": "",
+  "email": "comunicaciones@cdbostoncollege.cl",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w263488151",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-instituto-tecnologico-san-mateo",
@@ -37193,7 +37208,9 @@
   "src": "osm",
   "osm": "w343774715",
   "found": "2026-11-09",
-  "img": "https://d1yei2z3i6k35z.cloudfront.net/19506125/6ae1eb73d18121.58534300_og-inicio-v3.jpg"
+  "img": "https://d1yei2z3i6k35z.cloudfront.net/19506125/6ae1eb73d18121.58534300_og-inicio-v3.jpg",
+  "whatsapp": "+56975393122",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-colegio-montessori-huelquen",
@@ -37539,7 +37556,7 @@
   "addr": "Avenida Central Cardenal Raúl Silva Henríquez 6234",
   "phone": "22 52 9124 / 22 522 1219 / 22 521 3289",
   "web": "https://www.cemlap.cl",
-  "email": "",
+  "email": "laperez@tomasdeaquino.cl",
   "levels": [],
   "opp": [
    "Privado confirmado en el mapa"
@@ -37548,7 +37565,8 @@
   "src": "osm",
   "osm": "w386003135",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-escuela-particular-miguel-davila",
@@ -38273,7 +38291,8 @@
   "src": "osm",
   "osm": "w446855119",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-colegio-antartica-chilena",
@@ -38533,7 +38552,8 @@
   "src": "osm",
   "osm": "w447057215",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-colegio-waldorf-de-santiago",
@@ -38722,7 +38742,8 @@
   "src": "osm",
   "osm": "w447307458",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-escuela-basica-particular-teresiana-de-san-gabriel",
@@ -39307,7 +39328,8 @@
   "src": "osm",
   "osm": "w449416535",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-colegio-polivalente-francisco-de-villagra",
@@ -40965,7 +40987,8 @@
   "src": "osm",
   "osm": "w543922595",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-colegio-palmares-oriente",
@@ -41027,7 +41050,8 @@
   "src": "osm",
   "osm": "w544174784",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-liceo-barros-arana",
@@ -41066,7 +41090,8 @@
   "src": "osm",
   "osm": "w544657788",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-universidad-finis-terrae",
@@ -41468,7 +41493,8 @@
   "src": "osm",
   "osm": "w563653728",
   "found": "2026-11-09",
-  "img": "https://www.rieljan.cl/wp-content/uploads/2026/05/ESCUDO.svg"
+  "img": "https://www.rieljan.cl/wp-content/uploads/2026/05/ESCUDO.svg",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "santiago-colegio-alborada-de-lampa",
@@ -42733,7 +42759,8 @@
   "src": "osm",
   "osm": "w623665781",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-universidad-catolica-silva-henriquez-campus-lo-canas",
@@ -43402,7 +43429,9 @@
   "src": "osm",
   "osm": "w705756632",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+56933735160",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-instituto-profesional-eatri",
@@ -44153,7 +44182,8 @@
   "src": "osm",
   "osm": "w886502662",
   "found": "2026-11-09",
-  "img": "https://www.marquesdeovando.cl/web/assets/images/logo.jpg"
+  "img": "https://www.marquesdeovando.cl/web/assets/images/logo.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-universidad-tecnologica-metropolitana-2",
@@ -44208,14 +44238,15 @@
   "addr": "Avenida Santa Herminia Poniente 701",
   "phone": "+56 2 2659 7790",
   "web": "https://bostonacademy.cl/",
-  "email": "",
+  "email": "contacto@bostonacademy.cl",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w943411044",
   "found": "2026-11-09",
-  "img": "https://bostonacademy.cl/wp-content/uploads/2021/02/Nueva_IMG_3189.png"
+  "img": "https://bostonacademy.cl/wp-content/uploads/2021/02/Nueva_IMG_3189.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-colegio-san-isaac-jogues",
@@ -44292,7 +44323,8 @@
   "src": "osm",
   "osm": "w969651548",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santiago-liceo-jose-domingo-canas",
@@ -49255,7 +49287,8 @@
   "src": "osm",
   "osm": "n1164350032",
   "found": "2026-11-09",
-  "img": "https://www.colegioesquiu.edu.ar/og.jpg"
+  "img": "https://www.colegioesquiu.edu.ar/og.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-colegio-del-arce",
@@ -49621,7 +49654,8 @@
   "src": "osm",
   "osm": "n1393108199",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-instituto-profesorado-jorge-a-susini",
@@ -49776,7 +49810,8 @@
   "src": "osm",
   "osm": "n1446207933",
   "found": "2026-11-09",
-  "img": "https://iballester.edu.ar/wp-content/uploads/2023/07/IBallester-logo-meta.jpg"
+  "img": "https://iballester.edu.ar/wp-content/uploads/2023/07/IBallester-logo-meta.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-colegio-eccleston",
@@ -50222,7 +50257,8 @@
   "src": "osm",
   "osm": "n2583699944",
   "found": "2026-11-09",
-  "img": "https://www.argentina.gob.ar/sites/default/files/argentina-fb.png"
+  "img": "https://www.argentina.gob.ar/sites/default/files/argentina-fb.png",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "buenos-aires-centro-educativo-arquidiocesano-espiritu-santo",
@@ -50890,7 +50926,8 @@
   "src": "osm",
   "osm": "n3548717981",
   "found": "2026-11-09",
-  "img": "https://static.cdninstagram.com/rsrc.php/v4/yD/r/R0fBIMurK8v.png"
+  "img": "https://static.cdninstagram.com/rsrc.php/v4/yD/r/R0fBIMurK8v.png",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "buenos-aires-instituto-r-p-hansen",
@@ -51135,7 +51172,8 @@
   "src": "osm",
   "osm": "n3737930808",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-instituto-elisa-harilaos",
@@ -51991,7 +52029,8 @@
   "src": "osm",
   "osm": "n4179742689",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-colegio-del-castillo",
@@ -52073,7 +52112,8 @@
   "src": "osm",
   "osm": "n4245400590",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-instituto-modelo-de-banfield",
@@ -52112,7 +52152,9 @@
   "src": "osm",
   "osm": "n4293917791",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+5491138759216",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-instituto-hogar-de-ninos-ramon-l-falcon",
@@ -52749,7 +52791,8 @@
   "src": "osm",
   "osm": "n5113900025",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-centro-educativo-de-nivel-secundario-18",
@@ -53710,7 +53753,8 @@
   "src": "osm",
   "osm": "n5117379848",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-bachillerato-popular-de-jovenes-y-adultos-la-dignidad-villa-crespo",
@@ -54302,7 +54346,9 @@
   "src": "osm",
   "osm": "n5117401498",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+541155774797",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-instituto-naciones-unidas",
@@ -54507,7 +54553,8 @@
   "src": "osm",
   "osm": "n5117401520",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-hogar-san-rafael",
@@ -54559,7 +54606,8 @@
   "src": "osm",
   "osm": "n5117402525",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-centro-de-arte-y-tecnologia",
@@ -56824,7 +56872,8 @@
   "src": "osm",
   "osm": "n5117413140",
   "found": "2026-11-09",
-  "img": "https://www.colegiologosofico.edu.ar/wp-content/uploads/2023/11/logo-land.png"
+  "img": "https://www.colegiologosofico.edu.ar/wp-content/uploads/2023/11/logo-land.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-cambridge-institute",
@@ -57045,7 +57094,8 @@
   "src": "osm",
   "osm": "n5117419989",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-instituto-privado-union-docentes-argentinos",
@@ -57465,7 +57515,7 @@
   "addr": "Tomás Manuel de Anchorena 1266",
   "phone": "+54 11 4822-0687",
   "web": "https://www.aeronauticosapa.org.ar/",
-  "email": "",
+  "email": "info@apaeronauticos.org.ar",
   "levels": [],
   "opp": [
    "Privado confirmado en el mapa"
@@ -57474,7 +57524,9 @@
   "src": "osm",
   "osm": "n5117420481",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+5491122600538",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-instituto-ramon-carrillo",
@@ -58692,7 +58744,8 @@
   "src": "osm",
   "osm": "n5117454469",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "buenos-aires-instituto-megly",
@@ -58766,7 +58819,8 @@
   "src": "osm",
   "osm": "n5117454475",
   "found": "2026-11-09",
-  "img": "https://lasgracias.wordpress.com/wp-content/uploads/2019/12/logo-las-gracias-4.jpg"
+  "img": "https://lasgracias.wordpress.com/wp-content/uploads/2019/12/logo-las-gracias-4.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-nuevos-rumbos",
@@ -60428,7 +60482,8 @@
   "src": "osm",
   "osm": "n5117546525",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-centro-educativo-de-nivel-secundario-45",
@@ -60843,7 +60898,8 @@
   "src": "osm",
   "osm": "n5117565892",
   "found": "2026-11-09",
-  "img": "https://i0.wp.com/romerobrest.edu.ar/wp-content/uploads/2022/03/cropped-logo10-1.jpg?fit=512%2C512&#038;ssl=1"
+  "img": "https://i0.wp.com/romerobrest.edu.ar/wp-content/uploads/2022/03/cropped-logo10-1.jpg?fit=512%2C512&#038;ssl=1",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-centro-educativo-de-nivel-secundario-47",
@@ -61911,7 +61967,9 @@
   "src": "osm",
   "osm": "n5117591958",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+5491138522985",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-centro-educativo-de-nivel-secundario-15",
@@ -62102,7 +62160,8 @@
   "src": "osm",
   "osm": "n5117619829",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-instituto-san-cristobal",
@@ -62499,7 +62558,8 @@
   "src": "osm",
   "osm": "n5192510021",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-instituto-superior-mariano-moreno-2",
@@ -62650,7 +62710,8 @@
   "src": "osm",
   "osm": "n5648684021",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-instituto-gastronomico-internacional-3",
@@ -63240,7 +63301,8 @@
   "src": "osm",
   "osm": "n8931722081",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-colegio-primario-agapito-otero",
@@ -367287,6 +367349,1200 @@
   "private": "probable",
   "src": "osm",
   "osm": "w684895274",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-unidad-educativa-fray-oscar-mamani-mamani",
+  "name": "Unidad Educativa Fray Oscar Mamani Mamani",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.591925,
+  "lng": -65.752502,
+  "addr": "Calle Padilla 15",
+  "phone": "+591 2 6225546",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5225672787",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-unidad-educativa-ricardo-f",
+  "name": "Unidad Educativa Ricardo F.",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.589477,
+  "lng": -65.750582,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5627732522",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-colegio-catolico-particular-santa-maria",
+  "name": "Colegio catolico particular Santa Maria",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.58308,
+  "lng": -65.758417,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n6074504385",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-colegio-mariscal-santa-cruz",
+  "name": "Colegio Mariscal Santa Cruz",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.57231,
+  "lng": -65.756081,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w339599242",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-colegio-jose-david-berrios",
+  "name": "Colegio José David Berrios",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.580405,
+  "lng": -65.762327,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w339613854",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-unidad-educativa-31-de-octubre",
+  "name": "Unidad Educativa 31 de Octubre",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.582685,
+  "lng": -65.759522,
+  "addr": "Avenida Antofagasta",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w342159059",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-unidad-educativa-san-clemente",
+  "name": "Unidad Educativa San Clemente",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.571932,
+  "lng": -65.765411,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w412534660",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-unidad-educativa-san-jose-a",
+  "name": "Unidad Educativa San José A",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.581141,
+  "lng": -65.75646,
+  "addr": "Avenida Arce 588",
+  "phone": "+59126226424 +59126224437",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w444154267",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-unidad-educativa-jose-alonso-de-ibanez-a",
+  "name": "Unidad Educativa José Alonso de Ibañez A",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.587394,
+  "lng": -65.751354,
+  "addr": "Calle Bolivar 997",
+  "phone": "+59126222036 +59126222341",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w444189678",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-unidad-educativa-copacabana-b",
+  "name": "Unidad Educativa Copacabana B",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.592472,
+  "lng": -65.754704,
+  "addr": "Calle Fanola",
+  "phone": "+591 2 6220154",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w445239227",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-unidad-educativa-german-bush",
+  "name": "Unidad Educativa Germán Bush",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.592266,
+  "lng": -65.766982,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w448231059",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-e-u-boliviano-aleman",
+  "name": "E.U. Boliviano Alemán",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.58274,
+  "lng": -65.770502,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w449418289",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-colegio-carlos-medinaceli",
+  "name": "Colegio Carlos Medinaceli",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.581829,
+  "lng": -65.757267,
+  "addr": "Avenida Villazón 281",
+  "phone": "+591 2 6223242",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w450113222",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-unidad-educativa-cristo-maestro",
+  "name": "Unidad Educativa Cristo Maestro",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.582719,
+  "lng": -65.752187,
+  "addr": "Calle Bustillos 659",
+  "phone": "+591 2 6220031",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w450116306",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-universidad-domingo-savio",
+  "name": "Universidad Domingo Savio",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.568875,
+  "lng": -65.764391,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w646395737",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-colegio-luis-espinal",
+  "name": "Colegio Luis Espinal",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.595803,
+  "lng": -65.745483,
+  "addr": "Calle Cañete",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w684628977",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-colegio-santa-rosa-a",
+  "name": "Colegio Santa Rosa A",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.589202,
+  "lng": -65.754819,
+  "addr": "",
+  "phone": "+591 2 6223723",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w735020103",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-colegio-don-bosco",
+  "name": "Colegio Don Bosco",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.585445,
+  "lng": -65.752929,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w758821460",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-colegio-luis-felipe-manzano",
+  "name": "Colegio Luis Felipe Manzano",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.589236,
+  "lng": -65.755535,
+  "addr": "Calle Ayacucho",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w875367174",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-u-e-colegio-tomas-frias",
+  "name": "U.E. Colegio Tomás Frías",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.587989,
+  "lng": -65.752764,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w875394119",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-unidad-educativa",
+  "name": "Unidad Educativa",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.586653,
+  "lng": -65.760261,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1046583996",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-infocal-potosi",
+  "name": "Infocal Potosí",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.589281,
+  "lng": -65.749167,
+  "addr": "Calle Linares",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1086674401",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-instituto-tecnico-superior-potosi",
+  "name": "Instituto Técnico Superior Potosí",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.596677,
+  "lng": -65.752475,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1290047582",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-unidad-educativa-don-bosco",
+  "name": "Unidad Educativa Don Bosco",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.591764,
+  "lng": -65.762143,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1304961813",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "potosi-unidad-educativa-mariscal-antonio-jose-de-sucre",
+  "name": "Unidad Educativa Mariscal Antonio Jose de Sucre",
+  "city": "Potosí",
+  "country": "Bolivia",
+  "lat": -19.573094,
+  "lng": -65.749644,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1373923351",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "elche-universidad-ceu-cardenal-herrera",
+  "name": "Universidad CEU Cardenal Herrera",
+  "city": "Elche",
+  "country": "España",
+  "lat": 38.260076,
+  "lng": -0.701392,
+  "addr": "Plaça Reis Catòlics 19",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6324686650",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "elche-colegio-salesiano-san-rafael",
+  "name": "Colegio Salesiano - San Rafael",
+  "city": "Elche",
+  "country": "España",
+  "lat": 38.262966,
+  "lng": -0.69048,
+  "addr": "",
+  "phone": "",
+  "web": "https://elche.salesianos.edu/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w75377761",
+  "found": "2026-11-12",
+  "img": "https://elche.salesianos.edu/wp-content/uploads/2022/10/logo.png",
+  "webAt": "2026-11-12"
+ },
+ {
+  "id": "elche-colegio-santa-maria-hijas-de-jesus",
+  "name": "Colegio Santa María Hijas de Jesús",
+  "city": "Elche",
+  "country": "España",
+  "lat": 38.266222,
+  "lng": -0.691952,
+  "addr": "",
+  "phone": "",
+  "web": "https://jesuitinaselche.es/",
+  "email": "secretaria@jesuitinaselche.es",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w78312055",
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-12"
+ },
+ {
+  "id": "elche-colegio-la-devesa",
+  "name": "Colegio la Devesa",
+  "city": "Elche",
+  "country": "España",
+  "lat": 38.268978,
+  "lng": -0.672443,
+  "addr": "Carrer Mallorca 6",
+  "phone": "+34 965 45 83 49",
+  "web": "https://www.ladevesaschoolelche.es/",
+  "email": "elche@gruposorolla.es",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w150618094",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "elche-laude-newton-college",
+  "name": "Laude Newton College",
+  "city": "Elche",
+  "country": "España",
+  "lat": 38.273504,
+  "lng": -0.637221,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w160636141",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "elche-colegio-concertado-sagrada-familia",
+  "name": "Colegio Concertado sagrada familia",
+  "city": "Elche",
+  "country": "España",
+  "lat": 38.271072,
+  "lng": -0.713727,
+  "addr": "Carrer Antonio Ramos Carratalá 1",
+  "phone": "",
+  "web": "https://www.sagradafamiliaelche.es/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w190779536",
+  "found": "2026-11-12",
+  "imgTry": "2026-11-12"
+ },
+ {
+  "id": "elche-colegio-san-jose-artesano-salesianos-elche",
+  "name": "Colegio San José Artesano - Salesianos Elche",
+  "city": "Elche",
+  "country": "España",
+  "lat": 38.252418,
+  "lng": -0.713915,
+  "addr": "Avinguda de Don Bosco 14",
+  "phone": "+34 966 63 32 89",
+  "web": "http://www.salesianos.edu/elche/",
+  "email": "elche.sanjoseartesano@salesianos.edu",
+  "levels": [
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w596206152",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "elche-colegio-nuestra-senora-del-carmen",
+  "name": "Colegio Nuestra Señora del Carmen",
+  "city": "Elche",
+  "country": "España",
+  "lat": 38.247261,
+  "lng": -0.718995,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.carmelitaselche.com/wp/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w677037935",
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-12"
+ },
+ {
+  "id": "la-ceiba-mazapan-school",
+  "name": "Mazapan School",
+  "city": "La Ceiba",
+  "country": "Honduras",
+  "lat": 15.784582,
+  "lng": -86.795781,
+  "addr": "6a Calle Beckham Avenue",
+  "phone": "+5042443-2716",
+  "web": "https://mazapanschool.org/",
+  "email": "info@mazapanschool.edu.hn",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13276919843",
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-12"
+ },
+ {
+  "id": "la-ceiba-universidad-catolica-de-honduras-campus-san-isidro",
+  "name": "Universidad Católica de Honduras - Campus San Isidro",
+  "city": "La Ceiba",
+  "country": "Honduras",
+  "lat": 15.766665,
+  "lng": -86.800467,
+  "addr": "Carretera a Tela 13",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w118898745",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "la-ceiba-instituto-manuel-bonilla",
+  "name": "Instituto Manuel Bonilla",
+  "city": "La Ceiba",
+  "country": "Honduras",
+  "lat": 15.768682,
+  "lng": -86.782622,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w118902325",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "la-ceiba-instituto-maria-regina",
+  "name": "Instituto María Regina",
+  "city": "La Ceiba",
+  "country": "Honduras",
+  "lat": 15.78076,
+  "lng": -86.793775,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w118988749",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "la-ceiba-la-ceiba-bilingual-school",
+  "name": "La Ceiba Bilingual School",
+  "city": "La Ceiba",
+  "country": "Honduras",
+  "lat": 15.76532,
+  "lng": -86.785312,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w118991717",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "la-ceiba-universidad-pedagogica-nacional-francisco-morazan-cur-la-ceiba",
+  "name": "Universidad Pedagógica Nacional Francisco Morazán CUR- La Ceiba",
+  "city": "La Ceiba",
+  "country": "Honduras",
+  "lat": 15.751583,
+  "lng": -86.847948,
+  "addr": "Carretera a Tela",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w406981549",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "la-ceiba-instituto-oficial-la-ceiba",
+  "name": "Instituto Oficial La Ceiba",
+  "city": "La Ceiba",
+  "country": "Honduras",
+  "lat": 15.77254,
+  "lng": -86.804547,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w630329523",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "la-ceiba-escuela-e-instituto-jose-trinidad-reyes",
+  "name": "Escuela e Instituto José Trinidad Reyes",
+  "city": "La Ceiba",
+  "country": "Honduras",
+  "lat": 15.758389,
+  "lng": -86.812322,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1193007460",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "la-ceiba-escuela-bilingue-brassavola",
+  "name": "Escuela Bilingüe Brassavola",
+  "city": "La Ceiba",
+  "country": "Honduras",
+  "lat": 15.777287,
+  "lng": -86.766237,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1193046831",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "la-ceiba-escuela-bilingue-santa-teresa",
+  "name": "Escuela Bilingüe Santa Teresa",
+  "city": "La Ceiba",
+  "country": "Honduras",
+  "lat": 15.768456,
+  "lng": -86.753875,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1193063352",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "la-ceiba-escuela-bilingue-palmeras",
+  "name": "Escuela Bilingüe Palmeras",
+  "city": "La Ceiba",
+  "country": "Honduras",
+  "lat": 15.760161,
+  "lng": -86.770109,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1193063362",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "la-ceiba-instituto-claudio-barrera",
+  "name": "Instituto Claudio Barrera",
+  "city": "La Ceiba",
+  "country": "Honduras",
+  "lat": 15.754797,
+  "lng": -86.787147,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1193391944",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "la-ceiba-esther-bilingual-school",
+  "name": "Esther Bilingual School",
+  "city": "La Ceiba",
+  "country": "Honduras",
+  "lat": 15.754204,
+  "lng": -86.834197,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1193420368",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "la-ceiba-new-life-christian-bilingual-school",
+  "name": "New Life Christian Bilingual School",
+  "city": "La Ceiba",
+  "country": "Honduras",
+  "lat": 15.763149,
+  "lng": -86.82113,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1193453436",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "la-ceiba-instituto-tecnico-marco-h-fajardo-itla",
+  "name": "Instituto Técnico Marco H. Fajardo - ITLA",
+  "city": "La Ceiba",
+  "country": "Honduras",
+  "lat": 15.746279,
+  "lng": -86.838691,
+  "addr": "5a Avenida",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1193598174",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "la-ceiba-instituto-departamental-san-isidro",
+  "name": "Instituto Departamental San Isidro",
+  "city": "La Ceiba",
+  "country": "Honduras",
+  "lat": 15.789313,
+  "lng": -86.79181,
+  "addr": "1a Calle",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1198147601",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "la-ceiba-instituto-evangelico-nueva-jerusalen",
+  "name": "Instituto Evangelico Nueva Jerusalen",
+  "city": "La Ceiba",
+  "country": "Honduras",
+  "lat": 15.788441,
+  "lng": -86.793327,
+  "addr": "Avenidad Atlantida",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1243327780",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "huanuco-universidad-cesar-vallejo",
+  "name": "Universidad César Vallejo",
+  "city": "Huánuco",
+  "country": "Perú",
+  "lat": -9.933642,
+  "lng": -76.241866,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5656814425",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "huanuco-colegio-militar",
+  "name": "Colegio Militar",
+  "city": "Huánuco",
+  "country": "Perú",
+  "lat": -9.881162,
+  "lng": -76.216855,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6515661396",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "huanuco-universidad-de-huanuco",
+  "name": "Universidad de Huánuco",
+  "city": "Huánuco",
+  "country": "Perú",
+  "lat": -9.889478,
+  "lng": -76.219969,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w349139066",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "huanuco-colegio-venn-euler",
+  "name": "Colegio Venn Euler",
+  "city": "Huánuco",
+  "country": "Perú",
+  "lat": -9.933602,
+  "lng": -76.245123,
+  "addr": "Pasaje Mayro 153",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w746184181",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "huanuco-colegio-cristiano-internacional-elim",
+  "name": "Colegio Cristiano Internacional Elim",
+  "city": "Huánuco",
+  "country": "Perú",
+  "lat": -9.933686,
+  "lng": -76.245384,
+  "addr": "Pasaje Mayro",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w746184182",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "huanuco-instituto-superior-tecnologico-aparicio-pomares",
+  "name": "Instituto Superior Tecnológico Aparicio Pomares",
+  "city": "Huánuco",
+  "country": "Perú",
+  "lat": -9.921715,
+  "lng": -76.233184,
+  "addr": "Carretera Llicua Baja Km 1.5",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w942420817",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "huanuco-instituto-superior-pedagogico-privado-esteban-pavletich",
+  "name": "Instituto Superior Pedagógico Privado Esteban Pavletich",
+  "city": "Huánuco",
+  "country": "Perú",
+  "lat": -9.924739,
+  "lng": -76.235219,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1062455797",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "huanuco-instituto-superior-privado-fibonacci",
+  "name": "Instituto Superior Privado Fibonacci",
+  "city": "Huánuco",
+  "country": "Perú",
+  "lat": -9.937017,
+  "lng": -76.246505,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1065353205",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "huanuco-institucion-educativa-privada-la-divina-misericordia",
+  "name": "Institución Educativa Privada La Divina Misericordia",
+  "city": "Huánuco",
+  "country": "Perú",
+  "lat": -9.927898,
+  "lng": -76.238595,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1065353223",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "huanuco-instituto-superior-senor-de-burgos",
+  "name": "Instituto Superior Señor de Burgos",
+  "city": "Huánuco",
+  "country": "Perú",
+  "lat": -9.924505,
+  "lng": -76.240609,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1065353225",
   "found": "2026-11-12"
  }
 ]
