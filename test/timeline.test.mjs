@@ -383,6 +383,6 @@ test("timelineFor (demo): registrar desde la llamada vencida de la agenda (la ma
   await sales.dropTimeline(r.id);
   const t = await sales.timelineFor(r.id, { user: me, tz: TZ, me: "Demo" });
   assert.equal(t.total, before + 1);
-  assert.ok(!t.items.some(x => x.id === `a:${pend.id}`)); assert.deepEqual(t.items[0].closed, { label: "Llamada", subject: "", day: "2026-11-10", time: "14:15" });
+  assert.ok(!t.items.some(x => x.id === `a:${pend.id}`)); assert.deepEqual(t.items[0].closed, { label: "Llamada", subject: "", day: pend.due_date, time: "14:15" }); // vencía ayer a las 20:15 UTC = 14:15 en México, el mismo día
   assert.match(t.summary.opening, /me atendió Rosa en recepción: me dijo que la directora Laura Gómez está los martes de 9 a 11\. ¿Me comunicas con Laura Gómez\?$/);
 });

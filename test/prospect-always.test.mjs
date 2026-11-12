@@ -50,6 +50,12 @@ test("clientNow: trato ganado, World Dominion activo o fase activo/onboarding", 
   assert.equal(sales.clientNow({ status: "org", phase: "onboarding" }, {}), true);
   assert.equal(sales.clientNow({ status: "org" }, { status: "org", phase: "activo" }), true);
   assert.equal(sales.clientNow({ status: "lost", phase: "churn" }, { status: "lost" }), false);
+  // ex cliente: no es cliente, pero tampoco se le crea prospecto
+  assert.equal(sales.exClientNow({ status: "lost", phase: "churn" }, { status: "lost" }), true);
+  assert.equal(sales.exClientNow({ status: "churn" }, {}), true);
+  assert.equal(sales.exClientNow({ status: "org", ob: { churn: true } }, {}), true);
+  assert.equal(sales.exClientNow({ status: "org" }, { status: "org", phase: "churn" }), true);
+  assert.equal(sales.exClientNow({ status: "org" }, { status: "org" }), false);
   assert.equal(sales.clientNow({ status: "org" }, { status: "org" }), false);
 });
 
