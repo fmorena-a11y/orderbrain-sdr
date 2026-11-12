@@ -7012,7 +7012,12 @@
   "AR|Berazategui": "2026-11-12T15:21:07.493Z",
   "ES|n30044584": "2026-11-12T15:21:58.354Z",
   "VE|n987588281": "2026-11-12T17:17:32.920Z",
-  "PR|n5020875807": "2026-11-12T17:18:21.304Z"
+  "PR|n5020875807": "2026-11-12T17:18:21.304Z",
+  "VE|n4415299666": "2026-11-12T19:16:37.342Z",
+  "CL|Chillán": "2026-11-12T19:24:07.452Z",
+  "CO|n1729701611": "2026-11-12T19:24:44.863Z",
+  "VE|n427733472": "2026-11-12T19:26:30.856Z",
+  "MX|Miramar": "2026-11-12T19:32:27.282Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7072,6 +7077,55 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-12T19:15:50.862Z",
+   "cities": [
+    {
+     "cc": "VE",
+     "city": "San Fernando de Apure",
+     "found": 11,
+     "updated": 0,
+     "osm": 22
+    },
+    {
+     "cc": "CL",
+     "city": "Chillán",
+     "found": 62,
+     "updated": 1,
+     "osm": 122
+    },
+    {
+     "cc": "CO",
+     "city": "Uribia",
+     "found": 0,
+     "updated": 0,
+     "osm": 39
+    },
+    {
+     "cc": "VE",
+     "city": "Güigüe",
+     "found": 4,
+     "updated": 0,
+     "osm": 26
+    },
+    {
+     "cc": "MX",
+     "city": "Miramar",
+     "found": 3,
+     "updated": 0,
+     "osm": 45
+    }
+   ],
+   "added": 80,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 14,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 18.1,
+   "total": 19151
+  },
   {
    "at": "2026-11-12T17:16:58.797Z",
    "cities": [
@@ -9536,46 +9590,6 @@
    ],
    "minutes": 19.3,
    "total": 3645
-  },
-  {
-   "at": "2026-11-09T23:45:58.438Z",
-   "cities": [
-    {
-     "cc": "PE",
-     "city": "Lima",
-     "found": 555,
-     "updated": 14,
-     "osm": 6170
-    },
-    {
-     "cc": "MX",
-     "city": "Ciudad de México",
-     "found": 531,
-     "updated": 16,
-     "osm": 3330
-    },
-    {
-     "cc": "CL",
-     "city": "Santiago",
-     "found": 1323,
-     "updated": 49,
-     "osm": 3373
-    },
-    {
-     "cc": "AR",
-     "city": "Buenos Aires",
-     "found": 1183,
-     "updated": 59,
-     "osm": 4122
-    }
-   ],
-   "added": 3592,
-   "enriched": 0,
-   "photos": 40,
-   "ai": 0,
-   "errors": [],
-   "minutes": 17.1,
-   "total": 3731
   }
  ]
 }
