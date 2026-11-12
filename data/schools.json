@@ -87990,7 +87990,7 @@
   "addr": "KILOMETRO 7 1/2 VIA A LA COSTA",
   "phone": "(04) 2873387",
   "web": "https://www.upacifico.edu.ec",
-  "email": "",
+  "email": "admisiones@upacifico.edu.ec",
   "levels": [
    "Universidad"
   ],
@@ -88001,7 +88001,9 @@
   "src": "osm",
   "osm": "n4150085052",
   "found": "2026-11-10",
-  "img": "https://upacifico.edu.ec/wp-content/uploads/2025/01/Header-Home_-1.png"
+  "img": "https://upacifico.edu.ec/wp-content/uploads/2025/01/Header-Home_-1.png",
+  "whatsapp": "+593986415703",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guayaquil-universidad-internacional-del-ecuador",
@@ -88013,7 +88015,7 @@
   "addr": "AV. JUAN TANCA MARENGO KM. 2 1/2 Y AV. LAS AGUAS",
   "phone": "(04) 2887200",
   "web": "https://www.uide.edu.ec",
-  "email": "",
+  "email": "admisiones@uide.edu.ec",
   "levels": [
    "Universidad"
   ],
@@ -88025,7 +88027,9 @@
   "src": "osm",
   "osm": "n4150085064",
   "found": "2026-11-10",
-  "img": "https://www.uide.edu.ec/wp-content/uploads/2025/06/logo-uide.webp"
+  "img": "https://www.uide.edu.ec/wp-content/uploads/2025/06/logo-uide.webp",
+  "whatsapp": "+593998319206",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guayaquil-universidad-metropolitana",
@@ -88048,7 +88052,9 @@
   "src": "osm",
   "osm": "n4150085073",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+593989417278",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guayaquil-colegio-integral-tecnologico-sudamericano",
@@ -89065,7 +89071,8 @@
   "src": "osm",
   "osm": "n6694280385",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guayaquil-escuela-de-educacion-basica-particular-la-presentacion",
@@ -89086,7 +89093,8 @@
   "src": "osm",
   "osm": "n8401302972",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guayaquil-consulting-group-ecuador-duran",
@@ -89279,7 +89287,8 @@
   "src": "osm",
   "osm": "n14156207639",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guayaquil-unidad-educativa-ciudad-de-filadelfia",
@@ -89390,7 +89399,7 @@
   "addr": "MALECON Y AGUIRRE - MUSEO NAHIM ISAIAS (EDIFICIO DE LA GOBERNACION DEL GUAYAS)",
   "phone": "(02) 3814550 Ext: 3007 -3008 - 3009",
   "web": "https://www.uartes.edu.ec/",
-  "email": "",
+  "email": "admisiones@uartes.edu.ec",
   "levels": [
    "Universidad"
   ],
@@ -89401,7 +89410,9 @@
   "src": "osm",
   "osm": "w35405075",
   "found": "2026-11-10",
-  "img": "https://www.uartes.edu.ec/sitio/wp-content/uploads/2022/10/2210-FACHADA-UARTES-1536x563.png"
+  "img": "https://www.uartes.edu.ec/sitio/wp-content/uploads/2022/10/2210-FACHADA-UARTES-1536x563.png",
+  "whatsapp": "+593984816319",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guayaquil-colegio-aleman-humboldt",
@@ -90159,7 +90170,9 @@
   "src": "osm",
   "osm": "w427109761",
   "found": "2026-11-10",
-  "img": "https://ecotec.edu.ec/wp-content/uploads/2026/02/banner-sitio-web-ecotec-principal.webp"
+  "img": "https://ecotec.edu.ec/wp-content/uploads/2026/02/banner-sitio-web-ecotec-principal.webp",
+  "whatsapp": "+593989880999",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guayaquil-unidad-educativa-emanuel",
@@ -90379,7 +90392,9 @@
   "src": "osm",
   "osm": "w431224633",
   "found": "2026-11-10",
-  "img": "https://www.uartes.edu.ec/sitio/wp-content/uploads/2022/10/2210-FACHADA-UARTES-1536x563.png"
+  "img": "https://www.uartes.edu.ec/sitio/wp-content/uploads/2022/10/2210-FACHADA-UARTES-1536x563.png",
+  "whatsapp": "+593984816319",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guayaquil-unidad-educativa-vicente-leon",
@@ -90608,7 +90623,8 @@
   "src": "osm",
   "osm": "w432171488",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guayaquil-ue-particular-bilingue-santo-domingo-de-guzman",
@@ -90631,7 +90647,8 @@
   "src": "osm",
   "osm": "w432171867",
   "found": "2026-11-10",
-  "img": "https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-1/507325824_1290049063128123_5407456000833180687_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x2048&ctp=s720x720&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=DgquSAcx0c0Q7kNvwHje8MR&_nc_oc=Adr23WlgxGhpOrm_ZmE3V_CJyZIw0Fo_0_5z5pIg2G5oHXmdDPkVQwKnGx1p3T2J850&_nc_zt=24&_nc_ht=scontent-iad6-1.xx&_nc_gid=PysD59Y8NMg35focOII-rQ&_nc_ss=7c289&oh=00_AQQyd-7dM1_LqNO9qhXwKFf9tBYVVHbyGOWs-J7xvpA6ow&oe=6AF8844B"
+  "img": "https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-1/507325824_1290049063128123_5407456000833180687_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x2048&ctp=s720x720&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=DgquSAcx0c0Q7kNvwHje8MR&_nc_oc=Adr23WlgxGhpOrm_ZmE3V_CJyZIw0Fo_0_5z5pIg2G5oHXmdDPkVQwKnGx1p3T2J850&_nc_zt=24&_nc_ht=scontent-iad6-1.xx&_nc_gid=PysD59Y8NMg35focOII-rQ&_nc_ss=7c289&oh=00_AQQyd-7dM1_LqNO9qhXwKFf9tBYVVHbyGOWs-J7xvpA6ow&oe=6AF8844B",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guayaquil-unidad-educativa-sagrada-familia",
@@ -91529,7 +91546,9 @@
   "src": "osm",
   "osm": "w1099982763",
   "found": "2026-11-10",
-  "img": "https://www.uteg.edu.ec/wp-content/uploads/2024/03/Logo-UTEG-2019-en-vertical4.png"
+  "img": "https://www.uteg.edu.ec/wp-content/uploads/2024/03/Logo-UTEG-2019-en-vertical4.png",
+  "whatsapp": "+593964290400",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guayaquil-colegio-gral-george-smith-patton",
@@ -94324,7 +94343,9 @@
   "src": "osm",
   "osm": "n4150085071",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+593989417278",
+  "webAt": "2026-11-12"
  },
  {
   "id": "quito-universidad-particular-internacional-sek-ecuador",
@@ -94336,7 +94357,7 @@
   "addr": "ALBERTO EINSTEIN S/N Y QUINTA TRANSVERSAL CARCELEN",
   "phone": "(02) 3974800",
   "web": "https://www.uisek.edu.ec",
-  "email": "",
+  "email": "admisiones@uisek.edu.ec",
   "levels": [
    "Universidad"
   ],
@@ -94349,7 +94370,9 @@
   "src": "osm",
   "osm": "n4150085086",
   "found": "2026-11-10",
-  "img": "https://uisek.edu.ec/wp-content/uploads/2022/01/LETRAS_UISEK-02.png"
+  "img": "https://uisek.edu.ec/wp-content/uploads/2022/01/LETRAS_UISEK-02.png",
+  "whatsapp": "+593998369476",
+  "webAt": "2026-11-12"
  },
  {
   "id": "quito-universidad-tecnologica-israel",
@@ -94660,7 +94683,9 @@
   "src": "osm",
   "osm": "n4337608591",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+593969399776",
+  "webAt": "2026-11-12"
  },
  {
   "id": "quito-colegio-carlos-zambrano",
@@ -95211,7 +95236,8 @@
   "src": "osm",
   "osm": "n4747109623",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "quito-instituto-lendan",
@@ -95360,7 +95386,8 @@
   "src": "osm",
   "osm": "n5040126124",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "quito-liceo-ortega-gasset",
@@ -95454,7 +95481,8 @@
   "src": "osm",
   "osm": "n5294606221",
   "found": "2026-11-10",
-  "img": "https://static.wixstatic.com/media/0d75ba_b6e60d56dcd44b20ad6ddbb9cb4fb56d%7Emv2.png/v1/fit/w_2500,h_1330,al_c/0d75ba_b6e60d56dcd44b20ad6ddbb9cb4fb56d%7Emv2.png"
+  "img": "https://static.wixstatic.com/media/0d75ba_b6e60d56dcd44b20ad6ddbb9cb4fb56d%7Emv2.png/v1/fit/w_2500,h_1330,al_c/0d75ba_b6e60d56dcd44b20ad6ddbb9cb4fb56d%7Emv2.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "quito-unidad-educativa-manuela-espejo",
@@ -97159,7 +97187,8 @@
   "src": "osm",
   "osm": "w161111197",
   "found": "2026-11-10",
-  "img": "https://ute.edu.ec/wp-content/uploads/2022/10/logo-ute-wp.png"
+  "img": "https://ute.edu.ec/wp-content/uploads/2022/10/logo-ute-wp.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "quito-unidad-educativa-abdon-calderon",
@@ -97946,7 +97975,9 @@
   "src": "osm",
   "osm": "w424180685",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+593989417278",
+  "webAt": "2026-11-12"
  },
  {
   "id": "quito-unidad-educativa-alvernia",
@@ -99586,7 +99617,7 @@
   "addr": "EL CALVARIO S/N YFRANCISCO COMPTE GUAPULO",
   "phone": "(02) 2223688",
   "web": "https://www.uisek.edu.ec",
-  "email": "",
+  "email": "admisiones@uisek.edu.ec",
   "levels": [
    "Universidad"
   ],
@@ -99599,7 +99630,9 @@
   "src": "osm",
   "osm": "w953674599",
   "found": "2026-11-10",
-  "img": "https://uisek.edu.ec/wp-content/uploads/2022/01/LETRAS_UISEK-02.png"
+  "img": "https://uisek.edu.ec/wp-content/uploads/2022/01/LETRAS_UISEK-02.png",
+  "whatsapp": "+593998369476",
+  "webAt": "2026-11-12"
  },
  {
   "id": "quito-universidad-del-pacifico",
@@ -99712,7 +99745,8 @@
   "src": "osm",
   "osm": "w980585650",
   "found": "2026-11-10",
-  "img": "https://www.colegiohbs.com/wp-content/uploads/2023/10/2B75D6CF-D26A-4B55-94E8-7DCB1C3FF06E-scaled-e1696448050670.jpeg"
+  "img": "https://www.colegiohbs.com/wp-content/uploads/2023/10/2B75D6CF-D26A-4B55-94E8-7DCB1C3FF06E-scaled-e1696448050670.jpeg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "quito-unidad-educativa-joaquin-sanchez-de-orellana",
@@ -100078,7 +100112,7 @@
   "addr": "PASEO DE LA UNIVERSIDAD 300 Y JUAN DIAZ",
   "phone": "(02) 3828670",
   "web": "https://www.uhemisferios.edu.ec",
-  "email": "",
+  "email": "admisiones@uhemisferios.edu.ec",
   "levels": [
    "Universidad"
   ],
@@ -100089,7 +100123,9 @@
   "src": "osm",
   "osm": "w1100806608",
   "found": "2026-11-10",
-  "img": "https://www.uhemisferios.edu.ec/excellence/uhe-bg-excellence.jpg"
+  "img": "https://www.uhemisferios.edu.ec/excellence/uhe-bg-excellence.jpg",
+  "whatsapp": "+593987283746",
+  "webAt": "2026-11-12"
  },
  {
   "id": "quito-unidad-educativa-joseph-flanagan",
@@ -101076,7 +101112,8 @@
   "src": "osm",
   "osm": "n3818204202",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-de-guatemala-colegio-apde-el-roble",
@@ -101119,7 +101156,9 @@
   "src": "osm",
   "osm": "n3840132875",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+50258598109",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-de-guatemala-colegio-la-colina",
@@ -101320,7 +101359,9 @@
   "src": "osm",
   "osm": "n4283831689",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+50232678279",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-de-guatemala-colegio-efa-excelecia-formativa-agape",
@@ -101617,7 +101658,8 @@
   "src": "osm",
   "osm": "n6789340300",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-de-guatemala-iger-instituto-guatemalteco-de-educacion-radifonica",
@@ -101636,7 +101678,8 @@
   "src": "osm",
   "osm": "n7099197277",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-de-guatemala-colegio-la-preparatoria",
@@ -102100,7 +102143,9 @@
   "src": "osm",
   "osm": "n13093179901",
   "found": "2026-11-10",
-  "img": "https://central.universidaddeoccidente.org/wp-content/uploads/2024/08/famele-student-ago2024-1.webp"
+  "img": "https://central.universidaddeoccidente.org/wp-content/uploads/2024/08/famele-student-ago2024-1.webp",
+  "whatsapp": "+50243867982",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-de-guatemala-universidad-de-san-carlos-de-guatemala",
@@ -102440,7 +102485,8 @@
   "src": "osm",
   "osm": "w194973087",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-de-guatemala-colegio-aleman-de-guatemala",
@@ -104669,7 +104715,9 @@
   "src": "osm",
   "osm": "w718444133",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+50230130531",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-de-guatemala-colegio-valverde-infantil",
@@ -104691,7 +104739,8 @@
   "src": "osm",
   "osm": "w730253409",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-de-guatemala-colegio-valverde-carreras-tecnicas",
@@ -104713,7 +104762,8 @@
   "src": "osm",
   "osm": "w730255531",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-de-guatemala-colegio-parroquial-francisco-garcia-pelaez",
@@ -106174,7 +106224,7 @@
   "addr": "",
   "phone": "+57 604 3360210",
   "web": "https://www.colegiomanuelmejiavallejo.edu.co/",
-  "email": "",
+  "email": "comunicaciones@colegiomanuelmejiavallejo.edu.co",
   "levels": [],
   "opp": [
    "Privado confirmado en el mapa"
@@ -106183,7 +106233,9 @@
   "src": "osm",
   "osm": "n12487353352",
   "found": "2026-11-10",
-  "img": "https://static.wixstatic.com/media/672123_54d20b59db67482e9272a6e18cf8c464%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/672123_54d20b59db67482e9272a6e18cf8c464%7Emv2.jpg"
+  "img": "https://static.wixstatic.com/media/672123_54d20b59db67482e9272a6e18cf8c464%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/672123_54d20b59db67482e9272a6e18cf8c464%7Emv2.jpg",
+  "whatsapp": "+573045226483",
+  "webAt": "2026-11-12"
  },
  {
   "id": "medellin-colegio-didascalio-hna-josefina-serrano",
@@ -115778,7 +115830,8 @@
   "src": "osm",
   "osm": "w142226953",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "medellin-liceo-marco-fidel-suarez",
@@ -116200,14 +116253,15 @@
   "addr": "Carrera 20 20A Sur - 55",
   "phone": "+57 604 3171400",
   "web": "https://www.montessori.edu.co/",
-  "email": "",
+  "email": "infosedemedellin@montessori.edu.co",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w302960616",
   "found": "2026-11-10",
-  "img": "https://montessori.edu.co/hubfs/Imported_Blog_Media/64337ffeaae67237594d79a8ceda7ce6-Nov-30-2023-01-13-31-9611-PM.jpg"
+  "img": "https://montessori.edu.co/hubfs/Imported_Blog_Media/64337ffeaae67237594d79a8ceda7ce6-Nov-30-2023-01-13-31-9611-PM.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "medellin-colegio-san-juan-bosco",
@@ -116409,14 +116463,16 @@
   "addr": "Carrera 16 12 Sur - 28",
   "phone": "+57 604 4441347",
   "web": "https://colegiomanzanares.edu.co/",
-  "email": "",
+  "email": "info@colegiomanzanares.edu.co",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w374039850",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+573052302756",
+  "webAt": "2026-11-12"
  },
  {
   "id": "medellin-colegio-la-presentacion",
@@ -117032,7 +117088,8 @@
   "src": "osm",
   "osm": "w724133665",
   "found": "2026-11-10",
-  "img": "https://vermontmedellin.edu.co/wp-content/uploads/sites/35/2026/08/WhatsApp_Image_2026-07-29_at_9.47.19_AM-removebg-preview.png?w=407"
+  "img": "https://vermontmedellin.edu.co/wp-content/uploads/sites/35/2026/08/WhatsApp_Image_2026-07-29_at_9.47.19_AM-removebg-preview.png?w=407",
+  "webAt": "2026-11-12"
  },
  {
   "id": "medellin-colegio-san-jose-de-las-vegas",
@@ -117612,7 +117669,8 @@
   "src": "osm",
   "osm": "w1308391171",
   "found": "2026-11-10",
-  "img": "https://www.unilasallista.edu.co/wp-content/uploads/2024/06/Recurso-1.webp"
+  "img": "https://www.unilasallista.edu.co/wp-content/uploads/2024/06/Recurso-1.webp",
+  "webAt": "2026-11-12"
  },
  {
   "id": "medellin-colegio-tercer-milenio",
@@ -117638,7 +117696,8 @@
   "src": "osm",
   "osm": "w1308391172",
   "found": "2026-11-10",
-  "img": "https://colegiotercermilenio.wordpress.com/wp-content/uploads/2026/03/cropped-ctm-circulo-1.png?w=200"
+  "img": "https://colegiotercermilenio.wordpress.com/wp-content/uploads/2026/03/cropped-ctm-circulo-1.png?w=200",
+  "webAt": "2026-11-12"
  },
  {
   "id": "medellin-centro-educativo-la-hondita",
@@ -117933,7 +117992,8 @@
   "src": "osm",
   "osm": "r17863554",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "medellin-universidad-ces",
@@ -118840,7 +118900,9 @@
   "src": "osm",
   "osm": "n2470362869",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+584241578708",
+  "webAt": "2026-11-12"
  },
  {
   "id": "caracas-u-e-colegio-el-alba",
@@ -119796,7 +119858,9 @@
   "src": "osm",
   "osm": "n12079426264",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+584123082764",
+  "webAt": "2026-11-12"
  },
  {
   "id": "caracas-instituto-universitario-nuevas-profesiones",
@@ -120198,7 +120262,8 @@
   "src": "osm",
   "osm": "w216513789",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "caracas-colegio-jose-antonio-gonzalez",
@@ -120872,7 +120937,9 @@
   "src": "osm",
   "osm": "w238088528",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+584142278918",
+  "webAt": "2026-11-12"
  },
  {
   "id": "caracas-colegio-universitario-de-caracas",
@@ -120991,7 +121058,8 @@
   "src": "osm",
   "osm": "w242638641",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "caracas-colegio-don-bosco",
@@ -121800,7 +121868,8 @@
   "src": "osm",
   "osm": "w297121679",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "caracas-colegio-la-concepcion",
@@ -122445,14 +122514,15 @@
   "addr": "Carretera El Placer - El Hatillo",
   "phone": "+582124952751",
   "web": "https://www.colegiokavak.com/",
-  "email": "",
+  "email": "info@colegiokavak.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w426169960",
   "found": "2026-11-10",
-  "img": "https://static.wixstatic.com/media/9ae0ea_bff5984e9b86435a85a7cc4dfbe4c6dd~mv2_d_3648_2736_s_4_2.jpg/v1/fill/w_2500,h_1875,al_c/9ae0ea_bff5984e9b86435a85a7cc4dfbe4c6dd~mv2_d_3648_2736_s_4_2.jpg"
+  "img": "https://static.wixstatic.com/media/9ae0ea_bff5984e9b86435a85a7cc4dfbe4c6dd~mv2_d_3648_2736_s_4_2.jpg/v1/fill/w_2500,h_1875,al_c/9ae0ea_bff5984e9b86435a85a7cc4dfbe4c6dd~mv2_d_3648_2736_s_4_2.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "caracas-liceo-parroquial-nuestra-senora-del-rosario",
@@ -123045,7 +123115,8 @@
   "src": "osm",
   "osm": "w926471631",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "caracas-colegio-san-martin",
@@ -123270,7 +123341,8 @@
   "src": "osm",
   "osm": "w1003492137",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "caracas-u-e-colegio-francisco-de-miranda",
@@ -123429,7 +123501,8 @@
   "src": "osm",
   "osm": "w1191918269",
   "found": "2026-11-10",
-  "img": "https://static.wixstatic.com/media/8301e2_55e7ea6557a74233bcffa776ab2e3209%7Emv2.png/v1/fit/w_2500,h_1330,al_c/8301e2_55e7ea6557a74233bcffa776ab2e3209%7Emv2.png"
+  "img": "https://static.wixstatic.com/media/8301e2_55e7ea6557a74233bcffa776ab2e3209%7Emv2.png/v1/fit/w_2500,h_1330,al_c/8301e2_55e7ea6557a74233bcffa776ab2e3209%7Emv2.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "caracas-unidad-educativa-inicial-aeropuerto-simon-bolivar",
@@ -123795,7 +123868,7 @@
   "addr": "Prolongación Avda. El Estanque, Urb. Ávila, Norte del Country Club. Caracas",
   "phone": "+58 212 7311195",
   "web": "https://www.humboldtcaracas.com/",
-  "email": "",
+  "email": "info@chcaracas.com",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -123804,7 +123877,9 @@
   "src": "osm",
   "osm": "r10705502",
   "found": "2026-11-10",
-  "img": "https://humboldtcaracas.com/wp-content/uploads/2025/09/Sr.-Embajador-de-Alemania-en-Venezuela-1-e1758812503293.png"
+  "img": "https://humboldtcaracas.com/wp-content/uploads/2025/09/Sr.-Embajador-de-Alemania-en-Venezuela-1-e1758812503293.png",
+  "whatsapp": "+584242089637",
+  "webAt": "2026-11-12"
  },
  {
   "id": "caracas-universidad-simon-bolivar",
@@ -123848,7 +123923,8 @@
   "src": "osm",
   "osm": "r13436434",
   "found": "2026-11-10",
-  "img": "https://www.arcadat.com/logos/li132717909B59EB9AD2BF6B.jpg"
+  "img": "https://www.arcadat.com/logos/li132717909B59EB9AD2BF6B.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "caracas-colegio-santo-tomas-de-aquino",
@@ -128266,7 +128342,7 @@
   "addr": "Avenida 10 de Mayo",
   "phone": "+57 6026847200",
   "web": "https://usbcali.edu.co/",
-  "email": "",
+  "email": "informacion@usbcali.edu.co",
   "levels": [
    "Universidad"
   ],
@@ -128278,7 +128354,8 @@
   "src": "osm",
   "osm": "w1189205237",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "cali-colegio-santa-isabel-de-hungria-calimio-norte",
@@ -128361,7 +128438,8 @@
   "src": "osm",
   "osm": "r6058310",
   "found": "2026-11-10",
-  "img": "https://www.usc.edu.co/wp-content/uploads/2026/08/banner-web-clases-scaled.webp"
+  "img": "https://www.usc.edu.co/wp-content/uploads/2026/08/banner-web-clases-scaled.webp",
+  "webAt": "2026-11-12"
  },
  {
   "id": "cali-universidad-del-valle-sede-san-fernando",
@@ -128373,7 +128451,7 @@
   "addr": "CL 4B # 36 - 00",
   "phone": "3212100",
   "web": "https://www.univalle.edu.co/",
-  "email": "",
+  "email": "quejasyreclamos@correounivalle.edu.co",
   "levels": [
    "Universidad"
   ],
@@ -128385,7 +128463,8 @@
   "src": "osm",
   "osm": "r6073631",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "cali-universidad-del-valle-sede-melendez",
@@ -128640,7 +128719,8 @@
   "src": "osm",
   "osm": "r6656668",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "cali-bennett-school",
@@ -128979,7 +129059,8 @@
   "src": "osm",
   "osm": "r8711333",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "cali-colegio-berchmans-compania-de-jesus",
@@ -129401,7 +129482,9 @@
   "src": "osm",
   "osm": "r21254120",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+573504230799",
+  "webAt": "2026-11-12"
  },
  {
   "id": "cali-colegio-americas-unidas",
@@ -376893,6 +376976,237 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1022748642",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "jiutepec-kinder",
+  "name": "Kinder",
+  "city": "Jiutepec",
+  "country": "México",
+  "lat": 18.893504,
+  "lng": -99.1269,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w544737671",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "jiutepec-universidad-tecnologica-de-emiliano-zapata-utez",
+  "name": "Universidad Tecnológica de Emiliano Zapata (UTEZ)",
+  "city": "Jiutepec",
+  "country": "México",
+  "lat": 18.851295,
+  "lng": -99.201065,
+  "addr": "Av Universidad Tecnológica 1, Universidad",
+  "phone": "+5217771944851",
+  "web": "https://www.utez.edu.mx/",
+  "email": "prensa@utez.edu.mx",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w641416328",
+  "found": "2026-11-12",
+  "img": "",
+  "whatsapp": "+5217771944851",
+  "webAt": "2026-11-12"
+ },
+ {
+  "id": "jiutepec-universidad-del-valle-de-mexico-campus-cuernavaca",
+  "name": "Universidad del Valle de México - Campus Cuernavaca",
+  "city": "Jiutepec",
+  "country": "México",
+  "lat": 18.832887,
+  "lng": -99.216268,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w661343439",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "jiutepec-colegio-monte-alban",
+  "name": "Colegio Monte Albán",
+  "city": "Jiutepec",
+  "country": "México",
+  "lat": 18.8899,
+  "lng": -99.125269,
+  "addr": "",
+  "phone": "+527773231418",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w810644619",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "jiutepec-colegio-bilingue-britanico-de-morelos",
+  "name": "Colegio Bilingüe Británico de Morelos",
+  "city": "Jiutepec",
+  "country": "México",
+  "lat": 18.837341,
+  "lng": -99.22602,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w837496729",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "jiutepec-instituto-de-energias-renovables",
+  "name": "Instituto de Energias Renovables",
+  "city": "Jiutepec",
+  "country": "México",
+  "lat": 18.839707,
+  "lng": -99.235959,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1029179116",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "jiutepec-instituto-mexicano-de-tecnologia-del-agua",
+  "name": "Instituto Mexicano de Tecnología del Agua",
+  "city": "Jiutepec",
+  "country": "México",
+  "lat": 18.881854,
+  "lng": -99.158908,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1215690770",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "piedras-negras-instituto-martin-luther-king",
+  "name": "Instituto Martin Luther King",
+  "city": "Piedras Negras",
+  "country": "México",
+  "lat": 28.681864,
+  "lng": -100.556214,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1488195672",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "piedras-negras-universidad-vizcaya-de-las-americas",
+  "name": "Universidad Vizcaya de las Américas",
+  "city": "Piedras Negras",
+  "country": "México",
+  "lat": 28.685838,
+  "lng": -100.557352,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1491016829",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "piedras-negras-universidad-pedagogica-nacional",
+  "name": "Universidad pedagógica nacional",
+  "city": "Piedras Negras",
+  "country": "México",
+  "lat": 28.691715,
+  "lng": -100.568306,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1491017231",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "piedras-negras-colegio-mexico",
+  "name": "Colegio México",
+  "city": "Piedras Negras",
+  "country": "México",
+  "lat": 28.699014,
+  "lng": -100.532236,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1491019740",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "piedras-negras-instituto-cumbres-y-alpes-piedras-negras",
+  "name": "Instituto Cumbres y Alpes Piedras Negras",
+  "city": "Piedras Negras",
+  "country": "México",
+  "lat": 28.690301,
+  "lng": -100.578858,
+  "addr": "Av. Fidel Villareal",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w593155747",
   "found": "2026-11-12"
  }
 ]

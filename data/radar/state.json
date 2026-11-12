@@ -6996,7 +6996,9 @@
   "MX|Poza Rica": "2026-11-12T05:33:58.471Z",
   "MX|San Juan del Río": "2026-11-12T07:40:45.409Z",
   "PE|Tarapoto": "2026-11-12T07:51:51.932Z",
-  "MX|Chalco de Díaz Covarrubias": "2026-11-12T07:52:17.709Z"
+  "MX|Chalco de Díaz Covarrubias": "2026-11-12T07:52:17.709Z",
+  "MX|Jiutepec": "2026-11-12T09:19:31.584Z",
+  "MX|Piedras Negras": "2026-11-12T09:31:59.084Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7046,6 +7048,34 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-12T09:18:53.583Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Jiutepec",
+     "found": 7,
+     "updated": 0,
+     "osm": 84
+    },
+    {
+     "cc": "MX",
+     "city": "Piedras Negras",
+     "found": 5,
+     "updated": 0,
+     "osm": 15
+    }
+   ],
+   "added": 12,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 29,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 15.3,
+   "total": 18640
+  },
   {
    "at": "2026-11-12T07:40:10.795Z",
    "cities": [
