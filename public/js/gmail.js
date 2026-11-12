@@ -66,11 +66,12 @@ export function gmailReturn() {
 }
 // La firma ya viene saneada del servidor (solo etiquetas básicas, links e imágenes https): se muestra como va a salir.
 export const sigPreview = html => html ? `<div class="sig-prev" aria-label="Vista previa de la firma">${html}</div>` : "";
-export const sigLabel = g => g.signatureSource === "perfil" ? "Se agrega la firma de tu perfil" : g.signatureSource === "gmail" ? "Se agrega tu firma de Gmail" : "";
+export const sigLabel = g => g.signatureSource === "perfil" || g.signatureSource === "pegada" ? "Se agrega la firma que pegaste" : g.signatureSource === "armada" ? "Se agrega tu firma (armada con tu perfil)" : g.signatureSource === "gmail" ? "Se agrega tu firma de Gmail" : "";
 
 // Sección «Mail» del perfil: estado de Gmail y firma (la que usás en Pipedrive, si querés que mande sobre la de Gmail).
 // La firma y desconectar solo con Gmail confirmado en esta sesión (el servidor lo exige igual).
-export function gmailProfileHtml(g) {
+// signature: false cuando la firma se elige en «Tu firma» (public/js/pdmail.js), para Pipedrive y Gmail a la vez.
+export function gmailProfileHtml(g, { signature = true } = {}) {
   if (!g) return `<p class="faint" style="margin:0">Cargando…</p>`;
   if (!g.enabled) return `<p class="muted" style="margin:0;font-size:13.5px">Para enviar mails desde la app falta configurar Gmail (lo hace el administrador).</p>`;
   if (g.config) return `<p class="muted" style="margin:0;font-size:13.5px">Gmail está mal configurado en el servidor (avisale al administrador).</p>`;
@@ -79,7 +80,7 @@ export function gmailProfileHtml(g) {
       ? `<span>${icon("checkCircle", "sm")} Gmail conectado como <b>${esc(g.email)}</b>${g.demo ? " (simulado)" : ""}</span><button type="button" class="linkbtn" id="gmOff">Desconectar</button>`
       : g.connected ? `<span class="muted">Tu Gmail (${esc(g.email)}) está conectado. En este dispositivo confirmalo una vez.</span><button type="button" class="btn sm" id="gmOn">${icon("mail", "sm")} Confirmar Gmail</button>`
       : `<span class="muted">${g.expired ? "Tu conexión con Gmail venció." : "Conectalo una vez y mandás mails desde la ficha, con tu firma."}</span><button type="button" class="btn sm" id="gmOn">${icon("mail", "sm")} Conectar Gmail</button>`}</div>
-    ${ready ? `<details class="gm-sig"${g.custom ? " open" : ""}><summary>Firma de los mails · <span class="faint">${esc(g.custom ? "la de tu perfil" : g.signatureSource === "gmail" ? "la de tu Gmail" : "tu Gmail no tiene firma")}</span></summary>
+    ${!signature ? "" : ready ? `<details class="gm-sig"${g.custom ? " open" : ""}><summary>Firma de los mails · <span class="faint">${esc(g.custom ? "la de tu perfil" : g.signatureSource === "gmail" ? "la de tu Gmail" : "tu Gmail no tiene firma")}</span></summary>
       ${sigPreview(g.signature)}
       <label class="field" style="margin-top:8px"><span>Pegá la misma firma que usás en Pipedrive <span class="faint">texto o HTML · manda sobre la de Gmail</span></span>
         <textarea class="inp" id="gmSig" rows="4" placeholder="Juan Pérez · SDR · OrderEAT&#10;+52 55 1234 5678 · ordereat.com">${esc(g.custom || "")}</textarea></label>
