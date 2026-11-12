@@ -8,7 +8,8 @@ import { renderRadar } from "./radar.js";
 import { renderMetrics } from "./metrics.js";
 import { openSchool, closeSchool, drawerOpen, startSession } from "./school.js";
 import { openAssistant, closeAssistant } from "./chat.js";
-import { loadGmail, gmailReturn, gmailProfileHtml, bindGmailProfile } from "./gmail.js";
+import { loadGmail, gmailReturn } from "./gmail.js";
+import { loadPdMail, mailProfileHtml, bindMailProfile, resetSigMode } from "./pdmail.js";
 import { pdSearcher, pdFlat, pdTitle, pdLinesHtml, pdBadge, pdCount, pdNameHit, openPd, isPhoneQ, isMailQ, PD_MIN } from "./pdsearch.js";
 
 const VIEWS = {
@@ -33,7 +34,7 @@ async function start() {
     // la primera vez: nombre completo y rol en el equipo (se usa en saludos, firmas y en Equipo)
     if (!me.profile?.complete) profileDialog({ required: true });
     gmailReturn(); // volviste de conectar Gmail (sin ventana aparte)
-    loadGmail();
+    loadGmail(); loadPdMail();
   } catch { showLogin(); }
 }
 async function showLogin() {
@@ -144,7 +145,7 @@ function profileDialog({ required = false } = {}) {
     <form id="pfF" class="stack" style="gap:14px">
       <label class="field"><span>Nombre y apellido</span><input class="inp" id="pfName" value="${esc(name)}" autocomplete="name" placeholder="Ej: Javiera Tejos" required></label>
       <div class="field"><span>Rol en el equipo</span>${leader ? `<p class="muted" style="margin:0"><b>${esc(S.me.roleLabel || acc.label || "Líder")}</b> · ${esc(accWhy)}</p>` : `<div class="seg" role="radiogroup" aria-label="Rol en el equipo">${Object.entries(roles).map(([k, l]) => `<button type="button" role="radio" data-role="${k}" aria-checked="${cur === k}" aria-pressed="${cur === k}">${esc(l)}</button>`).join("")}</div>`}${teamTxt ? `<small class="faint">${esc(teamTxt)}</small>` : ""}</div>
-      ${required ? "" : `<div class="field"><span>Mail desde la app</span><div class="gm-box" id="pfGmail">${gmailProfileHtml(S.gmail)}</div></div>`}
+      ${required ? "" : `<div class="field"><span>Mail desde la app</span><div class="gm-box" id="pfMail">${mailProfileHtml(S.pdmail, S.gmail)}</div></div>`}
       <p class="err" id="pfErr" role="alert" style="margin:0;color:var(--err)"></p>
       <button class="btn primary block" id="pfGo">Guardar</button>
       ${required ? `<button type="button" class="btn ghost block" id="pfOut">Salir</button>` : ""}
@@ -152,10 +153,10 @@ function profileDialog({ required = false } = {}) {
   let role = cur;
   m.querySelectorAll("[data-role]").forEach(b => b.onclick = () => { role = b.dataset.role; m.querySelectorAll("[data-role]").forEach(x => { const on = x === b; x.setAttribute("aria-pressed", on); x.setAttribute("aria-checked", on); }); });
   m.querySelector("#pfX")?.addEventListener("click", () => m.close());
-  // Gmail: conectado como…, desconectar y la firma (la del perfil manda sobre la de Gmail)
-  const gbox = m.querySelector("#pfGmail");
-  const gdraw = () => { if (!gbox?.isConnected) return; gbox.innerHTML = gmailProfileHtml(S.gmail); bindGmailProfile(gbox, gdraw); };
-  if (gbox) { gdraw(); loadGmail(true).then(gdraw); }
+  // Mail: Pipedrive conectado como…, «Tu firma» (armada con el perfil o la de Pipedrive pegada) y Gmail como otra opción
+  const gbox = m.querySelector("#pfMail");
+  const gdraw = () => { if (!gbox?.isConnected) return; const open = gbox.querySelector("#pfSig")?.open; gbox.innerHTML = mailProfileHtml(S.pdmail, S.gmail); if (open) gbox.querySelector("#pfSig")?.setAttribute("open", ""); bindMailProfile(gbox, gdraw); };
+  if (gbox) { resetSigMode(); gdraw(); Promise.all([loadPdMail(true), loadGmail(true)]).then(gdraw); }
   m.querySelector("#pfOut")?.addEventListener("click", async () => { await api("/auth/logout", { body: {} }).catch(() => {}); location.reload(); });
   m.querySelector("#pfF").onsubmit = async e => {
     e.preventDefault(); const go = m.querySelector("#pfGo"); go.disabled = true;

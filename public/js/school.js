@@ -2,6 +2,7 @@
 import { $, S, api, esc, icon, pill, statusPill, stageTag, potTag, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, workOrder, ago, TYPE_ICON, leadsOver, leadsAll,
   telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile, callQueue, callGuess, demoDue, archivedRef, archivedAct, norm, cap } from "./core.js";
 import { loadGmail, connectGmail, gmailWaiting, sigPreview, sigLabel } from "./gmail.js";
+import { loadPdMail, pdReady, pdCanConnect, SIG_LABEL, tokenFormHtml, bindTokenForm } from "./pdmail.js";
 // «la cafetería», «el casino», «el bar escolar»
 const laEsp = mk => `${/^(casino|bar)\b/.test(mk?.espacio || "") ? "el" : "la"} ${mk?.espacio || "cafetería"}`, delaEsp = mk => laEsp(mk).replace(/^el /, "del ").replace(/^la /, "de la ");
 const coarse = () => matchMedia("(pointer: coarse)").matches;
@@ -1720,7 +1721,7 @@ function templateMenu(anchor, s, d, channel, to = {}) {
   const demo = confirm && d.activities.filter(a => a.type === "meeting").map(localAct).find(l => l.date >= today());
   const recommended = channel === "whatsapp" ? (confirm ? "confirm_demo" : s.status === "lost" || s.status === "stalled" ? "reactivate" : d.attempts ? "after_call" : "intro") : (s.status === "lost" || s.status === "stalled" ? "mail_reactivate" : "mail_info");
   list.sort((a, b) => (b.id === recommended) - (a.id === recommended));
-  openMenu(anchor, [{ head: channel === "whatsapp" ? "Mensaje de WhatsApp" : "Mail desde Gmail" },
+  openMenu(anchor, [{ head: channel === "whatsapp" ? "Mensaje de WhatsApp" : "Mail" },
     ...list.map(t => ({ label: t.label + (t.id === recommended ? " · sugerido" : ""), sub: channel === "mail" ? t.subject || "" : t.text.split("\n").find(x => x.length > 12) || t.text, fn: () => {
       let text = t.text; if (to.name) text = text.replace(/^Hola(?=[,\s])/, `Hola ${to.name.split(" ")[0]}`);
       if (t.id === "confirm_demo" && demo) text = text.replace("[día]", shortDay(demo.date)).replace("[hora]", demo.time || "[hora]");
@@ -1729,13 +1730,19 @@ function templateMenu(anchor, s, d, channel, to = {}) {
     { label: "Mensaje en blanco", sub: "Escribir desde cero", fn: () => messageModal(s, d, { channel, label: "Mensaje", text: "", subject: "" }, { phone: to.phone, email: to.email, name: to.name, logAfter: true }) },
   ]);
 }
-// Mail con Gmail conectado: «Enviar» manda desde tu Gmail (con 5 s para deshacer) y queda en Pipedrive y en Historial.
-// Sin Gmail conectado: «Conectar Gmail» (una vez) y, mientras tanto, «Abrir en Gmail» como siempre.
+// Mail desde la ficha. Primero Pipedrive: con tu Pipedrive conectado, «Enviar» (con 5 s para deshacer) crea el mail en tu
+// casilla de Pipedrive ligado al prospecto o al trato y lo manda; queda la actividad, la nota y el próximo paso en Pipedrive
+// y en Historial. Sin Pipedrive conectado: «Conectar Pipedrive para enviar desde acá» (una vez) y, mientras tanto, «Abrir
+// en Gmail» como siempre. Si conectaste Gmail (y no Pipedrive), sale de tu Gmail, como antes.
 const MAIL_RE = /^[^@\s<>()[\]\\,;:"]+@[^@\s<>()[\]\\,;:"]+\.[a-z]{2,}$/i, PH_RE = /\[(d[ií]a|hora|tu nombre)\]/i, SEND_DELAY = 5;
-// Enviar: Gmail conectado y confirmado en esta sesión (verified: entraste con Google o lo conectaste acá). Conectado pero
-// sin confirmar (entraste con tu código en otro dispositivo): se confirma una vez con Google.
+// Gmail: conectado y confirmado en esta sesión (verified: entraste con Google o lo conectaste acá). Conectado pero sin
+// confirmar (entraste con tu código en otro dispositivo): se confirma una vez con Google.
 const canSend = g => !!(g?.enabled && g.connected && g.verified && !g.readOnly && !g.config);
 const needsConfirm = g => !!(g?.enabled && g.connected && !g.verified && !g.readOnly && !g.config);
+// por dónde sale ahora: Pipedrive si está listo; si no, Gmail si está listo; si no, nada (se ofrece conectar)
+const mailVia = () => pdReady(S.pdmail) ? "pipedrive" : !S.pdmail?.connected && canSend(S.gmail) ? "gmail" : "";
+// la firma que va por esa vía (para sacar la despedida con tu nombre de la plantilla)
+const viaSig = v => v === "pipedrive" ? S.pdmail?.signature || "" : v === "gmail" ? S.gmail?.signature || "" : "";
 const newKey = () => (crypto.randomUUID?.() || String(Math.random()).slice(2) + Date.now()).replace(/[^A-Za-z0-9]/g, "").slice(0, 40);
 // la despedida con tu nombre de la plantilla sobra si la firma ya lo dice
 const dropSignoff = text => { const n = String(S.me?.name || "").trim(); const re = n ? new RegExp(`\\n${n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\nOrderEAT\\s*$`) : /\n[^\n]{2,60}\nOrderEAT\s*$/; return re.test(text) ? text.replace(re, "") : text.replace(/\n[^\n]{2,60}\nOrderEAT\s*$/, ""); };
@@ -1752,13 +1759,13 @@ function mailBlockLocal(s, d) {
 }
 async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
   const isMail = t.channel === "mail";
-  if (isMail) await loadGmail(!!(S.gmail?.problem || S.gmail?.failed));
+  if (isMail) await Promise.all([loadGmail(!!(S.gmail?.problem || S.gmail?.failed)), loadPdMail(!!S.pdmail?.failed)]);
   // para WhatsApp solo sirve un número completo (con código de área): uno local de 7 dígitos de la web no llega
   const full = p => String(p || "").replace(/\D/g, "").length >= 10;
   const defPhone = phone || [...(d.persons || []).map(p => p.phone), s.phone, ...sedesOf(s.id).filter(z => z.here).flatMap(sedeCallable)].find(p => p && (isMail || full(p))) || "";
   const defMail = email || d.persons?.find(p => p.email)?.email || d.mails?.[0]?.to || D.study?.contacto?.emails?.[0] || s.email || "";
   const pre = S.markets[s.country]?.prefix ? `+${S.markets[s.country].prefix} …` : "Teléfono";
-  const text0 = isMail && canSend(S.gmail) && S.gmail.signature ? dropSignoff(t.text) : t.text;
+  const text0 = isMail && viaSig(mailVia()) ? dropSignoff(t.text) : t.text;
   // phase: edit · checking (comprobando en Pipedrive) · count (5 s para deshacer) · sending · unknown (no se sabe si salió)
   let phase = "edit", left = SEND_DELAY, timer = null, finished = false, again = false;
   // clave de un solo uso por envío: si el pedido se repite, el servidor no lo manda dos veces. «Mandar igual» usa otra.
@@ -1785,7 +1792,7 @@ async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
     b.disabled = true; b.innerHTML = `<span class="spin"></span> Armando…`;
     try {
       const r = await api(`/api/schools/${s.id}/draft`, { body: { channel: t.channel, purpose: t.label, contact: name || d.persons?.[0]?.name || "", base: t.text && cur === t.text.trim() && ctx ? "" : cur, context: ctx } });
-      if (r.text) q("#mText").value = isMail && canSend(S.gmail) && S.gmail.signature ? dropSignoff(r.text) : r.text; if (r.subject && q("#mSub") && !q("#mSub").value.trim()) q("#mSub").value = r.subject;
+      if (r.text) q("#mText").value = isMail && viaSig(mailVia()) ? dropSignoff(r.text) : r.text; if (r.subject && q("#mSub") && !q("#mSub").value.trim()) q("#mSub").value = r.subject;
       q("#mAiNote").textContent = r.note || (r.mode === "ia" ? "Listo. Revisalo antes de mandar." : "Armado con la plantilla de la casa. Revisalo antes de mandar.");
     } catch (err) { toast(err.message, { type: "err" }); }
     b.disabled = false; b.innerHTML = `${icon("sparkles", "sm")} Armar mensaje`;
@@ -1800,7 +1807,7 @@ async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
   const local = isMail ? mailBlockLocal(s, d) : "";
   if (local) chk = { ok: false, error: local };
   const check = () => chk ? Promise.resolve(chk) : (checking ||= api(`/api/schools/${s.id}/mail/check`).catch(() => ({ ok: true, soft: true })).then(r => { chk = r; checking = null; if (m.isConnected && phase === "edit") drawAct(); return r; }));
-  if (isMail && canSend(S.gmail)) check();
+  if (isMail && mailVia()) check();
   // el mail sale recién a los 5 s: hasta ahí se puede deshacer (o cerrar la ventana). Antes, se comprueba que se pueda.
   const startSend = async () => {
     const to = q("#mTo").value.trim(), subject = q("#mSub").value.replace(/\s+/g, " ").trim(), text = q("#mText").value;
@@ -1816,25 +1823,26 @@ async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
       clearInterval(timer); timer = null; doSend({ to, subject, text });
     }, 1000);
   };
-  let note = "";
+  let note = "", sentVia = "", pdForm = false; // pdForm: pegando el token de Pipedrive (en el lugar de los botones)
   const undo = () => { clearInterval(timer); timer = null; phase = "edit"; note = "No se envió. Seguí editando y mandalo cuando quieras."; editable(true); drawAct(); q("#mSend")?.focus(); };
   // si la ficha se abrió desde una tarea «Mail» de la agenda, se marca como hecha
   const act = D.activityId && d.activities?.find(a => a.id === D.activityId), completeId = act?.type === "task" && D.form?.completeAct !== false ? act.id : null;
   const doSend = async p => {
     phase = "sending"; m.locked = true; drawAct();
     try {
-      const r = await api(`/api/schools/${s.id}/mail`, { body: { ...p, key, completeActivityId: completeId, session: sessionRef() } });
+      sentVia = mailVia();
+      const r = await api(`/api/schools/${s.id}/mail`, { body: { ...p, key, via: sentVia, completeActivityId: completeId, session: sessionRef() } });
       finished = true; m.locked = false; m.close();
       afterMailSent(s, r, { logAfter, completed: !!completeId });
     } catch (e) {
       m.locked = false; editable(true);
-      // no se sabe si salió (Gmail no respondió) o esa clave ya se usó: no se vuelve a ofrecer «Enviar» con la misma clave
-      if (e.code === "gmail_unknown" || e.code === "mail_dup") { phase = "unknown"; drawAct(); showErr(e.message); return; }
+      // no se sabe si salió (Gmail o Pipedrive no respondieron) o esa clave ya se usó: no se vuelve a ofrecer «Enviar» con la misma clave
+      if (e.code === "gmail_unknown" || e.code === "pd_unknown" || e.code === "mail_dup") { phase = "unknown"; drawAct(); showErr(e.message); return; }
       phase = "edit";
       // cambió algo en Pipedrive (de otra persona, cliente, archivado): queda el motivo en lugar de «Enviar»
       if (!e.code && [403, 404, 409].includes(e.status)) chk = { ok: false, error: e.message };
       if (e.code === "pd_maybe" || e.code === "pd_theirs") chk = { ok: false, error: e.message, code: e.code, candidates: e.data?.candidates || [] };
-      await loadGmail(true).catch(() => {}); // pudo vencer, desconectarse o pedir confirmar en este dispositivo
+      await Promise.all([loadGmail(true), loadPdMail(true)]).catch(() => {}); // pudo vencer, desconectarse o pedir confirmar en este dispositivo
       drawAct(); showErr(chk && !chk.ok ? "" : e.message);
     }
   };
@@ -1849,45 +1857,78 @@ async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
     }
     if (phase === "count") { a.innerHTML = `<div class="send-bar" role="status" aria-live="polite">${icon("send")}<span>Enviando en <b id="mCount">${left}</b> s</span><button class="btn" id="mUndo">Deshacer</button></div>`; q("#mUndo").onclick = undo; return; }
     q("#mClose").disabled = phase === "sending";
-    if (phase === "sending" || phase === "checking") { a.innerHTML = `<div class="send-bar" role="status"><span class="spin"></span><span>${phase === "sending" ? "Enviando desde tu Gmail…" : "Comprobando en Pipedrive…"}</span></div>`; return; }
+    if (phase === "sending" || phase === "checking") { a.innerHTML = `<div class="send-bar" role="status"><span class="spin"></span><span>${phase === "sending" ? sentVia === "pipedrive" ? "Enviando desde tu Pipedrive…" : "Enviando desde tu Gmail…" : "Comprobando en Pipedrive…"}</span></div>`; return; }
     if (phase === "unknown") {
-      a.innerHTML = `<div class="row"><a class="btn" href="https://mail.google.com/mail/#sent" target="_blank" rel="noopener">${icon("mail")} Ver Enviados</a>
+      const sentUrl = sentVia === "pipedrive" ? `${S.pdmail?.pdWeb || S.pdWeb || ""}/mail/sent` : "https://mail.google.com/mail/#sent";
+      a.innerHTML = `<div class="row"><a class="btn" href="${esc(sentUrl)}" target="_blank" rel="noopener">${icon("mail")} Ver Enviados</a>
         ${again ? `<button class="btn" id="mNo">Cancelar</button><button class="btn primary" id="mAgain">Sí, mandarlo de nuevo</button>` : `<button class="btn" id="mAgain">Mandar igual</button>`}</div>
         <p class="faint mail-note">${again ? "Si ya salió, le llega dos veces." : "Si salió, cerrá y registralo en Registrar. Si no está en Enviados, mandalo de nuevo."}</p>`;
       q("#mNo")?.addEventListener("click", () => { again = false; drawAct(); });
       q("#mAgain").onclick = () => { if (!again) { again = true; drawAct(); q("#mAgain")?.focus(); return; } key = newKey(); phase = "edit"; startSend(); };
       return;
     }
-    const send = canSend(g), confirm = needsConfirm(g), wait = gmailWaiting(), blocked = send && chk && !chk.ok;
+    const p = S.pdmail, via = mailVia(), send = !!via, blocked = send && chk && !chk.ok;
+    // Pipedrive primero: conectar (o confirmar en este dispositivo). Gmail solo si ya lo tenías conectado (y no Pipedrive).
+    const pdOffer = !via && pdCanConnect(p), pdConfirm = pdOffer && p.connected && !p.verified;
+    const gConfirm = !via && !pdOffer && needsConfirm(g), gConnect = !via && !pdOffer && !gConfirm && g?.enabled && !g.readOnly && !g.config;
+    // pegar el token de Pipedrive: dos pasos en el lugar de los botones; al conectar, vuelve con «Enviar»
+    if (pdForm && pdCanConnect(p) && !pdReady(p)) {
+      a.innerHTML = tokenFormHtml(p, { confirm: !!p.connected });
+      const before = q("#mText").value;
+      bindTokenForm(a, {
+        onCancel: () => { pdForm = false; drawAct(); q("#mConnect")?.focus(); },
+        onDone: () => {
+          pdForm = false; if (!m.isConnected) return;
+          if (mailVia()) { note = `Pipedrive conectado${S.pdmail.name ? ` como ${S.pdmail.name}` : ""}. Ya podés enviar.`; showErr(""); check(); }
+          // con firma, la despedida con tu nombre sobra (solo si no la tocaste)
+          if (viaSig(mailVia()) && q("#mText").value === before) q("#mText").value = dropSignoff(before);
+          drawAct(); q("#mSend")?.focus();
+        },
+      });
+      return;
+    }
+    const wait = !pdOffer && gmailWaiting();
+    const sigHtml = viaSig(via), sigSrc = via === "pipedrive" ? p.signatureSource : g?.signatureSource;
     a.innerHTML = `<div class="row"><button class="btn" id="mCopy">${icon("copy")} Copiar</button>
       ${send && !blocked ? `<button class="btn ghost" id="mGo">Abrir en Gmail</button><button class="btn primary" id="mSend">${icon("send")} Enviar</button>`
-        : !blocked && g?.enabled && !g.readOnly && !g.config ? `<button class="btn" id="mGo">Abrir en Gmail</button><button class="btn primary" id="mConnect">${wait ? `<span class="spin"></span> Esperando a Google…` : confirm ? `${icon("mail")} Confirmar tu Gmail en este dispositivo` : `${icon("mail")} Conectar Gmail para enviar desde acá`}</button>`
+        : !blocked && (pdOffer || gConfirm || gConnect) ? `<button class="btn" id="mGo">Abrir en Gmail</button><button class="btn primary" id="mConnect">${wait ? `<span class="spin"></span> Esperando a Google…`
+          : pdConfirm ? `${icon("lock")} Confirmá que sos vos` : pdOffer ? `${icon("mail")} Conectar Pipedrive para enviar desde acá` : gConfirm ? `${icon("mail")} Confirmar tu Gmail en este dispositivo` : `${icon("mail")} Conectar Gmail para enviar desde acá`}</button>`
         : `<button class="btn primary" id="mGo">${icon("mail")} Abrir en Gmail</button>`}</div>
       ${note ? `<p class="mail-note" role="status" style="color:var(--info)">${esc(note)}</p>` : ""}
       ${blocked && chk.code === "pd_maybe" ? `<p class="mail-block" role="status">${icon("alert", "sm")}<span><b>Antes de mandar:</b> ${esc(chk.error)}</span><button class="btn sm" id="mEx">Ver cuáles</button></p>`
         : blocked ? `<p class="mail-block" role="status">${icon("alert", "sm")}<span><b>Desde acá no se envía.</b> ${esc(chk.error)}</span></p>`
-        : send ? `<p class="mail-how">${icon("checkCircle", "sm")}<span>Sale de tu Gmail (${esc(g.email)}) y queda en Pipedrive y en el historial.</span></p>
-          ${g.signature ? `<details class="gm-sig"><summary>${esc(sigLabel(g))}</summary>${sigPreview(g.signature)}</details>` : `<p class="faint mail-note">Tu Gmail no tiene firma: sale sin firma. Podés pegar una en tu perfil.</p>`}`
-        : g?.readOnly ? `<p class="faint mail-note">Modo solo lectura: desde acá no se envía. Usá «Abrir en Gmail».</p>`
+        : via === "pipedrive" ? `<p class="mail-how">${icon("checkCircle", "sm")}<span>Sale de tu correo de Pipedrive${p.name ? ` (${esc(p.name)})` : ""}, ligado al prospecto o al trato, y queda en el historial.</span></p>
+          ${sigHtml ? `<details class="gm-sig"><summary>${esc(SIG_LABEL[sigSrc] || SIG_LABEL.armada)}</summary>${sigPreview(sigHtml)}</details>` : `<p class="faint mail-note">Sale sin firma: armala en tu perfil.</p>`}`
+        : via === "gmail" ? `<p class="mail-how">${icon("checkCircle", "sm")}<span>Sale de tu Gmail (${esc(g.email)}) y queda en Pipedrive y en el historial.</span></p>
+          ${sigHtml ? `<details class="gm-sig"><summary>${esc(sigLabel(g))}</summary>${sigPreview(sigHtml)}</details>` : `<p class="faint mail-note">Tu Gmail no tiene firma: sale sin firma. Podés armar una en tu perfil.</p>`}
+          ${pdCanConnect(p) && !p.connected ? `<p class="faint mail-note">Mejor desde Pipedrive (queda en su correo, ligado al prospecto): <button type="button" class="linkbtn" id="mPdLink">Conectar Pipedrive</button></p>` : ""}`
+        : p?.readOnly || g?.readOnly ? `<p class="faint mail-note">Modo solo lectura: desde acá no se envía. Usá «Abrir en Gmail».</p>`
+        : pdConfirm ? `<p class="faint mail-note">Tu Pipedrive ya está conectado. En este dispositivo pegá de nuevo tu token una vez y después mandás con un clic.</p>`
+        : pdOffer ? `<p class="faint mail-note">${p.mismatch ? "La conexión guardada no es de tu usuario de Pipedrive. " : ""}Pegás tu token de Pipedrive una vez y mandás con un clic desde tu casilla de Pipedrive, con tu firma. Queda ligado al prospecto y en el historial.</p>`
+        : p?.noUser ? `<p class="faint mail-note">Tu email no es usuario de Pipedrive: pedí que te den de alta. Mientras, usá «Abrir en Gmail».</p>`
         : g?.config ? `<p class="faint mail-note">Gmail está mal configurado en el servidor (avisale al administrador). Mientras, usá «Abrir en Gmail».</p>`
-        : confirm ? `<p class="faint mail-note">Tu Gmail (${esc(g.email)}) ya está conectado. En este dispositivo confirmalo una vez con Google y después mandás con un clic.</p>`
-        : g?.enabled ? `<p class="faint mail-note">${g.expired ? "Tu conexión con Gmail venció: conectalo de nuevo. " : ""}Lo conectás una vez y después mandás con un clic, con tu firma. Sale de tu Gmail y queda en Pipedrive y en el historial.</p>`
-        : `<p class="faint mail-note">Para enviar desde acá falta configurar Gmail (lo hace el administrador).</p>`}`;
+        : gConfirm ? `<p class="faint mail-note">Tu Gmail (${esc(g.email)}) ya está conectado. En este dispositivo confirmalo una vez con Google y después mandás con un clic.</p>`
+        : gConnect ? `<p class="faint mail-note">${g.expired ? "Tu conexión con Gmail venció: conectalo de nuevo. " : ""}Lo conectás una vez y después mandás con un clic, con tu firma. Sale de tu Gmail y queda en Pipedrive y en el historial.</p>`
+        : `<p class="faint mail-note">Para enviar desde acá falta configurar el servidor (avisale al administrador).</p>`}`;
     q("#mCopy").onclick = () => copy(q("#mText").value);
     q("#mGo").onclick = openGmail;
     // ya hay algo parecido en Pipedrive: se elige (o «Es otro colegio») y se vuelve a comprobar
     q("#mEx")?.addEventListener("click", async () => { if (await askPdExisting(s, chk.candidates || [])) { chk = null; phase = "checking"; editable(false); drawAct(); await check(); if (!m.isConnected) return; phase = "edit"; editable(true); drawAct(); } });
     q("#mSend")?.addEventListener("click", startSend);
-    q("#mConnect")?.addEventListener("click", async () => {
+    // Pipedrive: pegar el token acá mismo. Gmail (si no se puede Pipedrive): su ventana, sin perder lo escrito.
+    const openPd = () => { pdForm = true; note = ""; drawAct(); };
+    const connectG = async () => {
       const before = q("#mText").value;
-      const p = connectGmail({ quiet: true }); note = ""; drawAct();
-      const g2 = await p; if (!m.isConnected) return;
-      showErr(canSend(g2) ? "" : g2.error || "");
-      if (canSend(g2)) { note = `Gmail conectado como ${g2.email}. Ya podés enviar.`; check(); }
-      // con firma, la despedida con tu nombre sobra (solo si no la tocaste)
-      if (canSend(g2) && g2.signature && q("#mText").value === before) q("#mText").value = dropSignoff(before);
+      const pr = connectGmail({ quiet: true }); note = ""; drawAct();
+      const r = await pr; if (!m.isConnected) return;
+      const v = mailVia();
+      showErr(v ? "" : r.error || "");
+      if (v) { note = `Gmail conectado como ${S.gmail.email}. Ya podés enviar.`; check(); }
+      if (viaSig(v) && q("#mText").value === before) q("#mText").value = dropSignoff(before);
       drawAct(); q("#mSend")?.focus();
-    });
+    };
+    q("#mConnect")?.addEventListener("click", () => pdOffer ? openPd() : connectG());
+    q("#mPdLink")?.addEventListener("click", openPd);
   }
   drawAct();
   // en el celular no se abre el teclado de entrada: el foco va a la acción principal

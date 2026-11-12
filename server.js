@@ -26,7 +26,10 @@ import { MARKETS, LOST_REASONS, TYPE_LABEL, DAILY_GOAL } from "./lib/config.js";
 import { safeTz, toUtc, todayIn } from "./lib/time.js";
 import { composeMessage, templates } from "./lib/playbook.js";
 import * as gmail from "./lib/gmail.js";
-import { setMailPrefs, once, release, bump } from "./lib/store.js";
+import * as pdtoken from "./lib/pdtoken.js";
+import * as pdmcp from "./lib/pdmcp.js";
+import * as SIG from "./lib/signature.js";
+import { setMailPrefs, getMailPrefs, once, release, bump } from "./lib/store.js";
 
 const app = express();
 const escHtml = v => String(v).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -139,8 +142,9 @@ app.post("/auth/code", async (req, res) => {
   if (MODE === "live" && !pdu.pdUserId) return res.status(403).json({ error: "Ese email no es usuario del Pipedrive de OrderEAT." });
   req.session.user = { email, name: pdu.pdName || email.split("@")[0], ...pdu };
   req.session.mode = MODE;
-  // con un código no se probó ser dueño de la cuenta de Google: para mandar mails hay que conectar Gmail en esta sesión
-  req.session.gmailOk = null;
+  // con un código (el líder ve los códigos) no se probó ser dueño de la cuenta: para mandar mails desde su Pipedrive o su
+  // Gmail hay que conectarlo (o confirmarlo) en esta sesión
+  req.session.gmailOk = null; req.session.pdOk = null;
   res.json({ user: req.session.user });
 });
 app.post("/auth/google", async (req, res) => {
@@ -152,7 +156,8 @@ app.post("/auth/google", async (req, res) => {
     if (DOMAIN && !p.email.toLowerCase().endsWith("@" + DOMAIN)) return res.status(403).json({ error: `Solo pueden entrar cuentas @${DOMAIN}.` });
     req.session.user = { email: p.email.toLowerCase(), name: p.name || p.email, picture: p.picture || "", ...(await attachPipedriveUser(p.email)) };
     req.session.mode = MODE;
-    req.session.gmailOk = p.email.toLowerCase(); // Google probó que es su cuenta: puede enviar con el Gmail que conectó
+    req.session.gmailOk = p.email.toLowerCase(); // Google probó que es su cuenta: puede enviar con el Gmail o el Pipedrive que conectó
+    req.session.pdOk = null;
     res.json({ user: req.session.user });
   } catch { res.status(401).json({ error: "No se pudo validar el login de Google." }); }
 });
@@ -161,7 +166,7 @@ app.post("/auth/dev", async (req, res) => {
   const pdu = await attachPipedriveUser(DEV_EMAIL);
   req.session.user = { email: DEV_EMAIL.toLowerCase(), name: pdu.pdName || DEV_EMAIL.split("@")[0], ...pdu };
   req.session.mode = MODE;
-  req.session.gmailOk = null;
+  req.session.gmailOk = null; req.session.pdOk = null;
   res.json({ user: req.session.user });
 });
 app.post("/auth/logout", (req, res) => { req.session = null; res.json({ ok: true }); });
@@ -275,7 +280,9 @@ const gmailProven = req => !!req.session?.gmailOk && req.session.gmailOk === Str
 const gmailProof = (req, res, next) => gmailProven(req) ? next() : res.status(409).json({ error: "Conectá tu Gmail en este dispositivo.", code: "gmail_reauth" });
 // Límite de mails por persona por hora (MAIL_PER_HOUR, 60 por defecto)
 const MAIL_PER_HOUR = Math.max(1, Number(process.env.MAIL_PER_HOUR) || 60);
-app.get("/api/gmail", auth, wrap(async (req, res) => res.json({ ...(await gmail.status(req.session.user.email, await gmailName(req.session.user))), verified: gmailProven(req), readOnly: process.env.READ_ONLY === "1" })));
+const READ_ONLY = process.env.READ_ONLY === "1";
+const gmailView = async req => ({ ...(await gmail.status(req.session.user.email, await gmailName(req.session.user), gmailPick(await mailSig(req, "gmail")))), verified: gmailProven(req), readOnly: READ_ONLY });
+app.get("/api/gmail", auth, wrap(async (req, res) => res.json(await gmailView(req))));
 // La ventana de Google termina en esta página: le avisa a la app (BroadcastChannel y, si sigue el vínculo, postMessage) y se
 // cierra. Si no se abrió en otra ventana (el navegador la bloqueó), vuelve a la app con ?gmail=…
 // En la dirección de vuelta va solo un código (state|mismatch|denied|scope|config|session|other): el navegador lo traduce
@@ -318,14 +325,73 @@ app.get("/auth/gmail/callback", async (req, res) => {
     gmailDone(res, { ok: true, email: fin.email }, popup);
   } catch (e) { if ((e.status || 500) >= 500) console.warn("Gmail:", e.message); gmailDone(res, { ok: false, error: e.message, code: gmailCode(e) }, popup); }
 });
-app.post("/api/gmail/disconnect", auth, gmailProof, wrap(async (req, res) => { await gmail.disconnect(req.session.user.email); res.json({ ...(await gmail.status(req.session.user.email, await gmailName(req.session.user))), verified: gmailProven(req) }); }));
+app.post("/api/gmail/disconnect", auth, gmailProof, wrap(async (req, res) => { await gmail.disconnect(req.session.user.email); res.json(await gmailView(req)); }));
 // Firma propia (la misma que usás en Pipedrive): texto o HTML, se guarda saneada y manda sobre la de Gmail. Vacía = la de Gmail.
 app.post("/api/gmail/signature", auth, gmailProof, wrap(async (req, res) => {
   const raw = String(req.body?.signature ?? ""); if (raw.length > 20000) return res.status(400).json({ error: "La firma es muy larga." });
   const html = gmail.sanitizeSignature(raw);
   if (raw.trim() && !html) return res.status(400).json({ error: "No quedó nada de esa firma después de limpiarla. Pegá el texto o un HTML simple." });
-  await setMailPrefs(req.session.user.email, { signature: html });
-  res.json({ ...(await gmail.status(req.session.user.email, await gmailName(req.session.user))), verified: gmailProven(req) });
+  const { at, ...prev } = (await getMailPrefs(req.session.user.email).catch(() => null)) || {};
+  await setMailPrefs(req.session.user.email, { ...prev, signature: html, mode: html ? "pegada" : "gmail" });
+  res.json(await gmailView(req));
+}));
+
+// ---------- «Tu firma» (lib/signature.js): la armada con el perfil (isotipo, nombre, cargo, email | teléfono, web), la de
+// Pipedrive pegada (saneada) o, con Gmail, la de tu Gmail. Ni Pipedrive ni su MCP agregan la firma: la pone la app.
+// La URL pública de la app (el isotipo de la firma, con dirección absoluta): el host del pedido.
+const appBase = req => `${req.protocol}://${req.get("host")}`;
+async function sigInfo(req) {
+  const email = req.session.user.email;
+  const [prefs, pr, v] = await Promise.all([getMailPrefs(email).catch(() => null), getProfile(email).catch(() => null), viewerFor(email)]);
+  const role = baseRole(pr), titleDefault = SIG.titleOf({ role, accessTitle: v.acc.title, leader: v.leader });
+  const title = SIG.titleOf({ prefs, role, accessTitle: v.acc.title, leader: v.leader });
+  return { prefs, titleDefault, built: SIG.builtSignature({ name: pr?.name || req.session.user.name, title, email, phone: prefs?.phone, base: appBase(req) }) };
+}
+// la firma que va por esa vía: { mode, html, source } (html null = la de Gmail)
+const mailSig = async (req, via) => { const i = await sigInfo(req); return SIG.pickSignature({ prefs: i.prefs, via, built: i.built }); };
+const gmailPick = pk => pk.html === null ? null : { html: pk.html, source: pk.source };
+
+// ---------- Pipedrive de cada persona (lib/pdtoken.js): «Conectá tu Pipedrive» pegando una vez su token API personal, para
+// que los mails de la ficha salgan de su casilla de Pipedrive (servidor MCP oficial, lib/pdmcp.js). Nada de esto devuelve
+// el token. La conexión guardada es de un email, pero solo la usa una sesión que probó ser esa persona: pegó su token en
+// esta sesión (pdOk; en otro dispositivo, «Confirmá que sos vos» lo pide de nuevo y tiene que ser el mismo usuario de
+// Pipedrive) o entró con Google / conectó su Gmail (gmailOk). Con el código personal (que un líder ve) no alcanza.
+const pdProven = req => { const e = String(req.session?.user?.email || "").toLowerCase(); return !!e && (req.session.pdOk === e || req.session.gmailOk === e); };
+const pdProof = (req, res, next) => pdProven(req) ? next() : res.status(409).json({ error: "Confirmá que sos vos: pegá de nuevo tu token de Pipedrive.", code: "pd_reauth" });
+async function pdView(req) {
+  const u = req.session.user, i = await sigInfo(req), pk = SIG.pickSignature({ prefs: i.prefs, via: "pipedrive", built: i.built });
+  return { ...(await pdtoken.status(u.email, u)), verified: pdProven(req), readOnly: READ_ONLY, pdWeb: pd.PD_WEB, tokenUrl: `${pd.PD_WEB}/settings/api`, signature: pk.html || "", signatureSource: pk.source,
+    sig: { mode: pk.mode, chosen: i.prefs?.mode || "", custom: i.prefs?.signature || "", phone: i.prefs?.phone || "", title: i.prefs?.title || "", titleDefault: i.titleDefault, built: i.built } };
+}
+app.get("/api/pipedrive/mail", auth, wrap(async (req, res) => res.json(await pdView(req))));
+// Conectar o confirmar: { token }. Pipedrive dice de quién es (users/me): tiene que ser el usuario de la sesión. Con tope
+// de intentos por persona (cada intento le pregunta a Pipedrive).
+app.post("/api/pipedrive/connect", auth, wrap(async (req, res) => {
+  const email = String(req.session.user.email).toLowerCase();
+  if ((await bump(`pdconn:${email}`, 600)) > 12) return res.status(429).json({ error: "Muchos intentos seguidos: esperá unos minutos." });
+  await pdtoken.connect({ email, user: req.session.user, token: req.body?.token });
+  req.session.pdOk = email; // pegó su propio token en esta sesión: puede enviar desde acá
+  res.json(await pdView(req));
+}));
+app.post("/api/pipedrive/disconnect", auth, pdProof, wrap(async (req, res) => { await pdtoken.disconnect(req.session.user.email); res.json(await pdView(req)); }));
+// Guardar «Tu firma»: { mode: armada|pegada|gmail, signature (la pegada), phone, title }. Solo una sesión que probó ser la
+// persona (igual que para enviar): nadie cambia la firma de otro.
+app.post("/api/mail/signature", auth, pdProof, wrap(async (req, res) => {
+  const b = req.body || {}, email = req.session.user.email, mode = String(b.mode || "");
+  if (!SIG.MODES.includes(mode)) return res.status(400).json({ error: "Elegí qué firma va en tus mails." });
+  const { at, ...prev } = (await getMailPrefs(email).catch(() => null)) || {};
+  const next = { ...prev, mode };
+  if (b.title !== undefined) next.title = SIG.cleanLine(b.title, 80);
+  if (b.phone !== undefined) { const ph = SIG.cleanPhone(b.phone); if (ph.error) return res.status(400).json({ error: ph.error }); next.phone = ph.phone; }
+  if (b.signature !== undefined) {
+    const raw = String(b.signature ?? ""); if (raw.length > 20000) return res.status(400).json({ error: "La firma es muy larga." });
+    const html = gmail.sanitizeSignature(raw);
+    if (raw.trim() && !html) return res.status(400).json({ error: "No quedó nada de esa firma después de limpiarla. Pegá el texto o un HTML simple." });
+    next.signature = html;
+  }
+  if (mode === "pegada" && !next.signature) return res.status(400).json({ error: "Pegá tu firma de Pipedrive (Configuración personal › Correo › Firma)." });
+  await setMailPrefs(email, next);
+  res.json({ pipedrive: await pdView(req), gmail: await gmailView(req) });
 }));
 
 // ficha de un prospecto (lead) o de una organización de Pipedrive que no está en la base
@@ -625,7 +691,8 @@ async function inSession(req, r, step) {
   } catch (e) { console.warn("No se pudo anotar en la sesión:", e.message); r.done.push({ label: "No pude anotarlo en tu sesión de trabajo (en Pipedrive quedó guardado).", warn: true }); }
 }
 
-// Mail desde la ficha con el Gmail de quien escribe (lib/gmail.js) y registro en Pipedrive (sales.sendMail).
+// Mail desde la ficha: sale de la casilla de Pipedrive de quien escribe (lib/pdtoken.js + lib/pdmcp.js) o, si no conectó
+// Pipedrive, de su Gmail (lib/gmail.js); el registro en Pipedrive lo hace sales.sendMail.
 // key: la que arma el navegador para cada envío; si el pedido se repite (la red), no se manda dos veces.
 // Antes de la cuenta de 5 s, el modal pregunta si se puede (archivado, cliente, de otra persona): así no se ofrece «Enviar»
 // donde después va a fallar. No escribe nada. El envío vuelve a comprobar todo.
@@ -633,28 +700,45 @@ app.get("/api/schools/:id/mail/check", auth, schoolParam, wrap(async (req, res) 
   try { await sales.mailGuard(req.params.id, req.session.user); res.json({ ok: true }); }
   catch (e) { if ((e.status || 500) >= 500) throw e; res.json({ ok: false, error: e.message, ...(e.code ? { code: e.code } : {}), ...(Array.isArray(e.candidates) ? { candidates: e.candidates } : {}) }); }
 }));
-app.post("/api/schools/:id/mail", auth, gmailProof, schoolParam, wrap(async (req, res) => {
-  const user = req.session.user, b = req.body || {};
+// Por dónde sale: via del navegador («pipedrive» | «gmail», lo que mostró el modal) o, sin decirlo, Pipedrive si está
+// conectado. Cada vía exige su conexión (la de la persona de la sesión) y que esta sesión haya probado ser esa persona.
+async function pickVia(req) {
+  const u = req.session.user, want = req.body?.via;
+  const pdOn = pdtoken.enabled() && await pdtoken.connected(u.email, u).catch(() => null);
+  if (pdOn === null && want !== "gmail") return { status: 503, error: "No pude leer tu conexión con Pipedrive. Probá de nuevo en unos segundos." };
+  const via = want === "gmail" ? "gmail" : want === "pipedrive" || pdOn ? "pipedrive" : "gmail";
+  if (via === "pipedrive") {
+    if (!pdOn) return { error: "Conectá tu Pipedrive para enviar desde acá.", code: "pd_missing" };
+    if (!pdProven(req)) return { error: "Confirmá que sos vos: pegá de nuevo tu token de Pipedrive.", code: "pd_reauth" };
+  } else if (!gmailProven(req)) return { error: "Conectá tu Gmail en este dispositivo.", code: "gmail_reauth" };
+  return { via };
+}
+const mailVia = (req, res, next) => pickVia(req).then(({ status = 409, ...r }) => { if (r.error) return res.status(status).json(r); req.mailVia = r.via; next(); }, next);
+app.post("/api/schools/:id/mail", auth, mailVia, schoolParam, wrap(async (req, res) => {
+  const user = req.session.user, b = req.body || {}, via = req.mailVia;
   const k = /^[A-Za-z0-9_-]{8,64}$/.test(b.key || "") ? `mail:${user.email}:${b.key}` : null;
   if (k && !(await once(k, 1800))) return res.status(409).json({ error: "Ese mail ya se mandó (o se está mandando). Mirá Historial antes de mandarlo de nuevo.", code: "mail_dup" });
   if ((await bump(`mailrate:${user.email}`, 3600)) > MAIL_PER_HOUR) { if (k) await release(k); return res.status(429).json({ error: `Llegaste a ${MAIL_PER_HOUR} mails en una hora desde la app. Esperá un rato o usá «Abrir en Gmail».` }); }
   try {
     let doneId = Number(b.completeActivityId) || null;
     if (doneId && !(await ownActivity(user, doneId, { missingOk: true }))) doneId = null;
-    const name = await gmailName(user);
-    const r = await sales.sendMail(req.params.id, user, { to: b.to, subject: b.subject, text: b.text, completeActivityId: doneId }, req.tz,
-      { send: m => gmail.send(user.email, { ...m, fromName: name }), by: name });
+    const name = await gmailName(user), sig = await mailSig(req, via);
+    // Pipedrive: el borrador ligado al prospecto o trato (lo resuelve sendMail antes de mandar), con la firma elegida
+    const send = via === "pipedrive" ? m => pdtoken.send(user.email, user, { ...m, signature: sig })
+      : m => gmail.send(user.email, { to: m.to, subject: m.subject, text: m.text, fromName: name, signature: gmailPick(sig) });
+    const r = await sales.sendMail(req.params.id, user, { to: b.to, subject: b.subject, text: b.text, completeActivityId: doneId }, req.tz, { send, by: name, via });
     // el mail cuenta como contacto en la sesión de trabajo (y en las otras abiertas que tengan este colegio)
     if (r && Array.isArray(r.done)) await inSession(req, r, sessions.contactStep(b.session?.ref, { channel: "mail", outcome: "sent", next: null, ...stepBy(req) }));
     res.json(r);
   } catch (e) {
-    // la clave se libera solo si es seguro que no salió (antes de llamar a Gmail, o Gmail lo rechazó con 4xx).
-    // sent = "maybe" (red, tiempo o 5xx de Gmail) o true (salió y falló algo después): no se libera, no se manda dos veces
+    // la clave se libera solo si es seguro que no salió (antes de mandar, o Gmail/Pipedrive dijeron que no).
+    // sent = "maybe" (red, tiempo o 5xx) o true (salió y falló algo después): no se libera, no se manda dos veces
     if (k && !e.sent) await release(k);
     throw e;
   }
 }));
-app.post("/api/schools/:id/mail/next", auth, gmailProof, schoolParam, wrap(async (req, res) => {
+// el próximo paso después del mail (no manda nada): una sesión que probó ser la persona (por Pipedrive o Google)
+app.post("/api/schools/:id/mail/next", auth, pdProof, schoolParam, wrap(async (req, res) => {
   const b = req.body || {}, n = b.next, user = req.session.user;
   const next = n && n.type ? { type: String(n.type), date: String(n.date || ""), time: n.time ? String(n.time) : "", ownerId: n.ownerId ? Number(n.ownerId) : undefined, subject: n.subject ? String(n.subject) : "" } : null;
   // mover una actividad pendiente (la automática o una tuya ya agendada) en vez de crear otra; marcar hecha la de la agenda
@@ -663,14 +747,16 @@ app.post("/api/schools/:id/mail/next", auth, gmailProof, schoolParam, wrap(async
   if (doneId && !(await ownActivity(user, doneId, { missingOk: true }))) doneId = null;
   res.json(await sales.mailNext(req.params.id, user, { mailId: String(b.mailId || ""), next, moveActivityId: moveId, completeActivityId: doneId }, req.tz));
 }));
-// Demo: lo que quedó en el Pipedrive de prueba y en la bandeja de Gmail simulada para este colegio (para comprobar el envío)
+// Demo: lo que quedó en el Pipedrive de prueba, en la bandeja de Gmail simulada y en el correo de Pipedrive simulado
+// (borradores creados con createMailDraft y enviados con sendMailDraft) para este colegio (para comprobar el envío)
 if (pd.DEMO) app.get("/api/demo/mail/:id", auth, schoolParam, wrap(async (req, res) => {
   const m = sales.allMatches()[req.params.id] || {}, s = byId.get(req.params.id), where = s.leadOnly ? { leadId: s.leadId } : m.orgId ? { orgId: m.orgId } : null;
   const acts = where ? [...await pd.activities({ ...where, done: true, limit: 50 }), ...await pd.activities({ ...where, done: false, limit: 50 })] : [];
   const notes = where ? await (where.leadId ? pd.notesForLead(where.leadId, 20) : pd.notesForOrg(where.orgId, 20)) : [];
   res.json({ where, activities: acts.map(a => ({ id: a.id, subject: a.subject, type: a.type, done: !!a.done, due: a.due_date, orgId: a.org_id || null, dealId: a.deal_id || null, leadId: a.lead_id || null, personId: a.person_id || null, owner: a.owner_id, note: a.note || "" })),
     notes: notes.map(n => ({ id: n.id, orgId: n.org_id || null, dealId: n.deal_id || null, leadId: n.lead_id || null, personId: n.person_id || null, content: n.content })),
-    outbox: gmail.demoOutbox().map(x => ({ id: x.id, at: x.at, from: x.from, to: x.to, bcc: x.bcc, ...gmail.parseMime(x.mime) })) });
+    outbox: gmail.demoOutbox().map(x => ({ id: x.id, at: x.at, from: x.from, to: x.to, bcc: x.bcc, ...gmail.parseMime(x.mime) })),
+    pdOutbox: pdmcp.demoOutbox().filter(d => d.from === req.session.user.email).map(d => ({ id: d.id, at: d.at, sent: d.sent, sentAt: d.sentAt || null, from: d.from, to: d.args.to, subject: d.args.subject, body: d.args.body, leadId: d.args.lead_id || null, dealId: d.args.deal_id || null })) });
 }));
 // Comentario suelto: queda como nota en la organización de Pipedrive, sin registrar un contacto.
 app.post("/api/schools/:id/prospect", auth, schoolParam, wrap(async (req, res) => res.json(await sales.createProspect(req.params.id, req.session.user, req.body?.task || null, req.tz))));
