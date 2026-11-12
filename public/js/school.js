@@ -3,6 +3,7 @@ import { $, S, api, esc, icon, pill, statusPill, stageTag, potTag, toast, copy, 
   telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile, callQueue, callGuess, demoDue, archivedRef, archivedAct, norm, cap } from "./core.js";
 import { loadGmail, connectGmail, gmailWaiting, sigPreview, sigLabel } from "./gmail.js";
 import { proposeDemo, regSlotsHtml, bindRegSlots } from "./demoslots.js";
+import { loadPdMail, pdReady, pdCanConnect, SIG_LABEL, tokenFormHtml, bindTokenForm } from "./pdmail.js";
 // «la cafetería», «el casino», «el bar escolar»
 const laEsp = mk => `${/^(casino|bar)\b/.test(mk?.espacio || "") ? "el" : "la"} ${mk?.espacio || "cafetería"}`, delaEsp = mk => laEsp(mk).replace(/^el /, "del ").replace(/^la /, "de la ");
 const coarse = () => matchMedia("(pointer: coarse)").matches;
@@ -371,7 +372,7 @@ function addDecisor(s, d) {
     if (!body.name) { q("#adName").focus(); return toast("Escribí el nombre del decisor", { type: "err" }); }
     go.disabled = true; go.innerHTML = `<span class="spin"></span> Guardando…`;
     try {
-      const r = await api(`/api/schools/${encodeURIComponent(s.id)}/persons`, { body });
+      const r = await apiEx(s, `/api/schools/${encodeURIComponent(s.id)}/persons`, { body });
       if (r.school) patchSchool(r.school);
       q(".modal-box").innerHTML = `<div class="modal-h"><h3>${icon("checkCircle")} Decisor agregado</h3></div>${writesList(r.done)}<button class="btn primary block" id="adOk">Listo</button>`;
       q("#adOk").onclick = () => m.close(); q("#adOk").focus();
@@ -586,7 +587,7 @@ function skipCurrent() { const ss = S.session; if (ss) markSkip(ss, ss.ids[ss.i]
 // Revisa en Pipedrive los próximos colegios de la sesión para no perder tiempo con clientes.
 function prefetch() {
   const ss = S.session; if (!ss) return;
-  const ids = ss.ids.slice(ss.i + 1, ss.i + 5).filter(id => S.byId.get(id)?.status === "unk");
+  const ids = ss.ids.slice(ss.i + 1, ss.i + 5).filter(id => ["unk", "new"].includes(S.byId.get(id)?.status));
   if (!ids.length) return;
   api("/api/check", { body: { ids } }).then(r => {
     Object.values(r).forEach(v => !v.error && patchSchool(v));
@@ -681,7 +682,7 @@ function createProspect(s) {
 async function runProspect(s, task) {
   D.prospecting = s.id; draw();
   try {
-    const r = await api(`/api/schools/${s.id}/prospect`, { body: { task } });
+    const r = await apiEx(s, `/api/schools/${s.id}/prospect`, { body: { task } });
     patchSchool(r.school); gotLead(s, r);
     ENR.delete(s.id); loadEnrich(s.id); // la nota de «Enriquecer» pudo quedar guardada recién
     if (D.id === s.id) api(`/api/schools/${encodeURIComponent(s.id)}`).then(nd => { if (D.id === s.id) { D.data = nd; draw(); } }).catch(() => {});
@@ -923,6 +924,8 @@ function prepBody(s, d) {
   const tb = D.tl?.id === s.id ? D.tl.brief || D.tl.summary : null, fromHist = !!tb && !tb.cold;
   return `<div class="stack">
     ${warn ? `<div class="callout warn">${icon("alert")}<span>${esc(warn)}</span></div>` : ""}
+    ${pdChecked(s, m)}
+    ${existingSec(s, m)}
     ${briefCard(s, "prep")}
     ${historySec(s)}
     ${s.lat == null && !(D.photos || []).length ? "" : gallery(s)}
@@ -954,7 +957,7 @@ function bindPrep(s, d) {
   el.querySelector("#stRetry")?.addEventListener("click", () => loadStudy(s.id));
   el.querySelector("#stNote")?.addEventListener("click", async e => {
     const b = e.currentTarget; b.disabled = true;
-    try { const r = await api(`/api/schools/${s.id}/study/note`, { body: {} }); toast("Estudio guardado como nota en Pipedrive", { href: r.orgUrl, action: "Abrir" }); }
+    try { const r = await apiEx(s, `/api/schools/${s.id}/study/note`, { body: {} }); toast("Estudio guardado como nota en Pipedrive", { href: r.orgUrl, action: "Abrir" }); }
     catch (err) { toast(err.message, { type: "err" }); }
     b.disabled = false;
   });
@@ -965,8 +968,73 @@ function bindPrep(s, d) {
   el.querySelectorAll("[data-stmail]").forEach(b => b.onclick = () => templateMenu(b, s, d, "mail", { email: b.dataset.stmail }));
   el.querySelectorAll("[data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy));
   el.querySelectorAll("[data-org]").forEach(b => b.onclick = () => confirmOrg(s, +b.dataset.org, b.dataset.name, b));
+  el.querySelectorAll("[data-exkey]").forEach(b => b.onclick = () => chooseExisting(s, { key: b.dataset.exkey }, b));
+  el.querySelector("#exNone")?.addEventListener("click", e => chooseExisting(s, { none: true }, e.currentTarget));
   el.querySelector("#unlink")?.addEventListener("click", () => { D.data = null; draw(); load({ match: { orgId: null } }); });
   el.querySelector("#dupReview")?.addEventListener("click", e => reviewDupes(s, e.currentTarget));
+}
+
+// ---------- ¿ya está en Pipedrive? Antes de crear algo, el servidor busca prospectos (también sin organización), tratos y
+// organizaciones por nombre, ciudad, teléfono, mail y web (sales.settleExisting). Si hay algo parecido, 409 pd_maybe con las
+// candidatas: se pregunta «¿es alguno de estos?» y, con la respuesta, se vuelve a pedir lo mismo.
+const exOwner = c => c.ownerId && c.ownerId === S.me.pdUserId ? "tuyo" : c.ownerId ? `de ${c.owner || "otra persona"}` : "libre";
+function exRow(c) {
+  const sub = [c.what, exOwner(c), c.place || "sin ciudad en Pipedrive", c.phone].filter(Boolean).join(" · ");
+  return `<div class="cand"><span class="cand-b"><span>${esc(c.title)}</span><small>${esc(sub)}</small>${c.why ? `<small class="cand-why">${esc(cap(c.why))}</small>` : ""}</span>
+    <span class="cand-a"><a class="icon-btn" href="${esc(c.url)}" target="_blank" rel="noopener" title="Ver en Pipedrive" aria-label="Ver «${esc(c.title)}» en Pipedrive">${icon("external")}</a><button class="btn sm" data-exkey="${esc(c.key)}">Es este</button></span></div>`;
+}
+// «Es este» o «Es otro colegio» (desde la ficha o desde la pregunta): queda en el cruce y la ficha se actualiza
+async function chooseExisting(s, choice, btn) {
+  if (btn) { btn.disabled = true; btn.innerHTML = `<span class="spin"></span>`; }
+  try {
+    const r = await api(`/api/schools/${encodeURIComponent(s.id)}/existing`, { body: choice });
+    if (r.detail) { patchSchool(r.detail.school); if (D.id === s.id) { D.data = r.detail; draw(); } }
+    S.today = null;
+    toast(choice.none ? "Listo: lo próximo que registres crea el prospecto de este colegio" : (r.done || []).map(x => x.label).join(" · ") || "Listo: queda vinculado");
+    return true;
+  } catch (e) { toast(e.message, { type: "err", ms: 9000 }); if (D.id === s.id) draw(); return false; }
+}
+function askPdExisting(s, cands) {
+  return new Promise(resolve => {
+    let out = false;
+    const m = modal(`<div class="modal-h"><h3>${icon("search")} Ya hay algo parecido en Pipedrive</h3><button class="icon-btn" id="pdxX" aria-label="Cerrar">${icon("x")}</button></div>
+      <p class="muted" style="margin:-6px 0 0">¿Es alguno de estos? Así no se carga dos veces el mismo colegio.</p>
+      <div class="cmp-h" style="margin-top:4px">${icon("map", "sm")} ${esc(s.name)}${s.city ? ` · ${esc(s.city)}` : ""}</div>
+      <div id="pdxList">${cands.map(exRow).join("")}</div>
+      <div class="row"><button class="btn ghost" id="pdxNo">Cancelar</button><button class="btn" id="pdxNew">${icon("plus")} Es otro colegio, crear prospecto nuevo</button></div>`, { onClose: () => resolve(out) });
+    const q = sel => m.querySelector(sel);
+    q(".modal-box").classList.add("mid", "pdx");
+    q("#pdxX").onclick = q("#pdxNo").onclick = () => m.close();
+    const pick = async (choice, b) => { m.locked = true; const ok = await chooseExisting(s, choice, b); m.locked = false; if (ok) { out = true; m.close(); } else if (b) { b.disabled = false; b.textContent = choice.none ? "Es otro colegio, crear prospecto nuevo" : "Es este"; } };
+    m.querySelectorAll("[data-exkey]").forEach(b => b.onclick = () => pick({ key: b.dataset.exkey }, b));
+    q("#pdxNew").onclick = e => pick({ none: true }, e.currentTarget);
+  });
+}
+async function apiEx(s, path, opts) {
+  for (let i = 0; ; i++) {
+    try { return await api(path, opts); }
+    catch (e) {
+      if (e.code !== "pd_maybe" || !e.data?.candidates?.length || i >= 2) throw e;
+      if (!(await askPdExisting(s, e.data.candidates))) throw new Error("No guardé nada: primero decí si es alguno de esos o si es otro colegio.");
+    }
+  }
+}
+// En la ficha: lo dudoso que encontró la última búsqueda (con «Es este» y «Es otro colegio»)
+function existingSec(s, m) {
+  const l = !s.virtual && !s.leadOnly && !m?.orgId && m?.pdx?.maybe?.length ? m.pdx.maybe : [];
+  if (!l.length) return "";
+  return `<section class="sec" id="exSec"><h3><span class="l">${icon("search")} Ya hay algo parecido en Pipedrive</span></h3>
+    <p class="muted" style="margin:0 0 6px">¿Es alguno de estos? Si no lo decís, te lo pregunto al registrar.</p>${l.map(exRow).join("")}
+    <div class="cand"><span class="muted">Ninguno es este colegio</span><button class="btn sm ghost" id="exNone">Es otro colegio</button></div></section>`;
+}
+// «Nunca contactado» con una búsqueda real detrás: lo dice (y los prospectos archivados, como dato)
+function pdChecked(s, m) {
+  const x = m?.pdx;
+  if (s.virtual || s.leadOnly || !x?.at || m.orgId || s.status !== "new" || x.maybe?.length) return "";
+  const info = (x.info || []).map(c => `<a href="${esc(c.url)}" target="_blank" rel="noopener">«${esc(c.title)}»</a> (${esc(c.what)}, ${esc(exOwner(c))})`).join(", ");
+  // con organizaciones parecidas sin elegir (las muestra la ficha aparte), no se dice que no hay organización
+  const what = (m.candidates || []).length ? "prospecto ni trato" : "prospecto, organización ni trato";
+  return `<div class="callout ok pd-checked">${icon("checkCircle")}<span>Revisé en Pipedrive ${esc(ago(x.at))}: no hay ${what} con este nombre${x.phone ? " ni este teléfono" : ""}.${info ? ` Solo ${info}.` : ""}</span></div>`;
 }
 
 // ---------- «Es esta» → ¿Estás seguro? (comparar) → vincular → ¿Querés fusionar? (otras organizaciones del mismo colegio)
@@ -1350,7 +1418,7 @@ async function saveLog(s, d) {
     session: sessionRef(),
   };
   try {
-    const r = await api(`/api/schools/${s.id}/log`, { body });
+    const r = await apiEx(s, `/api/schools/${s.id}/log`, { body });
     sessionLogged(r, { kind: "contact", channel: f.channel, outcome: f.outcome }, body.session);
     if (D.id !== s.id) return;
     D.result = { ...r, form: JSON.parse(JSON.stringify(f)) }; D.inCall = false; D.call = null;
@@ -1386,7 +1454,7 @@ async function saveComment(s) {
   D.saving = true; redrawLog();
   try {
     const task = f.next.type && f.next.date ? { type: f.next.type, date: f.next.date, time: f.next.time || undefined, ownerId: f.next.ownerId ? Number(f.next.ownerId) : undefined, subject: f.next.subject || undefined } : null;
-    const sr = sessionRef(), r = await api(`/api/schools/${s.id}/comment`, { body: { text: f.text, task, completeActivityId: D.activityId && f.completeAct ? D.activityId : null, session: sr } });
+    const sr = sessionRef(), r = await apiEx(s, `/api/schools/${s.id}/comment`, { body: { text: f.text, task, completeActivityId: D.activityId && f.completeAct ? D.activityId : null, session: sr } });
     sessionLogged(r, { kind: "comment" }, sr);
     if (D.id !== s.id) return;
     D.result = { ...r, form: JSON.parse(JSON.stringify(f)) };
@@ -1658,7 +1726,7 @@ function templateMenu(anchor, s, d, channel, to = {}) {
   const demo = confirm && d.activities.filter(a => a.type === "meeting").map(localAct).find(l => l.date >= today());
   const recommended = channel === "whatsapp" ? (confirm ? "confirm_demo" : s.status === "lost" || s.status === "stalled" ? "reactivate" : d.attempts ? "after_call" : "intro") : (s.status === "lost" || s.status === "stalled" ? "mail_reactivate" : "mail_info");
   list.sort((a, b) => (b.id === recommended) - (a.id === recommended));
-  openMenu(anchor, [{ head: channel === "whatsapp" ? "Mensaje de WhatsApp" : "Mail desde Gmail" },
+  openMenu(anchor, [{ head: channel === "whatsapp" ? "Mensaje de WhatsApp" : "Mail" },
     ...list.map(t => ({ label: t.label + (t.id === recommended ? " · sugerido" : ""), sub: channel === "mail" ? t.subject || "" : t.text.split("\n").find(x => x.length > 12) || t.text, fn: () => {
       let text = t.text; if (to.name) text = text.replace(/^Hola(?=[,\s])/, `Hola ${to.name.split(" ")[0]}`);
       if (t.id === "confirm_demo" && demo) text = text.replace("[día]", shortDay(demo.date)).replace("[hora]", demo.time || "[hora]");
@@ -1667,13 +1735,19 @@ function templateMenu(anchor, s, d, channel, to = {}) {
     { label: "Mensaje en blanco", sub: "Escribir desde cero", fn: () => messageModal(s, d, { channel, label: "Mensaje", text: "", subject: "" }, { phone: to.phone, email: to.email, name: to.name, logAfter: true }) },
   ]);
 }
-// Mail con Gmail conectado: «Enviar» manda desde tu Gmail (con 5 s para deshacer) y queda en Pipedrive y en Historial.
-// Sin Gmail conectado: «Conectar Gmail» (una vez) y, mientras tanto, «Abrir en Gmail» como siempre.
+// Mail desde la ficha. Primero Pipedrive: con tu Pipedrive conectado, «Enviar» (con 5 s para deshacer) crea el mail en tu
+// casilla de Pipedrive ligado al prospecto o al trato y lo manda; queda la actividad, la nota y el próximo paso en Pipedrive
+// y en Historial. Sin Pipedrive conectado: «Conectar Pipedrive para enviar desde acá» (una vez) y, mientras tanto, «Abrir
+// en Gmail» como siempre. Si conectaste Gmail (y no Pipedrive), sale de tu Gmail, como antes.
 const MAIL_RE = /^[^@\s<>()[\]\\,;:"]+@[^@\s<>()[\]\\,;:"]+\.[a-z]{2,}$/i, PH_RE = /\[(d[ií]a|hora|tu nombre)\]/i, SEND_DELAY = 5;
-// Enviar: Gmail conectado y confirmado en esta sesión (verified: entraste con Google o lo conectaste acá). Conectado pero
-// sin confirmar (entraste con tu código en otro dispositivo): se confirma una vez con Google.
+// Gmail: conectado y confirmado en esta sesión (verified: entraste con Google o lo conectaste acá). Conectado pero sin
+// confirmar (entraste con tu código en otro dispositivo): se confirma una vez con Google.
 const canSend = g => !!(g?.enabled && g.connected && g.verified && !g.readOnly && !g.config);
 const needsConfirm = g => !!(g?.enabled && g.connected && !g.verified && !g.readOnly && !g.config);
+// por dónde sale ahora: Pipedrive si está listo; si no, Gmail si está listo; si no, nada (se ofrece conectar)
+const mailVia = () => pdReady(S.pdmail) ? "pipedrive" : !S.pdmail?.connected && canSend(S.gmail) ? "gmail" : "";
+// la firma que va por esa vía (para sacar la despedida con tu nombre de la plantilla)
+const viaSig = v => v === "pipedrive" ? S.pdmail?.signature || "" : v === "gmail" ? S.gmail?.signature || "" : "";
 const newKey = () => (crypto.randomUUID?.() || String(Math.random()).slice(2) + Date.now()).replace(/[^A-Za-z0-9]/g, "").slice(0, 40);
 // la despedida con tu nombre de la plantilla sobra si la firma ya lo dice
 const dropSignoff = text => { const n = String(S.me?.name || "").trim(); const re = n ? new RegExp(`\\n${n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\nOrderEAT\\s*$`) : /\n[^\n]{2,60}\nOrderEAT\s*$/; return re.test(text) ? text.replace(re, "") : text.replace(/\n[^\n]{2,60}\nOrderEAT\s*$/, ""); };
@@ -1690,13 +1764,13 @@ function mailBlockLocal(s, d) {
 }
 async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
   const isMail = t.channel === "mail";
-  if (isMail) await loadGmail(!!(S.gmail?.problem || S.gmail?.failed));
+  if (isMail) await Promise.all([loadGmail(!!(S.gmail?.problem || S.gmail?.failed)), loadPdMail(!!S.pdmail?.failed)]);
   // para WhatsApp solo sirve un número completo (con código de área): uno local de 7 dígitos de la web no llega
   const full = p => String(p || "").replace(/\D/g, "").length >= 10;
   const defPhone = phone || [...(d.persons || []).map(p => p.phone), s.phone, ...sedesOf(s.id).filter(z => z.here).flatMap(sedeCallable)].find(p => p && (isMail || full(p))) || "";
   const defMail = email || d.persons?.find(p => p.email)?.email || d.mails?.[0]?.to || D.study?.contacto?.emails?.[0] || s.email || "";
   const pre = S.markets[s.country]?.prefix ? `+${S.markets[s.country].prefix} …` : "Teléfono";
-  const text0 = isMail && canSend(S.gmail) && S.gmail.signature ? dropSignoff(t.text) : t.text;
+  const text0 = isMail && viaSig(mailVia()) ? dropSignoff(t.text) : t.text;
   // phase: edit · checking (comprobando en Pipedrive) · count (5 s para deshacer) · sending · unknown (no se sabe si salió)
   let phase = "edit", left = SEND_DELAY, timer = null, finished = false, again = false;
   // clave de un solo uso por envío: si el pedido se repite, el servidor no lo manda dos veces. «Mandar igual» usa otra.
@@ -1723,7 +1797,7 @@ async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
     b.disabled = true; b.innerHTML = `<span class="spin"></span> Armando…`;
     try {
       const r = await api(`/api/schools/${s.id}/draft`, { body: { channel: t.channel, purpose: t.label, contact: name || d.persons?.[0]?.name || "", base: t.text && cur === t.text.trim() && ctx ? "" : cur, context: ctx } });
-      if (r.text) q("#mText").value = isMail && canSend(S.gmail) && S.gmail.signature ? dropSignoff(r.text) : r.text; if (r.subject && q("#mSub") && !q("#mSub").value.trim()) q("#mSub").value = r.subject;
+      if (r.text) q("#mText").value = isMail && viaSig(mailVia()) ? dropSignoff(r.text) : r.text; if (r.subject && q("#mSub") && !q("#mSub").value.trim()) q("#mSub").value = r.subject;
       q("#mAiNote").textContent = r.note || (r.mode === "ia" ? "Listo. Revisalo antes de mandar." : "Armado con la plantilla de la casa. Revisalo antes de mandar.");
     } catch (err) { toast(err.message, { type: "err" }); }
     b.disabled = false; b.innerHTML = `${icon("sparkles", "sm")} Armar mensaje`;
@@ -1738,7 +1812,7 @@ async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
   const local = isMail ? mailBlockLocal(s, d) : "";
   if (local) chk = { ok: false, error: local };
   const check = () => chk ? Promise.resolve(chk) : (checking ||= api(`/api/schools/${s.id}/mail/check`).catch(() => ({ ok: true, soft: true })).then(r => { chk = r; checking = null; if (m.isConnected && phase === "edit") drawAct(); return r; }));
-  if (isMail && canSend(S.gmail)) check();
+  if (isMail && mailVia()) check();
   // el mail sale recién a los 5 s: hasta ahí se puede deshacer (o cerrar la ventana). Antes, se comprueba que se pueda.
   const startSend = async () => {
     const to = q("#mTo").value.trim(), subject = q("#mSub").value.replace(/\s+/g, " ").trim(), text = q("#mText").value;
@@ -1754,24 +1828,26 @@ async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
       clearInterval(timer); timer = null; doSend({ to, subject, text });
     }, 1000);
   };
-  let note = "";
+  let note = "", sentVia = "", pdForm = false; // pdForm: pegando el token de Pipedrive (en el lugar de los botones)
   const undo = () => { clearInterval(timer); timer = null; phase = "edit"; note = "No se envió. Seguí editando y mandalo cuando quieras."; editable(true); drawAct(); q("#mSend")?.focus(); };
   // si la ficha se abrió desde una tarea «Mail» de la agenda, se marca como hecha
   const act = D.activityId && d.activities?.find(a => a.id === D.activityId), completeId = act?.type === "task" && D.form?.completeAct !== false ? act.id : null;
   const doSend = async p => {
     phase = "sending"; m.locked = true; drawAct();
     try {
-      const r = await api(`/api/schools/${s.id}/mail`, { body: { ...p, key, completeActivityId: completeId, session: sessionRef() } });
+      sentVia = mailVia();
+      const r = await api(`/api/schools/${s.id}/mail`, { body: { ...p, key, via: sentVia, completeActivityId: completeId, session: sessionRef() } });
       finished = true; m.locked = false; m.close();
       afterMailSent(s, r, { logAfter, completed: !!completeId });
     } catch (e) {
       m.locked = false; editable(true);
-      // no se sabe si salió (Gmail no respondió) o esa clave ya se usó: no se vuelve a ofrecer «Enviar» con la misma clave
-      if (e.code === "gmail_unknown" || e.code === "mail_dup") { phase = "unknown"; drawAct(); showErr(e.message); return; }
+      // no se sabe si salió (Gmail o Pipedrive no respondieron) o esa clave ya se usó: no se vuelve a ofrecer «Enviar» con la misma clave
+      if (e.code === "gmail_unknown" || e.code === "pd_unknown" || e.code === "mail_dup") { phase = "unknown"; drawAct(); showErr(e.message); return; }
       phase = "edit";
       // cambió algo en Pipedrive (de otra persona, cliente, archivado): queda el motivo en lugar de «Enviar»
       if (!e.code && [403, 404, 409].includes(e.status)) chk = { ok: false, error: e.message };
-      await loadGmail(true).catch(() => {}); // pudo vencer, desconectarse o pedir confirmar en este dispositivo
+      if (e.code === "pd_maybe" || e.code === "pd_theirs") chk = { ok: false, error: e.message, code: e.code, candidates: e.data?.candidates || [] };
+      await Promise.all([loadGmail(true), loadPdMail(true)]).catch(() => {}); // pudo vencer, desconectarse o pedir confirmar en este dispositivo
       drawAct(); showErr(chk && !chk.ok ? "" : e.message);
     }
   };
@@ -1786,42 +1862,78 @@ async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
     }
     if (phase === "count") { a.innerHTML = `<div class="send-bar" role="status" aria-live="polite">${icon("send")}<span>Enviando en <b id="mCount">${left}</b> s</span><button class="btn" id="mUndo">Deshacer</button></div>`; q("#mUndo").onclick = undo; return; }
     q("#mClose").disabled = phase === "sending";
-    if (phase === "sending" || phase === "checking") { a.innerHTML = `<div class="send-bar" role="status"><span class="spin"></span><span>${phase === "sending" ? "Enviando desde tu Gmail…" : "Comprobando en Pipedrive…"}</span></div>`; return; }
+    if (phase === "sending" || phase === "checking") { a.innerHTML = `<div class="send-bar" role="status"><span class="spin"></span><span>${phase === "sending" ? sentVia === "pipedrive" ? "Enviando desde tu Pipedrive…" : "Enviando desde tu Gmail…" : "Comprobando en Pipedrive…"}</span></div>`; return; }
     if (phase === "unknown") {
-      a.innerHTML = `<div class="row"><a class="btn" href="https://mail.google.com/mail/#sent" target="_blank" rel="noopener">${icon("mail")} Ver Enviados</a>
+      const sentUrl = sentVia === "pipedrive" ? `${S.pdmail?.pdWeb || S.pdWeb || ""}/mail/sent` : "https://mail.google.com/mail/#sent";
+      a.innerHTML = `<div class="row"><a class="btn" href="${esc(sentUrl)}" target="_blank" rel="noopener">${icon("mail")} Ver Enviados</a>
         ${again ? `<button class="btn" id="mNo">Cancelar</button><button class="btn primary" id="mAgain">Sí, mandarlo de nuevo</button>` : `<button class="btn" id="mAgain">Mandar igual</button>`}</div>
         <p class="faint mail-note">${again ? "Si ya salió, le llega dos veces." : "Si salió, cerrá y registralo en Registrar. Si no está en Enviados, mandalo de nuevo."}</p>`;
       q("#mNo")?.addEventListener("click", () => { again = false; drawAct(); });
       q("#mAgain").onclick = () => { if (!again) { again = true; drawAct(); q("#mAgain")?.focus(); return; } key = newKey(); phase = "edit"; startSend(); };
       return;
     }
-    const send = canSend(g), confirm = needsConfirm(g), wait = gmailWaiting(), blocked = send && chk && !chk.ok;
+    const p = S.pdmail, via = mailVia(), send = !!via, blocked = send && chk && !chk.ok;
+    // Pipedrive primero: conectar (o confirmar en este dispositivo). Gmail solo si ya lo tenías conectado (y no Pipedrive).
+    const pdOffer = !via && pdCanConnect(p), pdConfirm = pdOffer && p.connected && !p.verified;
+    const gConfirm = !via && !pdOffer && needsConfirm(g), gConnect = !via && !pdOffer && !gConfirm && g?.enabled && !g.readOnly && !g.config;
+    // pegar el token de Pipedrive: dos pasos en el lugar de los botones; al conectar, vuelve con «Enviar»
+    if (pdForm && pdCanConnect(p) && !pdReady(p)) {
+      a.innerHTML = tokenFormHtml(p, { confirm: !!p.connected });
+      const before = q("#mText").value;
+      bindTokenForm(a, {
+        onCancel: () => { pdForm = false; drawAct(); q("#mConnect")?.focus(); },
+        onDone: () => {
+          pdForm = false; if (!m.isConnected) return;
+          if (mailVia()) { note = `Pipedrive conectado${S.pdmail.name ? ` como ${S.pdmail.name}` : ""}. Ya podés enviar.`; showErr(""); check(); }
+          // con firma, la despedida con tu nombre sobra (solo si no la tocaste)
+          if (viaSig(mailVia()) && q("#mText").value === before) q("#mText").value = dropSignoff(before);
+          drawAct(); q("#mSend")?.focus();
+        },
+      });
+      return;
+    }
+    const wait = !pdOffer && gmailWaiting();
+    const sigHtml = viaSig(via), sigSrc = via === "pipedrive" ? p.signatureSource : g?.signatureSource;
     a.innerHTML = `<div class="row"><button class="btn" id="mCopy">${icon("copy")} Copiar</button>
       ${send && !blocked ? `<button class="btn ghost" id="mGo">Abrir en Gmail</button><button class="btn primary" id="mSend">${icon("send")} Enviar</button>`
-        : !blocked && g?.enabled && !g.readOnly && !g.config ? `<button class="btn" id="mGo">Abrir en Gmail</button><button class="btn primary" id="mConnect">${wait ? `<span class="spin"></span> Esperando a Google…` : confirm ? `${icon("mail")} Confirmar tu Gmail en este dispositivo` : `${icon("mail")} Conectar Gmail para enviar desde acá`}</button>`
+        : !blocked && (pdOffer || gConfirm || gConnect) ? `<button class="btn" id="mGo">Abrir en Gmail</button><button class="btn primary" id="mConnect">${wait ? `<span class="spin"></span> Esperando a Google…`
+          : pdConfirm ? `${icon("lock")} Confirmá que sos vos` : pdOffer ? `${icon("mail")} Conectar Pipedrive para enviar desde acá` : gConfirm ? `${icon("mail")} Confirmar tu Gmail en este dispositivo` : `${icon("mail")} Conectar Gmail para enviar desde acá`}</button>`
         : `<button class="btn primary" id="mGo">${icon("mail")} Abrir en Gmail</button>`}</div>
       ${note ? `<p class="mail-note" role="status" style="color:var(--info)">${esc(note)}</p>` : ""}
-      ${blocked ? `<p class="mail-block" role="status">${icon("alert", "sm")}<span><b>Desde acá no se envía.</b> ${esc(chk.error)}</span></p>`
-        : send ? `<p class="mail-how">${icon("checkCircle", "sm")}<span>Sale de tu Gmail (${esc(g.email)}) y queda en Pipedrive y en el historial.</span></p>
-          ${g.signature ? `<details class="gm-sig"><summary>${esc(sigLabel(g))}</summary>${sigPreview(g.signature)}</details>` : `<p class="faint mail-note">Tu Gmail no tiene firma: sale sin firma. Podés pegar una en tu perfil.</p>`}`
-        : g?.readOnly ? `<p class="faint mail-note">Modo solo lectura: desde acá no se envía. Usá «Abrir en Gmail».</p>`
+      ${blocked && chk.code === "pd_maybe" ? `<p class="mail-block" role="status">${icon("alert", "sm")}<span><b>Antes de mandar:</b> ${esc(chk.error)}</span><button class="btn sm" id="mEx">Ver cuáles</button></p>`
+        : blocked ? `<p class="mail-block" role="status">${icon("alert", "sm")}<span><b>Desde acá no se envía.</b> ${esc(chk.error)}</span></p>`
+        : via === "pipedrive" ? `<p class="mail-how">${icon("checkCircle", "sm")}<span>Sale de tu correo de Pipedrive${p.name ? ` (${esc(p.name)})` : ""}, ligado al prospecto o al trato, y queda en el historial.</span></p>
+          ${sigHtml ? `<details class="gm-sig"><summary>${esc(SIG_LABEL[sigSrc] || SIG_LABEL.armada)}</summary>${sigPreview(sigHtml)}</details>` : `<p class="faint mail-note">Sale sin firma: armala en tu perfil.</p>`}`
+        : via === "gmail" ? `<p class="mail-how">${icon("checkCircle", "sm")}<span>Sale de tu Gmail (${esc(g.email)}) y queda en Pipedrive y en el historial.</span></p>
+          ${sigHtml ? `<details class="gm-sig"><summary>${esc(sigLabel(g))}</summary>${sigPreview(sigHtml)}</details>` : `<p class="faint mail-note">Tu Gmail no tiene firma: sale sin firma. Podés armar una en tu perfil.</p>`}
+          ${pdCanConnect(p) && !p.connected ? `<p class="faint mail-note">Mejor desde Pipedrive (queda en su correo, ligado al prospecto): <button type="button" class="linkbtn" id="mPdLink">Conectar Pipedrive</button></p>` : ""}`
+        : p?.readOnly || g?.readOnly ? `<p class="faint mail-note">Modo solo lectura: desde acá no se envía. Usá «Abrir en Gmail».</p>`
+        : pdConfirm ? `<p class="faint mail-note">Tu Pipedrive ya está conectado. En este dispositivo pegá de nuevo tu token una vez y después mandás con un clic.</p>`
+        : pdOffer ? `<p class="faint mail-note">${p.mismatch ? "La conexión guardada no es de tu usuario de Pipedrive. " : ""}Pegás tu token de Pipedrive una vez y mandás con un clic desde tu casilla de Pipedrive, con tu firma. Queda ligado al prospecto y en el historial.</p>`
+        : p?.noUser ? `<p class="faint mail-note">Tu email no es usuario de Pipedrive: pedí que te den de alta. Mientras, usá «Abrir en Gmail».</p>`
         : g?.config ? `<p class="faint mail-note">Gmail está mal configurado en el servidor (avisale al administrador). Mientras, usá «Abrir en Gmail».</p>`
-        : confirm ? `<p class="faint mail-note">Tu Gmail (${esc(g.email)}) ya está conectado. En este dispositivo confirmalo una vez con Google y después mandás con un clic.</p>`
-        : g?.enabled ? `<p class="faint mail-note">${g.expired ? "Tu conexión con Gmail venció: conectalo de nuevo. " : ""}Lo conectás una vez y después mandás con un clic, con tu firma. Sale de tu Gmail y queda en Pipedrive y en el historial.</p>`
-        : `<p class="faint mail-note">Para enviar desde acá falta configurar Gmail (lo hace el administrador).</p>`}`;
+        : gConfirm ? `<p class="faint mail-note">Tu Gmail (${esc(g.email)}) ya está conectado. En este dispositivo confirmalo una vez con Google y después mandás con un clic.</p>`
+        : gConnect ? `<p class="faint mail-note">${g.expired ? "Tu conexión con Gmail venció: conectalo de nuevo. " : ""}Lo conectás una vez y después mandás con un clic, con tu firma. Sale de tu Gmail y queda en Pipedrive y en el historial.</p>`
+        : `<p class="faint mail-note">Para enviar desde acá falta configurar el servidor (avisale al administrador).</p>`}`;
     q("#mCopy").onclick = () => copy(q("#mText").value);
     q("#mGo").onclick = openGmail;
+    // ya hay algo parecido en Pipedrive: se elige (o «Es otro colegio») y se vuelve a comprobar
+    q("#mEx")?.addEventListener("click", async () => { if (await askPdExisting(s, chk.candidates || [])) { chk = null; phase = "checking"; editable(false); drawAct(); await check(); if (!m.isConnected) return; phase = "edit"; editable(true); drawAct(); } });
     q("#mSend")?.addEventListener("click", startSend);
-    q("#mConnect")?.addEventListener("click", async () => {
+    // Pipedrive: pegar el token acá mismo. Gmail (si no se puede Pipedrive): su ventana, sin perder lo escrito.
+    const openPd = () => { pdForm = true; note = ""; drawAct(); };
+    const connectG = async () => {
       const before = q("#mText").value;
-      const p = connectGmail({ quiet: true }); note = ""; drawAct();
-      const g2 = await p; if (!m.isConnected) return;
-      showErr(canSend(g2) ? "" : g2.error || "");
-      if (canSend(g2)) { note = `Gmail conectado como ${g2.email}. Ya podés enviar.`; check(); }
-      // con firma, la despedida con tu nombre sobra (solo si no la tocaste)
-      if (canSend(g2) && g2.signature && q("#mText").value === before) q("#mText").value = dropSignoff(before);
+      const pr = connectGmail({ quiet: true }); note = ""; drawAct();
+      const r = await pr; if (!m.isConnected) return;
+      const v = mailVia();
+      showErr(v ? "" : r.error || "");
+      if (v) { note = `Gmail conectado como ${S.gmail.email}. Ya podés enviar.`; check(); }
+      if (viaSig(v) && q("#mText").value === before) q("#mText").value = dropSignoff(before);
       drawAct(); q("#mSend")?.focus();
-    });
+    };
+    q("#mConnect")?.addEventListener("click", () => pdOffer ? openPd() : connectG());
+    q("#mPdLink")?.addEventListener("click", openPd);
   }
   drawAct();
   // en el celular no se abre el teclado de entrada: el foco va a la acción principal

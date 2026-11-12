@@ -7,7 +7,7 @@ La herramienta de prospección del equipo de ventas de OrderEAT. Le dice a cada 
 1. **Hoy.** Al entrar ves tu meta diaria de contactos, tu agenda de Pipedrive (vencidas, hoy, próximos 7 días) y la lista **A quién llamar ahora**, ordenada por prioridad dentro de tu territorio.
 2. **Empezar sesión.** Un botón arma la cola del día: primero los compromisos vencidos y de hoy, después los mejores prospectos. Vas colegio por colegio sin volver a la lista. Los clientes se saltean solos.
 3. **Preparar.** Cada ficha trae la situación del colegio en Pipe, el objetivo de la llamada, los primeros 15 segundos, las preguntas para calificar, las respuestas a objeciones y el cierre. Todo en el vocabulario del país (cafetería, cantina, casino, soda; tú o vos). Con IA, **Preparar con IA** lee las notas y tratos de Pipe y arma un brief a medida.
-4. **Contactar.** Llamar, WhatsApp o Mail desde la ficha. WhatsApp y Gmail se abren con plantillas listas (primer contacto, después de no atender, mandar info, confirmar demo, reactivar) que se pueden mejorar con IA.
+4. **Contactar.** Llamar, WhatsApp o Mail desde la ficha (el mail sale de tu Pipedrive, con un clic). WhatsApp y el mail se arman con plantillas listas (primer contacto, después de no atender, mandar info, confirmar demo, reactivar) que se pueden mejorar con IA.
 5. **Registrar.** Canal, resultado y, según el resultado, decisor, calificación, demo o motivo de pérdida. La app sugiere el próximo paso con criterio de cadencia (por ejemplo: «intento 1 sin respuesta: mandá un WhatsApp hoy»; «pidió info: mail hoy y llamada en 2 días hábiles»).
 6. **Guardar en Pipedrive** (Ctrl + Enter) y pasar al siguiente.
 
@@ -29,29 +29,47 @@ Cada registro hace, según el caso:
 | Próximo paso (llamada, WhatsApp o mail) para vos o alguien del equipo | Trato / organización |
 | Trato perdido con el motivo de la cuenta (No es prioridad ahora, No responde más, etc.) | Trato |
 | Etiqueta de interés de la organización (muy, algo o poco interesado) | Organización |
-| Organización nueva si el colegio no existía | Pipedrive |
+| Organización nueva si el colegio no existía (antes se revisa que no esté ya, ver «Antes de crear») | Pipedrive |
 | **Crear prospecto**: institución, persona y prospecto con Ciudad, País, Fuente, SDR, teléfono, email, web, dirección y niveles, más la tarea pendiente | Prospectos |
 | Comentario con tarea para más adelante (mini calendario, asignable a otra persona) | Organización o prospecto |
 
-## Mail desde la ficha (con tu Gmail)
+## Antes de crear: ¿ya está en Pipedrive?
 
-En la ficha, **Mail** arma el mensaje con las plantillas (o con IA) y, si conectaste tu Gmail, lo mandás con **Enviar**: aparece «Enviando en 5 s · Deshacer» y recién ahí sale. Antes de mandar revisa el email, el asunto y que no queden corchetes (`[día]`, `[hora]`, `[tu nombre]`).
+En la cuenta muchos prospectos no tienen organización (los importados: «montessori angeles», en minúscula, sin «Colegio», con la dirección «…, Colonia …, municipio, estado, C.P. …» en su campo). Por eso, antes de crear una organización o un prospecto (registrar un contacto, comentar, mandar un mail, «Crear prospecto», un decisor, el estudio o lo que confirma el asistente), la app busca en Pipedrive en vivo:
 
-- **Sale de tu Gmail**, con tu firma de Gmail (o la que pegues en tu perfil, por ejemplo la misma que usás en Pipedrive, que manda sobre la de Gmail). La API de Pipedrive no deja enviar mails (solo leer el buzón) y la app usa un solo token de Pipedrive: por eso cada persona conecta su Gmail una vez (Tu perfil o el mismo modal del mail). Se puede desconectar cuando quieras.
-- **Queda en Pipedrive**: actividad «Mail» hecha con el asunto en el título y el destinatario y el texto en la nota, ligada al trato abierto (o al prospecto) y a la organización y la persona; una nota «Mail enviado a … · Asunto · texto»; y, si el administrador configuró `PIPEDRIVE_SMART_BCC`, el mail real en la pestaña de correo de Pipedrive (va en copia oculta a la dirección Smart BCC, igual que si saliera de Pipedrive con el Gmail sincronizado).
-- **Queda en Historial** como una sola entrada «Mail enviado a … · «Asunto»», con quién, cuándo y el texto desplegable.
+- prospectos y tratos por el nombre propio del colegio (sin «colegio/instituto/escuela…», con y sin acentos) y por el nombre con la ciudad (en su dirección);
+- el teléfono, el mail y la web del colegio en los campos de prospectos, tratos y organizaciones, y las personas con ese teléfono o mail (sus prospectos y tratos);
+- las organizaciones parecidas del cruce, con su ciudad.
+
+Decide con las reglas del cruce (palabras propias, sin sede ni nivel, letras dobles juntas: «Serradel» = «serradell») más el lugar (municipio y estado de la dirección; «Atlixco, Puebla» no es Puebla), o el mismo teléfono, mail o web (eso solo alcanza). Reglas puras en `lib/existing.js` (pruebas con casos reales en `test/existing.test.mjs`):
+
+- **Seguro**: se usa ese. Un prospecto sin organización deja el colegio en «Prospecto en Pipe» y todo va ahí (no se crea organización; uno de la cuenta general pasa a tu nombre; uno de otra persona no se toca y se avisa). Con organización, el colegio pasa a esa.
+- **Dudoso**: no se crea nada y la ficha pregunta «Ya hay algo parecido en Pipedrive: ¿es alguno de estos?» con «Es este» y «Es otro colegio, crear prospecto nuevo».
+- **Nada**: recién ahí se crea, y la ficha dice «Revisé en Pipedrive: no hay prospecto, organización ni trato con este nombre».
+- Un prospecto archivado es solo un dato (se avisa, no se reusa solo). Si Pipedrive no responde, no se crea nada: «No pude revisar si ya existe: probá de nuevo».
+
+El cruce de cada ficha también busca prospectos sin organización (por nombre): «Nunca contactado» quiere decir que no hay nada en Pipedrive. La sincronización masiva sigue mirando solo organizaciones y tratos (leer todos los prospectos sumaría decenas de miles de registros por vuelta): los prospectos se buscan al abrir la ficha, en Hoy (los primeros de la cola) y en las sesiones.
+
+## Mail desde la ficha (desde tu Pipedrive)
+
+En la ficha, **Mail** arma el mensaje con las plantillas (o con IA) y lo mandás con **Enviar**: aparece «Enviando en 5 s · Deshacer» y recién ahí sale. Antes de mandar revisa el email, el asunto y que no queden corchetes (`[día]`, `[hora]`, `[tu nombre]`).
+
+- **Sale de tu Pipedrive**: de la casilla que tenés conectada en Pipedrive (Configuración personal › Correo), como si lo mandaras desde el compositor de Pipedrive, **ligado al prospecto** (o al trato abierto) y guardado en su pestaña de correo. Cada persona conecta **su propia cuenta** una vez con **Conectá tu Pipedrive** (en el modal del mail o en Tu perfil), en dos pasos: 1) abrí tu token en Pipedrive (tu foto › Configuración personal › API, `https://ordereat.pipedrive.com/settings/api`); 2) copialo y pegalo en la app. La app le pregunta a Pipedrive de quién es ese token y solo lo acepta si es tu mismo usuario de Pipedrive (y de la empresa de OrderEAT). Se puede desconectar cuando quieras; si cambiás el token en Pipedrive, la app te pide pegar el nuevo. No depende del token de la app ni de Gmail.
+- **Con tu firma**: Pipedrive no agrega la firma a los mails que manda la app, así que en Tu perfil → **Tu firma** elegís la **armada** (isotipo de OrderEAT, tu nombre, tu cargo según el rol —«Sales Development Representative», «Account Executive»…—, «email | teléfono» y www.ordereat.com, igual que la de Pipedrive; el teléfono y el cargo los cargás una vez) o **pegás la tuya de Pipedrive** (texto o HTML, se limpia). Se ve en el modal antes de mandar.
+- **Queda en Pipedrive**: el mail en el correo del prospecto o trato; una actividad «Mail» hecha con el asunto y el texto; una nota «Mail enviado a … · Asunto · texto»; y siempre un próximo paso (siempre en el prospecto si no hay trato abierto: si el colegio no tenía, se crea a tu nombre antes de mandar, para ligar el mail).
+- **Queda en Historial** como una sola entrada «Mail enviado a … · «Asunto»», con quién, cuándo y el texto desplegable, y cuenta como contacto en tu sesión de trabajo.
 - Respeta el dueño: solo lo tuyo o lo libre (no clientes, ni lo de otra persona, ni archivados). Donde no se puede, «Enviar» no aparece y el modal dice por qué. Si es el primer contacto, el colegio pasa a tu nombre con una llamada para el próximo día hábil; si no y no tenías nada pendiente con ese colegio, queda una llamada en 2 días hábiles. Después de enviar se abre Registrar con el mail ya registrado: muestra lo que quedó agendado y, si lo cambiás, mueve esa actividad (no crea otra).
-- Por seguridad, solo manda una sesión que se identificó con Google: si entraste con tu código personal en otro dispositivo, te pide confirmar tu Gmail una vez. Hay un tope de 60 mails por persona por hora (`MAIL_PER_HOUR`). Si Gmail no responde, la app no reintenta sola: avisa «No sé si salió» para que mires Enviados.
-- Sin Gmail conectado sigue estando «Abrir en Gmail» (redacta en Gmail y después registrás a mano). Con `READ_ONLY=1` no se envía nada.
+- Por seguridad, solo manda una sesión que probó ser vos: pegaste tu token en esa sesión, o entraste con Google. Si entraste con tu código personal en otro dispositivo, te pide «Confirmá que sos vos» (pegar tu token otra vez) una vez. Hay un tope de 60 mails por persona por hora (`MAIL_PER_HOUR`). Si Pipedrive no responde al mandar, la app no reintenta sola: avisa «No sé si salió» para que mires Enviados.
+- Sin Pipedrive conectado sigue estando «Abrir en Gmail» (redactás en Gmail y después registrás a mano). Con `READ_ONLY=1` no se envía nada.
 
-**Qué configura el administrador (una vez):**
+**Qué configura el administrador: nada.** La app usa el servidor MCP oficial de Pipedrive (`https://mcp.pipedrive.ai/mcp`), que es el que permite mandar mails (la API REST pública no), con el token personal de cada uno (el OAuth de Pipedrive no acepta la vuelta de una app web propia). Solo hace falta `SESSION_SECRET` (ya está). Los tokens de cada persona se guardan cifrados (AES-256-GCM con una clave derivada de `SESSION_SECRET`) y nunca llegan al navegador: si cambia `SESSION_SECRET`, cada uno vuelve a pegar el suyo. En `npm run demo` Pipedrive es simulado: cualquier texto sirve de token y «enviar» guarda el mail en memoria (`GET /api/demo/mail/:id` muestra el mail y lo que quedó en el Pipedrive de prueba).
+
+**Gmail (segunda opción).** Si alguien conectó su Gmail y no su Pipedrive, el mail sale de su Gmail como antes (con `PIPEDRIVE_SMART_BCC`, en copia oculta a Pipedrive). Para ofrecerlo, el administrador configura una vez:
 
 1. Google Cloud (el mismo proyecto del login): APIs y servicios → Biblioteca → habilitar **Gmail API**.
 2. Pantalla de consentimiento OAuth: tipo **Interno** (solo cuentas @ordereat.com) con los scopes `https://www.googleapis.com/auth/gmail.send`, `https://www.googleapis.com/auth/gmail.settings.basic` (leer la firma y el email principal) y `https://www.googleapis.com/auth/calendar.freebusy` (libre/ocupado del account en «Proponer demo»); habilitar también **Google Calendar API**.
 3. Credenciales → el cliente OAuth **web** que ya usa el login → URIs de redireccionamiento autorizados: `https://orderbrain-sdr.vercel.app/auth/gmail/callback` (y `http://localhost:3000/auth/gmail/callback` para probar).
-4. Vercel → Settings → Environment Variables: `GOOGLE_CLIENT_SECRET` (el secreto de ese cliente) y, opcional, `PIPEDRIVE_SMART_BCC` (Pipedrive → Configuración personal → Correo → Smart BCC). Redeploy.
-
-El token de cada persona se guarda cifrado (AES-256-GCM con una clave derivada de `SESSION_SECRET`): si cambia `SESSION_SECRET`, cada uno vuelve a conectar su Gmail. Sin `GOOGLE_CLIENT_SECRET` el botón no aparece y el modal dice «Para enviar desde acá falta configurar Gmail (lo hace el administrador)». En `npm run demo` Gmail es simulado: conectar no pasa por Google y «enviar» guarda el mail en memoria (`GET /api/demo/mail/:id` muestra el mail y lo que quedó en el Pipedrive de prueba).
+4. Vercel → Settings → Environment Variables: `GOOGLE_CLIENT_SECRET` (el secreto de ese cliente). La copia a Pipedrive (Smart BCC) ya va a `ordereat@pipedrivemail.com`; `PIPEDRIVE_SMART_BCC` solo para usar otra dirección (o `off` para no mandarla). Redeploy.
 
 Después de cada contacto la app propone siempre un próximo paso con fecha. Se puede cerrar sin agendar, pero avisa: la idea es que nunca quede un colegio sin algo pendiente.
 
@@ -120,7 +138,8 @@ El indicador de abajo muestra el avance (verificados, nuevos y descartados con e
 
 | Estado | Qué significa | De dónde sale |
 |---|---|---|
-| Nunca contactado | No figura en Pipedrive | Pipedrive |
+| Nunca contactado | No figura en Pipedrive: ni organización ni prospecto con su nombre | Pipedrive |
+| Prospecto en Pipe | Hay un prospecto sin organización (por ejemplo, uno importado): lo que se registre va ahí | Pipedrive |
 | En Pipe sin trato | La organización existe pero nunca tuvo un trato | Pipedrive |
 | Contactado sin avance | Se lo contactó y no se llegó a mandar propuesta | Trato perdido antes de PROPOSAL SENT |
 | Propuesta enviada | La propuesta está mandada y el trato sigue abierto | Etapa PROPOSAL SENT |
@@ -201,8 +220,8 @@ Con `CRON_SECRET` en Vercel, el cron diario (`vercel.json`, 08:17 UTC) sigue una
 | `ANTHROPIC_API_KEY` | Clave para el asistente, los briefs, los mensajes y el ordenado de notas | console.anthropic.com → API Keys |
 | `ANTHROPIC_MODEL` | Modelo de Claude (por defecto `claude-sonnet-5-5`) | |
 | `GOOGLE_CLIENT_ID` | ID de cliente OAuth tipo «Aplicación web» | Google Cloud Console → APIs y servicios → Credenciales. Agregar como orígenes autorizados `http://localhost:3000` y la URL de producción |
-| `GOOGLE_CLIENT_SECRET` | Secreto del mismo cliente OAuth: activa «Enviar» desde la ficha con el Gmail de cada persona (ver «Mail desde la ficha») | Google Cloud Console → Credenciales → el cliente web |
-| `PIPEDRIVE_SMART_BCC` | Opcional: dirección Smart BCC de Pipedrive; cada mail enviado va en copia oculta y queda en la pestaña de correo | Pipedrive → Configuración personal → Correo |
+| `GOOGLE_CLIENT_SECRET` | Opcional: secreto del mismo cliente OAuth; activa «Enviar» con el Gmail de cada persona como segunda opción (ver «Mail desde la ficha») | Google Cloud Console → Credenciales → el cliente web |
+| `PIPEDRIVE_SMART_BCC` | Opcional: dirección Smart BCC de Pipedrive (por defecto `ordereat@pipedrivemail.com`, la de la cuenta; `off` la apaga); cada mail enviado va en copia oculta y queda en la pestaña de correo | Pipedrive → Configuración personal → Correo |
 | `GMAIL_REDIRECT_URI` | Opcional: fija la URI de vuelta de Gmail si no es `https://<host>/auth/gmail/callback` | |
 | `MAIL_PER_HOUR` | Opcional: tope de mails por persona por hora desde la ficha (por defecto 60) | |
 | `ALLOWED_EMAIL_DOMAIN` | Dominio permitido para entrar (ej. `ordereat.com`) | |
@@ -236,7 +255,7 @@ Las actividades se asignan al usuario de Pipedrive cuyo email coincide con el de
 2. **Base de datos (recomendado):** en el proyecto, Storage → Create Database → **Upstash for Redis** (plan gratis) → Connect. Vercel carga solo `KV_REST_API_URL` y `KV_REST_API_TOKEN`. Ahí se guardan la meta diaria, el ranking, la cadencia y el cruce con Pipedrive. Sin esto la app anda igual, pero esos datos se reinician cada tanto.
 3. En Settings → Environment Variables cargá `PIPEDRIVE_API_TOKEN`, `PIPEDRIVE_DOMAIN`, `GOOGLE_CLIENT_ID`, `ALLOWED_EMAIL_DOMAIN`, `SESSION_SECRET` y, si querés IA, `ANTHROPIC_API_KEY`. Después, Deployments → Redeploy.
 4. Agregá la URL de Vercel (por ejemplo `https://orderbrain-sdr.vercel.app`) como origen autorizado en el cliente OAuth de Google.
-5. Para enviar mails desde la ficha: `GOOGLE_CLIENT_SECRET`, la URI `https://orderbrain-sdr.vercel.app/auth/gmail/callback` en el cliente OAuth y la Gmail API habilitada (ver «Mail desde la ficha»).
+5. Mails desde la ficha: no hace falta nada (cada persona pega su token de Pipedrive). Opcional, Gmail como segunda opción: `GOOGLE_CLIENT_SECRET`, la URI `https://orderbrain-sdr.vercel.app/auth/gmail/callback` en el cliente OAuth y la Gmail API habilitada (ver «Mail desde la ficha»).
 
 Para mirarla sin datos reales: `DEMO_MODE=1`, `DEV_LOGIN_EMAIL=tu-email@ordereat.com` y `SESSION_SECRET`, sin `PIPEDRIVE_API_TOKEN`. Aparece el botón «Entrar en modo desarrollo».
 
@@ -257,6 +276,7 @@ api/index.js           Entrada para Vercel (reexporta la app)
 lib/config.js          Mercados por país, embudos, campos personalizados y motivos de pérdida
 lib/playbook.js        Resultados de contacto, cadencia, guion, objeciones, plantillas y prioridad
 lib/pipedrive.js       Cliente de la API de Pipedrive (v1 y v2) y cruce colegio ↔ organización
+lib/existing.js        Antes de crear: reglas para saber si el colegio ya está (prospecto, trato u organización)
 lib/pipedrive-demo.js  Pipedrive de prueba en memoria (DEMO_MODE=1)
 lib/sales.js           Ficha, registro de contactos, cola de prioridad, agenda y métricas
 lib/ai.js              Claude: notas, brief de llamada, mensajes y asistente con herramientas
