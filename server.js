@@ -191,7 +191,9 @@ const wrap = fn => (req, res) => fn(req, res).catch(e => {
   if (status >= 500) console.error(e);
   // code: un identificador corto para que el navegador sepa qué hacer (gmail_reauth, gmail_unknown…); nunca datos
   const code = typeof e.code === "string" && /^[a-z][a-z_]{1,40}$/.test(e.code) ? { code: e.code } : {};
-  res.status(status).json({ error: e instanceof pd.PipedriveError ? `Pipedrive: ${e.message}` : e.message, ...code });
+  // candidates: lo que ya hay en Pipedrive y se parece al colegio (sales.settleExisting): la ficha pregunta «¿es alguno de estos?»
+  const cands = Array.isArray(e.candidates) ? { candidates: e.candidates } : {};
+  res.status(status).json({ error: e instanceof pd.PipedriveError ? `Pipedrive: ${e.message}` : e.message, ...code, ...cands });
 });
 // Cada uno cambia solo sus actividades (marcar hecha, deshacer, reprogramar); un líder, las de la gente de sus equipos
 // (dirección y los fijos, o cualquier líder si no hay equipos: todas).
@@ -215,7 +217,8 @@ async function ownDeal(user, id) {
 }
 // las fichas de Pipedrive (prospectos y organizaciones fuera de la base) se rearman si esta instancia no las tiene
 const schoolParam = (req, res, next) => {
-  const go = () => { req.params.id = canonicalId(req.params.id); next(); };
+  // un colegio cuyo cruce es un prospecto sin organización se trabaja como la ficha de ese prospecto (sales.leadView)
+  const go = () => { req.params.id = canonicalId(req.params.id); sales.leadView(byId.get(req.params.id)); next(); };
   if (byId.has(req.params.id)) return go();
   sales.ensureRecord(req.params.id).then(ok => ok ? go() : res.status(404).json({ error: "Colegio inexistente" }), () => res.status(404).json({ error: "Colegio inexistente" }));
 };
@@ -581,6 +584,13 @@ app.post("/api/schools/:id/match", auth, schoolParam, wrap(async (req, res) => {
   else await sales.linkSchool(req.params.id, { id: Number(orgId), name: String(orgName || "") });
   res.json(await sales.schoolDetail(req.params.id, { user: req.session.user, tz: req.tz }));
 }));
+// Lo que ya hay en Pipedrive y se parece al colegio (sales.settleExisting): «Es este» { key } lo usa (prospecto, trato u
+// organización); «Es otro colegio» { none: true } lo descarta y lo próximo que se registre crea lo suyo.
+app.post("/api/schools/:id/existing", auth, schoolParam, wrap(async (req, res) => {
+  const b = req.body || {}, user = req.session.user;
+  const r = b.none ? await sales.dismissExisting(req.params.id) : await sales.useExisting(req.params.id, user, String(b.key || ""));
+  res.json({ ...r, detail: await sales.schoolDetail(req.params.id, { user, tz: req.tz }) });
+}));
 // «Es esta» → «¿Estás seguro?»: lo que dice Pipedrive de esa organización, para comparar con el colegio
 app.get("/api/schools/:id/org/:orgId", auth, schoolParam, wrap(async (req, res) => res.json(await sales.orgPreview(req.params.id, req.params.orgId, req.session.user))));
 // después de vincular: otras organizaciones que parecen el mismo colegio (lib/merge.js) y si podés fusionar cada una
@@ -621,7 +631,7 @@ async function inSession(req, r, step) {
 // donde después va a fallar. No escribe nada. El envío vuelve a comprobar todo.
 app.get("/api/schools/:id/mail/check", auth, schoolParam, wrap(async (req, res) => {
   try { await sales.mailGuard(req.params.id, req.session.user); res.json({ ok: true }); }
-  catch (e) { if ((e.status || 500) >= 500) throw e; res.json({ ok: false, error: e.message }); }
+  catch (e) { if ((e.status || 500) >= 500) throw e; res.json({ ok: false, error: e.message, ...(e.code ? { code: e.code } : {}), ...(Array.isArray(e.candidates) ? { candidates: e.candidates } : {}) }); }
 }));
 app.post("/api/schools/:id/mail", auth, gmailProof, schoolParam, wrap(async (req, res) => {
   const user = req.session.user, b = req.body || {};
@@ -727,6 +737,7 @@ app.post("/api/schools/:id/study/note", auth, schoolParam, wrap(async (req, res)
   const st = await getStudy(req.params.id);
   if (!st) return res.status(404).json({ error: "Todavía no hay estudio de este colegio." });
   const s = byId.get(req.params.id);
+  await sales.settleExisting(req.params.id, req.session.user); // ¿ya está en Pipedrive? (antes de crear la organización)
   if (s.leadOnly) { // prospecto sin organización: el estudio va al prospecto
     await pd.addNote({ content: studyToHtml(s, st), leadId: s.leadId });
     return res.json({ ok: true, orgUrl: `${pd.PD_WEB}/leads/inbox/${s.leadId}` });
@@ -1003,12 +1014,16 @@ app.post("/api/proposals/confirm", auth, wrap(async (req, res) => {
 async function confirmProposal(p, req) {
   const user = await liveUser(req.session.user);
   let orgId = p.orgId, dealId = p.dealId, leadId = null, sid = p.schoolId, rec = null;
+  // un colegio de la base sin organización: antes de crear nada, ¿ya está en Pipedrive? (puede quedar en su prospecto)
+  if (sid && byId.has(sid)) await sales.settleExisting(sid, user).catch(e => { if (e.code === "pd_maybe") e.message = "Ya hay algo parecido en Pipedrive: abrí la ficha del colegio y elegí si es alguno de esos (o si es otro colegio)."; throw e; });
   const vs = sid && byId.get(sid);
   if (vs?.leadOnly) leadId = vs.leadId; // ficha de un prospecto sin organización: se escribe en el prospecto
   else {
     if (!orgId && !sid) {
       const hits = await pd.searchOrganizations(p.colegio, 5);
       const exact = hits.find(h => pd.norm(h.name) === pd.norm(p.colegio));
+      // sin ficha ni organización con ese nombre: si hay un prospecto o un trato que se llama así, no se crea otra
+      if (!exact) { const named = await sales.namedInPipedrive(p.colegio); if (named.length) throw Object.assign(new Error(`Ya hay algo con ese nombre en Pipedrive (${named.map(x => `«${x.title}»`).join(", ")}). Abrilo desde la búsqueda y registralo en su ficha.`), { status: 409 }); }
       orgId = exact ? exact.id : (await pd.createOrganization({ name: p.colegio, ownerId: user.pdUserId })).id;
     }
     // la ficha de esa organización (el colegio cruzado o la de Pipedrive): su trato abierto o su prospecto

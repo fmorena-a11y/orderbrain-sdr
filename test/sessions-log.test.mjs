@@ -12,7 +12,13 @@ const sales = await import("../lib/sales.js");
 const { schools, getMatch } = await import("../lib/store.js");
 const ss = await import("../lib/sessions.js");
 const user = { email: "demo@example.com", name: "Demo", pdUserId: 1 };
-const fresh = schools.filter(s => s.country === "México" && !getMatch(s.id)?.orgId);
+// nuevos de verdad: sin organización y sin nada parecido en Pipedrive (la investigación antes de crear no encuentra nada)
+const fresh = [];
+for (const s of schools.filter(x => x.country === "México" && !getMatch(x.id)?.orgId)) {
+  if (fresh.length >= 3) break;
+  const r = await sales.checkSchool(s.id);
+  if (r.status === "new" && (await sales.investigate(s.id)).r.verdict === "none") fresh.push(s);
+}
 
 test("logContact devuelve el próximo paso automático del primer contacto y la sesión lo anota", async () => {
   const s = fresh[0];

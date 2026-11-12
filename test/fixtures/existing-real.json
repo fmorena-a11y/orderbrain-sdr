@@ -1,0 +1,2739 @@
+{
+ "_nota": "Respuestas reales de /v2/itemSearch (prospectos y tratos) leídas por MCP el 12/11/2026, solo lectura. Clave: tipos|campos|término. Teléfonos, mails y nombres de personas reemplazados por falsos (se mantiene qué coincide con qué).",
+ "queries": {
+  "lead|title|angeles": [
+   {
+    "type": "lead",
+    "id": "e2e95790-b14c-11f1-aefe-abfb557f3601",
+    "title": "Reina de los Angeles Tacna Peru",
+    "owner": {
+     "id": 28543616
+    },
+    "person": {
+     "id": 24938,
+     "name": "Persona de prueba 1"
+    },
+    "organization": null,
+    "custom_fields": [
+     "No encontrado",
+     "Urb. Los Damascos, 1.ª Etapa G-04 (al costado de la Villa Municipal y cerca del Touring), Tacna, Perú.",
+     "052 555211",
+     "No encontrado"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "78b7ef40-a512-11f0-8792-93f5c232d282",
+    "title": "COLEGIO TERESIANO LOS ANGELES",
+    "owner": {
+     "id": 13493598
+    },
+    "person": {
+     "id": 16311,
+     "name": "COLEGIO TERESIANO LOS ANGELES"
+    },
+    "organization": {
+     "id": 9793,
+     "name": "COLEGIO TERESIANO LOS ANGELES"
+    },
+    "custom_fields": [
+     "1161"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "e9e813b0-7192-11f0-a8ce-1bfad1453f3e",
+    "title": "preparatoria instituto angeles del gourmet",
+    "owner": {
+     "id": 25460855
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle carretera cuautla-cuernavaca No. 77, Colonia año de juarez, cuautla, morelos, C.P. 62757",
+     "13"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "8f9e8560-7192-11f0-ae7b-258e5b6a816f",
+    "title": "jardin de ninos angeles",
+    "owner": {
+     "id": 25460855
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle puerto de mazatlan No. 304, Colonia los arados, altamira, tamaulipas, C.P. 89606",
+     "55"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "a9343420-7192-11f0-a609-6550ed7e31be",
+    "title": "colegio angeles",
+    "owner": {
+     "id": 25460855
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle niños héroes No. 908, Colonia tampico altamira, altamira, tamaulipas, C.P. 89600",
+     "80"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "9ad69d80-d770-11ef-b5e9-099909f3166f",
+    "title": "Instituto Santa María de los Angeles de la Orden de Frailes Menores Capuchinos",
+    "owner": {
+     "id": 25715989
+    },
+    "person": {
+     "id": 8531,
+     "name": "Instituto Santa María de los Angeles de la Orden de Frailes Menores Capuchinos"
+    },
+    "organization": {
+     "id": 8238,
+     "name": "Instituto Santa María de los Angeles de la Orden de Frailes Menores Capuchinos"
+    },
+    "custom_fields": [
+     "+54 345 555-7294",
+     "http://www.colegiocapuchinos.com.ar/"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "cc8445f0-7192-11f0-a8ce-1bfad1453f3e",
+    "title": "colegio de educacion infantil felipe angeles",
+    "owner": {
+     "id": 24582934
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle eugenio a. benavides No. 114, Colonia moises saenz, apodaca, nuevo león, C.P. 66613",
+     "apodaca",
+     "55"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "d6398e00-7194-11f0-a609-6550ed7e31be",
+    "title": "jardin de ninos dime felipe angeles",
+    "owner": {
+     "id": 25460855
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle malvas No. 120, Colonia primavera, gomez palacio, durango, C.P. 35043",
+     "gomez palacio",
+     "55"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "77982760-a512-11f0-9f1c-577a5d9242c9",
+    "title": "ANEXO LICEO SANTA RITA DE LOS ANGELES",
+    "owner": {
+     "id": 13493598
+    },
+    "person": {
+     "id": 16306,
+     "name": "ANEXO LICEO SANTA RITA DE LOS ANGELES"
+    },
+    "organization": {
+     "id": 42529,
+     "name": "ANEXO LICEO SANTA RITA DE LOS ANGELES"
+    },
+    "custom_fields": [
+     "0"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "14568ec0-845c-11f0-b7c1-711d507a2315",
+    "title": "NUESTRA SEÑORA DE LOS ANGELES",
+    "owner": {
+     "id": 24892485
+    },
+    "person": {
+     "id": 12632,
+     "name": "NUESTRA SEÑORA DE LOS ANGELES"
+    },
+    "organization": null,
+    "custom_fields": [
+     "0341-5555910"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "d8ca9650-7b9e-11f0-a8cd-4d707dba06c3",
+    "title": "COLEGIO LOS ANGELES SANTIAGO",
+    "owner": {
+     "id": 24902913
+    },
+    "person": null,
+    "organization": {
+     "id": 6114,
+     "name": "COLEGIO LOS ANGELES SANTIAGO"
+    },
+    "custom_fields": [
+     "0"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "5cc8a3a0-a513-11f0-8792-93f5c232d282",
+    "title": "ESC.BASICA Y ESP.MARIA DE LOS ANGELES DE BUIN",
+    "owner": {
+     "id": 13493598
+    },
+    "person": {
+     "id": 17568,
+     "name": "ESC.BASICA Y ESP.MARIA DE LOS ANGELES DE BUIN"
+    },
+    "organization": {
+     "id": 43776,
+     "name": "ESC.BASICA Y ESP.MARIA DE LOS ANGELES DE BUIN"
+    },
+    "custom_fields": [
+     "202"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "4de43b10-a513-11f0-882d-9187c89feac6",
+    "title": "COLEGIO PART. LOS ANGELES SANTIAGO DE SAN MIG",
+    "owner": {
+     "id": 13493598
+    },
+    "person": {
+     "id": 17475,
+     "name": "COLEGIO PART. LOS ANGELES SANTIAGO DE SAN MIG"
+    },
+    "organization": {
+     "id": 43684,
+     "name": "COLEGIO PART. LOS ANGELES SANTIAGO DE SAN MIG"
+    },
+    "custom_fields": [
+     "259"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "2c218000-a513-11f0-bce1-27db6e28627a",
+    "title": "ESCUELA ESPECIAL PARTICULAR ANGELES",
+    "owner": {
+     "id": 13493598
+    },
+    "person": {
+     "id": 17260,
+     "name": "ESCUELA ESPECIAL PARTICULAR ANGELES"
+    },
+    "organization": {
+     "id": 43468,
+     "name": "ESCUELA ESPECIAL PARTICULAR ANGELES"
+    },
+    "custom_fields": [
+     "111"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "82733cb0-a512-11f0-882d-9187c89feac6",
+    "title": "COLEGIO PADRE ALBERTO HURTADO LOS ANGELES",
+    "owner": {
+     "id": 13493598
+    },
+    "person": {
+     "id": 16353,
+     "name": "COLEGIO PADRE ALBERTO HURTADO LOS ANGELES"
+    },
+    "organization": {
+     "id": 42570,
+     "name": "COLEGIO PADRE ALBERTO HURTADO LOS ANGELES"
+    },
+    "custom_fields": [
+     "1208"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "6fe68ca0-a512-11f0-882d-9187c89feac6",
+    "title": "CENTRO EDUCACIONAL SONRISA DE ANGELES",
+    "owner": {
+     "id": 13493598
+    },
+    "person": {
+     "id": 16271,
+     "name": "CENTRO EDUCACIONAL SONRISA DE ANGELES"
+    },
+    "organization": {
+     "id": 42491,
+     "name": "CENTRO EDUCACIONAL SONRISA DE ANGELES"
+    },
+    "custom_fields": [
+     "7"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "8a193420-a511-11f0-b6dd-8fab1296b153",
+    "title": "ESCUELA PARTICULAR ROCIO DE LOS ANGELES",
+    "owner": {
+     "id": 13493598
+    },
+    "person": {
+     "id": 15061,
+     "name": "ESCUELA PARTICULAR ROCIO DE LOS ANGELES"
+    },
+    "organization": {
+     "id": 41299,
+     "name": "ESCUELA PARTICULAR ROCIO DE LOS ANGELES"
+    },
+    "custom_fields": [
+     "625"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "247e4f10-a511-11f0-882d-9187c89feac6",
+    "title": "ESCUELA PARTICULAR ANGELES CUSTODIOS",
+    "owner": {
+     "id": 13493598
+    },
+    "person": {
+     "id": 14514,
+     "name": "ESCUELA PARTICULAR ANGELES CUSTODIOS"
+    },
+    "organization": {
+     "id": 40758,
+     "name": "ESCUELA PARTICULAR ANGELES CUSTODIOS"
+    },
+    "custom_fields": [
+     "0"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "cf5884b0-a510-11f0-bce1-27db6e28627a",
+    "title": "COLEGIO LOS ANGELES",
+    "owner": {
+     "id": 13493598
+    },
+    "person": {
+     "id": 1949,
+     "name": "COLEGIO LOS ANGELES"
+    },
+    "organization": {
+     "id": 1453,
+     "name": "COLEGIO LOS ANGELES"
+    },
+    "custom_fields": [
+     "552"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "3a869980-7199-11f0-a8ce-1bfad1453f3e",
+    "title": "jardin de ninos los angeles",
+    "owner": {
+     "id": 25460855
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle serafín peña No. 464, Colonia zona centro, monterrey, nuevo león, C.P. 64000",
+     "monterrey",
+     "8"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "5eaa5dc0-7193-11f0-a627-412816d7ea13",
+    "title": "jardin de ninos dime felipe angeles sede lerdo",
+    "owner": {
+     "id": 25460855
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle lópez rayón No. 671, Colonia zona centro, lerdo, durango, C.P. 35045",
+     "lerdo",
+     "39"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "7ba250b0-719b-11f0-ae7b-258e5b6a816f",
+    "title": "colegio los angeles",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": {
+     "id": 1453,
+     "name": "COLEGIO LOS ANGELES"
+    },
+    "custom_fields": [
+     "cerrada de hidalgo No. 0, Colonia san miguel xicalco, tlalpan, ciudad de méxico, C.P. 14490",
+     "tlalpan",
+     "118"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "4c860840-719a-11f0-ae7b-258e5b6a816f",
+    "title": "instituto educativo angeles",
+    "owner": {
+     "id": 21591836
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle puerto vallarta No. 232, Colonia puerta del sol, reynosa, tamaulipas, C.P. 88736",
+     "reynosa",
+     "0"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "f7481440-7194-11f0-a8ce-1bfad1453f3e",
+    "title": "colegio los angeles",
+    "owner": {
+     "id": 21591836
+    },
+    "person": null,
+    "organization": {
+     "id": 1453,
+     "name": "COLEGIO LOS ANGELES"
+    },
+    "custom_fields": [
+     "calle mision de calamajuet No. 0, Colonia brisas del pacifico, los cabos, baja california sur, C.P. 23473",
+     "los cabos",
+     "76"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "072662a0-7194-11f0-ae7b-258e5b6a816f",
+    "title": "colegio los angeles",
+    "owner": {
+     "id": 23766338
+    },
+    "person": null,
+    "organization": {
+     "id": 1453,
+     "name": "COLEGIO LOS ANGELES"
+    },
+    "custom_fields": [
+     "calle paseo de las flores No. 306, Colonia jardines de villahermosa, centro, tabasco, C.P. 86027",
+     "centro",
+     "63"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "a86cd660-719b-11f0-a8ce-1bfad1453f3e",
+    "title": "centro educativo el senid de los angeles",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calzada de la academia de policia No. 0, Colonia josé castillo tielmans, tuxtla gutierrez, chiapas, C.P. 29070",
+     "tuxtla gutierrez",
+     "9"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "d35a7b30-719a-11f0-b607-4fb6b2626297",
+    "title": "colegio los angeles netzahualcoyotl",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "avenida baja california No. 0, Colonia ninguno, tehuacan, puebla, C.P. 0",
+     "tehuacan",
+     "44"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "e87063a0-7199-11f0-a8ce-1bfad1453f3e",
+    "title": "colegio pedagogico los angeles",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle vicente guerrero no. 8 No. 0, Colonia san francisco tlaltenco, tlahuac, ciudad de méxico, C.P. 13400",
+     "tlahuac",
+     "34"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "d643d4f0-7199-11f0-ba38-6b1991ee4616",
+    "title": "bachillerato humanizante de orizaba los angeles",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle oriente 3 No. 238, Colonia ninguno, orizaba, veracruz de ignacio de la llave, C.P. 94300",
+     "orizaba",
+     "28"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "b43f7d00-7199-11f0-a609-6550ed7e31be",
+    "title": "colegio los angeles",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": {
+     "id": 1453,
+     "name": "COLEGIO LOS ANGELES"
+    },
+    "custom_fields": [
+     "prolongación de yagul No. 0, Colonia ninguno, oaxaca de juarez, oaxaca, C.P. 0",
+     "oaxaca de juarez",
+     "27"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "b09e8880-7199-11f0-ae7b-258e5b6a816f",
+    "title": "montessori angeles",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "privada 63 f oriente No. 0, Colonia villa universitaria, puebla, puebla, C.P. 72589",
+     "puebla",
+     "118"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "a491d100-7199-11f0-ae7b-258e5b6a816f",
+    "title": "centro educativo angeles cea",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle hacienda pasteje num. 40 manzana 7 lotes 1, 2, 16 No. 40, Colonia impulsora popular avicola, nezahualcoyotl, méxico, C.P. 57130",
+     "nezahualcoyotl",
+     "164"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "a1e80dc0-7199-11f0-a8ce-1bfad1453f3e",
+    "title": "colegio general felipe angeles",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "avenida gonzalez No. 84, Colonia san miguel coatlinchán, texcoco, méxico, C.P. 56250",
+     "texcoco",
+     "0"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "65eedaa0-719a-11f0-ae7b-258e5b6a816f",
+    "title": "instituto de educacion continua felipe angeles",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle aldama No. 1001, Colonia salamanca centro, salamanca, guanajuato, C.P. 36700",
+     "salamanca",
+     "0"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "4ec522d0-719a-11f0-a8ce-1bfad1453f3e",
+    "title": "centro de estudios de bachillerato los angeles",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle emiliano zapata No. 110, Colonia ampliación santa lucía, santa lucia del camino, oaxaca, C.P. 71243",
+     "santa lucia del camino",
+     "0"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "e7532340-7b9e-11f0-8e68-6b0216fb00ff",
+    "title": "LOS ANGELES COLLEGE",
+    "owner": {
+     "id": 13493598
+    },
+    "person": null,
+    "organization": {
+     "id": 24666,
+     "name": "LOS ANGELES COLLEGE"
+    },
+    "custom_fields": [
+     "0"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "ae264ed0-7194-11f0-a627-412816d7ea13",
+    "title": "angeles de mexico",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "boulevard benito juárez No. 2, Colonia unidad habitacional jose maria morelos y pavon, jojutla, morelos, C.P. 62900",
+     "jojutla",
+     "22"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "6ebb42f0-7194-11f0-a8ce-1bfad1453f3e",
+    "title": "colegio bilingue angeles del tepeyac",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle virgen del carmen poniente No. 0, Colonia la guadalupana, ecatepec de morelos, méxico, C.P. 55060",
+     "ecatepec de morelos",
+     "26"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "5b4b37c0-7194-11f0-b3dd-c9e071817043",
+    "title": "part no 0657 colegio mexicano los angeles iii",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "boulevard huehuetoca-jorobas No. 0, Colonia salitrillo, huehuetoca, méxico, C.P. 54685",
+     "huehuetoca",
+     "189"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "58d15e20-7194-11f0-bc54-6bb191847d82",
+    "title": "jardin de ninos los angeles",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "avenida hidalgo No. 0, Colonia san miguel de los jagueyes, huehuetoca, méxico, C.P. 54693",
+     "huehuetoca",
+     "64"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "5d9ca1d0-7194-11f0-a609-6550ed7e31be",
+    "title": "part no 0628 colegio mexicano los angeles",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "avenida hidalgo No. 0, Colonia san miguel de los jagueyes, huehuetoca, méxico, C.P. 54693",
+     "huehuetoca",
+     "104"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "4df58580-7194-11f0-a609-6550ed7e31be",
+    "title": "centro universitario los angeles",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "boulevard huehuetoca-jorobas No. 0, Colonia salitrillo, huehuetoca, méxico, C.P. 54685",
+     "huehuetoca",
+     "476"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "4a4acd00-7194-11f0-b3dd-c9e071817043",
+    "title": "angeles",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "prolongación gijon No. 6, Colonia n, dolores hidalgo cuna de la independencia nacional, guanajuato, C.P. 37800",
+     "dolores hidalgo cuna de la independencia nacional",
+     "19"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "4cba9480-7194-11f0-a8ce-1bfad1453f3e",
+    "title": "escuela preparatoria los angeles",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle h. ayuntamiento No. 0, Colonia centro, huehuetoca, méxico, C.P. 54680",
+     "huehuetoca",
+     "121"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "26f84a30-7194-11f0-a8ce-1bfad1453f3e",
+    "title": "centro de educacion y desarrollo infantil los angeles",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "avenida primavera No. 47, Colonia yalchivol, comitan de dominguez, chiapas, C.P. 30039",
+     "comitan de dominguez",
+     "78"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "82eb8650-7193-11f0-bc54-6bb191847d82",
+    "title": "angeles galindo carrillo institucion de educacion",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "ninguno rey ahuizotl No. 158, Colonia barrio de santa anita, irapuato, guanajuato, C.P. 36560",
+     "irapuato",
+     "33"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "36a32c80-7193-11f0-ae7b-258e5b6a816f",
+    "title": "angeles de atlixco",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle 13 poniente No. 0, Colonia ninguno, atlixco, puebla, C.P. 0",
+     "atlixco",
+     "184"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "33039790-7193-11f0-a627-412816d7ea13",
+    "title": "colegio mexicano los angeles",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle laureles sur No. 13, Colonia ninguno, cuautitlan izcalli, méxico, C.P. 54710",
+     "cuautitlan izcalli",
+     "34"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "decee3f0-7192-11f0-a609-6550ed7e31be",
+    "title": "jardin de ninos angeles",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle colorines No. 88, Colonia jardines de atizapan, atizapan de zaragoza, méxico, C.P. 52978",
+     "atizapan de zaragoza",
+     "8"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "f563f280-df3a-11ef-9bb7-adace9f5e56f",
+    "title": "Colegio Santa Maria de los Angeles",
+    "owner": {
+     "id": 23581549
+    },
+    "person": {
+     "id": 9523,
+     "name": "COLEGIO SANTA MARIA DE LOS ANGELES"
+    },
+    "organization": {
+     "id": 9187,
+     "name": "COLEGIO SANTA MARIA DE LOS ANGELES"
+    },
+    "custom_fields": [
+     "+54 221 555-5825"
+    ],
+    "is_archived": false
+   }
+  ],
+  "deal|title|angeles": [
+   {
+    "id": 2959,
+    "type": "deal",
+    "title": "Colegio Alemán los Angeles",
+    "status": "won",
+    "owner": {
+     "id": 13493598
+    },
+    "stage": {
+     "id": 214,
+     "name": "CLOSING"
+    },
+    "pipeline": {
+     "id": 2
+    },
+    "person": {
+     "id": 6691,
+     "name": "Persona de prueba 2"
+    },
+    "organization": {
+     "id": 44576,
+     "name": "Ruta Verde",
+     "address": null
+    },
+    "custom_fields": [
+     "Av. Gabriela Mistral 1751, 4430011 Los Angeles, Los Ángeles, Bío Bío, Chile",
+     "contacto1@dslosangeles.cl",
+     "+56 43 555 0193",
+     "https://www.dsla.cl/",
+     "900"
+    ],
+    "is_archived": false
+   },
+   {
+    "id": 5976,
+    "type": "deal",
+    "title": "Colegio Los Angeles",
+    "status": "lost",
+    "owner": {
+     "id": 28543605
+    },
+    "stage": {
+     "id": 159,
+     "name": "PROPOSAL SENT"
+    },
+    "pipeline": {
+     "id": 9
+    },
+    "person": {
+     "id": 5021,
+     "name": "Persona de prueba 3"
+    },
+    "organization": {
+     "id": 851,
+     "name": "Los Angeles school",
+     "address": null
+    },
+    "custom_fields": [
+     "colegiolosangelesdetorreon.edu.mx",
+     "contacto2@example.com",
+     "871 555 9113"
+    ],
+    "is_archived": false
+   },
+   {
+    "id": 5505,
+    "type": "deal",
+    "title": "Colegio Reina de los Ángeles",
+    "status": "open",
+    "owner": {
+     "id": 26099394
+    },
+    "stage": {
+     "id": 259,
+     "name": "PROPOSAL SENT"
+    },
+    "pipeline": {
+     "id": 29
+    },
+    "person": null,
+    "organization": {
+     "id": 45307,
+     "name": "Colegio Reina de los Ángeles",
+     "address": "Av. Nuestra Señora de la Reconciliación s/n"
+    },
+    "custom_fields": [
+     "www.reinadelosangeles.edu.pe",
+     "Av. Nuestra Señora de la Reconciliación s/n",
+     "(01) 255-5344"
+    ],
+    "is_archived": false
+   },
+   {
+    "id": 6091,
+    "type": "deal",
+    "title": "Colegio Ángeles  de Puebla · OE-MX-000322",
+    "status": "open",
+    "owner": {
+     "id": 25659889
+    },
+    "stage": {
+     "id": 160,
+     "name": "SELLING"
+    },
+    "pipeline": {
+     "id": 9
+    },
+    "person": {
+     "id": 25292,
+     "name": "Persona de prueba 4"
+    },
+    "organization": null,
+    "custom_fields": [],
+    "is_archived": false
+   }
+  ],
+  "lead|title,custom_fields|angeles oaxaca": [
+   {
+    "type": "lead",
+    "id": "b43f7d00-7199-11f0-a609-6550ed7e31be",
+    "title": "colegio los angeles",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": {
+     "id": 1453,
+     "name": "COLEGIO LOS ANGELES"
+    },
+    "custom_fields": [
+     "prolongación de yagul No. 0, Colonia ninguno, oaxaca de juarez, oaxaca, C.P. 0",
+     "oaxaca de juarez",
+     "27"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "4ec522d0-719a-11f0-a8ce-1bfad1453f3e",
+    "title": "centro de estudios de bachillerato los angeles",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle emiliano zapata No. 110, Colonia ampliación santa lucía, santa lucia del camino, oaxaca, C.P. 71243",
+     "santa lucia del camino",
+     "0"
+    ],
+    "is_archived": false
+   }
+  ],
+  "lead|title,custom_fields|angeles atlixco": [
+   {
+    "type": "lead",
+    "id": "36a32c80-7193-11f0-ae7b-258e5b6a816f",
+    "title": "angeles de atlixco",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle 13 poniente No. 0, Colonia ninguno, atlixco, puebla, C.P. 0",
+     "atlixco",
+     "184"
+    ],
+    "is_archived": false
+   }
+  ],
+  "lead|title,custom_fields|montessori angeles puebla": [
+   {
+    "type": "lead",
+    "id": "b09e8880-7199-11f0-ae7b-258e5b6a816f",
+    "title": "montessori angeles",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "privada 63 f oriente No. 0, Colonia villa universitaria, puebla, puebla, C.P. 72589",
+     "puebla",
+     "118"
+    ],
+    "is_archived": false
+   }
+  ],
+  "lead|title|montessori angeles": [
+   {
+    "type": "lead",
+    "id": "b09e8880-7199-11f0-ae7b-258e5b6a816f",
+    "title": "montessori angeles",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "privada 63 f oriente No. 0, Colonia villa universitaria, puebla, puebla, C.P. 72589",
+     "puebla",
+     "118"
+    ],
+    "is_archived": false
+   }
+  ],
+  "lead|title,custom_fields|angeles puebla": [
+   {
+    "type": "lead",
+    "id": "be690930-c63f-11f1-a959-a1bfbe24e23e",
+    "title": "Angeles de puebla Tlaxco Mexicail 714",
+    "owner": {
+     "id": 25659889
+    },
+    "person": {
+     "id": 26072,
+     "name": "Persona de prueba 5"
+    },
+    "organization": null,
+    "custom_fields": [
+     "contacto3@example.com",
+     "6865554953"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "d35a7b30-719a-11f0-b607-4fb6b2626297",
+    "title": "colegio los angeles netzahualcoyotl",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "avenida baja california No. 0, Colonia ninguno, tehuacan, puebla, C.P. 0",
+     "tehuacan",
+     "44"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "b09e8880-7199-11f0-ae7b-258e5b6a816f",
+    "title": "montessori angeles",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "privada 63 f oriente No. 0, Colonia villa universitaria, puebla, puebla, C.P. 72589",
+     "puebla",
+     "118"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "36a32c80-7193-11f0-ae7b-258e5b6a816f",
+    "title": "angeles de atlixco",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle 13 poniente No. 0, Colonia ninguno, atlixco, puebla, C.P. 0",
+     "atlixco",
+     "184"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "9d1c7bf0-7199-11f0-a8ce-1bfad1453f3e",
+    "title": "instituto maria curie sklodowska",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle 31 sur No. 2910, Colonia santa cruz los ángeles, puebla, puebla, C.P. 72400",
+     "puebla",
+     "35"
+    ],
+    "is_archived": false
+   }
+  ],
+  "deal|title,custom_fields|angeles puebla": [
+   {
+    "id": 6091,
+    "type": "deal",
+    "title": "Colegio Ángeles  de Puebla · OE-MX-000322",
+    "status": "open",
+    "owner": {
+     "id": 25659889
+    },
+    "stage": {
+     "id": 160,
+     "name": "SELLING"
+    },
+    "pipeline": {
+     "id": 9
+    },
+    "person": {
+     "id": 25292,
+     "name": "Persona de prueba 4"
+    },
+    "organization": null,
+    "custom_fields": [],
+    "is_archived": false
+   }
+  ],
+  "lead|title,custom_fields|angeles torreon": [
+   {
+    "type": "lead",
+    "id": "a88a9790-719b-11f0-a609-6550ed7e31be",
+    "title": "colegio cervantes de torreon",
+    "owner": {
+     "id": 28543627
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calzada josé vasconcelos No. 545, Colonia ex hacienda los ángeles, torreon, coahuila de zaragoza, C.P. 27265",
+     "1698"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "c46183c0-719b-11f0-ba38-6b1991ee4616",
+    "title": "bachillerato unidep torreon",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "boulevard carretera torreón-matamoros No. 5840, Colonia los angeles residencial, torreon, coahuila de zaragoza, C.P. 27260",
+     "torreon",
+     "24"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "b96726a0-719b-11f0-b607-4fb6b2626297",
+    "title": "colegio madrid de torreon",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle silvestre faya No. 281, Colonia ampliación los ángeles, torreon, coahuila de zaragoza, C.P. 27140",
+     "torreon",
+     "75"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "ae781420-719b-11f0-a8ce-1bfad1453f3e",
+    "title": "instituto jacob karl grimm",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle luis reyes spindola No. 253, Colonia ampliación los ángeles, torreon, coahuila de zaragoza, C.P. 27140",
+     "torreon",
+     "471"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "d4c3f640-719a-11f0-a609-6550ed7e31be",
+    "title": "comunidad montessori del valle",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle francisco dingler No. 219, Colonia nueva los ángeles, torreon, coahuila de zaragoza, C.P. 27140",
+     "torreon",
+     "23"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "cd5dbc60-719a-11f0-a609-6550ed7e31be",
+    "title": "colegio excelsior",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": {
+     "id": 381,
+     "name": "COLEGIO EXCELSIOR"
+    },
+    "custom_fields": [
+     "calzada division del norte No. 450, Colonia ex hacienda antigua los ángeles, torreon, coahuila de zaragoza, C.P. 27260",
+     "torreon",
+     "605"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "2777fd50-719b-11f0-ba38-6b1991ee4616",
+    "title": "instituto antonie de saint exupery",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "boulevard constitución No. 245, Colonia ampliación los ángeles, torreon, coahuila de zaragoza, C.P. 27148",
+     "torreon",
+     "402"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "ef07f0f0-719b-11f0-a609-6550ed7e31be",
+    "title": "colegio montessori torreon",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle albacete No. 4815, Colonia ex hacienda antigua los ángeles, torreon, coahuila de zaragoza, C.P. 27260",
+     "torreon",
+     "104"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "c0213770-719a-11f0-a8ce-1bfad1453f3e",
+    "title": "anne frank",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle eulogio ortiz No. 117, Colonia los ángeles, torreon, coahuila de zaragoza, C.P. 27148",
+     "torreon",
+     "30"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "747f56d0-719a-11f0-ae7b-258e5b6a816f",
+    "title": "instituto nancy campbell",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle leonardo zuloaga No. 690, Colonia los ángeles, torreon, coahuila de zaragoza, C.P. 27140",
+     "torreon",
+     "125"
+    ],
+    "is_archived": false
+   }
+  ],
+  "lead|title|enrique pestalozzi": [
+   {
+    "type": "lead",
+    "id": "cb2ad280-d79b-11f1-8a3d-35f88ae04990",
+    "title": "Juan Enrique Pestalozzi - Lorena La Spina (EduExperience Mendoza 2026)",
+    "owner": {
+     "id": 28543605
+    },
+    "person": {
+     "id": 26708,
+     "name": "Persona de prueba 6"
+    },
+    "organization": null,
+    "custom_fields": [],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "ffb6cf60-7192-11f0-a627-412816d7ea13",
+    "title": "juan enrique pestalozzi - Coatzacoalcos",
+    "owner": {
+     "id": 25460855
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle lope de aguirre No. 12, Colonia ninguno, coatzacoalcos, veracruz de ignacio de la llave, C.P. 96401",
+     "8"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "eb4bac40-719b-11f0-ae7b-258e5b6a816f",
+    "title": "enrique pestalozzi - Orizaba",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle oriente 4 No. 1346, Colonia ninguno, orizaba, veracruz de ignacio de la llave, C.P. 94300",
+     "18"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "0c157770-7193-11f0-a609-6550ed7e31be",
+    "title": "centro escolar juan enrique pestalozzi",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle chiapas No. 139, Colonia santa maria tulpetlac, ecatepec de morelos, méxico, C.P. 55400",
+     "ecatepec de morelos",
+     "156"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "c0ef1950-719b-11f0-ba38-6b1991ee4616",
+    "title": "j enrique pestalozzi",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle heroico colegio militar No. 312, Colonia del valle, san francisco del rincon, guanajuato, C.P. 36350",
+     "san francisco del rincon",
+     "129"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "9ecd4e50-719b-11f0-a609-6550ed7e31be",
+    "title": "juan enrique pestalozzi",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle londres No. 0, Colonia primavera, tampico, tamaulipas, C.P. 89130",
+     "tampico",
+     "107"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "8c61e1e0-719b-11f0-ae7b-258e5b6a816f",
+    "title": "juan enrique pestalozzi",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "cerrada sin nombre No. 0, Colonia benito juárez 1a. sección, nicolas romero, méxico, C.P. 54400",
+     "nicolas romero",
+     "79"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "8da2c650-719b-11f0-a609-6550ed7e31be",
+    "title": "juan enrique pestalozzi",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "avenida valdepeñas No. 445, Colonia rinconada del parque, zapopan, jalisco, C.P. 45010",
+     "zapopan",
+     "38"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "c9a56f50-719a-11f0-ba38-6b1991ee4616",
+    "title": "juan enrique pestalozzi",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle blvd mexico No. 1253, Colonia latinoamericano, torreon, coahuila de zaragoza, C.P. 27277",
+     "torreon",
+     "14"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "95ee9020-7199-11f0-a8ce-1bfad1453f3e",
+    "title": "colegio enrique pestalozzi ac",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle 15 oriente No. 0, Colonia el carmen, puebla, puebla, C.P. 72530",
+     "puebla",
+     "0"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "bb97ed80-7194-11f0-a609-6550ed7e31be",
+    "title": "juan enrique pestalozzi",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle francisco villa No. 421, Colonia blanco y cuellar, guadalajara, jalisco, C.P. 44730",
+     "guadalajara",
+     "57"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "90d8c830-7194-11f0-b3dd-c9e071817043",
+    "title": "instituto j enrique pestalozzi s c",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "andador belgica No. 0, Colonia centro urbano, cuautitlan izcalli, méxico, C.P. 54700",
+     "cuautitlan izcalli",
+     "70"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "7012e3b0-7194-11f0-b3dd-c9e071817043",
+    "title": "instituto juan enrique pestalozzi",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle marino ortíz No. 108, Colonia rosalinda ramírez esquivel, matamoros, coahuila de zaragoza, C.P. 27446",
+     "matamoros",
+     "44"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "5064fee0-7194-11f0-a627-412816d7ea13",
+    "title": "juan enrique pestalozzi",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle 37 No. 73, Colonia tecolutla, carmen, campeche, C.P. 24178",
+     "carmen",
+     "98"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "223088f0-7194-11f0-a609-6550ed7e31be",
+    "title": "juan enrique pestalozzi",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calzada de las bombas No. 282, Colonia los cedros, coyoacan, ciudad de méxico, C.P. 4800",
+     "coyoacan",
+     "17"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "658c2560-7193-11f0-a8ce-1bfad1453f3e",
+    "title": "enrique pestalozzi",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle 12 No. 1, Colonia guadalupe proletaria, gustavo a madero, ciudad de méxico, C.P. 7670",
+     "gustavo a madero",
+     "67"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "281102a0-7193-11f0-a8ce-1bfad1453f3e",
+    "title": "centro educativo enrique pestalozzi",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle cuarta sur poniente No. 31, Colonia candelaria, comitan de dominguez, chiapas, C.P. 30000",
+     "comitan de dominguez",
+     "5"
+    ],
+    "is_archived": false
+   }
+  ],
+  "lead|title,custom_fields|enrique pestalozzi puebla": [
+   {
+    "type": "lead",
+    "id": "95ee9020-7199-11f0-a8ce-1bfad1453f3e",
+    "title": "colegio enrique pestalozzi ac",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle 15 oriente No. 0, Colonia el carmen, puebla, puebla, C.P. 72530",
+     "puebla",
+     "0"
+    ],
+    "is_archived": false
+   }
+  ],
+  "lead|title|margarita maza": [
+   {
+    "type": "lead",
+    "id": "5d241240-719b-11f0-ba38-6b1991ee4616",
+    "title": "margarita maza de juarez",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle plaza de los faroles No. 36, Colonia jardines del sur, xochimilco, ciudad de méxico, C.P. 16050",
+     "xochimilco",
+     "121"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "16d908f0-719a-11f0-a609-6550ed7e31be",
+    "title": "colegio margarita maza",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle 123 oriente No. 405, Colonia puebla centro, puebla, puebla, C.P. 72000",
+     "puebla",
+     "30"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "adc0a070-719a-11f0-ae7b-258e5b6a816f",
+    "title": "margarita maza de juarez",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "ninguno ninguno No. 0, Colonia centro, xilitla, san luis potosí, C.P. 79900",
+     "xilitla",
+     "55"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "89f0b470-7193-11f0-a8ce-1bfad1453f3e",
+    "title": "margarita maza de juarez",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "avenida calzada de los chinacos No. 57, Colonia no aplica, irapuato, guanajuato, C.P. 36510",
+     "irapuato",
+     "30"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "77d8e640-7193-11f0-b3dd-c9e071817043",
+    "title": "margarita maza de juarez",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle norte 3a No. 4621, Colonia defensores de la república, gustavo a madero, ciudad de méxico, C.P. 7780",
+     "gustavo a madero",
+     "97"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "4a057c10-7193-11f0-ae7b-258e5b6a816f",
+    "title": "instituto educativo margarita maza de juarez",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle domingo arenas No. 0, Colonia ninguno, huejotzingo, puebla, C.P. 74169",
+     "huejotzingo",
+     "92"
+    ],
+    "is_archived": false
+   }
+  ],
+  "lead|title,custom_fields|margarita maza puebla": [
+   {
+    "type": "lead",
+    "id": "16d908f0-719a-11f0-a609-6550ed7e31be",
+    "title": "colegio margarita maza",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle 123 oriente No. 405, Colonia puebla centro, puebla, puebla, C.P. 72000",
+     "puebla",
+     "30"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "4a057c10-7193-11f0-ae7b-258e5b6a816f",
+    "title": "instituto educativo margarita maza de juarez",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle domingo arenas No. 0, Colonia ninguno, huejotzingo, puebla, C.P. 74169",
+     "huejotzingo",
+     "92"
+    ],
+    "is_archived": false
+   }
+  ],
+  "lead|title|luz serradel": [
+   {
+    "type": "lead",
+    "id": "3f526bb0-7194-11f0-bc54-6bb191847d82",
+    "title": "luz maria serradel - Coatzacoalcos",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "avenida juan escutia No. 611, Colonia manuel avila camacho, coatzacoalcos, veracruz de ignacio de la llave, C.P. 96420",
+     "21"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "0cabf170-719b-11f0-a8ce-1bfad1453f3e",
+    "title": "colegio luz maria serradell ac",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle 3 sur No. 3113, Colonia puebla centro, puebla, puebla, C.P. 72000",
+     "puebla",
+     "47"
+    ],
+    "is_archived": false
+   }
+  ],
+  "lead|title,custom_fields|luz serradel puebla": [],
+  "lead|title|ypsilanti": [
+   {
+    "type": "lead",
+    "id": "8215a510-dd1e-11f1-9077-a5a03f553bf0",
+    "title": "Colegio Ypsilanti",
+    "owner": {
+     "id": 28543605
+    },
+    "person": null,
+    "organization": {
+     "id": 45771,
+     "name": "Colegio Ypsilanti"
+    },
+    "custom_fields": [
+     "Boulevard de las Torres 1844, Puebla de Zaragoza, México",
+     "+52 222 555 0248",
+     "https://www.colegio-ypsilanti.edu.mx"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "d6d97350-719b-11f0-a8ce-1bfad1453f3e",
+    "title": "colegio ypsilanti",
+    "owner": {
+     "id": 26099383
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     " Av. Municipio Libre 1844 (Blvd. de las Torres), Col. Loma Bella, Puebla, México.",
+     "+52 222 555 0248",
+     "0"
+    ],
+    "is_archived": true
+   }
+  ],
+  "lead|title,custom_fields|ypsilanti puebla": [
+   {
+    "type": "lead",
+    "id": "8215a510-dd1e-11f1-9077-a5a03f553bf0",
+    "title": "Colegio Ypsilanti",
+    "owner": {
+     "id": 28543605
+    },
+    "person": null,
+    "organization": {
+     "id": 45771,
+     "name": "Colegio Ypsilanti"
+    },
+    "custom_fields": [
+     "Boulevard de las Torres 1844, Puebla de Zaragoza, México",
+     "+52 222 555 0248",
+     "https://www.colegio-ypsilanti.edu.mx"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "d6d97350-719b-11f0-a8ce-1bfad1453f3e",
+    "title": "colegio ypsilanti",
+    "owner": {
+     "id": 26099383
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     " Av. Municipio Libre 1844 (Blvd. de las Torres), Col. Loma Bella, Puebla, México.",
+     "+52 222 555 0248",
+     "0"
+    ],
+    "is_archived": true
+   }
+  ],
+  "lead|custom_fields|222 555 0248": [
+   {
+    "type": "lead",
+    "id": "8215a510-dd1e-11f1-9077-a5a03f553bf0",
+    "title": "Colegio Ypsilanti",
+    "owner": {
+     "id": 28543605
+    },
+    "person": null,
+    "organization": {
+     "id": 45771,
+     "name": "Colegio Ypsilanti"
+    },
+    "custom_fields": [
+     "Boulevard de las Torres 1844, Puebla de Zaragoza, México",
+     "+52 222 555 0248",
+     "https://www.colegio-ypsilanti.edu.mx"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "d6d97350-719b-11f0-a8ce-1bfad1453f3e",
+    "title": "colegio ypsilanti",
+    "owner": {
+     "id": 26099383
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     " Av. Municipio Libre 1844 (Blvd. de las Torres), Col. Loma Bella, Puebla, México.",
+     "+52 222 555 0248",
+     "0"
+    ],
+    "is_archived": true
+   }
+  ],
+  "lead|custom_fields|colegio-ypsilanti.edu.mx": [
+   {
+    "type": "lead",
+    "id": "8215a510-dd1e-11f1-9077-a5a03f553bf0",
+    "title": "Colegio Ypsilanti",
+    "owner": {
+     "id": 28543605
+    },
+    "person": null,
+    "organization": {
+     "id": 45771,
+     "name": "Colegio Ypsilanti"
+    },
+    "custom_fields": [
+     "Boulevard de las Torres 1844, Puebla de Zaragoza, México",
+     "+52 222 555 0248",
+     "https://www.colegio-ypsilanti.edu.mx"
+    ],
+    "is_archived": false
+   }
+  ],
+  "lead|title|salle pedregal": [
+   {
+    "type": "lead",
+    "id": "ebc3b7e0-719a-11f0-ae7b-258e5b6a816f",
+    "title": "preparatoria la salle del pedregal",
+    "owner": {
+     "id": 26099394
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "contacto4@plsp.edu.mx",
+     "calle transmisiones No. 51, Colonia ex-hacienda de san juan, tlalpan, ciudad de méxico, C.P. 14370",
+     "+52 55 5555 4341",
+     "591"
+    ],
+    "is_archived": false
+   }
+  ],
+  "lead|title,custom_fields|prometeo puebla": [
+   {
+    "type": "lead",
+    "id": "196950c0-719a-11f0-ba38-6b1991ee4616",
+    "title": "Centro Freinet Prometeo S.C.",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "avenida del jardín No. 2201, Colonia rancho san jose xilotzingo, puebla, puebla, C.P. 72583",
+     "222 555 8055",
+     "https://www.freinetprometeo.com/",
+     "238"
+    ],
+    "is_archived": false
+   }
+  ],
+  "lead|custom_fields|222 555 8055": [
+   {
+    "type": "lead",
+    "id": "196950c0-719a-11f0-ba38-6b1991ee4616",
+    "title": "Centro Freinet Prometeo S.C.",
+    "owner": {
+     "id": 23572705
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "avenida del jardín No. 2201, Colonia rancho san jose xilotzingo, puebla, puebla, C.P. 72583",
+     "222 555 8055",
+     "https://www.freinetprometeo.com/",
+     "238"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "c7fecec0-719b-11f0-a609-6550ed7e31be",
+    "title": "colegio celestin freinet",
+    "owner": {
+     "id": 26099383
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle héroes de nacozari No. 16, Colonia san salvador el verde, san salvador el verde, puebla, C.P. 74130",
+     "+52 222 555 8055",
+     "https://www.cfreinet.edu.mx/",
+     "34"
+    ],
+    "is_archived": true
+   }
+  ],
+  "lead|title|hispanidad": [
+   {
+    "type": "lead",
+    "id": "2297d210-719b-11f0-b607-4fb6b2626297",
+    "title": "colegio hispanidad UNE",
+    "owner": {
+     "id": 13493598
+    },
+    "person": null,
+    "organization": {
+     "id": 1446,
+     "name": "COLEGIO HISPANIDAD"
+    },
+    "custom_fields": [
+     "avenida tonaltecas No. 333, Colonia el zapote, tonala, jalisco, C.P. 45400",
+     "559"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "425461d0-08d4-11ef-ad87-9bc24a7791eb",
+    "title": "Colegio Hispanidad PUE",
+    "owner": {
+     "id": 26594053
+    },
+    "person": {
+     "id": 5419,
+     "name": "Persona de prueba 7"
+    },
+    "organization": {
+     "id": 1446,
+     "name": "COLEGIO HISPANIDAD"
+    },
+    "custom_fields": [
+     "contacto5@example.com",
+     "Av. 3 Oriente 205 Centro, San Pedro Cholula, Puebla",
+     "222 555 0920",
+     "colehispa.edu.mx"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "090d1fd0-719b-11f0-ae7b-258e5b6a816f",
+    "title": "colegio hispanidad",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": {
+     "id": 1446,
+     "name": "COLEGIO HISPANIDAD"
+    },
+    "custom_fields": [
+     "calle chimalhuacan No. 6, Colonia ciudad del sol, zapopan, jalisco, C.P. 45050",
+     "zapopan",
+     "166"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "5b146190-719a-11f0-ba38-6b1991ee4616",
+    "title": "colegio hispanidad",
+    "owner": {
+     "id": 25659889
+    },
+    "person": null,
+    "organization": {
+     "id": 1446,
+     "name": "COLEGIO HISPANIDAD"
+    },
+    "custom_fields": [
+     "avenida adolfo lopez mateos sur No. 10100, Colonia los gavilanes, tlajomulco de zuniga, jalisco, C.P. 45645",
+     "261"
+    ],
+    "is_archived": true
+   }
+  ],
+  "lead|title,custom_fields|hispanidad puebla": [
+   {
+    "type": "lead",
+    "id": "425461d0-08d4-11ef-ad87-9bc24a7791eb",
+    "title": "Colegio Hispanidad PUE",
+    "owner": {
+     "id": 26594053
+    },
+    "person": {
+     "id": 5419,
+     "name": "Persona de prueba 7"
+    },
+    "organization": {
+     "id": 1446,
+     "name": "COLEGIO HISPANIDAD"
+    },
+    "custom_fields": [
+     "contacto5@example.com",
+     "Av. 3 Oriente 205 Centro, San Pedro Cholula, Puebla",
+     "222 555 0920",
+     "colehispa.edu.mx"
+    ],
+    "is_archived": false
+   }
+  ],
+  "lead|title,custom_fields|pedregal mexico": [
+   {
+    "type": "lead",
+    "id": "3f4d3b90-7194-11f0-a627-412816d7ea13",
+    "title": "colegio pedregal del sur cdmx",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle chichimecas No. 434, Colonia ajusco, coyoacan, ciudad de méxico, C.P. 4300",
+     "50"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "ebc3b7e0-719a-11f0-ae7b-258e5b6a816f",
+    "title": "preparatoria la salle del pedregal",
+    "owner": {
+     "id": 26099394
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "contacto4@plsp.edu.mx",
+     "calle transmisiones No. 51, Colonia ex-hacienda de san juan, tlalpan, ciudad de méxico, C.P. 14370",
+     "+52 55 5555 4341",
+     "591"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "51e92a40-4400-11f1-b5c0-79fa9ff1c85e",
+    "title": "Comunidad Educativa mayabek",
+    "owner": {
+     "id": 25659889
+    },
+    "person": {
+     "id": 21123,
+     "name": "Persona de prueba 8"
+    },
+    "organization": null,
+    "custom_fields": [
+     "Calle 50 Nte, El Pedregal, 52060 Playa del Carmen, Q.R., México",
+     " +52 984 555 0955"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "7ed9dcf0-5ed8-11f1-a526-23e00c99944d",
+    "title": "Colegio San Miguel",
+    "owner": {
+     "id": 25659889
+    },
+    "person": {
+     "id": 18117,
+     "name": "Persona de prueba 9"
+    },
+    "organization": {
+     "id": 44052,
+     "name": "Colegio San Miguel"
+    },
+    "custom_fields": [
+     "Calle Inglaterra 501, Pedregal de Linda Vista, Guadalupe, N.L., México",
+     "(81) 8555 4973",
+     "https://colegiosanmiguel.edu.mx/",
+     "350"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "a0c563e0-7192-11f0-a627-412816d7ea13",
+    "title": "Peterson Calemac Pedregal",
+    "owner": {
+     "id": 25659889
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle rocio No. 142, Colonia jardines del pedregal, alvaro obregon, ciudad de méxico, C.P. 1900",
+     "https://www.peterson.edu.mx/?utm_source=SchoolingMX&utm_campaign=site_referal",
+     "447"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "a1ed1b00-7192-11f0-ae7b-258e5b6a816f",
+    "title": "preparatoria simon bolivar del pedregal para ninas",
+    "owner": {
+     "id": 26099394
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "camino a santa teresa No. 71, Colonia jardines del pedregal, alvaro obregon, ciudad de méxico, C.P. 1900",
+     "46"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "6b59b350-7192-11f0-ae7b-258e5b6a816f",
+    "title": "el pedregal",
+    "owner": {
+     "id": 26099394
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "contacto6@ipedregal.edu.mx",
+     "calle carretera tlalnepantla-progreso No. 0, Colonia el pedregal de atizapan, atizapan de zaragoza, méxico, C.P. 52948",
+     "555555-5339",
+     "https://www.ipedregal.edu.mx/",
+     "230"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "df8ff060-719a-11f0-ba38-6b1991ee4616",
+    "title": "universidad la salle ac unidad santa teresa",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "avenida camino de santa teresa No. 811, Colonia rinconada del pedregal, tlalpan, ciudad de méxico, C.P. 14010",
+     "+52 55 5555 4999",
+     "tlalpan",
+     "801"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "9ce8ed00-7192-11f0-a609-6550ed7e31be",
+    "title": "escuela de formacion de ninos del pedregal",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle colegio No. 300, Colonia jardines del pedregal, alvaro obregon, ciudad de méxico, C.P. 1900",
+     "alvaro obregon",
+     "113"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "9a4daf10-719a-11f0-ba38-6b1991ee4616",
+    "title": "montessori del pedregal",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle rinconada santa teresa No. 136, Colonia parque del pedregal, tlalpan, ciudad de méxico, C.P. 14010",
+     "tlalpan",
+     "142"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "4adaacc0-719b-11f0-ae7b-258e5b6a816f",
+    "title": "centro de desarrollo infantil pedregal",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle camino a santa teresa No. 877, Colonia parque del pedregal, tlalpan, ciudad de méxico, C.P. 14010",
+     "tlalpan",
+     "43"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "074164b0-7194-11f0-a627-412816d7ea13",
+    "title": "part no 0637 el pedregal",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle carretera tlalnepantla-progreso No. 0, Colonia el pedregal de atizapan, atizapan de zaragoza, méxico, C.P. 52948",
+     "atizapan de zaragoza",
+     "131"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "80fb4480-7192-11f0-a627-412816d7ea13",
+    "title": "pedregal del bosque",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "camino sta teresa No. 0, Colonia jardines del pedregal, alvaro obregon, ciudad de méxico, C.P. 1900",
+     "alvaro obregon",
+     "90"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "df52a3d0-719b-11f0-ba38-6b1991ee4616",
+    "title": "colegio isaac newton",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "avenida lacandones No. 89, Colonia pedregal de las águilas, tlalpan, ciudad de méxico, C.P. 14439",
+     "tlalpan",
+     "73"
+    ],
+    "is_archived": false
+   }
+  ],
+  "lead|title|pedregal": [
+   {
+    "type": "lead",
+    "id": "ce1b5f30-cd89-11f1-9866-434aa1ae505d",
+    "title": "Francés del Pedregal",
+    "owner": {
+     "id": 28543605
+    },
+    "person": {
+     "id": 5590,
+     "name": "Persona de prueba 10"
+    },
+    "organization": {
+     "id": 4063,
+     "name": "Colegio Francés del Pedregal"
+    },
+    "custom_fields": [
+     "contacto7@example.com",
+     "+52 (55) 5568-2834 / (55) 5555-1341",
+     "https://www.francespedregal.mx/",
+     "900"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "548de3e0-719b-11f0-a8ce-1bfad1453f3e",
+    "title": "colegio pedregal de guadalajara / Santa Anita ",
+    "owner": {
+     "id": 25659889
+    },
+    "person": {
+     "id": 19751,
+     "name": "Persona de prueba 11"
+    },
+    "organization": null,
+    "custom_fields": [
+     "contacto8@colegiopedregalgdl.com",
+     "calle bosques de santa anita No. 213, Colonia villas de santa anita, tlajomulco de zuniga, jalisco, C.P. 45645",
+     "(33) 1555 - 9360",
+     "https://www.colegiopedregalgdl.com/",
+     "521"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "3f4d3b90-7194-11f0-a627-412816d7ea13",
+    "title": "colegio pedregal del sur cdmx",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle chichimecas No. 434, Colonia ajusco, coyoacan, ciudad de méxico, C.P. 4300",
+     "50"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "1e8dabd0-6bad-11ef-8af4-bfe1ef8fcf15",
+    "title": "Colegio Simón Bolívar Pedregal cdmx",
+    "owner": {
+     "id": 26594053
+    },
+    "person": {
+     "id": 5584,
+     "name": "Persona de prueba 12"
+    },
+    "organization": {
+     "id": 2931,
+     "name": "Colegio Simón Bolívar Pedregal"
+    },
+    "custom_fields": [
+     "contacto9@sb.edu.mx",
+     "5555557022",
+     "http://colegiosimonbolivardelasalle.edu.mx/"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "ebc3b7e0-719a-11f0-ae7b-258e5b6a816f",
+    "title": "preparatoria la salle del pedregal",
+    "owner": {
+     "id": 26099394
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "contacto4@plsp.edu.mx",
+     "calle transmisiones No. 51, Colonia ex-hacienda de san juan, tlalpan, ciudad de méxico, C.P. 14370",
+     "+52 55 5555 4341",
+     "591"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "9a4daf10-719a-11f0-ba38-6b1991ee4616",
+    "title": "montessori del pedregal",
+    "owner": {
+     "id": 22144333
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle rinconada santa teresa No. 136, Colonia parque del pedregal, tlalpan, ciudad de méxico, C.P. 14010",
+     "tlalpan",
+     "142"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "52e88330-7199-11f0-a8ce-1bfad1453f3e",
+    "title": "instituto pedregal sc",
+    "owner": {
+     "id": 25460855
+    },
+    "person": null,
+    "organization": null,
+    "custom_fields": [
+     "calle pedregal No. 504, Colonia pedregal del valle, san pedro garza garcia, nuevo león, C.P. 66280",
+     "san pedro garza garcia",
+     "45"
+    ],
+    "is_archived": false
+   },
+   {
+    "type": "lead",
+    "id": "0ced4bb0-51e6-11ee-a717-f9b190f8e5c3",
+    "title": "Colegio Pedregal ZAPOPAN",
+    "owner": {
+     "id": 25659889
+    },
+    "person": {
+     "id": 829,
+     "name": "Persona de prueba 13"
+    },
+    "organization": {
+     "id": 389,
+     "name": "Colegio Pedregal"
+    },
+    "custom_fields": [
+     "contacto10@colegiopedregalgdl.com",
+     "33 3555 1124",
+     "colegiopedregalgdl.com"
+    ],
+    "is_archived": true
+   }
+  ]
+ },
+ "cases": [
+  {
+   "id": "montessori-puebla",
+   "school": {
+    "name": "Montessori Ángeles",
+    "city": "Puebla de Zaragoza",
+    "country": "México"
+   },
+   "expect": {
+    "verdict": "sure",
+    "pick": "lead:b09e8880-7199-11f0-ae7b-258e5b6a816f"
+   },
+   "why": "«montessori angeles», sin organización, dirección en Puebla, Puebla"
+  },
+  {
+   "id": "atlixco",
+   "school": {
+    "name": "Colegio Ángeles de Atlixco",
+    "city": "Atlixco",
+    "country": "México"
+   },
+   "expect": {
+    "verdict": "sure",
+    "pick": "lead:36a32c80-7193-11f0-ae7b-258e5b6a816f"
+   },
+   "why": "«angeles de atlixco», sin organización, municipio Atlixco"
+  },
+  {
+   "id": "los-angeles-oaxaca",
+   "school": {
+    "name": "Colegio Los Ángeles",
+    "city": "Oaxaca de Juárez",
+    "country": "México"
+   },
+   "expect": {
+    "verdict": "sure",
+    "pick": "lead:b43f7d00-7199-11f0-a609-6550ed7e31be",
+    "not": [
+     "lead:7ba250b0-719b-11f0-ae7b-258e5b6a816f",
+     "lead:f7481440-7194-11f0-a8ce-1bfad1453f3e",
+     "lead:072662a0-7194-11f0-ae7b-258e5b6a816f",
+     "lead:4ec522d0-719a-11f0-a8ce-1bfad1453f3e"
+    ]
+   },
+   "why": "la organización 1453 «COLEGIO LOS ANGELES» junta prospectos de Tlalpan, Los Cabos, Villahermosa y Oaxaca: vale el de Oaxaca de Juárez"
+  },
+  {
+   "id": "pestalozzi-puebla",
+   "school": {
+    "name": "colegio enrique pestalozzi",
+    "city": "Puebla de Zaragoza",
+    "country": "México"
+   },
+   "expect": {
+    "verdict": "sure",
+    "pick": "lead:95ee9020-7199-11f0-a8ce-1bfad1453f3e",
+    "not": [
+     "lead:658c2560-7193-11f0-a8ce-1bfad1453f3e",
+     "lead:eb4bac40-719b-11f0-ae7b-258e5b6a816f",
+     "lead:cb2ad280-d79b-11f1-8a3d-35f88ae04990"
+    ]
+   },
+   "why": "«colegio enrique pestalozzi ac» en Puebla; los «enrique pestalozzi» de CDMX, Orizaba o Mendoza no"
+  },
+  {
+   "id": "margarita-maza-puebla",
+   "school": {
+    "name": "colegio Margarita Maza",
+    "city": "Puebla de Zaragoza",
+    "country": "México"
+   },
+   "expect": {
+    "verdict": "sure",
+    "pick": "lead:16d908f0-719a-11f0-a609-6550ed7e31be",
+    "not": [
+     "lead:4a057c10-7193-11f0-ae7b-258e5b6a816f"
+    ]
+   },
+   "why": "«colegio margarita maza» en Puebla; el de Huejotzingo (otro municipio de Puebla, «… de juarez») no"
+  },
+  {
+   "id": "serradel-puebla",
+   "school": {
+    "name": "Colegio Luz Maria Serradel",
+    "city": "Puebla de Zaragoza",
+    "country": "México"
+   },
+   "expect": {
+    "verdict": "sure",
+    "pick": "lead:0cabf170-719b-11f0-a8ce-1bfad1453f3e",
+    "not": [
+     "lead:3f526bb0-7194-11f0-bc54-6bb191847d82"
+    ]
+   },
+   "why": "«colegio luz maria serradell ac» (doble ele) en Puebla; el de Coatzacoalcos no"
+  },
+  {
+   "id": "ypsilanti-telefono",
+   "school": {
+    "name": "Colegio Ypsilanti",
+    "city": "Puebla de Zaragoza",
+    "country": "México",
+    "phone": "+52 222 555 0248",
+    "web": "https://www.colegio-ypsilanti.edu.mx"
+   },
+   "expect": {
+    "verdict": "sure",
+    "pick": "lead:8215a510-dd1e-11f1-9077-a5a03f553bf0",
+    "info": [
+     "lead:d6d97350-719b-11f0-a8ce-1bfad1453f3e"
+    ]
+   },
+   "why": "mismo teléfono y web; el archivado sin organización va como dato"
+  },
+  {
+   "id": "pedregal-sur-cdmx",
+   "school": {
+    "name": "Colegio Pedregal del Sur",
+    "city": "Ciudad de México",
+    "country": "México"
+   },
+   "expect": {
+    "verdict": "sure",
+    "pick": "lead:3f4d3b90-7194-11f0-a627-412816d7ea13"
+   },
+   "why": "«colegio pedregal del sur cdmx», Coyoacán, Ciudad de México"
+  },
+  {
+   "id": "prometeo-telefono",
+   "school": {
+    "name": "Colegio Prometeo",
+    "city": "Puebla de Zaragoza",
+    "country": "México",
+    "phone": "222 555 8055"
+   },
+   "expect": {
+    "verdict": "sure",
+    "pick": "lead:196950c0-719a-11f0-ba38-6b1991ee4616",
+    "info": [
+     "lead:c7fecec0-719b-11f0-a609-6550ed7e31be"
+    ]
+   },
+   "why": "el teléfono solo alcanza («Centro Freinet Prometeo S.C.»)"
+  },
+  {
+   "id": "prometeo-sin-telefono",
+   "school": {
+    "name": "Colegio Prometeo",
+    "city": "Puebla de Zaragoza",
+    "country": "México"
+   },
+   "expect": {
+    "verdict": "maybe",
+    "maybe": [
+     "lead:196950c0-719a-11f0-ba38-6b1991ee4616"
+    ]
+   },
+   "why": "sin teléfono, «Centro Freinet Prometeo» en Puebla es parecido pero tiene una palabra propia de más: se pregunta"
+  },
+  {
+   "id": "salle-pedregal",
+   "school": {
+    "name": "La Salle del Pedregal",
+    "city": "Ciudad de México",
+    "country": "México"
+   },
+   "expect": {
+    "verdict": "maybe",
+    "maybe": [
+     "lead:ebc3b7e0-719a-11f0-ae7b-258e5b6a816f"
+    ]
+   },
+   "why": "«preparatoria la salle del pedregal»: dice un nivel (preparatoria), se pregunta"
+  },
+  {
+   "id": "angeles-de-puebla",
+   "school": {
+    "name": "Colegio Ángeles De Puebla",
+    "city": "Puebla de Zaragoza",
+    "country": "México"
+   },
+   "expect": {
+    "verdict": "maybe",
+    "maybe": [
+     "deal:6091"
+    ],
+    "not": [
+     "lead:be690930-c63f-11f1-a959-a1bfbe24e23e",
+     "lead:36a32c80-7193-11f0-ae7b-258e5b6a816f",
+     "lead:d35a7b30-719a-11f0-b607-4fb6b2626297"
+    ]
+   },
+   "why": "el trato abierto sin organización «Colegio Ángeles de Puebla · OE-MX-000322» se pregunta (mismo nombre, sin dirección); «angeles de atlixco» es otro municipio y otro nombre; «Angeles de puebla Tlaxco Mexicail 714» tiene dos palabras propias de más y teléfono de Mexicali"
+  },
+  {
+   "id": "hispanidad-puebla",
+   "school": {
+    "name": "Colegio Hispanidad",
+    "city": "Puebla de Zaragoza",
+    "country": "México"
+   },
+   "expect": {
+    "verdict": "maybe",
+    "maybe": [
+     "lead:425461d0-08d4-11ef-ad87-9bc24a7791eb"
+    ],
+    "not": [
+     "lead:2297d210-719b-11f0-b607-4fb6b2626297",
+     "lead:090d1fd0-719b-11f0-ae7b-258e5b6a816f"
+    ]
+   },
+   "why": "«Colegio Hispanidad PUE» está en San Pedro Cholula (otro municipio de Puebla): se pregunta; los de Tonalá y Zapopan no"
+  },
+  {
+   "id": "los-angeles-torreon",
+   "school": {
+    "name": "Colegio Los Angeles",
+    "city": "Torreón",
+    "country": "México"
+   },
+   "expect": {
+    "verdict": "maybe",
+    "maybe": [
+     "deal:5976"
+    ]
+   },
+   "why": "trato perdido «Colegio Los Angeles» (organización «Los Angeles school») sin dirección: se pregunta"
+  }
+ ]
+}

@@ -174,7 +174,8 @@ test("demo: send guarda el MIME en la bandeja simulada; Smart BCC si está confi
 // un colegio nuevo (nunca contactado) del Pipedrive de prueba
 async function newSchool(skip = 0) {
   let n = 0;
-  for (const s of schools.filter(x => x.country === "México")) { const r = await sales.checkSchool(s.id); if (r.status === "new" && n++ >= skip) return s; }
+  // nuevo de verdad: tampoco aparece nada parecido en Pipedrive (la investigación antes de crear no encuentra nada)
+  for (const s of schools.filter(x => x.country === "México")) { const r = await sales.checkSchool(s.id); if (r.status === "new" && (await sales.investigate(s.id)).r.verdict === "none" && n++ >= skip) return s; }
   throw new Error("no hay colegios nuevos en el demo");
 }
 const fakeSend = () => { const calls = []; const send = async m => { calls.push(m); return { id: `msg-${calls.length}-${Date.now()}`, threadId: "t", from: me.email, bcc: false, signature: "gmail" }; }; return { calls, send }; };

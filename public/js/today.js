@@ -18,7 +18,8 @@ export async function loadToday() {
 // otra persona (o ya es cliente o tiene trato), salen de la cola. Así nunca se propone algo que no es tuyo.
 let verifying = false;
 async function verifyQueue() {
-  const unk = (S.today?.queue || []).slice(0, 25).filter(q => q.status === "unk").map(q => q.id);
+  // también los «Nunca contactado»: el servidor les busca prospectos sin organización (una vez cada 3 días)
+  const unk = (S.today?.queue || []).slice(0, 25).filter(q => q.status === "unk" || q.status === "new").map(q => q.id);
   if (verifying || !unk.length) return;
   verifying = true;
   try {

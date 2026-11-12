@@ -370,7 +370,7 @@ function addDecisor(s, d) {
     if (!body.name) { q("#adName").focus(); return toast("Escribí el nombre del decisor", { type: "err" }); }
     go.disabled = true; go.innerHTML = `<span class="spin"></span> Guardando…`;
     try {
-      const r = await api(`/api/schools/${encodeURIComponent(s.id)}/persons`, { body });
+      const r = await apiEx(s, `/api/schools/${encodeURIComponent(s.id)}/persons`, { body });
       if (r.school) patchSchool(r.school);
       q(".modal-box").innerHTML = `<div class="modal-h"><h3>${icon("checkCircle")} Decisor agregado</h3></div>${writesList(r.done)}<button class="btn primary block" id="adOk">Listo</button>`;
       q("#adOk").onclick = () => m.close(); q("#adOk").focus();
@@ -585,7 +585,7 @@ function skipCurrent() { const ss = S.session; if (ss) markSkip(ss, ss.ids[ss.i]
 // Revisa en Pipedrive los próximos colegios de la sesión para no perder tiempo con clientes.
 function prefetch() {
   const ss = S.session; if (!ss) return;
-  const ids = ss.ids.slice(ss.i + 1, ss.i + 5).filter(id => S.byId.get(id)?.status === "unk");
+  const ids = ss.ids.slice(ss.i + 1, ss.i + 5).filter(id => ["unk", "new"].includes(S.byId.get(id)?.status));
   if (!ids.length) return;
   api("/api/check", { body: { ids } }).then(r => {
     Object.values(r).forEach(v => !v.error && patchSchool(v));
@@ -680,7 +680,7 @@ function createProspect(s) {
 async function runProspect(s, task) {
   D.prospecting = s.id; draw();
   try {
-    const r = await api(`/api/schools/${s.id}/prospect`, { body: { task } });
+    const r = await apiEx(s, `/api/schools/${s.id}/prospect`, { body: { task } });
     patchSchool(r.school); gotLead(s, r);
     ENR.delete(s.id); loadEnrich(s.id); // la nota de «Enriquecer» pudo quedar guardada recién
     if (D.id === s.id) api(`/api/schools/${encodeURIComponent(s.id)}`).then(nd => { if (D.id === s.id) { D.data = nd; draw(); } }).catch(() => {});
@@ -920,6 +920,8 @@ function prepBody(s, d) {
   const tb = D.tl?.id === s.id ? D.tl.brief || D.tl.summary : null, fromHist = !!tb && !tb.cold;
   return `<div class="stack">
     ${warn ? `<div class="callout warn">${icon("alert")}<span>${esc(warn)}</span></div>` : ""}
+    ${pdChecked(s, m)}
+    ${existingSec(s, m)}
     ${briefCard(s, "prep")}
     ${historySec(s)}
     ${s.lat == null && !(D.photos || []).length ? "" : gallery(s)}
@@ -951,7 +953,7 @@ function bindPrep(s, d) {
   el.querySelector("#stRetry")?.addEventListener("click", () => loadStudy(s.id));
   el.querySelector("#stNote")?.addEventListener("click", async e => {
     const b = e.currentTarget; b.disabled = true;
-    try { const r = await api(`/api/schools/${s.id}/study/note`, { body: {} }); toast("Estudio guardado como nota en Pipedrive", { href: r.orgUrl, action: "Abrir" }); }
+    try { const r = await apiEx(s, `/api/schools/${s.id}/study/note`, { body: {} }); toast("Estudio guardado como nota en Pipedrive", { href: r.orgUrl, action: "Abrir" }); }
     catch (err) { toast(err.message, { type: "err" }); }
     b.disabled = false;
   });
@@ -962,8 +964,73 @@ function bindPrep(s, d) {
   el.querySelectorAll("[data-stmail]").forEach(b => b.onclick = () => templateMenu(b, s, d, "mail", { email: b.dataset.stmail }));
   el.querySelectorAll("[data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy));
   el.querySelectorAll("[data-org]").forEach(b => b.onclick = () => confirmOrg(s, +b.dataset.org, b.dataset.name, b));
+  el.querySelectorAll("[data-exkey]").forEach(b => b.onclick = () => chooseExisting(s, { key: b.dataset.exkey }, b));
+  el.querySelector("#exNone")?.addEventListener("click", e => chooseExisting(s, { none: true }, e.currentTarget));
   el.querySelector("#unlink")?.addEventListener("click", () => { D.data = null; draw(); load({ match: { orgId: null } }); });
   el.querySelector("#dupReview")?.addEventListener("click", e => reviewDupes(s, e.currentTarget));
+}
+
+// ---------- ¿ya está en Pipedrive? Antes de crear algo, el servidor busca prospectos (también sin organización), tratos y
+// organizaciones por nombre, ciudad, teléfono, mail y web (sales.settleExisting). Si hay algo parecido, 409 pd_maybe con las
+// candidatas: se pregunta «¿es alguno de estos?» y, con la respuesta, se vuelve a pedir lo mismo.
+const exOwner = c => c.ownerId && c.ownerId === S.me.pdUserId ? "tuyo" : c.ownerId ? `de ${c.owner || "otra persona"}` : "libre";
+function exRow(c) {
+  const sub = [c.what, exOwner(c), c.place || "sin ciudad en Pipedrive", c.phone].filter(Boolean).join(" · ");
+  return `<div class="cand"><span class="cand-b"><span>${esc(c.title)}</span><small>${esc(sub)}</small>${c.why ? `<small class="cand-why">${esc(cap(c.why))}</small>` : ""}</span>
+    <span class="cand-a"><a class="icon-btn" href="${esc(c.url)}" target="_blank" rel="noopener" title="Ver en Pipedrive" aria-label="Ver «${esc(c.title)}» en Pipedrive">${icon("external")}</a><button class="btn sm" data-exkey="${esc(c.key)}">Es este</button></span></div>`;
+}
+// «Es este» o «Es otro colegio» (desde la ficha o desde la pregunta): queda en el cruce y la ficha se actualiza
+async function chooseExisting(s, choice, btn) {
+  if (btn) { btn.disabled = true; btn.innerHTML = `<span class="spin"></span>`; }
+  try {
+    const r = await api(`/api/schools/${encodeURIComponent(s.id)}/existing`, { body: choice });
+    if (r.detail) { patchSchool(r.detail.school); if (D.id === s.id) { D.data = r.detail; draw(); } }
+    S.today = null;
+    toast(choice.none ? "Listo: lo próximo que registres crea el prospecto de este colegio" : (r.done || []).map(x => x.label).join(" · ") || "Listo: queda vinculado");
+    return true;
+  } catch (e) { toast(e.message, { type: "err", ms: 9000 }); if (D.id === s.id) draw(); return false; }
+}
+function askPdExisting(s, cands) {
+  return new Promise(resolve => {
+    let out = false;
+    const m = modal(`<div class="modal-h"><h3>${icon("search")} Ya hay algo parecido en Pipedrive</h3><button class="icon-btn" id="pdxX" aria-label="Cerrar">${icon("x")}</button></div>
+      <p class="muted" style="margin:-6px 0 0">¿Es alguno de estos? Así no se carga dos veces el mismo colegio.</p>
+      <div class="cmp-h" style="margin-top:4px">${icon("map", "sm")} ${esc(s.name)}${s.city ? ` · ${esc(s.city)}` : ""}</div>
+      <div id="pdxList">${cands.map(exRow).join("")}</div>
+      <div class="row"><button class="btn ghost" id="pdxNo">Cancelar</button><button class="btn" id="pdxNew">${icon("plus")} Es otro colegio, crear prospecto nuevo</button></div>`, { onClose: () => resolve(out) });
+    const q = sel => m.querySelector(sel);
+    q(".modal-box").classList.add("mid", "pdx");
+    q("#pdxX").onclick = q("#pdxNo").onclick = () => m.close();
+    const pick = async (choice, b) => { m.locked = true; const ok = await chooseExisting(s, choice, b); m.locked = false; if (ok) { out = true; m.close(); } else if (b) { b.disabled = false; b.textContent = choice.none ? "Es otro colegio, crear prospecto nuevo" : "Es este"; } };
+    m.querySelectorAll("[data-exkey]").forEach(b => b.onclick = () => pick({ key: b.dataset.exkey }, b));
+    q("#pdxNew").onclick = e => pick({ none: true }, e.currentTarget);
+  });
+}
+async function apiEx(s, path, opts) {
+  for (let i = 0; ; i++) {
+    try { return await api(path, opts); }
+    catch (e) {
+      if (e.code !== "pd_maybe" || !e.data?.candidates?.length || i >= 2) throw e;
+      if (!(await askPdExisting(s, e.data.candidates))) throw new Error("No guardé nada: primero decí si es alguno de esos o si es otro colegio.");
+    }
+  }
+}
+// En la ficha: lo dudoso que encontró la última búsqueda (con «Es este» y «Es otro colegio»)
+function existingSec(s, m) {
+  const l = !s.virtual && !s.leadOnly && !m?.orgId && m?.pdx?.maybe?.length ? m.pdx.maybe : [];
+  if (!l.length) return "";
+  return `<section class="sec" id="exSec"><h3><span class="l">${icon("search")} Ya hay algo parecido en Pipedrive</span></h3>
+    <p class="muted" style="margin:0 0 6px">¿Es alguno de estos? Si no lo decís, te lo pregunto al registrar.</p>${l.map(exRow).join("")}
+    <div class="cand"><span class="muted">Ninguno es este colegio</span><button class="btn sm ghost" id="exNone">Es otro colegio</button></div></section>`;
+}
+// «Nunca contactado» con una búsqueda real detrás: lo dice (y los prospectos archivados, como dato)
+function pdChecked(s, m) {
+  const x = m?.pdx;
+  if (s.virtual || s.leadOnly || !x?.at || m.orgId || s.status !== "new" || x.maybe?.length) return "";
+  const info = (x.info || []).map(c => `<a href="${esc(c.url)}" target="_blank" rel="noopener">«${esc(c.title)}»</a> (${esc(c.what)}, ${esc(exOwner(c))})`).join(", ");
+  // con organizaciones parecidas sin elegir (las muestra la ficha aparte), no se dice que no hay organización
+  const what = (m.candidates || []).length ? "prospecto ni trato" : "prospecto, organización ni trato";
+  return `<div class="callout ok pd-checked">${icon("checkCircle")}<span>Revisé en Pipedrive ${esc(ago(x.at))}: no hay ${what} con este nombre${x.phone ? " ni este teléfono" : ""}.${info ? ` Solo ${info}.` : ""}</span></div>`;
 }
 
 // ---------- «Es esta» → ¿Estás seguro? (comparar) → vincular → ¿Querés fusionar? (otras organizaciones del mismo colegio)
@@ -1345,7 +1412,7 @@ async function saveLog(s, d) {
     session: sessionRef(),
   };
   try {
-    const r = await api(`/api/schools/${s.id}/log`, { body });
+    const r = await apiEx(s, `/api/schools/${s.id}/log`, { body });
     sessionLogged(r, { kind: "contact", channel: f.channel, outcome: f.outcome }, body.session);
     if (D.id !== s.id) return;
     D.result = { ...r, form: JSON.parse(JSON.stringify(f)) }; D.inCall = false; D.call = null;
@@ -1381,7 +1448,7 @@ async function saveComment(s) {
   D.saving = true; redrawLog();
   try {
     const task = f.next.type && f.next.date ? { type: f.next.type, date: f.next.date, time: f.next.time || undefined, ownerId: f.next.ownerId ? Number(f.next.ownerId) : undefined, subject: f.next.subject || undefined } : null;
-    const sr = sessionRef(), r = await api(`/api/schools/${s.id}/comment`, { body: { text: f.text, task, completeActivityId: D.activityId && f.completeAct ? D.activityId : null, session: sr } });
+    const sr = sessionRef(), r = await apiEx(s, `/api/schools/${s.id}/comment`, { body: { text: f.text, task, completeActivityId: D.activityId && f.completeAct ? D.activityId : null, session: sr } });
     sessionLogged(r, { kind: "comment" }, sr);
     if (D.id !== s.id) return;
     D.result = { ...r, form: JSON.parse(JSON.stringify(f)) };
@@ -1766,6 +1833,7 @@ async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
       phase = "edit";
       // cambió algo en Pipedrive (de otra persona, cliente, archivado): queda el motivo en lugar de «Enviar»
       if (!e.code && [403, 404, 409].includes(e.status)) chk = { ok: false, error: e.message };
+      if (e.code === "pd_maybe" || e.code === "pd_theirs") chk = { ok: false, error: e.message, code: e.code, candidates: e.data?.candidates || [] };
       await loadGmail(true).catch(() => {}); // pudo vencer, desconectarse o pedir confirmar en este dispositivo
       drawAct(); showErr(chk && !chk.ok ? "" : e.message);
     }
@@ -1796,7 +1864,8 @@ async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
         : !blocked && g?.enabled && !g.readOnly && !g.config ? `<button class="btn" id="mGo">Abrir en Gmail</button><button class="btn primary" id="mConnect">${wait ? `<span class="spin"></span> Esperando a Google…` : confirm ? `${icon("mail")} Confirmar tu Gmail en este dispositivo` : `${icon("mail")} Conectar Gmail para enviar desde acá`}</button>`
         : `<button class="btn primary" id="mGo">${icon("mail")} Abrir en Gmail</button>`}</div>
       ${note ? `<p class="mail-note" role="status" style="color:var(--info)">${esc(note)}</p>` : ""}
-      ${blocked ? `<p class="mail-block" role="status">${icon("alert", "sm")}<span><b>Desde acá no se envía.</b> ${esc(chk.error)}</span></p>`
+      ${blocked && chk.code === "pd_maybe" ? `<p class="mail-block" role="status">${icon("alert", "sm")}<span><b>Antes de mandar:</b> ${esc(chk.error)}</span><button class="btn sm" id="mEx">Ver cuáles</button></p>`
+        : blocked ? `<p class="mail-block" role="status">${icon("alert", "sm")}<span><b>Desde acá no se envía.</b> ${esc(chk.error)}</span></p>`
         : send ? `<p class="mail-how">${icon("checkCircle", "sm")}<span>Sale de tu Gmail (${esc(g.email)}) y queda en Pipedrive y en el historial.</span></p>
           ${g.signature ? `<details class="gm-sig"><summary>${esc(sigLabel(g))}</summary>${sigPreview(g.signature)}</details>` : `<p class="faint mail-note">Tu Gmail no tiene firma: sale sin firma. Podés pegar una en tu perfil.</p>`}`
         : g?.readOnly ? `<p class="faint mail-note">Modo solo lectura: desde acá no se envía. Usá «Abrir en Gmail».</p>`
@@ -1806,6 +1875,8 @@ async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
         : `<p class="faint mail-note">Para enviar desde acá falta configurar Gmail (lo hace el administrador).</p>`}`;
     q("#mCopy").onclick = () => copy(q("#mText").value);
     q("#mGo").onclick = openGmail;
+    // ya hay algo parecido en Pipedrive: se elige (o «Es otro colegio») y se vuelve a comprobar
+    q("#mEx")?.addEventListener("click", async () => { if (await askPdExisting(s, chk.candidates || [])) { chk = null; phase = "checking"; editable(false); drawAct(); await check(); if (!m.isConnected) return; phase = "edit"; editable(true); drawAct(); } });
     q("#mSend")?.addEventListener("click", startSend);
     q("#mConnect")?.addEventListener("click", async () => {
       const before = q("#mText").value;

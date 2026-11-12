@@ -1051,6 +1051,13 @@ details.agent summary .sub { order: 3; }
 .cand-b { display: grid; gap: 2px; min-width: 0; }
 .cand-b small { color: var(--muted); font-size: 12.5px; overflow-wrap: anywhere; }
 .cand-b small.cand-flag { display: flex; gap: 6px; align-items: flex-start; color: var(--warn); }
+.cand-b small.cand-why { color: var(--faint); }
+.cand-a { display: flex; gap: 4px; align-items: center; flex: none; }
+.mail-block .btn { margin-left: auto; flex: none; }
+/* «Ya hay algo parecido en Pipedrive»: en pantalla chica los botones van uno por renglón y nada se sale de la caja */
+.modal-box.pdx > * { min-width: 0; }
+.modal-box.pdx .row .btn { white-space: normal; justify-content: center; text-align: center; }
+@media (max-width: 480px) { .modal-box.pdx .row .btn { flex: 1 1 100%; } }
 .cand-flag .ico, .cand-b > b .ico { flex: none; margin-top: 2px; }
 .dup-b { display: grid; gap: 2px; min-width: 0; font-size: 14px; }
 .dup-b small { color: var(--muted); font-size: 12.5px; overflow-wrap: anywhere; }
