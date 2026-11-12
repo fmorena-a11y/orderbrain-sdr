@@ -208178,7 +208178,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266169160",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-formacion-profesional-especifica-escuela-tecnica-de-",
@@ -208245,7 +208247,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266169226",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-de-personas-adultas-nazaret",
@@ -208290,7 +208294,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266169298",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.englishmontessorischool.com/wp-content/uploads/sites/121/2024/04/tems-imagen-destacada.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-bra-institu",
@@ -208314,7 +208320,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266169303",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-oscus-ventilla",
@@ -208357,7 +208365,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266169491",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://site.educa.madrid.org/cc.eldespertar.madrid//wp-content/uploads/cc.eldespertar.madrid/2022/12/cropped-cropped-LOGO-Colegio-Azul-scaled-1.webp",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-escuela-superior-de-secretarias",
@@ -208401,7 +208411,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266169528",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-academia-triunfo-ii",
@@ -208413,7 +208424,7 @@
   "addr": "Calle de San Jorge 4",
   "phone": "+34916865013",
   "web": "http://www.academiatriunfo.es/index.php",
-  "email": "",
+  "email": "info@academiatriunfo.es",
   "levels": [],
   "opp": [
    "Privado confirmado en el mapa"
@@ -208421,7 +208432,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266169529",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-docente-extranjero-en-espana-escuela-iraqui-en-madrid-iraqui",
@@ -208507,7 +208520,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266169592",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-academia-triunfo-iv",
@@ -208547,7 +208562,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266169912",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-alarcon",
@@ -208571,7 +208588,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266169990",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegioalarcon.com/wp-content/uploads/colegio_alarcon_open_graph.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-ceu-fp",
@@ -208591,7 +208610,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266169999",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://fpceu.es/wp-content/uploads/Madrid-secretaria.png",
+  "whatsapp": "+34911061271",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-formacion-profesional-especifica-escuela-superior-de",
@@ -208611,7 +208633,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266170029",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-docente-extranjero-en-espana-saint-anne-s-school-britanico",
@@ -208693,7 +208717,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266170601",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-especial-pauta",
@@ -208713,7 +208739,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266170673",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-viaformacion",
@@ -208733,7 +208761,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266170796",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-vicente-aleixandre",
@@ -208779,7 +208808,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266170803",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-secundaria-santa-ana",
@@ -208802,7 +208832,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266170811",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-antiguo-centro-de-e-e-aleph",
@@ -208822,7 +208854,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266170844",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-especial-centro-bobath-espana",
@@ -208842,7 +208875,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266170961",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://fundacionbobath.org/wp-content/uploads/2026/09/homepge-educacion-scaled.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-radio-ecca",
@@ -208931,7 +208966,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266171173",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://stcharlescollege.es/wp-content/uploads/2024/04/shutterstock_2208761807-scaled.jpg",
+  "whatsapp": "+606817790",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-escuela-superior-de-informatica-marketing-y-negocios-i-m",
@@ -208995,7 +209033,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266171204",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-timon",
@@ -209040,7 +209080,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266171236",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.madrid-chamartin.kingscollegeschools.org/sites/school53/files/logo.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-autorizado-de-ensenanzas-deportivas-grado-medio-y-superior-ciud",
@@ -209169,7 +209211,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266171519",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://i0.wp.com/mercedariastrescantos.es/wp-content/uploads/2021/03/cropped-favicon2.png?fit=512%2C512&#038;ssl=1",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-colegio-mir",
@@ -209193,7 +209237,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266171611",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-cepal-2",
@@ -209239,7 +209285,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266171635",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-de-personas-adultas-cica",
@@ -209285,7 +209333,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266171656",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+0034690841217",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-antigua-academia-ntm-madrid",
@@ -209329,7 +209380,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266172038",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-primaria-san-miguel",
@@ -209372,7 +209425,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266172200",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-master-d",
@@ -209437,7 +209492,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n1471049725",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-colegio-san-ignacio-de-loyola",
@@ -209553,7 +209609,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n2943939065",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-instituto-de-estudios-bursatiles",
@@ -209565,7 +209622,7 @@
   "addr": "Calle de Alfonso XI 6",
   "phone": "+34 915240615",
   "web": "https://www.ieb.es/",
-  "email": "",
+  "email": "posgrado@ieb.es",
   "levels": [
    "Universidad"
   ],
@@ -209575,7 +209632,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n3081949231",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.ieb.es/wp-content/uploads/2024/07/IEB_1989_AZUL_fa.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-academia-las-naciones",
@@ -209660,7 +209719,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4501557515",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://images.griddo.nebrija.com/f/jpg/w/1280/h/768/universidad-nebrija-campus-la-berzosa-09116-98e424f5-4739-4f37-8160-92aef8b7b940",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-bradford-school-of-english",
@@ -209712,7 +209773,7 @@
   "addr": "Calle de Valdelasierra 9",
   "phone": "+34 915 17 05 73",
   "web": "https://colegiosanjavier.es/",
-  "email": "",
+  "email": "buzonfueradrogas@educa.madrid.org",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -209720,7 +209781,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4800653126",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-internacional-aravaca",
@@ -209732,7 +209795,7 @@
   "addr": "Calle de Santa Bernardita 3",
   "phone": "+34 913571256",
   "web": "https://internacionalaravaca.edu.es/",
-  "email": "",
+  "email": "secretaria@ia.edu.es",
   "levels": [],
   "opp": [
    "Bilingüe o internacional"
@@ -209740,7 +209803,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4810100126",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.internacionalaravaca.edu.es/IB%20-%20Aravaca/favicon.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-colegio-san-luis-de-los-franceses",
@@ -209945,7 +210010,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n7991491198",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-academia-accede",
@@ -209963,7 +210030,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n8074721754",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-academia-aleis",
@@ -210003,7 +210071,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n9736885872",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://images.thesaurus.ie.edu/f/jpg/w/1280/h/768/welcome-kit-madrid-accomodation-1",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-academia-teresa-vidal",
@@ -210023,7 +210093,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n10025316111",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-nuclio-digital-school-madrid",
@@ -210045,7 +210116,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n10214472635",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://nuclio.school/wp-content/uploads/2025/10/portada-home-nuclio.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-colegio-mayor-somosierra",
@@ -210161,7 +210234,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n11950500983",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://issep.es/wp-content/uploads/2026/09/Historia.avif",
+  "whatsapp": "+34648259718",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-espacio-alameda-universidad-camilo-jose-cela",
@@ -210208,7 +210284,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n12926599568",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-42-madrid",
@@ -210293,7 +210371,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n14102721750",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://mid.es/wp-content/uploads/2024/09/logo-mid-270.png",
+  "whatsapp": "+34648418072",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-universidad-camilo-jose-cela",
@@ -210333,7 +210414,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n14191182004",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://tattooschoolmadrid.es/wp-content/uploads/2026/05/Captura-de-pantalla-2026-05-08-a-las-13.29.16.png",
+  "whatsapp": "+34636675808",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-casvi-international-american-school",
@@ -210398,7 +210482,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w4321675",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-las-rosas",
@@ -210422,7 +210508,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w4326100",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-nuestra-sen-5",
@@ -210447,7 +210535,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w11480832",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-secundaria-padre-piquer",
@@ -210469,7 +210559,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w14448787",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-nuestra-sen-6",
@@ -210493,7 +210585,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w14467984",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-nuestra-sen-7",
@@ -210517,7 +210610,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w15230976",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-colegio-salesianos-de-atocha",
@@ -210556,7 +210651,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w20627814",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://lfmadrid.org/wp-content/uploads/2025/12/accueil_01.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-instituto-alameda-de-osuna",
@@ -210586,7 +210683,7 @@
   "addr": "Calle Mar Adriático 11",
   "phone": "+34913815784",
   "web": "https://www.escuelaces.com/",
-  "email": "",
+  "email": "info@escuelaces.com",
   "levels": [
    "Secundaria"
   ],
@@ -210596,7 +210693,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w23372574",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-fec-santa-j",
@@ -210621,7 +210720,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w23502508",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-colegio-de-fomento-el-prado",
@@ -210663,7 +210764,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w23525435",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-colegio-nue",
@@ -210687,7 +210790,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w23526055",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-jesus-maria-nuestra-se",
@@ -210732,7 +210837,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w23599402",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-universidad-complutense-de-madrid-campus-de-somosaguas",
@@ -210776,7 +210883,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w23653609",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-colegio-de-",
@@ -210800,7 +210909,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w23783066",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-la-salle-sa",
@@ -210825,7 +210935,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w23859050",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-trinity-col",
@@ -210849,7 +210960,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w23861952",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-b-r-a-insti",
@@ -210873,7 +210985,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w23976432",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-colegio-valdefuentes",

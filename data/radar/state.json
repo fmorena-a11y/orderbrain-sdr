@@ -7076,9 +7076,29 @@
    "n": 1,
    "at": "2026-11-12T17:32:56.368Z",
    "error": "The operation was aborted due to timeout"
+  },
+  "AR|San Fernando del Valle de Catamarca": {
+   "n": 1,
+   "at": "2026-11-12T23:14:50.932Z",
+   "error": "Overpass 504"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-12T23:01:41.160Z",
+   "cities": [],
+   "added": 0,
+   "enriched": 0,
+   "photos": 17,
+   "contacts": 11,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "AR|San Fernando del Valle de Catamarca: Overpass 504"
+   ],
+   "minutes": 15,
+   "total": 19156
+  },
   {
    "at": "2026-11-12T21:06:24.367Z",
    "cities": [
@@ -9558,54 +9578,6 @@
    ],
    "minutes": 19.3,
    "total": 8045
-  },
-  {
-   "at": "2026-11-10T00:38:16.286Z",
-   "cities": [
-    {
-     "cc": "CO",
-     "city": "Bogotá",
-     "found": 694,
-     "updated": 7,
-     "osm": 1704
-    },
-    {
-     "cc": "EC",
-     "city": "Guayaquil",
-     "found": 279,
-     "updated": 10,
-     "osm": 1073
-    },
-    {
-     "cc": "EC",
-     "city": "Quito",
-     "found": 387,
-     "updated": 3,
-     "osm": 908
-    },
-    {
-     "cc": "GT",
-     "city": "Ciudad de Guatemala",
-     "found": 253,
-     "updated": 3,
-     "osm": 464
-    },
-    {
-     "cc": "CO",
-     "city": "Medellín",
-     "found": 627,
-     "updated": 7,
-     "osm": 1394
-    }
-   ],
-   "added": 2240,
-   "enriched": 0,
-   "photos": 36,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 19.3,
-   "total": 5885
   }
  ]
 }
