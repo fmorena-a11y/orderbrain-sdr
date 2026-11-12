@@ -2,6 +2,7 @@
 import { $, S, api, esc, icon, pill, statusPill, stageTag, potTag, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, workOrder, ago, TYPE_ICON, leadsOver, leadsAll,
   telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile, callQueue, callGuess, demoDue, archivedRef, archivedAct, norm, cap } from "./core.js";
 import { loadGmail, connectGmail, gmailWaiting, sigPreview, sigLabel } from "./gmail.js";
+import { proposeDemo, regSlotsHtml, bindRegSlots } from "./demoslots.js";
 // «la cafetería», «el casino», «el bar escolar»
 const laEsp = mk => `${/^(casino|bar)\b/.test(mk?.espacio || "") ? "el" : "la"} ${mk?.espacio || "cafetería"}`, delaEsp = mk => laEsp(mk).replace(/^el /, "del ").replace(/^la /, "de la ");
 const coarse = () => matchMedia("(pointer: coarse)").matches;
@@ -785,6 +786,7 @@ function draw() {
       <button class="btn wa" id="aWa" ${notReady} aria-haspopup="menu">${icon("whatsapp")} WhatsApp</button>
       <button class="btn" id="aMail" ${notReady} aria-haspopup="menu">${icon("mail")} Mail</button>
       <button class="btn" id="aDemo" ${notReady} ${s.status === "client" ? `disabled title="Ya es cliente"` : d?.archive ? `disabled title="Está archivado: desarchivalo para registrar"` : ""}>${icon("video")} Demo</button>
+      <button class="btn" id="aPropose" ${notReady} ${s.status === "client" ? `disabled title="Ya es cliente"` : d?.archive ? `disabled title="Está archivado: desarchivalo para escribirle"` : `title="Elegí con qué account, mirá cuándo está libre y mandale al colegio 2 o 3 horarios"`}>${icon("calendar")} Proponer demo</button>
       ${!s.virtual && d?.leads?.length ? `<a class="btn" href="${esc(d.leads[0].url)}" target="_blank" rel="noopener" title="${esc(d.leads.length > 1 ? `Tiene ${d.leads.length} prospectos abiertos en Pipedrive` : `Ya tiene prospecto en Pipedrive${d.leads[0].owner ? ` (de ${d.leads[0].owner})` : ""}: no se crea otro`)}">${icon("lead")} Prospecto${d.leads.length > 1 ? `s (${d.leads.length})` : ""}${d.leads[0].ownerId && d.leads[0].ownerId !== S.me.pdUserId && d.leads[0].owner ? ` de ${esc(d.leads[0].owner.split(" ")[0])}` : ""}</a>` : ""}
       ${canConvert(s, d) ? `<button class="btn" id="aConvert" title="Pasa el prospecto a trato en el embudo del país. Las notas y actividades pasan al trato.">${D.converting === s.id ? `<span class="spin"></span> Convirtiendo…` : `${icon("deal")} Convertir a trato`}</button>` : ""}
       ${canProspect(s, m) ? `<button class="btn" id="aProspect" title="Crear el prospecto (y la organización si falta) a tu nombre en Pipedrive y buscar a quién contactar">${D.prospecting === s.id ? `<span class="spin"></span> Creando…` : `${icon("plus")} Crear prospecto`}</button>` : ""}
@@ -857,6 +859,7 @@ function bindTop(s, d) {
   el.querySelector("#aEnrich")?.addEventListener("click", () => enrich(s));
   el.querySelector("#aArchive")?.addEventListener("click", () => archiveSchool(s));
   el.querySelector("#aUnarch")?.addEventListener("click", () => unarchiveSchool(s));
+  el.querySelector("#aPropose")?.addEventListener("click", () => d && proposeDemo(s, d, { send: t => messageModal(s, d, t, { logAfter: true }) }));
   el.querySelector("#aDemo").onclick = () => {
     D.result = null; D.form.outcome = "demo"; suggest(s); goTab("log");
     const date = $("drawer").querySelector('[data-f="demo.date"]');
@@ -1214,6 +1217,7 @@ function logBody(s, d) {
       <label class="field"><span>Hora (tu hora local)</span><input class="inp" type="time" data-f="demo.time" value="${esc(f.demo.time)}" step="900"></label>
       <label class="field"><span>Duración</span><select class="inp" data-f="demo.duration">${[20, 30, 45, 60].map(m => `<option value="${m}" ${+f.demo.duration === m ? "selected" : ""}>${m} min</option>`).join("")}</select></label></div>
       <label class="field"><span>¿Quién da la demo?</span><select class="inp" data-f="demo.ownerId">${ownerOpts(f.demo.ownerId, true).replace("Para mí", "Yo")}</select></label>
+      ${regSlotsHtml(s, f)}
       <p class="muted" style="margin:0;font-size:13.5px">${d.match.openDealId ? "Se agenda en el trato abierto." : `Se crea el trato en <b>${esc(pipeName(s))}</b> con fuente «Outbound - Cold Calling» y vos como SDR.`}</p></div>` : ""}
     ${connected ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>${f.outcome === "gatekeeper" ? "¿Por quién preguntar?" : "¿Con quién hablaste?"} <span class="faint" style="font-weight:400;font-size:13px">${f.outcome === "gatekeeper" ? "opcional · nombre y cargo si te lo dijeron, se crea como contacto" : "opcional, se crea como contacto"}</span></div>
       <div class="grid2"><label class="field"><span>Nombre</span><input class="inp" data-f="contact.name" value="${esc(f.contact.name)}" placeholder="Ej: Laura Gómez" autocomplete="off"></label>
@@ -1324,6 +1328,7 @@ function bindLog(s, d) {
     });
   });
   el.querySelector("#save")?.addEventListener("click", () => saveLog(s, d));
+  if (f.outcome === "demo" && !f.mail) bindRegSlots(s, f, { redraw: redrawLog }); // horarios libres del account (demoslots.js)
 }
 
 async function saveLog(s, d) {

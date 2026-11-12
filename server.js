@@ -27,6 +27,7 @@ import { safeTz, toUtc, todayIn } from "./lib/time.js";
 import { composeMessage, templates } from "./lib/playbook.js";
 import * as gmail from "./lib/gmail.js";
 import { setMailPrefs, once, release, bump } from "./lib/store.js";
+import { mountAccounts } from "./lib/accounts-api.js";
 
 const app = express();
 const escHtml = v => String(v).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -324,6 +325,9 @@ app.post("/api/gmail/signature", auth, gmailProof, wrap(async (req, res) => {
   await setMailPrefs(req.session.user.email, { signature: html });
   res.json({ ...(await gmail.status(req.session.user.email, await gmailName(req.session.user))), verified: gmailProven(req) });
 }));
+
+// Accounts por país y calendario para demos (lib/accounts.js, rutas en lib/accounts-api.js)
+mountAccounts(app, { auth, wrap, schoolParam, viewerFor, leadScopeFor, meName: req => meName(req) });
 
 // ficha de un prospecto (lead) o de una organización de Pipedrive que no está en la base
 app.get("/api/records/:kind/:rid", auth, wrap(async (req, res) => {

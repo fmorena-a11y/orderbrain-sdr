@@ -47,7 +47,7 @@ En la ficha, **Mail** arma el mensaje con las plantillas (o con IA) y, si conect
 **Qué configura el administrador (una vez):**
 
 1. Google Cloud (el mismo proyecto del login): APIs y servicios → Biblioteca → habilitar **Gmail API**.
-2. Pantalla de consentimiento OAuth: tipo **Interno** (solo cuentas @ordereat.com) con los scopes `https://www.googleapis.com/auth/gmail.send` y `https://www.googleapis.com/auth/gmail.settings.basic` (leer la firma y el email principal).
+2. Pantalla de consentimiento OAuth: tipo **Interno** (solo cuentas @ordereat.com) con los scopes `https://www.googleapis.com/auth/gmail.send`, `https://www.googleapis.com/auth/gmail.settings.basic` (leer la firma y el email principal) y `https://www.googleapis.com/auth/calendar.freebusy` (libre/ocupado del account en «Proponer demo»); habilitar también **Google Calendar API**.
 3. Credenciales → el cliente OAuth **web** que ya usa el login → URIs de redireccionamiento autorizados: `https://orderbrain-sdr.vercel.app/auth/gmail/callback` (y `http://localhost:3000/auth/gmail/callback` para probar).
 4. Vercel → Settings → Environment Variables: `GOOGLE_CLIENT_SECRET` (el secreto de ese cliente) y, opcional, `PIPEDRIVE_SMART_BCC` (Pipedrive → Configuración personal → Correo → Smart BCC). Redeploy.
 
@@ -58,6 +58,17 @@ Después de cada contacto la app propone siempre un próximo paso con fecha. Se 
 Las horas se guardan en UTC, como pide Pipedrive, y se muestran en la hora local de cada persona.
 
 Después de una demo aparecen los atajos para crear la invitación en **Google Calendar** y confirmar por **WhatsApp**. WhatsApp se abre en la app o en WhatsApp Web; si el equipo usa **Volt**, la conversación queda registrada en el CRM.
+
+## Proponer demo con el calendario del account
+
+Cada SDR tiene, por país, su **account** (el Account Executive que da sus demos): en **Tu perfil › Tus accounts** (también en el de la primera vez). Vienen sugeridos los de la cuenta (México → Joaquín Márquez, Argentina → Matías Favaro, Perú → Santiago Correa; se cambian con `DEFAULT_ACCOUNTS`) con «(sugerido)» hasta que guardás el perfil; con «+ otro país» se suman más. Dirección y el líder de tu equipo también los cambian en **Equipo › Accesos del equipo › Accounts**.
+
+- En la ficha, **Proponer demo** pregunta primero **¿Con qué account es la demo?** (el que te toca por el país del colegio viene elegido, y podés elegir otro), muestra **sus horarios libres** en la hora del colegio (y la tuya entre paréntesis si es otra): tres sugeridos en días distintos (uno de mañana y uno de tarde cuando se puede) y «Ver más horarios». Marcás de 1 a 3 y la app arma el mensaje con el trato del país («¿Te queda bien el martes 17 a las 10:00 o el miércoles 18 a las 16:00 (hora de México)? Es una videollamada de 30 minutos con Joaquín…»); se manda con el WhatsApp o el mail de la ficha.
+- En **Registrar › Demo agendada**, «¿Quién da la demo?» viene con tu account (o el de la propuesta) y debajo están sus horarios libres para tocar (primero los que propusiste). Si la hora choca con algo suyo, avisa «Joaquín tiene algo a esa hora» (no bloquea).
+- **De dónde sale «libre»:** del Google Calendar del account. Cada account lo conecta una vez en **Tu perfil › Tu calendario para las demos**: Google Calendar → Configuración → su calendario → **Integrar el calendario** → copia la **Dirección secreta en formato iCal** y la pega. «Probar» dice cuántos eventos ve en las próximas 2 semanas (nunca títulos). Ahí mismo elige su horario para demos (por defecto lunes a viernes de 9 a 18 en su zona de Pipedrive). Además siempre cuentan como ocupadas sus actividades de Pipedrive con hora (ocupado o demo). Las demos van de 30, 45 o 60 minutos con 15 de margen, nunca antes de 2 horas desde ahora, y del lado del colegio de lunes a viernes de 8 a 18.
+- **Sin calendario conectado no se inventa nada:** dice «Joaquín todavía no conectó su calendario» con **Avisarle** (copia los pasos para mandárselos) y muestra solo lo que se sabe por Pipedrive, marcado «sin confirmar». Si el calendario no responde, «No pude leer el calendario de …».
+- **Privacidad:** la dirección secreta se guarda cifrada (AES-256-GCM, como el Gmail) y nunca vuelve al navegador ni a los logs; solo se aceptan direcciones de `calendar.google.com` (y Outlook publicado), por https. El SDR ve solo libre u ocupado, nunca qué tiene el account. Solo el account cambia su calendario.
+- **Con Google configurado** (`GOOGLE_CLIENT_ID` y `GOOGLE_CLIENT_SECRET`), conectar Gmail pide además ver el libre/ocupado de los calendarios (`calendar.freebusy`): si el account no pegó su dirección, la app pregunta a Google con la cuenta de quien mira (dentro del Workspace se ve el de un compañero). Sin eso, no aparece nada de esto.
 
 ## Prioridad de prospectos
 
@@ -211,6 +222,7 @@ Con `CRON_SECRET` en Vercel, el cron diario (`vercel.json`, 08:17 UTC) sigue una
 | `CRON_SECRET` | Activa el cron diario de sincronización con Pipedrive (Vercel lo manda como `Authorization: Bearer …`) | `openssl rand -hex 32` |
 | `SYNC_STEP_SECONDS`, `SYNC_CRON_SECONDS` | Opcional: segundos por paso de sincronización desde Equipo (40) y desde el cron (50), hasta 280 | |
 | `SALES_PIPELINES` | Opcional: embudo y etapa de entrada por país en JSON | Ver `.env.example` |
+| `DEFAULT_ACCOUNTS` | Opcional: el account sugerido por país (ids de usuarios de Pipedrive) en JSON, por ejemplo `{"México":24821777}` | Pipedrive → Configuración de la empresa → Usuarios |
 
 Los IDs de embudos, etapas y campos personalizados de la cuenta de OrderEAT están en `lib/config.js`. Si cambian en Pipedrive, se actualizan ahí (o con `SALES_PIPELINES` y `DEAL_FIELDS`).
 
@@ -252,6 +264,8 @@ lib/store.js           Colegios, cache del cruce y registro de contactos (Redis 
 lib/time.js            Zonas horarias y días hábiles
 lib/photos.js          Fotos de cada colegio (Google, web y satélite)
 lib/brain.js           Sitios de World Dominion (OrderBrain) para marcar clientes
+lib/accounts.js        Accounts por país de cada SDR, calendario de cada account y sus horarios libres (rutas en lib/accounts-api.js)
+lib/calendar.js        .ics → ocupado (ical.js), huecos, sugerencias y zonas (puro; demo en lib/calendar-demo.js)
 lib/scan.js            Búsqueda en OpenStreetMap compartida por el radar y el buscador de zonas
 scripts/radar.mjs      Radar: busca colegios privados en todas las ciudades (GitHub Actions)
 public/                Frontend sin build: HTML, CSS y módulos JS (mapa con Leaflet)

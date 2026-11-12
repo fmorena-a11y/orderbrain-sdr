@@ -1219,3 +1219,62 @@ details.tl-body p { margin: 6px 0 0; padding: 10px 12px; border-radius: 10px; ba
 .pal-jump:hover { background: var(--surface-3); }
 /* en pantallas altas, más lugar para que lo de Pipedrive entre sin bajar (en celular, con el teclado abierto, queda 50vh) */
 @media (min-width: 600px) and (min-height: 700px) { .palette-list { max-height: min(62vh, 640px); } }
+
+/* ---------- accounts por país y calendario para demos (perfil: public/js/accounts.js) */
+.acct-rows { display: grid; gap: 8px; }
+.acct-row { display: grid; grid-template-columns: minmax(84px, 120px) minmax(0, 1fr) auto; gap: 8px; align-items: center; }
+.acct-row .acct-c { font-size: 13.5px; font-weight: 600; color: var(--ink-2); }
+.acct-row .inp { min-height: 36px; padding: 6px 10px; }
+.acct-sug { font-size: 12px; color: var(--muted); min-width: 0; }
+.acct-add select.inp { width: auto; min-height: 34px; padding: 5px 10px; font-size: 13.5px; color: var(--accent-ink); }
+.code-row .acct-btn { grid-column: 1 / -1; justify-self: start; margin-top: -4px; }
+.cal-box { border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; background: var(--surface); }
+.cal-box > summary { cursor: pointer; font-size: 13.5px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.cal-box .cal-in { display: grid; gap: 10px; margin-top: 10px; }
+.cal-steps { margin: 0; padding-left: 20px; font-size: 13.5px; color: var(--ink-2); display: grid; gap: 2px; }
+.cal-url { display: flex; gap: 8px; align-items: center; }
+.cal-url .inp { min-width: 0; font-size: 13.5px; }
+.cal-out { margin: 0; font-size: 13.5px; color: var(--ok); }
+.cal-change { justify-self: start; font-size: 13px; }
+.cal-hours { display: grid; gap: 6px; }
+.cal-h-l { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+.cal-hh { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 13.5px; color: var(--muted); }
+.cal-hh label { display: inline-flex; align-items: center; gap: 6px; }
+.cal-hh .inp { width: auto; min-height: 34px; padding: 4px 8px; }
+@media (max-width: 480px) { .acct-row { grid-template-columns: minmax(0, 1fr) auto; } .acct-row .inp { grid-column: 1 / -1; grid-row: 2; } .cal-url { flex-wrap: wrap; } .cal-url .btn { flex: 1 1 100%; } }
+
+/* ---------- «Proponer demo» y horarios libres en Registrar (public/js/demoslots.js) */
+.ds { display: grid; gap: 14px; min-width: 0; }
+.ds-who { border: 0; margin: 0; padding: 0; display: grid; gap: 10px; min-width: 0; }
+.ds-who legend { font-size: 13px; font-weight: 600; color: var(--ink-2); margin-bottom: 8px; padding: 0; }
+.ds-accs { display: grid; gap: 6px; }
+.ds-acc { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid var(--line-2); border-radius: 12px; cursor: pointer; background: var(--surface); }
+.ds-acc:has(input:checked) { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.ds-acc input { accent-color: var(--accent); width: 18px; height: 18px; flex: none; margin: 0; }
+.ds-acc > span { display: grid; min-width: 0; } .ds-acc small { color: var(--muted); font-size: 12.5px; }
+.ds-acc .ds-toca { font-weight: 500; color: var(--accent-ink); font-size: 13px; }
+.ds-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 13.5px; }
+.ds-st { flex-wrap: wrap; align-items: center; } .ds-st > span { flex: 1 1 220px; }
+.ds-note { margin: 0; font-size: 13px; color: var(--muted); }
+.ds-note .ico { vertical-align: -2px; }
+.ds-sec, .ds-day { display: grid; gap: 6px; min-width: 0; }
+.ds-h { font-size: 12.5px; font-weight: 600; color: var(--ink-2); }
+.ds-h::first-letter { text-transform: uppercase; }
+.ds-h small { font-weight: 400; }
+.ds-days { display: grid; gap: 12px; max-height: 340px; overflow: auto; padding-right: 4px; }
+.ds-slots { display: flex; flex-wrap: wrap; gap: 6px; }
+.ds-slot { display: inline-grid; gap: 1px; justify-items: start; padding: 6px 12px; min-height: 40px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); font: inherit; font-size: 13.5px; cursor: pointer; text-align: left; }
+.ds-slot b { font-weight: 600; white-space: nowrap; }
+.ds-slot small { font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+.ds-slot:hover { background: var(--surface-2); }
+.ds-slot[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--surface); }
+.ds-slot[aria-pressed="true"] small { color: inherit; opacity: .8; }
+.ds-slot.unsure { border-style: dashed; }
+.ds-slot .ds-uns { color: var(--warn); }
+.ds-slot.gone b { text-decoration: line-through; opacity: .7; }
+.ds-count { margin: 0; font-size: 13px; }
+.ds-msg { white-space: pre-wrap; font-size: 14px; line-height: 1.45; padding: 12px 14px; border-radius: 12px; background: var(--surface-2); border: 1px solid var(--line); overflow-wrap: anywhere; }
+.ds-reg { display: grid; gap: 8px; min-width: 0; }
+.ds-reg .callout { font-size: 13.5px; padding: 10px 12px; }
+.ds-reg .linkbtn { justify-self: start; font-size: 13px; }
+@media (max-width: 480px) { .ds .row .btn { flex: 1 1 auto; } .ds-slot { flex: 1 1 calc(50% - 6px); } }

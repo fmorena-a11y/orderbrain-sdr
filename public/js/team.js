@@ -6,6 +6,7 @@ import { S, api, esc, icon, ago, copy, toast, pill, setSchools, ST, DEMO_RES, sh
 import { openSchool, openRecord } from "./school.js";
 import { demoResultMenu } from "./today.js";
 import { brainBadge, refreshMe } from "./app.js";
+import { openPersonAccounts } from "./accounts.js";
 
 let host;
 const CH_ICON = { call: "phone", whatsapp: "whatsapp", mail: "mail", visit: "user" };
@@ -69,7 +70,9 @@ function codeRows(c) {
 }
 const codesHtml = c => c.error ? `<div class="callout err">${icon("alert")}<span>${esc(c.error)}</span></div>`
   : `<p class="faint" style="margin:0 0 6px;font-size:13.5px">${c.admin ? `Dirección ve todos los equipos; cada líder, solo el suyo (Métricas, demos, actividad y estos accesos).${c.on ? " Una persona está en un solo equipo." : " Sin equipos, los líderes ven todo."}` : c.on ? "Tu gente: pasale su código para que entre. Para sumar o sacar a alguien, usá «Equipos»." : "Los accesos los cambia dirección."}</p>
-  <div class="codes">${codeRows(c).map(u => `<div class="code-row"><span class="t"><b>${esc(u.name)}${u.me ? " (vos)" : ""} ${accTag(u)}</b><small>${esc(u.email)}</small></span>${u.code ? `<code>${esc(u.code)}</code><button class="btn sm" data-invite="${u.id}">${icon("copy", "sm")} Copiar invitación</button>` : `<small class="faint code-off">Tiene acceso de líder o dirección: su código se lo pasa dirección.</small>`}${u.choices ? accHtml(u) : ""}</div>`).join("") || `<p class="faint" style="margin:0">Nadie en tu equipo todavía.</p>`}</div>`;
+  <div class="codes">${codeRows(c).map(u => `<div class="code-row"><span class="t"><b>${esc(u.name)}${u.me ? " (vos)" : ""} ${accTag(u)}</b><small>${esc(u.email)}</small></span>${u.code ? `<code>${esc(u.code)}</code><button class="btn sm" data-invite="${u.id}">${icon("copy", "sm")} Copiar invitación</button>` : `<small class="faint code-off">Tiene acceso de líder o dirección: su código se lo pasa dirección.</small>`}${u.choices ? accHtml(u) : ""}${acctBtn(u)}</div>`).join("") || `<p class="faint" style="margin:0">Nadie en tu equipo todavía.</p>`}</div>`;
+// quién da sus demos en cada país (public/js/accounts.js); a un Account Executive no le hace falta
+const acctBtn = u => /Account Executive/.test(u.role || "") ? "" : `<button type="button" class="btn sm ghost acct-btn" data-paccts="${esc(u.email)}">${icon("users", "sm")} Accounts${u.me ? "" : ` de ${esc(u.name.split(" ")[0])}`}</button>`;
 function drawCodes() {
   const box = host?.isConnected && host.querySelector("#codes"); if (!box || !codes) return;
   // si estabas escribiendo el cargo, el foco vuelve al mismo campo después de redibujar
@@ -79,6 +82,7 @@ function drawCodes() {
     const u = codes.users.find(x => String(x.id) === b.dataset.invite); if (!u?.code) return;
     copy(`Hola ${u.name.split(" ")[0]}! Entrá a OrderBrain SDR: ${codes.url}\nTu email: ${u.email}\nTu código personal: ${u.code}\n(No lo compartas: es solo tuyo.)`);
   });
+  box.querySelectorAll("[data-paccts]").forEach(b => b.onclick = () => { const u = codes.users.find(x => x.email === b.dataset.paccts); if (u) openPersonAccounts(u); });
   box.querySelectorAll("[data-acc]").forEach(row => {
     const email = row.dataset.acc, u = codes.users.find(x => x.email === email); if (!u) return;
     const set = patch => { accDraft.set(email, { ...(accDraft.get(email) || {}), ...patch, err: "" }); drawCodes(); };
