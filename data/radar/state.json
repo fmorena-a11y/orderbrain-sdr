@@ -6946,7 +6946,30 @@
   "BO|n4098894827": "2026-11-11T23:16:42.926Z",
   "ES|n1235110932": "2026-11-11T23:17:30.670Z",
   "VE|n333674478": "2026-11-11T23:18:08.179Z",
-  "MX|Coatzacoalcos": "2026-11-11T23:24:27.443Z"
+  "MX|Coatzacoalcos": "2026-11-11T23:24:27.443Z",
+  "VE|n4415327350": "2026-11-12T01:34:30.505Z",
+  "ES|n28849760": "2026-11-12T01:34:58.681Z",
+  "AR|Gualeguaychú": "2026-11-12T01:35:31.415Z",
+  "VE|n1658452186": "2026-11-12T01:36:07.610Z",
+  "VE|n332585440": "2026-11-12T01:36:37.916Z",
+  "MX|Buenavista": "2026-11-12T01:37:13.271Z",
+  "CL|Talca": "2026-11-12T01:37:39.574Z",
+  "VE|n2412772675": "2026-11-12T01:38:15.498Z",
+  "CL|Coquimbo": "2026-11-12T01:38:53.475Z",
+  "AR|San Luis": "2026-11-12T01:39:27.609Z",
+  "ES|n252566396": "2026-11-12T01:39:57.252Z",
+  "MX|Cabo San Lucas": "2026-11-12T01:40:35.952Z",
+  "ES|n209144042": "2026-11-12T01:41:18.140Z",
+  "CL|Arica": "2026-11-12T01:41:52.374Z",
+  "VE|n2612591260": "2026-11-12T01:42:33.164Z",
+  "ES|n84550790": "2026-11-12T01:43:04.945Z",
+  "PE|Cajamarca": "2026-11-12T01:43:50.589Z",
+  "AR|Comodoro Rivadavia": "2026-11-12T01:44:28.109Z",
+  "ES|n306524430": "2026-11-12T01:45:02.264Z",
+  "CO|n306361598": "2026-11-12T01:45:31.991Z",
+  "CO|n474938031": "2026-11-12T01:46:06.507Z",
+  "CO|n5548746213": "2026-11-12T01:46:42.759Z",
+  "CO|n703168249": "2026-11-12T01:47:16.961Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -6991,6 +7014,181 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-12T01:33:56.701Z",
+   "cities": [
+    {
+     "cc": "VE",
+     "city": "Coro",
+     "found": 1,
+     "updated": 0,
+     "osm": 6
+    },
+    {
+     "cc": "ES",
+     "city": "Pamplona",
+     "found": 30,
+     "updated": 0,
+     "osm": 122
+    },
+    {
+     "cc": "AR",
+     "city": "Gualeguaychú",
+     "found": 15,
+     "updated": 0,
+     "osm": 71
+    },
+    {
+     "cc": "VE",
+     "city": "Guatire",
+     "found": 1,
+     "updated": 0,
+     "osm": 24
+    },
+    {
+     "cc": "VE",
+     "city": "Puerto Cabello",
+     "found": 27,
+     "updated": 0,
+     "osm": 60
+    },
+    {
+     "cc": "MX",
+     "city": "Buenavista",
+     "found": 0,
+     "updated": 0,
+     "osm": 177
+    },
+    {
+     "cc": "CL",
+     "city": "Talca",
+     "found": 67,
+     "updated": 0,
+     "osm": 154
+    },
+    {
+     "cc": "VE",
+     "city": "Acarigua",
+     "found": 9,
+     "updated": 0,
+     "osm": 27
+    },
+    {
+     "cc": "CL",
+     "city": "Coquimbo",
+     "found": 61,
+     "updated": 0,
+     "osm": 125
+    },
+    {
+     "cc": "AR",
+     "city": "San Luis",
+     "found": 5,
+     "updated": 0,
+     "osm": 52
+    },
+    {
+     "cc": "ES",
+     "city": "Sabadell",
+     "found": 1,
+     "updated": 0,
+     "osm": 230
+    },
+    {
+     "cc": "MX",
+     "city": "Cabo San Lucas",
+     "found": 6,
+     "updated": 1,
+     "osm": 33
+    },
+    {
+     "cc": "ES",
+     "city": "Alcalá de Henares",
+     "found": 34,
+     "updated": 0,
+     "osm": 141
+    },
+    {
+     "cc": "CL",
+     "city": "Arica",
+     "found": 54,
+     "updated": 1,
+     "osm": 118
+    },
+    {
+     "cc": "VE",
+     "city": "Calabozo",
+     "found": 9,
+     "updated": 0,
+     "osm": 38
+    },
+    {
+     "cc": "ES",
+     "city": "Vigo",
+     "found": 34,
+     "updated": 0,
+     "osm": 173
+    },
+    {
+     "cc": "PE",
+     "city": "Cajamarca",
+     "found": 14,
+     "updated": 0,
+     "osm": 211
+    },
+    {
+     "cc": "AR",
+     "city": "Comodoro Rivadavia",
+     "found": 5,
+     "updated": 0,
+     "osm": 48
+    },
+    {
+     "cc": "ES",
+     "city": "Móstoles",
+     "found": 0,
+     "updated": 0,
+     "osm": 288
+    },
+    {
+     "cc": "CO",
+     "city": "Barrancabermeja",
+     "found": 96,
+     "updated": 4,
+     "osm": 183
+    },
+    {
+     "cc": "CO",
+     "city": "San Luis de Palenque",
+     "found": 3,
+     "updated": 0,
+     "osm": 10
+    },
+    {
+     "cc": "CO",
+     "city": "Tunja",
+     "found": 21,
+     "updated": 1,
+     "osm": 57
+    },
+    {
+     "cc": "CO",
+     "city": "Tuluá",
+     "found": 15,
+     "updated": 0,
+     "osm": 62
+    }
+   ],
+   "added": 508,
+   "enriched": 0,
+   "photos": 7,
+   "contacts": 25,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 15.2,
+   "total": 18144
+  },
   {
    "at": "2026-11-11T23:08:04.418Z",
    "cities": [
