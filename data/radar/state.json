@@ -6974,7 +6974,26 @@
   "ES|n203701688": "2026-11-12T03:09:27.580Z",
   "VE|n2172770131": "2026-11-12T03:10:01.987Z",
   "HN|n304624288": "2026-11-12T03:17:34.689Z",
-  "PE|Huánuco": "2026-11-12T03:25:08.181Z"
+  "PE|Huánuco": "2026-11-12T03:25:08.181Z",
+  "CL|La Serena": "2026-11-12T05:19:44.798Z",
+  "VE|n1676439371": "2026-11-12T05:20:23.050Z",
+  "ES|n3763482580": "2026-11-12T05:20:57.200Z",
+  "BO|n415162589": "2026-11-12T05:21:23.531Z",
+  "MX|Ciudad del Carmen": "2026-11-12T05:21:59.157Z",
+  "AR|González Catán": "2026-11-12T05:22:36.135Z",
+  "VE|n3864357775": "2026-11-12T05:23:10.248Z",
+  "ES|n493395619": "2026-11-12T05:23:40.602Z",
+  "CL|Iquique": "2026-11-12T05:24:12.809Z",
+  "AR|Isidro Casanova": "2026-11-12T05:24:46.707Z",
+  "ES|n3230345391": "2026-11-12T05:25:11.399Z",
+  "PE|Sullana": "2026-11-12T05:25:48.346Z",
+  "MX|San Cristóbal": "2026-11-12T05:26:14.726Z",
+  "PE|Chincha Alta": "2026-11-12T05:26:39.526Z",
+  "EC|n249597621": "2026-11-12T05:27:13.417Z",
+  "EC|n4729574707": "2026-11-12T05:27:41.074Z",
+  "AR|Virrey del Pino": "2026-11-12T05:28:21.622Z",
+  "AR|La Rioja": "2026-11-12T05:28:51.191Z",
+  "MX|Poza Rica": "2026-11-12T05:33:58.471Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7019,6 +7038,153 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-12T05:19:09.799Z",
+   "cities": [
+    {
+     "cc": "CL",
+     "city": "La Serena",
+     "found": 95,
+     "updated": 2,
+     "osm": 208
+    },
+    {
+     "cc": "VE",
+     "city": "Guacara",
+     "found": 0,
+     "updated": 0,
+     "osm": 80
+    },
+    {
+     "cc": "ES",
+     "city": "Jerez de la Frontera",
+     "found": 45,
+     "updated": 0,
+     "osm": 79
+    },
+    {
+     "cc": "BO",
+     "city": "Sacaba",
+     "found": 3,
+     "updated": 0,
+     "osm": 24
+    },
+    {
+     "cc": "MX",
+     "city": "Ciudad del Carmen",
+     "found": 3,
+     "updated": 0,
+     "osm": 21
+    },
+    {
+     "cc": "AR",
+     "city": "González Catán",
+     "found": 7,
+     "updated": 0,
+     "osm": 219
+    },
+    {
+     "cc": "VE",
+     "city": "Carúpano",
+     "found": 9,
+     "updated": 0,
+     "osm": 29
+    },
+    {
+     "cc": "ES",
+     "city": "Oviedo",
+     "found": 28,
+     "updated": 0,
+     "osm": 104
+    },
+    {
+     "cc": "CL",
+     "city": "Iquique",
+     "found": 63,
+     "updated": 4,
+     "osm": 120
+    },
+    {
+     "cc": "AR",
+     "city": "Isidro Casanova",
+     "found": 2,
+     "updated": 0,
+     "osm": 359
+    },
+    {
+     "cc": "ES",
+     "city": "San Sebastián",
+     "found": 15,
+     "updated": 1,
+     "osm": 154
+    },
+    {
+     "cc": "PE",
+     "city": "Sullana",
+     "found": 5,
+     "updated": 0,
+     "osm": 132
+    },
+    {
+     "cc": "MX",
+     "city": "San Cristóbal",
+     "found": 4,
+     "updated": 0,
+     "osm": 37
+    },
+    {
+     "cc": "PE",
+     "city": "Chincha Alta",
+     "found": 1,
+     "updated": 1,
+     "osm": 174
+    },
+    {
+     "cc": "EC",
+     "city": "Portoviejo",
+     "found": 38,
+     "updated": 0,
+     "osm": 105
+    },
+    {
+     "cc": "EC",
+     "city": "Loja",
+     "found": 41,
+     "updated": 0,
+     "osm": 118
+    },
+    {
+     "cc": "AR",
+     "city": "Virrey del Pino",
+     "found": 2,
+     "updated": 1,
+     "osm": 85
+    },
+    {
+     "cc": "AR",
+     "city": "La Rioja",
+     "found": 3,
+     "updated": 0,
+     "osm": 37
+    },
+    {
+     "cc": "MX",
+     "city": "Poza Rica",
+     "found": 52,
+     "updated": 1,
+     "osm": 203
+    }
+   ],
+   "added": 416,
+   "enriched": 0,
+   "photos": 5,
+   "contacts": 22,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 16.9,
+   "total": 18620
+  },
   {
    "at": "2026-11-12T03:08:23.774Z",
    "cities": [
