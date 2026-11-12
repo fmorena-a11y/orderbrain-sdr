@@ -130212,7 +130212,9 @@
   "src": "osm",
   "osm": "n12010111969",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+59174166683",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santa-cruz-de-la-sierra-u-e-isaac",
@@ -130379,7 +130381,9 @@
   "src": "osm",
   "osm": "w165844411",
   "found": "2026-11-10",
-  "img": "https://unifranz.edu.bo/wp-content/uploads/2025/10/unifranz-2025.webp"
+  "img": "https://unifranz.edu.bo/wp-content/uploads/2025/10/unifranz-2025.webp",
+  "whatsapp": "+59171502211",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santa-cruz-de-la-sierra-universidad-de-aquino-bolivia",
@@ -130402,7 +130406,8 @@
   "src": "osm",
   "osm": "w165915869",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santa-cruz-de-la-sierra-universidad-tecnologica-privada-de-santa-cruz",
@@ -136071,7 +136076,8 @@
   "src": "osm",
   "osm": "w1248316224",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "tijuana-colegio-dimely",
@@ -136138,7 +136144,8 @@
   "src": "osm",
   "osm": "w1254742440",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "tijuana-unea-campus-la-mesa",
@@ -136260,7 +136267,8 @@
   "src": "osm",
   "osm": "n3590387289",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "cordoba-centro-educativo-antartida-argentina",
@@ -136686,7 +136694,8 @@
   "src": "osm",
   "osm": "n9885894990",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "cordoba-instituto-superior-unidad-educativa-maryland",
@@ -136707,7 +136716,8 @@
   "src": "osm",
   "osm": "n9885894996",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "cordoba-instituto-educacional-jose-hernandez",
@@ -136786,7 +136796,8 @@
   "src": "osm",
   "osm": "n11955346359",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "cordoba-instituto-provincial-de-educacion-media-199-doctor-juan-emilio-remonda",
@@ -137520,7 +137531,8 @@
   "src": "osm",
   "osm": "w317143214",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "cordoba-colegio-villa-eucaristica",
@@ -137666,7 +137678,7 @@
   "addr": "Coronel José Javier Díaz 481",
   "phone": "+543514618556",
   "web": "https://www.escueladantecordoba.edu.ar/",
-  "email": "",
+  "email": "info@escueladantecordoba.edu.ar",
   "levels": [],
   "opp": [
    "Privado confirmado en el mapa"
@@ -137675,7 +137687,8 @@
   "src": "osm",
   "osm": "w359270437",
   "found": "2026-11-10",
-  "img": "https://escueladantecordoba.edu.ar/wp-content/uploads/2022/05/logo_redes.png"
+  "img": "https://escueladantecordoba.edu.ar/wp-content/uploads/2022/05/logo_redes.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "cordoba-instituto-superior-domingo-cabred",
@@ -139233,7 +139246,8 @@
   "src": "osm",
   "osm": "n5835083598",
   "found": "2026-11-10",
-  "img": "https://static.wixstatic.com/media/9eadb7_ac38029327d745038777bc3f2b57d6e7%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/9eadb7_ac38029327d745038777bc3f2b57d6e7%7Emv2.jpg"
+  "img": "https://static.wixstatic.com/media/9eadb7_ac38029327d745038777bc3f2b57d6e7%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/9eadb7_ac38029327d745038777bc3f2b57d6e7%7Emv2.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "puebla-de-zaragoza-colegio-angeles-de-puebla",
@@ -139263,7 +139277,7 @@
   "addr": "Calle 25 Sur 702",
   "phone": "+52 222 4081100",
   "web": "https://isu.edu.mx/",
-  "email": "",
+  "email": "admisiones@isu.edu.mx",
   "levels": [
    "Universidad"
   ],
@@ -139274,7 +139288,9 @@
   "src": "osm",
   "osm": "n5879993894",
   "found": "2026-11-10",
-  "img": "https://isu.edu.mx/wp-content/uploads/2026/01/imagen-convenios-internacionales-home.webp"
+  "img": "https://isu.edu.mx/wp-content/uploads/2026/01/imagen-convenios-internacionales-home.webp",
+  "whatsapp": "+522211818217",
+  "webAt": "2026-11-12"
  },
  {
   "id": "puebla-de-zaragoza-colegio-cultural",
@@ -140100,7 +140116,9 @@
   "src": "osm",
   "osm": "n12784070313",
   "found": "2026-11-10",
-  "img": "https://cicepac.org/wp-content/uploads/2025/03/Logo-CICEPAC-Oficial.png"
+  "img": "https://cicepac.org/wp-content/uploads/2025/03/Logo-CICEPAC-Oficial.png",
+  "whatsapp": "+522225254813",
+  "webAt": "2026-11-12"
  },
  {
   "id": "puebla-de-zaragoza-inqba",
@@ -140150,7 +140168,9 @@
   "src": "osm",
   "osm": "n13923232423",
   "found": "2026-11-10",
-  "img": "https://cinetec.edu.mx/wp-content/uploads/2026/05/CINETEC-open-graph.webp"
+  "img": "https://cinetec.edu.mx/wp-content/uploads/2026/05/CINETEC-open-graph.webp",
+  "whatsapp": "+5212229098989",
+  "webAt": "2026-11-12"
  },
  {
   "id": "puebla-de-zaragoza-universidad-humanitas-campus-angelopolis",
@@ -141120,7 +141140,7 @@
   "addr": "",
   "phone": "+526566171100",
   "web": "https://www.institutomexicodeciudadjuarez.com/",
-  "email": "",
+  "email": "promocion@institutomexico.org",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -141129,7 +141149,8 @@
   "src": "osm",
   "osm": "w252838059",
   "found": "2026-11-10",
-  "img": "https://irp.cdn-website.com/f276324f/dms3rep/multi/opt/MUESTRA-1920w.png?jxl&v=jxl"
+  "img": "https://irp.cdn-website.com/f276324f/dms3rep/multi/opt/MUESTRA-1920w.png?jxl&v=jxl",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-juarez-instituto-teresa-de-avila",
@@ -141150,7 +141171,8 @@
   "src": "osm",
   "osm": "w252838064",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-juarez-universidad-pedagogica-nacional",
@@ -145396,7 +145418,8 @@
   "src": "osm",
   "osm": "n3802577558",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guadalajara-instituto-cumbres-de-guadalajara",
@@ -147311,7 +147334,8 @@
   "src": "osm",
   "osm": "n3802588112",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guadalajara-universidad-santander",
@@ -147577,14 +147601,15 @@
   "addr": "Calle Andrés Blancarte 4075",
   "phone": "+52 33 1729 9200",
   "web": "https://iehp.edu.mx/",
-  "email": "",
+  "email": "contacto@iehp.edu.mx",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "n8231599351",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guadalajara-clearview-academy-campus-galerias",
@@ -147616,7 +147641,7 @@
   "addr": "Unión 322",
   "phone": "+52 33 3640 3590",
   "web": "https://eci.edu.mx",
-  "email": "",
+  "email": "hola@eci.edu.mx",
   "levels": [
    "Universidad"
   ],
@@ -147628,7 +147653,8 @@
   "src": "osm",
   "osm": "n10094256398",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guadalajara-universidad-univer",
@@ -147647,7 +147673,8 @@
   "src": "osm",
   "osm": "n11040559905",
   "found": "2026-11-10",
-  "img": "https://univer.com.mx/wp-content/uploads/2025/07/Principal.jpeg"
+  "img": "https://univer.com.mx/wp-content/uploads/2025/07/Principal.jpeg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guadalajara-instituto-britanico",
@@ -147733,7 +147760,7 @@
   "addr": "Avenida Enrique Diaz de León Sur 324",
   "phone": "+52 33 3827 3001",
   "web": "http://unedl.edu.mx",
-  "email": "",
+  "email": "unedl.universidad@unedl.edu.mx",
   "levels": [
    "Universidad"
   ],
@@ -147742,7 +147769,9 @@
   "src": "osm",
   "osm": "w132647359",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+5213318102301",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guadalajara-colegio-union",
@@ -148013,7 +148042,7 @@
   "addr": "Avenida Guadalupe 6600",
   "phone": "+52 33 3125 1880",
   "web": "https://www.imaoccidente.edu.mx/",
-  "email": "",
+  "email": "admisiones@imaoccidente.edu.mx",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)",
@@ -148023,7 +148052,9 @@
   "src": "osm",
   "osm": "w381783703",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+523313399034",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guadalajara-universidad-tecmilenio-2",
@@ -148653,7 +148684,8 @@
   "src": "osm",
   "osm": "w885178741",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guadalajara-universidad-usj",
@@ -148741,7 +148773,8 @@
   "src": "osm",
   "osm": "w1104515895",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guadalajara-colegio-lomas-del-valle-campus-acueducto",
@@ -148961,7 +148994,9 @@
   "src": "osm",
   "osm": "w213238374",
   "found": "2026-11-10",
-  "img": "https://www.unisimon.edu.co/showimagen/showimage/"
+  "img": "https://www.unisimon.edu.co/showimagen/showimage/",
+  "whatsapp": "+3182599541",
+  "webAt": "2026-11-12"
  },
  {
   "id": "barranquilla-colegio-maria-inmaculada",
@@ -151313,7 +151348,7 @@
   "addr": "Avenida General Rivera 2257",
   "phone": "+598 2408 5546",
   "web": "https://www.santodomingo.edu.uy/",
-  "email": "",
+  "email": "info@santodomingo.edu.uy",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -151322,7 +151357,8 @@
   "src": "osm",
   "osm": "n4414845381",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-colegio-y-liceo-palotti",
@@ -151421,7 +151457,9 @@
   "src": "osm",
   "osm": "n4519477905",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+59894358380",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-bios-escuela-de-economia-y-finanzas",
@@ -151549,7 +151587,8 @@
   "src": "osm",
   "osm": "n5285718924",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-monte-vi",
@@ -151602,7 +151641,7 @@
   "addr": "Avenida General Rivera 2314",
   "phone": "+598 2409 4939",
   "web": "https://www.stbrendan.edu.uy/",
-  "email": "",
+  "email": "admisiones@stbrendan.edu.uy",
   "levels": [],
   "opp": [
    "Privado confirmado en el mapa"
@@ -151611,7 +151650,8 @@
   "src": "osm",
   "osm": "n5470093158",
   "found": "2026-11-10",
-  "img": "https://stbrendan.edu.uy/wp-content/uploads/2026/01/logo-ST.-Brendan_s_transp.png"
+  "img": "https://stbrendan.edu.uy/wp-content/uploads/2026/01/logo-ST.-Brendan_s_transp.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-universidad-de-montevideo-2",
@@ -151653,7 +151693,8 @@
   "src": "osm",
   "osm": "n5480013521",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-aldey",
@@ -151711,7 +151752,7 @@
   "addr": "Avenida Luis Alberto de Herrera 2484",
   "phone": "+598 2487 9954",
   "web": "http://colegiocpt.edu.uy/",
-  "email": "",
+  "email": "consultas@colegiocpt.edu.uy",
   "levels": [],
   "opp": [
    "Privado confirmado en el mapa"
@@ -151720,7 +151761,8 @@
   "src": "osm",
   "osm": "n5927392697",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-colegio-richard-anderson",
@@ -151806,7 +151848,9 @@
   "src": "osm",
   "osm": "n6925994129",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+59894358380",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-alianza-francesa",
@@ -151848,7 +151892,8 @@
   "src": "osm",
   "osm": "n9450908679",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-liceo-frances-jules-supervielle",
@@ -151914,7 +151959,8 @@
   "src": "osm",
   "osm": "n11155095807",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-colegio-beata-imelda-de-montevideo",
@@ -152016,7 +152062,8 @@
   "src": "osm",
   "osm": "n12209280143",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-um-universidad-de-montevideo",
@@ -152059,7 +152106,9 @@
   "src": "osm",
   "osm": "n13311490103",
   "found": "2026-11-10",
-  "img": "https://idejo.edu.uy/wp-content/uploads/2025/11/Isotipo-IDEJO-2-5.png"
+  "img": "https://idejo.edu.uy/wp-content/uploads/2025/11/Isotipo-IDEJO-2-5.png",
+  "whatsapp": "+59892716672",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-colegio-y-liceo-erik-erikson",
@@ -152215,7 +152264,8 @@
   "src": "osm",
   "osm": "w221268491",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-colegio-santa-maria",
@@ -152319,7 +152369,8 @@
   "src": "osm",
   "osm": "w391110499",
   "found": "2026-11-10",
-  "img": "https://www.maturana.edu.uy/assets/images/brand/social-share.jpg"
+  "img": "https://www.maturana.edu.uy/assets/images/brand/social-share.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-colegio-y-liceo-san-jose-de-la-providencia",
@@ -152395,7 +152446,7 @@
   "addr": "Toronto 1597",
   "phone": "+598 2600 4610",
   "web": "https://www.santarita.edu.uy/",
-  "email": "",
+  "email": "consultas@santarita.edu.uy",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)",
@@ -152405,7 +152456,8 @@
   "src": "osm",
   "osm": "w435799168",
   "found": "2026-11-10",
-  "img": "https://www.santarita.edu.uy/wp-content/uploads/2023/07/inscripciones.jpg"
+  "img": "https://www.santarita.edu.uy/wp-content/uploads/2023/07/inscripciones.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-liceo-impulso",
@@ -152457,7 +152509,7 @@
   "addr": "Edmundo Bianchi 2228",
   "phone": "+598 26001500",
   "web": "https://jesusmaria.edu.uy/",
-  "email": "",
+  "email": "colegio@jesusmaria.edu.uy",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)",
@@ -152467,7 +152519,9 @@
   "src": "osm",
   "osm": "w449576411",
   "found": "2026-11-10",
-  "img": "https://www.jesusmaria.edu.uy/img/jm.jpg"
+  "img": "https://www.jesusmaria.edu.uy/img/jm.jpg",
+  "whatsapp": "+59895212662",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-scuola-italiana-di-montevideo",
@@ -152479,7 +152533,7 @@
   "addr": "General Domingo French 2380",
   "phone": "+598 2600 1527",
   "web": "https://www.scuolaitaliana.edu.uy/",
-  "email": "",
+  "email": "info@scuolaitaliana.edu.uy",
   "levels": [],
   "opp": [
    "Bilingüe o internacional",
@@ -152489,7 +152543,9 @@
   "src": "osm",
   "osm": "w449576449",
   "found": "2026-11-10",
-  "img": "https://scuolaitaliana.edu.uy/wp-content/uploads/2026/06/Sin-titulo-1.png"
+  "img": "https://scuolaitaliana.edu.uy/wp-content/uploads/2026/06/Sin-titulo-1.png",
+  "whatsapp": "+59896127200",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-escuela-y-liceo-elbio-fernandez",
@@ -152608,7 +152664,9 @@
   "src": "osm",
   "osm": "w456880197",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+59899033927",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-sector-primaria",
@@ -152689,7 +152747,8 @@
   "src": "osm",
   "osm": "w457360364",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-colegio-y-liceo-aleman-de-montevideo",
@@ -152724,7 +152783,7 @@
   "addr": "Avenida Italia 4310",
   "phone": "+598 2614 2901",
   "web": "http://www.mahanaim.edu.uy/",
-  "email": "",
+  "email": "mahanaim.school.uruguay@gmail.com",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)",
@@ -152734,7 +152793,8 @@
   "src": "osm",
   "osm": "w457990887",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-instituto-preescolar-federico-froebel",
@@ -152917,7 +152977,8 @@
   "src": "osm",
   "osm": "w458172433",
   "found": "2026-11-10",
-  "img": "https://www.dsm.edu.uy/wp-content/uploads/2025/06/fb-1.jpg"
+  "img": "https://www.dsm.edu.uy/wp-content/uploads/2025/06/fb-1.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-colegio-ingles",
@@ -152959,7 +153020,8 @@
   "src": "osm",
   "osm": "w458343802",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-colegio-paulo-freire",
@@ -153099,7 +153161,8 @@
   "src": "osm",
   "osm": "w462415521",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-institut-pasteur-de-montevideo",
@@ -153143,7 +153206,8 @@
   "src": "osm",
   "osm": "w524473018",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-gimnasio-del-colegio-y-liceo-latinoamericano",
@@ -153182,7 +153246,8 @@
   "src": "osm",
   "osm": "w565404134",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "montevideo-colegio-santa-maria-de-la-ayuda",
@@ -153657,7 +153722,8 @@
   "src": "osm",
   "osm": "n5417123065",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "rosario-escuela-8171-nazaret",
@@ -153720,7 +153786,8 @@
   "src": "osm",
   "osm": "n5424929622",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "rosario-colegio-de-profesionales-de-la-ingenieria-civil",
@@ -377207,6 +377274,1363 @@
   "private": "probable",
   "src": "osm",
   "osm": "w593155747",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-school-of-english",
+  "name": "School of English",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.34303,
+  "lng": -3.697395,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n920607392",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-solucioness-academia-tecnologia",
+  "name": "Solucioness Academia & Tecnología",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.338132,
+  "lng": -3.726025,
+  "addr": "",
+  "phone": "+34616572544",
+  "web": "https://solucioness.es/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4241829171",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-centro-privado-concertado-de-educacion-secundaria-obligatoria-san-jose",
+  "name": "Centro privado-concertado de Educación Secundaria Obligatoria \"San José Seminario\"",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.336201,
+  "lng": -3.707113,
+  "addr": "",
+  "phone": "+34947207646",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n8483835576",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-estudio-ruiz-academia-de-arte",
+  "name": "Estudio Ruiz academia de arte",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.340433,
+  "lng": -3.687418,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12268312062",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-de-educacion-infantil-y-primaria-sierra-de-atapuerca",
+  "name": "Colegio de Educación Infantil y Primaria Sierra de Atapuerca",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.333979,
+  "lng": -3.704908,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w41963644",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-de-educacion-infantil-y-primaria-marceliano-santa-maria",
+  "name": "Colegio de Educación Infantil y Primaria Marceliano Santa María",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.357007,
+  "lng": -3.668585,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w51194106",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-de-educacion-infantil-y-primaria-las-candelas",
+  "name": "Colegio de Educación infantil y Primaria Las Candelas",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.35462,
+  "lng": -3.669167,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w51432101",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-centro-privado-de-educacion-especial-puentesauco",
+  "name": "Centro Privado de Educación Especial Puentesaúco",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.361122,
+  "lng": -3.6755,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w52009096",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-madres-concepcionistas",
+  "name": "Colegio Madres Concepcionistas",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.346207,
+  "lng": -3.684771,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w58250927",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-de-educacion-infantil-y-primaria-antonio-machado",
+  "name": "Colegio de Educación Infantil y Primaria Antonio Machado",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.347288,
+  "lng": -3.690051,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w58529576",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-jesus-reparador",
+  "name": "Colegio Jesús Reparador",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.338932,
+  "lng": -3.699708,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w81162030",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-maria-mediadora",
+  "name": "Colegio María Mediadora",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.336262,
+  "lng": -3.692699,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w83277667",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-de-educacion-infantil-y-primaria-venerables",
+  "name": "Colegio de Educación Infantil y Primaria Venerables",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.345103,
+  "lng": -3.700912,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w83476737",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-de-educacion-infantil-y-primaria-fernando-de-rojas",
+  "name": "Colegio de Educación Infantil y Primaria Fernando de Rojas",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.348893,
+  "lng": -3.664833,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w102420715",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-maria-madre-politecnos",
+  "name": "Colegio María Madre-Politecnos",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.353413,
+  "lng": -3.685468,
+  "addr": "Calle Eloy García de Quevedo 1",
+  "phone": "",
+  "web": "https://www.mariamadre.es/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w149466507",
+  "found": "2026-11-12",
+  "img": "https://mariamadre.es/media/header/logo_web.png",
+  "webAt": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-santa-maria-la-nueva-y-san-jose-artesano",
+  "name": "Colegio Santa María la Nueva y San José Artesano",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.358258,
+  "lng": -3.668647,
+  "addr": "",
+  "phone": "+34947474459",
+  "web": "https://www.santamaria-artesano.org/",
+  "email": "colegio@santamaria-artesano.org",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w162925978",
+  "found": "2026-11-12",
+  "img": "https://santamaria-artesano.org/wp-content/uploads/2024/04/logo_santamaria-artesano.png",
+  "webAt": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-jesus-maria",
+  "name": "Colegio Jesús-María",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.339131,
+  "lng": -3.695642,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w162926411",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-la-salle",
+  "name": "Colegio La Salle",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.346402,
+  "lng": -3.698644,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w162926412",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-circulo-catolico-de-obreros",
+  "name": "Colegio Círculo Católico de Obreros",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.339038,
+  "lng": -3.693863,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w162926414",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-la-merced-y-san-francisco-javier-jesuitas",
+  "name": "Colegio La Merced y San Francisco Javier - Jesuitas",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.340403,
+  "lng": -3.689393,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w162931359",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-escuela-politecnica-superior-universidad-de-burgos-campus-milanera",
+  "name": "Escuela Politécnica Superior - Universidad de Burgos - Campus Milanera",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.343466,
+  "lng": -3.735303,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w162932418",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-de-educacion-infantil-y-primaria-rio-arlanzon",
+  "name": "Colegio de Educación Infantil y Primaria Río Arlanzón",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.34241,
+  "lng": -3.694949,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w162970118",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-de-educacion-infantil-y-primaria-solar-del-cid",
+  "name": "Colegio de Educación Infantil y Primaria Solar del Cid",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.34271,
+  "lng": -3.713332,
+  "addr": "Calle Enrique III 12D",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w162970119",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-sagrada-familia",
+  "name": "Colegio Sagrada Familia",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.345735,
+  "lng": -3.680172,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w162970120",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-blanca-de-castilla",
+  "name": "Colegio Blanca de Castilla",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.348497,
+  "lng": -3.667586,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w162972739",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-sagrado-corazon-de-jesus",
+  "name": "Colegio Sagrado Corazón de Jesús",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.364252,
+  "lng": -3.655136,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w162972740",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-liceo-castilla-maristas",
+  "name": "Colegio Liceo Castilla - Maristas",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.356745,
+  "lng": -3.690785,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w162974931",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-de-educacion-infantil-y-primaria-miguel-delibes",
+  "name": "Colegio de Educación Infantil y Primaria Miguel Delibes",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.361534,
+  "lng": -3.680938,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w163036598",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-apostol-san-pablo",
+  "name": "Colegio Apóstol San Pablo",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.351135,
+  "lng": -3.668305,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w163290297",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-universidad-popular-unipec",
+  "name": "Universidad Popular UNIPEC",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.33757,
+  "lng": -3.698844,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w163290635",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-virgen-de-la-rosa",
+  "name": "Colegio Virgen de la Rosa",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.347483,
+  "lng": -3.689253,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w163715802",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-internacional-campolara",
+  "name": "Colegio Internacional Campolara",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.336596,
+  "lng": -3.71031,
+  "addr": "",
+  "phone": "+34947276931",
+  "web": "https://www.campolara.com/",
+  "email": "campolara@campolara.com",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w165388519",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-de-educacion-infantil-y-primaria-fuentes-blancas",
+  "name": "Colegio de Educación Infantil y Primaria Fuentes Blancas",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.338395,
+  "lng": -3.63488,
+  "addr": "",
+  "phone": "",
+  "web": "http://ceipfuentesblancas.centros.educa.jcyl.es",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w184748302",
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-aurelio-gomez-escolar",
+  "name": "Colegio Aurelio Gómez Escolar",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.349867,
+  "lng": -3.736562,
+  "addr": "Avenida Costa Rica 34",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w204030535",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-de-educacion-infantil-y-primaria-saturnino-calleja",
+  "name": "Colegio de Educación Infantil y Primaria Saturnino Calleja",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.38343,
+  "lng": -3.733765,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w218858031",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-sagrado-corazon-hermanas-salesianas",
+  "name": "Colegio Sagrado Corazón Hermanas Salesianas",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.329937,
+  "lng": -3.709416,
+  "addr": "",
+  "phone": "+34947276300",
+  "web": "https://www.scsalesianas.es/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w264295524",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-nino-jesus",
+  "name": "Colegio Niño Jesús",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.336376,
+  "lng": -3.724242,
+  "addr": "",
+  "phone": "+34 947205232",
+  "web": "https://www.xn--niojesusburgos-rnb.es/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w265866170",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-nuestra-senora-de-lourdes",
+  "name": "Colegio Nuestra Señora de Lourdes",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.336232,
+  "lng": -3.699259,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w265884169",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-de-educacion-infantil-y-primaria-juan-de-vallejo",
+  "name": "Colegio de Educación Infantil y Primaria Juan de Vallejo",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.354545,
+  "lng": -3.672054,
+  "addr": "Travesía las Escuelas",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w269847310",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-universidad-isabel-i",
+  "name": "Universidad Isabel I",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.341679,
+  "lng": -3.710116,
+  "addr": "Calle Fernán González 76",
+  "phone": "+34 947671731",
+  "web": "https://www.ui1.es/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w589340003",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-de-educacion-infantil-y-primaria-jueces-de-castilla",
+  "name": "Colegio de Educación Infantil y Primaria Jueces de Castilla",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.351193,
+  "lng": -3.686443,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w655724921",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-centro-privado-de-educacion-especial-estela",
+  "name": "Centro Privado de Educación Especial Estela",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.331033,
+  "lng": -3.698093,
+  "addr": "",
+  "phone": "+34947209402",
+  "web": "https://www.sindromedownburgos.org/ver/CentroEstela",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w672761355",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-visitacion-de-nuestra-senora",
+  "name": "Colegio Visitación de Nuestra Señora",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.342886,
+  "lng": -3.704224,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w678275263",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-colegio-de-educacion-infantil-y-primaria-villagonzalo-pedernales",
+  "name": "Colegio de Educación Infantil y Primaria Villagonzalo-Pedernales",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.300577,
+  "lng": -3.733328,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w679309854",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "burgos-universidad-de-burgos-facultades-de-ciencias-de-la-salud-y-humanidades",
+  "name": "Universidad de Burgos - Facultades de Ciencias de la Salud y Humanidades y Comunicación",
+  "city": "Burgos",
+  "country": "España",
+  "lat": 42.338817,
+  "lng": -3.719248,
+  "addr": "",
+  "phone": "947499112947499110",
+  "web": "https://www.ubu.es/facultad-de-ciencias-de-la-salud",
+  "email": "infosalud@ubu.es",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r8013372",
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-12"
+ },
+ {
+  "id": "leon-universidad-ciencias-comerciales-ucc-leon",
+  "name": "Universidad Ciencias Comerciales - UCC LEON",
+  "city": "León",
+  "country": "Nicaragua",
+  "lat": 12.41878,
+  "lng": -86.876724,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2448608294",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "leon-instituto-politecnico-la-salle",
+  "name": "Instituto Politécnico La Salle",
+  "city": "León",
+  "country": "Nicaragua",
+  "lat": 12.43632,
+  "lng": -86.904628,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2543076327",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "leon-colegio-las-tortuguitas",
+  "name": "Colegio las Tortuguitas",
+  "city": "León",
+  "country": "Nicaragua",
+  "lat": 12.426043,
+  "lng": -86.909143,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3912861925",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "leon-colegio-la-pureza-de-maria",
+  "name": "Colegio La Pureza de MAria",
+  "city": "León",
+  "country": "Nicaragua",
+  "lat": 12.430207,
+  "lng": -86.913204,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3912874710",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "leon-colegio-bautista",
+  "name": "Colegio Bautista",
+  "city": "León",
+  "country": "Nicaragua",
+  "lat": 12.436972,
+  "lng": -86.882072,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4108802999",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "leon-universidad-de-managua-udm",
+  "name": "Universidad de Managua (UDM)",
+  "city": "León",
+  "country": "Nicaragua",
+  "lat": 12.424386,
+  "lng": -86.875556,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4489009589",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "leon-universidad-tecnologica-la-salle",
+  "name": "Universidad Tecnológica La Salle",
+  "city": "León",
+  "country": "Nicaragua",
+  "lat": 12.435606,
+  "lng": -86.9037,
+  "addr": "",
+  "phone": "+50557513190",
+  "web": "https://ulsa.edu.ni",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5446802913",
+  "found": "2026-11-12",
+  "img": "",
+  "whatsapp": "+50557513190",
+  "webAt": "2026-11-12"
+ },
+ {
+  "id": "leon-universidad-cristiana-autonoma-de-nicaragua",
+  "name": "Universidad Cristiana Autónoma de Nicaragua",
+  "city": "León",
+  "country": "Nicaragua",
+  "lat": 12.438756,
+  "lng": -86.873881,
+  "addr": "",
+  "phone": "",
+  "web": "http://ucan.edu.ni/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n6858713481",
+  "found": "2026-11-12",
+  "imgTry": "2026-11-12"
+ },
+ {
+  "id": "leon-colegio-la-salle",
+  "name": "Colegio La Salle",
+  "city": "León",
+  "country": "Nicaragua",
+  "lat": 12.435553,
+  "lng": -86.883553,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w242968800",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "leon-colegio-lirio-de-los-valles",
+  "name": "Colegio Lirio de Los Valles",
+  "city": "León",
+  "country": "Nicaragua",
+  "lat": 12.445152,
+  "lng": -86.870705,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w244239173",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "leon-colegio-calasanz",
+  "name": "Colegio Calasanz",
+  "city": "León",
+  "country": "Nicaragua",
+  "lat": 12.435319,
+  "lng": -86.900164,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w287908228",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "leon-colegio-teresa-arce",
+  "name": "Colegio Teresa Arce",
+  "city": "León",
+  "country": "Nicaragua",
+  "lat": 12.446041,
+  "lng": -86.86468,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w462813754",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "leon-colegio-hermita-de-dolores",
+  "name": "Colegio Hermita de dolores",
+  "city": "León",
+  "country": "Nicaragua",
+  "lat": 12.447235,
+  "lng": -86.873883,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w462818415",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "leon-colegio-san-felipe",
+  "name": "Colegio San Felipe",
+  "city": "León",
+  "country": "Nicaragua",
+  "lat": 12.442066,
+  "lng": -86.879806,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w462822478",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "leon-colegio-john-f-kennedy",
+  "name": "Colegio John F. Kennedy",
+  "city": "León",
+  "country": "Nicaragua",
+  "lat": 12.4443,
+  "lng": -86.881362,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w462823503",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "leon-colegio-sagrado-corazon-de-jesus",
+  "name": "Colegio Sagrado Corazon De Jesus",
+  "city": "León",
+  "country": "Nicaragua",
+  "lat": 12.431824,
+  "lng": -86.883869,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w529864265",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "leon-complejo-tecnologico-la-salle",
+  "name": "Complejo Tecnológico La Salle",
+  "city": "León",
+  "country": "Nicaragua",
+  "lat": 12.437189,
+  "lng": -86.904026,
+  "addr": "Carretera León - Poneloya Km. 4",
+  "phone": "+50557513190",
+  "web": "https://ulsa.edu.ni",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w731001614",
+  "found": "2026-11-12",
+  "img": "",
+  "whatsapp": "+50557513190",
+  "webAt": "2026-11-12"
+ },
+ {
+  "id": "leon-colegio-san-ramon",
+  "name": "Colegio San Ramon",
+  "city": "León",
+  "country": "Nicaragua",
+  "lat": 12.434253,
+  "lng": -86.878122,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r4066113",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "leon-colegio-la-asuncion",
+  "name": "Colegio La Asuncion",
+  "city": "León",
+  "country": "Nicaragua",
+  "lat": 12.434147,
+  "lng": -86.878898,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r4066114",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "la-victoria-colegio-brito",
+  "name": "Colegio Brito",
+  "city": "La Victoria",
+  "country": "Venezuela",
+  "lat": 10.227591,
+  "lng": -67.320104,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n539528570",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "la-victoria-liceo-jose-felix-ribas",
+  "name": "Liceo José Felix Ribas",
+  "city": "La Victoria",
+  "country": "Venezuela",
+  "lat": 10.225812,
+  "lng": -67.330415,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w172510958",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "la-victoria-liceo-de-guacamaya",
+  "name": "Liceo de Guacamaya",
+  "city": "La Victoria",
+  "country": "Venezuela",
+  "lat": 10.20058,
+  "lng": -67.309054,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w172510959",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "la-victoria-universidad-bolivariana-de-venezuela",
+  "name": "Universidad Bolivariana de Venezuela",
+  "city": "La Victoria",
+  "country": "Venezuela",
+  "lat": 10.226232,
+  "lng": -67.298187,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w469495429",
   "found": "2026-11-12"
  }
 ]

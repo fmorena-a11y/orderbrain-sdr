@@ -6998,7 +6998,10 @@
   "PE|Tarapoto": "2026-11-12T07:51:51.932Z",
   "MX|Chalco de Díaz Covarrubias": "2026-11-12T07:52:17.709Z",
   "MX|Jiutepec": "2026-11-12T09:19:31.584Z",
-  "MX|Piedras Negras": "2026-11-12T09:31:59.084Z"
+  "MX|Piedras Negras": "2026-11-12T09:31:59.084Z",
+  "ES|n166920565": "2026-11-12T11:26:19.572Z",
+  "NI|n293298496": "2026-11-12T11:27:40.558Z",
+  "VE|n1257873534": "2026-11-12T11:35:10.061Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7048,6 +7051,41 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-12T11:19:03.327Z",
+   "cities": [
+    {
+     "cc": "ES",
+     "city": "Burgos",
+     "found": 45,
+     "updated": 0,
+     "osm": 101
+    },
+    {
+     "cc": "NI",
+     "city": "León",
+     "found": 19,
+     "updated": 0,
+     "osm": 43
+    },
+    {
+     "cc": "VE",
+     "city": "La Victoria",
+     "found": 4,
+     "updated": 0,
+     "osm": 36
+    }
+   ],
+   "added": 68,
+   "enriched": 0,
+   "photos": 2,
+   "contacts": 27,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 17.7,
+   "total": 18708
+  },
   {
    "at": "2026-11-12T09:18:53.583Z",
    "cities": [
