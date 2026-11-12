@@ -206133,7 +206133,8 @@
   "src": "osm",
   "osm": "n266167569",
   "found": "2026-11-10",
-  "img": "https://primary.jwwb.nl/public/w/k/i/temp-bxvnlozxanqvlrflkgll/ef6a30bf-3935-4d2e-a27c-d0c0fafd064f-high-w3te1n.jpg?enable-io=true&enable=upscale&fit=bounds&width=1200"
+  "img": "https://primary.jwwb.nl/public/w/k/i/temp-bxvnlozxanqvlrflkgll/ef6a30bf-3935-4d2e-a27c-d0c0fafd064f-high-w3te1n.jpg?enable-io=true&enable=upscale&fit=bounds&width=1200",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-primaria-y-secundaria-el-prado",
@@ -206207,7 +206208,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167607",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-santo-angel",
@@ -206232,7 +206234,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167610",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+34619702341",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-san-javier",
@@ -206257,7 +206262,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167617",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-san-antonio",
@@ -206281,7 +206288,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167620",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-especial-instituto-san-jose",
@@ -206302,7 +206311,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167628",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-santa-beatr",
@@ -206327,7 +206338,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167666",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-colegio-con-pe",
@@ -206374,7 +206387,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167676",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-especial-maria-corredentora",
@@ -206395,7 +206410,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167700",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-secundaria-marin-amat",
@@ -206481,7 +206498,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167710",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://alenta.org/siteresources/graphics/alenta/icons/logo-1200x630.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-santa-maria",
@@ -206506,7 +206525,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167717",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-corazon-de-",
@@ -206531,7 +206552,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167722",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-huerfanos-d",
@@ -206555,7 +206577,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167737",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegiocha.com/wp-content/uploads/2026/07/cha-home-infantil.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-nuestra-senora-de-la-m",
@@ -206578,7 +206602,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167794",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-secundaria-nuestra-senora-de-gracia",
@@ -206600,7 +206626,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167804",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-liceo-madar",
@@ -206624,7 +206652,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167805",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-nuestra-sen-3",
@@ -206648,7 +206678,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167808",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-colegio-la-",
@@ -206672,7 +206704,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167811",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-colegio-begona",
@@ -206718,7 +206752,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167817",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-minerva",
@@ -206742,7 +206777,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167819",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-madres-merc",
@@ -206766,7 +206802,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167821",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-colegio-santa-cristina",
@@ -206860,7 +206898,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167843",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-concertado-de-educacion-infantil-primaria-y-secundaria-",
@@ -206885,7 +206925,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167857",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegiosam.com/opengraph-image?51773e71aefb10fd",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-antiguo-colegio-viancor",
@@ -206952,7 +206994,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167872",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+34619891493",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-docente-extranjero-en-espana-union-chretienne-de-saint-chaumond",
@@ -206973,7 +207018,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167876",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-colegio-virgen-de-la-luz",
@@ -207039,7 +207086,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167908",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-secundaria-dario-estudio",
@@ -207061,7 +207110,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167939",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://darioestudio.es/wp-content/uploads/2024/01/Colegio_bachillerato_evau_Madrid3-e1707826411125.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-sagrado-cor",
@@ -207086,7 +207137,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167942",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-san-jose-lu",
@@ -207111,7 +207163,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167946",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-formacion-profesional-especifica-escuela-profesional",
@@ -207131,7 +207185,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167949",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-santa-maria-2",
@@ -207156,7 +207212,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167956",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-academia-j-e-a",
@@ -207222,7 +207280,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167975",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-secundaria-diaz-balaguer",
@@ -207244,7 +207303,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167977",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://diaz-balaguer.es/images/og/og-default.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-secundaria-vox",
@@ -207330,7 +207391,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168014",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-especial-antonio-vicente-mosquete-centro-p",
@@ -207353,7 +207416,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168050",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-liceo-san-luis",
@@ -207401,7 +207466,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168091",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-cervantes",
@@ -207424,7 +207491,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168095",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-bienaventur",
@@ -207449,7 +207518,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168105",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://irlandesasmadrid.org/wp-content/uploads/2023/01/Colegio-Irlandesas-Madrid.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-san-juan-ev",
@@ -207474,7 +207545,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168128",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-j-a-b-y",
@@ -207497,7 +207570,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168131",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-san-juan-bo",
@@ -207522,7 +207596,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168149",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-alba",
@@ -207546,7 +207622,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168150",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegioalba.com/wp-content/uploads/2022/01/learn-english-alba-800x534.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-especial-gil-gayarre",
@@ -207566,7 +207644,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168261",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-circulo-ecca",
@@ -207612,7 +207692,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168336",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-colegio-alc",
@@ -207635,7 +207717,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168352",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-especial-la-purisima",
@@ -207659,7 +207743,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168446",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-centro-docente-extranjero-en-espana-scuola-statale-italiana-de-madrid-",
@@ -207680,7 +207765,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168534",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-docente-extranjero-en-espana-numont-school-britanico",
@@ -207721,7 +207808,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168561",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.nlschool.es/wp-content/uploads/2019/06/NSM_logo_WEB.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-especial-leo-kanner",
@@ -207741,7 +207830,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168567",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-centro-docente-extranjero-en-espana-colegio-libio-de-madrid-libia-alum",
@@ -207761,7 +207851,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168572",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-padre-manya",
@@ -207785,7 +207877,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168575",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-universidad-popular-san-sebastian-de-los-reyes-cea",
@@ -207852,7 +207946,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168701",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-formacion-profesional-especifica-escuela-politecnica",
@@ -207872,7 +207967,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168712",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://escuelaginer.com/wp-content/uploads/2026/02/v20aptisicono_b6472ae0a16459ecb6cb8a03c7cfa175.jpeg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-de-personas-adultas-practivox",
@@ -207895,7 +207992,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168778",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-nueva-casti",
@@ -207918,7 +208016,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168839",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-antiguo-centro-de-e-e-virgen-de-nuria",
@@ -207981,7 +208081,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168924",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://santarosadelimamadrid.es/wp-content/uploads/2018/07/FotoPapa-comp-193x300.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-de-ensenanza-cenec",
@@ -208025,7 +208127,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266168975",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-secundaria-col-britanico-de-madrid-en-somo",
@@ -208048,7 +208152,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266169002",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.thebritishschool.org/sites/school53/files/logo.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-manuel-bart",
@@ -387493,6 +387599,114 @@
   "private": "probable",
   "src": "osm",
   "osm": "w556679536",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "salamanca-universidad-tecnologica-de-salamanca",
+  "name": "Universidad Tecnológica de Salamanca",
+  "city": "Salamanca",
+  "country": "México",
+  "lat": 20.576656,
+  "lng": -101.232641,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n8211399151",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "salamanca-universidad-de-guanajuato-division-de-ingenierias-del-campus-irapuato-",
+  "name": "Universidad de Guanajuato, División de Ingenierías del Campus Irapuato Salamanca",
+  "city": "Salamanca",
+  "country": "México",
+  "lat": 20.507148,
+  "lng": -101.193346,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w364259686",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "salamanca-universidad-la-salle-bajio-campus-salamanca",
+  "name": "Universidad La Salle Bajío, Campus Salamanca",
+  "city": "Salamanca",
+  "country": "México",
+  "lat": 20.549763,
+  "lng": -101.227169,
+  "addr": "Avenida Universidad",
+  "phone": "",
+  "web": "https://www.lasallebajio.edu.mx/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1198815708",
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-12"
+ },
+ {
+  "id": "ciudad-acuna-itsa-instituto-tecnologico-superior-de-ciudad-acuna",
+  "name": "ITSA Instituto Tecnológico Superior de Ciudad Acuña",
+  "city": "Ciudad Acuña",
+  "country": "México",
+  "lat": 29.348539,
+  "lng": -101.018747,
+  "addr": "",
+  "phone": "",
+  "web": "http://tecnologicodeacuna.gob.mx",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4459477189",
+  "found": "2026-11-12",
+  "imgTry": "2026-11-12"
+ },
+ {
+  "id": "ciudad-acuna-universidad-vizcaya-de-las-americas",
+  "name": "Universidad Vizcaya de las Américas",
+  "city": "Ciudad Acuña",
+  "country": "México",
+  "lat": 29.31582,
+  "lng": -100.932237,
+  "addr": "",
+  "phone": "+52 877 772 8298",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w872948673",
   "found": "2026-11-12"
  }
 ]
