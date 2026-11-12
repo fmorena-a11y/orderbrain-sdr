@@ -70262,7 +70262,8 @@
   "src": "osm",
   "osm": "w585485381",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-instituto-maria-mazzarello",
@@ -70521,7 +70522,7 @@
   "addr": "Calle 153 1010",
   "phone": "+54 11 4256 6860",
   "web": "https://www.escuelamartinguemes.com/",
-  "email": "",
+  "email": "contacto@escuelamartinguemes.com",
   "levels": [
    "Primaria",
    "Secundaria",
@@ -70534,7 +70535,8 @@
   "src": "osm",
   "osm": "w643201385",
   "found": "2026-11-09",
-  "img": "https://static.wixstatic.com/media/d622c5_4d189a7c20314de8ae6ac6d820a7b9a7%7Emv2_d_5184_3456_s_4_2.jpg/v1/fit/w_2500,h_1330,al_c/d622c5_4d189a7c20314de8ae6ac6d820a7b9a7%7Emv2_d_5184_3456_s_4_2.jpg"
+  "img": "https://static.wixstatic.com/media/d622c5_4d189a7c20314de8ae6ac6d820a7b9a7%7Emv2_d_5184_3456_s_4_2.jpg/v1/fit/w_2500,h_1330,al_c/d622c5_4d189a7c20314de8ae6ac6d820a7b9a7%7Emv2_d_5184_3456_s_4_2.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-greenfield-college",
@@ -71012,7 +71014,8 @@
   "src": "osm",
   "osm": "w868893752",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-escuela-de-enf-y-esp-paramedicas-de-la-cruz-roja-argentina",
@@ -71034,7 +71037,9 @@
   "src": "osm",
   "osm": "w868896503",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+5491125032111",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-colegio-secundario-wolfsohn-beit-mordejai",
@@ -71318,7 +71323,9 @@
   "src": "osm",
   "osm": "w923354251",
   "found": "2026-11-09",
-  "img": "https://institutoarabeislamico.com.ar/wp-content/uploads/2025/07/cropped-logo-iaai-e1752705778404.png"
+  "img": "https://institutoarabeislamico.com.ar/wp-content/uploads/2025/07/cropped-logo-iaai-e1752705778404.png",
+  "whatsapp": "+5491158187719",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-seminario-internacional-teologico-bautista",
@@ -71752,7 +71759,9 @@
   "src": "osm",
   "osm": "w962500419",
   "found": "2026-11-09",
-  "img": "https://udemm.edu.ar/wp-content/uploads/2026/06/Estudiar-en-udemm-universidad-privada-2.webp"
+  "img": "https://udemm.edu.ar/wp-content/uploads/2026/06/Estudiar-en-udemm-universidad-privada-2.webp",
+  "whatsapp": "+5491136921111",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-universidad-giordano-bruno",
@@ -71811,7 +71820,7 @@
   "addr": "Montevideo 2525",
   "phone": "+54 11 4748 0215",
   "web": "https://colegiosanfelipe.edu.ar/",
-  "email": "",
+  "email": "info@colegiosanfelipe.edu.ar",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -71820,7 +71829,9 @@
   "src": "osm",
   "osm": "w988636811",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+5491173677087",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-instituto-jose-hernandez-2",
@@ -71862,7 +71873,8 @@
   "src": "osm",
   "osm": "w1001929369",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-universidad-de-flores",
@@ -71908,7 +71920,9 @@
   "src": "osm",
   "osm": "w1043393802",
   "found": "2026-11-09",
-  "img": "https://barcelo.edu.ar/assets/images/news-placeholder.jpg"
+  "img": "https://barcelo.edu.ar/assets/images/news-placeholder.jpg",
+  "whatsapp": "+5491172503489",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-universidad-favaloro",
@@ -71931,7 +71945,8 @@
   "src": "osm",
   "osm": "w1046813715",
   "found": "2026-11-09",
-  "img": "https://www.favaloro.edu.ar/wp-content/uploads/2016/03/BANNER-GRADO-2027-Mobile.jpg"
+  "img": "https://www.favaloro.edu.ar/wp-content/uploads/2016/03/BANNER-GRADO-2027-Mobile.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-aula-xxi",
@@ -71955,7 +71970,8 @@
   "src": "osm",
   "osm": "w1049254464",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-escuela-popular-de-musica-sadem",
@@ -72243,7 +72259,8 @@
   "src": "osm",
   "osm": "w1055268303",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-colegio-san-agustin-2",
@@ -73184,7 +73201,7 @@
   "addr": "99 - Güemes 2222",
   "phone": "+54 11 5197 9010",
   "web": "https://centrosquimeyco.com.ar/",
-  "email": "",
+  "email": "rrhh@centrosquimeyco.com.ar",
   "levels": [],
   "opp": [
    "Privado confirmado en el mapa"
@@ -73193,7 +73210,9 @@
   "src": "osm",
   "osm": "w1320937401",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "whatsapp": "+5491167127827",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-instituto-politecnico-modelo",
@@ -73217,7 +73236,8 @@
   "src": "osm",
   "osm": "w1334333215",
   "found": "2026-11-09",
-  "img": "https://ipm.edu.ar/assets/img/og.png"
+  "img": "https://ipm.edu.ar/assets/img/og.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-universidad-kennedy-3",
@@ -73782,7 +73802,8 @@
   "src": "osm",
   "osm": "w1550837392",
   "found": "2026-11-09",
-  "img": "https://www.smt.edu.ar/wp-content/uploads/2025/04/INICIO-NUEVA.jpg"
+  "img": "https://www.smt.edu.ar/wp-content/uploads/2025/04/INICIO-NUEVA.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-colegio-integral-caballito",
@@ -73882,7 +73903,8 @@
   "src": "osm",
   "osm": "w1568519642",
   "found": "2026-11-09",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-instituto-san-cayetano-2",
@@ -74135,7 +74157,7 @@
   "addr": "Coronel Ramón Falcón 250",
   "phone": "+54 11 4244-8060",
   "web": "https://stalbans.esc.edu.ar/",
-  "email": "",
+  "email": "admisiones@stalbans.esc.edu.ar",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)",
@@ -74145,7 +74167,9 @@
   "src": "osm",
   "osm": "r13440990",
   "found": "2026-11-09",
-  "img": "https://stalbans.esc.edu.ar/wp-content/uploads/2018/05/logo-sala-de-1.png"
+  "img": "https://stalbans.esc.edu.ar/wp-content/uploads/2018/05/logo-sala-de-1.png",
+  "whatsapp": "+5491160284306",
+  "webAt": "2026-11-12"
  },
  {
   "id": "buenos-aires-colegio-inmaculado-corazon-de-maria",
@@ -75013,7 +75037,8 @@
   "src": "osm",
   "osm": "n1605481747",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "bogota-colegio-bilingue-san-gabriel-arcangel",
@@ -75587,7 +75612,8 @@
   "src": "osm",
   "osm": "n4666369892",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "bogota-nueva-fantasia-liceo",
@@ -76854,7 +76880,8 @@
   "src": "osm",
   "osm": "w38327884",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "bogota-colegio-jordan-de-sajonia",
@@ -76905,7 +76932,7 @@
   "addr": "Avenida Carrera 7 40-62",
   "phone": "+57 601 3208320",
   "web": "https://www.javeriana.edu.co",
-  "email": "",
+  "email": "apoyos@javeriana.edu.co",
   "levels": [
    "Universidad"
   ],
@@ -76916,7 +76943,8 @@
   "src": "osm",
   "osm": "w40739535",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "bogota-liceo-de-cervantes-norte",
@@ -77103,7 +77131,8 @@
   "src": "osm",
   "osm": "w42625330",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "bogota-colegio-san-carlos",
@@ -78151,7 +78180,8 @@
   "src": "osm",
   "osm": "w119924432",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "bogota-colegio-emmanuel-d-alzon",
@@ -78299,7 +78329,8 @@
   "src": "osm",
   "osm": "w136126347",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "bogota-colegio-parroquial-santa-isabel-de-hungria",
@@ -78875,7 +78906,7 @@
   "addr": "Carrera 99 19-72",
   "phone": "+57 601 4180549",
   "web": "https://www.colsanter.edu.co/",
-  "email": "",
+  "email": "secretaria@colsanter.edu.co",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -78884,7 +78915,8 @@
   "src": "osm",
   "osm": "w175354796",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "bogota-colegio-militar-jose-antonio-galan",
@@ -79492,7 +79524,7 @@
   "addr": "Calle 22 carrera 4",
   "phone": "+57 601 2427030",
   "web": "https://www.utadeo.edu.co/es",
-  "email": "",
+  "email": "notificaciones.juridica@utadeo.edu.co",
   "levels": [
    "Universidad"
   ],
@@ -79503,7 +79535,8 @@
   "src": "osm",
   "osm": "w240212801",
   "found": "2026-11-10",
-  "img": "https://www.utadeo.edu.co/sites/default/files/2026-01/header-logo.png"
+  "img": "https://www.utadeo.edu.co/sites/default/files/2026-01/header-logo.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "bogota-colegio-jose-joaquin-castro-martinez",
@@ -82476,7 +82509,8 @@
   "src": "osm",
   "osm": "w541379007",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "bogota-colegio-superior-americano",
@@ -82961,7 +82995,8 @@
   "src": "osm",
   "osm": "w553266308",
   "found": "2026-11-10",
-  "img": "https://static.wixstatic.com/media/11e373_4df2479080b0485eb298ad241aae7206~mv2_d_4000_2248_s_2.jpg/v1/fill/w_2500,h_1405,al_c/11e373_4df2479080b0485eb298ad241aae7206~mv2_d_4000_2248_s_2.jpg"
+  "img": "https://static.wixstatic.com/media/11e373_4df2479080b0485eb298ad241aae7206~mv2_d_4000_2248_s_2.jpg/v1/fill/w_2500,h_1405,al_c/11e373_4df2479080b0485eb298ad241aae7206~mv2_d_4000_2248_s_2.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "bogota-universidad-antonio-narino-2",
@@ -83278,7 +83313,8 @@
   "src": "osm",
   "osm": "w625188127",
   "found": "2026-11-10",
-  "img": "https://www.edu.com/assets/images/tal.svg"
+  "img": "https://www.edu.com/assets/images/tal.svg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "bogota-colegio-yerbabuena",
@@ -85131,7 +85167,9 @@
   "src": "osm",
   "osm": "w939115987",
   "found": "2026-11-10",
-  "img": "https://www.gimnasiocampestrevalsenales.edu.co/wp-content/uploads/2024/09/banner-colegio-2025-02-1024x425.png"
+  "img": "https://www.gimnasiocampestrevalsenales.edu.co/wp-content/uploads/2024/09/banner-colegio-2025-02-1024x425.png",
+  "whatsapp": "+3134325406",
+  "webAt": "2026-11-12"
  },
  {
   "id": "bogota-universidad-antonio-narino-3",
@@ -85778,7 +85816,9 @@
   "src": "osm",
   "osm": "w1150006744",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+573003987113",
+  "webAt": "2026-11-12"
  },
  {
   "id": "bogota-liceo-cristiano-semilla-de-vida",
@@ -87937,7 +87977,8 @@
   "src": "osm",
   "osm": "n4150085039",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "guayaquil-universidad-del-pacifico-escuela-de-negocios",
@@ -376696,6 +376737,162 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1361172425",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "san-juan-del-rio-colegio-centro-union",
+  "name": "Colegio Centro Unión",
+  "city": "San Juan del Río",
+  "country": "México",
+  "lat": 20.395021,
+  "lng": -99.999243,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6262201990",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "san-juan-del-rio-colegio-la-salle-san-juan-del-rio",
+  "name": "Colegio La Salle San Juan del Rio",
+  "city": "San Juan del Río",
+  "country": "México",
+  "lat": 20.393141,
+  "lng": -99.997991,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6262497400",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "san-juan-del-rio-universidad-tecnologica-bridge",
+  "name": "Universidad Tecnológica Bridge",
+  "city": "San Juan del Río",
+  "country": "México",
+  "lat": 20.39122,
+  "lng": -99.99345,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n10791340913",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "san-juan-del-rio-colegio-la-salle",
+  "name": "Colegio La Salle",
+  "city": "San Juan del Río",
+  "country": "México",
+  "lat": 20.404315,
+  "lng": -100.015045,
+  "addr": "Maravillas",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1549157730",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "tarapoto-edutec-instituto-de-formacion-empresarial",
+  "name": "Edutec-instituto De Formacion Empresarial",
+  "city": "Tarapoto",
+  "country": "Perú",
+  "lat": -6.4881,
+  "lng": -76.358399,
+  "addr": "Jiron Prolongacion España 901",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5576316142",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "tarapoto-universidad-peruana-union",
+  "name": "Universidad Peruana Unión",
+  "city": "Tarapoto",
+  "country": "Perú",
+  "lat": -6.471076,
+  "lng": -76.396368,
+  "addr": "Los Mártires 218",
+  "phone": "+51 42 521414",
+  "web": "https://www.upeu.edu.pe/admision/carreras-profesionales/Campus-Tarapoto",
+  "email": "admisiontarapoto@upeu.edu.pe",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w369177684",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "tarapoto-instituto-tecnologico-nororiental-de-la-selva",
+  "name": "Instituto Tecnológico Nororiental de la Selva",
+  "city": "Tarapoto",
+  "country": "Perú",
+  "lat": -6.496424,
+  "lng": -76.357755,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w682035379",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "tarapoto-instituto-amazonico",
+  "name": "Instituto Amazónico",
+  "city": "Tarapoto",
+  "country": "Perú",
+  "lat": -6.47884,
+  "lng": -76.359373,
+  "addr": "Avenida Circunvalación",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1022748642",
   "found": "2026-11-12"
  }
 ]

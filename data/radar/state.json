@@ -6993,7 +6993,10 @@
   "EC|n4729574707": "2026-11-12T05:27:41.074Z",
   "AR|Virrey del Pino": "2026-11-12T05:28:21.622Z",
   "AR|La Rioja": "2026-11-12T05:28:51.191Z",
-  "MX|Poza Rica": "2026-11-12T05:33:58.471Z"
+  "MX|Poza Rica": "2026-11-12T05:33:58.471Z",
+  "MX|San Juan del Río": "2026-11-12T07:40:45.409Z",
+  "PE|Tarapoto": "2026-11-12T07:51:51.932Z",
+  "MX|Chalco de Díaz Covarrubias": "2026-11-12T07:52:17.709Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7035,9 +7038,52 @@
    "n": 1,
    "at": "2026-11-11T19:34:44.816Z",
    "error": "The operation was aborted due to timeout"
+  },
+  "MX|San Luis Río Colorado": {
+   "n": 1,
+   "at": "2026-11-12T07:51:13.378Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-12T07:40:10.795Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "San Juan del Río",
+     "found": 4,
+     "updated": 0,
+     "osm": 40
+    },
+    {
+     "cc": "PE",
+     "city": "Tarapoto",
+     "found": 4,
+     "updated": 0,
+     "osm": 89
+    },
+    {
+     "cc": "MX",
+     "city": "Chalco de Díaz Covarrubias",
+     "found": 0,
+     "updated": 0,
+     "osm": 59
+    }
+   ],
+   "added": 8,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 13,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "MX|San Luis Río Colorado: The operation was aborted due to timeout",
+    "MX|Jiutepec: sin tiempo en esta corrida"
+   ],
+   "minutes": 19.3,
+   "total": 18628
+  },
   {
    "at": "2026-11-12T05:19:09.799Z",
    "cities": [
