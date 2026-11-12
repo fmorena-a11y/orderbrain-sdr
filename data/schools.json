@@ -160515,7 +160515,9 @@
   "src": "osm",
   "osm": "w413168654",
   "found": "2026-11-10",
-  "img": "https://www.ulasalle.edu.pe/wp-content/uploads/2026/10/300-1.png"
+  "img": "https://www.ulasalle.edu.pe/wp-content/uploads/2026/10/300-1.png",
+  "whatsapp": "+51932660678",
+  "webAt": "2026-11-12"
  },
  {
   "id": "arequipa-universidad-andina-filial-arequipa",
@@ -160560,7 +160562,8 @@
   "src": "osm",
   "osm": "w437698459",
   "found": "2026-11-10",
-  "img": "https://www.cmu.edu.pe/wp-content/uploads/2025/08/porquemaxuhle-1.jpg"
+  "img": "https://www.cmu.edu.pe/wp-content/uploads/2025/08/porquemaxuhle-1.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "arequipa-universidad-privada-autonoma-del-sur",
@@ -160607,7 +160610,9 @@
   "src": "osm",
   "osm": "w599965619",
   "found": "2026-11-10",
-  "img": "https://ucontinental.edu.pe/site/wp-content/themes/salient-child/img/og-image-continental.jpg"
+  "img": "https://ucontinental.edu.pe/site/wp-content/themes/salient-child/img/og-image-continental.jpg",
+  "whatsapp": "+51971115546",
+  "webAt": "2026-11-12"
  },
  {
   "id": "arequipa-instituto-geofisico-de-la-unsa",
@@ -160673,7 +160678,8 @@
   "src": "osm",
   "osm": "w1042840755",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "arequipa-instituto-superior-jose-crisam",
@@ -160915,7 +160921,8 @@
   "src": "osm",
   "osm": "n13020780401",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "panama-colegio-la-salle",
@@ -161136,7 +161143,8 @@
   "src": "osm",
   "osm": "w304707033",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "panama-balboa-academy-s-gym",
@@ -163723,7 +163731,8 @@
   "src": "osm",
   "osm": "n4426370389",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "santo-domingo-colegio-victor-manuel",
@@ -164306,7 +164315,7 @@
   "addr": "Avenida Alfonso Moreno Martínez",
   "phone": "+1-809-563-2708",
   "web": "https://www.tcfl.edu.do/",
-  "email": "",
+  "email": "info@tcfl.edu.do",
   "levels": [],
   "opp": [
    "Privado confirmado en el mapa"
@@ -164315,7 +164324,8 @@
   "src": "osm",
   "osm": "n13860836308",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santo-domingo-colegio-maria-de-los-milagros",
@@ -164516,7 +164526,8 @@
   "src": "osm",
   "osm": "w112410358",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santo-domingo-instituto-superior-de-formacion-docente-salome-urena-isfodosu",
@@ -164901,7 +164912,8 @@
   "src": "osm",
   "osm": "w227726150",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santo-domingo-colegio-catolico-santiago-apostol",
@@ -165074,7 +165086,8 @@
   "src": "osm",
   "osm": "w300316499",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santo-domingo-colegio-sagrado-corazon-de-jesus",
@@ -167017,7 +167030,7 @@
   "addr": "",
   "phone": "809-535-3371",
   "web": "https://www.abcschool.org/",
-  "email": "",
+  "email": "admisiones@abschool.org",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -167026,7 +167039,8 @@
   "src": "osm",
   "osm": "w463137259",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santo-domingo-liceo-frances-de-santo-domingo",
@@ -167087,7 +167101,8 @@
   "src": "osm",
   "osm": "w463994024",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santo-domingo-colegio-serafin-de-asis",
@@ -167201,7 +167216,8 @@
   "src": "osm",
   "osm": "w629992239",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "santo-domingo-colegio-las-frutas",
@@ -167270,14 +167286,15 @@
   "addr": "Calle J",
   "phone": "+1809 547 8311",
   "web": "https://colegiovillacarmen.com/",
-  "email": "",
+  "email": "info@colegiovillacarmen.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w1000970078",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "santo-domingo-universidad-psicologia-industrial-dominicana",
@@ -168085,7 +168102,7 @@
   "addr": "Bernardino Rivadavia 470",
   "phone": "+54 261 423 5438",
   "web": "https://www.umaza.edu.ar/",
-  "email": "",
+  "email": "informes@umaza.edu.ar",
   "levels": [
    "Universidad"
   ],
@@ -168096,7 +168113,9 @@
   "src": "osm",
   "osm": "n4164214444",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+5492615128802",
+  "webAt": "2026-11-12"
  },
  {
   "id": "mendoza-colegio-san-nicolas",
@@ -168211,7 +168230,8 @@
   "src": "osm",
   "osm": "n4792416044",
   "found": "2026-11-10",
-  "img": "https://static.wixstatic.com/media/56a4d8_1511e04f57dc48a9b5583e4b7b20380f%7Emv2.png/v1/fit/w_2500,h_1330,al_c/56a4d8_1511e04f57dc48a9b5583e4b7b20380f%7Emv2.png"
+  "img": "https://static.wixstatic.com/media/56a4d8_1511e04f57dc48a9b5583e4b7b20380f%7Emv2.png/v1/fit/w_2500,h_1330,al_c/56a4d8_1511e04f57dc48a9b5583e4b7b20380f%7Emv2.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "mendoza-academia-godoy-cruz",
@@ -168241,7 +168261,7 @@
   "addr": "Almirante Brown 1545",
   "phone": "+54 261 424 0314",
   "web": "https://www.instsanagustin.com/",
-  "email": "",
+  "email": "sanagustinpt170@gmail.com",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -168250,7 +168270,8 @@
   "src": "osm",
   "osm": "n4868624557",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "mendoza-colegio-p-58-monsenor-scalabrini",
@@ -168269,7 +168290,8 @@
   "src": "osm",
   "osm": "n4868668902",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "mendoza-instituto-superior-tecnico-de-estudios-economicos-de-cuyo",
@@ -168359,7 +168381,7 @@
   "addr": "Boulogne Sur Mer 683",
   "phone": "+54 261 420 2017",
   "web": "https://um.edu.ar/",
-  "email": "",
+  "email": "rectorado@um.edu.ar",
   "levels": [
    "Universidad"
   ],
@@ -168370,7 +168392,9 @@
   "src": "osm",
   "osm": "n5078098948",
   "found": "2026-11-10",
-  "img": "https://um.edu.ar/wp-content/uploads/cropped-universidad-de-mendoza-foto.jpg"
+  "img": "https://um.edu.ar/wp-content/uploads/cropped-universidad-de-mendoza-foto.jpg",
+  "whatsapp": "+5492616845333",
+  "webAt": "2026-11-12"
  },
  {
   "id": "mendoza-centro-educativo-franciscano-san-buenaventura",
@@ -168507,7 +168531,8 @@
   "src": "osm",
   "osm": "n9685797947",
   "found": "2026-11-10",
-  "img": "https://ispn.edu.ar/wp-content/uploads/2020/02/SPNLogoMza2-19.png"
+  "img": "https://ispn.edu.ar/wp-content/uploads/2020/02/SPNLogoMza2-19.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "mendoza-escuela-ps-219-colegio-beato-juan-bautista-scalabrini",
@@ -168672,7 +168697,8 @@
   "src": "osm",
   "osm": "w169336959",
   "found": "2026-11-10",
-  "img": "https://colegiosanluisgonzaga.edu.ar/wp-content/uploads/2026/03/Inicio-CL-2026-02-scaled.jpg"
+  "img": "https://colegiosanluisgonzaga.edu.ar/wp-content/uploads/2026/03/Inicio-CL-2026-02-scaled.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "mendoza-colegio-universitario-central-general-jose-de-san-martin",
@@ -168693,7 +168719,8 @@
   "src": "osm",
   "osm": "w174320609",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "mendoza-colegio-compania-de-maria",
@@ -168736,7 +168763,8 @@
   "src": "osm",
   "osm": "w183049793",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "mendoza-colegio-s124-rainbow",
@@ -168907,14 +168935,15 @@
   "addr": "General Paz 531",
   "phone": "+54 261 438 0091",
   "web": "https://colegioicei.edu.ar/",
-  "email": "",
+  "email": "rrhh@colegioicei.edu.ar",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w227338246",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "mendoza-colegio-ps82-padre-j-mullner",
@@ -169076,7 +169105,8 @@
   "src": "osm",
   "osm": "w264745717",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "mendoza-colegio-alberto-schweitzer",
@@ -169335,7 +169365,8 @@
   "src": "osm",
   "osm": "w1339371425",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "mendoza-pontificia-universidad-catolica-argentina",
@@ -169450,7 +169481,7 @@
   "addr": "Acceso Este Lateral Sur 2245",
   "phone": "54 0261 4056200",
   "web": "https://www.umaza.edu.ar/",
-  "email": "",
+  "email": "informes@umaza.edu.ar",
   "levels": [
    "Universidad"
   ],
@@ -169461,7 +169492,9 @@
   "src": "osm",
   "osm": "r11810218",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+5492615128802",
+  "webAt": "2026-11-12"
  },
  {
   "id": "chihuahua-universidad-tecnologica-de-chihuahua-sur",
@@ -169670,7 +169703,7 @@
   "addr": "Ignacio Allende 2628, Colonia Zarco",
   "phone": "+52 614 411 1451",
   "web": "http://www.urn.edu.mx/",
-  "email": "",
+  "email": "promocion@urn.edu.mx",
   "levels": [
    "Universidad"
   ],
@@ -169681,7 +169714,8 @@
   "src": "osm",
   "osm": "w305380338",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "chihuahua-esfer-salesianos",
@@ -169827,7 +169861,8 @@
   "src": "osm",
   "osm": "w1420795146",
   "found": "2026-11-10",
-  "img": "https://www.colegiocumbreschihuahua.mx/public/images/social_share.jpg"
+  "img": "https://www.colegiocumbreschihuahua.mx/public/images/social_share.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "chihuahua-colegio-belen-plantel-2",
@@ -169870,7 +169905,9 @@
   "src": "osm",
   "osm": "w1507552387",
   "found": "2026-11-10",
-  "img": "https://cloudinary-assets.dostuffmedia.com/res/dostuff-media/image/upload/venue-471080/1635014689.jpg"
+  "img": "https://cloudinary-assets.dostuffmedia.com/res/dostuff-media/image/upload/venue-471080/1635014689.jpg",
+  "whatsapp": "+5215611422526",
+  "webAt": "2026-11-12"
  },
  {
   "id": "merida-universidad-de-chapingo",
@@ -170020,7 +170057,8 @@
   "src": "osm",
   "osm": "n6197172085",
   "found": "2026-11-10",
-  "img": "https://www.ifly.com.mx/images/ifly_aviation_group_social_media.jpg"
+  "img": "https://www.ifly.com.mx/images/ifly_aviation_group_social_media.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "merida-colegio-maria-nelly-rosado",
@@ -170104,7 +170142,9 @@
   "src": "osm",
   "osm": "n14165373301",
   "found": "2026-11-10",
-  "img": "https://www.iudy.edu.mx/img/portada.jpg"
+  "img": "https://www.iudy.edu.mx/img/portada.jpg",
+  "whatsapp": "+529994110627",
+  "webAt": "2026-11-12"
  },
  {
   "id": "merida-colegio-montejo-a-c",
@@ -170347,7 +170387,8 @@
   "src": "osm",
   "osm": "w1318023998",
   "found": "2026-11-10",
-  "img": "https://incih.edu.mx/wp-content/uploads/2016/01/logoincih120.png"
+  "img": "https://incih.edu.mx/wp-content/uploads/2016/01/logoincih120.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "merida-centro-educativo-renacimiento",
@@ -170368,7 +170409,8 @@
   "src": "osm",
   "osm": "w1321682372",
   "found": "2026-11-10",
-  "img": "https://renacimiento.edu.mx/img/imgSeo/renacimiento-30e612be.jpg"
+  "img": "https://renacimiento.edu.mx/img/imgSeo/renacimiento-30e612be.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "merida-colegio-teresiano-enrique-de-osso-merida",
@@ -171904,7 +171946,8 @@
   "src": "osm",
   "osm": "n4462598993",
   "found": "2026-11-10",
-  "img": "https://instituto-web-connect.replit.app/opengraph.jpg"
+  "img": "https://instituto-web-connect.replit.app/opengraph.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "cancun-universidad-del-sur",
@@ -174675,7 +174718,8 @@
   "src": "osm",
   "osm": "n12963095301",
   "found": "2026-11-10",
-  "img": "https://www.institutosanford.edu.mx/wp-content/uploads/2022/02/Cover.png"
+  "img": "https://www.institutosanford.edu.mx/wp-content/uploads/2022/02/Cover.png",
+  "imgTry": "2026-11-12"
  },
  {
   "id": "aguascalientes-instituto-tesla",
@@ -175119,7 +175163,8 @@
   "src": "osm",
   "osm": "n7693107647",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "hermosillo-universidad-del-valle-de-mexico",
@@ -175546,14 +175591,16 @@
   "addr": "Avenida 13 280",
   "phone": "+52 662 215 8998",
   "web": "https://www.colegiobiculturalgenesis.com.mx/",
-  "email": "",
+  "email": "colegiobiculturalgenesis@hotmail.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w825372591",
   "found": "2026-11-10",
-  "img": "https://irp.cdn-website.com/352d9770/dms3rep/multi/opt/open-graph-1920w.jpg?jxl&v=jxl"
+  "img": "https://irp.cdn-website.com/352d9770/dms3rep/multi/opt/open-graph-1920w.jpg?jxl&v=jxl",
+  "whatsapp": "+5216624636645",
+  "webAt": "2026-11-12"
  },
  {
   "id": "hermosillo-preparatoria-universitaria-kino",
@@ -177042,14 +177089,15 @@
   "addr": "Calle Félix de Jesús Rougier 527",
   "phone": "+52 686 565 0110",
   "web": "https://www.felixmexicali.edu.mx/",
-  "email": "",
+  "email": "contacto.felix@felixmexicali.edu.mx",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w119971597",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "mexicali-colegio-frontera",
@@ -177203,7 +177251,7 @@
   "addr": "Calzada Cetys 2579",
   "phone": "+526865534740",
   "web": "http://www.coanam.edu.mx/",
-  "email": "",
+  "email": "controlescolar@coanam.edu.mx",
   "levels": [],
   "opp": [
    "Bilingüe o internacional",
@@ -177213,7 +177261,8 @@
   "src": "osm",
   "osm": "w1175369755",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "mexicali-universidad-xochicalco-campus-mexicali",
@@ -177492,7 +177541,7 @@
   "addr": "Avenida 20 de Octubre",
   "phone": "+591 2 2443773",
   "web": "http://www.usfa.edu.bo/",
-  "email": "",
+  "email": "info@usfa.edu.bo",
   "levels": [
    "Universidad"
   ],
@@ -177504,7 +177553,9 @@
   "src": "osm",
   "osm": "n2920759068",
   "found": "2026-11-10",
-  "img": "https://www.usfa.edu.bo/images/logo/logos-usfa-optimized.webp"
+  "img": "https://www.usfa.edu.bo/images/logo/logos-usfa-optimized.webp",
+  "whatsapp": "+59177719830",
+  "webAt": "2026-11-12"
  },
  {
   "id": "el-alto-universidad-andina-simon-bolivar",
@@ -178409,7 +178460,8 @@
   "src": "osm",
   "osm": "n5604805423",
   "found": "2026-11-10",
-  "img": "https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQfZHnVZfH5eZGw-2Szwu_CLcBxmN0IlX-CcWKxyInIjAGNE6hWoGyQmN_BDCHf6PjYl93MZX0uniUX3xXcrdY2uOdOrHxlTh1-wnux5ps8XuTl8iM-jBRCafkGkCPasmPj5-dNDQ0GZg5QtcXMehfotKes1Ey2F2NJj9sHQDeNseY2UQPJYk3R3bI2VY3I=w16383"
+  "img": "https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQfZHnVZfH5eZGw-2Szwu_CLcBxmN0IlX-CcWKxyInIjAGNE6hWoGyQmN_BDCHf6PjYl93MZX0uniUX3xXcrdY2uOdOrHxlTh1-wnux5ps8XuTl8iM-jBRCafkGkCPasmPj5-dNDQ0GZg5QtcXMehfotKes1Ey2F2NJj9sHQDeNseY2UQPJYk3R3bI2VY3I=w16383",
+  "webAt": "2026-11-12"
  },
  {
   "id": "el-alto-centro-educativo-adventista-bello-horizonte",
@@ -179283,7 +179335,8 @@
   "src": "osm",
   "osm": "w225332981",
   "found": "2026-11-10",
-  "img": "https://acslp.org/wp-content/uploads/2023/01/logo-500x200-1.png"
+  "img": "https://acslp.org/wp-content/uploads/2023/01/logo-500x200-1.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "el-alto-escuela-militar-de-ingenieria",
@@ -180108,7 +180161,8 @@
   "src": "osm",
   "osm": "w472247485",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "el-alto-unidad-educativa-venezuela",
@@ -181434,7 +181488,8 @@
   "src": "osm",
   "osm": "w1085796049",
   "found": "2026-11-10",
-  "img": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/764358230_1453758833442399_5505272686582796440_n.jpg?stp=dst-jpg_tt6&cstp=mx1254x1254&ctp=s720x720&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=XgMJoiOsUhoQ7kNvwFX7j7F&_nc_oc=AdqdrPoHppcvPgzg5hkUTZBc9ymzEzxH_mZt6f-8x3q9lxkLNIhRk7RTUFhPPabgiPE&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&_nc_gid=MsVrTtuFu-g9RwolO6DSrA&_nc_ss=7c289&oh=00_AQScpSBUjwQNrP-orlvZtx3rWo5OW4fOe_LELlfNnhQzEw&oe=6AF8A703"
+  "img": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/764358230_1453758833442399_5505272686582796440_n.jpg?stp=dst-jpg_tt6&cstp=mx1254x1254&ctp=s720x720&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=XgMJoiOsUhoQ7kNvwFX7j7F&_nc_oc=AdqdrPoHppcvPgzg5hkUTZBc9ymzEzxH_mZt6f-8x3q9lxkLNIhRk7RTUFhPPabgiPE&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&_nc_gid=MsVrTtuFu-g9RwolO6DSrA&_nc_ss=7c289&oh=00_AQScpSBUjwQNrP-orlvZtx3rWo5OW4fOe_LELlfNnhQzEw&oe=6AF8A703",
+  "webAt": "2026-11-12"
  },
  {
   "id": "el-alto-colegio-club-de-leones",
@@ -182511,7 +182566,9 @@
   "src": "osm",
   "osm": "w1173757260",
   "found": "2026-11-10",
-  "img": "https://upotosina.edu.mx/wp-content/uploads/2025/03/escolarizadas-h.jpg"
+  "img": "https://upotosina.edu.mx/wp-content/uploads/2025/03/escolarizadas-h.jpg",
+  "whatsapp": "+5214441961159",
+  "webAt": "2026-11-12"
  },
  {
   "id": "san-luis-potosi-preparatoria-ponciano-arriaga",
@@ -182593,7 +182650,8 @@
   "src": "osm",
   "osm": "n6030217517",
   "found": "2026-11-10",
-  "img": "https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-1/607739448_1215540044023801_7512003741179337380_n.jpg?stp=dst-jpg_tt6&cstp=mx880x1107&ctp=p720x720&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=pPUoNSgpYYsQ7kNvwFJg0i9&_nc_oc=AdqyhD_mpVOzsIIxDjOBlW2FP-aJKkmWtKjHoepWr5EJDRAvhp7HXMIuFZHodmJJJnE&_nc_zt=24&_nc_ht=scontent-iad6-1.xx&_nc_gid=eYbHDtIVGa_72AoXoxVVCw&_nc_ss=7c289&oh=00_AQRC4JP6OolX61eIYSLyYUmzOaOC6BFEHJPtnwu9yvr44w&oe=6AF8C2F8"
+  "img": "https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-1/607739448_1215540044023801_7512003741179337380_n.jpg?stp=dst-jpg_tt6&cstp=mx880x1107&ctp=p720x720&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=pPUoNSgpYYsQ7kNvwFJg0i9&_nc_oc=AdqyhD_mpVOzsIIxDjOBlW2FP-aJKkmWtKjHoepWr5EJDRAvhp7HXMIuFZHodmJJJnE&_nc_zt=24&_nc_ht=scontent-iad6-1.xx&_nc_gid=eYbHDtIVGa_72AoXoxVVCw&_nc_ss=7c289&oh=00_AQRC4JP6OolX61eIYSLyYUmzOaOC6BFEHJPtnwu9yvr44w&oe=6AF8C2F8",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-guayana-u-e-colegio-nuestra-senora-de-coromoto",
@@ -182660,7 +182718,8 @@
   "src": "osm",
   "osm": "n7944490978",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-guayana-i-u-p-santiago-marino",
@@ -182684,7 +182743,9 @@
   "src": "osm",
   "osm": "n7944547348",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+584241733109",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-guayana-u-e-jesus-de-nazareth",
@@ -182769,7 +182830,9 @@
   "src": "osm",
   "osm": "n8388856628",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "whatsapp": "+584241733109",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-guayana-colegio-universitario-monsenor-de-talavera",
@@ -182793,7 +182856,8 @@
   "src": "osm",
   "osm": "n8481061658",
   "found": "2026-11-10",
-  "img": "https://static.wixstatic.com/media/de1dd6_0f4206f0f4e043da8254ce3c47c1a1b2%7Emv2.png/v1/fit/w_2500,h_1330,al_c/de1dd6_0f4206f0f4e043da8254ce3c47c1a1b2%7Emv2.png"
+  "img": "https://static.wixstatic.com/media/de1dd6_0f4206f0f4e043da8254ce3c47c1a1b2%7Emv2.png/v1/fit/w_2500,h_1330,al_c/de1dd6_0f4206f0f4e043da8254ce3c47c1a1b2%7Emv2.png",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-guayana-u-e-colegio-martin-lutero",
@@ -182834,7 +182898,8 @@
   "src": "osm",
   "osm": "w138184628",
   "found": "2026-11-10",
-  "img": "https://www.feyalegria.org/wp-content/uploads/sites/4/2023/12/Fe-y-Alegria-Federacion-1.jpg"
+  "img": "https://www.feyalegria.org/wp-content/uploads/sites/4/2023/12/Fe-y-Alegria-Federacion-1.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-guayana-u-e-colegio-internacional-miguel-otero-silva",
@@ -182856,7 +182921,8 @@
   "src": "osm",
   "osm": "w157001253",
   "found": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-guayana-u-e-inmaculada-concepcion",
@@ -182957,7 +183023,8 @@
   "src": "osm",
   "osm": "w524957043",
   "found": "2026-11-10",
-  "img": "https://www.feyalegria.org/wp-content/uploads/sites/4/2023/12/Fe-y-Alegria-Federacion-1.jpg"
+  "img": "https://www.feyalegria.org/wp-content/uploads/sites/4/2023/12/Fe-y-Alegria-Federacion-1.jpg",
+  "webAt": "2026-11-12"
  },
  {
   "id": "ciudad-guayana-u-e-fe-y-alegria-la-consolacion",
@@ -384424,7 +384491,7 @@
   "addr": "",
   "phone": "",
   "web": "http://ceip-diegovelazquez.centros.castillalamancha.es/",
-  "email": "",
+  "email": "02000088.ceip@educastillalamancha.es",
   "levels": [
    "Primaria"
   ],
@@ -384432,7 +384499,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w142018274",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "albacete-colegio-de-educacion-infantil-y-primaria-jose-maria-peman",
@@ -384622,9 +384691,9 @@
   "lat": 38.990478,
   "lng": -1.855063,
   "addr": "Calle San José de Calasanz 7",
-  "phone": "",
+  "phone": "+34967666080",
   "web": "https://www.escolapiosalbacete.org/",
-  "email": "",
+  "email": "secretaria@escolapiosalbacete.org",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -384632,7 +384701,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w142036456",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-12"
  },
  {
   "id": "albacete-colegio-de-educacion-infantil-y-primaria-federico-mayor-zaragoza",
@@ -384902,6 +384973,935 @@
   "private": "probable",
   "src": "osm",
   "osm": "r6673979",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "cabudare-colegio-salto-angel",
+  "name": "colegio salto angel",
+  "city": "Cabudare",
+  "country": "Venezuela",
+  "lat": 10.030926,
+  "lng": -69.261584,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2810298935",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "cabudare-unidad-educativa-colegio-jose-gregorio-bastidas",
+  "name": "Unidad Educativa Colegio Jose Gregorio Bastidas",
+  "city": "Cabudare",
+  "country": "Venezuela",
+  "lat": 10.030415,
+  "lng": -69.237572,
+  "addr": "Avenida La Montañita",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3742015427",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "cabudare-colegio-las-colinas",
+  "name": "Colegio Las Colinas",
+  "city": "Cabudare",
+  "country": "Venezuela",
+  "lat": 10.060716,
+  "lng": -69.281589,
+  "addr": "calle L9",
+  "phone": "+58 251 2540264",
+  "web": "http://colegio-las-colinas.com",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4137528290",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "cabudare-colegio-las-fuentes",
+  "name": "Colegio Las Fuentes",
+  "city": "Cabudare",
+  "country": "Venezuela",
+  "lat": 10.084211,
+  "lng": -69.276655,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12184051208",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "cabudare-universidad-fermin-toro",
+  "name": "Universidad Fermín Toro",
+  "city": "Cabudare",
+  "country": "Venezuela",
+  "lat": 10.082533,
+  "lng": -69.278563,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w90799927",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "cabudare-universidad-fermin-toro-2",
+  "name": "Universidad Fermín Toro",
+  "city": "Cabudare",
+  "country": "Venezuela",
+  "lat": 10.025101,
+  "lng": -69.271073,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w121553799",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "cabudare-universidad-yacambu-sede-nueva",
+  "name": "Universidad Yacambú (Sede Nueva)",
+  "city": "Cabudare",
+  "country": "Venezuela",
+  "lat": 10.011678,
+  "lng": -69.243107,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w188934969",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "cabudare-universidad-yacambu-sede-vieja",
+  "name": "Universidad Yacambú (Sede Vieja)",
+  "city": "Cabudare",
+  "country": "Venezuela",
+  "lat": 10.017061,
+  "lng": -69.243546,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w188934970",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "cabudare-colegio-aplicacion",
+  "name": "Colegio Aplicación",
+  "city": "Cabudare",
+  "country": "Venezuela",
+  "lat": 10.0698,
+  "lng": -69.288634,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w250660878",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "cabudare-colegio-independencia",
+  "name": "Colegio Independencia",
+  "city": "Cabudare",
+  "country": "Venezuela",
+  "lat": 10.076935,
+  "lng": -69.290022,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w250663026",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "cabudare-colegio-militar-jose-maria-camacaro",
+  "name": "Colegio Militar JOSE MARIA CAMACARO",
+  "city": "Cabudare",
+  "country": "Venezuela",
+  "lat": 10.067195,
+  "lng": -69.298236,
+  "addr": "Carrera 1a",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w304222190",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "cabudare-colegio-san-vicente-de-paul",
+  "name": "Colegio San Vicente de Paul",
+  "city": "Cabudare",
+  "country": "Venezuela",
+  "lat": 10.065706,
+  "lng": -69.289506,
+  "addr": "Calle Uruguay",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w413399555",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "cabudare-u-e-colegio-americano",
+  "name": "U. E. Colegio Americano",
+  "city": "Cabudare",
+  "country": "Venezuela",
+  "lat": 10.016903,
+  "lng": -69.238008,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w808964701",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "cabudare-liceo-bolivariano-hector-rojas-meza",
+  "name": "Liceo Bolivariano \" Héctor Rojas Meza \"",
+  "city": "Cabudare",
+  "country": "Venezuela",
+  "lat": 10.017518,
+  "lng": -69.25875,
+  "addr": "Avenida La Mata",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w819616654",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "cabudare-liceo-jacinto-lara",
+  "name": "Liceo Jacinto Lara",
+  "city": "Cabudare",
+  "country": "Venezuela",
+  "lat": 10.021914,
+  "lng": -69.25569,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w870553374",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "cabudare-universidad-centro-occidental-lisandro-alvarado-u-c-l-a-decanato-de-ag",
+  "name": "Universidad Centro Occidental Lisandro Alvarado U.C.L.A, Decanato de Agronomia y Veterinaria",
+  "city": "Cabudare",
+  "country": "Venezuela",
+  "lat": 10.019359,
+  "lng": -69.28529,
+  "addr": "Avenida Principal de Agua Viva",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1487007614",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-colegio-padres-dominicos",
+  "name": "Colegio Padres Dominicos",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.395504,
+  "lng": -66.181,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n357266026",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-interamerican-university",
+  "name": "Interamerican University",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.398837,
+  "lng": -66.151556,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n357269316",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-universidad-catolica",
+  "name": "Universidad Católica",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.397171,
+  "lng": -66.180445,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n357270344",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-bayamon-military-academy",
+  "name": "Bayamon Military Academy",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.418558,
+  "lng": -66.185167,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n357271489",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-kids-fun-house-and-school",
+  "name": "Kids Fun House and School",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.40008,
+  "lng": -66.158424,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n357274929",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-american-school",
+  "name": "American School",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.386215,
+  "lng": -66.176774,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5270637924",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-school-for-the-performing-arts",
+  "name": "School for the Performing Arts",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.369047,
+  "lng": -66.11272,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9672227610",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-colegio-lo-mas-verde",
+  "name": "Colegio Lo Mas Verde",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.376627,
+  "lng": -66.15736,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n10125144637",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-commonwealth-parkville-school",
+  "name": "Commonwealth Parkville School",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.371432,
+  "lng": -66.092724,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n14096941636",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-wesleyan-academy",
+  "name": "Wesleyan Academy",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.363632,
+  "lng": -66.099554,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w84348672",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-universidad-interamericana-de-bayamon",
+  "name": "Universidad Interamericana de Bayamón",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.352107,
+  "lng": -66.181417,
+  "addr": "",
+  "phone": "",
+  "web": "https://bayamon.inter.edu/",
+  "email": "interbcinfo@bayamon.inter.edu",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w86144490",
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-12"
+ },
+ {
+  "id": "bayamon-academia-maria-reina",
+  "name": "Academia Maria Reina",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.382984,
+  "lng": -66.085774,
+  "addr": "Avenida Glasgow 1879",
+  "phone": "+1-787-764-0690",
+  "web": "https://mariareina.com/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w220176484",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-universidad-de-puerto-rico-bayamon",
+  "name": "Universidad de Puerto Rico - Bayamón",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.370526,
+  "lng": -66.143989,
+  "addr": "Carretera Bayamón - Aguas Buenas",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w288460645",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-colegio-adianez",
+  "name": "Colegio Adianez",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.361594,
+  "lng": -66.105222,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w308736696",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-colegio-san-pedro-martir",
+  "name": "Colegio San Pedro Mártir",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.350923,
+  "lng": -66.112191,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w308908796",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-academia-santo-tomas-de-aquino",
+  "name": "Academia Santo Tomás de Aquino",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.402253,
+  "lng": -66.17996,
+  "addr": "Avenida Orquídea F13",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w337705040",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-universidad-ana-g-mendez-de-bayamon",
+  "name": "Universidad Ana G. Méndez de Bayamón",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.400084,
+  "lng": -66.159089,
+  "addr": "",
+  "phone": "17877642495",
+  "web": "https://uagm.edu",
+  "email": "yourvoicecounts_veterinary@uagm.edu",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w338720443",
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-12"
+ },
+ {
+  "id": "bayamon-colegio-san-ignacio-de-loyola",
+  "name": "Colegio San Ignacio de Loyola",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.37813,
+  "lng": -66.086599,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w373405251",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-colegio-santa-maria-de-los-angeles",
+  "name": "Colegio Santa María de los Ángeles",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.396805,
+  "lng": -66.08561,
+  "addr": "Avenida José de Diego",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w387044358",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-colegio-senora-de-la-providencia",
+  "name": "Colegio Señora de la Providencia",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.388465,
+  "lng": -66.093232,
+  "addr": "Avenida San Ignacio",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w387047880",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-colegio-sagrado-corazon",
+  "name": "Colegio Sagrado Corazón",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.371406,
+  "lng": -66.101415,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w406838126",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-american-military-academy",
+  "name": "American Military Academy",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.382997,
+  "lng": -66.122334,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w406840153",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-the-baldwin-school-of-puerto-rico",
+  "name": "The Baldwin School of Puerto Rico",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.37966,
+  "lng": -66.125061,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.baldwin-school.org/podium/default.aspx?t=135522",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w406840666",
+  "found": "2026-11-12",
+  "imgTry": "2026-11-12"
+ },
+ {
+  "id": "bayamon-colegio-marista",
+  "name": "Colegio Marista",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.381193,
+  "lng": -66.121699,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w406841493",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-colegio-rosa-bell",
+  "name": "Colegio Rosa-Bell",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.387861,
+  "lng": -66.119359,
+  "addr": "Calle Oviedo",
+  "phone": "+1 787-781-4240",
+  "web": "https://www.rosabell.com/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w407031060",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-caribbean-university",
+  "name": "Caribbean University",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.383892,
+  "lng": -66.168634,
+  "addr": "Av. Ramón Luis Rivera (Av. Comerío)",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w727594582",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-universidad-central-de-bayamon",
+  "name": "Universidad Central de Bayamón",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.398846,
+  "lng": -66.180801,
+  "addr": "Avenida Orquídea",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w842820919",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-colegio-beato-carlos-manuel-rodriguez",
+  "name": "Colegio Beato Carlos Manuel Rodríguez",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.369186,
+  "lng": -66.152253,
+  "addr": "Calle Jazmin",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w861157092",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-universidad-central-del-caribe",
+  "name": "Universidad Central del Caribe",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.365904,
+  "lng": -66.152576,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w984788609",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-american-university",
+  "name": "American University",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.406249,
+  "lng": -66.186827,
+  "addr": "Carretera Militar",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Bilingüe o internacional",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1062667524",
+  "found": "2026-11-12"
+ },
+ {
+  "id": "bayamon-northbridge-university",
+  "name": "Northbridge University",
+  "city": "Bayamón",
+  "country": "Puerto Rico",
+  "lat": 18.396731,
+  "lng": -66.156717,
+  "addr": "Calle Marginal",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1068825708",
   "found": "2026-11-12"
  }
 ]

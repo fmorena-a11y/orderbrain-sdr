@@ -7010,7 +7010,9 @@
   "MX|Chetumal": "2026-11-12T13:52:15.290Z",
   "CO|n703166719": "2026-11-12T15:20:30.298Z",
   "AR|Berazategui": "2026-11-12T15:21:07.493Z",
-  "ES|n30044584": "2026-11-12T15:21:58.354Z"
+  "ES|n30044584": "2026-11-12T15:21:58.354Z",
+  "VE|n987588281": "2026-11-12T17:17:32.920Z",
+  "PR|n5020875807": "2026-11-12T17:18:21.304Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7062,9 +7064,44 @@
    "n": 1,
    "at": "2026-11-12T15:33:20.185Z",
    "error": "The operation was aborted due to timeout"
+  },
+  "EC|n249420749": {
+   "n": 1,
+   "at": "2026-11-12T17:32:56.368Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-12T17:16:58.797Z",
+   "cities": [
+    {
+     "cc": "VE",
+     "city": "Cabudare",
+     "found": 16,
+     "updated": 0,
+     "osm": 28
+    },
+    {
+     "cc": "PR",
+     "city": "Bayamón",
+     "found": 31,
+     "updated": 0,
+     "osm": 194
+    }
+   ],
+   "added": 47,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 24,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "EC|n249420749: The operation was aborted due to timeout"
+   ],
+   "minutes": 17.4,
+   "total": 19071
+  },
   {
    "at": "2026-11-12T15:14:13.036Z",
    "cities": [
@@ -9539,17 +9576,6 @@
    "errors": [],
    "minutes": 17.1,
    "total": 3731
-  },
-  {
-   "at": "2026-11-09T23:39:12.203Z",
-   "cities": [],
-   "added": 0,
-   "enriched": 0,
-   "photos": 5,
-   "ai": 0,
-   "errors": [],
-   "minutes": 5.8,
-   "total": 139
   }
  ]
 }
