@@ -7027,7 +7027,22 @@
   "AR|Río Cuarto": "2026-11-13T03:08:03.784Z",
   "CL|Calama": "2026-11-13T03:10:32.446Z",
   "MX|Cuautla": "2026-11-13T03:11:10.685Z",
-  "ES|n232712665": "2026-11-13T03:19:12.031Z"
+  "ES|n232712665": "2026-11-13T03:19:12.031Z",
+  "MX|Zamora": "2026-11-13T05:18:05.289Z",
+  "VE|n2612583230": "2026-11-13T05:23:21.474Z",
+  "CO|n286290951": "2026-11-13T05:23:59.032Z",
+  "CL|Copiapó": "2026-11-13T05:24:41.860Z",
+  "NI|n5823779901": "2026-11-13T05:25:10.523Z",
+  "CL|Valdivia": "2026-11-13T05:25:46.850Z",
+  "GT|Santa Cruz Barillas": "2026-11-13T05:26:17.270Z",
+  "VE|n4582620978": "2026-11-13T05:26:58.625Z",
+  "AR|Concordia": "2026-11-13T05:27:28.796Z",
+  "VE|n345808512": "2026-11-13T05:28:01.625Z",
+  "ES|n257352079": "2026-11-13T05:28:32.673Z",
+  "ES|n29015863": "2026-11-13T05:29:11.985Z",
+  "VE|n829834635": "2026-11-13T05:29:51.491Z",
+  "CL|Quilpué": "2026-11-13T05:30:27.383Z",
+  "CL|Talcahuano": "2026-11-13T05:30:59.572Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7092,6 +7107,125 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-13T05:17:29.611Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Zamora",
+     "found": 31,
+     "updated": 0,
+     "osm": 89
+    },
+    {
+     "cc": "VE",
+     "city": "Santa Bárbara del Zulia",
+     "found": 1,
+     "updated": 0,
+     "osm": 4
+    },
+    {
+     "cc": "CO",
+     "city": "Girón",
+     "found": 0,
+     "updated": 0,
+     "osm": 305
+    },
+    {
+     "cc": "CL",
+     "city": "Copiapó",
+     "found": 31,
+     "updated": 0,
+     "osm": 75
+    },
+    {
+     "cc": "NI",
+     "city": "Jinotega",
+     "found": 7,
+     "updated": 0,
+     "osm": 30
+    },
+    {
+     "cc": "CL",
+     "city": "Valdivia",
+     "found": 48,
+     "updated": 1,
+     "osm": 101
+    },
+    {
+     "cc": "GT",
+     "city": "Santa Cruz Barillas",
+     "found": 0,
+     "updated": 0,
+     "osm": 3
+    },
+    {
+     "cc": "VE",
+     "city": "Boconó",
+     "found": 4,
+     "updated": 0,
+     "osm": 11
+    },
+    {
+     "cc": "AR",
+     "city": "Concordia",
+     "found": 25,
+     "updated": 0,
+     "osm": 90
+    },
+    {
+     "cc": "VE",
+     "city": "Anaco",
+     "found": 2,
+     "updated": 0,
+     "osm": 16
+    },
+    {
+     "cc": "ES",
+     "city": "Logroño",
+     "found": 32,
+     "updated": 1,
+     "osm": 65
+    },
+    {
+     "cc": "ES",
+     "city": "Santa Cruz de Tenerife",
+     "found": 32,
+     "updated": 0,
+     "osm": 90
+    },
+    {
+     "cc": "VE",
+     "city": "Tucupita",
+     "found": 4,
+     "updated": 0,
+     "osm": 16
+    },
+    {
+     "cc": "CL",
+     "city": "Quilpué",
+     "found": 76,
+     "updated": 1,
+     "osm": 132
+    },
+    {
+     "cc": "CL",
+     "city": "Talcahuano",
+     "found": 29,
+     "updated": 0,
+     "osm": 64
+    }
+   ],
+   "added": 322,
+   "enriched": 0,
+   "photos": 13,
+   "contacts": 11,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 15.6,
+   "total": 19608
+  },
   {
    "at": "2026-11-13T03:04:17.870Z",
    "cities": [
@@ -9338,70 +9472,6 @@
    "errors": [],
    "minutes": 18,
    "total": 10174
-  },
-  {
-   "at": "2026-11-10T03:01:43.715Z",
-   "cities": [
-    {
-     "cc": "SV",
-     "city": "San Salvador",
-     "found": 152,
-     "updated": 1,
-     "osm": 374
-    },
-    {
-     "cc": "HN",
-     "city": "Tegucigalpa",
-     "found": 96,
-     "updated": 0,
-     "osm": 299
-    },
-    {
-     "cc": "MX",
-     "city": "Santiago de Querétaro",
-     "found": 63,
-     "updated": 1,
-     "osm": 223
-    },
-    {
-     "cc": "CO",
-     "city": "Cúcuta",
-     "found": 299,
-     "updated": 5,
-     "osm": 586
-    },
-    {
-     "cc": "MX",
-     "city": "Morelia",
-     "found": 38,
-     "updated": 1,
-     "osm": 179
-    },
-    {
-     "cc": "PY",
-     "city": "Asunción",
-     "found": 132,
-     "updated": 2,
-     "osm": 589
-    },
-    {
-     "cc": "HN",
-     "city": "San Pedro Sula",
-     "found": 52,
-     "updated": 1,
-     "osm": 154
-    }
-   ],
-   "added": 832,
-   "enriched": 0,
-   "photos": 4,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "MX|Reynosa: sin tiempo en esta corrida"
-   ],
-   "minutes": 19.3,
-   "total": 10158
   }
  ]
 }
