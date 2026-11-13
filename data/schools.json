@@ -216794,7 +216794,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w237715614",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-stella-mari",
@@ -216818,7 +216820,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w237756606",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-mater-inmac",
@@ -216842,7 +216846,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w237756607",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegiomater.com/wp-content/uploads/2019/10/og_colegio_mater_immaculata.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-daoiz-y-velarde",
@@ -216887,7 +216893,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w238423927",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-colegio-antamira",
@@ -216972,7 +216979,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w242703075",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.nazaretoporto.org/wp-content/uploads/2022/01/logo-oporto-web.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-nebrija-rosales",
@@ -216995,7 +217004,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w242703078",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-santa-maria-7",
@@ -217020,7 +217031,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w242703080",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-luz-casanov",
@@ -217044,7 +217057,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w242703083",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-luis-feito",
@@ -217067,7 +217082,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w242703085",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-colegio-irlandesas",
@@ -217110,7 +217126,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w242790437",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-brains-nursery-school",
@@ -217236,7 +217254,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w254195625",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-azorin",
@@ -217260,7 +217280,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w254883493",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegioazorin.com/wp-content/uploads/20231110_083429-scaled.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-comunidad-i",
@@ -217284,7 +217306,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w255493358",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-montserrat",
@@ -217323,7 +217347,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w256400103",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.tajamar.es/wp-content/uploads/2017/06/logo-v-movil-1.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-los-tilos",
@@ -217348,7 +217374,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w256400384",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegiolostilos.com/images/video-colegiodemivida.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-asuncion-va",
@@ -217373,7 +217401,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w257542465",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-colegio-val-2",
@@ -217397,7 +217427,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w258926357",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-paraiso-sag",
@@ -217421,7 +217453,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w260940558",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-fuentes-claras",
@@ -217466,7 +217500,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w261756404",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-campus-de-torrejon-de-la-universidad-de-alcala",
@@ -217575,7 +217611,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w267888763",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-marques-de-",
@@ -217599,7 +217637,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w268092662",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegiomarquesdevallejo.es/wp-content/uploads/2019/12/escudo-colegio-marques-de-vallejo.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-colegio-nue-2",
@@ -217623,7 +217663,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w270512565",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-nobelis",
@@ -217708,7 +217750,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w276141144",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-los-angeles",
@@ -217732,7 +217776,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w281626115",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-sagrado-cor-7",
@@ -217757,7 +217803,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w282463894",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-secundaria-cumbre",
@@ -217803,7 +217851,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w285180199",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://site.educa.madrid.org/cc.balmes.mostoles//wp-content/uploads/cc.balmes.mostoles/2022/04/logo_balmes.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-maria-auxil",
@@ -217828,7 +217878,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w285480173",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-liceo-villa",
@@ -217852,7 +217904,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w286085886",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-secundaria-fomento-fundacion",
@@ -217874,7 +217927,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w286857269",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-especial-araya",
@@ -217894,7 +217948,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w288238284",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-beata-maria",
@@ -217919,7 +217975,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w288351121",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-britanico-santo-angel-british-school",
@@ -218061,7 +218119,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w293132984",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-san-pedro",
@@ -218086,7 +218146,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w293132985",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-senara",
@@ -218128,7 +218190,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w293698623",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-san-juan-bautista",
@@ -218153,7 +218217,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w294874476",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-santa-maria-8",
@@ -218178,7 +218243,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w295643114",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegiosantamarialablanca.es/wp-content/uploads/2026/11/BANNER-600-X-200-MAGO-OZ-e1794495418818.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-santa-maria-9",
@@ -218203,7 +218270,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w296727569",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-sagrada-familia",
@@ -218269,7 +218338,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w297459443",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.cardenalspinolamadrid.es/wp-content/uploads/2023/01/Colegio-cardenal-spinola-de-madrid.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-nuestra-sen-16",
@@ -218293,7 +218364,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w297459444",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://nsm.madrid.mercedariasdelacaridad.es/sites/default/files/favicon.ico",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-wisdom-scho",
@@ -218317,7 +218390,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w297459445",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-primaria-y-secundaria-ramon-y-cajal",
@@ -218365,7 +218439,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w297459449",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-san-ramon-y",
@@ -218390,7 +218466,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w297459450",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegiosanramonysanantonio.es/wp-content/uploads/2020/03/proyecto-educativo-srsa.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-corazon-inm",
@@ -218415,7 +218493,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w297459452",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-san-patricio",
@@ -218464,7 +218544,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w297465439",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://dominicasmadrid.es/wp-content/uploads/2026/01/PE-14.webp",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-nuevo-velazquez",
@@ -218512,7 +218594,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w297465447",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-santa-gema-",
@@ -218537,7 +218620,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w297538151",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegio-santagema.es/wp-content/uploads/2024/12/cropped-Logo-Santa-Gema.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-aleman-de-madrid-deutsche-schule-madrid",
@@ -218582,7 +218667,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w298477548",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-virgen-del--2",
@@ -218606,7 +218693,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w300460902",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-principe-felipe",
@@ -218675,7 +218764,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w301073261",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-madres-concepcionistas",
@@ -218718,7 +218809,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w301602108",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://scjfrayluis.com/wp-content/uploads/2024/10/logotiktok.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-residencia-universitaria-resa-claudio-coello",
@@ -218730,7 +218823,7 @@
   "addr": "Calle de Claudio Coello 141",
   "phone": "+34 910380008",
   "web": "https://resa.es/es/residencias/madrid/claudio-coello/",
-  "email": "",
+  "email": "claudiocoello@resa.es",
   "levels": [
    "Secundaria"
   ],
@@ -218740,7 +218833,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w301602113",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-colegio-de--2",
@@ -218764,7 +218859,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w301858870",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-nuestra-sen-17",
@@ -218789,7 +218885,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w301967400",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://sagradocorazonfranciscanas.es/wp-content/uploads/elementor/thumbs/INFANTIL-r3rf4hqqozed8c1s243vuxypyp2tspypsdj5g79xow.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-san-saturio",
@@ -218814,7 +218912,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w301967402",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-luz-casanov-2",
@@ -218838,7 +218938,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w301967411",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-luz-casanova-usera",
@@ -218880,7 +218982,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w302850123",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-amor-de-dio-2",
@@ -218904,7 +219007,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w304929219",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-san-eulogio",
@@ -218928,7 +219033,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w304929223",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegiosaneulogio.com/wp-content/uploads/elementor/thumbs/ORDENADORES-scaled-ri6pasq2flmdvnou0w20yeu1obzhj6tssggzop890g.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-cristo-rey-2",
@@ -218953,7 +219060,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w307331602",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-la-milagrosa",
@@ -218976,7 +219085,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w308903469",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-la-merced",

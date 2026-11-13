@@ -7104,9 +7104,29 @@
    "n": 1,
    "at": "2026-11-12T23:14:50.932Z",
    "error": "Overpass 504"
+  },
+  "CL|Osorno": {
+   "n": 1,
+   "at": "2026-11-13T07:52:24.542Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-13T07:38:00.778Z",
+   "cities": [],
+   "added": 0,
+   "enriched": 0,
+   "photos": 16,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "CL|Osorno: The operation was aborted due to timeout"
+   ],
+   "minutes": 15.9,
+   "total": 19608
+  },
   {
    "at": "2026-11-13T05:17:29.611Z",
    "cities": [
@@ -9438,40 +9458,6 @@
    "errors": [],
    "minutes": 16.6,
    "total": 11470
-  },
-  {
-   "at": "2026-11-10T03:40:41.671Z",
-   "cities": [
-    {
-     "cc": "NI",
-     "city": "Managua",
-     "found": 136,
-     "updated": 0,
-     "osm": 320
-    },
-    {
-     "cc": "MX",
-     "city": "Reynosa",
-     "found": 5,
-     "updated": 0,
-     "osm": 35
-    },
-    {
-     "cc": "MX",
-     "city": "Torreón",
-     "found": 32,
-     "updated": 0,
-     "osm": 114
-    }
-   ],
-   "added": 173,
-   "enriched": 0,
-   "photos": 42,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 18,
-   "total": 10174
   }
  ]
 }
