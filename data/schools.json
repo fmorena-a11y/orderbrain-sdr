@@ -219130,7 +219130,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w313111534",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-santo-domingo",
@@ -219174,7 +219176,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w318323379",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegio-el-cid.es/s/misc/logo.png?t=1792612766",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-maria-moliner",
@@ -219287,7 +219291,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w320090231",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-nuestra-sen-19",
@@ -219311,7 +219316,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w320566768",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-colegio-nuestra-senora-de-fatima",
@@ -219530,7 +219536,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w322589238",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-maria-inmac",
@@ -219555,7 +219562,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w322589254",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-san-bernard",
@@ -219580,7 +219589,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w322682093",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-docente-extranjero-en-espana-colegio-japones-de-madrid-alum-ext",
@@ -219600,7 +219611,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w323172608",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-nuestra-sen-20",
@@ -219624,7 +219637,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w323172609",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-chaves-nogales",
@@ -219709,7 +219724,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w325114883",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-divina-past-2",
@@ -219733,7 +219750,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w325114885",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-claret",
@@ -219757,7 +219776,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w325114887",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-arcadia",
@@ -219781,7 +219802,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w325451184",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-chamberi",
@@ -219805,7 +219828,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w326028239",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://maristaschamberi.com/wp-content/uploads/2020/09/logo_chamberi_def.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-divina-past-3",
@@ -219829,7 +219854,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w326028252",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-amor-miseri",
@@ -219853,7 +219879,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w326028253",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-trilema-avenida-americ",
@@ -219876,7 +219904,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w327900055",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-fundacion-c",
@@ -219923,7 +219953,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w327900063",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-divino-cora",
@@ -219948,7 +219980,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w327900074",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-tres-olivos",
@@ -219997,7 +220031,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w328889769",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-especial-nuestra-senora-de-las-victorias",
@@ -220017,7 +220053,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w328889777",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-indima",
@@ -220041,7 +220079,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w328889780",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-maria-cristina",
@@ -220111,7 +220151,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w331008166",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-nuestra-sen-21",
@@ -220135,7 +220177,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w331008167",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-colegio-esc",
@@ -220159,7 +220203,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w331008168",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-antonio-fontan",
@@ -220208,7 +220253,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w331164990",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://aravacamariareina.salesianas.org/wp-content/uploads/2014/10/077.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-pedagogia-waldorf-de-a",
@@ -220231,7 +220278,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w331164991",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-dionisia-plaza",
@@ -220278,7 +220327,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w331950002",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-cumbre-oxford",
@@ -220301,7 +220352,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w331950010",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegiocumbreoxford.com/wp-content/uploads/2024/09/logo-de-instagram.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-santa-maria-del-valle",
@@ -220347,7 +220400,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w332582744",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-enriqueta-a",
@@ -220371,7 +220426,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w334270348",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-jesus-nazar",
@@ -220395,7 +220452,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w335090518",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-privado-solynieve",
@@ -220467,7 +220526,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w338170259",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-diocesano-maria-inmaculada",
@@ -220492,7 +220553,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w338170265",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-especial-atenpace",
@@ -220512,7 +220575,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w338170266",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-especial-numen",
@@ -220532,7 +220597,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w338170300",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-arturo-sori",
@@ -220556,7 +220623,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w338379441",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-colegio-aba",
@@ -220580,7 +220649,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w338379443",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-brains-maria-lombillo",
@@ -220626,7 +220697,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w340202211",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-menor-nuestra-senora-de-loreto",
@@ -220650,7 +220723,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w340456584",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-cenit",
@@ -220673,7 +220748,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w342586523",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://i0.wp.com/colegiocenit.es/wp-content/uploads/2026/02/logo-cole-1.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-jesuitinas-mater-purissima",
@@ -220698,7 +220775,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w344005552",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.jesuitinasmater.es/wp-content/uploads/2022/06/Horizontal-Blanco-matter-peq.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-sagrados-co",
@@ -220722,7 +220801,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w344070070",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-primaria-y-secundaria-santa-maria-del-vall",
@@ -220746,7 +220827,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w344070071",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.santamariadelvallemadrid.es/cache/0/1/7/8/d/0178dea4693f91d0f9552d657168527a12574f12.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-secundaria-san-patricio-del-soto",
@@ -220769,7 +220852,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w349877005",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-bienaventur-2",
@@ -220794,7 +220879,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w349878009",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://irlandesaselsoto.net/wp-content/uploads/2021/01/Irlandesas-El-Soto.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-docente-extranjero-en-espana-colegio-escandinavo-sueco",
@@ -220814,7 +220901,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w349882539",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-highlands-el-encinar",
@@ -220839,7 +220928,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w349925412",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.highlandselencinar.es/wp-content/uploads/2024/09/DRONE_ENCINAR14-scaled.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-especial-buenafuente",
@@ -220859,7 +220950,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w350124160",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegiojuanxxiii.org/hubfs/destacada-colegio.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-nervion",
@@ -220883,7 +220976,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w350695095",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-orgaz-nursery-school",
@@ -396910,6 +397005,1612 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1486406449",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-instituto-domene",
+  "name": "Instituto Domene",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.254628,
+  "lng": -103.718753,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2125820282",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-colegio-anahuac",
+  "name": "Colegio Anahuac",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.258864,
+  "lng": -103.718436,
+  "addr": "Palma Ruvelina Num. 53",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802374403",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-colegio-andy",
+  "name": "Colegio Andy",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.281906,
+  "lng": -103.725196,
+  "addr": "Paseo de las Higueras Num. 901",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802374406",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-colegio-colima",
+  "name": "Colegio Colima",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.250896,
+  "lng": -103.730533,
+  "addr": "Centenario Num. 225",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802374417",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-colegio-cuauhtemoc",
+  "name": "Colegio Cuauhtémoc",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.240056,
+  "lng": -103.727012,
+  "addr": "De la Vega Num. 138",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802374419",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-colegio-pablo-silva-garcia",
+  "name": "Colegio Pablo Silva Garcia",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.255012,
+  "lng": -103.754553,
+  "addr": "Avenida Pablo Silva Garcia Num. 622",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802374435",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-instituto-adonai",
+  "name": "Instituto Adonai",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.248895,
+  "lng": -103.727496,
+  "addr": "Corregidora Num. 239",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802375718",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-instituto-cambridge",
+  "name": "Instituto CAMbridge",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.23518,
+  "lng": -103.71958,
+  "addr": "Morelos Num. 565",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802375724",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-instituto-colimense-de-estudios-superiores-a-c",
+  "name": "Instituto Colimense de Estudios Superiores, A.C.",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.248615,
+  "lng": -103.707709,
+  "addr": "Avenida Felipe Sevilla Del Rio Num. 620",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802375726",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-instituto-federico-froebel",
+  "name": "Instituto Federico Froebel",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.233036,
+  "lng": -103.721067,
+  "addr": "Calzada Galvan Sur Num. 269",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802375730",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-instituto-fray-pedro-de-gante-a-c",
+  "name": "Instituto Fray Pedro de Gante, A.C.",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.235095,
+  "lng": -103.731627,
+  "addr": "Medellin Y 20 de Noviembre",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802375732",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-instituto-jose-vasconcelos",
+  "name": "Instituto Jose Vasconcelos",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.256075,
+  "lng": -103.723805,
+  "addr": "Aquiles Serdan Num. 573",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802375735",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-instituto-marcela-domene-a-c",
+  "name": "Instituto Marcela Domene, A.C.",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.254361,
+  "lng": -103.718596,
+  "addr": "Constitucion Num. 749",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802375742",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-instituto-paulo-freire",
+  "name": "Instituto Paulo Freire",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.257912,
+  "lng": -103.709678,
+  "addr": "General Silverio Nu�ez Num. 1520",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802375752",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-instituto-superior-de-educacion-normal-del-estado-de-colima-profr-greg",
+  "name": "Instituto Superior de Educacion Normal Del Estado de Colima Profr. Gregorio Torres Quintero",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.253886,
+  "lng": -103.725122,
+  "addr": "Tercer Anillo Periferico, Prolongacion Oriente Kilometro 4. 5",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802376157",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-instituto-tecnologico-y-de-estudios-superiores-de-monterrey-campus-col",
+  "name": "Instituto Tecnologico Y de Estudios Superiores de Monterrey CAMpus Colima",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.255985,
+  "lng": -103.709817,
+  "addr": "Avenida Ignacio Sandoval Num. 1410",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802376160",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-instituto-universitario-de-bellas-artes",
+  "name": "Instituto Universitario de Bellas Artes",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.248831,
+  "lng": -103.721537,
+  "addr": "Manuel Gallardo Zamora Num. 99",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802376165",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-liceo-llankay-s-c",
+  "name": "Liceo Llankay, S.C.",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.257361,
+  "lng": -103.708512,
+  "addr": "Ignacio Sandoval Num. 1600",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802376535",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-preparatoria-anahuac",
+  "name": "Preparatoria Anahuac",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.258014,
+  "lng": -103.723597,
+  "addr": "Amado Nervo Num. 700",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802377127",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-universidad-del-valle-de-atemajac-plantel-colima",
+  "name": "Universidad Del Valle de Atemajac, Plantel Colima",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.246396,
+  "lng": -103.715039,
+  "addr": "Camino El Chanal a 100 Mts. Del Tercer Anillo Periferico",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802378191",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-universidad-multitecnica-profesional",
+  "name": "Universidad Multitecnica Profesional",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.24523,
+  "lng": -103.737115,
+  "addr": "Rio Marabasco Num. 449",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802378192",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-universidad-univer-colima",
+  "name": "Universidad Univer Colima",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.254863,
+  "lng": -103.724683,
+  "addr": "Aquiles Serdan Num. 549 Y 560",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802378194",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-universidad-de-baja-california",
+  "name": "universidad de baja california",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.236021,
+  "lng": -103.719312,
+  "addr": "Pedro Galvan Sur 128",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4906276431",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-colegio-ateneo-de-colima",
+  "name": "Colegio Ateneo de Colima",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.292507,
+  "lng": -103.746946,
+  "addr": "Libramiento Comala - Suchitlan 930",
+  "phone": "",
+  "web": "https://www.ateneodecolima.com/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7003450258",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-universidad-de-colima",
+  "name": "Universidad de Colima",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.249195,
+  "lng": -103.699371,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w271818376",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-universidad-de-colima-campus-norte",
+  "name": "Universidad de Colima Campus Norte",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.262362,
+  "lng": -103.687032,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w346629240",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-instituto-cultural-de-colima-adoratrices",
+  "name": "Instituto Cultural de Colima (Adoratrices)",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.249641,
+  "lng": -103.714559,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w401293175",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-universidad-de-colima-campus-villa-de-alvarez",
+  "name": "Universidad de Colima Campus Villa de Álvarez",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.264882,
+  "lng": -103.742251,
+  "addr": "Avenida Josefa Ortiz de Domínguez 64, La Haciendita",
+  "phone": "",
+  "web": "https://www.ucol.mx/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w564437580",
+  "found": "2026-11-13",
+  "imgTry": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-colegio-adonai",
+  "name": "Colegio ADONAI",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.258544,
+  "lng": -103.696321,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w597484038",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-instituto-cedep",
+  "name": "Instituto CEDEP",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.251898,
+  "lng": -103.74508,
+  "addr": "Prolongación Benito Juárez 795",
+  "phone": "+52 312 330 0201",
+  "web": "https://www.facebook.com/CEDEP-Bachillerato-Colima-COL-540865009338678/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w749106432",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-universidad-pedagogica-nacional-unidad-colima",
+  "name": "Universidad Pedagógica Nacional Unidad Colima",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.275339,
+  "lng": -103.734809,
+  "addr": "Calle Gabriel León Polanco 262",
+  "phone": "",
+  "web": "http://www.upncolima.org.mx/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w784086812",
+  "found": "2026-11-13",
+  "imgTry": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-colegio-ingles-de-colima",
+  "name": "Colegio Inglés de Colima",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.257174,
+  "lng": -103.727084,
+  "addr": "Calzada La Armonía 354",
+  "phone": "+52 312 330 4100",
+  "web": "https://www.colegioingles.mx/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w827518557",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "villa-de-alvarez-colegio-porfirio-gaytan-nunez",
+  "name": "Colegio Porfirio Gaytán Nuñez",
+  "city": "Villa de Álvarez",
+  "country": "México",
+  "lat": 19.257204,
+  "lng": -103.727611,
+  "addr": "Calzada La Armonía 358",
+  "phone": "",
+  "web": "https://www.facebook.com/ColegioPorfirioGaytan/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w827518558",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "puerto-plata-centro-educativo-george-arzeno-brugal-fe-y-alegria",
+  "name": "Centro Educativo George Arzeno Brugal Fe y Alegría",
+  "city": "Puerto Plata",
+  "country": "República Dominicana",
+  "lat": 19.789068,
+  "lng": -70.729331,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2379020433",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "puerto-plata-bujutsu-international-school",
+  "name": "Bujutsu International School",
+  "city": "Puerto Plata",
+  "country": "República Dominicana",
+  "lat": 19.775739,
+  "lng": -70.66146,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2379359235",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "puerto-plata-centro-educativo-adventista",
+  "name": "Centro Educativo Adventista",
+  "city": "Puerto Plata",
+  "country": "República Dominicana",
+  "lat": 19.795811,
+  "lng": -70.690834,
+  "addr": "Duarte",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4878456823",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "puerto-plata-universidad-tecnologica-de-santiago-recinto-de-puerto-plata",
+  "name": "Universidad Tecnológica de Santiago - Recinto de Puerto Plata",
+  "city": "Puerto Plata",
+  "country": "República Dominicana",
+  "lat": 19.790673,
+  "lng": -70.706393,
+  "addr": "Avenida Manolo Aurelio Tavárez Justo",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w853491753",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "caaguazu-instituto-profesional-el-eden",
+  "name": "Instituto Profesional El Eden",
+  "city": "Caaguazú",
+  "country": "Paraguay",
+  "lat": -25.475975,
+  "lng": -56.017177,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4557676791",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "el-vigia-unidad-educativa-alfa",
+  "name": "Unidad Educativa Alfa",
+  "city": "El Vigía",
+  "country": "Venezuela",
+  "lat": 8.612985,
+  "lng": -71.646994,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1176439071",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "el-vigia-unidad-educativa-cecilio-acosta",
+  "name": "Unidad Educativa Cecilio Acosta",
+  "city": "El Vigía",
+  "country": "Venezuela",
+  "lat": 8.614309,
+  "lng": -71.649813,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2300280578",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "el-vigia-colegio-santa-teresita",
+  "name": "Colegio Santa Teresita",
+  "city": "El Vigía",
+  "country": "Venezuela",
+  "lat": 8.620034,
+  "lng": -71.646793,
+  "addr": "Calle 3",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4453787491",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "el-vigia-liceo-alberto-adriani",
+  "name": "Liceo Alberto Adriani",
+  "city": "El Vigía",
+  "country": "Venezuela",
+  "lat": 8.621578,
+  "lng": -71.656059,
+  "addr": "Calle 9-a",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4453884589",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "el-vigia-colegio-romulo-gallegos",
+  "name": "Colegio Rómulo Gallegos",
+  "city": "El Vigía",
+  "country": "Venezuela",
+  "lat": 8.61516,
+  "lng": -71.649003,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4457723196",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "el-vigia-unidad-educativa-luis-beltran-prieto-figueroa",
+  "name": "Unidad Educativa Luis Beltran Prieto Figueroa",
+  "city": "El Vigía",
+  "country": "Venezuela",
+  "lat": 8.634493,
+  "lng": -71.621869,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5263585472",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "el-vigia-unidad-educativa-la-blanca",
+  "name": "Unidad Educativa La Blanca",
+  "city": "El Vigía",
+  "country": "Venezuela",
+  "lat": 8.627322,
+  "lng": -71.623567,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5263585479",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "el-vigia-unidad-educativa-josefa-camejo",
+  "name": "Unidad educativa Josefa Camejo",
+  "city": "El Vigía",
+  "country": "Venezuela",
+  "lat": 8.626465,
+  "lng": -71.630665,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5463237624",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "el-vigia-universidad-de-los-andes-nucleo-el-vigia",
+  "name": "Universidad de Los Andes Nucleo El Vigía",
+  "city": "El Vigía",
+  "country": "Venezuela",
+  "lat": 8.618548,
+  "lng": -71.690094,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w221149562",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "el-vigia-unidad-educativa-dr-claudio-corredor-muller",
+  "name": "Unidad Educativa Dr Claudio Corredor Müller",
+  "city": "El Vigía",
+  "country": "Venezuela",
+  "lat": 8.629378,
+  "lng": -71.620693,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1360449933",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-maria-auxiliadora",
+  "name": "Colegio María Auxiliadora",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.970236,
+  "lng": -5.658092,
+  "addr": "Calle Padre Cámara 1",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n634981129",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-padres-trinitarios",
+  "name": "Colegio Padres Trinitarios",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.971894,
+  "lng": -5.675943,
+  "addr": "Avenida Filiberto Villalobos 82",
+  "phone": "",
+  "web": "http://www.salamanca.colegiostrinitarios.com/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n677091429",
+  "found": "2026-11-13",
+  "imgTry": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-amor-de-dios",
+  "name": "Colegio Amor de Dios",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.96764,
+  "lng": -5.661929,
+  "addr": "Calle Vázquez Coronado 25-27",
+  "phone": "+34 923 280 890",
+  "web": "http://www.colegioamordediossalamanca.com/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n677091445",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-instituto-de-ensenanzas-aplicadas",
+  "name": "Instituto de Enseñanzas Aplicadas",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.97667,
+  "lng": -5.657863,
+  "addr": "Calle de Fray Junípero Serra 22",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n677091466",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-san-estanislao-de-kostka",
+  "name": "Colegio San Estanislao de Kostka",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.964062,
+  "lng": -5.654434,
+  "addr": "Paseo de San Antonio 42-44",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n691474215",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-abaco-instituto-hispanico-de-salamanca",
+  "name": "Ábaco Instituto Hispánico de Salamanca",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.963187,
+  "lng": -5.671249,
+  "addr": "",
+  "phone": "+34 923 26 75 26",
+  "web": "http://abacosalamanca.com/",
+  "email": "info@ihdesa.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3496537078",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-academia",
+  "name": "Academia",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.970053,
+  "lng": -5.665462,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3896535244",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-academia-aula-xxi",
+  "name": "Academia Aula XXI",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.969007,
+  "lng": -5.672733,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6976652863",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-servicio-de-deportes-de-la-universidad-de-salamanca",
+  "name": "Servicio de deportes de la universidad de Salamanca",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.962471,
+  "lng": -5.668906,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7844879884",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-academia-paloma",
+  "name": "Academia Paloma",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.967803,
+  "lng": -5.653054,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n8533357206",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-concertado-de-pizarrales",
+  "name": "Colegio Concertado de Pizarrales",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.974055,
+  "lng": -5.67389,
+  "addr": "",
+  "phone": "+34 923 229 853",
+  "web": "http://colegioconcertadopizarrales.blogspot.com.es/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w47454604",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-santa-teresa-de-jesus",
+  "name": "Colegio Santa Teresa de Jesús",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.97799,
+  "lng": -5.663758,
+  "addr": "",
+  "phone": "",
+  "web": "https://salamanca.escuelateresiana.com/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w53745359",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-santisima-trinidad",
+  "name": "Colegio Santísima Trinidad",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.972152,
+  "lng": -5.674201,
+  "addr": "Paseo de Carmelitas 46,52",
+  "phone": "+34 923 225 477",
+  "web": "https://www.trinitarias.com/",
+  "email": "direccion@trinitarias.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w57851491",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-la-milagrosa",
+  "name": "Colegio La Milagrosa",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.962124,
+  "lng": -5.653316,
+  "addr": "Calle Príncipe de Vergara 45-49",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w70991129",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-sagrado-corazon-jesuitinas",
+  "name": "Colegio Sagrado Corazón (Jesuitinas)",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.957694,
+  "lng": -5.664646,
+  "addr": "Avenida de los Reyes de España 3",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w81604745",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-instituto-de-bachillerato-torrente-ballester",
+  "name": "Instituto de Bachillerato Torrente Ballester",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.952583,
+  "lng": -5.618689,
+  "addr": "Calle Capitán General Gutiérrez Mellado 1",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w253129864",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-rural-agrupado-la-flecha",
+  "name": "Colegio Rural Agrupado La Flecha",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.980734,
+  "lng": -5.609869,
+  "addr": "Calle Gabriel y Galán 3",
+  "phone": "",
+  "web": "http://cralaflecha.centros.educa.jcyl.es/sitio/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w273826944",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-misioneras-de-la-providencia",
+  "name": "Colegio Misioneras de la Providencia",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.965917,
+  "lng": -5.672332,
+  "addr": "Avenida de los Maristas 1,9",
+  "phone": "+34 923 263 522",
+  "web": "https://mprovidenciasa.es/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w342268061",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-maestro-avila",
+  "name": "Colegio Maestro Ávila",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.964208,
+  "lng": -5.670863,
+  "addr": "",
+  "phone": "+34 923214200",
+  "web": "http://www.colegiomaestroavila.com",
+  "email": "secretario@colegiomaestroavila.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w346441045",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-marista-champagnat",
+  "name": "Colegio Marista Champagnat",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.966892,
+  "lng": -5.673663,
+  "addr": "Avenida de los Maristas 19,55",
+  "phone": "+34 923 269 400",
+  "web": "https://maristassalamanca.es/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w362935456",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-sagrada-familia-siervas-de-san-jose",
+  "name": "Colegio Sagrada Familia Siervas de San José",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.961942,
+  "lng": -5.661443,
+  "addr": "Calle Marquesa de Almarza 1,9",
+  "phone": "+34 923 270 011",
+  "web": "https://www.sagradafamiliasiervas.es/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w372799294",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-esclavas-del-sagrado-corazon-de-jesus",
+  "name": "Colegio Esclavas del Sagrado Corazón de Jesús",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.966729,
+  "lng": -5.651836,
+  "addr": "Paseo del Rollo 39,53",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w372800060",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-infantil-los-rosales",
+  "name": "Colegio Infantil Los Rosales",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.966806,
+  "lng": -5.626932,
+  "addr": "Calle F 12",
+  "phone": "+34923182157",
+  "web": "https://www.escuelainfantil-losrosales.com/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w452014913",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-universidad-pontificia",
+  "name": "Universidad Pontificia",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.962923,
+  "lng": -5.666882,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w468662728",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-de-anaya",
+  "name": "Colegio de Anaya",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.961665,
+  "lng": -5.665397,
+  "addr": "Plaza de Anaya",
+  "phone": "",
+  "web": "https://facultadfilologia.usal.es/",
+  "email": "dec.ffl@usal.es",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r394492",
+  "found": "2026-11-13",
+  "img": "https://facultadfilologia.usal.es/wp-content/uploads/sites/84/2020/12/logo-FAC-FILOLOGIA.png",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-mayor-arzobispo-fonseca",
+  "name": "Colegio Mayor Arzobispo Fonseca",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.965466,
+  "lng": -5.670348,
+  "addr": "Calle Fonseca 4",
+  "phone": "+34 923 29 45 70",
+  "web": "https://colegiofonseca.usal.es/",
+  "email": "fonseca@usal.es",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r408281",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-san-agustin",
+  "name": "Colegio San Agustín",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.982481,
+  "lng": -5.655993,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.colegiosanagustin.com/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r929539",
+  "found": "2026-11-13",
+  "imgTry": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-salesiano-san-jose",
+  "name": "Colegio Salesiano San José",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.97486,
+  "lng": -5.671594,
+  "addr": "",
+  "phone": "+34 923 225 983",
+  "web": "https://www.salesianospizarrales.com/",
+  "email": "info@salesianospizarrales.com",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r1079072",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-antonio-machado",
+  "name": "Colegio Antonio Machado",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.966488,
+  "lng": -5.646308,
+  "addr": "Calle del Pintor Díaz Caneja 28",
+  "phone": "+34 923 18 04 60",
+  "web": "https://www.colegioantoniomachado.es/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r1111929",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-san-jose",
+  "name": "Colegio San José",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.980621,
+  "lng": -5.660141,
+  "addr": "Avenida de la Merced 52",
+  "phone": "+34 923 22 60 04",
+  "web": "https://colegiosanjosesalamanca.es/",
+  "email": "secretaria@colegiosanjosesalamanca.es",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r1113114",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-divino-maestro",
+  "name": "Colegio Divino Maestro",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.977115,
+  "lng": -5.659546,
+  "addr": "Avenida de San Agustín 26-42",
+  "phone": "",
+  "web": "https://www.divinomaestrofesalamanca.com/",
+  "email": "direccion@divinomaestrofesalamanca.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r1123775",
+  "found": "2026-11-13",
+  "img": "https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQd85vdnh_PHnmlS3LhUghl82ENX21iY8B8eqz12c3QC_9TTIpJ2Ufe1PqQUHAiZ09duR9edekAZKNqurqbE0zMcFuGv-ZhNOyezvJojR69n8jNXRjz8QJIX7xp50hBSIxZC-oUb_1pt_yclp1EqsSN5RP5agTNVnSjmPXqGNvc6evAd-C__5x4DtCMNVZ0=w16383",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-calasanz",
+  "name": "Colegio Calasanz",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.959912,
+  "lng": -5.658506,
+  "addr": "Paseo de Canalejas 139-159",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r1157359",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-san-juan-bosco-salesianas",
+  "name": "Colegio San Juan Bosco (Salesianas)",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.966023,
+  "lng": -5.658278,
+  "addr": "Paseo de Canalejas 38-54",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r1206754",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "salamanca-colegio-montessori",
+  "name": "Colegio Montessori",
+  "city": "Salamanca",
+  "country": "España",
+  "lat": 40.980285,
+  "lng": -5.649569,
+  "addr": "Calle Rafael Lapesa 1",
+  "phone": "+34 923 240 567",
+  "web": "https://www.montessorisalamanca.net/",
+  "email": "info@montessorisalamanca.net",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r1270118",
   "found": "2026-11-13"
  }
 ]

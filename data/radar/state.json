@@ -7042,7 +7042,12 @@
   "ES|n29015863": "2026-11-13T05:29:11.985Z",
   "VE|n829834635": "2026-11-13T05:29:51.491Z",
   "CL|Quilpué": "2026-11-13T05:30:27.383Z",
-  "CL|Talcahuano": "2026-11-13T05:30:59.572Z"
+  "CL|Talcahuano": "2026-11-13T05:30:59.572Z",
+  "MX|Villa de Álvarez": "2026-11-13T09:17:50.974Z",
+  "DO|n11610553782": "2026-11-13T09:24:06.713Z",
+  "PY|n2625331790": "2026-11-13T09:24:38.251Z",
+  "VE|n844625993": "2026-11-13T09:25:03.622Z",
+  "ES|n240423010": "2026-11-13T09:32:44.738Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7112,6 +7117,55 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-13T09:17:19.899Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Villa de Álvarez",
+     "found": 33,
+     "updated": 2,
+     "osm": 271
+    },
+    {
+     "cc": "DO",
+     "city": "Puerto Plata",
+     "found": 4,
+     "updated": 0,
+     "osm": 12
+    },
+    {
+     "cc": "PY",
+     "city": "Caaguazú",
+     "found": 1,
+     "updated": 0,
+     "osm": 65
+    },
+    {
+     "cc": "VE",
+     "city": "El Vigía",
+     "found": 10,
+     "updated": 0,
+     "osm": 16
+    },
+    {
+     "cc": "ES",
+     "city": "Salamanca",
+     "found": 34,
+     "updated": 1,
+     "osm": 129
+    }
+   ],
+   "added": 82,
+   "enriched": 0,
+   "photos": 12,
+   "contacts": 2,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 16.9,
+   "total": 19690
+  },
   {
    "at": "2026-11-13T07:38:00.778Z",
    "cities": [],
@@ -9410,54 +9464,6 @@
    "errors": [],
    "minutes": 16.5,
    "total": 13226
-  },
-  {
-   "at": "2026-11-10T05:19:07.558Z",
-   "cities": [
-    {
-     "cc": "ES",
-     "city": "Madrid",
-     "found": 802,
-     "updated": 7,
-     "osm": 2394
-    },
-    {
-     "cc": "ES",
-     "city": "Barcelona",
-     "found": 60,
-     "updated": 0,
-     "osm": 1303
-    },
-    {
-     "cc": "ES",
-     "city": "Valencia",
-     "found": 129,
-     "updated": 1,
-     "osm": 518
-    },
-    {
-     "cc": "ES",
-     "city": "Sevilla",
-     "found": 187,
-     "updated": 0,
-     "osm": 448
-    },
-    {
-     "cc": "ES",
-     "city": "Zaragoza",
-     "found": 118,
-     "updated": 1,
-     "osm": 313
-    }
-   ],
-   "added": 1296,
-   "enriched": 0,
-   "photos": 38,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 16.6,
-   "total": 11470
   }
  ]
 }
