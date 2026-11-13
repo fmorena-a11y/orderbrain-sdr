@@ -7061,7 +7061,14 @@
   "MX|Córdoba": "2026-11-13T13:42:12.201Z",
   "DO|n3445866928": "2026-11-13T13:42:56.118Z",
   "MX|Zacatecas": "2026-11-13T15:14:54.071Z",
-  "PR|n1902275067": "2026-11-13T15:21:09.081Z"
+  "PR|n1902275067": "2026-11-13T15:21:09.081Z",
+  "DO|n250651408": "2026-11-13T17:14:45.814Z",
+  "ES|n306620202": "2026-11-13T17:15:11.166Z",
+  "CO|n3481839540": "2026-11-13T17:22:51.299Z",
+  "MX|Ciudad Valles": "2026-11-13T17:23:20.787Z",
+  "MX|San José del Cabo": "2026-11-13T17:23:57.504Z",
+  "AR|San Carlos de Bariloche": "2026-11-13T17:24:33.823Z",
+  "CO|n703168127": "2026-11-13T17:30:53.156Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7136,6 +7143,69 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-13T17:14:14.506Z",
+   "cities": [
+    {
+     "cc": "DO",
+     "city": "Santa Cruz de Barahona",
+     "found": 5,
+     "updated": 0,
+     "osm": 14
+    },
+    {
+     "cc": "ES",
+     "city": "Parla",
+     "found": 0,
+     "updated": 0,
+     "osm": 68
+    },
+    {
+     "cc": "CO",
+     "city": "Sogamoso",
+     "found": 8,
+     "updated": 0,
+     "osm": 18
+    },
+    {
+     "cc": "MX",
+     "city": "Ciudad Valles",
+     "found": 17,
+     "updated": 1,
+     "osm": 103
+    },
+    {
+     "cc": "MX",
+     "city": "San José del Cabo",
+     "found": 2,
+     "updated": 0,
+     "osm": 12
+    },
+    {
+     "cc": "AR",
+     "city": "San Carlos de Bariloche",
+     "found": 16,
+     "updated": 0,
+     "osm": 72
+    },
+    {
+     "cc": "CO",
+     "city": "Pitalito",
+     "found": 14,
+     "updated": 0,
+     "osm": 33
+    }
+   ],
+   "added": 62,
+   "enriched": 0,
+   "photos": 16,
+   "contacts": 14,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 18.5,
+   "total": 19904
+  },
   {
    "at": "2026-11-13T15:06:25.448Z",
    "cities": [
@@ -9329,48 +9399,6 @@
    ],
    "minutes": 19.3,
    "total": 14047
-  },
-  {
-   "at": "2026-11-10T13:25:56.869Z",
-   "cities": [
-    {
-     "cc": "PE",
-     "city": "Piura",
-     "found": 0,
-     "updated": 0,
-     "osm": 376
-    },
-    {
-     "cc": "PE",
-     "city": "Iquitos",
-     "found": 0,
-     "updated": 0,
-     "osm": 231
-    },
-    {
-     "cc": "CO",
-     "city": "Manizales",
-     "found": 0,
-     "updated": 0,
-     "osm": 86
-    },
-    {
-     "cc": "MX",
-     "city": "General Escobedo",
-     "found": 0,
-     "updated": 0,
-     "osm": 165
-    }
-   ],
-   "added": 0,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 24,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 14.8,
-   "total": 13785
   }
  ]
 }

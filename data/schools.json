@@ -237277,7 +237277,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w212151349",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-carachipampa",
@@ -237297,7 +237299,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w225136737",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+59179723521",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-universidad-tecnica-privada-cosmos",
@@ -237343,7 +237348,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w230998497",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://web.ucatec.edu.bo/assets/fotos/cocha-portada.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-san-rafael",
@@ -237381,7 +237388,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w236150572",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-felix-martinez",
@@ -237711,7 +237720,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w353566379",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+59177411526",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-nueva-vera-cruz",
@@ -237828,7 +237840,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w391138045",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+59160725709",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-titos-linde",
@@ -237869,7 +237884,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w408164499",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-jorge-vasquez",
@@ -237948,7 +237964,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w422765122",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-14-de-septiembre",
@@ -238096,7 +238114,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w463377496",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-espana",
@@ -238269,7 +238289,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w504071095",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-universidad-de-aquino-bolivia-2",
@@ -238704,7 +238726,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w578944827",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-boliviano-argentino",
@@ -238724,7 +238748,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w579368181",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-universidad-privada-del-valle",
@@ -239250,7 +239276,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w808247223",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+59177530490",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-centro-de-extension-universitaria-de-la-universidad-privada-boliviana",
@@ -239273,7 +239302,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w854126375",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-el-salvador",
@@ -239443,7 +239473,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w895066623",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+59179338997",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-mariscal-sucre",
@@ -239518,7 +239551,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w901022159",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-26-de-octubre",
@@ -239643,7 +239678,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w925789538",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://unicen.edu.bo/wp-content/uploads/2025/07/favicon.png",
+  "whatsapp": "+59175907032",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-instituto-tecnologico-boliviano",
@@ -239683,7 +239721,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w936567919",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-san-francisco",
@@ -239724,7 +239764,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w970237858",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://ueadfs.educacionadventista.com/assets/images/fachada-padrao.jpg",
+  "whatsapp": "+59168583536",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-padre-luis-dies-del-pozo",
@@ -239765,7 +239808,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w986844020",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-adventista-cochabamba",
@@ -239842,7 +239886,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1035319265",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+59179338997",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-escuela-de-estudios-avanzados-en-odontologia",
@@ -239921,7 +239968,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1159763224",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQfmBG8c-JcT7EczsiNxfuQBEZFoKFkxBGXxat1ZbiD1_lLeL8cBQXX9XmG1Dd9YFl7xxFaa7S0GmueH-pKdhJbt5-acR1DR5w33ipzesTH48TR0J0QodHyIoBQ_yqQ8BkXIRyWwRaGE-QBDaGxM70fFmFLG_Xihjqh9Aog=w16383",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-universidad-tecnica-privada-cosmos-3",
@@ -239944,7 +239993,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1175175366",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://unitepc.edu.bo/wp-content/uploads/2023/07/logoUnitepc.png",
+  "whatsapp": "+59172228283",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-copacabana",
@@ -240021,7 +240073,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1477839258",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://ceamadremariaoliva.edu.bo/images/logo3.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-eeducativa-magic-kids-cala-cala",
@@ -240082,7 +240136,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1563359166",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://educacionbancaria.com/cochabamba/wp-content/uploads/2023/11/ideb2024.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-instituto-tecnologico-infocal-cochabamba-2",
@@ -240244,7 +240300,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n3845352950",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+5492236206387",
+  "webAt": "2026-11-13"
  },
  {
   "id": "mar-del-plata-mar-del-plata-day-school",
@@ -240286,7 +240345,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4884640821",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "mar-del-plata-instituto-general-san-martin",
@@ -243193,7 +243253,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w111634215",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "monterrey-instituto-regiomontano-de-la-salle-chepevera",
@@ -243755,7 +243816,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1196906183",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "monterrey-instituto-educativo-de-las-naciones-unides-ienu",
@@ -243831,7 +243893,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1467680339",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+528128916882",
+  "webAt": "2026-11-13"
  },
  {
   "id": "monterrey-instituto-franco-mexicano",
@@ -249726,7 +249791,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w594734751",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "bucaramanga-universidad-pontificia-bolivariana-campus-bucaramanga",
@@ -251562,7 +251628,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1524233430",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "ciudad-bolivar-u-e-colegio-santa-maria",
@@ -252104,7 +252172,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5516812446",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "santiago-de-los-caballeros-colegio-evangelico-alianza",
@@ -252160,7 +252229,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n8051180678",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "santiago-de-los-caballeros-liceo-prof-ana-mercedes-aybar",
@@ -252717,7 +252788,7 @@
   "addr": "Avenida Pontificia Universidad Católica",
   "phone": "809-580-1962",
   "web": "http://www.pucmm.edu.do",
-  "email": "",
+  "email": "info@pucmm.edu.do",
   "levels": [
    "Universidad"
   ],
@@ -252727,7 +252798,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "r16153576",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://pucmm.edu.do/wp-content/uploads/2026/07/grado.jpg",
+  "whatsapp": "+18095801962",
+  "webAt": "2026-11-13"
  },
  {
   "id": "barcelona-liceo-naricual",
@@ -259347,7 +259421,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n13988080060",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.essca.eu/app/themes/default/assets/images/front/share-fa48ea084c.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "malaga-universidad-alfonso-x-el-sabio-mare-nostrum",
@@ -259468,7 +259544,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w140990842",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://static.wixstatic.com/media/3b894e_d2105574ae8e42b78c3872cadbb91dcf%7Emv2.png/v1/fit/w_2500,h_1330,al_c/3b894e_d2105574ae8e42b78c3872cadbb91dcf%7Emv2.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "malaga-colegio-virgen-inmaculada-santa-maria-de-la-victoria",
@@ -259506,7 +259584,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w140990845",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-jose-moreno-villa",
@@ -259566,7 +259645,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w141797720",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-cerro-coronado",
@@ -259688,7 +259769,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w232230474",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "malaga-colegio-los-olivos",
@@ -259768,7 +259850,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w241785538",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-jose-calderon",
@@ -259866,7 +259950,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w282232826",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.eldivinopastor.com/wp-content/uploads/Puertas_Abiertas_Infantil_700x840.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-el-torcal",
@@ -259886,7 +259972,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w282232828",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-nuestra-senora-de-la-luz",
@@ -259947,7 +260035,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w284804806",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://ceiprectoraadelaidadelacalle.es/wp-content/uploads/2020/10/pacto-de-estado-rectora.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "malaga-instituto-provincial-de-formacion-permanente-nuestra-senora-del-carmen",
@@ -260172,7 +260262,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w347096015",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "malaga-escuela-de-formacion-profesional-santa-maria-de-los-angeles",
@@ -260485,7 +260577,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w454574878",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+34675830817",
+  "webAt": "2026-11-13"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-victoria-kent",
@@ -260646,7 +260741,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w466388113",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-rosa-galvez",
@@ -260705,7 +260801,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w469479120",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "malaga-colegio-nuestra-senora-de-montserrat",
@@ -260723,7 +260820,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w470671836",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-rafael-alberti",
@@ -260807,7 +260905,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w475641555",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-benito-perez-galdos",
@@ -260870,7 +260969,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w488204046",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "malaga-colegio-madre-asuncion",
@@ -260928,7 +261028,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w490145930",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegioandalucia.es/wp-content/uploads/2022/05/favicon.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "malaga-colegio-nuestra-senora-de-la-victoria",
@@ -261011,7 +261113,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w490973594",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://10ceddd5d8.cbaul-cdnwnd.com/59f8bb41fe914ab4c66939cd7ce65062/200000093-7b7c27b7c5/700/Se%20Necesita%20H%C3%A9roe.jpg?ph=10ceddd5d8",
+  "webAt": "2026-11-13"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-los-morales",
@@ -261216,7 +261320,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w538575279",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-garcia-lorca",
@@ -261355,7 +261460,7 @@
   "addr": "Calle Liborio García 3",
   "phone": "+34 952 290 300",
   "web": "http://www.colegioesclavasmalaga.com",
-  "email": "",
+  "email": "colegio@sagradocorazonmalaga.es",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -261363,7 +261468,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w550922716",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.sagradocorazonmalaga.es/wp-content/uploads/2024/04/ESOL-cambridge.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-jose-maria-hinojosa",
@@ -261425,7 +261532,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w550949039",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "malaga-colegio-platero",
@@ -401894,6 +402003,1206 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1456731033",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "santa-cruz-de-barahona-escuela-parroquial-academia-franciscana",
+  "name": "Escuela Parroquial Academia Franciscana",
+  "city": "Santa Cruz de Barahona",
+  "country": "República Dominicana",
+  "lat": 18.222561,
+  "lng": -71.094398,
+  "addr": "Calle 1ª",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w690571896",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "santa-cruz-de-barahona-universidad-catolica-tecnologica-de-barahona",
+  "name": "Universidad Católica Tecnológica de Barahona",
+  "city": "Santa Cruz de Barahona",
+  "country": "República Dominicana",
+  "lat": 18.217869,
+  "lng": -71.093028,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w690571924",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "santa-cruz-de-barahona-colegio-jesus-en-ti-confio",
+  "name": "Colegio Jesús en ti Confío",
+  "city": "Santa Cruz de Barahona",
+  "country": "República Dominicana",
+  "lat": 18.217772,
+  "lng": -71.091189,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w690571926",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "santa-cruz-de-barahona-liceo-dr-federico-henriquez-y-carvajal",
+  "name": "Liceo Dr. Federico Henríquez y Carvajal",
+  "city": "Santa Cruz de Barahona",
+  "country": "República Dominicana",
+  "lat": 18.210304,
+  "lng": -71.108307,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w690809047",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "santa-cruz-de-barahona-colegio-divina-pastora",
+  "name": "Colegio Divina Pastora",
+  "city": "Santa Cruz de Barahona",
+  "country": "República Dominicana",
+  "lat": 18.209283,
+  "lng": -71.096667,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w690819307",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "sogamoso-colegio-liceo-la-presentacion",
+  "name": "Colegio Liceo la Presentación",
+  "city": "Sogamoso",
+  "country": "Colombia",
+  "lat": 5.71457,
+  "lng": -72.942326,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7132206635",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "sogamoso-colegio-militar-inocencio-chinca",
+  "name": "Colegio Militar Inocencio Chinca",
+  "city": "Sogamoso",
+  "country": "Colombia",
+  "lat": 5.700357,
+  "lng": -72.942219,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.comilinocenciochinca.edu.co/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n14094456016",
+  "found": "2026-11-13",
+  "img": "https://www.comilinocenciochinca.edu.co/home/wp-content/uploads/2022/05/escudo.png",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "sogamoso-universidad-de-boyaca",
+  "name": "Universidad de Boyacá",
+  "city": "Sogamoso",
+  "country": "Colombia",
+  "lat": 5.727612,
+  "lng": -72.920984,
+  "addr": "Carrera 11 calle 26",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w457100509",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "sogamoso-colegio-reyes-patria",
+  "name": "Colegio Reyes Patria",
+  "city": "Sogamoso",
+  "country": "Colombia",
+  "lat": 5.725692,
+  "lng": -72.920177,
+  "addr": "Calle 26 cra. 9A",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w457112206",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "sogamoso-universidad-pedagogica-y-tecnologica-de-colombia",
+  "name": "Universidad Pedagógica y Tecnológica de Colombia",
+  "city": "Sogamoso",
+  "country": "Colombia",
+  "lat": 5.70462,
+  "lng": -72.941922,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w486194437",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "sogamoso-instituto-politecnico-alvaro-gonzalez-santana",
+  "name": "Instituto Politécnico Álvaro González Santana",
+  "city": "Sogamoso",
+  "country": "Colombia",
+  "lat": 5.703464,
+  "lng": -72.943365,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w486194442",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "sogamoso-patio-rojo-col-rosario",
+  "name": "Patio Rojo Col Rosario",
+  "city": "Sogamoso",
+  "country": "Colombia",
+  "lat": 5.719034,
+  "lng": -72.922485,
+  "addr": "",
+  "phone": "",
+  "web": "https://colrosario.controlacademico.com/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1307891767",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "sogamoso-colegio-nuestra-senora-del-rosario-sogamoso",
+  "name": "Colegio Nuestra Señora del Rosario Sogamoso",
+  "city": "Sogamoso",
+  "country": "Colombia",
+  "lat": 5.719003,
+  "lng": -72.922354,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "r14077642",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "ciudad-valles-escuela-preparatoria-profesora-julia-portes",
+  "name": "Escuela Preparatoria Profesora Julia Portes",
+  "city": "Ciudad Valles",
+  "country": "México",
+  "lat": 21.982116,
+  "lng": -99.015526,
+  "addr": "Calle Rotarios, Zona Centro",
+  "phone": "+5214813822677",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9114757417",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "ciudad-valles-preparatoria-rodolfo-rodriguez-suarez",
+  "name": "Preparatoria Rodolfo Rodríguez Suárez",
+  "city": "Ciudad Valles",
+  "country": "México",
+  "lat": 21.977461,
+  "lng": -99.016089,
+  "addr": "Calle Porfirio Díaz",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9132371992",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "ciudad-valles-instituto-politecnico-y-de-estudios-superiores-de-los-valles-de-oxitip",
+  "name": "Instituto Politecnico y de Estudios Superiores de los Valles de Oxitipa",
+  "city": "Ciudad Valles",
+  "country": "México",
+  "lat": 21.982084,
+  "lng": -98.978334,
+  "addr": "Calle Romualdo del Campo 550, Colonia Rafael Curiel",
+  "phone": "+5214813858079",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9136034696",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "ciudad-valles-instituto-mariano-arista",
+  "name": "Instituto Mariano Arista",
+  "city": "Ciudad Valles",
+  "country": "México",
+  "lat": 21.973882,
+  "lng": -98.997432,
+  "addr": "Calle Mariano Escobedo 17",
+  "phone": "+5214813812829",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria",
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9136052924",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "ciudad-valles-san-ricardo-instituto-ac",
+  "name": "San Ricardo Instituto AC",
+  "city": "Ciudad Valles",
+  "country": "México",
+  "lat": 22.007867,
+  "lng": -99.003783,
+  "addr": "Antigua Carretera México-Laredo, Colonia Campo Colonial",
+  "phone": "+5214813821202",
+  "web": "",
+  "email": "contabilidad_ceesuv@hotmail.com",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9136052996",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "ciudad-valles-escuela-preparatoria-por-cooperacion-profesor-pedro-vallejo",
+  "name": "Escuela Preparatoria por Cooperación Profesor Pedro Vallejo",
+  "city": "Ciudad Valles",
+  "country": "México",
+  "lat": 22.011619,
+  "lng": -98.999987,
+  "addr": "Calle México-laredo 2115, Colonia Campo Colonial",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9136053068",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "ciudad-valles-universidad-intercultural-de-san-luis-potosi",
+  "name": "Universidad Intercultural de San Luis Potosí",
+  "city": "Ciudad Valles",
+  "country": "México",
+  "lat": 21.98427,
+  "lng": -99.012062,
+  "addr": "Boulevard México-Laredo 25, Zona Centro",
+  "phone": "+5214813810040",
+  "web": "",
+  "email": "direccion.valles@uicslp.edu.mx",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9159504592",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "ciudad-valles-instituto-patria",
+  "name": "Instituto Patria",
+  "city": "Ciudad Valles",
+  "country": "México",
+  "lat": 21.982851,
+  "lng": -99.006166,
+  "addr": "Calle Mirador 3, Colonia Mirador",
+  "phone": "+5214813823859",
+  "web": "",
+  "email": "formacionyproteccion@prodigy.net",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9159504653",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "ciudad-valles-instituto-florence",
+  "name": "Instituto Florence",
+  "city": "Ciudad Valles",
+  "country": "México",
+  "lat": 21.983832,
+  "lng": -99.003283,
+  "addr": "Calle Tampico, Colonia Mirador",
+  "phone": "+5214813817183",
+  "web": "",
+  "email": "institutoflorence@hotmail.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9159504656",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "ciudad-valles-instituto-down-marusita",
+  "name": "Instituto Down Marusita",
+  "city": "Ciudad Valles",
+  "country": "México",
+  "lat": 21.98161,
+  "lng": -98.99589,
+  "addr": "Calle Xilitla, Colonia Tantocob",
+  "phone": "+5214813810555",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9159504658",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "ciudad-valles-escuela-primaria-particular-instituto-patria",
+  "name": "Escuela Primaria Particular Instituto Patria",
+  "city": "Ciudad Valles",
+  "country": "México",
+  "lat": 21.987364,
+  "lng": -99.010638,
+  "addr": "Calle General Blas Escontria, Colonia Obrera",
+  "phone": "+5214813821157",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9159504689",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "ciudad-valles-colegio-mexico",
+  "name": "Colegio México",
+  "city": "Ciudad Valles",
+  "country": "México",
+  "lat": 21.98193,
+  "lng": -99.015212,
+  "addr": "Calle Rotarios 230, Zona Centro",
+  "phone": "+5214813820687",
+  "web": "",
+  "email": "coldemexico@hotmail.com",
+  "levels": [
+   "Preescolar",
+   "Secundaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9159504738",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "ciudad-valles-academia-montecarlo",
+  "name": "Academia Montecarlo",
+  "city": "Ciudad Valles",
+  "country": "México",
+  "lat": 21.984217,
+  "lng": -99.015986,
+  "addr": "Calle Independencia 10, Zona Centro",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9159504773",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "ciudad-valles-academia-de-fisica-y-matematicas",
+  "name": "Academia de Física y Matemáticas",
+  "city": "Ciudad Valles",
+  "country": "México",
+  "lat": 21.987226,
+  "lng": -99.019478,
+  "addr": "Avenida Pedro Antonio de los Santos 18 1, Zona Centro",
+  "phone": "+5214813822014",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9159504775",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "ciudad-valles-preparatoria-valles",
+  "name": "Preparatoria Valles",
+  "city": "Ciudad Valles",
+  "country": "México",
+  "lat": 21.977749,
+  "lng": -98.978403,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w300701642",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "ciudad-valles-instituto-motolinia",
+  "name": "Instituto Motolinía",
+  "city": "Ciudad Valles",
+  "country": "México",
+  "lat": 21.993356,
+  "lng": -99.010534,
+  "addr": "Boulevard México-Laredo 2, Colonia Centro",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria",
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w301352382",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "ciudad-valles-colegio-juarez",
+  "name": "Colegio Juárez",
+  "city": "Ciudad Valles",
+  "country": "México",
+  "lat": 21.981393,
+  "lng": -99.008031,
+  "addr": "",
+  "phone": "+524813821023",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w303546123",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-jose-del-cabo-colegio-particular-ugarte",
+  "name": "Colegio Particular Ugarte",
+  "city": "San José del Cabo",
+  "country": "México",
+  "lat": 23.065458,
+  "lng": -109.714714,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w545262836",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-jose-del-cabo-mission-college",
+  "name": "Mission College",
+  "city": "San José del Cabo",
+  "country": "México",
+  "lat": 23.050314,
+  "lng": -109.712971,
+  "addr": "Libramiento Aeropuerto Km 119",
+  "phone": "+52 624 142 5609",
+  "web": "https://www.colegiomission.com/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1028406212",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-carlos-de-bariloche-colegio-woodville",
+  "name": "Colegio Woodville",
+  "city": "San Carlos de Bariloche",
+  "country": "Argentina",
+  "lat": -41.133893,
+  "lng": -71.343965,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4579773500",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-carlos-de-bariloche-instituto-superior-patagonico",
+  "name": "Instituto Superior Patagónico",
+  "city": "San Carlos de Bariloche",
+  "country": "Argentina",
+  "lat": -41.140484,
+  "lng": -71.312499,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.institutopatagonico.edu.ar",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11532513738",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "san-carlos-de-bariloche-colegio-san-esteban",
+  "name": "Colegio San Esteban",
+  "city": "San Carlos de Bariloche",
+  "country": "Argentina",
+  "lat": -41.140082,
+  "lng": -71.307838,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n14132493984",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-carlos-de-bariloche-colegio-tecnologico-del-sur",
+  "name": "Colegio Tecnológico del Sur",
+  "city": "San Carlos de Bariloche",
+  "country": "Argentina",
+  "lat": -41.138898,
+  "lng": -71.306182,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n14132493995",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-carlos-de-bariloche-colegio-fasta-carlos-acuti",
+  "name": "Colegio FASTA Carlos Acuti",
+  "city": "San Carlos de Bariloche",
+  "country": "Argentina",
+  "lat": -41.139944,
+  "lng": -71.316434,
+  "addr": "20 de Febrero 38",
+  "phone": "",
+  "web": "https://www.ufasta.edu.ar/bariloche/",
+  "email": "bariloche@ufasta.edu.ar",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w201365449",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "san-carlos-de-bariloche-colegio-integral-vuriloche",
+  "name": "Colegio Integral Vuriloche",
+  "city": "San Carlos de Bariloche",
+  "country": "Argentina",
+  "lat": -41.137826,
+  "lng": -71.32667,
+  "addr": "Cacique Cumbay",
+  "phone": "+54 294 443 2023",
+  "web": "https://vuriloche.edu.ar/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w304731850",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-carlos-de-bariloche-instituto-maria-auxiliadora",
+  "name": "Instituto María Auxiliadora",
+  "city": "San Carlos de Bariloche",
+  "country": "Argentina",
+  "lat": -41.140204,
+  "lng": -71.302999,
+  "addr": "Albarracín 553",
+  "phone": "+54 294 4422766",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w313105075",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-carlos-de-bariloche-colegio-castex",
+  "name": "Colegio Castex",
+  "city": "San Carlos de Bariloche",
+  "country": "Argentina",
+  "lat": -41.14733,
+  "lng": -71.311332,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w315979167",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-carlos-de-bariloche-instituto-primo-capraro",
+  "name": "Instituto Primo Capraro",
+  "city": "San Carlos de Bariloche",
+  "country": "Argentina",
+  "lat": -41.136507,
+  "lng": -71.309554,
+  "addr": "Avenida Ángel Gallardo 40",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w422888567",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-carlos-de-bariloche-colegio-kurt-godel-jardin-colorin-colorado",
+  "name": "Colegio Kurt Gödel - Jardín Colorín Colorado",
+  "city": "San Carlos de Bariloche",
+  "country": "Argentina",
+  "lat": -41.138222,
+  "lng": -71.309447,
+  "addr": "Gobernador León Quaglia 625",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w442492329",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-carlos-de-bariloche-instituto-dante-alighieri",
+  "name": "Instituto Dante Alighieri",
+  "city": "San Carlos de Bariloche",
+  "country": "Argentina",
+  "lat": -41.133533,
+  "lng": -71.302833,
+  "addr": "Domingo Fernández Beschtedt 141",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w826364198",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-carlos-de-bariloche-colegio-don-bosco",
+  "name": "Colegio Don Bosco",
+  "city": "San Carlos de Bariloche",
+  "country": "Argentina",
+  "lat": -41.135975,
+  "lng": -71.302267,
+  "addr": "Avenida Perito Moreno 501",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1148358599",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-carlos-de-bariloche-instituto-dante-alighieri-2",
+  "name": "Instituto Dante Alighieri",
+  "city": "San Carlos de Bariloche",
+  "country": "Argentina",
+  "lat": -41.135672,
+  "lng": -71.259461,
+  "addr": "Quilmes 3737",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1548910806",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-carlos-de-bariloche-colegio-siglo-xxi",
+  "name": "Colegio Siglo XXI",
+  "city": "San Carlos de Bariloche",
+  "country": "Argentina",
+  "lat": -41.127749,
+  "lng": -71.36228,
+  "addr": "Otto Meiling 357",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1552304315",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-carlos-de-bariloche-colegio-del-sol",
+  "name": "Colegio del Sol",
+  "city": "San Carlos de Bariloche",
+  "country": "Argentina",
+  "lat": -41.131349,
+  "lng": -71.359601,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1552720160",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-carlos-de-bariloche-instituto-de-formacion-docente-continua",
+  "name": "Instituto de Formación Docente Continua",
+  "city": "San Carlos de Bariloche",
+  "country": "Argentina",
+  "lat": -41.149249,
+  "lng": -71.303237,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1552720194",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "pitalito-universidad-surcolombiana",
+  "name": "Universidad Surcolombiana",
+  "city": "Pitalito",
+  "country": "Colombia",
+  "lat": 1.832691,
+  "lng": -76.041981,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w852202387",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "pitalito-colegio-liceo-andaki",
+  "name": "Colegio Liceo Andakí",
+  "city": "Pitalito",
+  "country": "Colombia",
+  "lat": 1.833266,
+  "lng": -76.044732,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1348832118",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "pitalito-colegio-gimnasio-colina-campestre",
+  "name": "Colegio Gimnasio Colina Campestre",
+  "city": "Pitalito",
+  "country": "Colombia",
+  "lat": 1.836821,
+  "lng": -76.014956,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1348832123",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "pitalito-colegio-alto-yuma",
+  "name": "Colegio Alto Yuma",
+  "city": "Pitalito",
+  "country": "Colombia",
+  "lat": 1.853788,
+  "lng": -76.03972,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1348832139",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "pitalito-colegio-liceo-sur-andino",
+  "name": "Colegio Liceo Sur Andino",
+  "city": "Pitalito",
+  "country": "Colombia",
+  "lat": 1.856869,
+  "lng": -76.041989,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1351446724",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "pitalito-colegio-normal-superior",
+  "name": "Colegio Normal Superior",
+  "city": "Pitalito",
+  "country": "Colombia",
+  "lat": 1.856686,
+  "lng": -76.05074,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1351446726",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "pitalito-colegio-humberto-munoz-ordonez",
+  "name": "Colegio Humberto Muñoz Ordoñez",
+  "city": "Pitalito",
+  "country": "Colombia",
+  "lat": 1.857673,
+  "lng": -76.052563,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1351446727",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "pitalito-colegio-montessori",
+  "name": "Colegio Montessori",
+  "city": "Pitalito",
+  "country": "Colombia",
+  "lat": 1.840153,
+  "lng": -76.063186,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1351446728",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "pitalito-colegio-tia-monica",
+  "name": "Colegio Tía Mónica",
+  "city": "Pitalito",
+  "country": "Colombia",
+  "lat": 1.870347,
+  "lng": -76.022148,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1351446731",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "pitalito-colegio-winnipeg",
+  "name": "Colegio Winnipeg",
+  "city": "Pitalito",
+  "country": "Colombia",
+  "lat": 1.848628,
+  "lng": -76.043601,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1351446736",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "pitalito-colegio-la-presentacion",
+  "name": "Colegio La Presentación",
+  "city": "Pitalito",
+  "country": "Colombia",
+  "lat": 1.849436,
+  "lng": -76.046642,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1351446737",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "pitalito-colegio-san-juan-de-laboyos",
+  "name": "Colegio San Juan de Laboyos",
+  "city": "Pitalito",
+  "country": "Colombia",
+  "lat": 1.844567,
+  "lng": -76.044068,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1353294999",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "pitalito-colegio-hogar-infantil",
+  "name": "Colegio Hogar Infantil",
+  "city": "Pitalito",
+  "country": "Colombia",
+  "lat": 1.844159,
+  "lng": -76.049126,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1355736526",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "pitalito-escuela-maria-montessori",
+  "name": "Escuela María Montessori",
+  "city": "Pitalito",
+  "country": "Colombia",
+  "lat": 1.845787,
+  "lng": -76.048755,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1355736532",
   "found": "2026-11-13"
  }
 ]
