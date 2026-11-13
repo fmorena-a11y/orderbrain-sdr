@@ -7023,7 +7023,11 @@
   "CO|n311483479": "2026-11-13T01:33:37.543Z",
   "MX|Manzanillo": "2026-11-13T01:39:42.074Z",
   "BO|n319761585": "2026-11-13T01:40:26.212Z",
-  "PE|Nuevo Chimbote": "2026-11-13T01:45:17.318Z"
+  "PE|Nuevo Chimbote": "2026-11-13T01:45:17.318Z",
+  "AR|Río Cuarto": "2026-11-13T03:08:03.784Z",
+  "CL|Calama": "2026-11-13T03:10:32.446Z",
+  "MX|Cuautla": "2026-11-13T03:11:10.685Z",
+  "ES|n232712665": "2026-11-13T03:19:12.031Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7088,6 +7092,48 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-13T03:04:17.870Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Río Cuarto",
+     "found": 21,
+     "updated": 0,
+     "osm": 60
+    },
+    {
+     "cc": "CL",
+     "city": "Calama",
+     "found": 24,
+     "updated": 1,
+     "osm": 67
+    },
+    {
+     "cc": "MX",
+     "city": "Cuautla",
+     "found": 6,
+     "updated": 0,
+     "osm": 36
+    },
+    {
+     "cc": "ES",
+     "city": "Castellón de la Plana",
+     "found": 13,
+     "updated": 0,
+     "osm": 93
+    }
+   ],
+   "added": 64,
+   "enriched": 0,
+   "photos": 18,
+   "contacts": 8,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 16,
+   "total": 19286
+  },
   {
    "at": "2026-11-13T01:28:18.290Z",
    "cities": [
@@ -9356,133 +9402,6 @@
    ],
    "minutes": 19.3,
    "total": 10158
-  },
-  {
-   "at": "2026-11-10T02:38:36.009Z",
-   "cities": [
-    {
-     "cc": "PA",
-     "city": "Panamá",
-     "found": 131,
-     "updated": 0,
-     "osm": 291
-    },
-    {
-     "cc": "DO",
-     "city": "Santo Domingo",
-     "found": 220,
-     "updated": 9,
-     "osm": 491
-    },
-    {
-     "cc": "AR",
-     "city": "Mendoza",
-     "found": 102,
-     "updated": 1,
-     "osm": 437
-    },
-    {
-     "cc": "MX",
-     "city": "Chihuahua",
-     "found": 20,
-     "updated": 3,
-     "osm": 204
-    },
-    {
-     "cc": "MX",
-     "city": "Mérida",
-     "found": 34,
-     "updated": 1,
-     "osm": 203
-    },
-    {
-     "cc": "PE",
-     "city": "Trujillo",
-     "found": 67,
-     "updated": 1,
-     "osm": 725
-    },
-    {
-     "cc": "MX",
-     "city": "Cancún",
-     "found": 21,
-     "updated": 0,
-     "osm": 86
-    },
-    {
-     "cc": "MX",
-     "city": "Saltillo",
-     "found": 10,
-     "updated": 0,
-     "osm": 80
-    },
-    {
-     "cc": "MX",
-     "city": "Aguascalientes",
-     "found": 129,
-     "updated": 0,
-     "osm": 792
-    },
-    {
-     "cc": "MX",
-     "city": "Hermosillo",
-     "found": 41,
-     "updated": 0,
-     "osm": 222
-    },
-    {
-     "cc": "MX",
-     "city": "Mexicali",
-     "found": 86,
-     "updated": 2,
-     "osm": 610
-    },
-    {
-     "cc": "BO",
-     "city": "El Alto",
-     "found": 215,
-     "updated": 3,
-     "osm": 701
-    },
-    {
-     "cc": "MX",
-     "city": "San Luis Potosí",
-     "found": 49,
-     "updated": 0,
-     "osm": 190
-    },
-    {
-     "cc": "VE",
-     "city": "Ciudad Guayana",
-     "found": 73,
-     "updated": 0,
-     "osm": 203
-    },
-    {
-     "cc": "MX",
-     "city": "Culiacán",
-     "found": 23,
-     "updated": 1,
-     "osm": 90
-    },
-    {
-     "cc": "AR",
-     "city": "La Plata",
-     "found": 60,
-     "updated": 0,
-     "osm": 227
-    }
-   ],
-   "added": 1281,
-   "enriched": 0,
-   "photos": 3,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "MX|Santiago de Querétaro: sin tiempo en esta corrida"
-   ],
-   "minutes": 19.3,
-   "total": 9326
   }
  ]
 }

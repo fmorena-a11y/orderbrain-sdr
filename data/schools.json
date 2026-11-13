@@ -213235,7 +213235,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w29070667",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-colegio-los-olmos",
@@ -213297,7 +213298,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w29083822",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-santa-ana-y",
@@ -213322,7 +213325,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w29085025",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-universidad-francisco-de-vitoria",
@@ -213345,7 +213349,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w29337964",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://cdn-omnicanal-prod.ufv.es/300x157_Imagen_Pred_TW_851bdd497c.jpg",
+  "whatsapp": "+34639605704",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-colegio-int",
@@ -213370,7 +213377,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w30108523",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegiokolbe.com/wp-content/uploads/2024/01/pisandouvas_koalasbaby-18-1024x683.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-primaria-y-secundaria-doroteo-hernandez",
@@ -213393,7 +213402,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w30336159",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-san-viator",
@@ -213413,7 +213424,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w30376873",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-salesianos-",
@@ -213437,7 +213450,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w30387223",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.salesianospaseo.com/wp-content/uploads/2024/01/Logo-nivel-2_HOR-1024x326.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-vedruna",
@@ -213485,7 +213500,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w30759224",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-privado-liceo-san-pablo",
@@ -213530,7 +213547,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w31014915",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-nazaret",
@@ -213554,7 +213572,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w31508736",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-los-almendros",
@@ -213618,7 +213638,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w31715131",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-runnymede-college",
@@ -213636,7 +213658,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w31715136",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://runnymede-college.com/wp-content/uploads/2022/11/logo-Runnymede-college.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-docente-extranjero-en-espana-ecole-saint-exupery-frances",
@@ -213701,7 +213725,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w31715148",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-colegio-santa-helena",
@@ -213726,7 +213751,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w31715302",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-primaria-y-secundaria-base",
@@ -213749,7 +213775,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w31715303",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-colegio-suizo-madrid-by-sis-swiss-international-school",
@@ -213761,7 +213788,7 @@
   "addr": "Carretera de Burgos, km. 14",
   "phone": "+34916505818",
   "web": "https://www.swissinternationalschool.es",
-  "email": "",
+  "email": "info@colegiosuizomadrid.com",
   "levels": [],
   "opp": [
    "Bilingüe o internacional",
@@ -213770,7 +213797,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w31718859",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+34687229561",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-huerfanos-de-la-armada-nuestra-senora-del-carmen",
@@ -213782,13 +213812,15 @@
   "addr": "",
   "phone": "+34913124929",
   "web": "https://www.colegiocha.com/",
-  "email": "",
+  "email": "secretaria@colegiocha.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w31719733",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegiocha.com/wp-content/uploads/2026/07/cha-home-infantil.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-valdeluz",
@@ -213812,7 +213844,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w31737854",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-madre-de-di",
@@ -213836,7 +213870,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w31771259",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-padre-manyanet",
@@ -213954,7 +213990,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w32012475",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-virgen-del-",
@@ -213978,7 +214015,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w32059261",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-zola-rozas",
@@ -214002,7 +214041,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w32090167",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-bellas-vistas",
@@ -214086,7 +214127,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w32669286",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.fundacionjosemariadellanos.es/wp-content/uploads/2022/06/logo-fundacion.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-greenfield",
@@ -214110,7 +214153,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w33640617",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegiogreenfield.es/wp-content/uploads/2024/10/MG_4728-768x512.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-san-rafael-arcangel-sa",
@@ -214134,7 +214179,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w33682074",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://sanrafaelmadrid.es/wp-content/uploads/2023/07/Logo-Sagrado-Corazon-y-UNIR_Positivo-SR.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-bristol",
@@ -214158,7 +214205,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w33770009",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegiobristol.b-cdn.net/wp-content/uploads/2025/01/colegio-bilingue-madrid-bristol-scaled.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-maria-corredentora",
@@ -214293,7 +214342,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w34208835",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+34645449167",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-agrupacion-",
@@ -214317,7 +214369,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w34705435",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-universidad-camilo-jose-cela-2",
@@ -214387,7 +214441,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w35606016",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://gamodiana.com/wp-content/uploads/2026/03/55b834b3-9b5c-437b-a0f0-24c7d21b9163-e1772790930431.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-primaria-y-secundaria-san-juan-garcia",
@@ -214411,7 +214467,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w35606067",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-nuestra-sen-12",
@@ -214435,7 +214492,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w35777540",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-liceo-sorol",
@@ -214459,7 +214518,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w35777623",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-real-colegi",
@@ -214483,7 +214544,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w35932487",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-andres-manjon",
@@ -214550,7 +214613,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w37248713",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://logosinternationalschool.es/wp-content/uploads/2017/04/slider-uniformes-web-colegio-logos.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-docente-extranjero-en-espana-british-council-school-britanico",
@@ -214571,7 +214636,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w43898231",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-jesus-maest",
@@ -214595,7 +214662,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w48499031",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-nuestra-sen-13",
@@ -214618,7 +214687,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w48503820",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://lasallemaravillas.com/wp-content/uploads/2024/10/La-salle-maravillas.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-san-agustin",
@@ -214643,7 +214714,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w48504264",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegiosanagustin-madrid.org/wp-content/uploads/2026/06/logo-colegio-san-agustin-madrid.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-maria-virge",
@@ -214668,7 +214741,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w48504403",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-cristo-rey",
@@ -214693,7 +214768,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w48546335",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-colegio-hel",
@@ -214717,7 +214794,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w52172908",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-concertado-madrigal",
@@ -214735,7 +214814,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w56241384",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-colegio-concertado-aquila",
@@ -214800,7 +214880,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w80408830",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://site.educa.madrid.org/cc.santateresa.getafe//wp-content/uploads/cc.santateresa.getafe/2021/12/cropped-logo-CM-esp.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-agora-inter",
@@ -214825,7 +214907,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w92034784",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-caude",
@@ -214909,7 +214993,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w98296340",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-tirso-de-molina",
@@ -214954,7 +215040,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w115553766",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-international-house",
@@ -215001,7 +215089,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w124115857",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://screparadoras.es/Academy%20-%20HTML%20Template",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-breogan",
@@ -215039,7 +215129,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w127686004",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-san-buenave",
@@ -215064,7 +215156,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w128321314",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.sanbuenaventura.org/wp-content/uploads/2025/02/Captura-de-pantalla-2025-02-17-a-las-22.33.23-240x300.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-lourdes",
@@ -215106,7 +215200,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w129263623",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-arcangel-ra",
@@ -215130,7 +215226,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w138104256",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-centro-educ-2",
@@ -215154,7 +215252,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w138470877",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-gsd-las-sue",
@@ -215178,7 +215278,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w139268891",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-real-armada",
@@ -215280,7 +215382,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w151540261",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-greenwich-school",
@@ -389198,6 +389301,1240 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1524437050",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-colegio-concordia",
+  "name": "Colegio Concordia",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.149354,
+  "lng": -64.351553,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1257185932",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-universidad-siglo-xxi",
+  "name": "Universidad Siglo XXI",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.117784,
+  "lng": -64.347345,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2556723136",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-colegio-la-merced",
+  "name": "Colegio La Merced",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.123841,
+  "lng": -64.354514,
+  "addr": "Colón 580",
+  "phone": "+54 358 4635587",
+  "web": "https://www.colegiolamerced.edu.ar/",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3450783885",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-centro-educativo-leopoldo-lugones",
+  "name": "Centro Educativo Leopoldo Lugones",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.121218,
+  "lng": -64.323305,
+  "addr": "Fray Quirico Porreca 1310",
+  "phone": "+54 358 468 9621",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3589955212",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-centro-educativo-nicolas-avellaneda",
+  "name": "Centro Educativo Nicolás Avellaneda",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.134278,
+  "lng": -64.334116,
+  "addr": "Vicente López y Planes 538",
+  "phone": "+54 358 4672900",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3593698660",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-centro-educativo-21-de-julio",
+  "name": "Centro Educativo 21 de Julio",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.123043,
+  "lng": -64.342282,
+  "addr": "Baigorria 552",
+  "phone": "+54 358 467 2914",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3736614083",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-colegio-san-ignacio",
+  "name": "Colegio San Ignacio",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.106893,
+  "lng": -64.362522,
+  "addr": "Guardias Nacionales 1400",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3738374647",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-universidad-de-mendoza",
+  "name": "Universidad de Mendoza",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.123867,
+  "lng": -64.346485,
+  "addr": "",
+  "phone": "+5492616845333",
+  "web": "https://um.edu.ar",
+  "email": "rectorado@um.edu.ar",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3807478106",
+  "found": "2026-11-13",
+  "img": "https://um.edu.ar/wp-content/uploads/cropped-universidad-de-mendoza-foto.jpg",
+  "whatsapp": "+5492616845333",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-colegio-san-juan-de-la-cruz",
+  "name": "Colegio San Juan de la Cruz",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.131705,
+  "lng": -64.367443,
+  "addr": "Avenida Presidente Perón (Oeste) 1321",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n3812135408",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-instituto-superior-ramon-menendez-pidal",
+  "name": "Instituto Superior Ramón Menéndez Pidal",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.103734,
+  "lng": -64.335727,
+  "addr": "Avenida General José Garibaldi 50",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4094215167",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-colegio-hispano-argentino",
+  "name": "Colegio Hispano Argentino",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.121259,
+  "lng": -64.348639,
+  "addr": "Fotheringham 91",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4095741426",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-centro-educativo-velez-sarsfield",
+  "name": "Centro Educativo Velez Sarsfield",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.130789,
+  "lng": -64.356356,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4096466532",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-centro-educativo-bernardino-rivadavia",
+  "name": "Centro Educativo Bernardino Rivadavia",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.095976,
+  "lng": -64.366541,
+  "addr": "Ruta Nacional A005",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4378279597",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-instituto-tecnologico-rio-cuarto",
+  "name": "Instituto Tecnológico Río Cuarto",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.100924,
+  "lng": -64.368043,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4403618301",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-colegio-italo-argentino-dante-alighieri",
+  "name": "Colegio Italo Argentino Dante Alighieri",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.112505,
+  "lng": -64.371874,
+  "addr": "Lorenzo Suarez de Figueroa 2051",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5065346182",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-colegio-santa-eufrasia",
+  "name": "Colegio Santa Eufrasia",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.113705,
+  "lng": -64.361677,
+  "addr": "Anacleto Peano",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12766321343",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-colegio-de-agronomia",
+  "name": "Colegio de Agronomía",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.116985,
+  "lng": -64.34902,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w109851214",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-colegio-ntra-sra-del-carmen",
+  "name": "Colegio Ntra. Sra. del Carmen",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.122015,
+  "lng": -64.344113,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w275306939",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-instituto-privado-galileo-galilei",
+  "name": "Instituto Privado Galileo Galilei",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.126558,
+  "lng": -64.351995,
+  "addr": "Cabrera 1040",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w370449746",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-centro-educativo-dr-adolfo-alsina",
+  "name": "centro educativo Dr Adolfo Alsina",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.097055,
+  "lng": -64.343868,
+  "addr": "Av. Gral. José Garibaldi 740",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1313729016",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rio-cuarto-instituto-quechalen",
+  "name": "Instituto Quechalen",
+  "city": "Río Cuarto",
+  "country": "Argentina",
+  "lat": -33.147678,
+  "lng": -64.331069,
+  "addr": "Anibal Ponce 1262",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1426678745",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-colegio-adventista-de-calama",
+  "name": "Colegio Adventista de Calama",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.465563,
+  "lng": -68.926816,
+  "addr": "Abaroa 1490",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9149648843",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-instituto-antonio-varas",
+  "name": "Instituto ANTONIO VARAS",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.46939,
+  "lng": -68.93118,
+  "addr": "Punta Arenas 2470",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n10980810547",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-universidad-de-aconcagua",
+  "name": "Universidad de Aconcagua",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.454392,
+  "lng": -68.922461,
+  "addr": "Avenida Los Chorrillos 1677",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11002145623",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-universidad-la-republica-calama",
+  "name": "Universidad la República Calama",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.436016,
+  "lng": -68.923869,
+  "addr": "Riquelme 4259",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11002165857",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-colegio-ejercito-de-salvacion-catherine-booth",
+  "name": "Colegio Ejercito de Salvacion, Catherine Booth",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.466593,
+  "lng": -68.937044,
+  "addr": "Irene Frei 2875",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11366913471",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-soc-educacional-saint-patricks-school",
+  "name": "Soc Educacional Saint Patricks School",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.454545,
+  "lng": -68.935853,
+  "addr": "Vasco de Gama 2696",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11380223952",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-colegio-calama",
+  "name": "Colegio Calama",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.443834,
+  "lng": -68.929001,
+  "addr": "Brasil 3597",
+  "phone": "",
+  "web": "https://colegiocalama.cl/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11435648166",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "calama-colegio-san-ignacio",
+  "name": "Colegio San Ignacio",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.440242,
+  "lng": -68.924274,
+  "addr": "Caspana 1998",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11436069430",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-colegio-licancabur",
+  "name": "Colegio Licancabur",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.439307,
+  "lng": -68.921966,
+  "addr": "Central Sur 1863",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11436125091",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-loess-school",
+  "name": "Loess School",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.453426,
+  "lng": -68.915174,
+  "addr": "Avenida Los Chorrillos 1070",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11438363365",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-colegio-san-nicolas",
+  "name": "Colegio San Nicolás",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.437619,
+  "lng": -68.912179,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w144720149",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-colegio-juan-pablo-ii",
+  "name": "Colegio Juan Pablo II",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.4466,
+  "lng": -68.923424,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w144764551",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-colegio-chuquicamata",
+  "name": "Colegio Chuquicamata",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.478183,
+  "lng": -68.91211,
+  "addr": "Avenida Jorge Alessandri Rodríguez 1290",
+  "phone": "+56965982564",
+  "web": "https://colegiochuquicamata.cl",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w144827162",
+  "found": "2026-11-13",
+  "img": "https://colegiochuquicamata.cl/2019/wp-content/uploads/2019/10/logo.png",
+  "whatsapp": "+56965982564",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "calama-colegio-nuestra-senora-de-ayquina",
+  "name": "Colegio Nuestra Señora de Ayquina",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.461434,
+  "lng": -68.927688,
+  "addr": "Eleuterio Ramírez 2188",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w196906477",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-instituto-obispo-silva-lezaeta",
+  "name": "Instituto Obispo Silva Lezaeta",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.469845,
+  "lng": -68.92747,
+  "addr": "Avenida Libertador Bernardo O'Higgins 1256",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w269636157",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-liceo-radomiro-tomic",
+  "name": "Liceo Radomiro Tomic",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.449289,
+  "lng": -68.927096,
+  "addr": "Ramón Freire",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w303614469",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-liceo-luis-cruz-martinez",
+  "name": "Liceo Luis Cruz Martínez",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.455205,
+  "lng": -68.926808,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w390283712",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-colegio-rio-loa",
+  "name": "Colegio Río Loa",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.45844,
+  "lng": -68.948783,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w390295264",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-colegio-leonardo-da-vinci",
+  "name": "Colegio Leonardo da Vinci",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.483292,
+  "lng": -68.934174,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w475156660",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-colegio-tecnico-industrial-don-bosco",
+  "name": "Colegio Técnico Industrial Don Bosco",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.44506,
+  "lng": -68.940299,
+  "addr": "Colonia",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w503304430",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-liceo-eleuterio-ramirez",
+  "name": "Liceo Eleuterio Ramirez",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.458251,
+  "lng": -68.924316,
+  "addr": "Vivar",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w507652534",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-colegio-ejercito-de-salvacion",
+  "name": "Colegio Ejercito de Salvacion",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.459844,
+  "lng": -68.930359,
+  "addr": "Aníbal Pinto 2121",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w575638073",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-colegio-padre-alberto-hurtado",
+  "name": "Colegio Padre Alberto Hurtado",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.468764,
+  "lng": -68.932773,
+  "addr": "Avenida Grecia",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w636894710",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "calama-colegio-ecologico-montessori",
+  "name": "Colegio Ecológico Montessori",
+  "city": "Calama",
+  "country": "Chile",
+  "lat": -22.473124,
+  "lng": -68.937179,
+  "addr": "Aconcagua 3009",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1287429731",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cuautla-colegio-rene-descartes",
+  "name": "Colegio René Descartes",
+  "city": "Cuautla",
+  "country": "México",
+  "lat": 18.809476,
+  "lng": -98.951505,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11491034099",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cuautla-colegio-canadiense-de-cuautla",
+  "name": "Colegio Canadiense de Cuautla",
+  "city": "Cuautla",
+  "country": "México",
+  "lat": 18.804621,
+  "lng": -98.935248,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13339739348",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cuautla-liceo-moderno-de-cuautla",
+  "name": "Liceo Moderno De Cuautla",
+  "city": "Cuautla",
+  "country": "México",
+  "lat": 18.83325,
+  "lng": -98.944137,
+  "addr": "Avenida Reforma",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13937497601",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cuautla-preparatoria-de-cuautla",
+  "name": "Preparatoria De Cuautla",
+  "city": "Cuautla",
+  "country": "México",
+  "lat": 18.812951,
+  "lng": -98.959497,
+  "addr": "JONACATEPEC ESQ. MIACATLAN S/N",
+  "phone": "+52 735 352 0221",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w427331191",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cuautla-preparatoria-cuautla",
+  "name": "Preparatoria Cuautla",
+  "city": "Cuautla",
+  "country": "México",
+  "lat": 18.801177,
+  "lng": -98.931114,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w925059116",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cuautla-universidad-latina-unila",
+  "name": "Universidad Latina - UNILA",
+  "city": "Cuautla",
+  "country": "México",
+  "lat": 18.796227,
+  "lng": -98.918679,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w933088629",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "castellon-de-la-plana-international-english-school-of-castellon",
+  "name": "International English School of Castellón",
+  "city": "Castellón de la Plana",
+  "country": "España",
+  "lat": 40.001065,
+  "lng": -0.029632,
+  "addr": "Ronda Circunvalacion 348",
+  "phone": "+34964261241",
+  "web": "https://castellon.iepgroup.es",
+  "email": "admisionescastellon@iepgroup.es",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2961162381",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "castellon-de-la-plana-william-einstein",
+  "name": "William Einstein",
+  "city": "Castellón de la Plana",
+  "country": "España",
+  "lat": 39.993675,
+  "lng": -0.036934,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5239447612",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "castellon-de-la-plana-colegio-sagrado-corazon-de-jesus",
+  "name": "Colegio Sagrado Corazón de Jesús",
+  "city": "Castellón de la Plana",
+  "country": "España",
+  "lat": 39.979814,
+  "lng": -0.037191,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w33969381",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "castellon-de-la-plana-colegio-escuelas-pias",
+  "name": "Colegio Escuelas Pías",
+  "city": "Castellón de la Plana",
+  "country": "España",
+  "lat": 39.983792,
+  "lng": -0.042589,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w33996797",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "castellon-de-la-plana-colegio-ramiro-izquierdo",
+  "name": "Colegio Ramiro Izquierdo",
+  "city": "Castellón de la Plana",
+  "country": "España",
+  "lat": 39.991173,
+  "lng": -0.021447,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w34250573",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "castellon-de-la-plana-colegio-nuestra-senora-de-la-consolacion",
+  "name": "Colegio Nuestra Señora de la Consolación",
+  "city": "Castellón de la Plana",
+  "country": "España",
+  "lat": 39.991218,
+  "lng": -0.031494,
+  "addr": "Avinguda de la Mare de Déu del Lledó 49",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w34250580",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "castellon-de-la-plana-agora-lledo-international-school",
+  "name": "Ágora Lledó International School",
+  "city": "Castellón de la Plana",
+  "country": "España",
+  "lat": 40.000503,
+  "lng": -0.022824,
+  "addr": "el Caminàs 175",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w34250593",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "castellon-de-la-plana-colegio-virgen-del-carmen",
+  "name": "Colegio Virgen del Carmen",
+  "city": "Castellón de la Plana",
+  "country": "España",
+  "lat": 39.94514,
+  "lng": -0.1052,
+  "addr": "Carrer Ermita 172",
+  "phone": "34964601385",
+  "web": "https://colegiovirgendelcarmen.com.es/vila-real/",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w40753427",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "castellon-de-la-plana-colegio-obispo-pont",
+  "name": "Colegio Obispo Pont",
+  "city": "Castellón de la Plana",
+  "country": "España",
+  "lat": 39.945969,
+  "lng": -0.09735,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w41085319",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "castellon-de-la-plana-colegio-san-cristobal",
+  "name": "Colegio San Cristóbal",
+  "city": "Castellón de la Plana",
+  "country": "España",
+  "lat": 39.981947,
+  "lng": -0.022994,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w128284133",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "castellon-de-la-plana-colegio-la-magdalena",
+  "name": "Colegio La Magdalena",
+  "city": "Castellón de la Plana",
+  "country": "España",
+  "lat": 40.036533,
+  "lng": -0.008003,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w230723972",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "castellon-de-la-plana-colegio-mater-dei",
+  "name": "Colegio Mater Dei",
+  "city": "Castellón de la Plana",
+  "country": "España",
+  "lat": 40.02788,
+  "lng": -0.004816,
+  "addr": "Partida Magdalena 42",
+  "phone": "964398528",
+  "web": "https://materdei.es/",
+  "email": "info@materdei.es",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w344090567",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "castellon-de-la-plana-colegio-liceo",
+  "name": "Colegio Liceo",
+  "city": "Castellón de la Plana",
+  "country": "España",
+  "lat": 40.033391,
+  "lng": 0.017155,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1146934198",
   "found": "2026-11-13"
  }
 ]
