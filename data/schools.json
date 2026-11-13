@@ -211011,7 +211011,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w24255821",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-las-tablas-",
@@ -211035,7 +211037,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w24259785",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-el-valle-las-tablas",
@@ -211059,7 +211063,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w24259945",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-gabriela-mistral",
@@ -211104,7 +211110,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w24382298",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegiorosales.es/wp-content/uploads/2026/03/colegio-rosales.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-virgen-de-e",
@@ -211128,7 +211136,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w24388059",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-mater-salva",
@@ -211152,7 +211162,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w24401231",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-docente-extranjero-en-espana-the-english-montessori-school-brit",
@@ -211173,7 +211185,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w24504810",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.englishmontessorischool.com/wp-content/uploads/sites/121/2024/04/tems-imagen-destacada.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-mirabal",
@@ -211211,7 +211225,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w24552386",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://site.educa.madrid.org/cc.fundaciongotze.madrid//wp-content/uploads/cc.fundaciongotze.madrid/2021/05/cropped-cropped-cropped-peques-scaled-6.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-estudio",
@@ -211235,7 +211251,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w24553079",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-universidad-alfonso-x-el-sabio",
@@ -211278,7 +211296,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w24768187",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://liceofrancesmoliere.es/wp-content/uploads/reseau-mlfmonde-mlf-blue.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-quercus",
@@ -211320,7 +211340,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w25387574",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegiolosrobles.net/wp-content/uploads/2022/01/logo-los-robles.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-el-valle-sanchinarro",
@@ -211344,7 +211366,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w27317986",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-universidad-carlos-iii-de-madrid",
@@ -211428,7 +211452,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28230434",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-colegio-retamar",
@@ -211471,7 +211496,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28467598",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.sanjosevaldemoro.es/wp-content/uploads/2021/02/04.SAN-JOSE%CC%81-VALDEMORO-1X1.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-torrente-ba",
@@ -211495,7 +211522,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28470660",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-santo-domin",
@@ -211520,7 +211549,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28471978",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-la-salle",
@@ -211563,7 +211594,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28506557",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-juan-de-val",
@@ -211587,7 +211619,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28506595",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-samer-calas",
@@ -211611,7 +211645,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28508164",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-concertado-lagomar",
@@ -211629,7 +211665,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w28508176",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-helicon",
@@ -211653,7 +211690,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28509817",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-colegio-val",
@@ -211677,7 +211716,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28510039",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegiovalledelmiro.es/theme/unify/assets/img/slide-patio-colegio-valle-del-miro-valdemoro.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-docente-extranjero-en-espana-international-college-spain-ee-uu",
@@ -211722,7 +211763,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28510473",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-ciudadescue",
@@ -211746,7 +211789,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28540774",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-la-inmacula",
@@ -211770,7 +211815,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28554956",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-pequeno-pri",
@@ -211793,7 +211840,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28667107",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegioprincipe.com/theme/unify2/assets/img/colegio-pequeno-principe-leganes-fb.jpg",
+  "whatsapp": "+34692210615",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-el-trigal",
@@ -211994,7 +212044,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28669565",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegiokhalilgibran.es/wp-content/uploads/2025/10/portada-25.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-aula-iii",
@@ -212092,7 +212144,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w28670700",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://ceipsmoncayo.com/wp-content/uploads/2024/05/compass-1.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-concertado-albanta",
@@ -212110,7 +212164,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w28683753",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegioalbanta.es/wp-content/uploads/2026/03/albanta-1.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-victor-jara",
@@ -212130,7 +212186,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w28683755",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-miguel-hernandez",
@@ -212186,7 +212244,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w28691385",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegioalkor.com/wp-content/uploads/2021/01/SLIDER-COLEGIO-V-1024x529.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-la-inmaculada",
@@ -212244,7 +212304,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w28698775",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-especial-severo-ochoa",
@@ -212283,7 +212345,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28719198",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-la-nativida",
@@ -212307,7 +212371,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28730689",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-obra-social",
@@ -212332,7 +212398,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28731154",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-maria-reina",
@@ -212357,7 +212425,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28731161",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-la-presenta",
@@ -212381,7 +212451,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28744382",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-universidad-rey-juan-carlos-campus-de-vicalvaro",
@@ -212450,7 +212522,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28760035",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-san-gabriel",
@@ -212499,7 +212573,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28774870",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-sagrado-cor-2",
@@ -212524,7 +212600,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28776275",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-nuestra-sen-9",
@@ -212548,7 +212626,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28776306",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-de-educacion-privado-infantil-primaria-y-secundaria-el-carmelo-",
@@ -212572,7 +212652,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28776727",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-secundaria-valdecas",
@@ -212594,7 +212676,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28797359",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-sagrada-familia-de-urgel",
@@ -212619,7 +212703,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28797420",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://static.wixstatic.com/media/278e97_9488fe581c994d55804e412097f615cd%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/278e97_9488fe581c994d55804e412097f615cd%7Emv2.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-gredos-san-diego-vallecas",
@@ -212644,7 +212730,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28797590",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-zazuar",
@@ -212668,7 +212756,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28811069",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-sagrado-cor-3",
@@ -212693,7 +212783,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28812063",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.sagrado-corazon.net/wp-content/uploads/2024/12/FOTO-01.jpeg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-gredos-san-diego-moratalaz",
@@ -212761,7 +212853,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28875419",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-san-jose",
@@ -212786,7 +212880,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28892662",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-colegio-trabenco-pozo",
@@ -212810,7 +212905,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28893105",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://trabenco-pozo.es/wp-content/uploads/2016/09/ICO_CENTRO-91.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-miguel-hernandez-2",
@@ -212894,7 +212991,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28925127",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegiomirasur.com/wp-content/uploads/sites/92/2023/06/Mirasur-logo-homepage-1.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-nuestra-sen-10",
@@ -212918,7 +213017,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28951189",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-sagrado-cor-4",
@@ -212943,7 +213044,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w29045169",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://sagradocorazonmadrid.es/wp-content/uploads/2023/07/Logo-Sagrado-Corazon-y-UNIR_Positivo.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-la-salle-la-paloma-fundacion-lara",
@@ -212967,7 +213070,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w29045735",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-docente-extranjero-en-espana-kensington-school-britanico",
@@ -213013,7 +213117,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w29053355",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-san-jose-de",
@@ -213038,7 +213143,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w29053388",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-everest",
@@ -213056,7 +213163,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w29053801",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-engage-independent-school",
@@ -213076,7 +213185,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w29053881",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-campus-de-la-dehesa-de-la-villa-de-la-universidad-pablo-de-nebrija",
@@ -213099,7 +213210,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w29068153",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://images.griddo.nebrija.com/f/jpg/w/1280/h/768/universidad-nebrija-campus-la-berzosa-09116-98e424f5-4739-4f37-8160-92aef8b7b940",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-trilema-safa",
@@ -387822,5 +387935,1269 @@
   "src": "osm",
   "osm": "w872948673",
   "found": "2026-11-12"
+ },
+ {
+  "id": "jamundi-colegio-central",
+  "name": "Colegio Central",
+  "city": "Jamundí",
+  "country": "Colombia",
+  "lat": 3.265624,
+  "lng": -76.542168,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3044726526",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "jamundi-colegio-simon-bolivar",
+  "name": "Colegio Simon Bolivar",
+  "city": "Jamundí",
+  "country": "Colombia",
+  "lat": 3.263952,
+  "lng": -76.540898,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3044736195",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "jamundi-colegio-terranova-comfandi",
+  "name": "Colegio Terranova Comfandi",
+  "city": "Jamundí",
+  "country": "Colombia",
+  "lat": 3.235395,
+  "lng": -76.512238,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4086831265",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "jamundi-colegio-ciudadela-terranova",
+  "name": "Colegio ciudadela Terranova",
+  "city": "Jamundí",
+  "country": "Colombia",
+  "lat": 3.237956,
+  "lng": -76.508263,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5211144333",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "jamundi-liceo-agora",
+  "name": "Liceo Ágora",
+  "city": "Jamundí",
+  "country": "Colombia",
+  "lat": 3.270423,
+  "lng": -76.540069,
+  "addr": "Carrera 17 18-34",
+  "phone": "+57 2 5923413",
+  "web": "http://www.liceoagora.weebly.com",
+  "email": "liceoagora@gmail.com",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n6415483358",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "jamundi-liceo-agora-sede-preescolar",
+  "name": "Liceo Ágora (Sede Preescolar)",
+  "city": "Jamundí",
+  "country": "Colombia",
+  "lat": 3.270332,
+  "lng": -76.540694,
+  "addr": "Calle 18 17-23",
+  "phone": "+57 2 5923413",
+  "web": "http://www.liceoagora.weebly.com",
+  "email": "liceoagora@gmail.com",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n6415483359",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "jamundi-colegio-alas",
+  "name": "Colegio Alas",
+  "city": "Jamundí",
+  "country": "Colombia",
+  "lat": 3.21295,
+  "lng": -76.525373,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r11904543",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "jamundi-colegio-gimnasio-moderno",
+  "name": "Colegio Gimnasio Moderno",
+  "city": "Jamundí",
+  "country": "Colombia",
+  "lat": 3.25625,
+  "lng": -76.547492,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r12437742",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "manzanillo-colegio-begsu",
+  "name": "Colegio Begsu",
+  "city": "Manzanillo",
+  "country": "México",
+  "lat": 19.07684,
+  "lng": -104.303174,
+  "addr": "Revolucion Num. 50",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802374409",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "manzanillo-colegio-josefa-ortiz-de-dominguez",
+  "name": "Colegio Josefa Ortiz de Domínguez",
+  "city": "Manzanillo",
+  "country": "México",
+  "lat": 19.100687,
+  "lng": -104.303804,
+  "addr": "Palma Kerpis Num. 108",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802374428",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "manzanillo-colegio-st-john-s",
+  "name": "Colegio St. John'S",
+  "city": "Manzanillo",
+  "country": "México",
+  "lat": 19.104491,
+  "lng": -104.319415,
+  "addr": "Avenida Paseo de las Gaviotas S/N SN",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802374439",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "manzanillo-colegio-terranova",
+  "name": "Colegio Terranova",
+  "city": "Manzanillo",
+  "country": "México",
+  "lat": 19.052222,
+  "lng": -104.315833,
+  "addr": "Arturo Castro Guizar Num. 21",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802374443",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "manzanillo-instituto-escolar-monte-corona-a-c",
+  "name": "Instituto Escolar Monte Corona, A.C.",
+  "city": "Manzanillo",
+  "country": "México",
+  "lat": 19.105843,
+  "lng": -104.333084,
+  "addr": "Eulogia Serratos Num. 11",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802375729",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "manzanillo-instituto-manzanillo-a-c",
+  "name": "Instituto Manzanillo, A.C.",
+  "city": "Manzanillo",
+  "country": "México",
+  "lat": 19.08205,
+  "lng": -104.306715,
+  "addr": "Avenida Lazaro Cardenas Num. 1713",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802375740",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "manzanillo-instituto-matter",
+  "name": "Instituto Matter",
+  "city": "Manzanillo",
+  "country": "México",
+  "lat": 19.052222,
+  "lng": -104.315833,
+  "addr": "Boulevard Costero Miguel de la Madrid Kilometro 14. 5",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802375747",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "manzanillo-liceo-delta-a-c",
+  "name": "Liceo Delta, A.C.",
+  "city": "Manzanillo",
+  "country": "México",
+  "lat": 19.052222,
+  "lng": -104.315833,
+  "addr": "Dr. Arturo Castro Guizar S/N SN",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802376532",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "manzanillo-universidad-del-desarrollo-profesional-s-c",
+  "name": "Universidad Del Desarrollo Profesional S.C.",
+  "city": "Manzanillo",
+  "country": "México",
+  "lat": 19.052222,
+  "lng": -104.315833,
+  "addr": "Avenida Paseo de las Gaviotas Num. 295",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802378190",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "manzanillo-universidad-itecce",
+  "name": "Universidad ITECCE",
+  "city": "Manzanillo",
+  "country": "México",
+  "lat": 19.088539,
+  "lng": -104.294795,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n10942849211",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "manzanillo-preparatoria-itecce",
+  "name": "Preparatoria ITECCE",
+  "city": "Manzanillo",
+  "country": "México",
+  "lat": 19.089164,
+  "lng": -104.292061,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12963528502",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "manzanillo-colegio-jean-piaget",
+  "name": "Colegio Jean Piaget",
+  "city": "Manzanillo",
+  "country": "México",
+  "lat": 19.091475,
+  "lng": -104.299928,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13154454101",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "manzanillo-instituto-valladolid",
+  "name": "Instituto Valladolid",
+  "city": "Manzanillo",
+  "country": "México",
+  "lat": 19.119107,
+  "lng": -104.335038,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13244731502",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "manzanillo-colegio-terranova-2",
+  "name": "Colegio Terranova",
+  "city": "Manzanillo",
+  "country": "México",
+  "lat": 19.070402,
+  "lng": -104.301265,
+  "addr": "Eva Samano de Lopez Mateos Num. 2",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w665142132",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "manzanillo-liceo-delta-a-c-2",
+  "name": "Liceo Delta, A.C.",
+  "city": "Manzanillo",
+  "country": "México",
+  "lat": 19.072785,
+  "lng": -104.301166,
+  "addr": "Arturo Castro S/N SN",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w928464430",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "manzanillo-universidad-de-colima-campus-valle-de-las-garzas",
+  "name": "Universidad de Colima Campus Valle de las Garzas",
+  "city": "Manzanillo",
+  "country": "México",
+  "lat": 19.09834,
+  "lng": -104.30527,
+  "addr": "Avenida Elías Zamora Verduzco 269, Valle de las Garzas, Barrio III",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1322653033",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "manzanillo-universidad-de-colima-campus-san-pedrito",
+  "name": "Universidad de Colima Campus San Pedrito",
+  "city": "Manzanillo",
+  "country": "México",
+  "lat": 19.054555,
+  "lng": -104.303922,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1323291611",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "manzanillo-universidad-multitecnica-profesional",
+  "name": "Universidad Multitécnica Profesional",
+  "city": "Manzanillo",
+  "country": "México",
+  "lat": 19.092849,
+  "lng": -104.301834,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1388311780",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-adventista-ebenezer",
+  "name": "Unidad Educativa Adventista Ebenezer",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.378071,
+  "lng": -66.318181,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3721560618",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-calama",
+  "name": "Unidad Educativa Calama",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.412658,
+  "lng": -66.271942,
+  "addr": "Avenida Ferrocarril",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4571010248",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-ironcollo",
+  "name": "Unidad Educativa Ironcollo",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.361297,
+  "lng": -66.28694,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4803896799",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-villa-urkupina",
+  "name": "Unidad Educativa Villa Urkupiña",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.419035,
+  "lng": -66.289975,
+  "addr": "Villa Urkupiña",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5031064339",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-rijchariy",
+  "name": "Unidad Educativa Rijchariy",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.419526,
+  "lng": -66.290524,
+  "addr": "Villa Urkupiña",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5031064340",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-quillacollo",
+  "name": "Unidad Educativa Quillacollo",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.395191,
+  "lng": -66.279063,
+  "addr": "Calle General Pando",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6852649646",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-america",
+  "name": "Unidad Educativa América",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.395191,
+  "lng": -66.279392,
+  "addr": "Calle General Pando",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6852649647",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-6-de-junio",
+  "name": "Unidad Educativa 6 de Junio",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.400517,
+  "lng": -66.278869,
+  "addr": "Calle Ayacucho",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13731478456",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-sucre",
+  "name": "Unidad Educativa Sucre",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.400984,
+  "lng": -66.278949,
+  "addr": "Calle Ayacucho",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13731478457",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-instituto-de-formacion-artistica-franklin-anaya-arze",
+  "name": "Instituto de Formación Artística Franklin Anaya Arze",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.393599,
+  "lng": -66.27071,
+  "addr": "Avenida Cochabamba",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13744093443",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-luis-espinal-camps",
+  "name": "Unidad Educativa Luis Espinal Camps",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.395427,
+  "lng": -66.279245,
+  "addr": "Calle General Pando",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13746246443",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-nestor-adriazola-menendez",
+  "name": "Unidad Educativa Néstor Adriazola Menendez",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.393388,
+  "lng": -66.284928,
+  "addr": "Calle Constantino Morales 13",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13746246445",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-calama-2",
+  "name": "Unidad Educativa Calama",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.393845,
+  "lng": -66.284917,
+  "addr": "Calle Constantino Morales 13",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13746246446",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-ue-colegio-san-martin",
+  "name": "UE Colegio San Martin",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.396735,
+  "lng": -66.280149,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w207815894",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-jose-melchor-cuadros",
+  "name": "Unidad Educativa Jose Melchor Cuadros",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.39565,
+  "lng": -66.316855,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w225563714",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-universidad-adventista-de-bolivia",
+  "name": "Universidad Adventista de Bolivia",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.386983,
+  "lng": -66.315362,
+  "addr": "Avenida Pairumani",
+  "phone": "+591 4 4263330",
+  "web": "https://www.uab.edu.bo/",
+  "email": "info@uab.edu.bo",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w225563715",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-fidelia-sanchez",
+  "name": "Unidad Educativa.Fidelia Sanchez",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.398629,
+  "lng": -66.280448,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w247622809",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-urkupina",
+  "name": "Unidad Educativa Urkupiña",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.396505,
+  "lng": -66.276173,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w256030452",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-caviloma",
+  "name": "Unidad Educativa Caviloma",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.438079,
+  "lng": -66.344877,
+  "addr": "Caviloma",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w377084640",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-colegio-washington",
+  "name": "Colegio Washington",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.390855,
+  "lng": -66.27635,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w484159797",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-colegio-adventista-del-septimo-dia-primaria",
+  "name": "Colegio Adventista del Septimo Dia (Primaria)",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.387607,
+  "lng": -66.31506,
+  "addr": "Universidad Adventista de Bolivia",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w544941788",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-teofilo-vargas",
+  "name": "Unidad Educativa Teofilo Vargas",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.38609,
+  "lng": -66.275593,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w571015498",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-el-paso",
+  "name": "Unidad Educativa El Paso",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.339039,
+  "lng": -66.267907,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w619285017",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-quillacollo-p",
+  "name": "Unidad Educativa Quillacollo P",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.395681,
+  "lng": -66.283529,
+  "addr": "Calle General Pando 100",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w621343701",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-simon-bolivar",
+  "name": "Unidad Educativa Simón Bolívar",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.399124,
+  "lng": -66.28161,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w621343815",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-colegio-martin-cardenas",
+  "name": "Colegio Martín Cardenas",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.40213,
+  "lng": -66.314231,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w701004806",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-carmen-rosa-salguero",
+  "name": "Unidad Educativa Carmen Rosa Salguero",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.399144,
+  "lng": -66.305588,
+  "addr": "Avenida Miguel Mercado Moreira",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w782239133",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-rene-crespo-caballero",
+  "name": "Unidad Educativa Rene Crespo Caballero",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.365981,
+  "lng": -66.277235,
+  "addr": "Calle Antofagasta, Chojñacollo",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w804813651",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-colegio-particular-san-agustin",
+  "name": "Colegio Particular San Agustín",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.396439,
+  "lng": -66.278625,
+  "addr": "Calle Nataniel Aguirre 123",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w915124358",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-evo-morales-ayma",
+  "name": "Unidad Educativa Evo Morales Ayma",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.39056,
+  "lng": -66.310782,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1018445491",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-san-ignacio-de-loyola",
+  "name": "Unidad Educativa San Ignacio de Loyola",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.382492,
+  "lng": -66.29226,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1033118828",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-albina-patino",
+  "name": "Unidad Educativa Albina Patiño",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.359099,
+  "lng": -66.323611,
+  "addr": "Avenida Pairumani",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1565312947",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "quillacollo-unidad-educativa-simon-iturri-patino",
+  "name": "Unidad Educativa Simón Iturri Patiño",
+  "city": "Quillacollo",
+  "country": "Bolivia",
+  "lat": -17.358344,
+  "lng": -66.323531,
+  "addr": "Avenida Pairumani",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1565312948",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "nuevo-chimbote-colegio-corazon-de-maria",
+  "name": "Colegio Corazón de María",
+  "city": "Nuevo Chimbote",
+  "country": "Perú",
+  "lat": -9.128292,
+  "lng": -78.49429,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6184028785",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "nuevo-chimbote-universidad-cesar-vallejo-chimbote",
+  "name": "Universidad César Vallejo - Chimbote",
+  "city": "Nuevo Chimbote",
+  "country": "Perú",
+  "lat": -9.126652,
+  "lng": -78.511387,
+  "addr": "",
+  "phone": "+51043483030",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w317534282",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "nuevo-chimbote-colegio-santa-maria-de-cervello",
+  "name": "Colegio Santa María de Cervello",
+  "city": "Nuevo Chimbote",
+  "country": "Perú",
+  "lat": -9.123226,
+  "lng": -78.531783,
+  "addr": "Avenida Pacífico",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w518425361",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "nuevo-chimbote-universidad-san-pedro",
+  "name": "Universidad San Pedro",
+  "city": "Nuevo Chimbote",
+  "country": "Perú",
+  "lat": -9.134264,
+  "lng": -78.505124,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w665092679",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "nuevo-chimbote-universidad-tecnologica-del-peru",
+  "name": "Universidad Tecnológica del Perú",
+  "city": "Nuevo Chimbote",
+  "country": "Perú",
+  "lat": -9.128816,
+  "lng": -78.534045,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.utp.edu.pe/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w861305409",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "nuevo-chimbote-universidad-cesar-vallejo",
+  "name": "Universidad César Vallejo",
+  "city": "Nuevo Chimbote",
+  "country": "Perú",
+  "lat": -9.128418,
+  "lng": -78.5325,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1388721626",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "nuevo-chimbote-colegio-virgen-de-las-gracias",
+  "name": "Colegio Virgen de las Gracias",
+  "city": "Nuevo Chimbote",
+  "country": "Perú",
+  "lat": -9.135794,
+  "lng": -78.491781,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1524437050",
+  "found": "2026-11-13"
  }
 ]
