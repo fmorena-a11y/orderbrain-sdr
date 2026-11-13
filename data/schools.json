@@ -227169,7 +227169,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w481835989",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "valencia-colegio-santa-teresa-de-jesus-de-el-vedat",
@@ -227190,7 +227191,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w481835992",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-claret-fuensanta",
@@ -227211,7 +227214,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w546689683",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://claretfuensanta.es/wp-content/uploads/2026/03/Personalizacion-e1774521028500-1024x593.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-luz-casanova",
@@ -227527,7 +227532,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w726937401",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-universidad-catolica-de-valencia-sede-padre-jofre",
@@ -227570,7 +227577,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w741347844",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "valencia-colegio-san-jose-y-santa-ana-trinitarias",
@@ -227773,7 +227781,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w989734422",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-sorolla-infantil-y-primaria",
@@ -227818,7 +227828,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1005980595",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "valencia-shackleton-international-school",
@@ -227899,7 +227910,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1024230233",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.colegiojuanxxiii.es/wp-content/uploads/2024/02/Logo-Bueno.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-centre-d-atencio-temprana-i-educacio-infantil-l-alqueria",
@@ -227950,13 +227963,15 @@
   "addr": "Avinguda de Pio Baroja 3",
   "phone": "+34963475201",
   "web": "https://valenciamontessori.org/",
-  "email": "",
+  "email": "hello@valenciamontessori.org",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w1189175322",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://valenciamontessori.org/wp-content/uploads/2017/07/huertoJuan_MG_8375-Edit.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-palma",
@@ -228169,7 +228184,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1332155261",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://s0.wp.com/i/blank.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-diocesano-nuestra-senora-del-socorro",
@@ -228189,7 +228206,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1357839267",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-sedavi",
@@ -228251,7 +228270,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "r15827554",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "sevilla-colegio-santo-tomas-de-aquino",
@@ -228289,7 +228309,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n748579305",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "sevilla-colegio-inmaculado-corazon-de-maria-portaceli",
@@ -228425,7 +228447,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n9714139550",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://escuelaelgusanito.wordpress.com/wp-content/uploads/2012/10/escuela-infantil-el-gusanito-foto-12.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "sevilla-trinity-christin-college",
@@ -228789,7 +228813,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w59529506",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "sevilla-universidad-internacional-de-andalucia",
@@ -228958,7 +228983,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w66679646",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "sevilla-colegio-de-educacion-infantil-y-primaria-borbolla",
@@ -229146,7 +229172,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w68695387",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "sevilla-colegio-de-educacion-infantil-y-primaria-huerta-del-carmen",
@@ -229509,7 +229536,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w70794371",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://static.wixstatic.com/media/7b6982_629d06305e114bd5aada0243e3c77680~mv2.jpg/v1/fill/w_788,h_1024,al_c/7b6982_629d06305e114bd5aada0243e3c77680~mv2.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "sevilla-colegio-de-educacion-infantil-y-primaria-mastra-isabel-alvarez",
@@ -230897,7 +230926,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w163401411",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "sevilla-universidad-loyola",
@@ -231135,7 +231165,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w205485097",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "sevilla-instituto-concertado-doctor-sacristan",
@@ -231234,7 +231265,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w293959552",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "sevilla-colegio-de-educacion-infantil-y-primaria-jardines-del-valle",
@@ -231355,7 +231387,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w345972624",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "sevilla-colegio-de-educacion-infantil-y-primaria-san-jacinto",
@@ -231764,7 +231798,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w591191559",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "sevilla-colegio-maria-auxiliadora",
@@ -231922,7 +231957,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w854031183",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "sevilla-albaydar-centro-educativo",
@@ -231942,7 +231978,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1045534809",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://albaydar.org/wp-content/uploads/2024/06/logofinal512f.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "sevilla-centro-privado-de-ensenanza-juan-nepomuceno-rojas",
@@ -232113,7 +232151,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n1363426823",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "zaragoza-colegio-maria-inmaculada",
@@ -232153,7 +232192,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n1797667286",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "zaragoza-professional-school-of-english",
@@ -232185,7 +232226,7 @@
   "addr": "Rafael Alberti 5",
   "phone": "+34976519655",
   "web": "https://maristaszaragoza.com/",
-  "email": "",
+  "email": "secretaria@maristaszaragoza.com",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -232193,7 +232234,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n3207721261",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://maristaszaragoza.com/wp-content/uploads/2020/09/logo_zaragoza_def.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "zaragoza-colegio-sagrado-corazon",
@@ -232225,7 +232268,7 @@
   "addr": "Carretera de Valencia",
   "phone": "+34 976 505223",
   "web": "https://www.britanico-aragon.edu/",
-  "email": "",
+  "email": "info@britanico-aragon.edu",
   "levels": [],
   "opp": [
    "Bilingüe o internacional"
@@ -232233,7 +232276,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n3784916503",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.britanico-aragon.edu/wp-content/uploads/2021/02/colegio-britanico-aragon.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "zaragoza-sprake-school",
@@ -232416,7 +232461,7 @@
   "addr": "Paseo de la Mina 4-10",
   "phone": "+34 976 22 48 64",
   "web": "https://www.corazonistaslamina.com/",
-  "email": "",
+  "email": "director.z@corazonistas.com",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -232424,7 +232469,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w46795344",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "zaragoza-colegio-san-agustin",
@@ -232560,7 +232607,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w167967120",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegioromareda.com/wp-content/uploads/2025/02/kids-getting-back-to-school-together.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "zaragoza-colegio-escuelas-pias",
@@ -232751,7 +232800,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w192157571",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "zaragoza-colegio-padre-enrique-de-osso",
@@ -232947,7 +232998,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w231086008",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "zaragoza-colegio-de-educacion-infantil-y-primaria-agustina-de-aragon",
@@ -233010,7 +233062,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w257694842",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "zaragoza-colegio-de-educacion-infantil-y-primaria-valdespartera",
@@ -233031,7 +233084,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w257694948",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "zaragoza-colegio-de-educacion-infantil-y-primaria-rosales-del-canal",
@@ -233043,7 +233098,7 @@
   "addr": "Calle de Luis Gracia Iberni 4",
   "phone": "+34 876241565",
   "web": "https://colegiorosalesdelcanal.es/",
-  "email": "",
+  "email": "cprdczaragoza@educa.aragon.es",
   "levels": [
    "Primaria"
   ],
@@ -233051,7 +233106,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w262576856",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegiorosalesdelcanal.es/wp-content/uploads/2019/01/iconos-web_Mesa-de-trabajo-1-copia-4.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "zaragoza-colegio-de-educacion-infantil-y-primaria-san-jose-de-calasanz",
@@ -233414,7 +233471,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w539746368",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "zaragoza-colegio-parque-venecia",
@@ -233550,7 +233608,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w765249511",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "zaragoza-colegio-de-educacion-infantil-y-primaria-la-portada",
@@ -233572,7 +233631,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w793270630",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifHRZXoAnH8vQtuHnSNBk_X7tvVmbWH_DtBHZgM8SMyMBLCONGDQI5ixXXIijwOKYt5Kup7NN79Gd0Qy__u8pDO8hNWulXuyZkcbru88w46F5Qcr19jg0p72sjarQWhk5PfbF8Lx0_38dt/w1200-h630-p-k-no-nu/IMG_8458.JPG",
+  "webAt": "2026-11-13"
  },
  {
   "id": "zaragoza-colegio-de-educacion-infantil-y-primaria-jeronimo-zurita-y-castro",
@@ -233592,7 +233653,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w814323420",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "zaragoza-colegio-de-educacion-infantil-y-primaria-andres-manjon",
@@ -233688,7 +233750,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w931127695",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "zaragoza-colegio-nuestra-senora-del-carmen-y-san-jose",
@@ -233986,7 +234050,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "r6663214",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "zaragoza-colegio-villacruz",
@@ -234074,7 +234139,7 @@
   "addr": "Calle de San Vicente de Paúl 31",
   "phone": "+34 976 29 15 25",
   "web": "https://paulaszaragoza.com/",
-  "email": "",
+  "email": "direccion@paulaszaragoza.com",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -234082,7 +234147,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r6973834",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.paulaszaragoza.com/web/image/website/1/logo",
+  "webAt": "2026-11-13"
  },
  {
   "id": "zaragoza-colegio-la-milagrosa",
@@ -234158,7 +234225,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r7635678",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "zaragoza-colegio-santa-ana",
@@ -234320,7 +234389,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r14272122",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "zaragoza-colegio-de-educacion-infantil-y-primaria-jeronimo-blancas-y-tomas",
@@ -234664,7 +234735,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n3726395594",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-benjanmin",
@@ -235653,7 +235725,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n7956609162",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-teniente-coronel-rafael-pabon-cuevas",
@@ -236318,7 +236392,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n10770094674",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-carlos-villegas",
@@ -236794,7 +236869,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28436293",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-loyola",
@@ -236814,7 +236891,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w28665467",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegioloyola.edu.bo/wp-content/uploads/Loyola-logo-final-231x300.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-americano",
@@ -236836,7 +236915,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w47353693",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "cochabamba-universidad-del-valle",
@@ -236859,7 +236939,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w63545654",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-tiquipaya",
@@ -236902,7 +236984,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w64549030",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "cochabamba-unidad-educativa-juan-lechin-oquendo",
@@ -236979,7 +237062,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w156109516",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-universidad-privada-franz-tamayo",
@@ -237002,7 +237087,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w156109536",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://unifranz.edu.bo/wp-content/uploads/2025/10/unifranz-2025.webp",
+  "whatsapp": "+59171502211",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-hughes-school",
@@ -237082,7 +237170,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w175944267",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-colegio-santo-domingo-savio",
@@ -237141,7 +237231,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w202716313",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-universidad-catolica-boliviana-san-pablo",
@@ -237165,7 +237257,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w202716399",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://cba.ucb.edu.bo/wp-content/uploads/2022/06/Logo-UCB-CIGIA-resize2.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cochabamba-instituto-de-educacion-integral-y-formacion-artistica-eduardo-laredo",
@@ -401438,6 +401532,368 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1504149114",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "zacatecas-instituto-educativo-ammadeus",
+  "name": "Instituto Educativo Ammadeus",
+  "city": "Zacatecas",
+  "country": "México",
+  "lat": 22.778454,
+  "lng": -102.538725,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9408704534",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "zacatecas-universidad-de-durango-campus-zacatecas",
+  "name": "Universidad de Durango Campus Zacatecas",
+  "city": "Zacatecas",
+  "country": "México",
+  "lat": 22.772862,
+  "lng": -102.608579,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w419258389",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "zacatecas-preparatoria-plantel-4-uaz",
+  "name": "Preparatoria Plantel 4 UAZ",
+  "city": "Zacatecas",
+  "country": "México",
+  "lat": 22.760163,
+  "lng": -102.577891,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w544814578",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "zacatecas-preparatoria-1-uaz",
+  "name": "Preparatoria 1 UAZ",
+  "city": "Zacatecas",
+  "country": "México",
+  "lat": 22.775891,
+  "lng": -102.57438,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1026270622",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "zacatecas-colegio-del-centro",
+  "name": "Colegio del Centro",
+  "city": "Zacatecas",
+  "country": "México",
+  "lat": 22.771431,
+  "lng": -102.566306,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1500785082",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "carolina-colegio-santa-clara",
+  "name": "Colegio Santa Clara",
+  "city": "Carolina",
+  "country": "Puerto Rico",
+  "lat": 18.400089,
+  "lng": -65.973822,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n357266144",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "carolina-colegio-de-diego",
+  "name": "colegio de diego",
+  "city": "Carolina",
+  "country": "Puerto Rico",
+  "lat": 18.39944,
+  "lng": -65.98261,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1218206293",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "carolina-northbridge-university",
+  "name": "Northbridge University",
+  "city": "Carolina",
+  "country": "Puerto Rico",
+  "lat": 18.378426,
+  "lng": -65.926711,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7752602175",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "carolina-edic-college",
+  "name": "EDIC College",
+  "city": "Carolina",
+  "country": "Puerto Rico",
+  "lat": 18.380047,
+  "lng": -65.965346,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7752772126",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "carolina-nuc-university",
+  "name": "NUC University",
+  "city": "Carolina",
+  "country": "Puerto Rico",
+  "lat": 18.396646,
+  "lng": -66.001203,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13650352601",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "carolina-instituto-del-desarrollo-del-nino",
+  "name": "Instituto del Desarrollo del Niño",
+  "city": "Carolina",
+  "country": "Puerto Rico",
+  "lat": 18.40167,
+  "lng": -65.993622,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w261319355",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "carolina-universidad-ana-g-mendez-recinto-de-carolina",
+  "name": "Universidad Ana G. Méndez - Recinto de Carolina",
+  "city": "Carolina",
+  "country": "Puerto Rico",
+  "lat": 18.41329,
+  "lng": -65.984048,
+  "addr": "Carretera 190",
+  "phone": "17877642495",
+  "web": "https://www.uagm.edu/",
+  "email": "yourvoicecounts_veterinary@uagm.edu",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w341239063",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "carolina-saint-francis-school",
+  "name": "Saint Francis School",
+  "city": "Carolina",
+  "country": "Puerto Rico",
+  "lat": 18.418045,
+  "lng": -65.964991,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.saintfrancispr.org",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w376552312",
+  "found": "2026-11-13",
+  "img": "https://nebula.wsimg.com/e22b82ce9bac91f12f0aebd01df136ec?AccessKeyId=CFE3D4477555939EC60C&disposition=0&alloworigin=1",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "carolina-colegio-maria-auxiliadora",
+  "name": "Colegio María Auxiliadora",
+  "city": "Carolina",
+  "country": "Puerto Rico",
+  "lat": 18.392468,
+  "lng": -65.959747,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w434749028",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "carolina-colegio-santa-maria-del-camino",
+  "name": "Colegio Santa María del Camino",
+  "city": "Carolina",
+  "country": "Puerto Rico",
+  "lat": 18.369344,
+  "lng": -65.991161,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w531906831",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "carolina-colegio-bautista-de-carolina",
+  "name": "Colegio Bautista de Carolina",
+  "city": "Carolina",
+  "country": "Puerto Rico",
+  "lat": 18.384628,
+  "lng": -65.97277,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w828867226",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "carolina-dewey-university",
+  "name": "Dewey University",
+  "city": "Carolina",
+  "country": "Puerto Rico",
+  "lat": 18.376335,
+  "lng": -65.958848,
+  "addr": "Calle Marginal",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1081597831",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "carolina-leap-stem-arts-university-school-of-carolina",
+  "name": "LEAP STEM + Arts University School of Carolina",
+  "city": "Carolina",
+  "country": "Puerto Rico",
+  "lat": 18.384625,
+  "lng": -65.954715,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1456731033",
   "found": "2026-11-13"
  }
 ]

@@ -7059,7 +7059,9 @@
   "DO|n250651105": "2026-11-13T13:41:02.505Z",
   "MX|Hacienda Santa Fe": "2026-11-13T13:41:33.447Z",
   "MX|Córdoba": "2026-11-13T13:42:12.201Z",
-  "DO|n3445866928": "2026-11-13T13:42:56.118Z"
+  "DO|n3445866928": "2026-11-13T13:42:56.118Z",
+  "MX|Zacatecas": "2026-11-13T15:14:54.071Z",
+  "PR|n1902275067": "2026-11-13T15:21:09.081Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7134,6 +7136,34 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-13T15:06:25.448Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Zacatecas",
+     "found": 5,
+     "updated": 0,
+     "osm": 29
+    },
+    {
+     "cc": "PR",
+     "city": "Carolina",
+     "found": 13,
+     "updated": 0,
+     "osm": 53
+    }
+   ],
+   "added": 18,
+   "enriched": 0,
+   "photos": 17,
+   "contacts": 8,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 16.4,
+   "total": 19842
+  },
   {
    "at": "2026-11-13T13:29:35.753Z",
    "cities": [
@@ -9341,36 +9371,6 @@
    "errors": [],
    "minutes": 14.8,
    "total": 13785
-  },
-  {
-   "at": "2026-11-10T11:26:53.213Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Cuautitlán Izcalli",
-     "found": 2,
-     "updated": 0,
-     "osm": 290
-    },
-    {
-     "cc": "ES",
-     "city": "Murcia",
-     "found": 141,
-     "updated": 0,
-     "osm": 285
-    }
-   ],
-   "added": 143,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 1,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "CO|n8448168093: The operation was aborted due to timeout"
-   ],
-   "minutes": 19.3,
-   "total": 13675
   }
  ]
 }
