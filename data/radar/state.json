@@ -7049,7 +7049,17 @@
   "VE|n844625993": "2026-11-13T09:25:03.622Z",
   "ES|n240423010": "2026-11-13T09:32:44.738Z",
   "CO|n703176077": "2026-11-13T11:15:38.965Z",
-  "ES|n240423022": "2026-11-13T11:16:10.571Z"
+  "ES|n240423022": "2026-11-13T11:16:10.571Z",
+  "CL|Los Ángeles": "2026-11-13T13:30:21.506Z",
+  "ES|n230421116": "2026-11-13T13:31:08.650Z",
+  "ES|n124083658": "2026-11-13T13:38:44.979Z",
+  "AR|Monte Grande": "2026-11-13T13:39:28.216Z",
+  "EC|n249596683": "2026-11-13T13:39:56.102Z",
+  "MX|Kanasín": "2026-11-13T13:40:30.293Z",
+  "DO|n250651105": "2026-11-13T13:41:02.505Z",
+  "MX|Hacienda Santa Fe": "2026-11-13T13:41:33.447Z",
+  "MX|Córdoba": "2026-11-13T13:42:12.201Z",
+  "DO|n3445866928": "2026-11-13T13:42:56.118Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7124,6 +7134,90 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-13T13:29:35.753Z",
+   "cities": [
+    {
+     "cc": "CL",
+     "city": "Los Ángeles",
+     "found": 44,
+     "updated": 0,
+     "osm": 105
+    },
+    {
+     "cc": "ES",
+     "city": "Torrejón de Ardoz",
+     "found": 0,
+     "updated": 0,
+     "osm": 52
+    },
+    {
+     "cc": "ES",
+     "city": "Lérida",
+     "found": 5,
+     "updated": 0,
+     "osm": 75
+    },
+    {
+     "cc": "AR",
+     "city": "Monte Grande",
+     "found": 1,
+     "updated": 0,
+     "osm": 130
+    },
+    {
+     "cc": "EC",
+     "city": "Milagro",
+     "found": 12,
+     "updated": 0,
+     "osm": 54
+    },
+    {
+     "cc": "MX",
+     "city": "Kanasín",
+     "found": 0,
+     "updated": 0,
+     "osm": 22
+    },
+    {
+     "cc": "DO",
+     "city": "La Romana",
+     "found": 18,
+     "updated": 0,
+     "osm": 34
+    },
+    {
+     "cc": "MX",
+     "city": "Hacienda Santa Fe",
+     "found": 1,
+     "updated": 0,
+     "osm": 115
+    },
+    {
+     "cc": "MX",
+     "city": "Córdoba",
+     "found": 18,
+     "updated": 0,
+     "osm": 175
+    },
+    {
+     "cc": "DO",
+     "city": "Verón",
+     "found": 3,
+     "updated": 0,
+     "osm": 3
+    }
+   ],
+   "added": 102,
+   "enriched": 0,
+   "photos": 16,
+   "contacts": 14,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 14.9,
+   "total": 19824
+  },
   {
    "at": "2026-11-13T11:14:46.866Z",
    "cities": [
@@ -9277,56 +9371,6 @@
    ],
    "minutes": 19.3,
    "total": 13675
-  },
-  {
-   "at": "2026-11-10T09:08:58.853Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Matamoros",
-     "found": 3,
-     "updated": 0,
-     "osm": 36
-    },
-    {
-     "cc": "CO",
-     "city": "Santa Marta",
-     "found": 207,
-     "updated": 0,
-     "osm": 342
-    },
-    {
-     "cc": "EC",
-     "city": "Cuenca",
-     "found": 110,
-     "updated": 2,
-     "osm": 336
-    },
-    {
-     "cc": "CO",
-     "city": "Valledupar",
-     "found": 13,
-     "updated": 0,
-     "osm": 39
-    },
-    {
-     "cc": "MX",
-     "city": "Ciudad López Mateos",
-     "found": 22,
-     "updated": 1,
-     "osm": 507
-    }
-   ],
-   "added": 355,
-   "enriched": 0,
-   "photos": 51,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "PY|n1437475089: Overpass 504"
-   ],
-   "minutes": 18.4,
-   "total": 13581
   }
  ]
 }

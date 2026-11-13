@@ -224285,7 +224285,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "r20806782",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "barcelona-pue-proyecto-universidad-empresa",
@@ -224414,7 +224415,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n7050147457",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "barcelona-academia-ases",
@@ -224436,7 +224438,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n7127255485",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "barcelona-academia-sol",
@@ -224458,7 +224462,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n7132152952",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "barcelona-escola-balaguer",
@@ -224478,7 +224483,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n7383354776",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "barcelona-isde-law-school",
@@ -224500,7 +224506,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n7400751092",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://isde.es/wp-content/uploads/2026/02/Imagen-destacada-ISDE.webp",
+  "webAt": "2026-11-13"
  },
  {
   "id": "barcelona-lci-barcelona-school-of-design",
@@ -224518,7 +224526,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n8360134847",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "barcelona-international-center-for-entrepreneurs-in-barcelona-iceb",
@@ -224530,7 +224539,7 @@
   "addr": "Carrer de Balmes 191, 3º 1ª",
   "phone": "+34 93 6394623",
   "web": "https://www.iceb-edu.com/",
-  "email": "",
+  "email": "info@iceb-edu.com",
   "levels": [],
   "opp": [
    "Bilingüe o internacional"
@@ -224538,7 +224547,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n8569286817",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://iceb-edu.com/wp-content/uploads/2024/11/cuadricula.webp",
+  "webAt": "2026-11-13"
  },
  {
   "id": "barcelona-instituto-de-terapias-aplicadas",
@@ -224556,7 +224567,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n8650520333",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+34618440608",
+  "webAt": "2026-11-13"
  },
  {
   "id": "barcelona-esic-business-marketing-school",
@@ -224586,7 +224600,7 @@
   "addr": "Carrer de John Maynard Keynes 1-11",
   "phone": "+34 93 403 47 85",
   "web": "https://www.ub.edu/school-economics/contact/",
-  "email": "",
+  "email": "comunicacio.fee@ub.edu",
   "levels": [
    "Universidad"
   ],
@@ -224596,7 +224610,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n9566013523",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "barcelona-princess-margaret-school",
@@ -224892,7 +224908,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w311405775",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "barcelona-escola-maria-montessori",
@@ -224936,7 +224954,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w465976499",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "barcelona-col-legi-alemany-de-barcelona-deutsche-schule-barcelona",
@@ -224956,7 +224976,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w475169676",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "barcelona-institut-tretzevents-waldorf-steiner",
@@ -225090,7 +225112,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w787114518",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://stpeters.es/wp-content/uploads/2022/08/stpeters_logo_web.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "barcelona-escola-solc",
@@ -225110,7 +225134,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w787117905",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "barcelona-kensington-school",
@@ -225130,7 +225156,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w787120780",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "barcelona-escola-santissima-trinitat",
@@ -225151,7 +225179,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w787142297",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "barcelona-institut-de-pedagogia-terapeutica-jeroni-de-moragas",
@@ -225171,7 +225201,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w787146378",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "barcelona-saint-paul-s-school",
@@ -225191,7 +225223,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w787151372",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.stpauls.es/wp-content/uploads/2024/03/stpauls_school_logo.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "barcelona-the-benjamin-franklin-international-school",
@@ -225212,7 +225246,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w787262963",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://resources.finalsite.net/images/v1734462385/bfischoolorg/nmkjf1gckxd26cq36pf3/favicon2.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "barcelona-centre-tecnic-europeu",
@@ -225370,7 +225406,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w873282159",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "barcelona-la-salle-comtal",
@@ -225411,7 +225448,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1020894951",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.cmontserrat.org/wp-content/uploads/2026/09/Top-10-CC-Colegio-Montserrat-Spain-1.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "barcelona-esic-business-marketing-school-2",
@@ -225490,7 +225529,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1415814322",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "barcelona-santa-clara-international-school",
@@ -225523,7 +225564,7 @@
   "addr": "Ronda del 8 de Març 178",
   "phone": "+34 935 55 67 17",
   "web": "https://www.hamelininternacionallaie.com/",
-  "email": "",
+  "email": "info@hamelinschool.com",
   "levels": [],
   "opp": [
    "Bilingüe o internacional"
@@ -225531,7 +225572,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r8409434",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.hamelinschool.com/-/media/corporate/social-media/default-image-opengraph.png?rev=253eda5bd2c04136a3c08fc966555015&hash=FBEE15FCCF94F378DBA812D19B7BB2D3",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-santo-tomas-de-aquino",
@@ -225570,7 +225613,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n2625844935",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "valencia-universidad-ceu-uch-palacio-de-colomina",
@@ -225592,7 +225636,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4858210624",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-diocesano-san-juan-bosco",
@@ -225604,7 +225650,7 @@
   "addr": "Calle del Reverendo Rafael Ramón Llin 9",
   "phone": "+34 963495539",
   "web": "https://colegiodiocesanosanjuanbosco.com/",
-  "email": "",
+  "email": "sanjuanbosco@cdsjbosco.com",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -225612,7 +225658,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4892927321",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegiodiocesanosanjuanbosco.com/wp-content/uploads/2023/10/Como-prevenir-adicciones-en-nuestros-hijos-2-1024x1024.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-aula-3",
@@ -225632,7 +225680,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4911702222",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-barreira-arte-y-diseno",
@@ -225655,7 +225705,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n5271544341",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-universidad-catolica-valencia-virgen-de-los-desamparados",
@@ -225739,7 +225791,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n7095501185",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://universidadeuropea.com/resources/media/images/universidad-europea-logo_poc9mEM.2e16d0ba.fill-767x384.webp",
+  "whatsapp": "+34697920810",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-nuestra-senora-del-socorro",
@@ -225817,7 +225872,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n9527255032",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://pmariagrao.org/wp-content/plugins/elementor/assets/images/placeholder.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-universidad-internacional-de-valencia",
@@ -225907,7 +225964,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n12152708649",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "valencia-academia-la-pagoda-fedele-valencia",
@@ -225919,13 +225977,16 @@
   "addr": "Carrer de Misser Mascó 2",
   "phone": "+34 963 25 61 98",
   "web": "https://www.lapagoda.es/",
-  "email": "",
+  "email": "info@lapagoda.es",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "n13740944701",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://lapagoda.es/wp/wp-content/uploads/2018/05/banner-001-lg.jpg",
+  "whatsapp": "+34631387598",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-ceu-san-pablo-valencia",
@@ -226009,7 +226070,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w24265009",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegio.sanjaimemoncada.es/wp-content/uploads/elementor/thumbs/ERASMUS-roqpcqw60tarezwfe6vgm0u5y6ymqdu2wm0d9lh5og.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-domus",
@@ -226090,7 +226153,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w29247080",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-ausias-march",
@@ -226146,7 +226211,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w30711609",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://marianoserra.net/wp-content/uploads/2026/09/cropped-Inicio2627.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-san-rafael",
@@ -226222,7 +226289,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w77697941",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-deutsche-schule-valencia",
@@ -226285,7 +226354,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w78148590",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-salesianos-san-juan-bosco",
@@ -226434,7 +226505,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w158010999",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-concertado-la-anunciacion",
@@ -226643,7 +226716,7 @@
   "addr": "Calle Campamento 57",
   "phone": "+34 96 364 38 11",
   "web": "https://elavemaria.es/",
-  "email": "",
+  "email": "avemariav@planalfa.es",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -226651,7 +226724,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w220262965",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-santa-maria-marianista",
@@ -226812,7 +226887,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w323770551",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-nuestra-senora-de-la-natividad",
@@ -226837,7 +226914,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w347777475",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-el-armelar",
@@ -226892,7 +226971,7 @@
   "addr": "Calle de Isabel la Católica 25",
   "phone": "+34 963536600",
   "web": "https://dominicoscoval.org/",
-  "email": "",
+  "email": "sanvicenteferrer@fesd.es",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)",
@@ -226901,7 +226980,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w414889064",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-universidad-catolica-de-valencia-torrent",
@@ -226942,7 +227023,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w419778472",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-parroquial-de-san-marcelino",
@@ -227000,7 +227083,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w481688368",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "valencia-escola-el-drac",
@@ -227020,7 +227104,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w481690545",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-centro-de-educacion-especial-squema",
@@ -227040,7 +227126,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w481690548",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "valencia-colegio-pleyade",
@@ -227060,7 +227147,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w481824639",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "valencia-colegio-la-purisima",
@@ -399351,6 +399440,2004 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1119591119",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-universidad-catolica-de-la-santisima-concepcion-los-angeles",
+  "name": "Universidad Católica de la Santísima Concepción Los Ángeles",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.471506,
+  "lng": -72.349029,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5980422486",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-instituto-de-estimulacion-temprana-apego-seguro",
+  "name": "Instituto de Estimulación Temprana \"Apego Seguro\"",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.443849,
+  "lng": -72.331015,
+  "addr": "Avenida Sor Vicenta 2686",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n10976912635",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-proacap",
+  "name": "Colegio PROACAP",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.463262,
+  "lng": -72.349202,
+  "addr": "Almagro 847",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n10977071144",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-instituto-santo-tomas",
+  "name": "Instituto Santo Tomás",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.472105,
+  "lng": -72.354557,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11175143186",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-san-pablo",
+  "name": "Colegio San Pablo",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.473866,
+  "lng": -72.342103,
+  "addr": "Los Conquistadores 336",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11275559140",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-padre-alberto-hurtado-los-angeles",
+  "name": "Colegio Padre Alberto Hurtado Los Ángeles",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.46298,
+  "lng": -72.311606,
+  "addr": "Avenida Alemania",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11279505820",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-santa-teresa-de-los-andes-los-angeles",
+  "name": "Colegio Santa Teresa de Los Andes - Los Ángeles",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.47202,
+  "lng": -72.378749,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11279771894",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-los-angeles",
+  "name": "Colegio Los Angeles",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.469514,
+  "lng": -72.355137,
+  "addr": "Avenida Ercilla 389",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11414670303",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-particular-marta-brunet",
+  "name": "Colegio Particular Marta Brunet",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.477342,
+  "lng": -72.349482,
+  "addr": "Freire 424",
+  "phone": "",
+  "web": "https://www.colegiomartabrunet.cl",
+  "email": "col.martabrunet.la@gmail.com",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n11414670932",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-escuela-particular-diego-de-almagro",
+  "name": "Escuela Particular Diego de Almagro",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.456191,
+  "lng": -72.345082,
+  "addr": "Almagro 1496",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n11415101411",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-maria-inmaculada-de-los-angeles",
+  "name": "Colegio María Inmaculada de Los Ángeles",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.484208,
+  "lng": -72.348627,
+  "addr": "Avenida Las Quintas 188",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11428937153",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-pulmahue-montessori",
+  "name": "Pulmahue Montessori",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.474639,
+  "lng": -72.333549,
+  "addr": "Siglo XXI 541",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11429022548",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-escuela-particular-biobio-de-los-angeles",
+  "name": "Escuela Particular Biobío de los Ángeles",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.460395,
+  "lng": -72.374919,
+  "addr": "Las Trancas",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n11429026158",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-escuela-particular-juan-pablo-ii",
+  "name": "Escuela Particular Juan Pablo II",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.460537,
+  "lng": -72.337084,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n11429029116",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-ingles-woodland",
+  "name": "Colegio Inglés Woodland",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.458459,
+  "lng": -72.339182,
+  "addr": "Avenida Almirante Latorre 0525",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w293774723",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-southern-college",
+  "name": "Colegio Southern College",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.473093,
+  "lng": -72.371031,
+  "addr": "Avenida Padre Hurtado 195",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w299309500",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-saint-george",
+  "name": "Colegio Saint George",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.457306,
+  "lng": -72.333957,
+  "addr": "Avenida Oriente 1145",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w315892707",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-hogar-universidad-de-concepcion",
+  "name": "Hogar Universidad de Concepción",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.465985,
+  "lng": -72.343353,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w315927432",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-liceo-santa-rita",
+  "name": "Liceo Santa Rita",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.473289,
+  "lng": -72.354783,
+  "addr": "Manuel Rodríguez 131",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w381169614",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-universidad-santo-tomas-los-angeles",
+  "name": "Universidad Santo Tomás Los Ángeles",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.472013,
+  "lng": -72.354283,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w381169615",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-instituto-aiep",
+  "name": "Instituto AIEP",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.468567,
+  "lng": -72.354235,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w385508866",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-doctor-osvaldo-quinteros",
+  "name": "Colegio Doctor Osvaldo Quinteros",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.467226,
+  "lng": -72.385427,
+  "addr": "Aguas Calientes 2401",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w389598158",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-hispano-americano",
+  "name": "Colegio Hispano Americano",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.473517,
+  "lng": -72.350194,
+  "addr": "Avenida Ricardo Vicuña 326",
+  "phone": "+6221123456789",
+  "web": "https://hispanoamericanocolegiov2.cl/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w404776667",
+  "found": "2026-11-13",
+  "img": "https://res.cloudinary.com/dxnliqb73/image/upload/v1791032850/image_20_am0mbj.jpg",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-liceo-don-orione",
+  "name": "Liceo Don Orione",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.459919,
+  "lng": -72.350874,
+  "addr": "Orompello 0226",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w497950571",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-escuela-particular-juan-pablo-ii-2",
+  "name": "Escuela Particular Juan Pablo II",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.458748,
+  "lng": -72.371766,
+  "addr": "Avenida Orompello 1565",
+  "phone": "+56984281120",
+  "web": "https://colegiojuanpablo.cl/",
+  "email": "secretaria@colegiojuanpablo.cl",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w553529628",
+  "found": "2026-11-13",
+  "img": "https://colegiojuanpablo.cl/wp-content/uploads/2026/05/insignia.png",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-san-ignacio",
+  "name": "Colegio San Ignacio",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.471702,
+  "lng": -72.369169,
+  "addr": "Colo Colo 1264",
+  "phone": "",
+  "web": "https://csanignacio.cl/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w589112829",
+  "found": "2026-11-13",
+  "imgTry": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-liceo-aleman",
+  "name": "Liceo Alemán",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.477454,
+  "lng": -72.352295,
+  "addr": "Lynch 350",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w615544455",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-adventista",
+  "name": "Colegio Adventista",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.442797,
+  "lng": -72.331007,
+  "addr": "Avenida Sor Vicenta 2710",
+  "phone": "+56432213622",
+  "web": "https://eala.educacionadventista.com/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w618612301",
+  "found": "2026-11-13",
+  "img": "https://eala.educacionadventista.com/assets/images/fachada-padrao.jpg",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-teresiano-los-angeles",
+  "name": "Colegio Teresiano Los Ángeles",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.451786,
+  "lng": -72.368001,
+  "addr": "Don Víctor 1620",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w618613204",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-san-gabriel-arcangel",
+  "name": "Colegio San Gabriel Arcángel",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.442102,
+  "lng": -72.33815,
+  "addr": "Avenida Doctor Manuel Rioseco 855",
+  "phone": "",
+  "web": "https://sgabriel.cl/csga/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w684774644",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-alto-lauquen",
+  "name": "Colegio Alto Lauquén",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.493673,
+  "lng": -72.335738,
+  "addr": "Lauquén 555",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w730043702",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-universidad-y-cft-de-los-lagos",
+  "name": "Universidad y CFT de Los Lagos",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.471829,
+  "lng": -72.352836,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w812449705",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-liceo-camilo-henriquez",
+  "name": "Liceo Camilo Henríquez",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.466003,
+  "lng": -72.367705,
+  "addr": "Galvarino 1310",
+  "phone": "",
+  "web": "https://lcch.cl/",
+  "email": "contacto@lcch.cl",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w820869387",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-aleman-deutsche-schule",
+  "name": "Colegio Aleman - Deutsche Schule",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.472345,
+  "lng": -72.328478,
+  "addr": "Avenida Gabriela Mistral 1360",
+  "phone": "",
+  "web": "https://www.dsla.cl/",
+  "email": "contacto@dslosangeles.cl",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1018372923",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-concepcion",
+  "name": "Colegio Concepción",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.468526,
+  "lng": -72.329215,
+  "addr": "Avenida Alemania 1125",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1018372966",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-santo-tomas-de-aquino",
+  "name": "Colegio Santo Tomas de Aquino",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.480257,
+  "lng": -72.338527,
+  "addr": "Francisco Bilbao 1804",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1207308233",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-beato-damian-de-molokai",
+  "name": "Colegio Beato Damian de Molokai",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.489474,
+  "lng": -72.35171,
+  "addr": "Santa Marta 1397",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1218932270",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-la-fuente",
+  "name": "Colegio La Fuente",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.438159,
+  "lng": -72.32063,
+  "addr": "Ruta Q-351",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1218932290",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-juan-pablo-ii",
+  "name": "Colegio Juan Pablo II",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.464674,
+  "lng": -72.367927,
+  "addr": "Santiago 765",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1227878840",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-instituto-profesional-virginio-gomez-los-angeles",
+  "name": "Instituto Profesional Virginio Gómez Los Ángeles",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.467989,
+  "lng": -72.356441,
+  "addr": "Arturo Prat 451",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1228067877",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-san-nicolas",
+  "name": "Colegio San Nicolás",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.460305,
+  "lng": -72.363313,
+  "addr": "Avenida Orompello 1069",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1327335500",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-liceo-particular-carlos-condell",
+  "name": "Liceo Particular Carlos Condell",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.476838,
+  "lng": -72.362165,
+  "addr": "Lynch 956",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1435917973",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-aliwen",
+  "name": "Colegio Aliwen",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.468295,
+  "lng": -72.341482,
+  "addr": "Avenida Alemania 472",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1436462843",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "los-angeles-colegio-san-rafael-arcangel",
+  "name": "Colegio San Rafael Arcángel",
+  "city": "Los Ángeles",
+  "country": "Chile",
+  "lat": -37.464511,
+  "lng": -72.339209,
+  "addr": "Avenida Guillermo Marconi 773",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r19694880",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "lerida-general-d-estudis",
+  "name": "General d'Estudis",
+  "city": "Lérida",
+  "country": "España",
+  "lat": 41.61068,
+  "lng": 0.619527,
+  "addr": "Carrer de l'Alcalde Costa 18",
+  "phone": "+34 973 28 08 88",
+  "web": "https://generalestudis.com/",
+  "email": "info@generalestudis.com",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n628824371",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "lerida-academia-d-escacs-josep-oms",
+  "name": "Academia d'escacs Josep Oms",
+  "city": "Lérida",
+  "country": "España",
+  "lat": 41.623548,
+  "lng": 0.621012,
+  "addr": "Carrer del Taquígraf Martí 16",
+  "phone": "+34 973981955",
+  "web": "https://www.josepoms.com/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4596826189",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "lerida-academia-casanova",
+  "name": "Acadèmia Casanova",
+  "city": "Lérida",
+  "country": "España",
+  "lat": 41.615011,
+  "lng": 0.618113,
+  "addr": "Carrer de Maragall 31",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13339424997",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "lerida-academia-mariana",
+  "name": "Acadèmia Mariana",
+  "city": "Lérida",
+  "country": "España",
+  "lat": 41.610813,
+  "lng": 0.619019,
+  "addr": "Carrer de l'Acadèmia 17",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w710701164",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "lerida-col-legi-episcopal-mare-de-deu-de-l-academia",
+  "name": "Col·legi Episcopal-Mare de Déu de l'Acadèmia",
+  "city": "Lérida",
+  "country": "España",
+  "lat": 41.61471,
+  "lng": 0.616584,
+  "addr": "Carrer Doctor Comelles 38",
+  "phone": "+34 973 26 31 00",
+  "web": "https://www.cepiscopal.org/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r21916565",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "monte-grande-colegio-privado-el-jaguel-secundario",
+  "name": "Colegio privado el Jagüel (secundario)",
+  "city": "Monte Grande",
+  "country": "Argentina",
+  "lat": -34.836601,
+  "lng": -58.496139,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w992348360",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "milagro-instituto-tecnico-superior-cristo-rey",
+  "name": "Instituto Técnico Superior Cristo Rey",
+  "city": "Milagro",
+  "country": "Ecuador",
+  "lat": -2.135867,
+  "lng": -79.592737,
+  "addr": "LEONIDAS PLAZA 116 Y AV. QUITO.",
+  "phone": "(04) 2710710 / 097344067",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4150041856",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "milagro-unidad-educativa-los-chirijos",
+  "name": "Unidad Educativa Los Chirijos",
+  "city": "Milagro",
+  "country": "Ecuador",
+  "lat": -2.14685,
+  "lng": -79.58871,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4682302794",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "milagro-unidad-educativa-paul-ponce-rivadeneira",
+  "name": "Unidad Educativa Paul Ponce Rivadeneira",
+  "city": "Milagro",
+  "country": "Ecuador",
+  "lat": -2.121992,
+  "lng": -79.589984,
+  "addr": "Miguel Valverde",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4942816122",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "milagro-unidad-educativa-simon-bolivar",
+  "name": "Unidad Educativa Simón Bolívar",
+  "city": "Milagro",
+  "country": "Ecuador",
+  "lat": -2.123906,
+  "lng": -79.594235,
+  "addr": "Guayaquil",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4943157821",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "milagro-colegio-particular-jorge-borja-fuller",
+  "name": "Colegio Particular Jorge Borja Fuller",
+  "city": "Milagro",
+  "country": "Ecuador",
+  "lat": -2.13202,
+  "lng": -79.591245,
+  "addr": "Azogues",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n4943157921",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "milagro-universidad-agraria-del-ecuador",
+  "name": "Universidad Agraria del Ecuador",
+  "city": "Milagro",
+  "country": "Ecuador",
+  "lat": -2.127104,
+  "lng": -79.576974,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.uagraria.edu.ec/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w137051418",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "milagro-unidad-educativa-jose-maria-velasco-ibarra",
+  "name": "Unidad Educativa José María Velasco Ibarra",
+  "city": "Milagro",
+  "country": "Ecuador",
+  "lat": -2.136347,
+  "lng": -79.598386,
+  "addr": "Av. Los Chirijos",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w232625982",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "milagro-unidad-educativa-milagro",
+  "name": "Unidad Educativa Milagro",
+  "city": "Milagro",
+  "country": "Ecuador",
+  "lat": -2.145413,
+  "lng": -79.593622,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w270192676",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "milagro-colegio-vicente-anda-aguirre",
+  "name": "Colegio Vicente Anda Aguirre",
+  "city": "Milagro",
+  "country": "Ecuador",
+  "lat": -2.142685,
+  "lng": -79.585678,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w270484552",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "milagro-universidad-agraria-del-ecuador-centro-experimental-el-misionero",
+  "name": "Universidad Agraria del Ecuador - Centro Experimental El Misionero",
+  "city": "Milagro",
+  "country": "Ecuador",
+  "lat": -2.145611,
+  "lng": -79.572521,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w524180444",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "milagro-unidad-educativa-ricardo-sparovich",
+  "name": "Unidad Educativa Ricardo Sparovich",
+  "city": "Milagro",
+  "country": "Ecuador",
+  "lat": -2.14598,
+  "lng": -79.592545,
+  "addr": "Avenida Jaime Roldós",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1009655155",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "milagro-unidad-educativa-particular-jerusalen",
+  "name": "Unidad Educativa Particular Jerusalén",
+  "city": "Milagro",
+  "country": "Ecuador",
+  "lat": -2.13874,
+  "lng": -79.595875,
+  "addr": "Isidro Ayora 1",
+  "phone": "",
+  "web": "https://jerusalen.edu.ec/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1185738573",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "la-romana-universidad-ufhec",
+  "name": "Universidad  UFHEC",
+  "city": "La Romana",
+  "country": "República Dominicana",
+  "lat": 18.436234,
+  "lng": -69.003729,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3211862407",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "la-romana-colegio-luz-de-calazan",
+  "name": "Colegio Luz de Calazán",
+  "city": "La Romana",
+  "country": "República Dominicana",
+  "lat": 18.431431,
+  "lng": -68.995534,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3340637617",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "la-romana-colegio-buena-vista",
+  "name": "Colegio Buena Vista",
+  "city": "La Romana",
+  "country": "República Dominicana",
+  "lat": 18.425615,
+  "lng": -68.95975,
+  "addr": "Avenida Los Flamboyanes 37",
+  "phone": "",
+  "web": "https://colegiobuenavista.edu.do/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13602903701",
+  "found": "2026-11-13",
+  "imgTry": "2026-11-13"
+ },
+ {
+  "id": "la-romana-colegio-saint-matthew",
+  "name": "Colegio Saint Matthew",
+  "city": "La Romana",
+  "country": "República Dominicana",
+  "lat": 18.423401,
+  "lng": -68.960327,
+  "addr": "Avenida Las Caobas",
+  "phone": "+18492692274",
+  "web": "https://saintmatthewrd.blogspot.com/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13602926302",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "la-romana-new-valley-school",
+  "name": "New Valley School",
+  "city": "La Romana",
+  "country": "República Dominicana",
+  "lat": 18.409623,
+  "lng": -68.99117,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13602938401",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "la-romana-colegio-dr-huffman",
+  "name": "Colegio Dr. Huffman",
+  "city": "La Romana",
+  "country": "República Dominicana",
+  "lat": 18.42358,
+  "lng": -68.968223,
+  "addr": "Avenida Santa Rosa",
+  "phone": "+18095561264",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w312070751",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "la-romana-colegio-santa-rosa",
+  "name": "Colegio Santa Rosa",
+  "city": "La Romana",
+  "country": "República Dominicana",
+  "lat": 18.425291,
+  "lng": -68.965759,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w312078093",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "la-romana-universidad-o-m",
+  "name": "Universidad O & M",
+  "city": "La Romana",
+  "country": "República Dominicana",
+  "lat": 18.423383,
+  "lng": -68.992219,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w312084016",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "la-romana-colegio-corazon-de-jesus",
+  "name": "Colegio Corazón de Jesús",
+  "city": "La Romana",
+  "country": "República Dominicana",
+  "lat": 18.425959,
+  "lng": -68.974053,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w312307399",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "la-romana-colegio-episcopal-todos-los-santos",
+  "name": "Colegio Episcopal Todos los Santos",
+  "city": "La Romana",
+  "country": "República Dominicana",
+  "lat": 18.42359,
+  "lng": -68.967193,
+  "addr": "Eugenio A. Miranda 15",
+  "phone": "+18095562418",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w312308306",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "la-romana-colegio-saint-john",
+  "name": "Colegio Saint John",
+  "city": "La Romana",
+  "country": "República Dominicana",
+  "lat": 18.430466,
+  "lng": -68.95759,
+  "addr": "Avenida Las Palmas",
+  "phone": "+18095504358",
+  "web": "https://saintjohn.edu.do/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w313091500",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "la-romana-colegio-biblico-cristiano",
+  "name": "Colegio Bíblico Cristiano",
+  "city": "La Romana",
+  "country": "República Dominicana",
+  "lat": 18.434496,
+  "lng": -68.968886,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w326233164",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "la-romana-colegio-evangelico-ebenezer",
+  "name": "Colegio Evangélico Ebenezer",
+  "city": "La Romana",
+  "country": "República Dominicana",
+  "lat": 18.431528,
+  "lng": -68.972469,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w330174568",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "la-romana-saint-nicolas-school",
+  "name": "Saint Nicolas School",
+  "city": "La Romana",
+  "country": "República Dominicana",
+  "lat": 18.425256,
+  "lng": -68.964834,
+  "addr": "Avenida Gregorio Luperón",
+  "phone": "+18098134197",
+  "web": "https://sns.edu.do/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w338713672",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "la-romana-liceo-calasanz-san-eduardo",
+  "name": "Liceo Calasanz San Eduardo",
+  "city": "La Romana",
+  "country": "República Dominicana",
+  "lat": 18.42594,
+  "lng": -68.985922,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w402069864",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "la-romana-colegio-calasanz-san-pedro",
+  "name": "Colegio Calasanz San Pedro",
+  "city": "La Romana",
+  "country": "República Dominicana",
+  "lat": 18.428743,
+  "lng": -68.983045,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w497168162",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "la-romana-centro-educativo-mami-luisa",
+  "name": "Centro Educativo Mami Luisa",
+  "city": "La Romana",
+  "country": "República Dominicana",
+  "lat": 18.423815,
+  "lng": -68.965039,
+  "addr": "Francisco Castillo Márquez",
+  "phone": "18098133675",
+  "web": "https://www.facebook.com/centroeducativo.mamiluisa",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1391698976",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "la-romana-universidad-de-la-romana",
+  "name": "Universidad de La Romana",
+  "city": "La Romana",
+  "country": "República Dominicana",
+  "lat": 18.423974,
+  "lng": -69.004737,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1448263325",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "hacienda-santa-fe-instituto-lideres-del-siglo",
+  "name": "Instituto Lideres Del Siglo",
+  "city": "Hacienda Santa Fe",
+  "country": "México",
+  "lat": 20.507109,
+  "lng": -103.371431,
+  "addr": "Boulevard Distrito Federal 163",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802577615",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cordoba-universidad-mesoamericana",
+  "name": "Universidad Mesoamericana",
+  "city": "Córdoba",
+  "country": "México",
+  "lat": 18.894209,
+  "lng": -96.943102,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w854704464",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cordoba-instituto-de-compuingles-de-oriente",
+  "name": "Instituto de Compuinglés de Oriente",
+  "city": "Córdoba",
+  "country": "México",
+  "lat": 18.891596,
+  "lng": -96.930869,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w860475437",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cordoba-escuela-miguel-hidalgo-asilo-santa-maria",
+  "name": "Escuela \"Miguel Hidalgo\" / Asilo Santa María",
+  "city": "Córdoba",
+  "country": "México",
+  "lat": 18.893994,
+  "lng": -96.944494,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w982878659",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cordoba-instituto-alexander-graham-bell",
+  "name": "Instituto Alexander Graham Bell",
+  "city": "Córdoba",
+  "country": "México",
+  "lat": 18.893693,
+  "lng": -96.940412,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w982880600",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cordoba-colegio-de-las-americas-preescolar",
+  "name": "Colegio de Las Américas Preescolar",
+  "city": "Córdoba",
+  "country": "México",
+  "lat": 18.895414,
+  "lng": -96.93742,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1026475370",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cordoba-universidad-paccioli-de-cordoba",
+  "name": "Universidad Paccioli De Córdoba",
+  "city": "Córdoba",
+  "country": "México",
+  "lat": 18.893537,
+  "lng": -96.937473,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1030745926",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cordoba-universidad-paccioli-de-cordoba-2",
+  "name": "Universidad Paccioli de Córdoba",
+  "city": "Córdoba",
+  "country": "México",
+  "lat": 18.891082,
+  "lng": -96.968916,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1068825476",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cordoba-instituto-de-la-vera-cruz",
+  "name": "Instituto de la Vera Cruz",
+  "city": "Córdoba",
+  "country": "México",
+  "lat": 18.887982,
+  "lng": -96.943819,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1089063937",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cordoba-instituto-plancarte",
+  "name": "Instituto Plancarte",
+  "city": "Córdoba",
+  "country": "México",
+  "lat": 18.888471,
+  "lng": -96.937152,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1089063938",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cordoba-centro-educativo-jean-piaget",
+  "name": "Centro Educativo Jean Piaget",
+  "city": "Córdoba",
+  "country": "México",
+  "lat": 18.888634,
+  "lng": -96.950315,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1090352423",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cordoba-colegio-cima-educativa",
+  "name": "Colegio Cima Educativa",
+  "city": "Córdoba",
+  "country": "México",
+  "lat": 18.892749,
+  "lng": -96.968761,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1090795879",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cordoba-instituto-bilingue-carlos-dickens",
+  "name": "Instituto Bilingüe Carlos Dickens",
+  "city": "Córdoba",
+  "country": "México",
+  "lat": 18.921629,
+  "lng": -96.961942,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1097357928",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cordoba-fac-de-ciencias-biologicas-y-agropecuarias-penuela-universidad-veracru",
+  "name": "Fac. de Ciencias Biológicas y Agropecuarias - Peñuela - Universidad Veracruzana",
+  "city": "Córdoba",
+  "country": "México",
+  "lat": 18.860896,
+  "lng": -96.902679,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1182281938",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cordoba-instituto-anglo-de-cordoba",
+  "name": "Instituto Anglo de Córdoba",
+  "city": "Córdoba",
+  "country": "México",
+  "lat": 18.904427,
+  "lng": -96.952699,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1191275976",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cordoba-colegio-de-las-americas-primaria",
+  "name": "Colegio de Las Américas Primaria",
+  "city": "Córdoba",
+  "country": "México",
+  "lat": 18.896144,
+  "lng": -96.94668,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1207257226",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cordoba-universidad-del-valle-de-orizaba",
+  "name": "Universidad del Valle de Orizaba",
+  "city": "Córdoba",
+  "country": "México",
+  "lat": 18.911355,
+  "lng": -96.9445,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1321861558",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cordoba-centro-de-entrenamiento-y-educacion-especial-de-la-universidad-veracru",
+  "name": "Centro de Entrenamiento y Educacion Especial de la Universidad Veracruzana",
+  "city": "Córdoba",
+  "country": "México",
+  "lat": 18.90544,
+  "lng": -96.926437,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1475042895",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "cordoba-universidad-anahuac-veracruz-campus-cordoba-orizaba",
+  "name": "Universidad Anáhuac Veracruz Campus Córdoba-Orizaba",
+  "city": "Córdoba",
+  "country": "México",
+  "lat": 18.890924,
+  "lng": -96.980662,
+  "addr": "",
+  "phone": "",
+  "web": "https://veracruz.anahuac.mx/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "r16138634",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "veron-gamification-montessori-school",
+  "name": "Gamification Montessori School",
+  "city": "Verón",
+  "country": "República Dominicana",
+  "lat": 18.604428,
+  "lng": -68.394539,
+  "addr": "Calle Lauterio Melo",
+  "phone": "8092991318",
+  "web": "http://www.gmschool.co",
+  "email": "admin@gmschool.co",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11491766069",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "veron-caracoli-global-school",
+  "name": "Caracolí Global School",
+  "city": "Verón",
+  "country": "República Dominicana",
+  "lat": 18.576829,
+  "lng": -68.392673,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1499408530",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "veron-asthon-school",
+  "name": "Asthon School",
+  "city": "Verón",
+  "country": "República Dominicana",
+  "lat": 18.637218,
+  "lng": -68.447115,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1504149114",
   "found": "2026-11-13"
  }
 ]
