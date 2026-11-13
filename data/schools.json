@@ -280353,7 +280353,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r7616322",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "pereira-colegio-ciudadela-cuba",
@@ -280461,7 +280463,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "r7681664",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "pereira-colegio-pablo-sexto",
@@ -281468,7 +281471,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w48217194",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "manizales-colegio-de-cristo",
@@ -283375,7 +283380,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w915943772",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "monteria-instituto-de-formacion-tecnico-laboral-de-cordoba",
@@ -283569,7 +283576,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n2301948654",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+2281112054",
+  "webAt": "2026-11-13"
  },
  {
   "id": "xalapa-enriquez-universidad-cnci",
@@ -284226,7 +284236,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w365999411",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "xalapa-enriquez-centro-educativo-siglo-xxi",
@@ -284546,7 +284558,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w719492423",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "xalapa-enriquez-instituto-educativo-panamericano-campus-animas",
@@ -284645,7 +284659,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w776354960",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-1/294446365_2222681721218800_500703747915758237_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x2045&ctp=s720x720&_nc_cat=101&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=8u8gmkpFPuAQ7kNvwHcZehb&_nc_oc=AdqPNy7KZ2jeJ_WFzKqNp3zkX58MEfVn_gFx2kK6tu4Hbz-G5g3SrZqHREt4CJMNoCE&_nc_zt=24&_nc_ht=scontent-atl3-1.xx&_nc_gid=H4JL-KuhWFSFmdsojXQv-w&_nc_ss=7c289&oh=00_AQSfpj-weAITOmLUtTcC9fnGoqhg7wFsq7_aad4F2tmmUA&oe=6AFD8837",
+  "webAt": "2026-11-13"
  },
  {
   "id": "xalapa-enriquez-universidad-gestalt-de-diseno",
@@ -284709,7 +284725,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1155671932",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQeCHHe_-y_cJZNlmPkCGm5o2K_kpxktPyEtuQ8MyqBM_f2ZMe_TzFascodv7F7aWCzKhk_i6wb7VksHk3BX78OTKF_s4HJq-d-JZQzC8_8I-TbsWXiRk6TbBR6vttji7FWjDiPW3BExfX7fAto1WV39ateDi4e_TMR13QOUU41UtYCq-m3rs2LjbgOh=w16383",
+  "webAt": "2026-11-13"
  },
  {
   "id": "xalapa-enriquez-universidad-metropolitana-del-golfo",
@@ -285363,7 +285381,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w532397973",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "puerto-ordaz-u-e-colegio-los-precursores",
@@ -285421,7 +285441,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w547283472",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.feyalegria.org/wp-content/uploads/sites/4/2023/12/Fe-y-Alegria-Federacion-1.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "puerto-ordaz-u-e-fe-y-alegria-santa-joaquina",
@@ -285442,7 +285464,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w547488137",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.feyalegria.org/wp-content/uploads/sites/4/2023/12/Fe-y-Alegria-Federacion-1.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "puerto-ordaz-liceo-las-amazonas",
@@ -285480,7 +285504,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w918219437",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "corrientes-colegio-john-kennedy",
@@ -285658,7 +285683,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4770129126",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "corrientes-instituto-salesiano-pio-xi",
@@ -287050,7 +287077,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5718173567",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cuzco-ausangate-andino-international-school",
@@ -287419,7 +287448,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5758616988",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "nuevo-laredo-preparatoria-municipal-de-nuevo-laredo-jose-vasconcelos",
@@ -287461,7 +287491,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w609105173",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "nuevo-laredo-new-land-elementary-school",
@@ -287843,7 +287874,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n6928905323",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+522293973508",
+  "webAt": "2026-11-13"
  },
  {
   "id": "veracruz-colegio-evergreen",
@@ -288727,7 +288761,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n3454090976",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "santa-fe-escuela-particular-incorporada-1224-nuestra-senora-de-itati",
@@ -288966,7 +289001,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n6480698316",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+5493425950298",
+  "webAt": "2026-11-13"
  },
  {
   "id": "santa-fe-instituto-superior-particular-incorporado-4033",
@@ -288986,7 +289024,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n6771847546",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "santa-fe-escuela-especial-particular-incorporada-1429-doctora-sara-faisal",
@@ -289332,7 +289372,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n10749643627",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "santa-fe-escuela-de-educacion-secundaria-orientada-particular-incorporada-3131-",
@@ -292414,7 +292455,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n3070451782",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "resistencia-instituto-dan",
@@ -292436,7 +292478,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n4870496921",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://scontent-atl3-1.xx.fbcdn.net/v/t39.30808-1/302425397_577125254199245_1585856432095882665_n.jpg?stp=dst-jpg_tt6&cstp=mx547x445&ctp=s547x445&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=mr-j2KE0UYwQ7kNvwEVkD9Y&_nc_oc=AdpWU7q3m0O0m0FF6QLQ9_lDWDYzqIp6cOJ97XHJMXLgg4p7bMAUAzwV5Tl1Ln84bmQ&_nc_zt=24&_nc_ht=scontent-atl3-1.xx&_nc_gid=bypaUwnTg1f8ZbziEL39VA&_nc_ss=7c289&oh=00_AQTrACitwtwWGAm9k6I49M_WTKI8yKgQ8eEE6Y-vAAbaLA&oe=6AFD7ACC",
+  "webAt": "2026-11-13"
  },
  {
   "id": "resistencia-colegio-jose-manuel-estrada",
@@ -292629,7 +292673,7 @@
   "addr": "Avenida Italia 350",
   "phone": "+54 362 442-7311",
   "web": "https://donboscoresistencia.edu.ar",
-  "email": "",
+  "email": "administracion@donboscoresistencia.edu.ar",
   "levels": [
    "Primaria"
   ],
@@ -292639,7 +292683,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n10305109242",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "resistencia-unidad-educativa-de-gestion-privada-75-mundo-de-colores",
@@ -292982,7 +293028,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n10554845018",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+5493624901316",
+  "webAt": "2026-11-13"
  },
  {
   "id": "resistencia-unidad-educativa-de-gestion-privada-171-enrique-pichon-reviere-psicolo",
@@ -294945,7 +294994,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n12839288126",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+523112640647",
+  "webAt": "2026-11-13"
  },
  {
   "id": "tepic-colegio-nayar-de-educacion-integral",
@@ -295557,7 +295609,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4294836592",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "uruapan-colegio-nelson-mandela-primera",
@@ -296247,7 +296301,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w19786173",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "alicante-colegio-inmaculada-jesuitas",
@@ -296469,7 +296525,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w27349277",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "alicante-colegio-padre-manjon-cervantes",
@@ -296806,7 +296863,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w272547194",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "alicante-colegio-del-santo-redentor",
@@ -296888,7 +296947,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w276956535",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "alicante-colegio-medico-pedro-herrero",
@@ -296906,7 +296967,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w288508482",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "alicante-colegio-san-jose-hijas-de-la-caridad",
@@ -296985,7 +297048,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w689611259",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://waldorfalicante.com/wp-content/uploads/matricula-26-27-scaled.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "alicante-parque-cientifico-de-la-universidad-de-alicante",
@@ -297125,7 +297190,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n2555640316",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "bilbao-academia-urban",
@@ -297559,7 +297626,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w174482534",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "bilbao-colegio-hijas-de-la-cruz",
@@ -297783,7 +297852,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w248854014",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "bilbao-scientia-san-pedro-bilbao-ikastetxea",
@@ -297804,7 +297875,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w248854824",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "bilbao-artxandape-ikastola",
@@ -300663,7 +300735,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w360206973",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.universidadeuropea.edu.mx/wp-content/uploads/2026/08/logowebok_small.png",
+  "whatsapp": "+525562166560",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cuernavaca-escuela-waldorf-de-cuernavaca",
@@ -300851,7 +300926,7 @@
   "addr": "Calle Jalisco 48, Las Palmas",
   "phone": "+52 777 454 0305",
   "web": "https://ua.edu.mx/",
-  "email": "",
+  "email": "comunicaciones@ua.edu.mx",
   "levels": [
    "Universidad"
   ],
@@ -300861,7 +300936,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w665449460",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://ua.edu.mx/wp-content/uploads/2026/01/cropped-logo-ua-1-1.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cuernavaca-colegio-montes-de-oca",
@@ -301136,7 +301213,7 @@
   "addr": "Manuel Antonio Matta 12",
   "phone": "+56322274401",
   "web": "https://www.ead.pucv.cl/",
-  "email": "",
+  "email": "admision@ead.cl",
   "levels": [
    "Universidad"
   ],
@@ -301146,7 +301223,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n369874524",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "vina-del-mar-escuela-particular-san-luis",
@@ -302615,13 +302694,15 @@
   "addr": "",
   "phone": "+56 32 266 2741",
   "web": "https://www.colegiohuguet.cl/",
-  "email": "",
+  "email": "infohuguet@gmail.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "n11961243876",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "vina-del-mar-instituto-profesional-los-leones-vina-del-mar",
@@ -302877,7 +302958,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w138550884",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "vina-del-mar-universidad-tecnica-federico-santa-maria-sede-vina-del-mar",
@@ -304664,13 +304746,15 @@
   "addr": "Guayacán 47",
   "phone": "+56322775825",
   "web": "https://www.colegiopatmos.cl/",
-  "email": "",
+  "email": "secretaria@colegiopatmos.cl",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w1065846291",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "vina-del-mar-escuela-saint-benedict-college",
@@ -304939,7 +305023,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r15528180",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.uvm.cl/wp-content/themes/uvm/img/facebook-uvm.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "vina-del-mar-universidad-de-valparaiso-campus-de-la-salud",
@@ -305528,7 +305614,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n6854761071",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "palma-cep-palma-jaume-canellas-mut",
@@ -305635,7 +305722,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w165495791",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://empty-vicuna.transforms.svdcdn.com/production/images/School-Photos/Three-Primary-children-running-on-the-school-Astro-Turf.jpg?w=800&h=418&q=82&auto=format&fit=crop&dm=1767960014&s=d446e807e65376874a54a33858c5b239",
+  "webAt": "2026-11-13"
  },
  {
   "id": "palma-king-richard-iii-college",
@@ -306015,13 +306104,15 @@
   "addr": "Blvd. Bordo Nuevo S/N",
   "phone": "+52 644 410 5270",
   "web": "http://www.uson.mx",
-  "email": "",
+  "email": "comunicacion@unison.mx",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "n4458003592",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "ciudad-obregon-instituto-tecnologico-y-de-estudios-superiores-de-monterrey",
@@ -306540,7 +306631,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4710344615",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "san-juan-century-college-inc",
@@ -306558,7 +306651,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4825626281",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://centurycollege.edu/wp-content/uploads/2025/10/about-3.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "san-juan-academia-del-perpetuo-socorro-elementary-school",
@@ -306655,7 +306750,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w197848164",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "san-juan-universidad-carlos-albizu",
@@ -306978,7 +307074,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w406953760",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "san-juan-escuela-montessori-juan-ponce-de-leon-casa-de-joven",
@@ -307634,7 +307731,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5749335422",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "whatsapp": "+595983133295",
+  "webAt": "2026-11-13"
  },
  {
   "id": "ciudad-del-este-colegio-virgen-de-fatima",
@@ -308166,7 +308266,7 @@
   "addr": "Herib Campos Cervera",
   "phone": "+595 61 572467",
   "web": "https://www.ucap.edu.py/",
-  "email": "",
+  "email": "admision.ap@uc.edu.py",
   "levels": [
    "Universidad"
   ],
@@ -308176,7 +308276,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1554439115",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "whatsapp": "+595975848066",
+  "webAt": "2026-11-13"
  },
  {
   "id": "popayan-colegio-francisco-antonio-de-ulloa",
@@ -311448,7 +311551,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w551752011",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "popayan-real-colegio-san-francisco-de-asis",
@@ -311474,7 +311579,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w552245452",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "popayan-colegio-comercial-del-norte-sede-la-paz",
@@ -311734,7 +311841,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w303417274",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "armenia-colegio-del-sagrado-corazon-de-jesus-hermanas-bethlemitas",
@@ -312420,7 +312529,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n14073657977",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "whatsapp": "+526141909850",
+  "webAt": "2026-11-13"
  },
  {
   "id": "playa-del-carmen-universidad-cfv",
@@ -405456,6 +405568,660 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1177122047",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "mataro-fundacio-privada-cor-de-maria-de-mataro",
+  "name": "Fundació Privada Cor de Maria de Mataró",
+  "city": "Mataró",
+  "country": "España",
+  "lat": 41.540365,
+  "lng": 2.444641,
+  "addr": "La Riera 58",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w192758206",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-colegio-seminario-corazonista",
+  "name": "Colegio Seminario Corazonista",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.171015,
+  "lng": -75.354194,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1804637920",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-colegio-campestre-horizontes",
+  "name": "Colegio Campestre Horizontes",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.132115,
+  "lng": -75.398548,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4474399990",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-colegio-el-porvenir",
+  "name": "Colegio El Porvenir",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.150083,
+  "lng": -75.387424,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4506456733",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-colegio-la-presentacion",
+  "name": "Colegio La Presentación",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.150399,
+  "lng": -75.383875,
+  "addr": "",
+  "phone": "+57 604 5612345",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n4506456734",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-colegio-holss-sas",
+  "name": "Colegio Holss Sas",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.130793,
+  "lng": -75.397755,
+  "addr": "",
+  "phone": "+57 300 5087191",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487353334",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-institucion-educativa-montesol",
+  "name": "Institucion Educativa Montesol",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.163359,
+  "lng": -75.34735,
+  "addr": "",
+  "phone": "+57 318 3938300",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487353343",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-corporacion-empresarial-instruvial",
+  "name": "Corporacion Empresarial Instruvial",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.157529,
+  "lng": -75.364669,
+  "addr": "",
+  "phone": "+57 318 7343377",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369537",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-centro-educativo-san-nicolas-de-bari",
+  "name": "Centro Educativo San Nicolás de Bari",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.149227,
+  "lng": -75.379459,
+  "addr": "",
+  "phone": "+57 604 5983729",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369538",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-centro-educativo-casita-alegre-sede-alterna",
+  "name": "Centro Educativo Casita Alegre Sede Alterna",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.133418,
+  "lng": -75.379968,
+  "addr": "",
+  "phone": "+57 604 5628650",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369539",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-preescolar-la-casita-alegre",
+  "name": "Preescolar La Casita Alegre",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.125235,
+  "lng": -75.382206,
+  "addr": "",
+  "phone": "+57 604 5688650",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369541",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-centro-educativo-maria-montessori",
+  "name": "Centro Educativo María Montessori",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.160335,
+  "lng": -75.369802,
+  "addr": "",
+  "phone": "+57 604 5618445",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369542",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-centro-educativo-comfama",
+  "name": "Centro Educativo Comfama",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.140502,
+  "lng": -75.378972,
+  "addr": "",
+  "phone": "+57 604 5312666",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369544",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-colegio-san-antonio",
+  "name": "Colegio San Antonio",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.128226,
+  "lng": -75.378731,
+  "addr": "",
+  "phone": "+57 604 5631075",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369545",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-centro-educativo-mickey",
+  "name": "Centro Educativo Mickey",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.156559,
+  "lng": -75.372805,
+  "addr": "",
+  "phone": "+57 604 5619960",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369546",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-centro-educativo-cent-inf-preesc-la-tia-monica",
+  "name": "Centro Educativo Cent Inf Preesc La Tia Monica",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.151107,
+  "lng": -75.376046,
+  "addr": "",
+  "phone": "+57 604 5611584",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369547",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-centro-educativo-petalitos",
+  "name": "Centro Educativo Petalitos",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.154123,
+  "lng": -75.375905,
+  "addr": "",
+  "phone": "+57 604 5315619",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369548",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-preescolar-camp-peter-pan",
+  "name": "Preescolar Camp Peter Pan",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.131743,
+  "lng": -75.378832,
+  "addr": "",
+  "phone": "+57 604 5311777",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369550",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-instituto-regional-coredi",
+  "name": "Instituto Regional COREDI",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.175376,
+  "lng": -75.338887,
+  "addr": "",
+  "phone": "+57 604 5690120",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369579",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-centro-educativo-disneylandia",
+  "name": "Centro Educativo Disneylandia",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.172597,
+  "lng": -75.333824,
+  "addr": "",
+  "phone": "+57 604 5487475",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369582",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-colegio-monsenor-alfonso-uribe-jaramio",
+  "name": "Colegio Monseñor Alfonso Uribe Jaramio",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.150055,
+  "lng": -75.365771,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12587596501",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-liceo-jose-maria-cordova",
+  "name": "Liceo José María Córdova",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.144648,
+  "lng": -75.373051,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w362442561",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-universidad-catolica-de-oriente",
+  "name": "Universidad Catolica de Oriente",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.150387,
+  "lng": -75.366691,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w577325228",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "rionegro-colegio-san-jose-de-las-cuchillas",
+  "name": "Colegio San José de Las Cuchillas",
+  "city": "Rionegro",
+  "country": "Colombia",
+  "lat": 6.179647,
+  "lng": -75.393886,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w609030149",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "puno-iep-70026-barrio-porteno",
+  "name": "IEP 70026 Barrio Porteño",
+  "city": "Puno",
+  "country": "Perú",
+  "lat": -15.837109,
+  "lng": -70.01907,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5166662438",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "puno-i-e-p-leonad-euler",
+  "name": "I.E.P. Leonad Euler",
+  "city": "Puno",
+  "country": "Perú",
+  "lat": -15.846693,
+  "lng": -70.024887,
+  "addr": "Avenida Circunvalacion 933",
+  "phone": "+51 950031696",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5291924721",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "puno-colegio-trabajadores-sociales-del-peru",
+  "name": "Colegio Trabajadores Sociales del Perú",
+  "city": "Puno",
+  "country": "Perú",
+  "lat": -15.841928,
+  "lng": -70.027224,
+  "addr": "Jr. Lima 852-B",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5321084422",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "puno-universidad-andina-nestor-caceres-velasquez",
+  "name": "Universidad Andina Néstor Cáceres Velásquez",
+  "city": "Puno",
+  "country": "Perú",
+  "lat": -15.842161,
+  "lng": -70.023647,
+  "addr": "Jr. Tacna",
+  "phone": "",
+  "web": "http://www.uancv.edu.pe/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w372376152",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "puno-colegio-maria-auxiliadora",
+  "name": "Colegio Maria Auxiliadora",
+  "city": "Puno",
+  "country": "Perú",
+  "lat": -15.838025,
+  "lng": -70.032615,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w550761565",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "puno-colegio-de-abogados-de-puno",
+  "name": "Colegio de Abogados de Puno",
+  "city": "Puno",
+  "country": "Perú",
+  "lat": -15.839649,
+  "lng": -70.028548,
+  "addr": "Pasaje Grau 310-A",
+  "phone": "983281450",
+  "web": "http://www.cap.com.pe",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1033702147",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "puno-iep-70656",
+  "name": "IEP 70656",
+  "city": "Puno",
+  "country": "Perú",
+  "lat": -15.851492,
+  "lng": -70.025049,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1545256987",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "puno-iep-70013-barrio-manazo",
+  "name": "IEP 70013 Barrio Mañazo",
+  "city": "Puno",
+  "country": "Perú",
+  "lat": -15.845328,
+  "lng": -70.031944,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1545256988",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "puno-i-e-p-escuelita-intercultural-70655",
+  "name": "I.E.P. Escuelita Intercultural 70655",
+  "city": "Puno",
+  "country": "Perú",
+  "lat": -15.83683,
+  "lng": -70.036778,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1545256994",
   "found": "2026-11-13"
  }
 ]

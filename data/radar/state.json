@@ -7081,7 +7081,11 @@
   "PE|Huacho": "2026-11-13T21:16:20.204Z",
   "NI|n784918974": "2026-11-13T21:16:57.373Z",
   "CO|n703168565": "2026-11-13T21:17:31.942Z",
-  "CL|San Pedro de la Paz": "2026-11-13T21:25:27.735Z"
+  "CL|San Pedro de la Paz": "2026-11-13T21:25:27.735Z",
+  "ES|n65523130": "2026-11-13T22:59:40.260Z",
+  "CO|n703177370": "2026-11-13T23:00:20.041Z",
+  "VE|n828966047": "2026-11-13T23:06:24.751Z",
+  "PE|Puno": "2026-11-13T23:13:43.640Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7156,6 +7160,48 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-13T22:59:10.409Z",
+   "cities": [
+    {
+     "cc": "ES",
+     "city": "Mataró",
+     "found": 1,
+     "updated": 0,
+     "osm": 55
+    },
+    {
+     "cc": "CO",
+     "city": "Rionegro",
+     "found": 23,
+     "updated": 0,
+     "osm": 71
+    },
+    {
+     "cc": "VE",
+     "city": "Zaraza",
+     "found": 0,
+     "updated": 0,
+     "osm": 0
+    },
+    {
+     "cc": "PE",
+     "city": "Puno",
+     "found": 9,
+     "updated": 0,
+     "osm": 110
+    }
+   ],
+   "added": 33,
+   "enriched": 0,
+   "photos": 11,
+   "contacts": 16,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 16.4,
+   "total": 20047
+  },
   {
    "at": "2026-11-13T21:07:58.203Z",
    "cities": [
@@ -9394,22 +9440,6 @@
    "errors": [],
    "minutes": 15.3,
    "total": 14460
-  },
-  {
-   "at": "2026-11-10T17:21:02.808Z",
-   "cities": [],
-   "added": 0,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 6,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "CO|n309303769: Overpass 504",
-    "AR|Resistencia: sin tiempo en esta corrida"
-   ],
-   "minutes": 19.3,
-   "total": 14153
   }
  ]
 }
