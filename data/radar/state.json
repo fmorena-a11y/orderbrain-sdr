@@ -7068,7 +7068,15 @@
   "MX|Ciudad Valles": "2026-11-13T17:23:20.787Z",
   "MX|San José del Cabo": "2026-11-13T17:23:57.504Z",
   "AR|San Carlos de Bariloche": "2026-11-13T17:24:33.823Z",
-  "CO|n703168127": "2026-11-13T17:30:53.156Z"
+  "CO|n703168127": "2026-11-13T17:30:53.156Z",
+  "MX|Cuauhtémoc": "2026-11-13T19:21:52.855Z",
+  "CO|n299739428": "2026-11-13T19:22:26.637Z",
+  "CO|n703168436": "2026-11-13T19:22:58.120Z",
+  "BO|n794507239": "2026-11-13T19:23:33.286Z",
+  "AR|Merlo": "2026-11-13T19:24:04.159Z",
+  "AR|San Nicolás de los Arroyos": "2026-11-13T19:24:45.992Z",
+  "CO|n309872332": "2026-11-13T19:25:16.969Z",
+  "MX|Iguala": "2026-11-13T19:25:55.198Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7143,6 +7151,78 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-13T19:15:29.357Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Cuauhtémoc",
+     "found": 0,
+     "updated": 0,
+     "osm": 11
+    },
+    {
+     "cc": "CO",
+     "city": "Buga",
+     "found": 10,
+     "updated": 1,
+     "osm": 16
+    },
+    {
+     "cc": "CO",
+     "city": "Cartago",
+     "found": 5,
+     "updated": 0,
+     "osm": 26
+    },
+    {
+     "cc": "BO",
+     "city": "La Guardia",
+     "found": 0,
+     "updated": 0,
+     "osm": 4
+    },
+    {
+     "cc": "AR",
+     "city": "Merlo",
+     "found": 8,
+     "updated": 2,
+     "osm": 218
+    },
+    {
+     "cc": "AR",
+     "city": "San Nicolás de los Arroyos",
+     "found": 13,
+     "updated": 0,
+     "osm": 60
+    },
+    {
+     "cc": "CO",
+     "city": "Yopal",
+     "found": 51,
+     "updated": 1,
+     "osm": 110
+    },
+    {
+     "cc": "MX",
+     "city": "Iguala",
+     "found": 2,
+     "updated": 0,
+     "osm": 30
+    }
+   ],
+   "added": 89,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "MX|San Pedro Garza García: sin tiempo en esta corrida"
+   ],
+   "minutes": 19.3,
+   "total": 19993
+  },
   {
    "at": "2026-11-13T17:14:14.506Z",
    "cities": [
@@ -9320,85 +9400,6 @@
    ],
    "minutes": 15.4,
    "total": 14153
-  },
-  {
-   "at": "2026-11-10T14:06:06.344Z",
-   "cities": [
-    {
-     "cc": "CO",
-     "city": "Montería",
-     "found": 67,
-     "updated": 0,
-     "osm": 183
-    },
-    {
-     "cc": "MX",
-     "city": "Irapuato",
-     "found": 4,
-     "updated": 0,
-     "osm": 20
-    },
-    {
-     "cc": "MX",
-     "city": "Xalapa-Enríquez",
-     "found": 65,
-     "updated": 1,
-     "osm": 454
-    },
-    {
-     "cc": "MX",
-     "city": "Tonalá",
-     "found": 0,
-     "updated": 0,
-     "osm": 1106
-    },
-    {
-     "cc": "MX",
-     "city": "Mazatlán",
-     "found": 22,
-     "updated": 0,
-     "osm": 91
-    },
-    {
-     "cc": "VE",
-     "city": "Puerto Ordaz",
-     "found": 13,
-     "updated": 0,
-     "osm": 132
-    },
-    {
-     "cc": "DO",
-     "city": "Sabana Grande de Palenque",
-     "found": 0,
-     "updated": 0,
-     "osm": 5
-    },
-    {
-     "cc": "AR",
-     "city": "Corrientes",
-     "found": 63,
-     "updated": 0,
-     "osm": 297
-    },
-    {
-     "cc": "PE",
-     "city": "Cuzco",
-     "found": 28,
-     "updated": 0,
-     "osm": 331
-    }
-   ],
-   "added": 262,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 23,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "MX|Nuevo Laredo: sin tiempo en esta corrida"
-   ],
-   "minutes": 19.3,
-   "total": 14047
   }
  ]
 }
