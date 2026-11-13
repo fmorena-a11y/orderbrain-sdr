@@ -7047,7 +7047,9 @@
   "DO|n11610553782": "2026-11-13T09:24:06.713Z",
   "PY|n2625331790": "2026-11-13T09:24:38.251Z",
   "VE|n844625993": "2026-11-13T09:25:03.622Z",
-  "ES|n240423010": "2026-11-13T09:32:44.738Z"
+  "ES|n240423010": "2026-11-13T09:32:44.738Z",
+  "CO|n703176077": "2026-11-13T11:15:38.965Z",
+  "ES|n240423022": "2026-11-13T11:16:10.571Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7114,9 +7116,44 @@
    "n": 1,
    "at": "2026-11-13T07:52:24.542Z",
    "error": "The operation was aborted due to timeout"
+  },
+  "MX|Fresnillo": {
+   "n": 1,
+   "at": "2026-11-13T11:28:15.069Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-13T11:14:46.866Z",
+   "cities": [
+    {
+     "cc": "CO",
+     "city": "Apartadó",
+     "found": 14,
+     "updated": 0,
+     "osm": 54
+    },
+    {
+     "cc": "ES",
+     "city": "Huelva",
+     "found": 18,
+     "updated": 0,
+     "osm": 62
+    }
+   ],
+   "added": 32,
+   "enriched": 0,
+   "photos": 12,
+   "contacts": 7,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "MX|Fresnillo: The operation was aborted due to timeout"
+   ],
+   "minutes": 15.2,
+   "total": 19722
+  },
   {
    "at": "2026-11-13T09:17:19.899Z",
    "cities": [
@@ -9290,180 +9327,6 @@
    ],
    "minutes": 18.4,
    "total": 13581
-  },
-  {
-   "at": "2026-11-10T07:31:17.433Z",
-   "cities": [
-    {
-     "cc": "BO",
-     "city": "Cochabamba",
-     "found": 0,
-     "updated": 0,
-     "osm": 459
-    },
-    {
-     "cc": "AR",
-     "city": "Mar del Plata",
-     "found": 0,
-     "updated": 0,
-     "osm": 111
-    },
-    {
-     "cc": "MX",
-     "city": "Acapulco",
-     "found": 0,
-     "updated": 0,
-     "osm": 555
-    },
-    {
-     "cc": "MX",
-     "city": "Guadalupe",
-     "found": 0,
-     "updated": 0,
-     "osm": 327
-    },
-    {
-     "cc": "MX",
-     "city": "Monterrey",
-     "found": 0,
-     "updated": 0,
-     "osm": 347
-    },
-    {
-     "cc": "CO",
-     "city": "Bucaramanga",
-     "found": 0,
-     "updated": 0,
-     "osm": 588
-    },
-    {
-     "cc": "GT",
-     "city": "Villa Nueva",
-     "found": 0,
-     "updated": 0,
-     "osm": 248
-    },
-    {
-     "cc": "MX",
-     "city": "Durango",
-     "found": 0,
-     "updated": 0,
-     "osm": 105
-    },
-    {
-     "cc": "MX",
-     "city": "Chimalhuacán",
-     "found": 0,
-     "updated": 0,
-     "osm": 373
-    },
-    {
-     "cc": "DO",
-     "city": "San Juan de la Maguana",
-     "found": 2,
-     "updated": 0,
-     "osm": 11
-    },
-    {
-     "cc": "MX",
-     "city": "Tuxtla Gutiérrez",
-     "found": 12,
-     "updated": 0,
-     "osm": 74
-    },
-    {
-     "cc": "VE",
-     "city": "Ciudad Bolívar",
-     "found": 26,
-     "updated": 0,
-     "osm": 161
-    },
-    {
-     "cc": "DO",
-     "city": "Santiago de los Caballeros",
-     "found": 45,
-     "updated": 0,
-     "osm": 105
-    },
-    {
-     "cc": "VE",
-     "city": "Barcelona",
-     "found": 132,
-     "updated": 2,
-     "osm": 354
-    },
-    {
-     "cc": "CO",
-     "city": "Villavicencio",
-     "found": 202,
-     "updated": 0,
-     "osm": 395
-    },
-    {
-     "cc": "ES",
-     "city": "Málaga",
-     "found": 152,
-     "updated": 0,
-     "osm": 260
-    },
-    {
-     "cc": "MX",
-     "city": "Apodaca",
-     "found": 7,
-     "updated": 0,
-     "osm": 196
-    },
-    {
-     "cc": "AR",
-     "city": "Salta",
-     "found": 36,
-     "updated": 0,
-     "osm": 170
-    },
-    {
-     "cc": "CO",
-     "city": "Ibagué",
-     "found": 42,
-     "updated": 1,
-     "osm": 113
-    },
-    {
-     "cc": "AR",
-     "city": "San Miguel de Tucumán",
-     "found": 143,
-     "updated": 3,
-     "osm": 465
-    },
-    {
-     "cc": "PE",
-     "city": "Chiclayo",
-     "found": 32,
-     "updated": 3,
-     "osm": 202
-    },
-    {
-     "cc": "AR",
-     "city": "San Juan",
-     "found": 69,
-     "updated": 0,
-     "osm": 452
-    },
-    {
-     "cc": "VE",
-     "city": "Maturín",
-     "found": 17,
-     "updated": 0,
-     "osm": 67
-    }
-   ],
-   "added": 917,
-   "enriched": 0,
-   "photos": 39,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 16.5,
-   "total": 13226
   }
  ]
 }

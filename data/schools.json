@@ -221018,7 +221018,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w350832737",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://guzmanelbueno.es/og-home.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-saudi-de-madrid",
@@ -221061,7 +221063,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w352678521",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-liceo-juan-de-la-cierv",
@@ -221084,7 +221088,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w354313901",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-blanca-de-c",
@@ -221108,7 +221114,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w354632544",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-san-juan-evangelista",
@@ -221128,7 +221136,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w356853155",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-colegio-decroly",
@@ -221146,7 +221155,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w357286266",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-las-naciones",
@@ -221169,7 +221180,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w357286267",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-especial-tao-centro-de-pedagogia-terapeuti",
@@ -221189,7 +221202,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w357286270",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-colegio-san-2",
@@ -221214,7 +221229,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w357289926",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-bernadette",
@@ -221238,7 +221254,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w357564458",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-formacion-profesional-especifica-escuela-de-ciencias",
@@ -221258,7 +221276,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w357564460",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-ceu-claudio-coello",
@@ -221344,7 +221364,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w369964445",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://st1.u-tad.com/media/2020/11/Ij8G0b_x_400x400.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-colegio-int-3",
@@ -221394,7 +221416,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w377396502",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-colegio-concertado-nuestra-senora-de-la-providencia",
@@ -221455,7 +221478,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w402776992",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-sonnen-schule-aleman",
@@ -221544,7 +221569,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w439022472",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://d3des6gui7vs6w.cloudfront.net/web/seo/card_home_voxel_school.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-los-cerros-chicos",
@@ -221608,7 +221635,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w440571199",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-reinado-del",
@@ -221633,7 +221662,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w443012575",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://taudigit.com/proyectos/alborada/wp-content/uploads/2021/12/calendar.svg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-emperador-carlos-v",
@@ -221717,7 +221748,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w449077746",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-hastings-school",
@@ -221729,13 +221761,15 @@
   "addr": "Calle de Lorenzo Solano Tendero 11",
   "phone": "+34 91 831 61 98",
   "web": "https://www.hastingsschool.com/facilities-location/sobradiel-campus/",
-  "email": "",
+  "email": "sobradiel.secretary@hastingsschool.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w450122454",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.hastingsschool.com/wp-content/uploads/sites/67/2024/05/Hastings-School-Web-Logo.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-estudiantes-las-tablas",
@@ -221842,7 +221876,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w469930113",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-liceo-versalles",
@@ -221961,7 +221997,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w479601822",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-william-shakespeare",
@@ -221981,7 +222018,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w487229494",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-agustin-de-arguelles",
@@ -222205,7 +222244,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w581650720",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-cristo-rey-3",
@@ -222230,7 +222271,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w587018487",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-st-george-s-school",
@@ -222370,7 +222413,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w668327428",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-virgen-de-a",
@@ -222393,7 +222438,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w671215500",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-hogar-del-b",
@@ -222417,7 +222464,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w672788187",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+34696372740",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-trinity-college",
@@ -222468,7 +222518,7 @@
   "addr": "Calle de la Costa Brava 2",
   "phone": "+34 917 340 413",
   "web": "https://www.villanueva.edu/",
-  "email": "",
+  "email": "acuquerella@villanueva.edu",
   "levels": [
    "Universidad"
   ],
@@ -222478,7 +222528,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w692794694",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.villanueva.edu/wp-content/uploads/2021/09/open-graph-logo.webp",
+  "whatsapp": "+34616575207",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-clara-campoamor",
@@ -222540,7 +222593,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w740789624",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-virgen-del-pilar",
@@ -222581,7 +222636,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w873182975",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-villamadrid",
@@ -222669,7 +222726,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w915054786",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-british-council-school",
@@ -222714,7 +222773,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w921524355",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-alaria-bernabeu",
@@ -222824,7 +222885,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w954311969",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-nuevo-horizonte",
@@ -222865,7 +222928,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w955821138",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-de-autismo-juan-martos",
@@ -222885,7 +222950,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w959736605",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-los-angeles",
@@ -222927,7 +222993,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w977816219",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-fuhem-montserrat",
@@ -222974,7 +223042,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w997441911",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-esic-business-marketing-school-sede-juan-xxiii",
@@ -223010,13 +223080,15 @@
   "addr": "Avenida de las Estrellas 45",
   "phone": "+34 911 61 00 55",
   "web": "https://parla.colegiojuanpablosegundo.es/",
-  "email": "",
+  "email": "informacion@juanpablosegundoparla.es",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w1023316679",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://parla.colegiojuanpablosegundo.es/wp-content/uploads/sites/11/2021/06/Parla-2.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-nueva-castilla",
@@ -223148,7 +223220,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1106608725",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-secundaria-aquinas-international-school",
@@ -223241,7 +223315,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1195252136",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://site.educa.madrid.org/cp.calvosotelo.madrid//wp-content/uploads/cp.calvosotelo.madrid/2022/06/cropped-LOGO_SIN-transparente-1-e1654779225543.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-logos-nursery-school",
@@ -223259,7 +223335,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1222993656",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-aucavi-sur",
@@ -223271,7 +223349,7 @@
   "addr": "Calle José Hierro",
   "phone": "+34 913 55 37 55",
   "web": "https://www.fundacionaucavi.org/",
-  "email": "",
+  "email": "info@fundacionaucavi.org",
   "levels": [
    "Secundaria"
   ],
@@ -223281,7 +223359,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1224973635",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-virgen-de-lourdes",
@@ -223301,7 +223381,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1279006101",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-secundaria-santa-barbara",
@@ -223324,7 +223406,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1330896622",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://centrosantabarbara.es/wp-content/uploads/2020/10/LOGO-web-santa-barbara.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-universidad-eclesiastica-san-damaso",
@@ -223405,7 +223489,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1362243907",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://thamesbritishschool.es/wp-content/uploads/2025/12/grandes-peques.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-madrid-montessori-school",
@@ -223425,7 +223511,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1385365559",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-reggio",
@@ -223508,7 +223596,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1458710082",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-el-salvador",
@@ -223532,7 +223621,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1488448056",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-universidad-pontificia-comillas-icade",
@@ -223575,7 +223665,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1576476508",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+34606213594",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-king-s-college-school",
@@ -223727,7 +223820,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r3557910",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.uc3m.es/ss/Satellite?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1371565450235&ssbinary=true",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-de-educacion-especial-juan-xxiii",
@@ -223769,7 +223864,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "r3897899",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-san-jose-de-2",
@@ -223794,7 +223890,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "r3937146",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-y-primaria-la-merced",
@@ -223902,7 +223999,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "r8009997",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-especial-estudio-3",
@@ -223924,7 +224023,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "r8377094",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-el-ave-mari",
@@ -223949,7 +224050,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "r8796229",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-colegio-salesianos-ciudad-de-los-muchachos",
@@ -224018,7 +224120,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "r12275703",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "madrid-centro-docente-extranjero-en-espana-international-school-of-madrid-bri",
@@ -224062,7 +224165,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "r13111236",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-gsd-las-artes",
@@ -224110,7 +224215,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "r19894223",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-alegra-british-and-international-school",
@@ -224122,7 +224229,7 @@
   "addr": "",
   "phone": "+34 916 39 79 03",
   "web": "https://alegraschool.com/es/",
-  "email": "",
+  "email": "dpo@colegioalegra.es",
   "levels": [],
   "opp": [
    "Bilingüe o internacional",
@@ -224131,7 +224238,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r20188885",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://alegraschool.com/wp-content/uploads/2020/09/04-Alegra-30junio2020-Grupo-004.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "madrid-colegio-san-eugenio-y-san-isidro",
@@ -398611,6 +398720,637 @@
   "private": "probable",
   "src": "osm",
   "osm": "r1270118",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "apartado-institucion-uniban",
+  "name": "Institución Uniban",
+  "city": "Apartadó",
+  "country": "Colombia",
+  "lat": 7.879167,
+  "lng": -76.626944,
+  "addr": "",
+  "phone": "+57 604 8296600",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487353365",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "apartado-centro-educativo-centro-de-desarrollo-infantil-suenos-de-compartir",
+  "name": "Centro Educativo Centro de Desarrollo Infantil Sueños de Compartir",
+  "city": "Apartadó",
+  "country": "Colombia",
+  "lat": 7.880667,
+  "lng": -76.61814,
+  "addr": "",
+  "phone": "+57 604 8283829",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369961",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "apartado-institucion-de-educacion-formal-centro-de-sistemas",
+  "name": "Institución de Educación Formal Centro de Sistemas",
+  "city": "Apartadó",
+  "country": "Colombia",
+  "lat": 7.87999,
+  "lng": -76.630676,
+  "addr": "",
+  "phone": "+57 604 8281325",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369962",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "apartado-centro-educativo-corcedin",
+  "name": "Centro Educativo Corcedin",
+  "city": "Apartadó",
+  "country": "Colombia",
+  "lat": 7.884639,
+  "lng": -76.635887,
+  "addr": "",
+  "phone": "+57 604 8282904",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369963",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "apartado-colegio-alegria-de-aprender",
+  "name": "Colegio Alegria de Aprender",
+  "city": "Apartadó",
+  "country": "Colombia",
+  "lat": 7.880296,
+  "lng": -76.631535,
+  "addr": "",
+  "phone": "+57 604 8284902",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369964",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "apartado-colegio-adventista-de-apartado",
+  "name": "Colegio Adventista de Apartado",
+  "city": "Apartadó",
+  "country": "Colombia",
+  "lat": 7.878134,
+  "lng": -76.631745,
+  "addr": "",
+  "phone": "+57 604 8281634",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369965",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "apartado-colegio-santo-domingo-de-padua",
+  "name": "Colegio Santo Domingo de Pádua",
+  "city": "Apartadó",
+  "country": "Colombia",
+  "lat": 7.879579,
+  "lng": -76.61287,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w454552396",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "apartado-colegio-diocesano",
+  "name": "Colegio Diocesano",
+  "city": "Apartadó",
+  "country": "Colombia",
+  "lat": 7.884939,
+  "lng": -76.621354,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w454562897",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "apartado-colegio-americano",
+  "name": "Colegio Americano",
+  "city": "Apartadó",
+  "country": "Colombia",
+  "lat": 7.879226,
+  "lng": -76.630879,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w454574703",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "apartado-universidad-cooperativa",
+  "name": "Universidad Cooperativa",
+  "city": "Apartadó",
+  "country": "Colombia",
+  "lat": 7.877184,
+  "lng": -76.632041,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w454574708",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "apartado-colegio-cooperativo-c-a-r-b",
+  "name": "Colegio Cooperativo C.A.R.B.",
+  "city": "Apartadó",
+  "country": "Colombia",
+  "lat": 7.886074,
+  "lng": -76.636982,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w454574717",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "apartado-universidad-catolica-luis-amigo",
+  "name": "Universidad Católica Luis Amigó",
+  "city": "Apartadó",
+  "country": "Colombia",
+  "lat": 7.86613,
+  "lng": -76.634614,
+  "addr": "Calle 74 97 95",
+  "phone": "+57 604 8281103",
+  "web": "https://www.funlam.edu.co/modules/sedeapartado/",
+  "email": "apartado@funlam.edu.co",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w527190200",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "apartado-instituto-colombo-darien",
+  "name": "Instituto Colombo Darién",
+  "city": "Apartadó",
+  "country": "Colombia",
+  "lat": 7.865455,
+  "lng": -76.634826,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r12045027",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "apartado-universidad-de-antioquia",
+  "name": "Universidad de Antioquia",
+  "city": "Apartadó",
+  "country": "Colombia",
+  "lat": 7.870203,
+  "lng": -76.63768,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r12045451",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "huelva-colegio-oficial-de-arquitectos-de-huelva",
+  "name": "Colegio Oficial de Arquitectos de Huelva",
+  "city": "Huelva",
+  "country": "España",
+  "lat": 37.258661,
+  "lng": -6.954151,
+  "addr": "Calle Puerto 37",
+  "phone": "+34 959 54 11 85",
+  "web": "https://www.arquihuelva.es/",
+  "email": "coahinfo@arquihuelva.com",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n8244486968",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "huelva-colegio-maria-inmaculada",
+  "name": "Colegio María Inmaculada",
+  "city": "Huelva",
+  "country": "España",
+  "lat": 37.254622,
+  "lng": -6.949211,
+  "addr": "Calle San Cristóbal",
+  "phone": "+34 959262239",
+  "web": "https://sites.google.com/cmihuelva.es/cmihuelva/inicio",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9317291634",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "huelva-colegio-colon-maristas-de-huelva",
+  "name": "Colegio Colón Maristas de Huelva",
+  "city": "Huelva",
+  "country": "España",
+  "lat": 37.259811,
+  "lng": -6.9435,
+  "addr": "Calle Doctor Candero Cuadrado 3",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w65372771",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "huelva-colegio-la-hispanidad",
+  "name": "Colegio La Hispanidad",
+  "city": "Huelva",
+  "country": "España",
+  "lat": 37.271568,
+  "lng": -6.937003,
+  "addr": "Diaz del Castillo",
+  "phone": "+34 959 15 95 00",
+  "web": "https://www.colegiolahispanidadhuelva.es/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w115512939",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "huelva-colegio-los-salesianos",
+  "name": "Colegio Los Salesianos",
+  "city": "Huelva",
+  "country": "España",
+  "lat": 37.272629,
+  "lng": -6.934723,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w115513005",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "huelva-colegio-concertado-safa-funcadia",
+  "name": "Colegio Concertado SAFA Funcadia",
+  "city": "Huelva",
+  "country": "España",
+  "lat": 37.255453,
+  "lng": -6.945215,
+  "addr": "Alameda Sundheim 3",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w115515665",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "huelva-universidad-de-huelva-campus-de-el-carmen",
+  "name": "Universidad de Huelva - Campus de El Carmen",
+  "city": "Huelva",
+  "country": "España",
+  "lat": 37.270538,
+  "lng": -6.923289,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w127717781",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "huelva-colegio-de-educacion-infantil-y-primaria-v-centenario",
+  "name": "Colegio de Educación Infantil y Primaria Vº Centenario",
+  "city": "Huelva",
+  "country": "España",
+  "lat": 37.278309,
+  "lng": -6.937395,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w247022773",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "huelva-colegio-de-educacion-infantil-y-primaria-profesor-tierno-galvan",
+  "name": "Colegio de Educación Infantil y Primaria Profesor Tierno Galván",
+  "city": "Huelva",
+  "country": "España",
+  "lat": 37.275827,
+  "lng": -6.993405,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w410938115",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "huelva-colegio-de-educacion-infantil-y-primaria-el-puntal",
+  "name": "Colegio de Educación Infantil y Primaria El Puntal",
+  "city": "Huelva",
+  "country": "España",
+  "lat": 37.274285,
+  "lng": -7.000991,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w410944616",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "huelva-colegio-montessori",
+  "name": "Colegio Montessori",
+  "city": "Huelva",
+  "country": "España",
+  "lat": 37.276922,
+  "lng": -6.942651,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w715694992",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "huelva-colegio-moliere",
+  "name": "Colegio Molière",
+  "city": "Huelva",
+  "country": "España",
+  "lat": 37.2613,
+  "lng": -6.958509,
+  "addr": "Paseo de la Glorieta",
+  "phone": "+34 959241171",
+  "web": "https://colegiomolierehuelva.es/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w803747640",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "huelva-colegio-diocesano-sagrado-corazon-de-jesus",
+  "name": "Colegio Diocesano Sagrado Corazón de Jesús",
+  "city": "Huelva",
+  "country": "España",
+  "lat": 37.27833,
+  "lng": -6.935123,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w853277836",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "huelva-colegio-virgen-del-rocio",
+  "name": "Colegio Virgen del Rocío",
+  "city": "Huelva",
+  "country": "España",
+  "lat": 37.263305,
+  "lng": -6.945121,
+  "addr": "Calle Juan de Oñate 1",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w868866039",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "huelva-colegio-de-educacion-infantil-y-primaria-onuba",
+  "name": "Colegio de Educación Infantil y Primaria Onuba",
+  "city": "Huelva",
+  "country": "España",
+  "lat": 37.278631,
+  "lng": -6.931979,
+  "addr": "Calle Margarita 1",
+  "phone": "",
+  "web": "https://ceiponubaarcoiris.blogspot.com",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w875614642",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "huelva-cep-reyes-catolicos",
+  "name": "CEP Reyes Católicos",
+  "city": "Huelva",
+  "country": "España",
+  "lat": 37.261109,
+  "lng": -6.939062,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w973310794",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "huelva-colegio-de-educacion-infantil-y-primaria-principe-de-espana",
+  "name": "Colegio de Educación Infantil y Primaria Príncipe de España",
+  "city": "Huelva",
+  "country": "España",
+  "lat": 37.275782,
+  "lng": -6.947228,
+  "addr": "Avenida de la Raza 2",
+  "phone": "+34 959 159 578",
+  "web": "http://www.cylex.es/reviews/viewcompanywebsite.aspx?firmaName=c.e.i.p.+pr%c3%adncipe+de+espa%c3%b1a&companyId=12540189",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w974031601",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "huelva-colegio-santa-teresa-de-jesus",
+  "name": "Colegio Santa Teresa de Jesús",
+  "city": "Huelva",
+  "country": "España",
+  "lat": 37.254179,
+  "lng": -6.936948,
+  "addr": "Avenida de Guatemala",
+  "phone": "+34 959 22 99 90",
+  "web": "https://www.huelva.escuelateresiana.com",
+  "email": "infosecretaria@huelva.escuelateresiana.com",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1119591119",
   "found": "2026-11-13"
  }
 ]
