@@ -7076,7 +7076,12 @@
   "AR|Merlo": "2026-11-13T19:24:04.159Z",
   "AR|San Nicolás de los Arroyos": "2026-11-13T19:24:45.992Z",
   "CO|n309872332": "2026-11-13T19:25:16.969Z",
-  "MX|Iguala": "2026-11-13T19:25:55.198Z"
+  "MX|Iguala": "2026-11-13T19:25:55.198Z",
+  "MX|San Pedro Garza García": "2026-11-13T21:15:35.575Z",
+  "PE|Huacho": "2026-11-13T21:16:20.204Z",
+  "NI|n784918974": "2026-11-13T21:16:57.373Z",
+  "CO|n703168565": "2026-11-13T21:17:31.942Z",
+  "CL|San Pedro de la Paz": "2026-11-13T21:25:27.735Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7151,6 +7156,55 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-13T21:07:58.203Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "San Pedro Garza García",
+     "found": 0,
+     "updated": 0,
+     "osm": 57
+    },
+    {
+     "cc": "PE",
+     "city": "Huacho",
+     "found": 3,
+     "updated": 0,
+     "osm": 111
+    },
+    {
+     "cc": "NI",
+     "city": "Masaya",
+     "found": 8,
+     "updated": 0,
+     "osm": 30
+    },
+    {
+     "cc": "CO",
+     "city": "Fusagasugá",
+     "found": 4,
+     "updated": 0,
+     "osm": 21
+    },
+    {
+     "cc": "CL",
+     "city": "San Pedro de la Paz",
+     "found": 6,
+     "updated": 0,
+     "osm": 106
+    }
+   ],
+   "added": 21,
+   "enriched": 0,
+   "photos": 11,
+   "contacts": 11,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 19.2,
+   "total": 20014
+  },
   {
    "at": "2026-11-13T19:15:29.357Z",
    "cities": [
@@ -9355,50 +9409,6 @@
     "AR|Resistencia: sin tiempo en esta corrida"
    ],
    "minutes": 19.3,
-   "total": 14153
-  },
-  {
-   "at": "2026-11-10T15:14:52.750Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Nuevo Laredo",
-     "found": 6,
-     "updated": 0,
-     "osm": 43
-    },
-    {
-     "cc": "DO",
-     "city": "Santo Domingo Oeste",
-     "found": 1,
-     "updated": 0,
-     "osm": 337
-    },
-    {
-     "cc": "MX",
-     "city": "Veracruz",
-     "found": 59,
-     "updated": 2,
-     "osm": 476
-    },
-    {
-     "cc": "AR",
-     "city": "Santa Fe",
-     "found": 40,
-     "updated": 1,
-     "osm": 190
-    }
-   ],
-   "added": 106,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 32,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "PE|Huancayo: Overpass 504"
-   ],
-   "minutes": 15.4,
    "total": 14153
   }
  ]

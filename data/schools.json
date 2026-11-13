@@ -261839,7 +261839,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w634429213",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-arturo-reyes",
@@ -261859,7 +261860,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w637313426",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "malaga-colegio-virgen-milagrosa",
@@ -261962,7 +261964,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w655266515",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "malaga-colegio-dulce-nombre-de-maria",
@@ -262022,7 +262025,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w661146935",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-tartessos",
@@ -262042,7 +262047,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w697650876",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "malaga-colegio-diocesano-san-julian",
@@ -262082,7 +262089,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w760185634",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-profesor-tierno-galvan",
@@ -262153,7 +262161,7 @@
   "addr": "Calle Monte de Sancha 38",
   "phone": "+34 952224230",
   "web": "https://www.asteresa.net",
-  "email": "",
+  "email": "secretaria@asteresa.net",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -262161,7 +262169,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w806412387",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-neill",
@@ -262403,7 +262413,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1165662038",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://sites.google.com/sitesv-images-rt/APXyLQfT0cIWrOxq4n1in9JFdMpdGl3DfWioE74CeI2GL_naJG4dkt2QcPA86BqHNDNrar2zFWIAJqNmBrKBJNNVLMINZMvMwRdrAH0iY-GqiLiWpj-Qc7TtLw_MXBl1uCDgu3XT76XZ3c3EoVh6N3sQz5FMjLFhizYAwqmz2YNoeNYrR2UCb3FpYm6doXE=w16383",
+  "webAt": "2026-11-13"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-salvador-rueda",
@@ -262467,7 +262479,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r7962967",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "malaga-colegio-de-educacion-infantil-y-primaria-virgen-de-belen",
@@ -263053,7 +263067,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w197704993",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://sanpablosalta.edu.ar/storage/2025/10/logo.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "salta-colegio-maria-auxiliadora",
@@ -263153,7 +263169,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w573724058",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://scontent-dfw6-2.xx.fbcdn.net/v/t39.30808-1/306914572_498056498993880_8642463295911463419_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1152&ctp=p720x720&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=h1KmPD0fPk8Q7kNvwGwtBM4&_nc_oc=Ado7EiMGDwGfGh0QS6oqL-gk_DKE_VWpL7NfQx--IeMuufV0ezcUg4RVVLIKPzy1BSI&_nc_zt=24&_nc_ht=scontent-dfw6-2.xx&_nc_gid=qu9lJceDRjckToEi1s_smA&_nc_ss=7c289&oh=00_AQS0fxb1DyFl7A4oogo-xECDgcoKjfTTQZ2sImwfThn8sQ&oe=6AFD4CDA",
+  "webAt": "2026-11-13"
  },
  {
   "id": "salta-colegio-san-francisco",
@@ -264265,7 +264283,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n3825536269",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "san-miguel-de-tucuman-colegio-salesiano-general-belgrano",
@@ -264361,7 +264380,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n4109582870",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "san-miguel-de-tucuman-colegio-kinder",
@@ -264499,7 +264519,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n6081138672",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+543816428450",
+  "webAt": "2026-11-13"
  },
  {
   "id": "san-miguel-de-tucuman-colegio-san-carlos-borromeo",
@@ -264594,7 +264617,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n6997017302",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+543815755648",
+  "webAt": "2026-11-13"
  },
  {
   "id": "san-miguel-de-tucuman-colegio-del-sagrado-corazon",
@@ -264618,7 +264644,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n6997462422",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "san-miguel-de-tucuman-colegio-san-patricio-primario",
@@ -264641,7 +264668,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n7598327726",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "san-miguel-de-tucuman-colegio-las-colinas",
@@ -264664,7 +264693,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n7799462198",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "san-miguel-de-tucuman-colegio-secundario-las-colinas",
@@ -264686,7 +264717,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n7799462199",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "san-miguel-de-tucuman-colegio-san-carlos",
@@ -264756,7 +264789,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n10245838747",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "san-miguel-de-tucuman-instituto-de-ensenanza-especial-para-discapacitados-mentales-cascabele",
@@ -267422,7 +267456,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1157212415",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+5493816295976",
+  "webAt": "2026-11-13"
  },
  {
   "id": "san-miguel-de-tucuman-colegio-san-jose-de-calasanz",
@@ -267447,7 +267484,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1214154735",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://static.cdninstagram.com/rsrc.php/v4/yD/r/R0fBIMurK8v.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "chiclayo-academia-pre-cadette",
@@ -268018,7 +268057,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1022480586",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://colegioremigiosilva.edu.pe/wp-content/uploads/2021/01/Colegio-de-primaria-en-chiclayo-remigio-silva-el-mejor-colegio-imagen-principal.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "chiclayo-colegio-san-juan-school",
@@ -268303,7 +268344,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n6645460701",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "san-juan-colegio-del-prado-nivel-inicial",
@@ -268325,7 +268367,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n6645460702",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "san-juan-colegio-nuestra-senora-del-rosario-de-andacollo-secindario-turno-manan",
@@ -268394,7 +268437,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n6652448571",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "san-juan-colegio-integral-independencia-secundario",
@@ -268416,7 +268461,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n6652458714",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "san-juan-colegio-nuestra-senora-de-tulum",
@@ -268439,7 +268486,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n6652458715",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "san-juan-colegio-san-agustin-nivel-inicial",
@@ -268576,7 +268625,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n6659805386",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "san-juan-colegio-secundario-juan-pablo-ii",
@@ -268622,7 +268673,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n6693845278",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "san-juan-colegio-secundario-san-vicente-de-paul",
@@ -268721,13 +268774,15 @@
   "addr": "",
   "phone": "+54 9 0264 430-7559",
   "web": "https://sites.google.com/view/inst-bibliotecologia",
-  "email": "",
+  "email": "isft.bibliotecologia@gmail.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "n7443034614",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://sites.google.com/sitesv-images-rt/APXyLQdD2-j2DQETJR83WpJEGu-FBczkBEXb6nr7Ns3x_Uo8zi6fUxmj0lFcoSZPJLMJAFqabrdOIiZMoUMajb4yptnUGJFIL0yeqJeXqiJU0hrCEOwiAahUMR3buoNcwTalzKLaVay4lJIoRUHENOFnGbygPTr7eNvWrPc6xN3sxRVqmKGRZMW6OgcCeHd3=w16383",
+  "webAt": "2026-11-13"
  },
  {
   "id": "san-juan-colegio-blas-pascal",
@@ -268779,7 +268834,7 @@
   "addr": "Santa Fe 114 (E)",
   "phone": "+54 264 421 3409",
   "web": "http://www.gzsanjuan.com.ar/",
-  "email": "",
+  "email": "info@gzsanjuan.com.ar",
   "levels": [],
   "opp": [
    "Bilingüe o internacional"
@@ -268787,7 +268842,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n8905032564",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "san-juan-colegio-bilingue-saint-louis",
@@ -268811,7 +268868,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n8917704653",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "san-juan-universidad-de-congreso",
@@ -268823,7 +268881,7 @@
   "addr": "Entre Ríos 128 (N)",
   "phone": "+54 264 421 5620",
   "web": "https://www.ucongreso.edu.ar/sede/localizacion-san-juan/",
-  "email": "",
+  "email": "sanjuan@ucongreso.edu.ar",
   "levels": [
    "Universidad"
   ],
@@ -268833,7 +268891,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n9257744000",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+5492644364524",
+  "webAt": "2026-11-13"
  },
  {
   "id": "san-juan-colegio-san-pablo",
@@ -268936,7 +268997,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n10742065543",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "san-juan-colegio-dora-de-palma",
@@ -269322,7 +269384,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n13573984558",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "san-juan-colegio-los-andes",
@@ -269409,7 +269473,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w254011442",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "san-juan-colegio-dr-bernardo-a-houssay",
@@ -269468,7 +269534,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w704223898",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "san-juan-colegio-san-valentin",
@@ -269561,7 +269629,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w712902288",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "maturin-universidad-gran-mariscal-de-ayacucho-anexo",
@@ -273664,7 +273733,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w223368847",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "santa-marta-colegio-diocesano-san-jose",
@@ -274422,7 +274493,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4150085033",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cuenca-unidad-educativa-ueps",
@@ -274526,13 +274599,16 @@
   "addr": "Avenida de las Américas",
   "phone": "+5932830751",
   "web": "https://www.ucacue.edu.ec/",
-  "email": "",
+  "email": "comercializacion@ucacue.edu.ec",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "n4790117421",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.ucacue.edu.ec/wp-content/uploads/2020/09/ucacue-logo-centro-mediacion.png",
+  "whatsapp": "+593984713417",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cuenca-instituto-american-college",
@@ -274642,7 +274718,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5657353824",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cuenca-academia-profesional-de-danza-clasica-tersicore",
@@ -274660,7 +274738,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5668134221",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cuenca-unidad-educativa-enriqueta-cordero",
@@ -274793,7 +274873,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n7209646086",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "cuenca-colegio-particular-a-distancia-atlantico",
@@ -275049,7 +275130,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w49588990",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "cuenca-colegio-tecnico-daniel-cordova-toral",
@@ -276990,7 +277073,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w692518688",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "whatsapp": "+521557972215",
+  "webAt": "2026-11-13"
  },
  {
   "id": "murcia-colegio-nuestra-senora-de-los-angeles",
@@ -277162,7 +277248,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n6784058085",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "murcia-academia-zenit",
@@ -277300,7 +277388,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w55121376",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "murcia-colegio-jesus-maria",
@@ -277965,7 +278054,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w263087010",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://i0.wp.com/marianoaroca.es/wp-content/uploads/2023/03/cropped-LOGO-NUEVO-transparente-1.png?fit=2047%2C1681",
+  "webAt": "2026-11-13"
  },
  {
   "id": "murcia-colegio-la-consolacion",
@@ -278081,7 +278172,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w274609453",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "murcia-colegio-nuestra-senora-de-la-fuensanta-jesus-maria",
@@ -278430,13 +278522,15 @@
   "addr": "Calle Sierra Espuña",
   "phone": "+34968618683",
   "web": "http://www.vistarreal.es/",
-  "email": "",
+  "email": "vistarreal@gmail.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w413388991",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://vistarreal.es/wp1/wp-content/uploads/2025/01/logo.png",
+  "webAt": "2026-11-13"
  },
  {
   "id": "murcia-colegio-cei",
@@ -278690,7 +278784,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w542052005",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "murcia-colegio-de-educacion-infantil-y-primaria-nuestra-senora-de-fatima",
@@ -278730,7 +278825,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w543337815",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "murcia-colegio-de-educacion-infantil-y-primaria-nicolas-de-las-penas",
@@ -278795,7 +278891,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w555197343",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.ucam.edu/sites/default/files/public/imagenes/home/portada-ucam-1-movil-horizontal800.jpg",
+  "webAt": "2026-11-13"
  },
  {
   "id": "murcia-colegio-ays",
@@ -279825,7 +279923,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5270924845",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "imgTry": "2026-11-13"
  },
  {
   "id": "pereira-colegio-colombo-britanico",
@@ -280116,7 +280215,7 @@
   "addr": "",
   "phone": "+57 316 4782363",
   "web": "https://www.uniquindio.edu.co/",
-  "email": "",
+  "email": "contactenos@uniquindio.edu.co",
   "levels": [
    "Universidad"
   ],
@@ -280126,7 +280225,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1445394496",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "pereira-colegio-santa-juana",
@@ -280168,7 +280269,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r6794266",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-13"
  },
  {
   "id": "pereira-instituto-tecnico-superior-de-pereira",
@@ -280208,7 +280311,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r6794329",
-  "found": "2026-11-10"
+  "found": "2026-11-10",
+  "img": "https://www.ucp.edu.co/social-image.jpg/",
+  "webAt": "2026-11-13"
  },
  {
   "id": "pereira-colegio-cooperativo",
@@ -404944,6 +405049,413 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1561098598",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "huacho-universidad-catolica-sedes-sapientiae",
+  "name": "Universidad Católica Sedes Sapientiae",
+  "city": "Huacho",
+  "country": "Perú",
+  "lat": -11.094656,
+  "lng": -77.569015,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.ucss.edu.pe/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n11810167200",
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-13"
+ },
+ {
+  "id": "huacho-universidad-alas-peruanas",
+  "name": "Universidad Alas Peruanas",
+  "city": "Huacho",
+  "country": "Perú",
+  "lat": -11.086705,
+  "lng": -77.598452,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w319304329",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "huacho-colegio-20313-virgen-de-la-merced",
+  "name": "Colegio 20313 Virgen de la Merced",
+  "city": "Huacho",
+  "country": "Perú",
+  "lat": -11.096829,
+  "lng": -77.626094,
+  "addr": "Avenida Túpac Amaru 520",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w511817572",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "masaya-colegio-nuestra-senora-del-pilar",
+  "name": "Colegio Nuestra Señora del Pilar",
+  "city": "Masaya",
+  "country": "Nicaragua",
+  "lat": 11.972542,
+  "lng": -86.094431,
+  "addr": "Avenida El Progreso",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w235222518",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "masaya-centro-educativo-cristobal-rugama",
+  "name": "Centro Educativo Cristóbal Rugama",
+  "city": "Masaya",
+  "country": "Nicaragua",
+  "lat": 11.975991,
+  "lng": -86.087908,
+  "addr": "1a Calle N.E.",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w419002347",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "masaya-colegio-bautista-masaya",
+  "name": "Colegio Bautista - Masaya",
+  "city": "Masaya",
+  "country": "Nicaragua",
+  "lat": 11.974752,
+  "lng": -86.083327,
+  "addr": "Calle San Miguel",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w851599648",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "masaya-escuela-anexa-san-juan-bosco",
+  "name": "Escuela Anexa San Juan Bosco",
+  "city": "Masaya",
+  "country": "Nicaragua",
+  "lat": 11.968272,
+  "lng": -86.099233,
+  "addr": "Calle Rafaela Padilla",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1093214752",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "masaya-primaria-colegio-bautista-de-masaya",
+  "name": "Primaria Colegio Bautista de Masaya",
+  "city": "Masaya",
+  "country": "Nicaragua",
+  "lat": 11.975737,
+  "lng": -86.096326,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1557646621",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "masaya-beehive-academy",
+  "name": "Beehive Academy",
+  "city": "Masaya",
+  "country": "Nicaragua",
+  "lat": 11.978084,
+  "lng": -86.091526,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1562575896",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "masaya-colegio-salesiano-don-bosco",
+  "name": "Colegio Salesiano Don Bosco",
+  "city": "Masaya",
+  "country": "Nicaragua",
+  "lat": 11.968254,
+  "lng": -86.093613,
+  "addr": "Avenida Real de Monimbó",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "r19618183",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "masaya-colegio-santa-teresita",
+  "name": "Colegio Santa Teresita",
+  "city": "Masaya",
+  "country": "Nicaragua",
+  "lat": 11.979004,
+  "lng": -86.095491,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r21458979",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "fusagasuga-liceo-san-javier",
+  "name": "Liceo San Javier",
+  "city": "Fusagasugá",
+  "country": "Colombia",
+  "lat": 4.344974,
+  "lng": -74.357574,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n845860909",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "fusagasuga-colegio-infantil",
+  "name": "Colegio infantil",
+  "city": "Fusagasugá",
+  "country": "Colombia",
+  "lat": 4.327813,
+  "lng": -74.366201,
+  "addr": "Carrera 5 calle 22",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5133667235",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "fusagasuga-colegio-ricaurte",
+  "name": "Colegio Ricaurte",
+  "city": "Fusagasugá",
+  "country": "Colombia",
+  "lat": 4.334766,
+  "lng": -74.374115,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w134700264",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "fusagasuga-colegio-himalaya",
+  "name": "Colegio Himalaya",
+  "city": "Fusagasugá",
+  "country": "Colombia",
+  "lat": 4.33139,
+  "lng": -74.370127,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r19701660",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-pedro-de-la-paz-colegio-nuevos-horizontes",
+  "name": "Colegio Nuevos Horizontes",
+  "city": "San Pedro de la Paz",
+  "country": "Chile",
+  "lat": -36.850361,
+  "lng": -73.145876,
+  "addr": "Galvarino 3446",
+  "phone": "+56 41 339 5755",
+  "web": "https://www.colegionuevoshorizontes.cl/",
+  "email": "colegio.nuevoshorizontes@slepandaliencosta.gob.cl",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w125138541",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-pedro-de-la-paz-colegio-educa-bio-bio",
+  "name": "Colegio Educa Bío Bío",
+  "city": "San Pedro de la Paz",
+  "country": "Chile",
+  "lat": -36.854018,
+  "lng": -73.142593,
+  "addr": "Tucapel",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w472852363",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-pedro-de-la-paz-colegio-galvarino",
+  "name": "Colegio Galvarino",
+  "city": "San Pedro de la Paz",
+  "country": "Chile",
+  "lat": -36.878002,
+  "lng": -73.137476,
+  "addr": "Los Mañíos 6293",
+  "phone": "+56 41 339 5748",
+  "web": "https://www.colegiogalvarino.cl/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1036884885",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-pedro-de-la-paz-colegio-paulo-freire",
+  "name": "Colegio Paulo Freire",
+  "city": "San Pedro de la Paz",
+  "country": "Chile",
+  "lat": -36.851215,
+  "lng": -73.143326,
+  "addr": "Michimalonco 3855, San Pedro de la Costa",
+  "phone": "+56 41 227 8457",
+  "web": "https://www.colegiopaulofreirespc.cl/",
+  "email": "colegiopaulofreirespc@gmail.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1133176971",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-pedro-de-la-paz-colegio-los-educadores",
+  "name": "Colegio Los Educadores",
+  "city": "San Pedro de la Paz",
+  "country": "Chile",
+  "lat": -36.827211,
+  "lng": -73.143989,
+  "addr": "Saturno 67",
+  "phone": "+56 41 239 8274",
+  "web": "",
+  "email": "closeducadores@gmail.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1133177000",
+  "found": "2026-11-13"
+ },
+ {
+  "id": "san-pedro-de-la-paz-escuela-particular-andres-bello",
+  "name": "Escuela Particular Andres Bello",
+  "city": "San Pedro de la Paz",
+  "country": "Chile",
+  "lat": -36.844877,
+  "lng": -73.142346,
+  "addr": "Los Carrera 240",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1177122047",
   "found": "2026-11-13"
  }
 ]
