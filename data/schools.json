@@ -320081,7 +320081,7 @@
   "addr": "General Villegas 56",
   "phone": "+54 299 477-1319",
   "web": "https://um.edu.ar/carreras/licenciatura-en-kinesiologia/",
-  "email": "",
+  "email": "info.riocuarto@um.edu.ar",
   "levels": [
    "Universidad"
   ],
@@ -320092,7 +320092,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n12277639341",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://um.edu.ar/wp-content/themes/um/img/logo--header.png",
+  "whatsapp": "+5492616845333",
+  "webAt": "2026-11-14"
  },
  {
   "id": "neuquen-instituto-celsius",
@@ -406575,6 +406578,1762 @@
   "private": "probable",
   "src": "osm",
   "osm": "w222758091",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "maipu-instituto-maipu-de-educacion-integral-imei",
+  "name": "Instituto Maipú de Educación Integral (IMEI)",
+  "city": "Maipú",
+  "country": "Argentina",
+  "lat": -32.985731,
+  "lng": -68.784413,
+  "addr": "Godoy Cruz 119",
+  "phone": "+54 261 497 2520",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7640546390",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "encarnacion-heaven-s-kingdom-christian-school",
+  "name": "Heaven's Kingdom Christian School",
+  "city": "Encarnación",
+  "country": "Paraguay",
+  "lat": -27.303855,
+  "lng": -55.880686,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4575069421",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "encarnacion-colegio-tecnico-nacional-y-centro-de-entrenamiento-vocacional-arq-raul",
+  "name": "Colegio Técnico Nacional y Centro de Entrenamiento Vocacional \"Arq. Raúl María Benítez Perdomo\"",
+  "city": "Encarnación",
+  "country": "Paraguay",
+  "lat": -27.311869,
+  "lng": -55.893937,
+  "addr": "",
+  "phone": "",
+  "web": "http://ctne.edu.py/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4575069422",
+  "found": "2026-11-14",
+  "imgTry": "2026-11-14"
+ },
+ {
+  "id": "encarnacion-universidad-catolica-nuestra-senora-de-la-asuncion",
+  "name": "Universidad Católica \"Nuestra Señora de la Asunción",
+  "city": "Encarnación",
+  "country": "Paraguay",
+  "lat": -27.332606,
+  "lng": -55.870713,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4980588916",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "encarnacion-colegio-republica-argentina",
+  "name": "Colegio República Argentina",
+  "city": "Encarnación",
+  "country": "Paraguay",
+  "lat": -27.353877,
+  "lng": -55.853453,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w159519316",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "encarnacion-colegio-privado-juan-xxiii",
+  "name": "Colegio Privado Juan XXIII",
+  "city": "Encarnación",
+  "country": "Paraguay",
+  "lat": -27.337457,
+  "lng": -55.868202,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w264313738",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "encarnacion-colegio-san-roque-gonzalez-de-santa-cruz",
+  "name": "Colegio San Roque González de Santa Cruz",
+  "city": "Encarnación",
+  "country": "Paraguay",
+  "lat": -27.349739,
+  "lng": -55.863337,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w286098976",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "encarnacion-instituto-superior-profesional-avanzado-ispa",
+  "name": "Instituto Superior Profesional Avanzado (ISPA)",
+  "city": "Encarnación",
+  "country": "Paraguay",
+  "lat": -27.339968,
+  "lng": -55.86795,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w508504464",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "encarnacion-colegio-bautista-de-encarnacion",
+  "name": "Colegio Bautista de Encarnación",
+  "city": "Encarnación",
+  "country": "Paraguay",
+  "lat": -27.333271,
+  "lng": -55.867356,
+  "addr": "14 de Mayo",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w859129922",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "encarnacion-colegio-inmaculada-concepcion",
+  "name": "Colegio Inmaculada Concepción",
+  "city": "Encarnación",
+  "country": "Paraguay",
+  "lat": -27.333329,
+  "lng": -55.865807,
+  "addr": "14 de Mayo e/ Mariscal José Félix Estigarribia",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w859358393",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "encarnacion-universidad-americana",
+  "name": "Universidad Americana",
+  "city": "Encarnación",
+  "country": "Paraguay",
+  "lat": -27.333331,
+  "lng": -55.866723,
+  "addr": "Mariscal José Félix Estigarribia 1269",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w859358407",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-escuela-tecnico-profesional-hernan-cortes",
+  "name": "Escuela Técnico Profesional Hernán Cortés",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.463036,
+  "lng": -3.799942,
+  "addr": "Calle de Hernán Cortés 41",
+  "phone": "+34 942 21 60 15",
+  "web": "https://www.lapolitecnica.es",
+  "email": "info@lapolitecnica.es",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n2375833737",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-san-antonio",
+  "name": "Colegio Concertado San Antonio",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.463722,
+  "lng": -3.793642,
+  "addr": "Calle de San Martín",
+  "phone": "+34 942 21 54 60",
+  "web": "https://www.colegioscapuchinos.org/colegio/colegio-san-antonio-santander/",
+  "email": "colsantonio@planalfa.es",
+  "levels": [
+   "Preescolar",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n2380317611",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-san-roque-los-pinares",
+  "name": "Colegio Concertado San Roque - Los Pinares",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.470815,
+  "lng": -3.791489,
+  "addr": "Calle de Trasmiera 10A",
+  "phone": "+34 942 28 11 42",
+  "web": "https://colegiosanroquelospinares.es/",
+  "email": "info@colegiosanroquelospinares.es",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n2395136615",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-escuela-infantil-ciempies",
+  "name": "Escuela Infantil Ciempiés",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.442194,
+  "lng": -3.863522,
+  "addr": "Calle de Joaquín Salas 6",
+  "phone": "+34 625 12 34 83",
+  "web": "http://www.escuelainfantilciempies.es",
+  "email": "ciempies@escuelainfantilciempies.es",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n2534823363",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-black-ball-surf-shop-school",
+  "name": "Black Ball Surf Shop @ School",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.472738,
+  "lng": -3.783629,
+  "addr": "Calle de Panamá",
+  "phone": "+34 942 29 01 63",
+  "web": "https://www.blackballsurf.es/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2592646550",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-kells-college",
+  "name": "Kells College",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.463462,
+  "lng": -3.79921,
+  "addr": "Calle de Peña Herbosa 7",
+  "phone": "+34 942 21 68 15",
+  "web": "https://www.kellscollege.com/",
+  "email": "info@kellscollege.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2592652314",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-ceinmark",
+  "name": "Ceinmark",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.458681,
+  "lng": -3.823939,
+  "addr": "Calle Vargas 65",
+  "phone": "+34 942 23 13 44",
+  "web": "https://ceinmark.net/",
+  "email": "ceinmark@ceinmark.net",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n3090823001",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-decroly-perines",
+  "name": "Decroly Perines",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.461425,
+  "lng": -3.821863,
+  "addr": "Calle del Profesor Jiménez Díaz 5",
+  "phone": "+34 942 37 57 08",
+  "web": "https://www.decroly.com",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n6828435197",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-escuela-infantil-de-la-universidad-de-cantabria",
+  "name": "Escuela Infantil de la Universidad de Cantabria",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.470277,
+  "lng": -3.809139,
+  "addr": "Avenida de los Castros",
+  "phone": "+34 942 20 20 70",
+  "web": "https://web.unican.es/unidades/escuela-infantil",
+  "email": "escuela.infantil@unican.es",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9781134643",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-centro-fp-de-ciencias-radiologicas",
+  "name": "Centro FP de Ciencias Radiológicas",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.465099,
+  "lng": -3.810972,
+  "addr": "Vía Cornelia 2",
+  "phone": "+34 942 21 23 58",
+  "web": "http://www.cienciasradiologicas.com",
+  "email": "ccrrsantander@gmail.com",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9781134676",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-centro-de-educacion-infantil-junior",
+  "name": "Centro de Educación Infantil Junior",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.440029,
+  "lng": -3.848475,
+  "addr": "Avenida de Nueva Montaña 23",
+  "phone": "+34 942 35 30 11",
+  "web": "http://www.escuelajunior.com/",
+  "email": "info@escuelajunior.com",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9781134677",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-equipo-formacion-y-empleo",
+  "name": "Equipo Formación y Empleo",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.458124,
+  "lng": -3.821623,
+  "addr": "Calle de Rosario Acuña 5",
+  "phone": "+34 942 39 89 78",
+  "web": "https://equipoformacion.es/",
+  "email": "cc.equipoformacion@educantabria.es",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9781134682",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-centro-nacional-de-estudios-de-tecnicos-deportivos",
+  "name": "Centro Nacional de Estudios de Técnicos Deportivos",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.463646,
+  "lng": -3.805819,
+  "addr": "Calle de Guevara 22",
+  "phone": "+34 696 52 07 23",
+  "web": "https://www.tecnicodeportivo.net/",
+  "email": "cenetedsantander@tecnicodeportivo.net",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9781134689",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-brenes-escuela-deportiva-de-regimen-especial-cantabria",
+  "name": "Brenes Escuela Deportiva de Regimen Especial Cantabria",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.464266,
+  "lng": -3.866208,
+  "addr": "Calle de La Llanilla 102",
+  "phone": "+34 942 80 33 76",
+  "web": "http://www.bedrecformacion.com/",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9781134690",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-nexian-training",
+  "name": "Nexian Training",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.454695,
+  "lng": -3.815822,
+  "addr": "Calle del Marqués de la Hermida 17",
+  "phone": "+34 942 09 01 17",
+  "web": "https://escuelanexian.es/",
+  "email": "info@escuelanexian.es",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9781134701",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-la-salle-santander",
+  "name": "La Salle Santander",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.462655,
+  "lng": -3.824169,
+  "addr": "Avenida de José Hierro 33",
+  "phone": "+34 942 33 63 11",
+  "web": "https://www.lasallesantander.es/",
+  "email": "colegio@lasallesantander.es",
+  "levels": [
+   "Preescolar",
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w22931187",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-compania-de-maria",
+  "name": "Colegio Concertado Compañía de María",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.465197,
+  "lng": -3.811021,
+  "addr": "Vía Cornelia 2",
+  "phone": "+34 942 21 23 58",
+  "web": "https://cmarias.com/",
+  "email": "cc.compania.de.maria@educantabria.es",
+  "levels": [
+   "Preescolar",
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w28442364",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-verdemar",
+  "name": "Colegio Concertado Verdemar",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.46427,
+  "lng": -3.866084,
+  "addr": "Calle de La Llanilla 102",
+  "phone": "+34 942 33 81 69",
+  "web": "https://colegioverdemar.com/",
+  "email": "secretaria@colegioverdemar.com",
+  "levels": [
+   "Preescolar",
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w33640189",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-atalaya",
+  "name": "Colegio Concertado Atalaya",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.469241,
+  "lng": -3.805362,
+  "addr": "Bajada de Rumayor 1A",
+  "phone": "+34 942 31 41 16",
+  "web": "https://colegioatalaya.com/",
+  "email": "info@colegioatalaya.com",
+  "levels": [
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w109769995",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-calasanz",
+  "name": "Colegio Concertado Calasanz",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.46426,
+  "lng": -3.794448,
+  "addr": "Paseo de Canalejas 8",
+  "phone": "+34 942 21 25 50",
+  "web": "https://www.escolapios-santander.org/",
+  "email": "secretaria.santander@escolapiosbetania.es",
+  "levels": [
+   "Preescolar",
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w178762441",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-angeles-custodios",
+  "name": "Colegio Concertado Ángeles Custodios",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.463997,
+  "lng": -3.791149,
+  "addr": "Calle de León Felipe 15",
+  "phone": "+34 942 21 52 02",
+  "web": "https://angelescustodios.org",
+  "email": "directoreso@angelescustodios.org",
+  "levels": [
+   "Preescolar",
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w178762581",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-universidad-internacional-menendez-pelayo",
+  "name": "Universidad Internacional Menéndez Pelayo",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.473265,
+  "lng": -3.795407,
+  "addr": "Avenida de los Castros 42",
+  "phone": "+34 942298700",
+  "web": "http://www.uimp.es",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Bilingüe o internacional",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w198718291",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-san-agustin",
+  "name": "Colegio Concertado San Agustín",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.477903,
+  "lng": -3.792832,
+  "addr": "Avenida de Pontejos 27",
+  "phone": "+34 942 39 33 00",
+  "web": "https://www.losagustinos.es/",
+  "email": "director@losagustinos.es",
+  "levels": [
+   "Preescolar",
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w203097508",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-san-martin",
+  "name": "Colegio Concertado San Martín",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.464551,
+  "lng": -3.792224,
+  "addr": "Paseo de Canalejas 20",
+  "phone": "+34 942 31 43 25",
+  "web": "https://www.colegiosanmartin.com/",
+  "email": "colegiosanmartin@colegiosanmartin.com",
+  "levels": [
+   "Preescolar",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w231106113",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-santa-maria-micaela",
+  "name": "Colegio Concertado Santa María Micaela",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.456235,
+  "lng": -3.839164,
+  "addr": "Calle de Joaquín Bustamante 9",
+  "phone": "+34 942 33 82 87",
+  "web": "https://www.colegiosantamariamicaela.com/",
+  "email": "secretaria@colegiosantamariamicaela.com",
+  "levels": [
+   "Preescolar",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w231124804",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-tagore",
+  "name": "Colegio Concertado Tagore",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.463988,
+  "lng": -3.786094,
+  "addr": "Avenida de la Reina Victoria 61",
+  "phone": "+34 942 27 03 18",
+  "web": "https://www.escuelainfantiltagore.es/",
+  "email": "escuelatagore@telefonica.net",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w231194649",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-centro-social-bellavista-julio-blanco",
+  "name": "Colegio Concertado Centro Social Bellavista - Julio Blanco",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.485414,
+  "lng": -3.799089,
+  "addr": "Calle de Camús 30",
+  "phone": "+34 942 39 00 30",
+  "web": "https://www.csbellavista.com/",
+  "email": "csbellavista@telefonica.net",
+  "levels": [
+   "Preescolar",
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w231199280",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-sagrado-corazon-esclavas",
+  "name": "Colegio Concertado Sagrado Corazón Esclavas",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.46834,
+  "lng": -3.779441,
+  "addr": "Paseo de Pérez Galdós 41",
+  "phone": "+34 942 27 00 82",
+  "web": "https://santander.esclavasscj.com/",
+  "email": "pilarporras@esclavassantander.com",
+  "levels": [
+   "Preescolar",
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w258642195",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-jardin-de-africa",
+  "name": "Colegio Concertado Jardín de África",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.472386,
+  "lng": -3.823545,
+  "addr": "Calle de Aviche 37",
+  "phone": "+34 942 34 78 80",
+  "web": "https://www.jardindeafrica.com/",
+  "email": "colegio@jardindeafrica.com",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w418666618",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-nino-jesus",
+  "name": "Colegio Concertado Niño Jesús",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.456147,
+  "lng": -3.843968,
+  "addr": "Calle de Joaquín Bustamante 19",
+  "phone": "+34 942 33 77 55",
+  "web": "https://www.ninojesussantander.com/",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w448975175",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-de-educacion-espacial-el-molino",
+  "name": "Colegio Concertado de Educación Espacial El Molino",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.457127,
+  "lng": -3.824731,
+  "addr": "Calle de Montevideo 2",
+  "phone": "+34 942 39 34 59",
+  "web": "https://www.educantabria.es/web/ccee-el-molino",
+  "email": "ccee.el.molino@educantabria.es",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w465666154",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-san-jose",
+  "name": "Colegio Concertado San José",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.464481,
+  "lng": -3.809805,
+  "addr": "Calle del Asilo 1",
+  "phone": "+34 942 21 11 79",
+  "web": "https://www.sanjosesantander.com/",
+  "email": "cc.san.jose.santander@educantabria.es",
+  "levels": [
+   "Preescolar",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w539596323",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-castroverde",
+  "name": "Colegio Concertado Castroverde",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.466597,
+  "lng": -3.793105,
+  "addr": "Calle de Tetuán 47",
+  "phone": "+34 942 27 21 50",
+  "web": "https://colegiocastroverde.org/",
+  "email": "secretaria@colegiocastroverde.org",
+  "levels": [
+   "Preescolar",
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w580247575",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-cumbres",
+  "name": "Colegio Concertado Cumbres",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.462859,
+  "lng": -3.818543,
+  "addr": "Calle del Cardenal Cisneros 76D",
+  "phone": "+34 942 79 09 61",
+  "web": "https://colcumbres.org/",
+  "email": "secretaria@colcumbres.org",
+  "levels": [
+   "Preescolar",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w744276685",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-haypo",
+  "name": "Colegio Concertado Haypo",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.466825,
+  "lng": -3.798841,
+  "addr": "Calle de Francisco Palazuelos 21",
+  "phone": "+34 942 21 77 53",
+  "web": "https://www.colegiohaypo.com/",
+  "email": "colegio@haypo.com",
+  "levels": [
+   "Preescolar",
+   "Prepa"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w784200987",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-maria-reina-inmaculada",
+  "name": "Colegio Concertado María Reina Inmaculada",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.467461,
+  "lng": -3.788113,
+  "addr": "Paseo de Menéndez Pelayo 108",
+  "phone": "+34 942 27 13 92",
+  "web": "https://www.colegiomariareinainmaculada.com/",
+  "email": "mrinmaculada@planalfa.es",
+  "levels": [
+   "Preescolar",
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w789295427",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-la-anunciacion",
+  "name": "Colegio Concertado La Anunciación",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.464439,
+  "lng": -3.80863,
+  "addr": "Calle de San Celedonio 8",
+  "phone": "+34 942 22 19 90",
+  "web": "https://parroquiaanunciacion.com/colegio/",
+  "email": "colegio@colegioanunciacion.com",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w791834724",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-kostka",
+  "name": "Colegio Concertado Kostka",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.463608,
+  "lng": -3.804942,
+  "addr": "Calle de Guevara 26",
+  "phone": "+34 942 31 25 69",
+  "web": "https://jesuitassantander.es/",
+  "email": "colegiokostka@colegiokostka.com",
+  "levels": [
+   "Preescolar",
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w802137138",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-paraninfo-de-la-universidad-de-cantabria",
+  "name": "Paraninfo de la Universidad de Cantabria",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.464038,
+  "lng": -3.805847,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w802934417",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-centro-de-educacion-infantil-marques-de-valterra",
+  "name": "Centro de Educación Infantil Marqués de Valterra",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.451968,
+  "lng": -3.816592,
+  "addr": "Calle de Fernando de Montalvo 1",
+  "phone": "+34 942 21 33 25",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w856268519",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-miguel-bravo",
+  "name": "Colegio Concertado Miguel Bravo",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.452058,
+  "lng": -3.816928,
+  "addr": "Calle de Fernando de Montalvo 1",
+  "phone": "+34 942 21 22 70",
+  "web": "https://www.miguelbravo.es/",
+  "email": "colegiomiguelbravo@gmail.com",
+  "levels": [
+   "Preescolar",
+   "Prepa"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w856268520",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-centro-de-educacion-especial-padre-apolinar",
+  "name": "Centro de Educación Especial Padre Apolinar",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.482645,
+  "lng": -3.793079,
+  "addr": "Avenida de Valdenoja 48A",
+  "phone": "+34 942 39 09 00",
+  "web": "https://colegiopadreapolinar.com/",
+  "email": "ccee.padre.apolinar@educantabria.es",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w892958229",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-purisima-concepcion",
+  "name": "Colegio Concertado Purísima Concepción",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.459407,
+  "lng": -3.814543,
+  "addr": "Calle Alta 43",
+  "phone": "+34 942 23 32 15",
+  "web": "https://ccpurisima.es/",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1065072248",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-colegio-concertado-mercedes",
+  "name": "Colegio Concertado Mercedes",
+  "city": "Santander",
+  "country": "España",
+  "lat": 43.463767,
+  "lng": -3.820044,
+  "addr": "Paseo de Altamira 111",
+  "phone": "+34 942 23 55 07",
+  "web": "https://mercedarias.com/",
+  "email": "colegio@mercedarias.com",
+  "levels": [
+   "Preescolar",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "r18877180",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-colegio-simon-bolivar",
+  "name": "Colegio Simon Bolívar",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.811225,
+  "lng": -73.020305,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n865650819",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-colegio-sagrados-corazones",
+  "name": "Colegio Sagrados Corazones",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.832969,
+  "lng": -73.039694,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n903618208",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-colegio-jesus-eucaristia",
+  "name": "Colegio Jesús Eucaristía",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.834268,
+  "lng": -73.031925,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6975260609",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-colegio-la-presentacion",
+  "name": "Colegio La Presentación",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.838501,
+  "lng": -73.034494,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6978513193",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-colegio-san-jose-de-calazans",
+  "name": "Colegio San José de Calazans",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.840835,
+  "lng": -73.033906,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6978566918",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-colegio-prescolar-y-primaria-confaboy",
+  "name": "Colegio Prescolar y Primaria Confaboy",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.835777,
+  "lng": -73.034313,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9966234695",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-entrada-principal-colegio-simon-bolivar",
+  "name": "Entrada principal colegio Simon Bolivar",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.812287,
+  "lng": -73.020742,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11605809343",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-colegio-boyaca-de-duitama",
+  "name": "Colegio Boyaca de Duitama",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.825248,
+  "lng": -73.04583,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w74097775",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-colegio-guillermo-leon-valencia-sede-integrado",
+  "name": "Colegio Guillermo León Valencia - Sede Integrado",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.835126,
+  "lng": -73.038208,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w74098898",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-colegio-seminario-diocesano",
+  "name": "Colegio Seminario Diocesano",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.831556,
+  "lng": -73.039398,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w100674192",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-universidad-pedagogica-y-tecnologica-de-colombia",
+  "name": "Universidad Pedagógica y Tecnológica de Colombia",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.827552,
+  "lng": -73.024406,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w301791175",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-colegio-castel-lu",
+  "name": "Colegio Castel-Lú",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.813024,
+  "lng": -73.029206,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w329975437",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-colegio-salesiano-de-duitama",
+  "name": "Colegio Salesiano de Duitama",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.833403,
+  "lng": -73.034878,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w422076211",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-instituto-tecnico-jose-miguel-silva-plazas",
+  "name": "Instituto Técnico José Miguel Silva Plazas",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.827225,
+  "lng": -73.074023,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w480406439",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-u-a-n-universidad-antonio-narino",
+  "name": "U.A.N (universidad antonio nariño)",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.814397,
+  "lng": -73.030212,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w515124074",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-instituto-tecnico-san-antonio-de-padua",
+  "name": "Instituto Técnico San Antonio de Padua",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.84083,
+  "lng": -73.0209,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w672577041",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-centro-educativo-quebrada-becerras",
+  "name": "Centro Educativo Quebrada Becerras",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.834046,
+  "lng": -73.060223,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w683563973",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-instituto-tecnico-nueva-familia-sede-higueras",
+  "name": "Instituto Técnico Nueva Familia Sede Higueras",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.803882,
+  "lng": -73.039499,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w683563976",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-instituto-tecnico-nueva-familia",
+  "name": "Instituto Técnico Nueva Familia",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.807401,
+  "lng": -73.036034,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w683563977",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-colegio-tecnico-municipal-simon-bolivar",
+  "name": "Colegio Técnico Municipal Simón Bolivar",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.811428,
+  "lng": -73.020741,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w683563978",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-colegio-tecnico-municipal-francisco-de-paula-santander",
+  "name": "Colegio Técnico Municipal Francisco de Paula Santander",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.813802,
+  "lng": -73.01728,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w683563979",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-colegio-guillermo-leon-valencia-sede-gabriela-mistral",
+  "name": "Colegio Guillermo León Valencia Sede Gabriela Mistral",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.826423,
+  "lng": -73.038977,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w683563981",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-instituto-tecnico-santo-tomas-de-aquino-sede-carmen",
+  "name": "Instituto Técnico Santo Tomas de Aquino Sede Carmen",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.827738,
+  "lng": -73.036883,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w683563983",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-instituto-tecnico-santo-tomas-de-aquino",
+  "name": "Instituto Técnico Santo Tomas de Aquino",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.822468,
+  "lng": -73.023566,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w683563984",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-instituto-tecnico-santo-tomas-de-aquino-primaria-sede-tundama",
+  "name": "Instituto Técnico Santo Tomas de Aquino Primaria Sede Tundama",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.830632,
+  "lng": -73.03082,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w683563985",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-instituto-tecnico-industrial-rafael-reyes",
+  "name": "Instituto Técnico Industrial Rafael Reyes",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.829917,
+  "lng": -73.023304,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w683563986",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-colegio-domingo-sabio",
+  "name": "Colegio Domingo Sabio",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.812647,
+  "lng": -73.02521,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w842672975",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-colegio-jesus-maestro",
+  "name": "Colegio Jesús Maestro",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.806634,
+  "lng": -73.071374,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1061548795",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "duitama-colegio-nuestra-senora-de-la-esperanza",
+  "name": "colegio nuestra señora de la esperanza",
+  "city": "Duitama",
+  "country": "Colombia",
+  "lat": 5.823528,
+  "lng": -73.043943,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1080779147",
   "found": "2026-11-14"
  }
 ]

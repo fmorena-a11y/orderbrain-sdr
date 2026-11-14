@@ -7090,7 +7090,11 @@
   "VE|n2187682263": "2026-11-14T01:26:00.832Z",
   "VE|n881714453": "2026-11-14T01:26:38.895Z",
   "DO|n250651411": "2026-11-14T01:29:59.624Z",
-  "CO|n2674622291": "2026-11-14T01:40:43.448Z"
+  "CO|n2674622291": "2026-11-14T01:40:43.448Z",
+  "AR|Maipú": "2026-11-14T03:13:33.681Z",
+  "PY|n243191014": "2026-11-14T03:14:13.537Z",
+  "ES|n26562214": "2026-11-14T03:14:46.397Z",
+  "CO|n587791721": "2026-11-14T03:15:11.762Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7162,9 +7166,58 @@
    "n": 1,
    "at": "2026-11-13T11:28:15.069Z",
    "error": "The operation was aborted due to timeout"
+  },
+  "BO|n415165546": {
+   "n": 1,
+   "at": "2026-11-14T03:25:08.104Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-14T03:06:00.557Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Maipú",
+     "found": 1,
+     "updated": 0,
+     "osm": 34
+    },
+    {
+     "cc": "PY",
+     "city": "Encarnación",
+     "found": 10,
+     "updated": 0,
+     "osm": 36
+    },
+    {
+     "cc": "ES",
+     "city": "Santander",
+     "found": 44,
+     "updated": 1,
+     "osm": 115
+    },
+    {
+     "cc": "CO",
+     "city": "Duitama",
+     "found": 29,
+     "updated": 0,
+     "osm": 49
+    }
+   ],
+   "added": 84,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "BO|n415165546: The operation was aborted due to timeout"
+   ],
+   "minutes": 19.3,
+   "total": 20143
+  },
   {
    "at": "2026-11-14T01:24:56.415Z",
    "cities": [
@@ -9359,71 +9412,6 @@
    ],
    "minutes": 17.2,
    "total": 14924
-  },
-  {
-   "at": "2026-11-10T21:01:37.801Z",
-   "cities": [
-    {
-     "cc": "PE",
-     "city": "Chimbote",
-     "found": 11,
-     "updated": 0,
-     "osm": 185
-    },
-    {
-     "cc": "ES",
-     "city": "Alicante",
-     "found": 50,
-     "updated": 0,
-     "osm": 206
-    },
-    {
-     "cc": "ES",
-     "city": "Bilbao",
-     "found": 57,
-     "updated": 0,
-     "osm": 219
-    },
-    {
-     "cc": "CO",
-     "city": "Palmira",
-     "found": 22,
-     "updated": 0,
-     "osm": 45
-    },
-    {
-     "cc": "CL",
-     "city": "Antofagasta",
-     "found": 58,
-     "updated": 3,
-     "osm": 130
-    },
-    {
-     "cc": "CR",
-     "city": "San José",
-     "found": 30,
-     "updated": 1,
-     "osm": 422
-    },
-    {
-     "cc": "MX",
-     "city": "Cuernavaca",
-     "found": 30,
-     "updated": 0,
-     "osm": 107
-    }
-   ],
-   "added": 258,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 31,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "MX|Villahermosa: Overpass 504"
-   ],
-   "minutes": 15.8,
-   "total": 14718
   }
  ]
 }
