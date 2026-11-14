@@ -356812,7 +356812,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w564879220",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://www.coalco.cl/web/wp-content/uploads/2026/09/2027.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "concepcion-instituto-profesional-aiep",
@@ -356875,7 +356877,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w567137657",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://static.wixstatic.com/media/bd1a6f_0382446f554e4944bb6177e129f6f7b0%7Emv2.png/v1/fit/w_2500,h_1330,al_c/bd1a6f_0382446f554e4944bb6177e129f6f7b0%7Emv2.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "concepcion-colegio-el-libertador",
@@ -356954,7 +356958,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w681305501",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "concepcion-lycee-charles-de-gaulle",
@@ -356994,7 +356999,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w704413570",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "concepcion-liceo-industrial-de-concepcion",
@@ -357012,7 +357019,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w766113692",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "concepcion-colegio-san-agustin",
@@ -357052,7 +357061,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w948094843",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "concepcion-colegio-martin-luther",
@@ -357093,7 +357104,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1063494469",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "concepcion-liceo-polivalente-experimental-lucila-godoy-alcayaga",
@@ -357111,7 +357123,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1063992260",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "whatsapp": "+56999471145",
+  "webAt": "2026-11-14"
  },
  {
   "id": "concepcion-preuniversitarios-cpech",
@@ -357558,7 +357573,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1293159729",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "concepcion-colegio-san-andres",
@@ -357614,7 +357631,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1471839315",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "concepcion-liceo-rebeca-matte-bello",
@@ -357632,7 +357651,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1471845131",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "san-pedro-de-macoris-colegio-cristo-rey",
@@ -358823,7 +358844,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1086665089",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "tarija-unidad-educativa-san-mateo",
@@ -358877,7 +358899,7 @@
   "addr": "Estrada dos Fortes 10",
   "phone": "+34 981 25 36 84",
   "web": "http://www.escolapiosacoruna.es/",
-  "email": "",
+  "email": "dir.coruna@escolapiosbetania.es",
   "levels": [],
   "opp": [
    "Privado confirmado en el mapa"
@@ -358885,7 +358907,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w194839510",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://www.escolapiosacoruna.com/images/2024/11/19/45-min1.webp",
+  "webAt": "2026-11-14"
  },
  {
   "id": "la-coruna-centro-privado-montegrande",
@@ -358946,7 +358970,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w236756333",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://ciamariacoruna.org/images/fachada.jpg#joomlaImage://local-images/fachada.jpg?width=1920&height=1280",
+  "webAt": "2026-11-14"
  },
  {
   "id": "la-coruna-centro-privado-plurilingue-calasancias",
@@ -358958,7 +358984,7 @@
   "addr": "Estrada dos Fortes 11",
   "phone": "+34 981 25 64 29",
   "web": "http://www.colexiocalasancias.com",
-  "email": "",
+  "email": "info@colexiocalasancias.com",
   "levels": [],
   "opp": [
    "Privado confirmado en el mapa"
@@ -358966,7 +358992,10 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w248611320",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://colexiocalasancias.es/wp-content/uploads/2019/01/captura-general.jpg",
+  "whatsapp": "+34604034724",
+  "webAt": "2026-11-14"
  },
  {
   "id": "la-coruna-centro-privado-plurilingue-santa-maria-del-mar",
@@ -359029,7 +359058,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w334602959",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "la-coruna-centro-de-educacion-especial-privado-aspanaes",
@@ -359133,7 +359164,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w559794561",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "la-coruna-centro-de-educacion-especial-privado-nosa-senora-de-lourdes-aspronaga",
@@ -359173,7 +359205,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w585116700",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "la-coruna-centro-privado-plurilingue-esclavas-sagrado-corazon-de-jesus",
@@ -359194,7 +359228,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w595204156",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "la-coruna-centro-privado-plurilingue-hijas-de-jesus",
@@ -359367,7 +359403,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "r8090655",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://www.fhsm.es/wp-content/uploads/2026/01/cropped-Logo-vectorizado-granate-2024.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "turmero-colegio-nuestra-senora-de-belen",
@@ -359857,7 +359895,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w263116060",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "pamplona-colegio-esclavas-del-sagrado-corazon-ikastetxea",
@@ -360013,13 +360053,15 @@
   "addr": "Calle San Fermín 28",
   "phone": "+34 948234450",
   "web": "https://www.vedrunapamplona.com/",
-  "email": "",
+  "email": "vedruna.pamplona@colegiosfec.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w379174656",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "pamplona-colegio-irabia-izaga-2",
@@ -360174,7 +360216,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n3750966847",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "gualeguaychu-instituto-de-profesorado-sedes-sapientiae",
@@ -363795,7 +363838,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1024262386",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "cabo-san-lucas-colegio-san-agustin",
@@ -363840,7 +363885,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266166999",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "alcala-de-henares-colegio-san-francisco-de-asis",
@@ -363888,7 +363934,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167001",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "alcala-de-henares-centro-privado-de-educacion-infantil-primaria-y-secundaria-santa-maria",
@@ -363913,7 +363961,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167004",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "alcala-de-henares-centro-privado-de-educacion-infantil-primaria-y-secundaria-minerva",
@@ -363937,7 +363987,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266167010",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "alcala-de-henares-centro-privado-de-educacion-infantil-primaria-y-secundaria-gsd-alcala",
@@ -363961,7 +364013,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n266171636",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "alcala-de-henares-escuela-infantil-privada-dulce-limon",
@@ -364165,7 +364219,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w206096184",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "alcala-de-henares-centro-privado-de-educacion-infantil-primaria-y-secundaria-san-ignacio",
@@ -364190,7 +364246,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w224882265",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "https://sanignacioalcala.es/wp-content/uploads/2019/12/Separador.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "alcala-de-henares-centro-privado-de-educacion-infantil-primaria-y-secundaria-colegio-ana",
@@ -364214,7 +364272,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w256519085",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "alcala-de-henares-colegio-de-educacion-infantil-y-primaria-el-juncal",
@@ -364401,7 +364461,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w372328905",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "https://colegiolopedevega.com/wp-content/uploads/FSE_texto3_mod-1024x417.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "alcala-de-henares-centro-privado-de-educacion-infantil-primaria-y-secundaria-san-gabriel",
@@ -364426,7 +364488,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w375289272",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "https://colegiosangabriel.com/wp-content/uploads/2023/01/educacionInfantil_colegioSG.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "alcala-de-henares-colegio-internacional-santo-tomas-de-aquino",
@@ -364468,7 +364532,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r3478179",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "https://site.educa.madrid.org/cp.infantacatalina.alcala//wp-content/uploads/cp.infantacatalina.alcala/2022/05/cropped-ezgif.com-gif-maker.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "alcala-de-henares-colegio-puerta-de-madrid",
@@ -364520,7 +364586,7 @@
   "addr": "Avenida de los Jesuitas 34",
   "phone": "+34918891254",
   "web": "https://www.cardenalcisneros.es/",
-  "email": "",
+  "email": "info@cardenalcisneros.es",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)",
@@ -364529,7 +364595,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "r6125901",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "https://www.cardenalcisneros.es/wp-content/uploads/2022/02/home-collage-1.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "alcala-de-henares-colegio-mayor-de-san-ildefonso",
@@ -365864,7 +365932,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w162095634",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "vigo-colexio-privado-plurilingue-rosalia-de-castro",
@@ -366126,7 +366195,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w276953527",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "https://gecastrosanmiguel.com/wp-content/uploads/2025/08/cropped-Colegio-el-Castro-y-San-Miguel-158.webp",
+  "webAt": "2026-11-14"
  },
  {
   "id": "vigo-colexio-privado-fillas-de-maria-inmaculada",
@@ -366266,7 +366337,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w305131578",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "vigo-colegio-santa-cristina",
@@ -366406,7 +366479,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "r2436217",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "vigo-colegio-miralba",
@@ -368881,7 +368955,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4367040790",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "tunja-colegio-de-la-policia-nuestra-senora-de-fatima",
@@ -370077,7 +370152,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w150618094",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "elche-laude-newton-college",
@@ -370142,7 +370218,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w596206152",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "https://elche.salesianos.edu/wp-content/uploads/2022/10/logo.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "elche-colegio-nuestra-senora-del-carmen",
@@ -371550,7 +371628,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w262716694",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "la-serena-the-international-school",
@@ -371777,7 +371857,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w401439468",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "la-serena-colegio-americano",
@@ -372472,7 +372554,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1064310849",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "la-serena-colegio-providencia",
@@ -373707,7 +373791,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w392865126",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "carupano-universidad-pedagogica-experimental-libertador",
@@ -373863,7 +373948,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w23671451",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "oviedo-colegio-santa-teresa-de-jesus",
@@ -373925,7 +374011,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w35773479",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "oviedo-colegio-de-educacion-primaria-buenavista-i",
@@ -374023,7 +374111,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w153198143",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "oviedo-colegio-nazaret",
@@ -374041,7 +374130,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w155512987",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "oviedo-colegio-sagrada-familia-de-oviedo",
@@ -374059,7 +374150,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w155698601",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "oviedo-colegio-auseva",
@@ -374160,7 +374252,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w341921105",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "https://dominicasoviedo.com/wp-content/uploads/2025/12/Slider-2.webp",
+  "webAt": "2026-11-14"
  },
  {
   "id": "oviedo-colegio-amor-de-dios",
@@ -376062,7 +376156,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n13885759943",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "https://www.upsjb.edu.pe/wp-content/uploads/2024/09/Diseno-sin-titulo-3.png",
+  "whatsapp": "+51948780735",
+  "webAt": "2026-11-14"
  },
  {
   "id": "portoviejo-unidad-educativa-particular-santa-mariana-de-jesus",
@@ -376608,7 +376705,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w297648151",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "portoviejo-jean-piaget-school",
@@ -376708,7 +376807,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w412481144",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "https://www.puce.edu.ec/wp-content/uploads/2022/08/logo-puce-nuevo.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "portoviejo-colegio-particular-albert-einstein",
@@ -376996,7 +377097,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n10147629806",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "whatsapp": "+593985777403",
+  "webAt": "2026-11-14"
  },
  {
   "id": "loja-colegio-de-enfermeras-de-loja",
@@ -377257,7 +377361,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w37647775",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "loja-colegio-27-de-febrero",
@@ -378909,7 +379015,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w369177684",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "tarapoto-instituto-tecnologico-nororiental-de-la-selva",
@@ -379214,7 +379321,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4241829171",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "burgos-centro-privado-concertado-de-educacion-secundaria-obligatoria-san-jose",
@@ -418694,6 +418803,206 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1189209860",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "villa-mercedes-universidad-del-siglo-21",
+  "name": "Universidad del SIglo 21",
+  "city": "Villa Mercedes",
+  "country": "Argentina",
+  "lat": -33.684267,
+  "lng": -65.467956,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13795912102",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "villa-mercedes-universidad-del-congreso",
+  "name": "Universidad del Congreso",
+  "city": "Villa Mercedes",
+  "country": "Argentina",
+  "lat": -33.662028,
+  "lng": -65.453414,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13910034801",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "villa-mercedes-escuela-bilingue-y-digital-mahatma-gandhi",
+  "name": "Escuela Bilingüe y Digital Mahatma Gandhi",
+  "city": "Villa Mercedes",
+  "country": "Argentina",
+  "lat": -33.701286,
+  "lng": -65.499027,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w750330606",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "villa-mercedes-traida-centro-educativo-terapeutico",
+  "name": "Traida Centro Educativo Terapéutico",
+  "city": "Villa Mercedes",
+  "country": "Argentina",
+  "lat": -33.687526,
+  "lng": -65.461791,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1504498974",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "rio-bravo-universidad-del-noreste-de-mexico-ac",
+  "name": "Universidad del Noreste de Mexico AC",
+  "city": "Río Bravo",
+  "country": "México",
+  "lat": 25.981492,
+  "lng": -98.091502,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w665177601",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "rio-bravo-universidad-del-atlantico",
+  "name": "Universidad del Atlantico",
+  "city": "Río Bravo",
+  "country": "México",
+  "lat": 25.976326,
+  "lng": -98.079258,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w964705025",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "temperley-colegio-santa-ines",
+  "name": "Colegio Santa Inés",
+  "city": "Temperley",
+  "country": "Argentina",
+  "lat": -34.792329,
+  "lng": -58.408146,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w155826468",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "temperley-colegio-balmoral",
+  "name": "Colegio Balmoral",
+  "city": "Temperley",
+  "country": "Argentina",
+  "lat": -34.741911,
+  "lng": -58.399965,
+  "addr": "Senador Manuel Castro 1536",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w304148824",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "temperley-colegio-vicente-palloti",
+  "name": "Colegio Vicente Palloti",
+  "city": "Temperley",
+  "country": "Argentina",
+  "lat": -34.791733,
+  "lng": -58.405537,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w396479850",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "temperley-instituto-juan-pablo-i",
+  "name": "Instituto Juan Pablo I",
+  "city": "Temperley",
+  "country": "Argentina",
+  "lat": -34.796961,
+  "lng": -58.355657,
+  "addr": "Presidente Juan Domingo Perón 3240",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w631265569",
   "found": "2026-11-14"
  }
 ]

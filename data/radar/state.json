@@ -7143,7 +7143,10 @@
   "VE|n3630168530": "2026-11-14T11:00:06.518Z",
   "CL|Coronel": "2026-11-14T11:07:51.789Z",
   "MX|Ciudad Guzmán": "2026-11-14T13:21:49.692Z",
-  "MX|Lagos de Moreno": "2026-11-14T13:31:36.576Z"
+  "MX|Lagos de Moreno": "2026-11-14T13:31:36.576Z",
+  "AR|Villa Mercedes": "2026-11-14T15:04:49.685Z",
+  "MX|Río Bravo": "2026-11-14T15:05:13.971Z",
+  "AR|Temperley": "2026-11-14T15:10:50.886Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7223,6 +7226,41 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-14T14:57:13.691Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Villa Mercedes",
+     "found": 4,
+     "updated": 0,
+     "osm": 37
+    },
+    {
+     "cc": "MX",
+     "city": "Río Bravo",
+     "found": 2,
+     "updated": 0,
+     "osm": 14
+    },
+    {
+     "cc": "AR",
+     "city": "Temperley",
+     "found": 4,
+     "updated": 0,
+     "osm": 141
+    }
+   ],
+   "added": 10,
+   "enriched": 0,
+   "photos": 16,
+   "contacts": 7,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 15.6,
+   "total": 20666
+  },
   {
    "at": "2026-11-14T13:13:42.721Z",
    "cities": [
@@ -9377,69 +9415,6 @@
    "errors": [],
    "minutes": 19.3,
    "total": 16784
-  },
-  {
-   "at": "2026-11-11T09:13:46.327Z",
-   "cities": [
-    {
-     "cc": "VE",
-     "city": "Valera",
-     "found": 19,
-     "updated": 0,
-     "osm": 50
-    },
-    {
-     "cc": "MX",
-     "city": "San Francisco de Campeche",
-     "found": 5,
-     "updated": 0,
-     "osm": 45
-    },
-    {
-     "cc": "AR",
-     "city": "Gregorio de Laferrere",
-     "found": 3,
-     "updated": 0,
-     "osm": 240
-    },
-    {
-     "cc": "AR",
-     "city": "Paraná",
-     "found": 60,
-     "updated": 0,
-     "osm": 190
-    },
-    {
-     "cc": "DO",
-     "city": "San Francisco de Macorís",
-     "found": 10,
-     "updated": 0,
-     "osm": 33
-    },
-    {
-     "cc": "VE",
-     "city": "Ciudad Ojeda",
-     "found": 5,
-     "updated": 0,
-     "osm": 14
-    },
-    {
-     "cc": "PE",
-     "city": "Chosica",
-     "found": 5,
-     "updated": 0,
-     "osm": 79
-    }
-   ],
-   "added": 107,
-   "enriched": 0,
-   "photos": 13,
-   "contacts": 17,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 17.2,
-   "total": 16637
   }
  ]
 }
