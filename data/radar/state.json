@@ -7141,7 +7141,9 @@
   "NI|n302364713": "2026-11-14T10:59:00.693Z",
   "CO|n2978290242": "2026-11-14T10:59:38.111Z",
   "VE|n3630168530": "2026-11-14T11:00:06.518Z",
-  "CL|Coronel": "2026-11-14T11:07:51.789Z"
+  "CL|Coronel": "2026-11-14T11:07:51.789Z",
+  "MX|Ciudad Guzmán": "2026-11-14T13:21:49.692Z",
+  "MX|Lagos de Moreno": "2026-11-14T13:31:36.576Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7221,6 +7223,34 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-14T13:13:42.721Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Ciudad Guzmán",
+     "found": 9,
+     "updated": 0,
+     "osm": 101
+    },
+    {
+     "cc": "MX",
+     "city": "Lagos de Moreno",
+     "found": 0,
+     "updated": 0,
+     "osm": 0
+    }
+   ],
+   "added": 9,
+   "enriched": 0,
+   "photos": 11,
+   "contacts": 7,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 19.3,
+   "total": 20656
+  },
   {
    "at": "2026-11-14T10:58:36.270Z",
    "cities": [
@@ -9410,118 +9440,6 @@
    "errors": [],
    "minutes": 17.2,
    "total": 16637
-  },
-  {
-   "at": "2026-11-11T07:36:04.964Z",
-   "cities": [
-    {
-     "cc": "PE",
-     "city": "Juliaca",
-     "found": 10,
-     "updated": 0,
-     "osm": 207
-    },
-    {
-     "cc": "BO",
-     "city": "Oruro",
-     "found": 27,
-     "updated": 0,
-     "osm": 80
-    },
-    {
-     "cc": "VE",
-     "city": "Guarenas",
-     "found": 8,
-     "updated": 0,
-     "osm": 26
-    },
-    {
-     "cc": "MX",
-     "city": "Heroica Nogales",
-     "found": 5,
-     "updated": 0,
-     "osm": 22
-    },
-    {
-     "cc": "MX",
-     "city": "Oaxaca de Juárez",
-     "found": 151,
-     "updated": 2,
-     "osm": 549
-    },
-    {
-     "cc": "PA",
-     "city": "La Chorrera",
-     "found": 20,
-     "updated": 0,
-     "osm": 38
-    },
-    {
-     "cc": "ES",
-     "city": "Gijón",
-     "found": 26,
-     "updated": 0,
-     "osm": 102
-    },
-    {
-     "cc": "ES",
-     "city": "Vitoria",
-     "found": 3,
-     "updated": 0,
-     "osm": 104
-    },
-    {
-     "cc": "CO",
-     "city": "Floridablanca",
-     "found": 18,
-     "updated": 0,
-     "osm": 441
-    },
-    {
-     "cc": "AR",
-     "city": "Santiago del Estero",
-     "found": 44,
-     "updated": 0,
-     "osm": 171
-    },
-    {
-     "cc": "CL",
-     "city": "Valparaíso",
-     "found": 13,
-     "updated": 0,
-     "osm": 301
-    },
-    {
-     "cc": "DO",
-     "city": "Baní",
-     "found": 7,
-     "updated": 0,
-     "osm": 17
-    },
-    {
-     "cc": "VE",
-     "city": "Mérida",
-     "found": 30,
-     "updated": 0,
-     "osm": 85
-    },
-    {
-     "cc": "MX",
-     "city": "La Paz",
-     "found": 5,
-     "updated": 0,
-     "osm": 39
-    }
-   ],
-   "added": 367,
-   "enriched": 0,
-   "photos": 10,
-   "contacts": 23,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 14.5,
-   "total": 16530
   }
  ]
 }
