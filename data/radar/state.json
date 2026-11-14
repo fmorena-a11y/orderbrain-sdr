@@ -7162,7 +7162,22 @@
   "CO|n703169439": "2026-11-14T21:06:47.976Z",
   "DO|n10174842515": "2026-11-14T21:07:26.877Z",
   "ES|n64835706": "2026-11-14T21:07:57.792Z",
-  "ES|n152377926": "2026-11-14T21:08:34.659Z"
+  "ES|n152377926": "2026-11-14T21:08:34.659Z",
+  "DO|n252995539": "2026-11-14T22:53:41.079Z",
+  "MX|La Piedad de Cabadas": "2026-11-14T22:54:20.060Z",
+  "AR|La Banda": "2026-11-14T22:55:03.025Z",
+  "AR|Trelew": "2026-11-14T22:55:37.389Z",
+  "VE|n333688135": "2026-11-14T22:56:13.421Z",
+  "MX|Tulancingo": "2026-11-14T22:56:56.940Z",
+  "CO|n703167829": "2026-11-14T22:57:26.046Z",
+  "CO|n703169409": "2026-11-14T22:57:54.535Z",
+  "CO|n703169669": "2026-11-14T22:58:26.261Z",
+  "MX|Temoaya": "2026-11-14T22:58:53.521Z",
+  "AR|Cipolletti": "2026-11-14T22:59:30.608Z",
+  "MX|Texcoco de Mora": "2026-11-14T23:00:11.580Z",
+  "CL|Alto Hospicio": "2026-11-14T23:00:50.370Z",
+  "VE|n3630168531": "2026-11-14T23:01:29.831Z",
+  "MX|Temixco": "2026-11-14T23:08:59.477Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7252,6 +7267,125 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-14T22:53:07.470Z",
+   "cities": [
+    {
+     "cc": "DO",
+     "city": "Santa Cruz de Mao",
+     "found": 7,
+     "updated": 0,
+     "osm": 15
+    },
+    {
+     "cc": "MX",
+     "city": "La Piedad de Cabadas",
+     "found": 6,
+     "updated": 0,
+     "osm": 25
+    },
+    {
+     "cc": "AR",
+     "city": "La Banda",
+     "found": 0,
+     "updated": 0,
+     "osm": 30
+    },
+    {
+     "cc": "AR",
+     "city": "Trelew",
+     "found": 3,
+     "updated": 0,
+     "osm": 46
+    },
+    {
+     "cc": "VE",
+     "city": "Puerto Ayacucho",
+     "found": 7,
+     "updated": 0,
+     "osm": 23
+    },
+    {
+     "cc": "MX",
+     "city": "Tulancingo",
+     "found": 4,
+     "updated": 0,
+     "osm": 10
+    },
+    {
+     "cc": "CO",
+     "city": "Tumaco",
+     "found": 20,
+     "updated": 0,
+     "osm": 50
+    },
+    {
+     "cc": "CO",
+     "city": "Cereté",
+     "found": 14,
+     "updated": 0,
+     "osm": 45
+    },
+    {
+     "cc": "CO",
+     "city": "Turbaco",
+     "found": 9,
+     "updated": 0,
+     "osm": 45
+    },
+    {
+     "cc": "MX",
+     "city": "Temoaya",
+     "found": 0,
+     "updated": 0,
+     "osm": 32
+    },
+    {
+     "cc": "AR",
+     "city": "Cipolletti",
+     "found": 0,
+     "updated": 0,
+     "osm": 90
+    },
+    {
+     "cc": "MX",
+     "city": "Texcoco de Mora",
+     "found": 3,
+     "updated": 0,
+     "osm": 64
+    },
+    {
+     "cc": "CL",
+     "city": "Alto Hospicio",
+     "found": 20,
+     "updated": 0,
+     "osm": 90
+    },
+    {
+     "cc": "VE",
+     "city": "Yaritagua",
+     "found": 1,
+     "updated": 0,
+     "osm": 1
+    },
+    {
+     "cc": "MX",
+     "city": "Temixco",
+     "found": 0,
+     "updated": 0,
+     "osm": 35
+    }
+   ],
+   "added": 94,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 16,
+   "total": 20937
+  },
   {
    "at": "2026-11-14T20:55:16.636Z",
    "cities": [
@@ -9465,48 +9599,6 @@
    ],
    "minutes": 16.9,
    "total": 17040
-  },
-  {
-   "at": "2026-11-11T17:16:13.383Z",
-   "cities": [
-    {
-     "cc": "AR",
-     "city": "José C. Paz",
-     "found": 52,
-     "updated": 0,
-     "osm": 213
-    },
-    {
-     "cc": "HN",
-     "city": "Choloma",
-     "found": 1,
-     "updated": 0,
-     "osm": 14
-    },
-    {
-     "cc": "CL",
-     "city": "Rancagua",
-     "found": 115,
-     "updated": 0,
-     "osm": 181
-    },
-    {
-     "cc": "AR",
-     "city": "San Salvador de Jujuy",
-     "found": 19,
-     "updated": 0,
-     "osm": 125
-    }
-   ],
-   "added": 187,
-   "enriched": 0,
-   "photos": 14,
-   "contacts": 21,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 18.5,
-   "total": 16982
   }
  ]
 }
