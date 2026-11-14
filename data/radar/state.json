@@ -7085,7 +7085,12 @@
   "ES|n65523130": "2026-11-13T22:59:40.260Z",
   "CO|n703177370": "2026-11-13T23:00:20.041Z",
   "VE|n828966047": "2026-11-13T23:06:24.751Z",
-  "PE|Puno": "2026-11-13T23:13:43.640Z"
+  "PE|Puno": "2026-11-13T23:13:43.640Z",
+  "MX|Delicias": "2026-11-14T01:25:27.771Z",
+  "VE|n2187682263": "2026-11-14T01:26:00.832Z",
+  "VE|n881714453": "2026-11-14T01:26:38.895Z",
+  "DO|n250651411": "2026-11-14T01:29:59.624Z",
+  "CO|n2674622291": "2026-11-14T01:40:43.448Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7160,6 +7165,55 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-14T01:24:56.415Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Delicias",
+     "found": 11,
+     "updated": 0,
+     "osm": 50
+    },
+    {
+     "cc": "VE",
+     "city": "Cagua",
+     "found": 0,
+     "updated": 0,
+     "osm": 9
+    },
+    {
+     "cc": "VE",
+     "city": "Táriba",
+     "found": 0,
+     "updated": 0,
+     "osm": 44
+    },
+    {
+     "cc": "DO",
+     "city": "Azua",
+     "found": 1,
+     "updated": 0,
+     "osm": 8
+    },
+    {
+     "cc": "CO",
+     "city": "Malambo",
+     "found": 0,
+     "updated": 0,
+     "osm": 48
+    }
+   ],
+   "added": 12,
+   "enriched": 0,
+   "photos": 23,
+   "contacts": 13,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 18.7,
+   "total": 20059
+  },
   {
    "at": "2026-11-13T22:59:10.409Z",
    "cities": [
@@ -9370,76 +9424,6 @@
    ],
    "minutes": 15.8,
    "total": 14718
-  },
-  {
-   "at": "2026-11-10T19:16:25.962Z",
-   "cities": [
-    {
-     "cc": "AR",
-     "city": "Resistencia",
-     "found": 0,
-     "updated": 0,
-     "osm": 262
-    },
-    {
-     "cc": "MX",
-     "city": "Celaya",
-     "found": 0,
-     "updated": 0,
-     "osm": 67
-    },
-    {
-     "cc": "VE",
-     "city": "Cumaná",
-     "found": 0,
-     "updated": 0,
-     "osm": 42
-    },
-    {
-     "cc": "MX",
-     "city": "Tepic",
-     "found": 0,
-     "updated": 0,
-     "osm": 349
-    },
-    {
-     "cc": "CO",
-     "city": "Buenaventura",
-     "found": 0,
-     "updated": 0,
-     "osm": 13
-    },
-    {
-     "cc": "CO",
-     "city": "Neiva",
-     "found": 0,
-     "updated": 0,
-     "osm": 58
-    },
-    {
-     "cc": "MX",
-     "city": "Uruapan",
-     "found": 0,
-     "updated": 0,
-     "osm": 36
-    },
-    {
-     "cc": "MX",
-     "city": "Xico",
-     "found": 4,
-     "updated": 0,
-     "osm": 75
-    }
-   ],
-   "added": 4,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 29,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 15.3,
-   "total": 14460
   }
  ]
 }
