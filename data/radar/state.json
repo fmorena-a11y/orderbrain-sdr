@@ -7117,7 +7117,19 @@
   "PE|Huaraz": "2026-11-14T05:21:11.902Z",
   "CO|n352662331": "2026-11-14T05:21:44.446Z",
   "VE|n3291240462": "2026-11-14T05:22:13.237Z",
-  "ES|n31432063": "2026-11-14T05:26:06.696Z"
+  "ES|n31432063": "2026-11-14T05:26:06.696Z",
+  "VE|n321732473": "2026-11-14T07:25:38.190Z",
+  "VE|n829010839": "2026-11-14T07:26:03.287Z",
+  "MX|Guaymas": "2026-11-14T07:26:40.215Z",
+  "CR|Heredia": "2026-11-14T07:27:12.895Z",
+  "AR|Tandil": "2026-11-14T07:27:37.997Z",
+  "SV|n13234159495": "2026-11-14T07:28:14.968Z",
+  "CO|n443814800": "2026-11-14T07:28:45.174Z",
+  "AR|Santa Rosa": "2026-11-14T07:29:22.013Z",
+  "CO|n1885014452": "2026-11-14T07:29:48.448Z",
+  "AR|Río Gallegos": "2026-11-14T07:30:23.344Z",
+  "MX|El Pueblito": "2026-11-14T07:36:21.060Z",
+  "VE|n3623878359": "2026-11-14T07:43:46.090Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7197,6 +7209,104 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-14T07:25:12.687Z",
+   "cities": [
+    {
+     "cc": "VE",
+     "city": "Upata",
+     "found": 5,
+     "updated": 0,
+     "osm": 22
+    },
+    {
+     "cc": "VE",
+     "city": "Caicara del Orinoco",
+     "found": 2,
+     "updated": 0,
+     "osm": 24
+    },
+    {
+     "cc": "MX",
+     "city": "Guaymas",
+     "found": 1,
+     "updated": 0,
+     "osm": 26
+    },
+    {
+     "cc": "CR",
+     "city": "Heredia",
+     "found": 3,
+     "updated": 0,
+     "osm": 140
+    },
+    {
+     "cc": "AR",
+     "city": "Tandil",
+     "found": 8,
+     "updated": 0,
+     "osm": 44
+    },
+    {
+     "cc": "SV",
+     "city": "Santa Tecla",
+     "found": 0,
+     "updated": 0,
+     "osm": 65
+    },
+    {
+     "cc": "CO",
+     "city": "Quibdó",
+     "found": 24,
+     "updated": 0,
+     "osm": 81
+    },
+    {
+     "cc": "AR",
+     "city": "Santa Rosa",
+     "found": 12,
+     "updated": 0,
+     "osm": 71
+    },
+    {
+     "cc": "CO",
+     "city": "Piedecuesta",
+     "found": 24,
+     "updated": 0,
+     "osm": 79
+    },
+    {
+     "cc": "AR",
+     "city": "Río Gallegos",
+     "found": 3,
+     "updated": 0,
+     "osm": 21
+    },
+    {
+     "cc": "MX",
+     "city": "El Pueblito",
+     "found": 0,
+     "updated": 1,
+     "osm": 40
+    },
+    {
+     "cc": "VE",
+     "city": "Ejido",
+     "found": 5,
+     "updated": 0,
+     "osm": 13
+    }
+   ],
+   "added": 87,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 19.5,
+   "total": 20571
+  },
   {
    "at": "2026-11-14T05:10:15.802Z",
    "cities": [
@@ -9475,118 +9585,6 @@
    "errors": [],
    "minutes": 14.9,
    "total": 15660
-  },
-  {
-   "at": "2026-11-11T01:25:23.361Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Ensenada",
-     "found": 28,
-     "updated": 0,
-     "osm": 271
-    },
-    {
-     "cc": "ES",
-     "city": "Palma",
-     "found": 22,
-     "updated": 1,
-     "osm": 157
-    },
-    {
-     "cc": "MX",
-     "city": "Ciudad Obregón",
-     "found": 8,
-     "updated": 0,
-     "osm": 40
-    },
-    {
-     "cc": "PE",
-     "city": "Pucallpa",
-     "found": 13,
-     "updated": 0,
-     "osm": 181
-    },
-    {
-     "cc": "PR",
-     "city": "San Juan",
-     "found": 35,
-     "updated": 1,
-     "osm": 149
-    },
-    {
-     "cc": "MX",
-     "city": "Ixtapaluca",
-     "found": 1,
-     "updated": 0,
-     "osm": 74
-    },
-    {
-     "cc": "PY",
-     "city": "Ciudad del Este",
-     "found": 56,
-     "updated": 1,
-     "osm": 218
-    },
-    {
-     "cc": "CO",
-     "city": "Popayán",
-     "found": 166,
-     "updated": 0,
-     "osm": 309
-    },
-    {
-     "cc": "CO",
-     "city": "Armenia",
-     "found": 36,
-     "updated": 0,
-     "osm": 138
-    },
-    {
-     "cc": "MX",
-     "city": "Benito Juárez",
-     "found": 1,
-     "updated": 0,
-     "osm": 44
-    },
-    {
-     "cc": "MX",
-     "city": "Playa del Carmen",
-     "found": 28,
-     "updated": 0,
-     "osm": 99
-    },
-    {
-     "cc": "MX",
-     "city": "Santa Catarina",
-     "found": 12,
-     "updated": 0,
-     "osm": 107
-    },
-    {
-     "cc": "ES",
-     "city": "Las Palmas de Gran Canaria",
-     "found": 62,
-     "updated": 2,
-     "osm": 186
-    },
-    {
-     "cc": "MX",
-     "city": "Gómez Palacio",
-     "found": 1,
-     "updated": 0,
-     "osm": 61
-    }
-   ],
-   "added": 469,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 29,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 14.7,
-   "total": 15393
   }
  ]
 }
