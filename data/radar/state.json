@@ -7152,7 +7152,17 @@
   "CO|n703168214": "2026-11-14T16:57:52.233Z",
   "VE|n3575004823": "2026-11-14T16:58:32.474Z",
   "ES|n240422994": "2026-11-14T16:58:58.699Z",
-  "CO|n2820423900": "2026-11-14T19:05:29.178Z"
+  "CO|n2820423900": "2026-11-14T19:05:29.178Z",
+  "EC|n662694079": "2026-11-14T21:02:56.301Z",
+  "DO|n250651126": "2026-11-14T21:03:33.547Z",
+  "NI|n302261828": "2026-11-14T21:04:13.830Z",
+  "NI|n4663401394": "2026-11-14T21:04:45.996Z",
+  "AR|Trujui": "2026-11-14T21:05:23.824Z",
+  "PR|n3278462403": "2026-11-14T21:06:06.546Z",
+  "CO|n703169439": "2026-11-14T21:06:47.976Z",
+  "DO|n10174842515": "2026-11-14T21:07:26.877Z",
+  "ES|n64835706": "2026-11-14T21:07:57.792Z",
+  "ES|n152377926": "2026-11-14T21:08:34.659Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7242,6 +7252,90 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-14T20:55:16.636Z",
+   "cities": [
+    {
+     "cc": "EC",
+     "city": "Ibarra",
+     "found": 34,
+     "updated": 0,
+     "osm": 90
+    },
+    {
+     "cc": "DO",
+     "city": "Samaná",
+     "found": 1,
+     "updated": 0,
+     "osm": 1
+    },
+    {
+     "cc": "NI",
+     "city": "Estelí",
+     "found": 20,
+     "updated": 0,
+     "osm": 44
+    },
+    {
+     "cc": "NI",
+     "city": "Matagalpa",
+     "found": 10,
+     "updated": 0,
+     "osm": 24
+    },
+    {
+     "cc": "AR",
+     "city": "Trujui",
+     "found": 0,
+     "updated": 0,
+     "osm": 102
+    },
+    {
+     "cc": "PR",
+     "city": "Ponce",
+     "found": 13,
+     "updated": 0,
+     "osm": 69
+    },
+    {
+     "cc": "CO",
+     "city": "Sahagún",
+     "found": 9,
+     "updated": 0,
+     "osm": 31
+    },
+    {
+     "cc": "DO",
+     "city": "Pedernales",
+     "found": 5,
+     "updated": 0,
+     "osm": 13
+    },
+    {
+     "cc": "ES",
+     "city": "Jaén",
+     "found": 17,
+     "updated": 0,
+     "osm": 48
+    },
+    {
+     "cc": "ES",
+     "city": "Reus",
+     "found": 1,
+     "updated": 0,
+     "osm": 57
+    }
+   ],
+   "added": 110,
+   "enriched": 0,
+   "photos": 7,
+   "contacts": 5,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 14.3,
+   "total": 20843
+  },
   {
    "at": "2026-11-14T19:04:02.379Z",
    "cities": [
@@ -9413,34 +9507,6 @@
    "errors": [],
    "minutes": 18.5,
    "total": 16982
-  },
-  {
-   "at": "2026-11-11T15:08:55.159Z",
-   "cities": [
-    {
-     "cc": "DO",
-     "city": "Higüey",
-     "found": 4,
-     "updated": 0,
-     "osm": 15
-    },
-    {
-     "cc": "DO",
-     "city": "Bajos de Haina",
-     "found": 7,
-     "updated": 0,
-     "osm": 86
-    }
-   ],
-   "added": 11,
-   "enriched": 0,
-   "photos": 18,
-   "contacts": 24,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 16.7,
-   "total": 16795
   }
  ]
 }
