@@ -7137,7 +7137,11 @@
   "MX|Comitán": "2026-11-14T09:07:59.276Z",
   "CO|n338607680": "2026-11-14T09:08:25.654Z",
   "UY|Ciudad de la Costa": "2026-11-14T09:09:04.760Z",
-  "HN|n307972722": "2026-11-14T09:21:19.889Z"
+  "HN|n307972722": "2026-11-14T09:21:19.889Z",
+  "NI|n302364713": "2026-11-14T10:59:00.693Z",
+  "CO|n2978290242": "2026-11-14T10:59:38.111Z",
+  "VE|n3630168530": "2026-11-14T11:00:06.518Z",
+  "CL|Coronel": "2026-11-14T11:07:51.789Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7217,6 +7221,50 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-14T10:58:36.270Z",
+   "cities": [
+    {
+     "cc": "NI",
+     "city": "Chinandega",
+     "found": 2,
+     "updated": 0,
+     "osm": 9
+    },
+    {
+     "cc": "CO",
+     "city": "Girardot",
+     "found": 11,
+     "updated": 0,
+     "osm": 27
+    },
+    {
+     "cc": "VE",
+     "city": "San Felipe",
+     "found": 5,
+     "updated": 0,
+     "osm": 15
+    },
+    {
+     "cc": "CL",
+     "city": "Coronel",
+     "found": 20,
+     "updated": 0,
+     "osm": 59
+    }
+   ],
+   "added": 38,
+   "enriched": 0,
+   "photos": 2,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "MX|Ciudad Guzmán: sin tiempo en esta corrida"
+   ],
+   "minutes": 19.3,
+   "total": 20647
+  },
   {
    "at": "2026-11-14T09:05:09.009Z",
    "cities": [
@@ -9474,104 +9522,6 @@
    "errors": [],
    "minutes": 14.5,
    "total": 16530
-  },
-  {
-   "at": "2026-11-11T05:17:12.482Z",
-   "cities": [
-    {
-     "cc": "AR",
-     "city": "Neuquén",
-     "found": 72,
-     "updated": 0,
-     "osm": 239
-    },
-    {
-     "cc": "CO",
-     "city": "Riohacha",
-     "found": 89,
-     "updated": 1,
-     "osm": 218
-    },
-    {
-     "cc": "PE",
-     "city": "Tacna",
-     "found": 20,
-     "updated": 0,
-     "osm": 205
-    },
-    {
-     "cc": "VE",
-     "city": "San Cristóbal",
-     "found": 46,
-     "updated": 0,
-     "osm": 83
-    },
-    {
-     "cc": "PE",
-     "city": "Ica",
-     "found": 16,
-     "updated": 0,
-     "osm": 243
-    },
-    {
-     "cc": "MX",
-     "city": "Ciudad Nicolás Romero",
-     "found": 1,
-     "updated": 0,
-     "osm": 144
-    },
-    {
-     "cc": "PA",
-     "city": "Colón",
-     "found": 7,
-     "updated": 0,
-     "osm": 15
-    },
-    {
-     "cc": "CO",
-     "city": "Sincelejo",
-     "found": 77,
-     "updated": 5,
-     "osm": 197
-    },
-    {
-     "cc": "AR",
-     "city": "Posadas",
-     "found": 85,
-     "updated": 4,
-     "osm": 262
-    },
-    {
-     "cc": "VE",
-     "city": "Punto Fijo",
-     "found": 11,
-     "updated": 0,
-     "osm": 27
-    },
-    {
-     "cc": "VE",
-     "city": "Puerto La Cruz",
-     "found": 2,
-     "updated": 0,
-     "osm": 231
-    },
-    {
-     "cc": "EC",
-     "city": "Santo Domingo de los Tsáchilas",
-     "found": 77,
-     "updated": 0,
-     "osm": 164
-    }
-   ],
-   "added": 503,
-   "enriched": 0,
-   "photos": 17,
-   "contacts": 24,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 15.2,
-   "total": 16163
   }
  ]
 }
