@@ -333866,7 +333866,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n12468242740",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "whatsapp": "+5215531259939",
+  "webAt": "2026-11-14"
  },
  {
   "id": "oaxaca-de-juarez-instituto-pedagogico-huaxyacac",
@@ -334070,7 +334073,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w493148787",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://urse.edu.mx/_emdash/api/media/file/01M3QBC796MJN56A2C2GTDEPQR.01M3QBC7APNCK56M94VFF2SBK7.webp",
+  "webAt": "2026-11-14"
  },
  {
   "id": "oaxaca-de-juarez-instituto-aleman",
@@ -334090,7 +334095,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w657394332",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "oaxaca-de-juarez-universidad-delgolfo-de-mexico",
@@ -334154,7 +334161,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1424649481",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://urse.edu.mx/_emdash/api/media/file/01M3QBC796MJN56A2C2GTDEPQR.01M3QBC7APNCK56M94VFF2SBK7.webp",
+  "webAt": "2026-11-14"
  },
  {
   "id": "oaxaca-de-juarez-universidad-mesoamericana",
@@ -334279,7 +334288,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w268521255",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "la-chorrera-academia-latina",
@@ -334297,7 +334308,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w268521381",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "la-chorrera-universidad-tecnologica-de-panama-oeste",
@@ -334707,7 +334719,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w293934771",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "gijon-colegio-santo-angel",
@@ -336152,7 +336166,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n8719936101",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "santiago-del-estero-big-ben-school",
@@ -336781,7 +336796,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5012117822",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "bani-colegio-nuestra-senora-de-fatima",
@@ -337121,7 +337137,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n2440410445",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "merida-colegio-madre-emilio",
@@ -338043,7 +338060,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n3380517401",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "gregorio-de-laferrere-colegio-hogar-san-mauricio",
@@ -338244,7 +338263,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n4864512432",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "parana-privada-vivi-marin-instituto-de-estilo-diseno",
@@ -338397,7 +338417,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n9380600777",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "parana-instituto-superior-fons-vitae",
@@ -339739,7 +339760,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w429707572",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "chosica-colegio-nuevo-mundo",
@@ -342893,7 +342916,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n3597435555",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "jose-c-paz-instituto-superior-de-formacion-docente-36",
@@ -342911,7 +342935,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n3817982469",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "jose-c-paz-instituto-evangelico-argentino",
@@ -346124,7 +346149,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "r20428775",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "san-salvador-de-jujuy-universidad-siglo-21",
@@ -346278,7 +346304,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w233485310",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "san-salvador-de-jujuy-colegio-divino-redentor",
@@ -346508,7 +346536,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n811229447",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "granada-espacio-v-centenario-de-la-universidad-de-granada",
@@ -346550,7 +346579,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5776745152",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-ilustre-colegio-oficial-de-dentistas-de-granada",
@@ -346568,7 +346599,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n6033790229",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-universidad-de-granada",
@@ -346606,7 +346639,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n11574548019",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://academia-alpe.com/wp-content/uploads/2026/05/descarga-1.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-colegio-parroquial-escolania-virgen-de-las-angustias",
@@ -346644,7 +346679,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w98866734",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "granada-colegio-nuestra-senora-de-la-consolacion",
@@ -346665,7 +346701,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w104739940",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://www.colegio-laconsolacion.com/wp-content/uploads/2023/02/logo_400_80_2.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-colegio-ave-maria-san-isidro",
@@ -346721,7 +346759,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w120460552",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://juanxxiiichana.com/wp-content/uploads/2023/03/colegio-juan-xiii-chana.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-colegio-santo-tomas-de-villanueva",
@@ -346761,7 +346801,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w120521585",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://esgerencia.com/wp-content/uploads/2024/07/BANNER-HOME-VERSION-ANDALUCIA-GRANADA.jpg",
+  "whatsapp": "+34678005005",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-colegio-san-isidoro",
@@ -346781,7 +346824,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w120728786",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://cisidoro.com/wp-content/uploads/2024/03/banner-La-familia-que-se-elige-1024x512.png",
+  "whatsapp": "+34615316824",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-colegio-regina-mundi",
@@ -346801,7 +346847,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w120728803",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "granada-colegio-el-carmelo",
@@ -346819,7 +346866,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w121819167",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "granada-colegio-juan-xxiii-zaidin",
@@ -346837,7 +346885,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w121852547",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://juanxxiiizaidin.com/wp-content/uploads/2023/09/logo-juan-xiii-zaidin-horizontal-blanco.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-colegio-diocesano-internacional-virgen-de-gracia",
@@ -346857,7 +346907,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w124051323",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://colegiovirgendegracia.org/wp-content/uploads/sites/2/2026/10/IMG_2013-1.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-colegio-la-asuncion",
@@ -346875,7 +346927,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w124056019",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-colegio-la-presentacion",
@@ -346896,7 +346950,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w124059484",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "granada-colegio-sagrada-familia-pureza-de-maria",
@@ -346917,7 +346972,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w124079481",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://pmaria-granada.org/wp-content/uploads/2022/07/Escudo-y-nombre-OFICIAL-horizontal-NUEVO.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-colegio-compania-de-maria",
@@ -346937,7 +346994,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w124082266",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://ciamariagranada.org/",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-colegio-salesiano-san-juan-bosco",
@@ -346957,7 +347016,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w154314914",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://alicante.salesianos.edu/wp-content/uploads/2017/03/Captura-de-pantalla-2017-05-24-a-las-13.27.09.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-colegio-de-educacion-infantil-nazaret-siervas-del-evangelio",
@@ -346975,7 +347036,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w154318607",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-colegio-ave-maria-san-cristobal",
@@ -347013,7 +347076,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w157680789",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://static.wixstatic.com/media/bc0c46_44bad0d94f284aa0a9057bd71f806be8%7Emv2_d_3510_1293_s_2.png/v1/fit/w_2500,h_1330,al_c/bc0c46_44bad0d94f284aa0a9057bd71f806be8%7Emv2_d_3510_1293_s_2.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-colegio-san-jose",
@@ -347071,7 +347136,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w158419605",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://juanxxiiicartuja.com/wp-content/uploads/2026/09/colegio-juan-xiii-cartuja.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-colegio-de-educacion-infantil-y-primaria-virgen-de-fatima",
@@ -347150,7 +347217,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w182398269",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-colegio-sagrado-corazon",
@@ -347192,7 +347261,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w182401684",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-escuela-hogar-madre-teresa",
@@ -347213,7 +347284,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w197139221",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "granada-servicios-centrales-de-la-universidad-de-granada",
@@ -347255,7 +347327,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w205320927",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://www.jesuitinasgranada.es/wp-content/uploads/2024/04/Horizontal-Blanco-granada-peq-1.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-colegio-esclavas-de-la-inmaculada-nina",
@@ -347295,7 +347369,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w346516559",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "granada-colegio-cristo-de-la-yedra",
@@ -347315,7 +347390,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w365183753",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "granada-colegio-ave-maria-albolote",
@@ -347377,7 +347453,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w608716580",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "granada-colegio-maria-nebrera",
@@ -347397,7 +347474,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w615019912",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://www.colegiomarianebrera.es/wp-content/uploads/2024/12/colegio-maria-nebrera-logo.png",
+  "whatsapp": "+34648576939",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-colegio-mulhacen",
@@ -347458,7 +347538,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w701034104",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-colegio-escolapios-granada-cartuja",
@@ -347476,7 +347558,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w844807152",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "granada-colegio-hermanos-maristas-la-inmaculada",
@@ -347496,7 +347580,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w851451409",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "granada-centro-docente-privado-lux-mundi",
@@ -347641,7 +347726,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r14382090",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://casamadre.amgr.es/wp-content/uploads/2025/10/logo-patronato.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "terrassa-academia-lusitania",
@@ -348959,7 +349046,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4726896121",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "toluca-instituto-tecnico-administrativo-y-humanistico-de-toluca",
@@ -348977,7 +349065,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4726906680",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "toluca-universidad-milenium-plantel-ciencias-de-la-salud",
@@ -349100,7 +349189,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5557653925",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "toluca-ibem-instituto-bilingue-educativo-de-mexicano",
@@ -349232,7 +349323,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n7266105905",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://institutohighlanders.com/assets/img/og.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "toluca-pueri-domus-colegio-activo",
@@ -349306,7 +349399,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n7284486349",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "",
+  "whatsapp": "+5217228488512",
+  "webAt": "2026-11-14"
  },
  {
   "id": "toluca-universidad-isidro-fabela-de-toluca-s-c",
@@ -349328,7 +349424,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n7284486356",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "img": "https://proliticomx.sfo3.digitaloceanspaces.com/uift/2025/03/0Vdi7CbwDz0k6AzQSn6orq9yjpheYL0vL8uukrDE.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "toluca-colegio-mexiquense",
@@ -349431,7 +349529,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n12511084923",
-  "found": "2026-11-11"
+  "found": "2026-11-11",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "toluca-academia-de-diseno-de-modas-high-fashion",
@@ -416850,6 +416949,761 @@
   "private": "probable",
   "src": "osm",
   "osm": "n1483632944",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "salto-instituto-evolucion",
+  "name": "Instituto Evolución",
+  "city": "Salto",
+  "country": "Uruguay",
+  "lat": -31.390271,
+  "lng": -57.963908,
+  "addr": "Treinta y Tres 958",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n4529250089",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "salto-universidad-catolica-del-uruguay-salto",
+  "name": "Universidad Católica del Uruguay, Salto",
+  "city": "Salto",
+  "country": "Uruguay",
+  "lat": -31.389408,
+  "lng": -57.958947,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n7934309450",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "ramos-arizpe-universidad-tecnologica-de-coahuila",
+  "name": "Universidad Tecnológica de Coahuila",
+  "city": "Ramos Arizpe",
+  "country": "México",
+  "lat": 25.557081,
+  "lng": -100.936352,
+  "addr": "Av. Industria Metalúrgica 2001, Ramos Arizpe Centro",
+  "phone": "+528442883808",
+  "web": "https://www.utc.edu.mx/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w603478469",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "ramos-arizpe-instituto-vida",
+  "name": "Instituto Vida",
+  "city": "Ramos Arizpe",
+  "country": "México",
+  "lat": 25.547014,
+  "lng": -100.951922,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1041059386",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "ramos-arizpe-instituto-capellania",
+  "name": "Instituto Capellania",
+  "city": "Ramos Arizpe",
+  "country": "México",
+  "lat": 25.546369,
+  "lng": -100.949196,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1041336049",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "ramos-arizpe-colegio-america",
+  "name": "Colegio América",
+  "city": "Ramos Arizpe",
+  "country": "México",
+  "lat": 25.549935,
+  "lng": -100.949839,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1041336191",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "lorica-gimnasio-mi-nino-jesus",
+  "name": "Gimnasio Mi Niño Jesus",
+  "city": "Lorica",
+  "country": "Colombia",
+  "lat": 9.234079,
+  "lng": -75.81303,
+  "addr": "",
+  "phone": "+57 604 7736035",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487353383",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "lorica-centro-educativo-springfield-preparatory-school",
+  "name": "Centro Educativo Springfield Preparatory School",
+  "city": "Lorica",
+  "country": "Colombia",
+  "lat": 9.226553,
+  "lng": -75.822119,
+  "addr": "",
+  "phone": "+57 302 4188643",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369405",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "lorica-centro-educativo-regional-senedsur",
+  "name": "Centro Educativo Regional Senedsur",
+  "city": "Lorica",
+  "country": "Colombia",
+  "lat": 9.253329,
+  "lng": -75.813465,
+  "addr": "",
+  "phone": "+57 314 6181166",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369406",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "lorica-centro-educativo-bilingue-campestre-maryar",
+  "name": "Centro Educativo Bilingüe Campestre Maryar",
+  "city": "Lorica",
+  "country": "Colombia",
+  "lat": 9.239594,
+  "lng": -75.811341,
+  "addr": "",
+  "phone": "+57 310 4244391",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369407",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "lorica-centro-educativo-cent-de-estudis-tec-ceprodent",
+  "name": "Centro Educativo Cent De Estudis Tec Ceprodent",
+  "city": "Lorica",
+  "country": "Colombia",
+  "lat": 9.228051,
+  "lng": -75.81941,
+  "addr": "",
+  "phone": "+57 300 6786096",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369408",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "lorica-centro-educativo-rodolfo-llinas",
+  "name": "Centro Educativo Rodolfo Llinas",
+  "city": "Lorica",
+  "country": "Colombia",
+  "lat": 9.235201,
+  "lng": -75.815529,
+  "addr": "",
+  "phone": "+57 312 6962003",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369409",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "lorica-mi-segundo-hogar",
+  "name": "Mi Segundo Hogar",
+  "city": "Lorica",
+  "country": "Colombia",
+  "lat": 9.240355,
+  "lng": -75.810704,
+  "addr": "",
+  "phone": "+57 604 7731847",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369410",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "lorica-institucion-mi-bella-infancia",
+  "name": "Institución Mi Bella Infancia",
+  "city": "Lorica",
+  "country": "Colombia",
+  "lat": 9.250353,
+  "lng": -75.815846,
+  "addr": "",
+  "phone": "+57 604 7732686",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369411",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "lorica-centro-educativo-nueva-colombia",
+  "name": "Centro Educativo Nueva Colombia",
+  "city": "Lorica",
+  "country": "Colombia",
+  "lat": 9.253595,
+  "lng": -75.812309,
+  "addr": "",
+  "phone": "+57 604 7732698",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369412",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "lorica-gimnasio-los-andes",
+  "name": "Gimnasio Los Andes",
+  "city": "Lorica",
+  "country": "Colombia",
+  "lat": 9.245271,
+  "lng": -75.815276,
+  "addr": "",
+  "phone": "+57 604 7732420",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369413",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "lorica-universidad-de-cordoba-sede-lorica",
+  "name": "Universidad de Córdoba Sede Lorica",
+  "city": "Lorica",
+  "country": "Colombia",
+  "lat": 9.244677,
+  "lng": -75.808585,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.unicordoba.edu.co/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w153005213",
+  "found": "2026-11-14",
+  "imgTry": "2026-11-14"
+ },
+ {
+  "id": "lorica-colegio-militar-almirante-colon",
+  "name": "Colegio Militar Almirante Colón",
+  "city": "Lorica",
+  "country": "Colombia",
+  "lat": 9.252621,
+  "lng": -75.814812,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w153106953",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "lorica-ie-instituto-tecnico-agricola",
+  "name": "IE Instituto Tecnico Agrícola",
+  "city": "Lorica",
+  "country": "Colombia",
+  "lat": 9.254769,
+  "lng": -75.811039,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w153107686",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "lorica-colegio-el-encanto",
+  "name": "Colegio el Encanto",
+  "city": "Lorica",
+  "country": "Colombia",
+  "lat": 9.227833,
+  "lng": -75.820413,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w154316128",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "lorica-instituto-ciudad-lorica-icil",
+  "name": "Instituto Ciudad Lorica -ICIL-",
+  "city": "Lorica",
+  "country": "Colombia",
+  "lat": 9.230277,
+  "lng": -75.817088,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w192168536",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "hidalgo-del-parral-instituto-parralense",
+  "name": "Instituto Parralense",
+  "city": "Hidalgo del Parral",
+  "country": "México",
+  "lat": 26.932979,
+  "lng": -105.67291,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w239260465",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "hidalgo-del-parral-universidad-tecnologica-de-parral",
+  "name": "Universidad Tecnológica de Parral",
+  "city": "Hidalgo del Parral",
+  "country": "México",
+  "lat": 26.918977,
+  "lng": -105.656506,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w262143339",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "comitan-escuela-preparatoria-del-estado-comitan",
+  "name": "Escuela Preparatoria del Estado \"Comitán\"",
+  "city": "Comitán",
+  "country": "México",
+  "lat": 16.234447,
+  "lng": -92.135133,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w285604254",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "ciudad-de-la-costa-colegio-santa-elena",
+  "name": "Colegio Santa Elena",
+  "city": "Ciudad de la Costa",
+  "country": "Uruguay",
+  "lat": -34.847677,
+  "lng": -55.976427,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n439790847",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "ciudad-de-la-costa-greenland-school",
+  "name": "Greenland School",
+  "city": "Ciudad de la Costa",
+  "country": "Uruguay",
+  "lat": -34.84774,
+  "lng": -55.986524,
+  "addr": "Buschental",
+  "phone": "+598 2682 5514",
+  "web": "https://www.greenlandschool.edu.uy",
+  "email": "info@greenlandschool.edu.uy",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n4232045597",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "ciudad-de-la-costa-colegio-i-b-i-s",
+  "name": "Colegio I.B.I.S.",
+  "city": "Ciudad de la Costa",
+  "country": "Uruguay",
+  "lat": -34.838801,
+  "lng": -55.984407,
+  "addr": "",
+  "phone": "+598 2683 2378",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n9448690006",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "ciudad-de-la-costa-sunny-days",
+  "name": "Sunny Days",
+  "city": "Ciudad de la Costa",
+  "country": "Uruguay",
+  "lat": -34.819474,
+  "lng": -55.9526,
+  "addr": "",
+  "phone": "",
+  "web": "https://sunnydays.edu.uy",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n13743466318",
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
+ },
+ {
+  "id": "ciudad-de-la-costa-colegio-areteia-bimbully",
+  "name": "Colegio Areteia Bimbully",
+  "city": "Ciudad de la Costa",
+  "country": "Uruguay",
+  "lat": -34.818362,
+  "lng": -55.952763,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n13743466320",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "ciudad-de-la-costa-colegio-aretela",
+  "name": "Colegio Aretela",
+  "city": "Ciudad de la Costa",
+  "country": "Uruguay",
+  "lat": -34.827623,
+  "lng": -55.955741,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w457321247",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "ciudad-de-la-costa-la-amistad",
+  "name": "La Amistad",
+  "city": "Ciudad de la Costa",
+  "country": "Uruguay",
+  "lat": -34.822694,
+  "lng": -55.958689,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w457327961",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "catacamas-instituto-tecnico-18-de-noviembre",
+  "name": "Instituto Técnico 18 de Noviembre",
+  "city": "Catacamas",
+  "country": "Honduras",
+  "lat": 14.844513,
+  "lng": -85.893466,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w681654905",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "catacamas-instituto-miguel-rafael-madrid",
+  "name": "Instituto Miguel Rafael Madrid",
+  "city": "Catacamas",
+  "country": "Honduras",
+  "lat": 14.846698,
+  "lng": -85.88603,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w717330900",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "catacamas-kinder",
+  "name": "Kinder",
+  "city": "Catacamas",
+  "country": "Honduras",
+  "lat": 14.845381,
+  "lng": -85.886925,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w717331089",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "catacamas-liceo-bilingue-new-world",
+  "name": "Liceo Bilingüe New World",
+  "city": "Catacamas",
+  "country": "Honduras",
+  "lat": 14.856432,
+  "lng": -85.894026,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w769663219",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "catacamas-centro-educativo-vida-abundante",
+  "name": "Centro Educativo Vida Abundante",
+  "city": "Catacamas",
+  "country": "Honduras",
+  "lat": 14.836265,
+  "lng": -85.875,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w769663222",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "catacamas-universidad-cristiana-evangelica-nuevo-milenio",
+  "name": "Universidad Cristiana Evangélica Nuevo Milenio",
+  "city": "Catacamas",
+  "country": "Honduras",
+  "lat": 14.836323,
+  "lng": -85.886608,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w769663225",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "catacamas-centro-de-aprendizaje-bilingue-c-a-b",
+  "name": "Centro de Aprendizaje Bilingüe C.A.B.",
+  "city": "Catacamas",
+  "country": "Honduras",
+  "lat": 14.831532,
+  "lng": -85.893525,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w769663226",
   "found": "2026-11-14"
  }
 ]

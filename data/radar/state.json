@@ -7129,7 +7129,15 @@
   "CO|n1885014452": "2026-11-14T07:29:48.448Z",
   "AR|Río Gallegos": "2026-11-14T07:30:23.344Z",
   "MX|El Pueblito": "2026-11-14T07:36:21.060Z",
-  "VE|n3623878359": "2026-11-14T07:43:46.090Z"
+  "VE|n3623878359": "2026-11-14T07:43:46.090Z",
+  "UY|Salto": "2026-11-14T09:05:47.640Z",
+  "MX|Ramos Arizpe": "2026-11-14T09:06:19.958Z",
+  "CO|n310195666": "2026-11-14T09:06:52.380Z",
+  "MX|Hidalgo del Parral": "2026-11-14T09:07:23.008Z",
+  "MX|Comitán": "2026-11-14T09:07:59.276Z",
+  "CO|n338607680": "2026-11-14T09:08:25.654Z",
+  "UY|Ciudad de la Costa": "2026-11-14T09:09:04.760Z",
+  "HN|n307972722": "2026-11-14T09:21:19.889Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7209,6 +7217,76 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-14T09:05:09.009Z",
+   "cities": [
+    {
+     "cc": "UY",
+     "city": "Salto",
+     "found": 2,
+     "updated": 0,
+     "osm": 52
+    },
+    {
+     "cc": "MX",
+     "city": "Ramos Arizpe",
+     "found": 4,
+     "updated": 0,
+     "osm": 22
+    },
+    {
+     "cc": "CO",
+     "city": "Lorica",
+     "found": 15,
+     "updated": 0,
+     "osm": 40
+    },
+    {
+     "cc": "MX",
+     "city": "Hidalgo del Parral",
+     "found": 2,
+     "updated": 0,
+     "osm": 13
+    },
+    {
+     "cc": "MX",
+     "city": "Comitán",
+     "found": 1,
+     "updated": 0,
+     "osm": 6
+    },
+    {
+     "cc": "CO",
+     "city": "Villa del Rosario",
+     "found": 0,
+     "updated": 0,
+     "osm": 96
+    },
+    {
+     "cc": "UY",
+     "city": "Ciudad de la Costa",
+     "found": 7,
+     "updated": 0,
+     "osm": 33
+    },
+    {
+     "cc": "HN",
+     "city": "Catacamas",
+     "found": 7,
+     "updated": 0,
+     "osm": 18
+    }
+   ],
+   "added": 38,
+   "enriched": 0,
+   "photos": 19,
+   "contacts": 5,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 17.5,
+   "total": 20609
+  },
   {
    "at": "2026-11-14T07:25:12.687Z",
    "cities": [
@@ -9494,97 +9572,6 @@
    "errors": [],
    "minutes": 15.2,
    "total": 16163
-  },
-  {
-   "at": "2026-11-11T03:07:53.495Z",
-   "cities": [
-    {
-     "cc": "AR",
-     "city": "Bahía Blanca",
-     "found": 13,
-     "updated": 0,
-     "osm": 81
-    },
-    {
-     "cc": "EC",
-     "city": "Quevedo",
-     "found": 20,
-     "updated": 0,
-     "osm": 72
-    },
-    {
-     "cc": "PY",
-     "city": "Lambaré",
-     "found": 0,
-     "updated": 0,
-     "osm": 477
-    },
-    {
-     "cc": "VE",
-     "city": "Cabimas",
-     "found": 2,
-     "updated": 0,
-     "osm": 9
-    },
-    {
-     "cc": "MX",
-     "city": "Los Mochis",
-     "found": 8,
-     "updated": 0,
-     "osm": 33
-    },
-    {
-     "cc": "MX",
-     "city": "Pachuca",
-     "found": 36,
-     "updated": 1,
-     "osm": 159
-    },
-    {
-     "cc": "MX",
-     "city": "Tampico",
-     "found": 8,
-     "updated": 0,
-     "osm": 43
-    },
-    {
-     "cc": "ES",
-     "city": "Valladolid",
-     "found": 70,
-     "updated": 0,
-     "osm": 167
-    },
-    {
-     "cc": "CO",
-     "city": "Arauca",
-     "found": 27,
-     "updated": 0,
-     "osm": 70
-    },
-    {
-     "cc": "MX",
-     "city": "Tehuacán",
-     "found": 5,
-     "updated": 0,
-     "osm": 53
-    },
-    {
-     "cc": "ES",
-     "city": "Córdoba",
-     "found": 78,
-     "updated": 0,
-     "osm": 148
-    }
-   ],
-   "added": 267,
-   "enriched": 0,
-   "photos": 18,
-   "contacts": 30,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 14.9,
-   "total": 15660
   }
  ]
 }
