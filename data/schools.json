@@ -401390,7 +401390,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n628824371",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "lerida-academia-d-escacs-josep-oms",
@@ -401402,13 +401403,15 @@
   "addr": "Carrer del Taquígraf Martí 16",
   "phone": "+34 973981955",
   "web": "https://www.josepoms.com/",
-  "email": "",
+  "email": "info@josepoms.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "n4596826189",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "lerida-academia-casanova",
@@ -401462,7 +401465,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r21916565",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "monte-grande-colegio-privado-el-jaguel-secundario",
@@ -401796,7 +401801,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n13602926302",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "la-romana-new-valley-school",
@@ -401924,13 +401930,15 @@
   "addr": "Avenida Las Palmas",
   "phone": "+18095504358",
   "web": "https://saintjohn.edu.do/",
-  "email": "",
+  "email": "info@saintjohn.edu.do",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w313091500",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "https://saintjohn.edu.do/wp-content/uploads/2024/10/CSJ_30_anos_acc_3-1024x495.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "la-romana-colegio-biblico-cristiano",
@@ -401986,7 +401994,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w338713672",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "https://sns.edu.do/wp-content/uploads/2023/03/saint-nicolas-school-transparente-copy.png",
+  "whatsapp": "+18293396520",
+  "webAt": "2026-11-14"
  },
  {
   "id": "la-romana-liceo-calasanz-san-eduardo",
@@ -402044,7 +402055,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1391698976",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "https://scontent-iad3-2.xx.fbcdn.net/v/t1.6435-1/131573267_2866002050306752_6843574397367258885_n.jpg?stp=dst-jpg_tt6&cstp=mx1213x1216&ctp=s720x720&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=bc9g1ftbJnIQ7kNvwHLuaZa&_nc_oc=Adr_imA_vZnhd3q3viHj7-N2DEayfYtkKUgQXaLuAKO3rVrSc2S2aacbL-ftA6GcR6s&_nc_zt=24&_nc_ht=scontent-iad3-2.xx&_nc_gid=7W5X555F62neiz_p4aBtkg&_nc_ss=7c289&oh=00_AQSVlSJ3SlHQEh5dNK23hpOmNmrHf48wtr8W_h3mxdII0A&oe=6B20159B",
+  "webAt": "2026-11-14"
  },
  {
   "id": "la-romana-universidad-de-la-romana",
@@ -402462,7 +402475,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n11491766069",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "veron-caracoli-global-school",
@@ -403494,7 +403509,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1028406212",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "san-carlos-de-bariloche-colegio-woodville",
@@ -403606,13 +403622,15 @@
   "addr": "Cacique Cumbay",
   "phone": "+54 294 443 2023",
   "web": "https://vuriloche.edu.ar/",
-  "email": "",
+  "email": "administracion@vuriloche.edu.ar",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w304731850",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "san-carlos-de-bariloche-instituto-maria-auxiliadora",
@@ -404082,7 +404100,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n653984424",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "https://buga.univalle.edu.co/images/2024/extension/BANNER--ED-CONT.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "buga-universidad-antonio-narino",
@@ -404446,7 +404466,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n10252372799",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "merlo-instituto-domingo-faustino-sarmiento",
@@ -404725,7 +404747,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w627278626",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "san-nicolas-de-los-arroyos-escuela-especial-camino",
@@ -406114,7 +406138,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w125138541",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "san-pedro-de-la-paz-colegio-educa-bio-bio",
@@ -406150,7 +406175,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1036884885",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "san-pedro-de-la-paz-colegio-paulo-freire",
@@ -406168,7 +406195,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1133176971",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "san-pedro-de-la-paz-colegio-los-educadores",
@@ -407338,7 +407367,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n2375833737",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-san-antonio",
@@ -407362,7 +407393,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n2380317611",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-san-roque-los-pinares",
@@ -407386,7 +407419,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n2395136615",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "https://colegiosanroquelospinares.es/wp-content/uploads/2019/04/LOGOWEB1.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-escuela-infantil-ciempies",
@@ -407409,7 +407444,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n2534823363",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "santander-black-ball-surf-shop-school",
@@ -407427,7 +407463,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n2592646550",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "santander-kells-college",
@@ -407445,7 +407482,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n2592652314",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "santander-ceinmark",
@@ -407465,7 +407503,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n3090823001",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "https://ceinmark.net/wp-content/uploads/2021/02/Diseno-sin-titulo.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-decroly-perines",
@@ -407477,7 +407517,7 @@
   "addr": "Calle del Profesor Jiménez Díaz 5",
   "phone": "+34 942 37 57 08",
   "web": "https://www.decroly.com",
-  "email": "",
+  "email": "info@decroly.com",
   "levels": [],
   "opp": [
    "Privado confirmado en el mapa"
@@ -407485,7 +407525,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n6828435197",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-escuela-infantil-de-la-universidad-de-cantabria",
@@ -407505,7 +407547,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n9781134643",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "https://web.unican.es/SiteCollectionImages/logoUC.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-centro-fp-de-ciencias-radiologicas",
@@ -407527,7 +407571,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n9781134676",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "santander-centro-de-educacion-infantil-junior",
@@ -407549,7 +407594,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n9781134677",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-equipo-formacion-y-empleo",
@@ -407571,7 +407618,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n9781134682",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-centro-nacional-de-estudios-de-tecnicos-deportivos",
@@ -407593,7 +407642,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n9781134689",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-brenes-escuela-deportiva-de-regimen-especial-cantabria",
@@ -407615,7 +407666,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n9781134690",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "santander-nexian-training",
@@ -407635,7 +407687,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n9781134701",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "santander-la-salle-santander",
@@ -407659,7 +407712,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w22931187",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "https://lasallesantander.es/wp-content/uploads/2026/09/obispo-2.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-compania-de-maria",
@@ -407683,7 +407738,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w28442364",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-verdemar",
@@ -407704,7 +407761,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w33640189",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "https://colegioverdemar.com/wp-content/uploads/2025/11/01.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-atalaya",
@@ -407725,7 +407784,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w109769995",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-calasanz",
@@ -407749,7 +407810,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w178762441",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-angeles-custodios",
@@ -407773,7 +407836,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w178762581",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "santander-universidad-internacional-menendez-pelayo",
@@ -407796,7 +407860,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w198718291",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-san-agustin",
@@ -407820,7 +407886,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w203097508",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-san-martin",
@@ -407844,7 +407912,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w231106113",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-santa-maria-micaela",
@@ -407868,7 +407938,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w231124804",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-tagore",
@@ -407888,7 +407960,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w231194649",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "https://www.escuelainfantiltagore.es/s/misc/logo.jpg?t=1791601632",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-centro-social-bellavista-julio-blanco",
@@ -407912,7 +407986,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w231199280",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-sagrado-corazon-esclavas",
@@ -407936,7 +408012,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w258642195",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-jardin-de-africa",
@@ -407959,7 +408037,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w418666618",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-nino-jesus",
@@ -407983,7 +408063,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w448975175",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-de-educacion-espacial-el-molino",
@@ -408003,7 +408084,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w465666154",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-san-jose",
@@ -408027,7 +408109,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w539596323",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-castroverde",
@@ -408051,7 +408134,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w580247575",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-cumbres",
@@ -408075,7 +408160,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w744276685",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-haypo",
@@ -408098,7 +408184,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w784200987",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-maria-reina-inmaculada",
@@ -408122,7 +408210,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w789295427",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-la-anunciacion",
@@ -408146,7 +408236,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w791834724",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "https://parroquiaanunciacion.com/colegio/wp-content/uploads/2018/09/cropped-logo-cole-anunciacion-cuadrado.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-kostka",
@@ -408170,7 +408262,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w802137138",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "https://jesuitassantander.es/wp-content/uploads/2023/01/distintas-actividades.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-paraninfo-de-la-universidad-de-cantabria",
@@ -408238,7 +408332,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w856268520",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-centro-de-educacion-especial-padre-apolinar",
@@ -408261,7 +408357,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w892958229",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "https://colegiopadreapolinar.com/wp-content/uploads/sites/2/2021/04/logo_apolinar_azul.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-purisima-concepcion",
@@ -408285,7 +408383,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1065072248",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "santander-colegio-concertado-mercedes",
@@ -408309,7 +408408,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "r18877180",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "https://mercedarias.com/wp-content/uploads/2020/01/logo-santander.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "duitama-colegio-simon-bolivar",
@@ -410072,7 +410173,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1106283257",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "algeciras-colegio-de-educacion-infantil-y-primaria-adalides",
@@ -410130,7 +410233,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w1309019325",
-  "found": "2026-11-14"
+  "found": "2026-11-14",
+  "img": "https://attendis.com/wp-content/uploads/2022/12/Logo-Algeciras-IB-Web-1-768x182.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "algeciras-colegio-de-educacion-infantil-y-primaria-virgen-del-pilar",
@@ -420345,6 +420450,82 @@
   "private": "probable",
   "src": "osm",
   "osm": "w948202904",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "aguachica-universidad-popular-del-cesar-seccional-aguachica",
+  "name": "Universidad Popular del Cesar - Seccional Aguachica",
+  "city": "Aguachica",
+  "country": "Colombia",
+  "lat": 8.314925,
+  "lng": -73.59633,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4014408917",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "aguachica-colegio-campo-serrano",
+  "name": "Colegio Campo Serrano",
+  "city": "Aguachica",
+  "country": "Colombia",
+  "lat": 8.305591,
+  "lng": -73.627366,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w100540480",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "aguachica-instituto-tecnico-indsutrial",
+  "name": "Instituto Tecnico Indsutrial",
+  "city": "Aguachica",
+  "country": "Colombia",
+  "lat": 8.311945,
+  "lng": -73.637163,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w114594467",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "aguachica-colegio-teresiano-reina-del-carmelo",
+  "name": "Colegio Teresiano Reina del Carmelo",
+  "city": "Aguachica",
+  "country": "Colombia",
+  "lat": 8.308344,
+  "lng": -73.616478,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w114767883",
   "found": "2026-11-14"
  }
 ]
