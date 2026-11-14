@@ -379923,7 +379923,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w165388519",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "https://taudigit.com/proyectos/Campolara/wp-content/uploads/2021/12/calendar.svg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "burgos-colegio-de-educacion-infantil-y-primaria-fuentes-blancas",
@@ -380003,7 +380005,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w264295524",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "burgos-colegio-nino-jesus",
@@ -380015,13 +380019,15 @@
   "addr": "",
   "phone": "+34 947205232",
   "web": "https://www.xn--niojesusburgos-rnb.es/",
-  "email": "",
+  "email": "administracion@njb.fundacioneducere.es",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w265866170",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "https://www.xn--niojesusburgos-rnb.es/wp-content/uploads/2018/02/nj-fb-opengraphimage.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "burgos-colegio-nuestra-senora-de-lourdes",
@@ -380081,7 +380087,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w589340003",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "whatsapp": "+34621199210",
+  "webAt": "2026-11-14"
  },
  {
   "id": "burgos-colegio-de-educacion-infantil-y-primaria-jueces-de-castilla",
@@ -380113,7 +380122,7 @@
   "addr": "",
   "phone": "+34947209402",
   "web": "https://www.sindromedownburgos.org/ver/CentroEstela",
-  "email": "",
+  "email": "09008846@educa.jcyl.es",
   "levels": [],
   "opp": [
    "Privado confirmado en el mapa"
@@ -380121,7 +380130,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w672761355",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "https://www.ceee.es/dist/images/logoASDB.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "burgos-colegio-visitacion-de-nuestra-senora",
@@ -380696,7 +380707,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w29219391",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "almeria-universidad-de-almeria",
@@ -381099,7 +381112,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w533398581",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "almeria-colegio-ciudad-de-almeria",
@@ -381459,7 +381473,7 @@
   "addr": "AV. JOSE LIZARZABURU 885 Y JOAQUIN PINTO",
   "phone": "(03) 2107198",
   "web": "https://www.uniandes.edu.ec",
-  "email": "",
+  "email": "postulaciones@uniandes.edu.ec",
   "levels": [
    "Universidad"
   ],
@@ -381469,7 +381483,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4150086501",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "https://www.uniandes.edu.ec/wp-content/uploads/2024/07/2-headerwebhome-1.png",
+  "whatsapp": "+593989452318",
+  "webAt": "2026-11-14"
  },
  {
   "id": "riobamba-liceo-iberoamericano",
@@ -384102,13 +384119,15 @@
   "addr": "Quellón 301",
   "phone": "652274788",
   "web": "http://pillanlikan.cl/",
-  "email": "",
+  "email": "corpeducacionalpillanlikan@gmail.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w652911723",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "puerto-montt-colegio-pumanque",
@@ -385014,7 +385033,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n12040082829",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "moreno-instituto-lomas-de-marilo",
@@ -385134,7 +385155,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w186708614",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "moreno-colegio-consolata-merlo",
@@ -386317,7 +386340,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n2646215571",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "whatsapp": "+541161828899",
+  "webAt": "2026-11-14"
  },
  {
   "id": "berazategui-instituto-mariano-moreno",
@@ -386396,7 +386422,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w114200650",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "albacete-colegio-de-educacion-infantil-y-primaria-diego-velazquez",
@@ -386578,7 +386606,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w142028444",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "albacete-colegio-de-educacion-infantil-y-primaria-benjamin-palencia",
@@ -386944,7 +386974,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n4137528290",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "cabudare-colegio-las-fuentes",
@@ -387430,7 +387462,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w220176484",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "bayamon-universidad-de-puerto-rico-bayamon",
@@ -387690,7 +387723,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w407031060",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "bayamon-caribbean-university",
@@ -388850,7 +388884,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w480101740",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "chillan-colegio-gabriela-mistral",
@@ -389112,7 +389147,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1065026075",
-  "found": "2026-11-12"
+  "found": "2026-11-12",
+  "img": "",
+  "whatsapp": "+56233886000",
+  "webAt": "2026-11-14"
  },
  {
   "id": "chillan-colegio-cristiano-horeb",
@@ -389542,7 +389580,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n6415483358",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "jamundi-liceo-agora-sede-preescolar",
@@ -389564,7 +389603,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n6415483359",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "jamundi-colegio-alas",
@@ -390245,7 +390285,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w225563715",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "https://www.uab.edu.bo/assets/img/og/og-uab.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "quillacollo-unidad-educativa-fidelia-sanchez",
@@ -390776,7 +390818,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n3450783885",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "https://colegiolamerced.edu.ar/web/wp-content/uploads/2024/02/PREVIEW.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "rio-cuarto-centro-educativo-leopoldo-lugones",
@@ -391706,7 +391750,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n2961162381",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "castellon-de-la-plana-william-einstein",
@@ -393997,7 +394043,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w480450137",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "valdivia-colegio-adventista-de-valdivia",
@@ -394035,7 +394082,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w568762357",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "valdivia-escuela-particular-metodista",
@@ -394320,7 +394369,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n5010449964",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "concordia-colegio-los-naranjos-de-la-concordia",
@@ -394693,7 +394743,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w90264201",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "concordia-instituto-mitre-madres-escolapias",
@@ -395274,7 +395326,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w317426465",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "logrono-colegio-la-guindalera",
@@ -397242,7 +397295,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w572172044",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "quilpue-colegio-crep-sede-esmeralda",
@@ -397260,7 +397315,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w572172046",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "quilpue-liceo-comercial-alejandro-lubet-vergara",
@@ -397798,7 +397855,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w113509791",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "talcahuano-colegio-claudio-matte-perez",
@@ -397891,7 +397949,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w184705186",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "talcahuano-liceo-tecnico-de-talcahuano",
@@ -397909,7 +397969,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w427304155",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "talcahuano-colegio-arturo-prat",
@@ -398085,7 +398146,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1469358171",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "talcahuano-colegio-huachipato",
@@ -398121,7 +398184,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1469367165",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "talcahuano-liceo-comercial-de-talcahuano",
@@ -398139,7 +398203,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1469367167",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "talcahuano-colegio-remodelacion-simons",
@@ -398748,7 +398814,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w749106432",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "villa-de-alvarez-universidad-pedagogica-nacional-unidad-colima",
@@ -398791,7 +398859,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w827518557",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "https://colegioingles.mx/wp-content/uploads/sites/99/2021/09/IMG_6109.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "villa-de-alvarez-colegio-porfirio-gaytan-nunez",
@@ -399158,7 +399228,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n677091445",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "salamanca-instituto-de-ensenanzas-aplicadas",
@@ -399214,7 +399285,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "n3496537078",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "salamanca-academia",
@@ -399308,7 +399380,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w47454604",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "salamanca-colegio-santa-teresa-de-jesus",
@@ -399348,7 +399421,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w57851491",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "https://www.trinitarias.com/wp-content/uploads/2026/06/cubo-dam-1.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "salamanca-colegio-la-milagrosa",
@@ -399438,13 +399513,15 @@
   "addr": "Avenida de los Maristas 1,9",
   "phone": "+34 923 263 522",
   "web": "https://mprovidenciasa.es/",
-  "email": "",
+  "email": "mprovidenciasa@planalfa.es",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w342268061",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "https://mprovidenciasa.es/wp-content/uploads/2025/09/banner-home-sala-scaled.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "salamanca-colegio-maestro-avila",
@@ -399462,7 +399539,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w346441045",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "salamanca-colegio-marista-champagnat",
@@ -399482,7 +399561,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w362935456",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "https://maristassalamanca.es/wp-content/uploads/2019/11/img_34242.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "salamanca-colegio-sagrada-familia-siervas-de-san-jose",
@@ -399502,7 +399583,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w372799294",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "https://sagradafamiliasiervas.es/wp-content/uploads/2025/02/patio-y-pareja.jpg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "salamanca-colegio-esclavas-del-sagrado-corazon-de-jesus",
@@ -399534,13 +399617,15 @@
   "addr": "Calle F 12",
   "phone": "+34923182157",
   "web": "https://www.escuelainfantil-losrosales.com/",
-  "email": "",
+  "email": "contacto@escuelainfantil-losrosales.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w452014913",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "salamanca-universidad-pontificia",
@@ -399608,7 +399693,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r408281",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "salamanca-colegio-san-agustin",
@@ -399649,7 +399736,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r1079072",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "https://salesianospizarrales.com/wp-content/uploads/2022/09/Captura-de-pantalla-2017-05-24-a-las-13.27.09.png",
+  "webAt": "2026-11-14"
  },
  {
   "id": "salamanca-colegio-antonio-machado",
@@ -399661,13 +399750,16 @@
   "addr": "Calle del Pintor Díaz Caneja 28",
   "phone": "+34 923 18 04 60",
   "web": "https://www.colegioantoniomachado.es/",
-  "email": "",
+  "email": "37009763@educa.jcyl.es",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "r1111929",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "whatsapp": "+34629659302",
+  "webAt": "2026-11-14"
  },
  {
   "id": "salamanca-colegio-san-jose",
@@ -399687,7 +399779,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "r1113114",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "salamanca-colegio-divino-maestro",
@@ -399763,7 +399856,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r1270118",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "https://taudigit.com/proyectos/alborada/wp-content/uploads/2021/12/calendar.svg",
+  "webAt": "2026-11-14"
  },
  {
   "id": "apartado-institucion-uniban",
@@ -400004,7 +400099,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w527190200",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "apartado-instituto-colombo-darien",
@@ -400066,7 +400163,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n8244486968",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-14"
  },
  {
   "id": "huelva-colegio-maria-inmaculada",
@@ -400078,7 +400177,7 @@
   "addr": "Calle San Cristóbal",
   "phone": "+34 959262239",
   "web": "https://sites.google.com/cmihuelva.es/cmihuelva/inicio",
-  "email": "",
+  "email": "secretaria@cmihuelva.es",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)"
@@ -400086,7 +400185,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n9317291634",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "https://sites.google.com/sitesv-images-rt/APXyLQcuUGgSrWH4g7PkJQe3RZUZonDxSbCMjlcZkRTWB2Xwv5APbTuBzjm0OWwQfctWNsY3NduDHmQ7XmKgXpR181PVLWXSM4hPcvrzOUV8dfBJXlynE1eQj-_PUnxlcAu48GhPt0V0hywiiZ40uqYKMwyEXnwF1Fhu_VPS6fEj_T5hcMHRgFw22TsM-5qLtLI=w16383",
+  "webAt": "2026-11-14"
  },
  {
   "id": "huelva-colegio-colon-maristas-de-huelva",
@@ -400116,13 +400217,15 @@
   "addr": "Diaz del Castillo",
   "phone": "+34 959 15 95 00",
   "web": "https://www.colegiolahispanidadhuelva.es/",
-  "email": "",
+  "email": "direccion@colegiolahispanidad.es",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w115512939",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "img": "https://0d9ba1c31e.clvaw-cdnwnd.com/ef7d43b38a6ffaaafd95b0d775e96b93/200007110-3a4963a498/700/Screenshot%202026-10-11%20183345_edited.png?ph=0d9ba1c31e",
+  "webAt": "2026-11-14"
  },
  {
   "id": "huelva-colegio-los-salesianos",
@@ -400276,7 +400379,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w803747640",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "huelva-colegio-diocesano-sagrado-corazon-de-jesus",
@@ -400374,7 +400478,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w974031601",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "huelva-colegio-santa-teresa-de-jesus",
@@ -400394,7 +400499,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1119591119",
-  "found": "2026-11-13"
+  "found": "2026-11-13",
+  "imgTry": "2026-11-14"
  },
  {
   "id": "los-angeles-universidad-catolica-de-la-santisima-concepcion-los-angeles",
@@ -419003,6 +419109,1242 @@
   "private": "probable",
   "src": "osm",
   "osm": "w631265569",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "tovar-colegio-arturo-armando-espinoza",
+  "name": "Colegio Arturo Armando Espinoza",
+  "city": "Tovar",
+  "country": "Venezuela",
+  "lat": 8.330547,
+  "lng": -71.756246,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1816776099",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "tovar-colegio-la-presentacion",
+  "name": "Colegio La Presentación",
+  "city": "Tovar",
+  "country": "Venezuela",
+  "lat": 8.325283,
+  "lng": -71.758139,
+  "addr": "",
+  "phone": "+58 275 8732171",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w541997709",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "sonsonate-colegio-carlos-perrault",
+  "name": "Colegio Carlos Perrault",
+  "city": "Sonsonate",
+  "country": "El Salvador",
+  "lat": 13.723221,
+  "lng": -89.726556,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11049554487",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "sonsonate-universidad-de-sonsonate",
+  "name": "Universidad de Sonsonate",
+  "city": "Sonsonate",
+  "country": "El Salvador",
+  "lat": 13.730774,
+  "lng": -89.718941,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w129241277",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "sonsonate-colegio-san-francisco-de-asis",
+  "name": "Colegio San Francisco de Asís",
+  "city": "Sonsonate",
+  "country": "El Salvador",
+  "lat": 13.707531,
+  "lng": -89.731296,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w286460946",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "sonsonate-universidad-modular-abierta",
+  "name": "Universidad Modular Abierta",
+  "city": "Sonsonate",
+  "country": "El Salvador",
+  "lat": 13.722388,
+  "lng": -89.728611,
+  "addr": "3a Avenida Norte",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w397553115",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "sonsonate-colegio-ensueno-sonsonate",
+  "name": "Colegio Ensueno Sonsonate",
+  "city": "Sonsonate",
+  "country": "El Salvador",
+  "lat": 13.718337,
+  "lng": -89.721198,
+  "addr": "Calle El Ángel",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w398811904",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "sonsonate-liceo-jose-carmen-di-pietro",
+  "name": "Liceo José Carmen Di Pietro",
+  "city": "Sonsonate",
+  "country": "El Salvador",
+  "lat": 13.734506,
+  "lng": -89.716129,
+  "addr": "2a Avenida Sur (Avenida El Ángel)",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w399313850",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "sonsonate-colegio-centroamerica",
+  "name": "Colegio Centroamérica",
+  "city": "Sonsonate",
+  "country": "El Salvador",
+  "lat": 13.723759,
+  "lng": -89.723713,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1112773450",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "sonsonate-universidad-andres-bello",
+  "name": "Universidad Andrés Bello",
+  "city": "Sonsonate",
+  "country": "El Salvador",
+  "lat": 13.721177,
+  "lng": -89.72196,
+  "addr": "9 Calle Oriente",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1117305595",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "sonsonate-colegio-la-santisima-trinidad",
+  "name": "Colegio La Santísima Trinidad",
+  "city": "Sonsonate",
+  "country": "El Salvador",
+  "lat": 13.722824,
+  "lng": -89.726437,
+  "addr": "5 Calle Oriente",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1121632019",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "sonsonate-colegio-salarrue-parvularia-1-y-2-ciclo",
+  "name": "Colegio Salarrue Parvularia 1º y 2º Ciclo",
+  "city": "Sonsonate",
+  "country": "El Salvador",
+  "lat": 13.72563,
+  "lng": -89.724584,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1121634382",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "sonsonate-colegio-salarrue-tercer-ciclo-y-bachillerato",
+  "name": "Colegio Salarrue Tercer Ciclo y Bachillerato",
+  "city": "Sonsonate",
+  "country": "El Salvador",
+  "lat": 13.725884,
+  "lng": -89.724349,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1121635067",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "sonsonate-colegio-adolfo-lovato",
+  "name": "Colegio Adolfo Lovato",
+  "city": "Sonsonate",
+  "country": "El Salvador",
+  "lat": 13.720617,
+  "lng": -89.722861,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1208411926",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-instituto-tecnico",
+  "name": "Instituto Técnico",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.004687,
+  "lng": -76.480888,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2418371099",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-liceo-pedagogico",
+  "name": "Liceo Pedagogico",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.013165,
+  "lng": -76.481744,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4170501091",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-liceo",
+  "name": "Liceo",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.021407,
+  "lng": -76.47874,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4170501092",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-colegio",
+  "name": "Colegio",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 2.999905,
+  "lng": -76.488136,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5930350368",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-instituto-educativa-francisco-jose-de-caldas",
+  "name": "Instituto Educativa Francisco Jose de Caldas",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.011903,
+  "lng": -76.483161,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6347743985",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-centro-educativo-cent-doc-argemiro-mezu",
+  "name": "Centro Educativo Cent Doc Argemiro Mezu",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.02793,
+  "lng": -76.517815,
+  "addr": "",
+  "phone": "+57 602 8298488",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246282",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-institucion-educativa-forjando-futuro",
+  "name": "Institución Educativa Forjando Futuro",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.006759,
+  "lng": -76.480823,
+  "addr": "",
+  "phone": "+57 310 6644878",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246705",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-corporacion-de-colombia",
+  "name": "Corporación de Colombia",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.00265,
+  "lng": -76.481897,
+  "addr": "",
+  "phone": "+57 310 8429781",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246706",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-institucion-de-formacion-empresarial-colombiano-ifec",
+  "name": "Institución de Formación Empresarial Colombiano Ifec",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.005675,
+  "lng": -76.481613,
+  "addr": "",
+  "phone": "+57 317 4371744",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246707",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-instituto-academico-de-excelencia-inade",
+  "name": "Instituto Academico de Excelencia Inade",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.009848,
+  "lng": -76.483084,
+  "addr": "",
+  "phone": "+57 310 4650471",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246708",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-institucion-traspasando-fronteras",
+  "name": "Institución Traspasando Fronteras",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.01071,
+  "lng": -76.48767,
+  "addr": "",
+  "phone": "+57 301 2079371",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246710",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-colegio-inst-bolivariano-del-cauca",
+  "name": "Colegio Inst Bolivariano del Cauca",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.006149,
+  "lng": -76.484497,
+  "addr": "",
+  "phone": "314682261",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246711",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-otra-sigla-jard-materno-inf-talentos",
+  "name": "Otra-Sigla Jard Materno Inf Talentos",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.015202,
+  "lng": -76.483664,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246712",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-fundacion-angelndtos",
+  "name": "Fundación Angelndtos",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.01213,
+  "lng": -76.480503,
+  "addr": "",
+  "phone": "+57 602 8293488",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246713",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-gimnasio-acad-mod-gam",
+  "name": "Gimnasio Acad Mod Gam",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.013133,
+  "lng": -76.488948,
+  "addr": "",
+  "phone": "+57 602 8294349",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246715",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-colegio-micael",
+  "name": "Colegio Micael",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.005391,
+  "lng": -76.478956,
+  "addr": "",
+  "phone": "+57 602 8298123",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246716",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-colegio-por-ciclos-integd-gimn-del-norte",
+  "name": "Colegio Por Ciclos Integd Gimn del Norte",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.001611,
+  "lng": -76.478741,
+  "addr": "",
+  "phone": "+57 602 8290491",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246717",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-colegio-la-santisima-trinidad",
+  "name": "Colegio La Santisima Trinidad",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.008758,
+  "lng": -76.482488,
+  "addr": "",
+  "phone": "+57 602 8293297",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246718",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-centro-educativo-nuevo-milenio",
+  "name": "Centro Educativo Nuevo Milenio",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.003864,
+  "lng": -76.483115,
+  "addr": "",
+  "phone": "+57 602 8296154",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246719",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-colegio-cristiano-elohim",
+  "name": "Colegio Cristiano Elohim",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.00916,
+  "lng": -76.488532,
+  "addr": "",
+  "phone": "+57 602 8297718",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246720",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-colegio-alegria-del-saber",
+  "name": "Colegio Alegria del Saber",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.007066,
+  "lng": -76.481848,
+  "addr": "",
+  "phone": "+57 602 8293499",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246721",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-centro-educativo-cent-de-adultos-comfacauca",
+  "name": "Centro Educativo Cent de Adultos Comfacauca",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.007462,
+  "lng": -76.48209,
+  "addr": "",
+  "phone": "294003",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246722",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-liceo-pedag-nueva-generacion",
+  "name": "Liceo Pedag Nueva Generación",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.004495,
+  "lng": -76.485749,
+  "addr": "",
+  "phone": "+57 602 8294042",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246723",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-liceo-pedagogico-quilichao",
+  "name": "Liceo Pedagogico Quilichao",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.013162,
+  "lng": -76.482015,
+  "addr": "",
+  "phone": "+57 602 8293427",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246725",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-liceo-ciudad-de-santander",
+  "name": "Liceo Ciudad de Santander",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.01995,
+  "lng": -76.479051,
+  "addr": "",
+  "phone": "+57 602 8292115",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246726",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-centro-educativo-cent-doc-jose-vicente-mina",
+  "name": "Centro Educativo Cent Doc José Vicente Mina",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.006002,
+  "lng": -76.490046,
+  "addr": "",
+  "phone": "+57 602 8294202",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246727",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-centro-educativo-cent-doc-la-milagrosa",
+  "name": "Centro Educativo Cent Doc La Milagrosa",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.00921,
+  "lng": -76.492345,
+  "addr": "",
+  "phone": "+57 602 8294175",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246729",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-colegio-ana-josefa-morales-duque",
+  "name": "Colegio Ana Josefa Morales Duque",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.018156,
+  "lng": -76.491381,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w233406062",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "santander-de-quilichao-universidad-del-cauca",
+  "name": "Universidad del Cauca",
+  "city": "Santander de Quilichao",
+  "country": "Colombia",
+  "lat": 3.006189,
+  "lng": -76.48217,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r5335116",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "quibor-colegio-virgen-de-altagracia",
+  "name": "Colegio Virgen de Altagracia",
+  "city": "Quíbor",
+  "country": "Venezuela",
+  "lat": 9.92184,
+  "lng": -69.618549,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6537607202",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "cadiz-academia-acacias",
+  "name": "Academia Acacias",
+  "city": "Cádiz",
+  "country": "España",
+  "lat": 36.524212,
+  "lng": -6.284872,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2346521099",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "cadiz-escuela-de-frances-l-ecole",
+  "name": "Escuela de Francés L'école",
+  "city": "Cádiz",
+  "country": "España",
+  "lat": 36.519007,
+  "lng": -6.281468,
+  "addr": "Calle de Francisco García de Sola",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5418560621",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "cadiz-instituto-provincial-de-educacion-permanente-de-cadiz",
+  "name": "Instituto Provincial de Educación Permanente de Cádiz",
+  "city": "Cádiz",
+  "country": "España",
+  "lat": 36.506436,
+  "lng": -6.267239,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13523992461",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "cadiz-colegio-santa-teresa",
+  "name": "Colegio Santa Teresa",
+  "city": "Cádiz",
+  "country": "España",
+  "lat": 36.52933,
+  "lng": -6.305669,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w141200808",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "cadiz-colegio-mayor-beato-diego-de-cadiz",
+  "name": "Colegio Mayor Beato Diego de Cádiz",
+  "city": "Cádiz",
+  "country": "España",
+  "lat": 36.534791,
+  "lng": -6.304216,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w141200811",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "cadiz-colegio-san-vicente-de-paul",
+  "name": "Colegio San Vicente de Paúl",
+  "city": "Cádiz",
+  "country": "España",
+  "lat": 36.521259,
+  "lng": -6.284567,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w146718082",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "cadiz-instituto-columela",
+  "name": "Instituto Columela",
+  "city": "Cádiz",
+  "country": "España",
+  "lat": 36.524617,
+  "lng": -6.28873,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w146718083",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "cadiz-colegio-argantonio",
+  "name": "Colegio Argantonio",
+  "city": "Cádiz",
+  "country": "España",
+  "lat": 36.522092,
+  "lng": -6.281333,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w146718096",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "cadiz-colegio-reyes-catolicos",
+  "name": "Colegio Reyes Católicos",
+  "city": "Cádiz",
+  "country": "España",
+  "lat": 36.509902,
+  "lng": -6.279586,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w154151140",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "cadiz-colegio-de-educacion-infantil-y-primaria-profesor-tierno-galvan",
+  "name": "Colegio de Educación Infantil y Primaria Profesor Tierno Galván",
+  "city": "Cádiz",
+  "country": "España",
+  "lat": 36.50136,
+  "lng": -6.272213,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w154151143",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "cadiz-colegio-san-jose",
+  "name": "Colegio San José",
+  "city": "Cádiz",
+  "country": "España",
+  "lat": 36.518755,
+  "lng": -6.285025,
+  "addr": "Avenida de Andalucía 50",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w154151145",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "cadiz-colegio-san-felipe-neri",
+  "name": "Colegio San Felipe Neri",
+  "city": "Cádiz",
+  "country": "España",
+  "lat": 36.51526,
+  "lng": -6.283199,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w154151147",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "cadiz-colegio-campo-del-sur",
+  "name": "Colegio Campo del Sur",
+  "city": "Cádiz",
+  "country": "España",
+  "lat": 36.526995,
+  "lng": -6.292203,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w154204930",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "cadiz-colegio-nuestra-senora-del-carmen",
+  "name": "Colegio Nuestra Señora del Carmen",
+  "city": "Cádiz",
+  "country": "España",
+  "lat": 36.536147,
+  "lng": -6.292032,
+  "addr": "Calle Fernando el Católico 2",
+  "phone": "+34 956 21 22 93",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w154947557",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "cadiz-colegio-maria-auxiliadora",
+  "name": "Colegio Maria Auxiliadora",
+  "city": "Cádiz",
+  "country": "España",
+  "lat": 36.516293,
+  "lng": -6.283215,
+  "addr": "Avenida de Andalucía 70",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w155007835",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "cadiz-centro-docente-privado-de-educacion-infantil-villa-magdalena",
+  "name": "Centro Docente Privado de Educación Infantil Villa Magdalena",
+  "city": "Cádiz",
+  "country": "España",
+  "lat": 36.506449,
+  "lng": -6.275147,
+  "addr": "Calle Alonso Cano 14-16",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w156887397",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "cadiz-colegio-de-educacion-infantil-y-primaria-san-rafael",
+  "name": "Colegio de Educación Infantil y Primaria San Rafael",
+  "city": "Cádiz",
+  "country": "España",
+  "lat": 36.532868,
+  "lng": -6.303432,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w549309370",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "cadiz-colegio-la-salle-vina",
+  "name": "Colegio La Salle Viña",
+  "city": "Cádiz",
+  "country": "España",
+  "lat": 36.530312,
+  "lng": -6.302337,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w554988769",
+  "found": "2026-11-14"
+ },
+ {
+  "id": "cadiz-colegio-la-salle-mirandilla",
+  "name": "Colegio La Salle Mirandilla",
+  "city": "Cádiz",
+  "country": "España",
+  "lat": 36.527992,
+  "lng": -6.292927,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w948202904",
   "found": "2026-11-14"
  }
 ]
