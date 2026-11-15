@@ -7240,7 +7240,10 @@
   "CL|Colina": "2026-11-15T13:24:05.137Z",
   "VE|n373789724": "2026-11-15T13:24:34.414Z",
   "MX|Tecomán": "2026-11-15T14:58:38.063Z",
-  "CO|n703194925": "2026-11-15T15:06:08.655Z"
+  "CO|n703194925": "2026-11-15T15:06:08.655Z",
+  "PE|Andahuaylas": "2026-11-15T16:57:41.844Z",
+  "PA|n331148078": "2026-11-15T17:06:45.437Z",
+  "CO|n703168370": "2026-11-15T17:13:01.019Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7335,6 +7338,41 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-15T16:57:13.565Z",
+   "cities": [
+    {
+     "cc": "PE",
+     "city": "Andahuaylas",
+     "found": 7,
+     "updated": 0,
+     "osm": 69
+    },
+    {
+     "cc": "PA",
+     "city": "Penonomé",
+     "found": 9,
+     "updated": 0,
+     "osm": 20
+    },
+    {
+     "cc": "CO",
+     "city": "Acacías",
+     "found": 25,
+     "updated": 0,
+     "osm": 58
+    }
+   ],
+   "added": 41,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 15.9,
+   "total": 21420
+  },
   {
    "at": "2026-11-15T14:58:02.006Z",
    "cities": [
@@ -9598,34 +9636,6 @@
    "errors": [],
    "minutes": 17.7,
    "total": 18708
-  },
-  {
-   "at": "2026-11-12T09:18:53.583Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Jiutepec",
-     "found": 7,
-     "updated": 0,
-     "osm": 84
-    },
-    {
-     "cc": "MX",
-     "city": "Piedras Negras",
-     "found": 5,
-     "updated": 0,
-     "osm": 15
-    }
-   ],
-   "added": 12,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 29,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 15.3,
-   "total": 18640
   }
  ]
 }
