@@ -425662,5 +425662,1643 @@
   "src": "osm",
   "osm": "w846750644",
   "found": "2026-11-15"
+ },
+ {
+  "id": "maldonado-colegio-pinares-del-este",
+  "name": "Colegio Pinares del Este",
+  "city": "Maldonado",
+  "country": "Uruguay",
+  "lat": -34.905995,
+  "lng": -54.972699,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n2365222068",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "maldonado-colegio-cem-maldonado",
+  "name": "Colegio Cem Maldonado",
+  "city": "Maldonado",
+  "country": "Uruguay",
+  "lat": -34.903984,
+  "lng": -54.944107,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n2365964191",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "maldonado-colegio-biarritz",
+  "name": "Colegio Biarritz",
+  "city": "Maldonado",
+  "country": "Uruguay",
+  "lat": -34.891411,
+  "lng": -54.944151,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n2365964192",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "maldonado-colegio-virgen-del-santander",
+  "name": "Colegio Virgen del Santander",
+  "city": "Maldonado",
+  "country": "Uruguay",
+  "lat": -34.90913,
+  "lng": -54.95943,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n2367942358",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "maldonado-colegio-maldonado",
+  "name": "Colegio Maldonado",
+  "city": "Maldonado",
+  "country": "Uruguay",
+  "lat": -34.902021,
+  "lng": -54.958708,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n2375490267",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "maldonado-colegio-fernandino",
+  "name": "Colegio Fernandino",
+  "city": "Maldonado",
+  "country": "Uruguay",
+  "lat": -34.903185,
+  "lng": -54.955455,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n2380707841",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "maldonado-liceo-padre-domingo",
+  "name": "Liceo Padre Domingo",
+  "city": "Maldonado",
+  "country": "Uruguay",
+  "lat": -34.906345,
+  "lng": -54.954696,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2387990626",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "maldonado-colegio-padre-pio",
+  "name": "Colegio Padre Pío",
+  "city": "Maldonado",
+  "country": "Uruguay",
+  "lat": -34.877408,
+  "lng": -54.971466,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n2625762870",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "maldonado-instituto-latinoamericano",
+  "name": "Instituto Latinoamericano",
+  "city": "Maldonado",
+  "country": "Uruguay",
+  "lat": -34.90291,
+  "lng": -54.958745,
+  "addr": "",
+  "phone": "+59892672712",
+  "web": "https://ila.edu.uy/",
+  "email": "info@ila.edu.uy",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n2719988071",
+  "found": "2026-11-15",
+  "img": "",
+  "whatsapp": "+59892672712",
+  "webAt": "2026-11-15"
+ },
+ {
+  "id": "maldonado-international-college",
+  "name": "International College",
+  "city": "Maldonado",
+  "country": "Uruguay",
+  "lat": -34.924818,
+  "lng": -54.938217,
+  "addr": "",
+  "phone": "",
+  "web": "https://ic.edu.uy/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w230758961",
+  "found": "2026-11-15",
+  "img": "",
+  "webAt": "2026-11-15"
+ },
+ {
+  "id": "maldonado-colegio-de-las-hermanas-capuchinas",
+  "name": "Colegio de las Hermanas Capuchinas",
+  "city": "Maldonado",
+  "country": "Uruguay",
+  "lat": -34.905249,
+  "lng": -54.957191,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w244831580",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "maldonado-woodside-school",
+  "name": "Woodside School",
+  "city": "Maldonado",
+  "country": "Uruguay",
+  "lat": -34.920863,
+  "lng": -54.943235,
+  "addr": "Mercedes",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w267886185",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "maldonado-saint-clare-s",
+  "name": "Saint Clare´s",
+  "city": "Maldonado",
+  "country": "Uruguay",
+  "lat": -34.933863,
+  "lng": -54.91874,
+  "addr": "",
+  "phone": "+598 4249 0200",
+  "web": "https://www.scc.edu.uy/www/",
+  "email": "info@scc.edu.uy",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w267912758",
+  "found": "2026-11-15",
+  "imgTry": "2026-11-15"
+ },
+ {
+  "id": "maldonado-universidad-catolica-del-uruguay",
+  "name": "Universidad Católica del Uruguay",
+  "city": "Maldonado",
+  "country": "Uruguay",
+  "lat": -34.938098,
+  "lng": -54.934876,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w268045224",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "maldonado-escuela-san-fernando",
+  "name": "Escuela San Fernando",
+  "city": "Maldonado",
+  "country": "Uruguay",
+  "lat": -34.909519,
+  "lng": -54.954286,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w457957225",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "maldonado-st-joseph-mary-college",
+  "name": "ST Joseph Mary College",
+  "city": "Maldonado",
+  "country": "Uruguay",
+  "lat": -34.919514,
+  "lng": -54.944082,
+  "addr": "Bulevar General José Gervasio Artigas 1245",
+  "phone": "+598 42 248 979",
+  "web": "http://www.stjosephmary.edu.uy/sp/index.php",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w487762181",
+  "found": "2026-11-15",
+  "imgTry": "2026-11-15"
+ },
+ {
+  "id": "maldonado-emi-educa",
+  "name": "EMI Educa",
+  "city": "Maldonado",
+  "country": "Uruguay",
+  "lat": -34.900286,
+  "lng": -54.961504,
+  "addr": "Mirlos",
+  "phone": "+598 4223 8390",
+  "web": "https://www.emieduca.edu.uy/",
+  "email": "contactocolegioemi@gmail.com",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w576080751",
+  "found": "2026-11-15",
+  "img": "",
+  "whatsapp": "+59891220090",
+  "webAt": "2026-11-15"
+ },
+ {
+  "id": "maldonado-instituto-uruguayo-argentino",
+  "name": "Instituto Uruguayo Argentino",
+  "city": "Maldonado",
+  "country": "Uruguay",
+  "lat": -34.945655,
+  "lng": -54.940467,
+  "addr": "",
+  "phone": "+598 4248 3233",
+  "web": "https://www.iua.edu.uy",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1230010468",
+  "found": "2026-11-15",
+  "img": "https://www.iua.edu.uy/images/og-default.jpg",
+  "webAt": "2026-11-15"
+ },
+ {
+  "id": "maldonado-north-school",
+  "name": "North School",
+  "city": "Maldonado",
+  "country": "Uruguay",
+  "lat": -34.915122,
+  "lng": -54.930863,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1430033256",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "trinidad-ue-colegio-fatima",
+  "name": "UE Colegio Fatima",
+  "city": "Trinidad",
+  "country": "Bolivia",
+  "lat": -14.8311,
+  "lng": -64.89804,
+  "addr": "Avenida Libertador Simón Bolívar",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4337828089",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "trinidad-unidad-educativa-corina-hurtado-de-suarez",
+  "name": "Unidad Educativa Corina Hurtado de Suárez",
+  "city": "Trinidad",
+  "country": "Bolivia",
+  "lat": -14.844406,
+  "lng": -64.894081,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5188957122",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "trinidad-universidad-privada-domingo-savio",
+  "name": "Universidad Privada Domingo Savio",
+  "city": "Trinidad",
+  "country": "Bolivia",
+  "lat": -14.836568,
+  "lng": -64.916528,
+  "addr": "",
+  "phone": "+591 46 22000",
+  "web": "https://www.upds.edu.bo/Trinidad/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5557865549",
+  "found": "2026-11-15",
+  "imgTry": "2026-11-15"
+ },
+ {
+  "id": "trinidad-univalle-nucleo-trinidad",
+  "name": "Univalle - Nucleo Trinidad",
+  "city": "Trinidad",
+  "country": "Bolivia",
+  "lat": -14.827194,
+  "lng": -64.888948,
+  "addr": "Calle Reyes",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w409009293",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "trinidad-unidad-educativa-jose-chavez-suarez",
+  "name": "Unidad Educativa José Chávez Suárez",
+  "city": "Trinidad",
+  "country": "Bolivia",
+  "lat": -14.841369,
+  "lng": -64.904788,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w430742790",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "trinidad-unidad-educativa-amerinst",
+  "name": "Unidad Educativa Amerinst",
+  "city": "Trinidad",
+  "country": "Bolivia",
+  "lat": -14.833457,
+  "lng": -64.9042,
+  "addr": "Calle Nicolás Suárez",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w430745856",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "trinidad-unidad-educativa-18-de-noviembre",
+  "name": "Unidad Educativa 18 de Noviembre",
+  "city": "Trinidad",
+  "country": "Bolivia",
+  "lat": -14.834109,
+  "lng": -64.904909,
+  "addr": "Calle Antonio Vaca Diez",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w430745864",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "trinidad-colegio-la-salle",
+  "name": "Colegio La Salle",
+  "city": "Trinidad",
+  "country": "Bolivia",
+  "lat": -14.827525,
+  "lng": -64.895867,
+  "addr": "Calle Gilfredo Cortez Candia",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1066914123",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "trinidad-colegio-adventista",
+  "name": "Colegio Adventista",
+  "city": "Trinidad",
+  "country": "Bolivia",
+  "lat": -14.834197,
+  "lng": -64.911437,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1539118329",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "rafaela-universidad-de-ciencias-empresariales-y-sociales",
+  "name": "Universidad de Ciencias Empresariales y Sociales",
+  "city": "Rafaela",
+  "country": "Argentina",
+  "lat": -31.243927,
+  "lng": -61.49053,
+  "addr": "25 de Mayo 906",
+  "phone": "+54 3492 43-4198",
+  "web": "https://www.uces.edu.ar/anexos/387/rafaela",
+  "email": "rafaela@uces.edu.ar",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n10536649513",
+  "found": "2026-11-15",
+  "img": "",
+  "whatsapp": "+5491123458237",
+  "webAt": "2026-11-15"
+ },
+ {
+  "id": "rafaela-escuela-particular-incorporada-1025-nuestra-senora-de-la-misericordia",
+  "name": "Escuela Particular Incorporada 1025 Nuestra Señora De La Misericordia",
+  "city": "Rafaela",
+  "country": "Argentina",
+  "lat": -31.25596,
+  "lng": -61.493926,
+  "addr": "Colon 356 San Martín",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10916217740",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "rafaela-escuela-de-educacion-secundaria-orientada-particular-incorporada-8022-",
+  "name": "Escuela de Educación Secundaria Orientada Particular Incorporada 8022 Nuestra Señora De La Misericordia",
+  "city": "Rafaela",
+  "country": "Argentina",
+  "lat": -31.256054,
+  "lng": -61.494353,
+  "addr": "Colon 356 San Martín",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10916217741",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "rafaela-escuela-particular-incorporada-1331-escuela-de-la-plaza",
+  "name": "Escuela Particular Incorporada 1331 Escuela De La Plaza",
+  "city": "Rafaela",
+  "country": "Argentina",
+  "lat": -31.26743,
+  "lng": -61.495746,
+  "addr": "Bulevar Hipólito Yrigoyen 1502",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10916238309",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "rafaela-escuela-particular-incorporada-1075-25-de-mayo",
+  "name": "Escuela Particular Incorporada 1075 25 De Mayo",
+  "city": "Rafaela",
+  "country": "Argentina",
+  "lat": -31.248569,
+  "lng": -61.509852,
+  "addr": "Comisario Valentín Kaiser 363",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1319971776",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "minatitlan-colegio-minatitlan",
+  "name": "colegio minatitlan",
+  "city": "Minatitlán",
+  "country": "México",
+  "lat": 17.987481,
+  "lng": -94.560454,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7898181809",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "minatitlan-escuela-articulo-123-pdte-miguel-aleman",
+  "name": "Escuela Artículo 123 Pdte. Miguel Alemán",
+  "city": "Minatitlán",
+  "country": "México",
+  "lat": 17.995073,
+  "lng": -94.544682,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w559366688",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "minatitlan-universidad-veracruzana",
+  "name": "Universidad Veracruzana",
+  "city": "Minatitlán",
+  "country": "México",
+  "lat": 17.988473,
+  "lng": -94.571782,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w615043817",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "minatitlan-universidad-para-el-bienestar-benito-juarez-garcia",
+  "name": "Universidad para el Bienestar Benito Juárez García",
+  "city": "Minatitlán",
+  "country": "México",
+  "lat": 17.998063,
+  "lng": -94.547819,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1193627582",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "minatitlan-jardin-de-ninos-tomasa-valdez-viuda-de-aleman",
+  "name": "Jardín de Niños Tomasa Valdez Viuda de Alemán",
+  "city": "Minatitlán",
+  "country": "México",
+  "lat": 17.991549,
+  "lng": -94.535406,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1328816986",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "presidencia-roque-saenz-pena-unidad-educativa-de-gestion-privada-35-instituto-adventista-rafael-obl",
+  "name": "Unidad Educativa De Gestión Privada 35 Instituto Adventista Rafael Obligado",
+  "city": "Presidencia Roque Sáenz Peña",
+  "country": "Argentina",
+  "lat": -26.806845,
+  "lng": -60.417097,
+  "addr": "Ceibos 1801",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n2125982635",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "presidencia-roque-saenz-pena-escuela-primaria-82-hogar-de-bethania",
+  "name": "Escuela Primaria 82 Hogar de Bethania",
+  "city": "Presidencia Roque Sáenz Peña",
+  "country": "Argentina",
+  "lat": -26.786744,
+  "lng": -60.436401,
+  "addr": "Justo José de Urquiza 768",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n4478168673",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "presidencia-roque-saenz-pena-instituto-don-orione",
+  "name": "Instituto Don Orione",
+  "city": "Presidencia Roque Sáenz Peña",
+  "country": "Argentina",
+  "lat": -26.795227,
+  "lng": -60.448139,
+  "addr": "Padre Arturo Mustacchio 255",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5013127327",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "presidencia-roque-saenz-pena-instituto-de-la-sagrada-misericordia",
+  "name": "Instituto de la Sagrada Misericordia",
+  "city": "Presidencia Roque Sáenz Peña",
+  "country": "Argentina",
+  "lat": -26.786788,
+  "lng": -60.434339,
+  "addr": "Superiora Palmira 75",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10109306384",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "presidencia-roque-saenz-pena-instituto-de-ensenansa-superior-juan-montovani",
+  "name": "Instituto de Enseñansa Superior Juan Montovani",
+  "city": "Presidencia Roque Sáenz Peña",
+  "country": "Argentina",
+  "lat": -26.776807,
+  "lng": -60.449289,
+  "addr": "Juan Martín de Pueyrredón",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n10297250512",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "presidencia-roque-saenz-pena-unidad-educativa-de-gestion-privada-37-instituto-politecnico-juan-xxii",
+  "name": "Unidad Educativa de Gestión Privada 37 Instituto Politecnico Juan XXIII",
+  "city": "Presidencia Roque Sáenz Peña",
+  "country": "Argentina",
+  "lat": -26.80645,
+  "lng": -60.432892,
+  "addr": "Mons. Italo Di Stefano 775 Lamadrid",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10301025474",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "presidencia-roque-saenz-pena-unidad-educativa-de-gestion-privada-20-popular-de-capacitacion",
+  "name": "Unidad Educativa de Gestión Privada 20 Popular De Capacitación",
+  "city": "Presidencia Roque Sáenz Peña",
+  "country": "Argentina",
+  "lat": -26.788608,
+  "lng": -60.438532,
+  "addr": "Martín Miguel de Güemes 540",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10302792571",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "presidencia-roque-saenz-pena-unidad-educativa-de-gestion-privada-55-instituto-don-orione",
+  "name": "Unidad Educativa de Gestión Privada 55 Instituto Don Orione",
+  "city": "Presidencia Roque Sáenz Peña",
+  "country": "Argentina",
+  "lat": -26.781183,
+  "lng": -60.448807,
+  "addr": "Avenida Malvinas Argentinas",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10308950556",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "presidencia-roque-saenz-pena-unidad-educativa-de-gestion-privada-38-josefa-rosello",
+  "name": "Unidad Educativa de Gestión Privada 38 Josefa Rosello",
+  "city": "Presidencia Roque Sáenz Peña",
+  "country": "Argentina",
+  "lat": -26.786729,
+  "lng": -60.434688,
+  "addr": "Superiora Palmira 71",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10311774374",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "presidencia-roque-saenz-pena-unidad-educativa-de-gestion-privada-140-nuestra-senora-de-la-guarda",
+  "name": "Unidad Educativa de Gestión Privada 140 Nuestra Señora De La Guarda",
+  "city": "Presidencia Roque Sáenz Peña",
+  "country": "Argentina",
+  "lat": -26.779676,
+  "lng": -60.415765,
+  "addr": "320 Esquina 339 Hipólito Yrigoyen",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10550587014",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "presidencia-roque-saenz-pena-unidad-educativa-de-gestion-privada-211-despertares-hijos-del-alma",
+  "name": "Unidad Educativa de Gestión Privada 211 Despertares Hijos Del Alma",
+  "city": "Presidencia Roque Sáenz Peña",
+  "country": "Argentina",
+  "lat": -26.774618,
+  "lng": -60.436254,
+  "addr": "Mariano Moreno 1796",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10558458025",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "presidencia-roque-saenz-pena-unidad-educativa-de-gestion-privada-202",
+  "name": "Unidad Educativa de Gestión Privada 202",
+  "city": "Presidencia Roque Sáenz Peña",
+  "country": "Argentina",
+  "lat": -26.792811,
+  "lng": -60.436436,
+  "addr": "Avenida Hipólito Yrigoyen 234",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10568317420",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "presidencia-roque-saenz-pena-colegio-cristiano-bilingue-puerta-de-esperanza",
+  "name": "Colegio Cristiano Bilingue Puerta De Esperanza",
+  "city": "Presidencia Roque Sáenz Peña",
+  "country": "Argentina",
+  "lat": -26.793998,
+  "lng": -60.447974,
+  "addr": "Julio A. Roca 1145",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10568317434",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "presidencia-roque-saenz-pena-instituto-privado-didactico-infantil",
+  "name": "Instituto Privado Didactico Infantil",
+  "city": "Presidencia Roque Sáenz Peña",
+  "country": "Argentina",
+  "lat": -26.788057,
+  "lng": -60.437258,
+  "addr": "Entre 23 Y 25 Santa Teresita",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10571834978",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "presidencia-roque-saenz-pena-instituto-san-roque",
+  "name": "Instituto San Roque",
+  "city": "Presidencia Roque Sáenz Peña",
+  "country": "Argentina",
+  "lat": -26.791126,
+  "lng": -60.440538,
+  "addr": "Belgrano 261",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10571834979",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-la-motilla",
+  "name": "Colegio La Motilla",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.286263,
+  "lng": -5.94434,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1314998517",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-de-educacion-infantil-y-primaria-orippo",
+  "name": "Colegio de Educación Infantil y Primaria Orippo",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.272874,
+  "lng": -5.917734,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w40932219",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-de-educacion-infantil-y-primaria-los-montecillos",
+  "name": "Colegio de Educación Infantil y Primaria Los Montecillos",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.276045,
+  "lng": -5.918727,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w40932221",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-de-educacion-infantil-y-primaria-maria-zambrano",
+  "name": "Colegio de Educación Infantil y Primaria María Zambrano",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.273166,
+  "lng": -5.924649,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w40932238",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-de-educacion-infantil-y-primaria-maestro-jose-varela",
+  "name": "Colegio de Educación Infantil y Primaria Maestro José Varela",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.273603,
+  "lng": -5.92767,
+  "addr": "Calle Ruiseñor",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w40932247",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-de-educacion-infantil-y-primaria-federico-garcia-lorca",
+  "name": "Colegio de Educación Infantil y Primaria Federico García Lorca",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.284159,
+  "lng": -5.913162,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w40954967",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-centro-docente-privado-antonio-gala",
+  "name": "Centro Docente Privado Antonio Gala",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.281842,
+  "lng": -5.910767,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w40954972",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-de-educacion-infantil-y-primaria-ibarburu",
+  "name": "Colegio de Educación Infantil y Primaria Ibarburu",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.268121,
+  "lng": -5.909186,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w40956037",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-de-educacion-infantil-y-primaria-fernan-caballero",
+  "name": "Colegio de Educación Infantil y Primaria Fernán Caballero",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.273595,
+  "lng": -5.908425,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w40956040",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-de-educacion-infantil-y-primaria-consolacion",
+  "name": "Colegio de Educación Infantil y Primaria Consolación",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.291334,
+  "lng": -5.903613,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w81531687",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-de-educacion-infantil-y-primaria-las-portadas",
+  "name": "Colegio de Educación Infantil y Primaria Las Portadas",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.267527,
+  "lng": -5.936703,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w90215727",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-la-loma",
+  "name": "Colegio La Loma",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.281915,
+  "lng": -5.942565,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w116697110",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-de-educacion-infantil-y-primaria-19-de-abril",
+  "name": "Colegio de Educación Infantil y Primaria 19 de Abril",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.287833,
+  "lng": -5.92988,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w196125730",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-de-educacion-infantil-y-primaria-carlos-i",
+  "name": "Colegio de Educación Infantil y Primaria Carlos I",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.27956,
+  "lng": -5.926145,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w236943133",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-de-educacion-infantil-y-primaria-maestro-enrique-diaz-ferreras",
+  "name": "Colegio de Educación Infantil y Primaria Maestro Enrique Díaz Ferreras",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.28932,
+  "lng": -5.925461,
+  "addr": "Calle Las Cruces 3",
+  "phone": "+34 955 622 283",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w370049316",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-de-educacion-infantil-y-primaria-huerta-de-la-princesa",
+  "name": "Colegio de Educación Infantil y Primaria Huerta de la Princesa",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.290247,
+  "lng": -5.920463,
+  "addr": "Calle Timanfaya",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w379707073",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-de-educacion-infantil-y-primaria-valme-coronada",
+  "name": "Colegio de Educación Infantil y Primaria Valme Coronada",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.292305,
+  "lng": -5.914446,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w385051448",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-san-hermenegildo",
+  "name": "Colegio San Hermenegildo",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.285347,
+  "lng": -5.897026,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w443367826",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-de-educacion-infantil-y-primaria-el-palmarillo",
+  "name": "Colegio de Educación Infantil y Primaria El Palmarillo",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.282181,
+  "lng": -5.931348,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w628340346",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-de-educacion-infantil-y-primaria-maestra-dolores-velasco",
+  "name": "Colegio de Educación Infantil y Primaria Maestra Dolores Velasco",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.276936,
+  "lng": -5.930612,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w629570926",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "dos-hermanas-colegio-de-educacion-infantil-y-primaria-juan-ramon-jimenez",
+  "name": "Colegio de Educación Infantil y Primaria Juan Ramón Jiménez",
+  "city": "Dos Hermanas",
+  "country": "España",
+  "lat": 37.268784,
+  "lng": -5.926058,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w737227786",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "rosarito-centro-educativo-colegio-rosarito",
+  "name": "Centro Educativo Colegio Rosarito",
+  "city": "Rosarito",
+  "country": "México",
+  "lat": 32.355859,
+  "lng": -117.057782,
+  "addr": "Ensenada Num. 18",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802697172",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "rosarito-instituto-inda",
+  "name": "Instituto Inda",
+  "city": "Rosarito",
+  "country": "México",
+  "lat": 32.339996,
+  "lng": -117.055268,
+  "addr": "Calle Encino Esquina Con Mar del Norte, Zona Centro",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802702893",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "rosarito-universidad-rosaritense",
+  "name": "Universidad Rosaritense",
+  "city": "Rosarito",
+  "country": "México",
+  "lat": 32.361743,
+  "lng": -117.050591,
+  "addr": "Paseo de Las Flores Num. 100, Fracc. Vista Hermosa",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802709720",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "libertad-instituto-jose-hernandez",
+  "name": "Instituto José Hernandez",
+  "city": "Libertad",
+  "country": "Argentina",
+  "lat": -34.714908,
+  "lng": -58.721413,
+  "addr": "Constancio C. Vigil 3180",
+  "phone": "+54 220 493-0827",
+  "web": "",
+  "email": "ijheduc@hotmail.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n10252372746",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "libertad-instituto-de-ensenanza-privada-raices-y-alas",
+  "name": "Instituto de Enseñanza Privada Raices Y Alas",
+  "city": "Libertad",
+  "country": "Argentina",
+  "lat": -34.707242,
+  "lng": -58.707871,
+  "addr": "Avenida Patricios 3831",
+  "phone": "+54 220 493-1416",
+  "web": "",
+  "email": "institutoprivadoraicesyalas@hotmail.com",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10252372750",
+  "found": "2026-11-15"
  }
 ]

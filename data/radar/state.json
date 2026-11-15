@@ -7190,7 +7190,18 @@
   "MX|Tepexpan": "2026-11-15T01:40:30.900Z",
   "MX|Apatzingán": "2026-11-15T01:41:08.532Z",
   "MX|Cholula": "2026-11-15T01:41:49.385Z",
-  "AR|Puerto Madryn": "2026-11-15T01:42:45.161Z"
+  "AR|Puerto Madryn": "2026-11-15T01:42:45.161Z",
+  "DO|n3707235550": "2026-11-15T03:06:18.179Z",
+  "UY|Maldonado": "2026-11-15T03:06:58.572Z",
+  "BO|n415165872": "2026-11-15T03:07:32.785Z",
+  "AR|Junín": "2026-11-15T03:08:21.383Z",
+  "AR|Rafaela": "2026-11-15T03:09:01.867Z",
+  "MX|Minatitlán": "2026-11-15T03:09:38.696Z",
+  "AR|Berisso": "2026-11-15T03:16:15.183Z",
+  "AR|Presidencia Roque Sáenz Peña": "2026-11-15T03:16:41.997Z",
+  "ES|n248815337": "2026-11-15T03:17:28.047Z",
+  "MX|Rosarito": "2026-11-15T03:18:11.478Z",
+  "AR|Libertad": "2026-11-15T03:18:47.714Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7280,6 +7291,97 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-15T03:05:38.627Z",
+   "cities": [
+    {
+     "cc": "DO",
+     "city": "Villa Hermosa",
+     "found": 0,
+     "updated": 0,
+     "osm": 17
+    },
+    {
+     "cc": "UY",
+     "city": "Maldonado",
+     "found": 19,
+     "updated": 0,
+     "osm": 59
+    },
+    {
+     "cc": "BO",
+     "city": "Trinidad",
+     "found": 9,
+     "updated": 0,
+     "osm": 34
+    },
+    {
+     "cc": "AR",
+     "city": "Junín",
+     "found": 0,
+     "updated": 0,
+     "osm": 11
+    },
+    {
+     "cc": "AR",
+     "city": "Rafaela",
+     "found": 5,
+     "updated": 0,
+     "osm": 43
+    },
+    {
+     "cc": "MX",
+     "city": "Minatitlán",
+     "found": 5,
+     "updated": 0,
+     "osm": 55
+    },
+    {
+     "cc": "AR",
+     "city": "Berisso",
+     "found": 0,
+     "updated": 0,
+     "osm": 40
+    },
+    {
+     "cc": "AR",
+     "city": "Presidencia Roque Sáenz Peña",
+     "found": 15,
+     "updated": 0,
+     "osm": 65
+    },
+    {
+     "cc": "ES",
+     "city": "Dos Hermanas",
+     "found": 21,
+     "updated": 0,
+     "osm": 50
+    },
+    {
+     "cc": "MX",
+     "city": "Rosarito",
+     "found": 3,
+     "updated": 0,
+     "osm": 77
+    },
+    {
+     "cc": "AR",
+     "city": "Libertad",
+     "found": 2,
+     "updated": 0,
+     "osm": 188
+    }
+   ],
+   "added": 79,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 3,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 13.4,
+   "total": 21071
+  },
   {
    "at": "2026-11-15T01:29:09.754Z",
    "cities": [
@@ -9617,83 +9719,6 @@
    "errors": [],
    "minutes": 15.5,
    "total": 17408
-  },
-  {
-   "at": "2026-11-11T20:57:21.604Z",
-   "cities": [
-    {
-     "cc": "ES",
-     "city": "Terrassa",
-     "found": 3,
-     "updated": 0,
-     "osm": 126
-    },
-    {
-     "cc": "MX",
-     "city": "Chilpancingo de los Bravo",
-     "found": 2,
-     "updated": 0,
-     "osm": 36
-    },
-    {
-     "cc": "MX",
-     "city": "Puerto Vallarta",
-     "found": 24,
-     "updated": 0,
-     "osm": 203
-    },
-    {
-     "cc": "PY",
-     "city": "Luque",
-     "found": 34,
-     "updated": 0,
-     "osm": 293
-    },
-    {
-     "cc": "MX",
-     "city": "Toluca",
-     "found": 199,
-     "updated": 9,
-     "osm": 925
-    },
-    {
-     "cc": "MX",
-     "city": "Silao",
-     "found": 5,
-     "updated": 0,
-     "osm": 25
-    },
-    {
-     "cc": "DO",
-     "city": "La Vega",
-     "found": 16,
-     "updated": 0,
-     "osm": 56
-    },
-    {
-     "cc": "VE",
-     "city": "Guanare",
-     "found": 7,
-     "updated": 0,
-     "osm": 19
-    },
-    {
-     "cc": "ES",
-     "city": "Cartagena",
-     "found": 48,
-     "updated": 0,
-     "osm": 100
-    }
-   ],
-   "added": 338,
-   "enriched": 0,
-   "photos": 12,
-   "contacts": 17,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 15,
-   "total": 17378
   }
  ]
 }
