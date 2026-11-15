@@ -7201,7 +7201,17 @@
   "AR|Presidencia Roque Sáenz Peña": "2026-11-15T03:16:41.997Z",
   "ES|n248815337": "2026-11-15T03:17:28.047Z",
   "MX|Rosarito": "2026-11-15T03:18:11.478Z",
-  "AR|Libertad": "2026-11-15T03:18:47.714Z"
+  "AR|Libertad": "2026-11-15T03:18:47.714Z",
+  "VE|n428184717": "2026-11-15T05:13:10.727Z",
+  "PY|n1763575232": "2026-11-15T05:13:45.221Z",
+  "CO|n703169538": "2026-11-15T05:14:12.181Z",
+  "ES|n30843230": "2026-11-15T05:14:39.628Z",
+  "AR|Burzaco": "2026-11-15T05:15:17.061Z",
+  "MX|Tepatitlán": "2026-11-15T05:16:08.108Z",
+  "AR|Zárate": "2026-11-15T05:16:44.326Z",
+  "DO|n252996038": "2026-11-15T05:22:50.000Z",
+  "AR|Río Grande": "2026-11-15T05:23:23.216Z",
+  "CO|n11177573513": "2026-11-15T05:28:06.125Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7291,6 +7301,90 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-15T05:12:24.764Z",
+   "cities": [
+    {
+     "cc": "VE",
+     "city": "San Juan de Los Morros",
+     "found": 12,
+     "updated": 0,
+     "osm": 38
+    },
+    {
+     "cc": "PY",
+     "city": "Itauguá",
+     "found": 2,
+     "updated": 0,
+     "osm": 4
+    },
+    {
+     "cc": "CO",
+     "city": "Magangué",
+     "found": 30,
+     "updated": 0,
+     "osm": 71
+    },
+    {
+     "cc": "ES",
+     "city": "Orense",
+     "found": 5,
+     "updated": 0,
+     "osm": 68
+    },
+    {
+     "cc": "AR",
+     "city": "Burzaco",
+     "found": 1,
+     "updated": 1,
+     "osm": 99
+    },
+    {
+     "cc": "MX",
+     "city": "Tepatitlán",
+     "found": 11,
+     "updated": 0,
+     "osm": 100
+    },
+    {
+     "cc": "AR",
+     "city": "Zárate",
+     "found": 11,
+     "updated": 0,
+     "osm": 40
+    },
+    {
+     "cc": "DO",
+     "city": "San Ignacio de Sabaneta",
+     "found": 4,
+     "updated": 0,
+     "osm": 8
+    },
+    {
+     "cc": "AR",
+     "city": "Río Grande",
+     "found": 7,
+     "updated": 0,
+     "osm": 39
+    },
+    {
+     "cc": "CO",
+     "city": "Chía",
+     "found": 0,
+     "updated": 0,
+     "osm": 34
+    }
+   ],
+   "added": 83,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 15.7,
+   "total": 21154
+  },
   {
    "at": "2026-11-15T03:05:38.627Z",
    "cities": [
@@ -9691,34 +9785,6 @@
    "errors": [],
    "minutes": 17.8,
    "total": 17636
-  },
-  {
-   "at": "2026-11-11T21:50:15.549Z",
-   "cities": [
-    {
-     "cc": "EC",
-     "city": "Manta",
-     "found": 18,
-     "updated": 0,
-     "osm": 55
-    },
-    {
-     "cc": "MX",
-     "city": "Tapachula",
-     "found": 12,
-     "updated": 0,
-     "osm": 44
-    }
-   ],
-   "added": 30,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 26,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 15.5,
-   "total": 17408
   }
  ]
 }
