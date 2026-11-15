@@ -7226,7 +7226,13 @@
   "ES|n181290810": "2026-11-15T09:11:39.564Z",
   "CO|n600829273": "2026-11-15T09:12:07.905Z",
   "CO|n323307684": "2026-11-15T09:12:45.104Z",
-  "MX|Tesistán": "2026-11-15T09:13:31.097Z"
+  "MX|Tesistán": "2026-11-15T09:13:31.097Z",
+  "PE|Talara": "2026-11-15T11:00:03.853Z",
+  "MX|Agua Prieta": "2026-11-15T11:06:04.266Z",
+  "CL|Hualpén": "2026-11-15T11:06:36.954Z",
+  "VE|n2610096215": "2026-11-15T11:07:05.619Z",
+  "ES|n259219046": "2026-11-15T11:07:39.661Z",
+  "CO|n703169290": "2026-11-15T11:13:48.203Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7316,6 +7322,62 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-15T10:59:36.407Z",
+   "cities": [
+    {
+     "cc": "PE",
+     "city": "Talara",
+     "found": 10,
+     "updated": 0,
+     "osm": 75
+    },
+    {
+     "cc": "MX",
+     "city": "Agua Prieta",
+     "found": 2,
+     "updated": 0,
+     "osm": 14
+    },
+    {
+     "cc": "CL",
+     "city": "Hualpén",
+     "found": 1,
+     "updated": 0,
+     "osm": 126
+    },
+    {
+     "cc": "VE",
+     "city": "Tumeremo",
+     "found": 0,
+     "updated": 0,
+     "osm": 1
+    },
+    {
+     "cc": "ES",
+     "city": "Guadalajara",
+     "found": 9,
+     "updated": 0,
+     "osm": 47
+    },
+    {
+     "cc": "CO",
+     "city": "Ocaña",
+     "found": 35,
+     "updated": 0,
+     "osm": 89
+    }
+   ],
+   "added": 57,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 3,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 14.3,
+   "total": 21342
+  },
   {
    "at": "2026-11-15T09:05:10.594Z",
    "cities": [
@@ -9648,55 +9710,6 @@
    "errors": [],
    "minutes": 16.9,
    "total": 18620
-  },
-  {
-   "at": "2026-11-12T03:08:23.774Z",
-   "cities": [
-    {
-     "cc": "BO",
-     "city": "Potosí",
-     "found": 25,
-     "updated": 0,
-     "osm": 73
-    },
-    {
-     "cc": "ES",
-     "city": "Elche",
-     "found": 8,
-     "updated": 0,
-     "osm": 72
-    },
-    {
-     "cc": "VE",
-     "city": "Tocuyito",
-     "found": 0,
-     "updated": 0,
-     "osm": 52
-    },
-    {
-     "cc": "HN",
-     "city": "La Ceiba",
-     "found": 17,
-     "updated": 0,
-     "osm": 49
-    },
-    {
-     "cc": "PE",
-     "city": "Huánuco",
-     "found": 10,
-     "updated": 0,
-     "osm": 169
-    }
-   ],
-   "added": 60,
-   "enriched": 0,
-   "photos": 1,
-   "contacts": 13,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 18.8,
-   "total": 18204
   }
  ]
 }
