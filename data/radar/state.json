@@ -7211,7 +7211,18 @@
   "AR|Zárate": "2026-11-15T05:16:44.326Z",
   "DO|n252996038": "2026-11-15T05:22:50.000Z",
   "AR|Río Grande": "2026-11-15T05:23:23.216Z",
-  "CO|n11177573513": "2026-11-15T05:28:06.125Z"
+  "CO|n11177573513": "2026-11-15T05:28:06.125Z",
+  "DO|n250447813": "2026-11-15T07:27:56.476Z",
+  "PE|Tumbes": "2026-11-15T07:28:42.974Z",
+  "MX|Ciudad Lerdo": "2026-11-15T07:29:26.157Z",
+  "VE|n2078247041": "2026-11-15T07:30:02.549Z",
+  "ES|n240357542": "2026-11-15T07:37:24.666Z",
+  "EC|n249423578": "2026-11-15T07:37:51.652Z",
+  "AR|Grand Bourg": "2026-11-15T07:38:29.108Z",
+  "MX|Ocotlán": "2026-11-15T07:39:05.856Z",
+  "HN|n303536229": "2026-11-15T07:39:48.364Z",
+  "ES|n2678375443": "2026-11-15T07:40:21.136Z",
+  "CO|n703208231": "2026-11-15T07:41:04.762Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7301,6 +7312,97 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-15T07:27:27.759Z",
+   "cities": [
+    {
+     "cc": "DO",
+     "city": "Moca",
+     "found": 9,
+     "updated": 0,
+     "osm": 38
+    },
+    {
+     "cc": "PE",
+     "city": "Tumbes",
+     "found": 19,
+     "updated": 0,
+     "osm": 96
+    },
+    {
+     "cc": "MX",
+     "city": "Ciudad Lerdo",
+     "found": 2,
+     "updated": 0,
+     "osm": 20
+    },
+    {
+     "cc": "VE",
+     "city": "Valle de La Pascua",
+     "found": 1,
+     "updated": 0,
+     "osm": 1
+    },
+    {
+     "cc": "ES",
+     "city": "Cáceres",
+     "found": 27,
+     "updated": 0,
+     "osm": 45
+    },
+    {
+     "cc": "EC",
+     "city": "Esmeraldas",
+     "found": 22,
+     "updated": 0,
+     "osm": 53
+    },
+    {
+     "cc": "AR",
+     "city": "Grand Bourg",
+     "found": 1,
+     "updated": 0,
+     "osm": 67
+    },
+    {
+     "cc": "MX",
+     "city": "Ocotlán",
+     "found": 9,
+     "updated": 0,
+     "osm": 76
+    },
+    {
+     "cc": "HN",
+     "city": "Danlí",
+     "found": 8,
+     "updated": 0,
+     "osm": 22
+    },
+    {
+     "cc": "ES",
+     "city": "San Fernando",
+     "found": 12,
+     "updated": 0,
+     "osm": 39
+    },
+    {
+     "cc": "CO",
+     "city": "Sabanalarga",
+     "found": 3,
+     "updated": 0,
+     "osm": 7
+    }
+   ],
+   "added": 113,
+   "enriched": 0,
+   "photos": 2,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 13.9,
+   "total": 21267
+  },
   {
    "at": "2026-11-15T05:12:24.764Z",
    "cities": [
@@ -9722,69 +9824,6 @@
    "errors": [],
    "minutes": 15.2,
    "total": 18144
-  },
-  {
-   "at": "2026-11-11T23:08:04.418Z",
-   "cities": [
-    {
-     "cc": "CL",
-     "city": "Concepción",
-     "found": 135,
-     "updated": 2,
-     "osm": 242
-    },
-    {
-     "cc": "DO",
-     "city": "San Pedro de Macorís",
-     "found": 6,
-     "updated": 0,
-     "osm": 25
-    },
-    {
-     "cc": "PE",
-     "city": "Ayacucho",
-     "found": 28,
-     "updated": 2,
-     "osm": 263
-    },
-    {
-     "cc": "BO",
-     "city": "Tarija",
-     "found": 27,
-     "updated": 0,
-     "osm": 176
-    },
-    {
-     "cc": "ES",
-     "city": "La Coruña",
-     "found": 25,
-     "updated": 0,
-     "osm": 123
-    },
-    {
-     "cc": "VE",
-     "city": "Turmero",
-     "found": 1,
-     "updated": 0,
-     "osm": 26
-    },
-    {
-     "cc": "MX",
-     "city": "Coatzacoalcos",
-     "found": 6,
-     "updated": 1,
-     "osm": 53
-    }
-   ],
-   "added": 228,
-   "enriched": 0,
-   "photos": 12,
-   "contacts": 19,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 17.8,
-   "total": 17636
   }
  ]
 }
