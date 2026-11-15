@@ -7238,7 +7238,9 @@
   "VE|n345808670": "2026-11-15T13:17:12.693Z",
   "PA|n247027425": "2026-11-15T13:23:34.349Z",
   "CL|Colina": "2026-11-15T13:24:05.137Z",
-  "VE|n373789724": "2026-11-15T13:24:34.414Z"
+  "VE|n373789724": "2026-11-15T13:24:34.414Z",
+  "MX|Tecomán": "2026-11-15T14:58:38.063Z",
+  "CO|n703194925": "2026-11-15T15:06:08.655Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7325,9 +7327,44 @@
    "n": 1,
    "at": "2026-11-14T19:17:34.309Z",
    "error": "Overpass 502"
+  },
+  "MX|Juchitán": {
+   "n": 1,
+   "at": "2026-11-15T15:17:09.335Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-15T14:58:02.006Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Tecomán",
+     "found": 8,
+     "updated": 0,
+     "osm": 102
+    },
+    {
+     "cc": "CO",
+     "city": "Caucasia",
+     "found": 7,
+     "updated": 0,
+     "osm": 29
+    }
+   ],
+   "added": 15,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "MX|Juchitán: The operation was aborted due to timeout"
+   ],
+   "minutes": 19.2,
+   "total": 21379
+  },
   {
    "at": "2026-11-15T13:14:31.029Z",
    "cities": [
@@ -9589,44 +9626,6 @@
    "errors": [],
    "minutes": 15.3,
    "total": 18640
-  },
-  {
-   "at": "2026-11-12T07:40:10.795Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "San Juan del Río",
-     "found": 4,
-     "updated": 0,
-     "osm": 40
-    },
-    {
-     "cc": "PE",
-     "city": "Tarapoto",
-     "found": 4,
-     "updated": 0,
-     "osm": 89
-    },
-    {
-     "cc": "MX",
-     "city": "Chalco de Díaz Covarrubias",
-     "found": 0,
-     "updated": 0,
-     "osm": 59
-    }
-   ],
-   "added": 8,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 13,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "MX|San Luis Río Colorado: The operation was aborted due to timeout",
-    "MX|Jiutepec: sin tiempo en esta corrida"
-   ],
-   "minutes": 19.3,
-   "total": 18628
   }
  ]
 }

@@ -433033,5 +433033,311 @@
   "src": "osm",
   "osm": "w1531217973",
   "found": "2026-11-15"
+ },
+ {
+  "id": "tecoman-bachillerato-tecnologico-academia-comercial-solis",
+  "name": "Bachillerato Tecnologico Academia Comercial Solis",
+  "city": "Tecomán",
+  "country": "México",
+  "lat": 18.912567,
+  "lng": -103.871137,
+  "addr": "Reforma Num. 35",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802373120",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "tecoman-colegio-britanico-del-valle-a-c",
+  "name": "Colegio Britanico Del Valle, A.C.",
+  "city": "Tecomán",
+  "country": "México",
+  "lat": 18.916859,
+  "lng": -103.870455,
+  "addr": "Dr. Miguel Galindo Num. 126",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802374412",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "tecoman-colegio-victoriano-guzman",
+  "name": "Colegio Victoriano Guzman",
+  "city": "Tecomán",
+  "country": "México",
+  "lat": 18.925938,
+  "lng": -103.883444,
+  "addr": "Jupiter Num. 85",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802374447",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "tecoman-instituto-benito-juarez",
+  "name": "Instituto Benito Juarez",
+  "city": "Tecomán",
+  "country": "México",
+  "lat": 18.908049,
+  "lng": -103.871031,
+  "addr": "Calle Niños Héroes 130",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802375721",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "tecoman-instituto-superior-de-educacion-normal-del-estado-de-colima-profr-greg",
+  "name": "Instituto Superior de Educacion Normal Del Estado de Colima Profr. Gregorio Torres Quintero",
+  "city": "Tecomán",
+  "country": "México",
+  "lat": 18.903956,
+  "lng": -103.887542,
+  "addr": "Rio Usumacinta S/N SN",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802375755",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "tecoman-instituto-tecomense-de-estudios-superiores-lic-benito-juarez",
+  "name": "Instituto Tecomense de Estudios Superiores Lic. Benito Juarez",
+  "city": "Tecomán",
+  "country": "México",
+  "lat": 18.908061,
+  "lng": -103.870947,
+  "addr": "Ni�os Heroes Num. 130",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802376162",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "tecoman-instituto-autonomo-de-educacion-de-tecoman-a-c-iaetac",
+  "name": "Instituto Autónomo de Educación de Tecomán A.C. (IAETAC)",
+  "city": "Tecomán",
+  "country": "México",
+  "lat": 18.895895,
+  "lng": -103.863744,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w492666532",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "tecoman-universidad-de-colima-campus-tecoman",
+  "name": "Universidad de Colima Campus Tecomán",
+  "city": "Tecomán",
+  "country": "México",
+  "lat": 18.950045,
+  "lng": -103.898163,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w634424356",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "caucasia-liceo-caucasia",
+  "name": "Liceo Caucasía",
+  "city": "Caucasia",
+  "country": "Colombia",
+  "lat": 7.990583,
+  "lng": -75.202433,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5471201222",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "caucasia-universidad-de-antioquia",
+  "name": "Universidad de Antioquia",
+  "city": "Caucasia",
+  "country": "Colombia",
+  "lat": 7.991706,
+  "lng": -75.201141,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5518481856",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "caucasia-jardin-infantil-mundo-feliz-caucasia",
+  "name": "Jardín Infantil Mundo Feliz Caucasia",
+  "city": "Caucasia",
+  "country": "Colombia",
+  "lat": 7.990245,
+  "lng": -75.195005,
+  "addr": "",
+  "phone": "+57 604 5248407",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369845",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "caucasia-institucion-educativa-esperanza-amor-y-paz",
+  "name": "Institución Educativa Esperanza Amor y Paz",
+  "city": "Caucasia",
+  "country": "Colombia",
+  "lat": 7.979159,
+  "lng": -75.20216,
+  "addr": "",
+  "phone": "+57 604 4565263",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369846",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "caucasia-jardin-infantil-amiguitos-del-bajo-cauca",
+  "name": "Jardín Infantil Amiguitos del Bajo Cauca",
+  "city": "Caucasia",
+  "country": "Colombia",
+  "lat": 7.978611,
+  "lng": -75.1975,
+  "addr": "",
+  "phone": "+57 604 8392180",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369847",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "caucasia-centro-educativo-los-sauces",
+  "name": "Centro Educativo Los Sauces",
+  "city": "Caucasia",
+  "country": "Colombia",
+  "lat": 7.978889,
+  "lng": -75.200833,
+  "addr": "",
+  "phone": "+57 604 8393563",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369848",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "caucasia-colegio-militar-centro-educativo-el-tesoro-del-saber",
+  "name": "Colegio Militar Centro Educativo El Tesoro del Saber",
+  "city": "Caucasia",
+  "country": "Colombia",
+  "lat": 7.9821,
+  "lng": -75.20516,
+  "addr": "Calle 11A Carrera 23 B",
+  "phone": "",
+  "web": "",
+  "email": "c.e.colegiomilitareltesoro@gmail.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n14062344702",
+  "found": "2026-11-15"
  }
 ]
