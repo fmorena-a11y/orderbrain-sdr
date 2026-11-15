@@ -7243,7 +7243,13 @@
   "CO|n703194925": "2026-11-15T15:06:08.655Z",
   "PE|Andahuaylas": "2026-11-15T16:57:41.844Z",
   "PA|n331148078": "2026-11-15T17:06:45.437Z",
-  "CO|n703168370": "2026-11-15T17:13:01.019Z"
+  "CO|n703168370": "2026-11-15T17:13:01.019Z",
+  "AR|General Rodríguez": "2026-11-15T19:05:44.569Z",
+  "VE|n2554544643": "2026-11-15T19:06:23.966Z",
+  "ES|n289031151": "2026-11-15T19:12:37.525Z",
+  "MX|Zitácuaro": "2026-11-15T19:14:39.210Z",
+  "AR|Campana": "2026-11-15T19:16:03.629Z",
+  "MX|Atlixco": "2026-11-15T19:22:07.640Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7338,6 +7344,62 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-15T19:05:14.623Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "General Rodríguez",
+     "found": 7,
+     "updated": 0,
+     "osm": 38
+    },
+    {
+     "cc": "VE",
+     "city": "Rubio",
+     "found": 5,
+     "updated": 0,
+     "osm": 13
+    },
+    {
+     "cc": "ES",
+     "city": "Melilla",
+     "found": 10,
+     "updated": 0,
+     "osm": 33
+    },
+    {
+     "cc": "MX",
+     "city": "Zitácuaro",
+     "found": 3,
+     "updated": 0,
+     "osm": 27
+    },
+    {
+     "cc": "AR",
+     "city": "Campana",
+     "found": 4,
+     "updated": 0,
+     "osm": 15
+    },
+    {
+     "cc": "MX",
+     "city": "Atlixco",
+     "found": 0,
+     "updated": 0,
+     "osm": 5
+    }
+   ],
+   "added": 29,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 17,
+   "total": 21449
+  },
   {
    "at": "2026-11-15T16:57:13.565Z",
    "cities": [
@@ -9601,41 +9663,6 @@
    "errors": [],
    "minutes": 19.3,
    "total": 18951
-  },
-  {
-   "at": "2026-11-12T11:19:03.327Z",
-   "cities": [
-    {
-     "cc": "ES",
-     "city": "Burgos",
-     "found": 45,
-     "updated": 0,
-     "osm": 101
-    },
-    {
-     "cc": "NI",
-     "city": "León",
-     "found": 19,
-     "updated": 0,
-     "osm": 43
-    },
-    {
-     "cc": "VE",
-     "city": "La Victoria",
-     "found": 4,
-     "updated": 0,
-     "osm": 36
-    }
-   ],
-   "added": 68,
-   "enriched": 0,
-   "photos": 2,
-   "contacts": 27,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 17.7,
-   "total": 18708
   }
  ]
 }

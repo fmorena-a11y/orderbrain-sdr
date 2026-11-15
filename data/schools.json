@@ -434169,5 +434169,600 @@
   "src": "osm",
   "osm": "n12479787405",
   "found": "2026-11-15"
+ },
+ {
+  "id": "general-rodriguez-instituto-general-martin-rodriguez",
+  "name": "Instituto General Martin Rodriguez",
+  "city": "General Rodríguez",
+  "country": "Argentina",
+  "lat": -34.610525,
+  "lng": -58.953702,
+  "addr": "9 de Julio 181",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n3248040307",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "general-rodriguez-instituto-san-jose",
+  "name": "Instituto San José",
+  "city": "General Rodríguez",
+  "country": "Argentina",
+  "lat": -34.610959,
+  "lng": -58.951809,
+  "addr": "Avenida 25 de Mayo 178",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5286657721",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "general-rodriguez-instituto-santa-clara-de-asis",
+  "name": "Instituto Santa Clara De Asis",
+  "city": "General Rodríguez",
+  "country": "Argentina",
+  "lat": -34.623731,
+  "lng": -58.922589,
+  "addr": "José Hernández 528",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5844706303",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "general-rodriguez-instituto-nueva-escuela-del-sur",
+  "name": "Instituto Nueva Escuela del Sur",
+  "city": "General Rodríguez",
+  "country": "Argentina",
+  "lat": -34.607752,
+  "lng": -58.961308,
+  "addr": "Avenida Eva Perón",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11215890384",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "general-rodriguez-escuela-bartolome-mitre-day-school",
+  "name": "Escuela Bartolomé Mitre Day School",
+  "city": "General Rodríguez",
+  "country": "Argentina",
+  "lat": -34.597834,
+  "lng": -58.91705,
+  "addr": "Guido y Spano 1500",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n13228542522",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "general-rodriguez-escuela-nuestra-senora-de-lujan",
+  "name": "Escuela Nuestra Señora De Lujan",
+  "city": "General Rodríguez",
+  "country": "Argentina",
+  "lat": -34.604861,
+  "lng": -58.989725,
+  "addr": "Formosa 520",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n13244941084",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "general-rodriguez-colegio-pac",
+  "name": "Colegio PAC",
+  "city": "General Rodríguez",
+  "country": "Argentina",
+  "lat": -34.601568,
+  "lng": -58.942326,
+  "addr": "French",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n14123893885",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "rubio-liceo-carlos-rangel-lamus",
+  "name": "Liceo Carlos Rangel Lamus",
+  "city": "Rubio",
+  "country": "Venezuela",
+  "lat": 7.705184,
+  "lng": -72.355392,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12843122607",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "rubio-u-e-colegio-nuestra-senora-del-rosario",
+  "name": "U.E. Colegio Nuestra Señora del Rosario",
+  "city": "Rubio",
+  "country": "Venezuela",
+  "lat": 7.70861,
+  "lng": -72.359555,
+  "addr": "calle 8",
+  "phone": "+58 276 7623742",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12847717827",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "rubio-universidad-bolivariana-de-venezuela",
+  "name": "Universidad Bolivariana de Venezuela",
+  "city": "Rubio",
+  "country": "Venezuela",
+  "lat": 7.699545,
+  "lng": -72.356916,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12847722771",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "rubio-u-e-colegio-los-andes",
+  "name": "U.E. Colegio Los Andes",
+  "city": "Rubio",
+  "country": "Venezuela",
+  "lat": 7.708761,
+  "lng": -72.358056,
+  "addr": "calle 8",
+  "phone": "+58 276 7620455",
+  "web": "https://plataformauecla.com/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12847756245",
+  "found": "2026-11-15",
+  "img": "",
+  "webAt": "2026-11-15"
+ },
+ {
+  "id": "rubio-colegio-luis-martin-vivas",
+  "name": "Colegio Luis Martín Vivas",
+  "city": "Rubio",
+  "country": "Venezuela",
+  "lat": 7.699049,
+  "lng": -72.353357,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12926793235",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "melilla-colegio-de-educacion-infantil-y-primaria-espana",
+  "name": "Colegio de Educación Infantil y Primaria España",
+  "city": "Melilla",
+  "country": "España",
+  "lat": 35.294963,
+  "lng": -2.93979,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w302022979",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "melilla-centro-educativo-residencial-de-menores-fuerte-de-la-purisima",
+  "name": "Centro Educativo Residencial de Menores \"Fuerte de la Purísima\"",
+  "city": "Melilla",
+  "country": "España",
+  "lat": 35.283475,
+  "lng": -2.965005,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w304488620",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "melilla-colegio-de-educacion-infantil-y-primaria-de-melilla-pedro-de-estopinan",
+  "name": "Colegio de Educación Infantil y Primaria de Melilla \"Pedro de Estopiñán\"",
+  "city": "Melilla",
+  "country": "España",
+  "lat": 35.272572,
+  "lng": -2.948971,
+  "addr": "Ctra. de Hardú 5",
+  "phone": "+34 952674919",
+  "web": "http://www.colegioaltosdelreal.com",
+  "email": "direccion@colegioaltosdelreal.com",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w304506212",
+  "found": "2026-11-15",
+  "img": "",
+  "webAt": "2026-11-15"
+ },
+ {
+  "id": "melilla-colegio-de-educacion-infantil-y-primaria-enrique-soler",
+  "name": "Colegio de Educación Infantil y Primaria Enrique Soler",
+  "city": "Melilla",
+  "country": "España",
+  "lat": 35.278666,
+  "lng": -2.948611,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w304507406",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "melilla-instituto-de-educacion-segundaria-enrique-nieto",
+  "name": "Instituto de Educación Segundaria Enrique Nieto",
+  "city": "Melilla",
+  "country": "España",
+  "lat": 35.286117,
+  "lng": -2.951351,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w304530252",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "melilla-universidad-de-granada-campus-de-melilla",
+  "name": "Universidad de Granada Campus de Melilla",
+  "city": "Melilla",
+  "country": "España",
+  "lat": 35.289837,
+  "lng": -2.952462,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w304536456",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "melilla-colegio-de-educacion-infantil-y-primaria-pintor-eduardo-morillas",
+  "name": "Colegio de Educación Infantil y Primaria Pintor Eduardo Morillas",
+  "city": "Melilla",
+  "country": "España",
+  "lat": 35.28636,
+  "lng": -2.952577,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w304643509",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "melilla-colegio-de-educacion-infantil-y-primaria-anselmo-pardo",
+  "name": "Colegio de Educación Infantil y Primaria Anselmo Pardo",
+  "city": "Melilla",
+  "country": "España",
+  "lat": 35.285598,
+  "lng": -2.952049,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w304643676",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "melilla-colegio-la-salle-el-carmen",
+  "name": "Colegio \"La Salle El Carmen\"",
+  "city": "Melilla",
+  "country": "España",
+  "lat": 35.293051,
+  "lng": -2.945538,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.lasallemelilla.es/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w304659788",
+  "found": "2026-11-15",
+  "img": "",
+  "webAt": "2026-11-15"
+ },
+ {
+  "id": "melilla-colegio-de-educacion-infantil-y-primariavelazquez",
+  "name": "Colegio de Educación Infantil y PrimariaVelázquez",
+  "city": "Melilla",
+  "country": "España",
+  "lat": 35.288153,
+  "lng": -2.944251,
+  "addr": "Calle Músico Granados 2",
+  "phone": "+34 952 674502",
+  "web": "http://centros4.pntic.mec.es/cp.velazquez1/",
+  "email": "ceip.velazquez@mecmelilla.es",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w304961385",
+  "found": "2026-11-15",
+  "imgTry": "2026-11-15"
+ },
+ {
+  "id": "zitacuaro-universidad-contemporanea-de-las-americas-plantel-zitacuaro",
+  "name": "Universidad Contemporánea De Las Américas \"Plantel Zitácuaro\"",
+  "city": "Zitácuaro",
+  "country": "México",
+  "lat": 19.427738,
+  "lng": -100.367566,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.facebook.com/universidad.zitacuaro?fref=ts",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w320330518",
+  "found": "2026-11-15",
+  "img": "https://scontent-ord5-2.xx.fbcdn.net/v/t39.30808-1/472569128_8995237557227071_8840923238722430235_n.jpg?stp=dst-jpg_tt6&cstp=mx960x960&ctp=s720x720&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=3ab345&_nc_ohc=IFiGs3gqYs8Q7kNvwH1BP7U&_nc_oc=AdobeU5VXR-R_KiJeXWxyDIkiZduqCGH9mYRHTgTeHaL5gQ5aVhoEXhkrbweILfQQFk&_nc_zt=24&_nc_ht=scontent-ord5-2.xx&_nc_gid=hx8FaW_WemgOdjhA4qkETQ&_nc_ss=7c289&oh=00_AQSsIfN4G6eYGySNyc5uscgmyvqg2iYLv0SYFni5FgCesw&oe=6AFFBD72",
+  "webAt": "2026-11-15"
+ },
+ {
+  "id": "zitacuaro-universidad-pedagogica-nacional-unidad-164-zitacuaro",
+  "name": "Universidad Pedagógica Nacional Unidad 164 Zitácuaro",
+  "city": "Zitácuaro",
+  "country": "México",
+  "lat": 19.455053,
+  "lng": -100.340218,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w484624578",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "zitacuaro-instituto-leonardo-da-vinci",
+  "name": "Instituto Leonardo Da Vinci",
+  "city": "Zitácuaro",
+  "country": "México",
+  "lat": 19.434773,
+  "lng": -100.321559,
+  "addr": "Tecnologico/Ex-hacienda Manzanillos",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1088617530",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "campana-colegio-de-abogados",
+  "name": "Colegio de Abogados",
+  "city": "Campana",
+  "country": "Argentina",
+  "lat": -34.160348,
+  "lng": -58.965662,
+  "addr": "French",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4359956197",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "campana-instituto-formacion-docente",
+  "name": "Instituto Formacion Docente",
+  "city": "Campana",
+  "country": "Argentina",
+  "lat": -34.163952,
+  "lng": -58.959766,
+  "addr": "Avenida Rivadavia",
+  "phone": "",
+  "web": "https://www.instituto15.com.ar/moodle/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w257805758",
+  "found": "2026-11-15",
+  "imgTry": "2026-11-15"
+ },
+ {
+  "id": "campana-colegio-santo-tomas-de-aquino",
+  "name": "Colegio Santo Tomás de Aquino",
+  "city": "Campana",
+  "country": "Argentina",
+  "lat": -34.175915,
+  "lng": -58.949578,
+  "addr": "Avenida Teniente General Juan Domingo Perón",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w281473674",
+  "found": "2026-11-15"
+ },
+ {
+  "id": "campana-colegio-rogacionista-padre-anibal-di-francia",
+  "name": "Colegio Rogacionista Padre Aníbal Di Francia",
+  "city": "Campana",
+  "country": "Argentina",
+  "lat": -34.174197,
+  "lng": -58.970871,
+  "addr": "Las Heras 965",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w407283853",
+  "found": "2026-11-15"
  }
 ]
