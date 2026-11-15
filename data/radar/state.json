@@ -7222,7 +7222,11 @@
   "MX|Ocotlán": "2026-11-15T07:39:05.856Z",
   "HN|n303536229": "2026-11-15T07:39:48.364Z",
   "ES|n2678375443": "2026-11-15T07:40:21.136Z",
-  "CO|n703208231": "2026-11-15T07:41:04.762Z"
+  "CO|n703208231": "2026-11-15T07:41:04.762Z",
+  "ES|n181290810": "2026-11-15T09:11:39.564Z",
+  "CO|n600829273": "2026-11-15T09:12:07.905Z",
+  "CO|n323307684": "2026-11-15T09:12:45.104Z",
+  "MX|Tesistán": "2026-11-15T09:13:31.097Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7312,6 +7316,50 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-15T09:05:10.594Z",
+   "cities": [
+    {
+     "cc": "ES",
+     "city": "Lugo",
+     "found": 2,
+     "updated": 0,
+     "osm": 46
+    },
+    {
+     "cc": "CO",
+     "city": "Tierralta",
+     "found": 11,
+     "updated": 0,
+     "osm": 37
+    },
+    {
+     "cc": "CO",
+     "city": "Candelaria",
+     "found": 2,
+     "updated": 0,
+     "osm": 10
+    },
+    {
+     "cc": "MX",
+     "city": "Tesistán",
+     "found": 3,
+     "updated": 0,
+     "osm": 62
+    }
+   ],
+   "added": 18,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "PE|Talara: sin tiempo en esta corrida"
+   ],
+   "minutes": 19.1,
+   "total": 21285
+  },
   {
    "at": "2026-11-15T07:27:27.759Z",
    "cities": [
@@ -9649,181 +9697,6 @@
    "errors": [],
    "minutes": 18.8,
    "total": 18204
-  },
-  {
-   "at": "2026-11-12T01:33:56.701Z",
-   "cities": [
-    {
-     "cc": "VE",
-     "city": "Coro",
-     "found": 1,
-     "updated": 0,
-     "osm": 6
-    },
-    {
-     "cc": "ES",
-     "city": "Pamplona",
-     "found": 30,
-     "updated": 0,
-     "osm": 122
-    },
-    {
-     "cc": "AR",
-     "city": "Gualeguaychú",
-     "found": 15,
-     "updated": 0,
-     "osm": 71
-    },
-    {
-     "cc": "VE",
-     "city": "Guatire",
-     "found": 1,
-     "updated": 0,
-     "osm": 24
-    },
-    {
-     "cc": "VE",
-     "city": "Puerto Cabello",
-     "found": 27,
-     "updated": 0,
-     "osm": 60
-    },
-    {
-     "cc": "MX",
-     "city": "Buenavista",
-     "found": 0,
-     "updated": 0,
-     "osm": 177
-    },
-    {
-     "cc": "CL",
-     "city": "Talca",
-     "found": 67,
-     "updated": 0,
-     "osm": 154
-    },
-    {
-     "cc": "VE",
-     "city": "Acarigua",
-     "found": 9,
-     "updated": 0,
-     "osm": 27
-    },
-    {
-     "cc": "CL",
-     "city": "Coquimbo",
-     "found": 61,
-     "updated": 0,
-     "osm": 125
-    },
-    {
-     "cc": "AR",
-     "city": "San Luis",
-     "found": 5,
-     "updated": 0,
-     "osm": 52
-    },
-    {
-     "cc": "ES",
-     "city": "Sabadell",
-     "found": 1,
-     "updated": 0,
-     "osm": 230
-    },
-    {
-     "cc": "MX",
-     "city": "Cabo San Lucas",
-     "found": 6,
-     "updated": 1,
-     "osm": 33
-    },
-    {
-     "cc": "ES",
-     "city": "Alcalá de Henares",
-     "found": 34,
-     "updated": 0,
-     "osm": 141
-    },
-    {
-     "cc": "CL",
-     "city": "Arica",
-     "found": 54,
-     "updated": 1,
-     "osm": 118
-    },
-    {
-     "cc": "VE",
-     "city": "Calabozo",
-     "found": 9,
-     "updated": 0,
-     "osm": 38
-    },
-    {
-     "cc": "ES",
-     "city": "Vigo",
-     "found": 34,
-     "updated": 0,
-     "osm": 173
-    },
-    {
-     "cc": "PE",
-     "city": "Cajamarca",
-     "found": 14,
-     "updated": 0,
-     "osm": 211
-    },
-    {
-     "cc": "AR",
-     "city": "Comodoro Rivadavia",
-     "found": 5,
-     "updated": 0,
-     "osm": 48
-    },
-    {
-     "cc": "ES",
-     "city": "Móstoles",
-     "found": 0,
-     "updated": 0,
-     "osm": 288
-    },
-    {
-     "cc": "CO",
-     "city": "Barrancabermeja",
-     "found": 96,
-     "updated": 4,
-     "osm": 183
-    },
-    {
-     "cc": "CO",
-     "city": "San Luis de Palenque",
-     "found": 3,
-     "updated": 0,
-     "osm": 10
-    },
-    {
-     "cc": "CO",
-     "city": "Tunja",
-     "found": 21,
-     "updated": 1,
-     "osm": 57
-    },
-    {
-     "cc": "CO",
-     "city": "Tuluá",
-     "found": 15,
-     "updated": 0,
-     "osm": 62
-    }
-   ],
-   "added": 508,
-   "enriched": 0,
-   "photos": 7,
-   "contacts": 25,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 15.2,
-   "total": 18144
   }
  ]
 }
