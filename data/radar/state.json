@@ -7256,7 +7256,19 @@
   "HN|n13234275683": "2026-11-15T20:58:14.904Z",
   "DO|n871357842": "2026-11-15T21:06:16.523Z",
   "ES|n308218525": "2026-11-15T21:07:00.567Z",
-  "PY|n6489770653": "2026-11-15T21:07:29.690Z"
+  "PY|n6489770653": "2026-11-15T21:07:29.690Z",
+  "CL|Chiguayante": "2026-11-15T22:55:08.213Z",
+  "ES|n1470838825": "2026-11-15T22:55:46.977Z",
+  "VE|n416824261": "2026-11-15T22:56:38.013Z",
+  "HN|n571412882": "2026-11-15T22:57:05.682Z",
+  "AR|Reconquista": "2026-11-15T22:57:45.402Z",
+  "MX|San Miguel de Cozumel": "2026-11-15T22:58:16.927Z",
+  "ES|n1470838287": "2026-11-15T22:58:50.878Z",
+  "UY|Rivera": "2026-11-15T22:59:20.863Z",
+  "MX|Linares": "2026-11-15T23:00:04.733Z",
+  "DO|n3501325647": "2026-11-15T23:01:37.113Z",
+  "VE|n5366584591": "2026-11-15T23:06:36.582Z",
+  "MX|Los Reyes Acaquilpan": "2026-11-15T23:10:33.268Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7351,6 +7363,104 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-15T22:54:36.449Z",
+   "cities": [
+    {
+     "cc": "CL",
+     "city": "Chiguayante",
+     "found": 20,
+     "updated": 0,
+     "osm": 35
+    },
+    {
+     "cc": "ES",
+     "city": "Sant Boi de Llobregat",
+     "found": 0,
+     "updated": 0,
+     "osm": 144
+    },
+    {
+     "cc": "VE",
+     "city": "San José de Guanipa",
+     "found": 4,
+     "updated": 0,
+     "osm": 22
+    },
+    {
+     "cc": "HN",
+     "city": "Yojoa",
+     "found": 2,
+     "updated": 0,
+     "osm": 3
+    },
+    {
+     "cc": "AR",
+     "city": "Reconquista",
+     "found": 8,
+     "updated": 0,
+     "osm": 47
+    },
+    {
+     "cc": "MX",
+     "city": "San Miguel de Cozumel",
+     "found": 2,
+     "updated": 0,
+     "osm": 12
+    },
+    {
+     "cc": "ES",
+     "city": "Fuengirola",
+     "found": 17,
+     "updated": 0,
+     "osm": 34
+    },
+    {
+     "cc": "UY",
+     "city": "Rivera",
+     "found": 2,
+     "updated": 0,
+     "osm": 59
+    },
+    {
+     "cc": "MX",
+     "city": "Linares",
+     "found": 6,
+     "updated": 0,
+     "osm": 30
+    },
+    {
+     "cc": "DO",
+     "city": "La Caleta",
+     "found": 1,
+     "updated": 0,
+     "osm": 8
+    },
+    {
+     "cc": "VE",
+     "city": "Chivacoa",
+     "found": 3,
+     "updated": 0,
+     "osm": 7
+    },
+    {
+     "cc": "MX",
+     "city": "Los Reyes Acaquilpan",
+     "found": 0,
+     "updated": 0,
+     "osm": 70
+    }
+   ],
+   "added": 65,
+   "enriched": 0,
+   "photos": 4,
+   "contacts": 2,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 16.6,
+   "total": 21589
+  },
   {
    "at": "2026-11-15T20:56:08.541Z",
    "cities": [
@@ -9642,43 +9752,6 @@
    ],
    "minutes": 17.4,
    "total": 19071
-  },
-  {
-   "at": "2026-11-12T15:14:13.036Z",
-   "cities": [
-    {
-     "cc": "CO",
-     "city": "Florencia",
-     "found": 42,
-     "updated": 0,
-     "osm": 99
-    },
-    {
-     "cc": "AR",
-     "city": "Berazategui",
-     "found": 6,
-     "updated": 0,
-     "osm": 171
-    },
-    {
-     "cc": "ES",
-     "city": "Albacete",
-     "found": 25,
-     "updated": 0,
-     "osm": 123
-    }
-   ],
-   "added": 73,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "SV|n4113164339: The operation was aborted due to timeout"
-   ],
-   "minutes": 19.3,
-   "total": 19024
   }
  ]
 }
