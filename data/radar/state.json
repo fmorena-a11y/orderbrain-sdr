@@ -7177,7 +7177,20 @@
   "MX|Texcoco de Mora": "2026-11-14T23:00:11.580Z",
   "CL|Alto Hospicio": "2026-11-14T23:00:50.370Z",
   "VE|n3630168531": "2026-11-14T23:01:29.831Z",
-  "MX|Temixco": "2026-11-14T23:08:59.477Z"
+  "MX|Temixco": "2026-11-14T23:08:59.477Z",
+  "ES|n30894545": "2026-11-15T01:29:45.107Z",
+  "AR|Pergamino": "2026-11-15T01:30:14.720Z",
+  "AR|Ituzaingó": "2026-11-15T01:33:39.746Z",
+  "DO|n250651186": "2026-11-15T01:36:22.491Z",
+  "MX|Tuxtepec": "2026-11-15T01:37:03.467Z",
+  "CO|n703168803": "2026-11-15T01:37:46.550Z",
+  "VE|n264393689": "2026-11-15T01:38:21.563Z",
+  "AR|Olavarría": "2026-11-15T01:39:02.279Z",
+  "NI|n175683474": "2026-11-15T01:39:41.942Z",
+  "MX|Tepexpan": "2026-11-15T01:40:30.900Z",
+  "MX|Apatzingán": "2026-11-15T01:41:08.532Z",
+  "MX|Cholula": "2026-11-15T01:41:49.385Z",
+  "AR|Puerto Madryn": "2026-11-15T01:42:45.161Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7267,6 +7280,111 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-15T01:29:09.754Z",
+   "cities": [
+    {
+     "cc": "ES",
+     "city": "Gerona",
+     "found": 4,
+     "updated": 0,
+     "osm": 85
+    },
+    {
+     "cc": "AR",
+     "city": "Pergamino",
+     "found": 7,
+     "updated": 0,
+     "osm": 41
+    },
+    {
+     "cc": "AR",
+     "city": "Ituzaingó",
+     "found": 2,
+     "updated": 0,
+     "osm": 151
+    },
+    {
+     "cc": "DO",
+     "city": "San Fernando de Monte Cristi",
+     "found": 2,
+     "updated": 0,
+     "osm": 3
+    },
+    {
+     "cc": "MX",
+     "city": "Tuxtepec",
+     "found": 0,
+     "updated": 0,
+     "osm": 8
+    },
+    {
+     "cc": "CO",
+     "city": "Zipaquirá",
+     "found": 6,
+     "updated": 0,
+     "osm": 34
+    },
+    {
+     "cc": "VE",
+     "city": "Porlamar",
+     "found": 8,
+     "updated": 0,
+     "osm": 25
+    },
+    {
+     "cc": "AR",
+     "city": "Olavarría",
+     "found": 8,
+     "updated": 2,
+     "osm": 62
+    },
+    {
+     "cc": "NI",
+     "city": "Granada",
+     "found": 14,
+     "updated": 0,
+     "osm": 43
+    },
+    {
+     "cc": "MX",
+     "city": "Tepexpan",
+     "found": 0,
+     "updated": 0,
+     "osm": 28
+    },
+    {
+     "cc": "MX",
+     "city": "Apatzingán",
+     "found": 3,
+     "updated": 0,
+     "osm": 20
+    },
+    {
+     "cc": "MX",
+     "city": "Cholula",
+     "found": 0,
+     "updated": 0,
+     "osm": 53
+    },
+    {
+     "cc": "AR",
+     "city": "Puerto Madryn",
+     "found": 1,
+     "updated": 0,
+     "osm": 37
+    }
+   ],
+   "added": 55,
+   "enriched": 0,
+   "photos": 2,
+   "contacts": 2,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 13.8,
+   "total": 20992
+  },
   {
    "at": "2026-11-14T22:53:07.470Z",
    "cities": [
@@ -9576,29 +9694,6 @@
    "errors": [],
    "minutes": 15,
    "total": 17378
-  },
-  {
-   "at": "2026-11-11T19:19:37.682Z",
-   "cities": [
-    {
-     "cc": "ES",
-     "city": "Granada",
-     "found": 58,
-     "updated": 0,
-     "osm": 225
-    }
-   ],
-   "added": 58,
-   "enriched": 0,
-   "photos": 11,
-   "contacts": 21,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "DO|n250651467: The operation was aborted due to timeout"
-   ],
-   "minutes": 16.9,
-   "total": 17040
   }
  ]
 }
