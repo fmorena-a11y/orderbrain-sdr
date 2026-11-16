@@ -34,6 +34,7 @@ import { mountAccounts } from "./lib/accounts-api.js";
 import { mountBases } from "./lib/bases-api.js";
 import { mountInbound } from "./lib/inbound-api.js";
 import { mountDeals } from "./lib/deals-api.js";
+import { sheetsDirect, createSheet } from "./lib/sheets-export.js";
 
 const app = express();
 const escHtml = v => String(v).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -57,7 +58,8 @@ else if (!process.env.PIPEDRIVE_API_TOKEN) console.warn("⚠ Falta PIPEDRIVE_API
 if (!ai.aiEnabled()) console.warn("⚠ Falta ANTHROPIC_API_KEY: el asistente, los briefs y el ordenado de notas quedan apagados.");
 
 app.set("trust proxy", 1);
-app.use(express.json({ limit: "200kb" }));
+// JSON de 200 kb; la tabla que el asistente lleva a Google Sheets puede ser más grande (lib/sheets-export.js topa filas)
+{ const json = express.json({ limit: "200kb" }), big = express.json({ limit: "4mb" }); app.use((req, res, next) => (req.path === "/api/sheets/export" ? big : json)(req, res, next)); }
 // lo que no pasa del lector de JSON también se contesta en JSON (no con la página de error de Express)
 app.use((err, req, res, next) => err?.type === "entity.too.large" ? res.status(413).json({ error: "Es demasiado para mandar de una vez." })
   : err?.type === "entity.parse.failed" ? res.status(400).json({ error: "No entendí lo que mandó el navegador." }) : next(err));
@@ -1097,6 +1099,10 @@ app.post("/api/chat", auth, wrap(async (req, res) => {
   if (!messages.length) return res.status(400).json({ error: "Mensaje vacío" });
   res.json(await ai.chat({ user: await liveUser(req.session.user), messages, focus: byId.has(req.body.focus) ? req.body.focus : null, tz: req.tz }));
 }));
+// tablas del asistente → hoja de Google Sheets directo. Apagado mientras no esté el cliente OAuth de Google y la persona no
+// haya conectado su Google con drive.file: el panel copia la tabla y abre sheets.new (lib/sheets-export.js)
+app.get("/api/sheets/status", auth, wrap(async (req, res) => res.json({ direct: await sheetsDirect(req.session.user.email) })));
+app.post("/api/sheets/export", auth, wrap(async (req, res) => res.json(await createSheet(req.session.user.email, req.body?.table))));
 app.post("/api/proposals/confirm", auth, wrap(async (req, res) => {
   const token = String(req.body?.id || "");
   const p = ai.getProposal(token);
