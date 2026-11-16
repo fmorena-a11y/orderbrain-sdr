@@ -253,8 +253,8 @@ test("mensaje: tuteo en México, voseo en Argentina, mes si no es el de hoy, 1 a
   assert.match(ar.text, /¿Te queda bien el martes 1 de diciembre a las 15:00, el miércoles 2 de diciembre a las 10:30 o el jueves 3 de diciembre a las 11:00 \(hora de Argentina\)\?/);
   assert.match(ar.text, /videollamada de 45 minutos con Matías, de nuestro equipo,/);
   assert.match(ar.text, /Si no podés en esos horarios, decime qué día y horario te queda mejor\.\n\nAbrazo,\nAna Pérez\nOrderEAT$/);
-  const cl = demoSlotsMessage({ name: "C", country: "Chile" }, { slots: [{ date: "2026-11-17", time: "10:00" }], account: "X Y", today: "2026-11-12" });
-  assert.match(cl.text, /el casino de C\. Si no puedes en ese horario, dime/);
+  const cl = demoSlotsMessage({ name: "Colegio Cumbres", country: "Chile" }, { slots: [{ date: "2026-11-17", time: "10:00" }], account: "X Y", today: "2026-11-12" });
+  assert.match(cl.text, /el casino de Colegio Cumbres\. Si no puedes en ese horario, dime/);
   // la plantilla sin horarios (con [día] y [hora] para completar)
   const t = templates({ name: "C", country: "Argentina" }).find(x => x.id === "demo_slots");
   assert.equal(t.label, "Proponer horarios de demo");
