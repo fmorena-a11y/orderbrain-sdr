@@ -7268,7 +7268,21 @@
   "MX|Linares": "2026-11-15T23:00:04.733Z",
   "DO|n3501325647": "2026-11-15T23:01:37.113Z",
   "VE|n5366584591": "2026-11-15T23:06:36.582Z",
-  "MX|Los Reyes Acaquilpan": "2026-11-15T23:10:33.268Z"
+  "MX|Los Reyes Acaquilpan": "2026-11-15T23:10:33.268Z",
+  "ES|n998649870": "2026-11-16T01:51:28.781Z",
+  "EC|n249420949": "2026-11-16T01:51:53.968Z",
+  "MX|Lázaro Cárdenas": "2026-11-16T01:52:31.202Z",
+  "PE|Puerto Maldonado": "2026-11-16T01:52:57.404Z",
+  "CO|n313909383": "2026-11-16T01:53:31.438Z",
+  "CL|Peñaflor": "2026-11-16T01:54:15.341Z",
+  "EC|n249599402": "2026-11-16T01:54:45.499Z",
+  "DO|n3692720782": "2026-11-16T01:55:21.955Z",
+  "AR|Concepción del Uruguay": "2026-11-16T01:55:54.672Z",
+  "AR|Luján de Cuyo": "2026-11-16T01:56:30.106Z",
+  "AR|San Ramón de la Nueva Orán": "2026-11-16T01:56:58.265Z",
+  "CO|n703177110": "2026-11-16T01:57:32.245Z",
+  "CO|n13283974021": "2026-11-16T01:58:01.162Z",
+  "AR|Venado Tuerto": "2026-11-16T01:58:22.874Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7363,6 +7377,118 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-16T01:45:19.016Z",
+   "cities": [
+    {
+     "cc": "ES",
+     "city": "Santiago de Compostela",
+     "found": 29,
+     "updated": 0,
+     "osm": 108
+    },
+    {
+     "cc": "EC",
+     "city": "Babahoyo",
+     "found": 15,
+     "updated": 1,
+     "osm": 29
+    },
+    {
+     "cc": "MX",
+     "city": "Lázaro Cárdenas",
+     "found": 12,
+     "updated": 0,
+     "osm": 61
+    },
+    {
+     "cc": "PE",
+     "city": "Puerto Maldonado",
+     "found": 6,
+     "updated": 0,
+     "osm": 37
+    },
+    {
+     "cc": "CO",
+     "city": "Manaure",
+     "found": 3,
+     "updated": 0,
+     "osm": 25
+    },
+    {
+     "cc": "CL",
+     "city": "Peñaflor",
+     "found": 15,
+     "updated": 0,
+     "osm": 67
+    },
+    {
+     "cc": "EC",
+     "city": "Tulcán",
+     "found": 19,
+     "updated": 0,
+     "osm": 31
+    },
+    {
+     "cc": "DO",
+     "city": "Boca Chica",
+     "found": 1,
+     "updated": 0,
+     "osm": 6
+    },
+    {
+     "cc": "AR",
+     "city": "Concepción del Uruguay",
+     "found": 12,
+     "updated": 0,
+     "osm": 60
+    },
+    {
+     "cc": "AR",
+     "city": "Luján de Cuyo",
+     "found": 7,
+     "updated": 0,
+     "osm": 31
+    },
+    {
+     "cc": "AR",
+     "city": "San Ramón de la Nueva Orán",
+     "found": 1,
+     "updated": 0,
+     "osm": 10
+    },
+    {
+     "cc": "CO",
+     "city": "Sabaneta",
+     "found": 0,
+     "updated": 0,
+     "osm": 238
+    },
+    {
+     "cc": "CO",
+     "city": "Cajicá",
+     "found": 11,
+     "updated": 0,
+     "osm": 25
+    },
+    {
+     "cc": "AR",
+     "city": "Venado Tuerto",
+     "found": 4,
+     "updated": 0,
+     "osm": 55
+    }
+   ],
+   "added": 135,
+   "enriched": 0,
+   "photos": 5,
+   "contacts": 9,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 13.5,
+   "total": 21724
+  },
   {
    "at": "2026-11-15T22:54:36.449Z",
    "cities": [
@@ -9722,36 +9848,6 @@
    "errors": [],
    "minutes": 18.1,
    "total": 19151
-  },
-  {
-   "at": "2026-11-12T17:16:58.797Z",
-   "cities": [
-    {
-     "cc": "VE",
-     "city": "Cabudare",
-     "found": 16,
-     "updated": 0,
-     "osm": 28
-    },
-    {
-     "cc": "PR",
-     "city": "Bayamón",
-     "found": 31,
-     "updated": 0,
-     "osm": 194
-    }
-   ],
-   "added": 47,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 24,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "EC|n249420749: The operation was aborted due to timeout"
-   ],
-   "minutes": 17.4,
-   "total": 19071
   }
  ]
 }
