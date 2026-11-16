@@ -329,6 +329,61 @@ test("timelineFor (demo): registrar un contacto suma UNA entrada (actividad + no
   assert.equal(rest.items.length, 5); assert.equal(rest.more, false);
   assert.match(t.summary.opening, /^Hola, ¿qué tal\? Te habla Demo de OrderEAT\. Hoy llamé y en recepción me pidieron que llame después de las 11\. ¿Me comunicas con Marta\?$/);
 });
+// ---------- leads de «Tus inbound»: el origen (la nota del inbound), ¿contestó? y el último contacto
+test("inbound: la nota de «Tus inbound» es el origen (tipo, fuente, quién y su mensaje); sin contactos, la apertura es de inbound, no en frío", async () => {
+  const { noteHtml } = await import("../lib/inbound.js");
+  const html = noteHtml({ kindLabel: "SDR revival · Meta Ads", sourceLabel: "Meta Ads", campaign: "120200000000000001", name: "Laura Prueba", role: "Directora", school: "Colegio Los Pinos", country: "Argentina",
+    phoneE164: "+541155550123", email: "Laura@x.test", message: "Queremos ordenar la cantina\ny los pagos de las familias.", filter: "Entró filtrado como puesto no decisor" }, { by: "Demo SDR", permalink: "https://slack.test/p1" });
+  const n = T.inboundNote(html);
+  assert.equal(n.type, "SDR revival · Meta Ads"); assert.equal(n.source, "Meta Ads · campaña 120200000000000001"); assert.equal(n.message, "Queremos ordenar la cantina\ny los pagos de las familias.");
+  assert.equal(n.slack, "https://slack.test/p1"); assert.equal(n.filter, "Entró filtrado como puesto no decisor"); assert.ok(!n.rows.some(([k]) => k === "Mensaje"));
+  assert.equal(T.inboundNote("<b>Comentario</b><br>hola"), null);
+  // Pipedrive a veces la devuelve con <br /> y el link con atributos de más
+  assert.equal(T.inboundNote(html.replace(/<br>/g, "<br />").replace('<a href=', '<a target="_blank" href=')).message, "Queremos ordenar la cantina\ny los pagos de las familias.");
+  const notes = [{ id: 1, lead_id: L, add_time: "2026-11-13 10:00:00", user: { name: "Ana Ruiz" }, content: html }];
+  const items = buildTimeline({ notes, mainLeadId: L, tz: TZ });
+  assert.equal(items[0].type, "inbound"); assert.equal(items[0].icon, "bolt"); assert.equal(items[0].text, "Queremos ordenar la cantina\ny los pagos de las familias.");
+  const sm = callSummary(items, ctx({ school: { name: "Colegio Los Pinos", country: "Argentina" }, today: "2026-11-16", pending: [] }));
+  assert.equal(sm.cold, true); assert.equal(sm.inbound, true);
+  assert.equal(sm.headline, "Todavía no hay contactos: entró como inbound el viernes. Es el primer contacto.");
+  assert.equal(sm.origin.text, "SDR revival · Meta Ads · campaña 120200000000000001"); assert.equal(sm.origin.who, "Laura Prueba · Directora");
+  assert.match(sm.opening, /dejaste tus datos en un anuncio de OrderEAT y nos escribiste: «Queremos ordenar la cantina y los pagos de las familias»\. ¿Tenés 5 minutos/);
+  assert.deepEqual(sm.facts.map(f => [f.k, f.v]), [["Escribió", "Laura Prueba · Directora"], ["Teléfono", "+541155550123"], ["Mail", "laura@x.test"]]);
+  // referido: la familia del colegio
+  const ref = noteHtml({ kindLabel: "Referido de padre", sourceLabel: "referido de padre", name: "Ana", school: "Bosque Azul" }, {});
+  assert.match(callSummary(buildTimeline({ notes: [{ ...notes[0], content: ref }], tz: TZ }), ctx({ pending: [] })).opening, /una familia del colegio nos recomendó/);
+});
+test("inbound: ¿contestó? solo con lo que dicen los contactos (resultado, asunto de la app, Aircall o la nota)", () => {
+  const it = x => ({ kind: "act", type: "call", label: "Llamada", title: "Llamada", text: "", at: "2026-11-15T15:00:00.000Z", ...x });
+  assert.deepEqual(T.replyOf(it({ title: "Llamada: No atendió · X" })), { channel: "call", answered: false, result: "No atendió", outcome: "no_answer" });
+  assert.equal(T.replyOf(it({ title: "Llamada: Atendió recepción · X" })).answered, true);
+  assert.equal(T.replyOf(it({ type: "aircall_outbound_unanswered", title: "Llamada saliente no atendida" })).answered, false);
+  assert.equal(T.replyOf(it({ text: "esta ocupada la linea" })).result, "ocupado");
+  assert.equal(T.replyOf(it({ text: "No contestó nadie" })).answered, false);
+  assert.equal(T.replyOf(it({ text: "me dijeron de recepción que llame mañana" })).answered, true);
+  assert.equal(T.replyOf(it({ text: "hacerle seguimiento" })).answered, null);
+  assert.deepEqual(T.replyOf(it({ type: "deadline", label: "WhatsApp", text: "Le escribí. Respondió: «el lunes»" })), { channel: "whatsapp", answered: true, result: "respondió", outcome: "" });
+  assert.equal(T.replyOf(it({ type: "deadline", text: "Le mandé la presentación" })).answered, null); // un WhatsApp sin respuesta anotada no es «no contestó»
+  assert.equal(T.replyOf({ kind: "contact", channel: "call", outcome: "callback", at: "x" }).answered, true);
+  assert.equal(T.replyOf({ kind: "contact", channel: "call", outcome: "bad_data", at: "x" }).answered, false);
+  assert.equal(T.replyOf({ kind: "mail", at: "x" }).answered, null);
+});
+test("inbound: el resumen dice si contestó (y lo de después) y el último contacto para la tarjeta", () => {
+  const a = (id, x) => ({ id, type: "call", subject: "Llamada", owner_id: 10, lead_id: L, done: true, due_time: null, ...x });
+  const acts = [
+    a(1, { subject: "Llamada: No atendió · X", add_time: "2026-11-12T15:00:00Z", due_date: "2026-11-12", marked_as_done_time: "2026-11-12T15:00:00Z" }),
+    a(2, { type: "deadline", subject: "WhatsApp · X", add_time: "2026-11-13T15:05:00Z", due_date: "2026-11-13", marked_as_done_time: "2026-11-13T15:05:00Z", note: "Le escribí. Respondió: «mañana a las 10 puedo hablar»." }),
+    a(3, { add_time: "2026-11-15T16:00:00Z", due_date: "2026-11-15", marked_as_done_time: "2026-11-15T16:00:00Z", note: "esta ocupada la linea" }),
+  ];
+  const items = buildTimeline({ acts, users, mainLeadId: L, tz: TZ, types: { call: "Llamada", deadline: "WhatsApp" } }), sm = callSummary(items, ctx({ today: "2026-11-16", pending: [] }));
+  assert.deepEqual(sm.reach, { answered: true, text: "Contestó el viernes (WhatsApp · respondió). Después: 1 llamada sin respuesta (ayer).", src: "WhatsApp · X · el viernes · Ana Ruiz" });
+  const only = callSummary(buildTimeline({ acts: [acts[0], acts[2]], users, mainLeadId: L, tz: TZ }), ctx({ today: "2026-11-16", pending: [] }));
+  assert.equal(only.reach.answered, false); assert.equal(only.reach.text, "Todavía no contestó: 2 llamadas sin respuesta (la última ayer).");
+  const unk = callSummary(buildTimeline({ acts: [a(4, { type: "deadline", add_time: "2026-11-15T16:00:00Z", due_date: "2026-11-15", marked_as_done_time: "2026-11-15T16:00:00Z", note: "Le mandé la info" })], users, tz: TZ }), ctx({ today: "2026-11-16", pending: [] }));
+  assert.equal(unk.reach.text, "No está anotado si contestó: 1 WhatsApp sin resultado anotado.");
+  assert.deepEqual(T.lastContact(items), { at: "2026-11-15T16:00:00.000Z", channel: "call", label: "Llamada", result: "ocupado", answered: false, n: 3 });
+  assert.equal(T.lastContact([]), null);
+});
 test("timelineFor (demo): un mail enviado desde la ficha es UNA entrada (no se repite como actividad, nota ni contacto)", async () => {
   const r = await sales.openRecord("lead", "demo-lead-historial");
   sales.dropTimeline(r.id);

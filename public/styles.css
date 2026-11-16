@@ -1218,6 +1218,14 @@ details.tl-body p { margin: 6px 0 0; padding: 10px 12px; border-radius: 10px; ba
 .cb-list li { overflow-wrap: anywhere; }
 .cb-list li.late { color: var(--err); font-weight: 600; }
 .cb-from { display: block; font-size: 12px; }
+.cb-reach { display: flex; gap: 6px; align-items: flex-start; margin: -4px 0 10px; font-size: 14px; color: var(--ink-2); min-width: 0; }
+.cb-reach > span { min-width: 0; overflow-wrap: anywhere; }
+.cb-reach .ico { flex: none; margin-top: 3px; color: var(--muted); }
+.cb-reach.ok .ico { color: var(--ok); } .cb-reach.no .ico { color: var(--warn); }
+.cb-origin { display: flex; gap: 8px; align-items: flex-start; margin: 0 0 10px; padding: 8px 10px; border-radius: 10px; background: var(--surface-2); font-size: 13.5px; color: var(--ink-2); min-width: 0; }
+.cb-origin > div { min-width: 0; overflow-wrap: anywhere; }
+.cb-origin .ico { flex: none; margin-top: 2px; color: var(--accent-ink); }
+.cb-origin blockquote, .tl-msg { margin: 6px 0 0; padding: 4px 10px; border-left: 3px solid var(--line-2); white-space: pre-wrap; overflow-wrap: anywhere; color: var(--ink-2); font-size: 13.5px; }
 .cb-noted { margin: 10px 0 0; font-size: 14px; color: var(--ink-2); overflow-wrap: anywhere; }
 .cb-log .cb-src { display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; }
 .cb-cold .btn { flex: none; margin-left: auto; }
@@ -1536,6 +1544,33 @@ details.tl-body p { margin: 6px 0 0; padding: 10px 12px; border-radius: 10px; ba
 .inb-paste > summary { list-style: none; cursor: pointer; }
 .inb-paste > summary::-webkit-details-marker { display: none; }
 .inb-paste textarea { resize: vertical; min-height: 120px; font: 13px/1.45 var(--mono, ui-monospace, monospace); }
+/* estado de cada lead (inboundStage) y los chips para separar */
+.inb-stages { margin: 0; align-items: center; }
+.inb-wait { font-size: 12.5px; display: inline-flex; gap: 6px; align-items: center; }
+.inb-stage { display: inline-flex; gap: 6px; align-items: baseline; padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; background: var(--surface-2); color: var(--ink-2); max-width: 100%; overflow-wrap: anywhere; }
+.inb-stage small { font-weight: 500; font-size: 11.5px; opacity: .9; }
+.inb-stage.s-maybe, .inb-stage.s-demo { background: var(--ok-soft); color: var(--ok); }
+.inb-stage.s-deal { background: var(--accent-soft); color: var(--accent-ink); }
+.inb-stage.s-new { background: var(--warn-soft); color: var(--warn); }
+.inb-stage.s-out, .inb-stage.s-client, .inb-stage.s-theirs { background: var(--surface-3, var(--surface-2)); color: var(--muted); }
+.inb-stage.s-review, .inb-stage.s-todo { background: var(--warn-soft); color: var(--warn); }
+.inb-pend { display: flex; gap: 6px; align-items: flex-start; margin: 0; font-size: 13px; color: var(--ink-2); min-width: 0; }
+.inb-pend > span { min-width: 0; overflow-wrap: anywhere; }
+.inb-pend .ico { flex: none; margin-top: 2px; color: var(--muted); }
+.inb-pend.late, .inb-pend.late .ico { color: var(--err); }
+/* la tarjeta abre el Historial del lead (botón «Ver historial»; toda la tarjeta con el mouse) y dice el último contacto */
+.inb-it.can-open { cursor: pointer; border-radius: 10px; margin: 0 -8px; padding-left: 8px; padding-right: 8px; transition: background .12s; }
+.inb-it.can-open:hover { background: var(--surface-2); }
+.inb-it.can-open:hover + .inb-it { border-top-color: transparent; }
+.inb-foot { display: flex; gap: 6px 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; min-width: 0; }
+.inb-last { display: flex; gap: 6px; align-items: flex-start; margin: 0; font-size: 13px; color: var(--ink-2); min-width: 0; flex: 1 1 220px; }
+.inb-last > span { min-width: 0; overflow-wrap: anywhere; }
+.inb-last .ico { flex: none; margin-top: 2px; color: var(--muted); }
+.inb-last.ok .ico, .inb-last.ok { color: var(--ok); }
+.inb-last.no .ico { color: var(--warn); }
+.inb-last.mute { color: var(--muted); }
+.inb-foot .btn { flex: none; }
+@media (max-width: 480px) { .inb-foot .btn { width: 100%; justify-content: center; } }
 @media (max-width: 480px) { .inb-bar .btn { width: 100%; } .inb-ca { width: 100%; justify-content: flex-end; } }
 /* ---------- Tratos abiertos (public/js/deals.js): tablero por etapa y lista; en el celular las columnas pasan a lista */
 .dl-filters .dl-q { flex: 1 1 220px; }

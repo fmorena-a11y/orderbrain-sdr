@@ -5,11 +5,12 @@
 // Los de Meta Ads son SDR revival (etiqueta «SDR revival · Meta Ads»; el prospecto lleva la Fuente «Inbound - SDR Meta Ads Revival»).
 // Un líder ve lo de su gente (y lo crea a su nombre solo con «Crear a nombre de X»); dirección, todo. Servidor:
 // lib/inbound.js (reglas), lib/inbound-run.js y lib/inbound-api.js.
-import { S, api, esc, icon, toast, telLink, agoText, shortDay, modal, leadsOver } from "./core.js";
+import { S, api, esc, icon, toast, telLink, agoText, shortDay, modal, leadsOver, today } from "./core.js";
 import { go } from "./app.js";
+import { openRecord } from "./school.js";
 
 let host = null;
-const st = { data: null, err: null, busy: false, prog: "", who: "mine", pasting: false, pasteErr: "", roErr: "" };
+const st = { data: null, err: null, busy: false, prog: "", who: "mine", pasting: false, pasteErr: "", roErr: "", info: {}, stage: (() => { try { return localStorage.getItem("ob.inbound.stage") || "all"; } catch { return "all"; } })() };
 const page = body => `<div class="page inb-page"><div class="page-head"><div><h1>Tus inbound</h1><p>Los leads del reparto de Slack que te tocaron. Cada uno queda en Pipedrive como prospecto a tu nombre, con una llamada pendiente. Los de Meta Ads van como SDR revival (Fuente «Inbound - SDR Meta Ads Revival»).</p></div></div>${body}</div>`;
 const SRC_TONE = { meta: "meta", google: "google", organic: "org", referral: "ref", revival: "rev" };
 
@@ -23,6 +24,54 @@ async function load({ refresh = false } = {}) {
   try { st.data = await api(`/api/inbound${refresh ? "?refresh=1" : ""}`); st.err = null; S.inboundPending = st.data.pending; }
   catch (e) { st.err = e.message; }
   draw();
+  loadLast({ fresh: refresh });
+}
+// ---------- «Último: llamada · no atendió · hace 2 días»: de a 20 leads ya en Pipedrive (el servidor guarda 2 min lo leído).
+// Si no se pudo leer, la tarjeta no dice nada. Se pinta en su lugar (sin redibujar: no se pierde lo que estés pegando).
+let lastSeq = 0;
+async function loadLast({ fresh = false } = {}) {
+  const keys = (st.data?.items || []).filter(x => x.state?.ref).map(x => x.key), my = ++lastSeq;
+  for (let i = 0; i < keys.length; i += 20) {
+    let r; try { r = await api(`/api/inbound/contacts?keys=${encodeURIComponent(keys.slice(i, i + 20).join(","))}${fresh ? "&fresh=1" : ""}`); } catch { return; }
+    if (my !== lastSeq) return;
+    Object.assign(st.info, r.items || {});
+    drawList();
+  }
+}
+// registraste algo en una ficha (un contacto, un WhatsApp, una actividad): al volver, la línea de cada lead se lee de nuevo
+let lastTimer = null;
+addEventListener("ob:wrote", e => {
+  const p = String(e.detail?.path || "");
+  if (!/^\/api\/(schools|activities|proposals)\//.test(p) || /\/(timeline|call-brief|check)(\?|$)/.test(p)) return;
+  clearTimeout(lastTimer); lastTimer = setTimeout(() => { if (host?.isConnected && S.view === "inbound" && st.data) loadLast({ fresh: true }); }, 1500);
+});
+const CH = { call: "llamada", whatsapp: "WhatsApp", mail: "mail", visit: "visita", demo: "demo" };
+function lastHtml(key, v = st.info[key]?.last) {
+  if (!v) return `<p class="inb-last" data-last="${esc(key)}" hidden></p>`;
+  if (v.none) return `<p class="inb-last mute" data-last="${esc(key)}">${icon("clock", "sm")}<span>Sin contactos cargados todavía</span></p>`;
+  const what = [CH[v.channel] || String(v.label || "contacto").toLowerCase(), v.result && !/^(enviado)$/.test(v.result) ? v.result : v.channel === "mail" ? "enviado" : "", `hace ${agoText(v.at)}`].filter(Boolean).join(" · ");
+  return `<p class="inb-last ${v.answered === true ? "ok" : v.answered === false ? "no" : ""}" data-last="${esc(key)}" title="${esc(new Date(v.at).toLocaleString())}">${icon(v.channel === "whatsapp" ? "whatsapp" : v.channel === "mail" ? "mail" : "phone", "sm")}<span>Último: ${esc(what)}${v.n > 1 ? ` <span class="faint">· ${v.n} contactos</span>` : ""}</span></p>`;
+}
+// ---------- abrir la ficha del lead en el Historial (con el resumen arriba, abierto): prospecto sin organización, su
+// organización (o el colegio cruzado: el servidor lo resuelve) o la organización del trato.
+async function openLead(x, btn) {
+  const s = x.state, ref = s?.ref;
+  if (!ref) {
+    if (s?.status === "review") return toast("Todavía no está en Pipedrive: elegí en la tarjeta si es alguno de estos o creá uno nuevo.", { type: "info" });
+    if (!x.mine && !s) return toast(`Todavía no está en Pipedrive: lo crea ${x.assignee.name || "esa persona"} al abrir «Tus inbound».`, { type: "info" });
+    return toast("Todavía no está en Pipedrive: tocá Revisar ahora.", { type: "info", action: x.mine && !st.busy ? { label: "Revisar ahora", fn: () => host?.querySelector("#inRun")?.click() } : undefined });
+  }
+  const opts = { tab: "hist", cbOpen: true };
+  if (btn) { btn.disabled = true; btn.setAttribute("aria-busy", "true"); }
+  try {
+    if (ref.kind === "lead") return await openRecord(`lead:${ref.id}`, opts);
+    if (ref.kind === "org") return await openRecord(`org:${ref.id}`, opts);
+    let orgId = ref.orgId;
+    if (!orgId) { const d = await api(`/api/pd-deal/${encodeURIComponent(ref.id)}`); orgId = d.orgId; if (!orgId && d.personId) { const { openPerson } = await import("./pdsearch.js"); return openPerson(d.personId); } }
+    if (orgId) return await openRecord(`org:${orgId}`, opts);
+    toast("Ese trato no tiene organización ni persona: lo abro en Pipedrive.", { type: "info" }); if (s.url) window.open(s.url, "_blank", "noopener");
+  } catch (e) { toast(e.message, { type: "err" }); }
+  finally { if (btn?.isConnected) { btn.disabled = false; btn.removeAttribute("aria-busy"); } }
 }
 // lo tuyo que falta: el servidor lo procesa en tandas (more = quedan)
 async function autoRun({ refresh = false } = {}) {
@@ -48,7 +97,6 @@ function draw() {
   const d = st.data;
   if (!d && !st.err) { host.innerHTML = page(`<div class="card card-b">${'<div class="skel" style="margin:12px 0;height:64px"></div>'.repeat(3)}</div>`); return; }
   if (!d) { host.innerHTML = page(`<div class="callout err">${icon("alert")}<span>No pude traer tus inbound: ${esc(st.err)}</span><button class="btn sm" id="inRetry">Reintentar</button></div>`); host.querySelector("#inRetry").onclick = () => { st.err = null; draw(); load().then(() => autoRun()); }; return; }
-  const list = filtered(d);
   host.innerHTML = page(`<div class="stack inb-stack">
     ${slackCallout(d)}
     ${st.roErr ? `<div class="callout warn">${icon("lock")}<span>${esc(st.roErr)} Los leads se ven, pero no se crea nada.</span></div>` : ""}
@@ -59,11 +107,48 @@ function draw() {
       <button class="btn primary" id="inRun" ${st.busy ? "disabled" : ""}>${st.busy ? `<span class="spin"></span> ${esc(st.prog || "Revisando…")}` : `${icon("refresh", "sm")} Revisar ahora`}</button>
       <span class="faint inb-me">${meLine(d)}</span>
     </div>
-    ${whoChips(d)}
-    <section class="card" aria-labelledby="hInb"><div class="card-h"><h2 id="hInb">${icon("bolt")} ${st.who === "mine" ? "Te tocaron" : st.who === "all" ? "Todos" : esc(st.who)} <span class="faint">· últimos 30 días</span></h2></div>
-      <div class="card-b inb-items">${list.length ? list.map(itemHtml).join("") : emptyHtml(d)}</div></section>
+    <div id="inbList" class="stack inb-stack">${listHtml(d)}</div>
   </div>`);
   bind();
+  bindList();
+}
+// ---------- la lista: quién (líderes), estado (chips con contador) y las tarjetas en orden de importancia. Se redibuja sola
+// cuando llegan los estados (sin tocar lo de arriba: la caja de pegar no se pierde).
+function listHtml(d) {
+  const mineList = filtered(d), list = mineList.filter(x => inStage(x, st.stage)).sort(byImportance);
+  return `${whoChips(d)}${stageChips(mineList)}
+    <section class="card" aria-labelledby="hInb"><div class="card-h"><h2 id="hInb">${icon("bolt")} ${st.who === "mine" ? "Te tocaron" : st.who === "all" ? "Todos" : esc(st.who)} <span class="faint">· últimos 30 días${st.stage !== "all" ? ` · ${esc(STAGE_CHIPS.find(c => c[0] === st.stage)?.[1] || "")}` : ""}</span></h2></div>
+      <div class="card-b inb-items">${list.length ? list.map(itemHtml).join("") : mineList.length ? `<div class="empty">${icon("bolt")}<span>Nada en «${esc(STAGE_CHIPS.find(c => c[0] === st.stage)?.[1] || "este estado")}». <button class="linkbtn" data-stage="all">Ver todos</button></span></div>` : emptyHtml(d)}</div></section>`;
+}
+function drawList() {
+  const el = host?.isConnected && host.querySelector("#inbList"); if (!el || !st.data) return;
+  const f = document.activeElement, focusSel = f && el.contains(f) ? (f.dataset.stage != null ? `[data-stage="${CSS.escape(f.dataset.stage)}"]` : f.dataset.hist ? `[data-hist="${CSS.escape(f.dataset.hist)}"]` : f.dataset.who != null ? `[data-who="${CSS.escape(f.dataset.who)}"]` : "") : "";
+  el.innerHTML = listHtml(st.data); bindList();
+  if (focusSel) el.querySelector(focusSel)?.focus();
+}
+// el estado de un lead: el que llegó por tanda (/api/inbound/contacts) o el que se sabe sin leer (sin procesar, de otra persona…)
+const stageOf = x => st.info[x.key]?.stage || x.stage || null;
+const STAGE_CHIPS = [["all", "Todos los estados"], ["pend", "Pendiente tuya"], ["new", "Sin contactar"], ["noreply", "Contactado sin respuesta"], ["maybe", "Posible demo"], ["demo", "Demo agendada"], ["deal", "En trato"], ["out", "Descartado"],
+  ["review", "Para revisar"], ["todo", "Sin procesar"], ["theirs", "De otra persona"], ["client", "Cliente"], ["unknown", "Sin datos"]];
+const FIXED = new Set(["all", "pend", "new", "noreply", "maybe", "demo", "deal", "out"]);
+const inStage = (x, k) => k === "all" ? true : k === "pend" ? !!stageOf(x)?.mine : stageOf(x)?.key === k;
+// orden por importancia: pendiente tuya vencida, posible demo, sin contactar, sin respuesta, demo, trato, descartado; lo que
+// todavía no llegó, al final de lo suyo; dentro de cada uno, lo más nuevo primero
+const byImportance = (a, b) => (stageOf(a)?.rank ?? 8) - (stageOf(b)?.rank ?? 8) || String(b.at).localeCompare(String(a.at));
+function stageChips(list) {
+  const n = k => list.filter(x => inStage(x, k)).length, known = list.filter(x => stageOf(x)).length, waiting = list.length - known;
+  const chips = STAGE_CHIPS.filter(([k]) => FIXED.has(k) || n(k) || st.stage === k);
+  return `<div class="chips inb-stages" role="group" aria-label="Estado">${chips.map(([k, l]) => `<button class="chip${k === "pend" ? " pend" : ""}" data-stage="${k}" aria-pressed="${st.stage === k}"${k === "pend" ? ` title="Con una actividad sin hacer a nombre de quien le tocó (no del account)"` : ""}>${esc(l)} <b>${k === "all" ? list.length : n(k)}</b></button>`).join("")}
+    ${waiting && st.data?.items.some(x => x.state?.ref) ? `<span class="faint inb-wait" aria-live="polite"><span class="spin"></span> Leyendo ${waiting} de Pipedrive…</span>` : ""}</div>`;
+}
+function stageTag(x) {
+  const g = stageOf(x); if (!g) return "";
+  return `<span class="inb-stage s-${esc(g.key)}" title="${esc([g.label, g.detail].filter(Boolean).join(": "))}">${esc(g.label)}${g.detail && g.key !== "new" ? `<small>${esc(g.key === "demo" && g.date ? [shortDay(g.date) + (g.time ? ` ${g.time}` : ""), g.detail.split(" · ").slice(1).join(" · ")].filter(Boolean).join(" · ") : g.detail)}</small>` : ""}</span>`;
+}
+function pendHtml(x) {
+  const p = stageOf(x)?.mine; if (!p) return "";
+  const who = x.mine ? "Pendiente tuya" : `Pendiente de ${x.assignee.name || "quien le tocó"}`;
+  return `<p class="inb-pend${p.late ? " late" : ""}">${icon("calendar", "sm")}<span><b>${esc(who)}:</b> ${esc(p.subject || "actividad")} · ${esc(shortDay(p.date))}${p.time ? ` ${esc(p.time)}` : ""}${p.late ? " · vencida" : ""}</span></p>`;
 }
 const filtered = d => d.items.filter(x => st.who === "all" ? true : st.who === "mine" ? x.mine : (x.assignee.name || "Sin asignar") === st.who);
 function whoChips(d) {
@@ -127,14 +212,18 @@ function itemHtml(x) {
   const left = x.hoursLeft, late = left != null && left <= 0;
   const wa = x.phone ? `https://wa.me/${String(x.phone).replace(/\D/g, "")}` : "";
   const place = [x.school && x.city ? `${x.school} · ${x.city}` : x.school || x.city, x.country].filter(Boolean).join(" · ");
-  return `<article class="inb-it" data-key="${esc(x.key)}">
-    <div class="inb-tags"><span class="inb-k ${esc(x.kind)}">${esc(x.kindLabel)}</span>${x.sourceLabel && x.kind !== "referral" && x.kind !== "revival" ? `<span class="inb-src ${SRC_TONE[x.source] || ""}">${esc(x.sourceLabel)}</span>` : ""}${x.priority ? `<span class="tag">prioridad ${esc(x.priority)}</span>` : ""}
+  const can = !!x.state?.ref;
+  return `<article class="inb-it${can ? " can-open" : ""}" data-key="${esc(x.key)}">
+    <div class="inb-tags">${stageTag(x)}<span class="inb-k ${esc(x.kind)}">${esc(x.kindLabel)}</span>${x.sourceLabel && x.kind !== "referral" && x.kind !== "revival" ? `<span class="inb-src ${SRC_TONE[x.source] || ""}">${esc(x.sourceLabel)}</span>` : ""}${x.priority ? `<span class="tag">prioridad ${esc(x.priority)}</span>` : ""}
       <span class="tag" title="${esc(new Date(x.at).toLocaleString())}">${x.pasted ? "pegado " : ""}hace ${esc(agoText(x.at))}</span><span class="tag ${late ? "late" : left != null && left < 24 ? "soon" : ""}">${esc(fmtLeft(left))}</span>${!x.mine ? `<span class="tag">de ${esc(x.assignee.name || "sin asignar")}</span>` : ""}</div>
     <div class="inb-main"><b>${esc(x.name || "Sin nombre")}</b>${x.role && !/^otro$/i.test(x.role) ? ` <span class="faint">· ${esc(x.role)}</span>` : ""}<small>${esc(place || "Sin colegio")}</small><small class="faint">En Pipedrive: «${esc(x.title)}»</small></div>
     <div class="inb-cl">${x.phone ? `<a href="${esc(telLink(x.phone))}">${icon("phone", "sm")} ${esc(x.phone)}</a><a href="${esc(wa)}" target="_blank" rel="noopener">${icon("whatsapp", "sm")} WhatsApp</a>` : ""}${x.email ? `<a href="mailto:${esc(x.email)}">${icon("mail", "sm")} ${esc(x.email)}</a>` : ""}${x.pd?.url ? `<a href="${esc(x.pd.url)}" target="_blank" rel="noopener">${icon("lead", "sm")} Lead del mensaje</a>` : ""}</div>
     ${x.message ? `<blockquote class="inb-msg">${esc(x.message).replace(/\n/g, "<br>")}</blockquote>` : ""}
     ${x.filter ? `<p class="faint inb-note">${esc(x.filter)}</p>` : ""}
     ${stateHtml(x)}
+    ${pendHtml(x)}
+    <div class="inb-foot">${can ? lastHtml(x.key) : `<p class="inb-last mute">${icon("clock", "sm")}<span>${x.state?.status === "review" ? "Todavía no está en Pipedrive: elegí arriba" : "Todavía no está en Pipedrive"}</span></p>`}
+      <button class="btn sm ${can ? "" : "ghost"}" data-hist="${esc(x.key)}" aria-label="Ver historial de ${esc(x.name || x.title || "este lead")}">${icon("clock", "sm")} Ver historial</button></div>
   </article>`;
 }
 async function act(btn, path, body, ok) {
@@ -144,12 +233,7 @@ async function act(btn, path, body, ok) {
 }
 function bind() {
   host.querySelector("#inRun")?.addEventListener("click", async () => { await load({ refresh: true }); autoRun({ refresh: true }); });
-  host.querySelectorAll("#inSlackMe, [data-slackme]").forEach(b => b.onclick = () => slackDialog());
-  host.querySelectorAll("[data-who]").forEach(b => b.onclick = () => { st.who = b.dataset.who; draw(); });
-  host.querySelectorAll("[data-retry]").forEach(b => b.onclick = () => act(b, `/api/inbound/${encodeURIComponent(b.dataset.retry)}/process`, {}, "Listo"));
-  host.querySelectorAll("[data-as]").forEach(b => b.onclick = () => act(b, `/api/inbound/${encodeURIComponent(b.dataset.as)}/process`, { as: b.dataset.email }, "Listo: quedó a su nombre"));
-  host.querySelectorAll("[data-pick]").forEach(b => b.onclick = () => act(b, `/api/inbound/${encodeURIComponent(b.dataset.k)}/existing`, { pick: b.dataset.pick, as: b.dataset.email || "" }, "Listo"));
-  host.querySelectorAll("[data-none]").forEach(b => b.onclick = () => act(b, `/api/inbound/${encodeURIComponent(b.dataset.none)}/existing`, { none: true, as: b.dataset.email || "" }, "Listo"));
+  host.querySelectorAll("#inSlackMe").forEach(b => b.onclick = () => slackDialog());
   const det = host.querySelector(".inb-paste"); if (det) det.ontoggle = () => { st.pasting = det.open; };
   host.querySelector("#inPasteGo")?.addEventListener("click", async e => {
     const ta = host.querySelector("#inPaste"), text = ta.value.trim(), b = e.currentTarget;
@@ -162,6 +246,23 @@ function bind() {
       await load(); autoRun();
     } catch (x) { st.pasteErr = x.message; st.pasting = true; draw(); }
   });
+}
+function bindList() {
+  const box = host?.querySelector("#inbList"); if (!box) return;
+  box.querySelectorAll("[data-slackme]").forEach(b => b.onclick = () => slackDialog());
+  box.querySelectorAll("[data-who]").forEach(b => b.onclick = () => { st.who = b.dataset.who; drawList(); });
+  box.querySelectorAll("[data-retry]").forEach(b => b.onclick = () => act(b, `/api/inbound/${encodeURIComponent(b.dataset.retry)}/process`, {}, "Listo"));
+  box.querySelectorAll("[data-as]").forEach(b => b.onclick = () => act(b, `/api/inbound/${encodeURIComponent(b.dataset.as)}/process`, { as: b.dataset.email }, "Listo: quedó a su nombre"));
+  box.querySelectorAll("[data-pick]").forEach(b => b.onclick = () => act(b, `/api/inbound/${encodeURIComponent(b.dataset.k)}/existing`, { pick: b.dataset.pick, as: b.dataset.email || "" }, "Listo"));
+  box.querySelectorAll("[data-none]").forEach(b => b.onclick = () => act(b, `/api/inbound/${encodeURIComponent(b.dataset.none)}/existing`, { none: true, as: b.dataset.email || "" }, "Listo"));
+  const itemOf = k => st.data?.items.find(y => y.key === k);
+  box.querySelectorAll("[data-hist]").forEach(b => b.onclick = () => { const x = itemOf(b.dataset.hist); if (x) openLead(x, b); });
+  // toda la tarjeta abre el historial (salvo lo que ya es un link o un botón, y si estás seleccionando texto)
+  box.querySelectorAll(".inb-it.can-open").forEach(a => a.onclick = e => {
+    if (e.target.closest("a, button, input, textarea, select, summary, details, label") || String(getSelection?.() || "").trim()) return;
+    const x = itemOf(a.dataset.key); if (x) openLead(x, a.querySelector("[data-hist]"));
+  });
+  box.querySelectorAll("[data-stage]").forEach(b => b.onclick = () => { st.stage = b.dataset.stage; try { localStorage.setItem("ob.inbound.stage", st.stage); } catch {} drawList(); });
 }
 // (la caja de pegar va arriba de todo, pedido del líder: «es incómodo bajar cada vez que tenés que pegar uno»)
 // «Tu usuario de Slack»: el nombre con el que te nombra el bot (manda sobre el email y el nombre)

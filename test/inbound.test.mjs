@@ -247,6 +247,90 @@ test("procesar: crea prospecto + persona + nota + UNA llamada; lo que ya está n
   assert.equal(String((await pd.getLead("7a1c0000-0000-4000-8000-00000000c001")).fuenteOpt), "502");
 });
 
+test("Ver historial: dónde quedó cada lead (targetOf) y el último contacto por tanda, solo de lo que podés ver", async () => {
+  assert.deepEqual(I.targetOf({ status: "done", kind: "lead", id: "abc-1" }), { kind: "lead", id: "abc-1", orgId: null });
+  assert.deepEqual(I.targetOf({ status: "done", kind: "deal", id: "7", orgId: 9 }), { kind: "deal", id: 7, orgId: 9 });
+  assert.deepEqual(I.targetOf({ status: "partial", leadId: "abc-2" }), { kind: "lead", id: "abc-2", orgId: null });
+  assert.deepEqual(I.targetOf({ status: "theirs", url: "https://x.pipedrive.com/leads/inbox/7a1c0000-0000-4000-8000-00000000b002" }), { kind: "lead", id: "7a1c0000-0000-4000-8000-00000000b002", orgId: null });
+  assert.deepEqual(I.targetOf({ status: "client", url: "https://x.pipedrive.com/organization/921" }), { kind: "org", id: 921, orgId: null });
+  assert.deepEqual(I.targetOf({ status: "theirs", url: "https://x.pipedrive.com/deal/55" }), { kind: "deal", id: 55, orgId: null });
+  assert.equal(I.targetOf({ status: "review", candidates: [] }), null); assert.equal(I.targetOf(null), null);
+
+  const l = await IR.listFor(me, false);
+  // Patricia ya estaba en Pipedrive (por el teléfono) con historial: no se crea nada y la llamada pendiente es la que tenía
+  const pat = byName(l, "Patricia Ejemplo");
+  assert.equal(pat.state.status, "done"); assert.equal(pat.state.created, false); assert.equal(pat.state.callExisting, true);
+  assert.deepEqual(pat.state.ref, { kind: "lead", id: "7a1c0000-0000-4000-8000-00000000d001", orgId: null });
+  const jorge = byName(l, "Jorge Ejemplo"); assert.equal(jorge.state.ref, null); // para revisar: todavía no está en Pipedrive
+  const laura = byName(l, "Laura Prueba"), pedro = byName(l, "Pedro Ejemplo");
+  const r = await IR.contactsFor(me, false, [pat.key, laura.key, jorge.key, pedro.key, "no-existe"], { tz: "America/Mexico_City" });
+  // la llamada atendida de ayer (con el resultado de Registrar en el asunto) y 3 contactos en total
+  const P = r.items[pat.key].last;
+  assert.equal(P.channel, "call"); assert.equal(P.result, "decisor: volver a llamar"); assert.equal(P.answered, true); assert.equal(P.n, 3);
+  assert.equal(r.items[pat.key].stage.key, "maybe"); assert.equal(r.items[pat.key].stage.mine.late, false);
+  assert.deepEqual(r.items[laura.key].last, { none: true }); // recién creado: sin contactos
+  assert.equal(r.items[laura.key].stage.key, "new"); assert.ok(r.items[laura.key].stage.mine);
+  assert.ok(!(jorge.key in r.items) && !("no-existe" in r.items));
+  assert.equal(r.items[pedro.key].stage.key, "theirs"); // de Juan Diego, pero el lead te tocó a vos: se ve
+  // Juan Diego no ve lo tuyo; un líder de tu equipo sí
+  assert.deepEqual((await IR.contactsFor(jd, false, [pat.key], {})).items, {});
+  assert.equal((await IR.contactsFor({ email: "lider@ordereat.com" }, { ids: new Set([1]), emails: new Set(["demo@example.com"]) }, [pat.key], {})).items[pat.key].last.answered, true);
+  // el demo tiene uno en cada estado
+  const keyOf = n => byName(l, n).key, names = ["Gabriel Ejemplo", "Lorena Ejemplo", "Hugo Ejemplo", "Marcela Ejemplo"];
+  const all = await IR.contactsFor(me, false, names.map(keyOf), { tz: "America/Mexico_City" });
+  const st = n => all.items[keyOf(n)]?.stage || byName(l, n).state;
+  assert.deepEqual(names.map(n => st(n).key), ["noreply", "demo", "deal", "out"], JSON.stringify(names.map(st)));
+  assert.equal(st("Gabriel Ejemplo").mine.late, true); assert.equal(st("Marcela Ejemplo").detail, "Ya tiene un software del estilo");
+  assert.match(st("Lorena Ejemplo").detail, /con Joaquín Márquez/); assert.match(st("Hugo Ejemplo").detail, /^trato tuyo · PROPOSAL SENT/);
+});
+
+test("inboundStage: un estado por lead, en orden de prioridad, solo con lo que dicen Pipedrive y la app", async () => {
+  const T = await import("../lib/timeline.js");
+  const S = st => ({ state: { status: "done", ref: { kind: "lead", id: "L" }, ...st } });
+  const call = (id, x) => ({ id, type: "call", subject: "Llamada", owner_id: 1, lead_id: "L", done: true, add_time: x.at, due_date: x.at.slice(0, 10), marked_as_done_time: x.at, ...x });
+  const info = (x = {}) => ({ items: T.buildTimeline({ acts: x.acts || [], notes: x.notes || [], tz: "America/Mexico_City" }), pending: x.pending || [], lead: x.lead === undefined ? { archived: false } : x.lead, deals: x.deals || [], ownerId: 1, today: "2026-11-16", users: { 1: "Demo", 7: "Joaquín Márquez" }, stages: { 160: "SELLING", 159: "PROPOSAL SENT" } });
+  // lo que no necesita Pipedrive
+  assert.equal(I.inboundStage({ state: null }, null).key, "todo");
+  assert.equal(I.inboundStage({ state: { status: "review" } }, null).key, "review");
+  assert.equal(I.inboundStage({ state: { status: "theirs", owner: "Juan Diego" } }, null).detail, "de Juan Diego");
+  assert.equal(I.inboundStage({ state: { status: "client" } }, null).key, "client");
+  assert.equal(I.inboundStage(S(), null).key, "unknown"); // no se pudo leer: «Sin datos», nunca un estado inventado
+  // sin contactos
+  assert.equal(I.inboundStage(S(), info()).key, "new");
+  // solo intentos sin respuesta (el resultado del asunto o la nota)
+  const no = [call(1, { at: "2026-11-14T15:00:00Z", subject: "Llamada: No atendió · X" }), call(2, { at: "2026-11-15T15:00:00Z", note: "buzón de voz" })];
+  const g = I.inboundStage(S(), info({ acts: no }));
+  assert.equal(g.key, "noreply"); assert.equal(g.detail, "2 contactos"); assert.equal(g.label, "Contactado sin respuesta");
+  // contestó y no dijo que no: posible demo (aunque después no atendiera)
+  const yes = [...no, call(3, { at: "2026-11-13T15:00:00Z", subject: "Llamada: Pidió información · X" })];
+  assert.equal(I.inboundStage(S(), info({ acts: yes })).key, "maybe");
+  assert.equal(I.inboundStage(S(), info({ acts: [call(4, { at: "2026-11-13T15:00:00Z", type: "deadline", subject: "WhatsApp", note: "Respondió que el lunes puede" })] })).detail, "respondió · por whatsapp");
+  // dijo que no: descartado con el motivo anotado (o el resultado)
+  const neg = [call(5, { at: "2026-11-15T15:00:00Z", subject: "Llamada: No le interesa · X" })];
+  assert.deepEqual([I.inboundStage(S(), info({ acts: neg })).key, I.inboundStage(S(), info({ acts: neg })).detail], ["out", "No le interesa"]);
+  const negNote = [{ id: 9, lead_id: "L", add_time: "2026-11-15 15:01:00", user: { name: "Demo" }, content: "<b>Llamada · No le interesa</b><br><b>Motivo:</b> No es fit<br><i>Cargado por Demo desde OrderBrain SDR</i>" }];
+  assert.equal(I.inboundStage(S(), info({ acts: neg, notes: negNote })).detail, "No es fit");
+  // archivado (sin motivo) o trato perdido (con su motivo de Pipedrive)
+  assert.equal(I.inboundStage(S(), info({ lead: { archived: true } })).detail, "Archivado sin motivo");
+  assert.equal(I.inboundStage(S(), info({ deals: [{ id: 3, status: "lost", lost_reason: "Número equivocado", pipeline_id: 9 }] })).detail, "Número equivocado");
+  // archivado porque pasó a trato: no es descarte
+  const conv = [{ id: 10, lead_id: "L", add_time: "2026-11-15 15:01:00", content: "<b>Pasó a trato</b><br>Demo agendada desde OrderBrain SDR por Demo.<br><a href=\"x/deal/5\">Ver trato</a>" }];
+  assert.equal(I.inboundStage(S(), info({ lead: { archived: true }, notes: conv })).key, "deal");
+  // trato abierto (de quién) y demo agendada (gana a todo)
+  const open = { id: 5, status: "open", pipeline_id: 9, stage_id: 159, owner_id: 7 };
+  assert.equal(I.inboundStage(S(), info({ deals: [open], acts: no })).detail, "trato de Joaquín Márquez · PROPOSAL SENT");
+  const demo = { id: 20, type: "meeting", owner_id: 7, due_date: "2026-11-19", due_time: "16:00", done: false, deal_id: 5 };
+  const d = I.inboundStage(S(), info({ deals: [open], pending: [demo], lead: { archived: true } }));
+  assert.equal(d.key, "demo"); assert.equal(d.detail, "2026-11-19 · con Joaquín Márquez");
+  assert.equal(I.inboundStage(S(), info({ pending: [{ ...demo, due_date: "2026-11-10" }] })).key, "new"); // una demo vieja sin marcar no es «agendada»
+  // ganado: cliente
+  assert.equal(I.inboundStage(S(), info({ deals: [{ id: 6, status: "won", pipeline_id: 9 }] })).key, "client");
+  // pendiente tuya (no la del account): la más cercana; vencida va primero (rank 0)
+  const mine = I.inboundStage(S(), info({ pending: [{ id: 30, type: "call", owner_id: 1, due_date: "2026-11-15", subject: "Volver a llamar", done: false }, demo] }));
+  assert.equal(mine.mine.late, true); assert.equal(mine.mine.date, "2026-11-15"); assert.equal(mine.rank, 0);
+  assert.equal(I.inboundStage(S(), info({ pending: [demo] })).mine, undefined);
+});
+
 test("«Es este» usa el que estaba (y no duplica la llamada); «Es otro» crea uno nuevo", async () => {
   const l = await IR.listFor(me, false), jorge = byName(l, "Jorge Ejemplo");
   const r = await IR.answerExisting(me, false, jorge.key, { pick: jorge.state.candidates[0].key });

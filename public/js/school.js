@@ -79,13 +79,13 @@ function openAt(ss, i) {
   markSkip(ss, r, "missing", "ya no está en la base");
   return sessionGo(1);
 }
-export async function openSchool(id, { activityId = null, tab = null, keepSession = false, sref = null } = {}) {
+export async function openSchool(id, { activityId = null, tab = null, keepSession = false, sref = null, cbOpen = false } = {}) {
   if (!S.byId.has(id)) return toast("Colegio inexistente", { type: "err" });
   if (!keepSession) S.session = null;
   if ($("drawer").hidden) { D.opener = document.activeElement; history.pushState({ ...(history.state || {}), drawer: id }, ""); }
   import("./app.js").then(m => m.rememberSchool(id));
   const draft = drafts.get(id); drafts.delete(id);
-  Object.assign(D, { sref: keepSession ? sref || id : null, inCall: false, call: null, id, data: null, form: draft?.form || newForm(), activityId: activityId ?? draft?.activityId ?? null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null, tl: null, tab: draft ? "log" : tab || (activityId ? "log" : "prep") });
+  Object.assign(D, { sref: keepSession ? sref || id : null, inCall: false, call: null, id, data: null, form: draft?.form || newForm(), activityId: activityId ?? draft?.activityId ?? null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null, tl: null, cbOpen: !!cbOpen, tab: draft ? "log" : tab || (activityId ? "log" : "prep") });
   if (draft) toast("Recuperé lo que estabas cargando", { type: "info" });
   $("drawer").hidden = false; $("scrim").hidden = false;
   $("scrim").onclick = closeSchool;
@@ -1606,6 +1606,15 @@ const mailItem = (m, when = "", extra = "") => `<div class="tl tl-mail"><span cl
     ${m.body ? `<details class="tl-body"><summary>Ver el mail</summary><p>${esc(m.body)}</p></details>` : ""}</div></div>`;
 const LONG = 320;
 function tlItem(it) {
+  if (it.inbound) {
+    const ib = it.inbound;
+    return `<div class="tl tl-bolt tl-inb"><span class="ic">${icon("bolt")}</span><div>
+    <div class="h tl-top"><b>Entró como inbound</b><span class="tl-date">${esc(tlWhen(it))}</span></div>
+    <div class="faint tl-meta">${esc(["Nota de «Tus inbound»", it.who, it.where].filter(Boolean).join(" · "))}${ib.slack ? ` · <a href="${esc(ib.slack)}" target="_blank" rel="noopener">Mensaje en Slack</a>` : ""}</div>
+    ${(it.rows || []).length ? `<div class="tl-rows">${it.rows.map(([k, v]) => `<span><b>${esc(k)}:</b> ${esc(v)}</span>`).join("")}</div>` : ""}
+    ${ib.filter ? `<p class="faint tl-txt" style="font-size:13px">${esc(ib.filter)}</p>` : ""}
+    ${it.text ? `<blockquote class="tl-msg"><span class="faint">Mensaje:</span> ${esc(it.text)}</blockquote>` : ""}</div></div>`;
+  }
   if (it.kind === "mail") return mailItem({ ...it.mail, by: it.who, at: it.at }, tlWhen(it), it.closed ? closedText(it.closed) : "");
   const head = it.kind === "contact" ? `${it.label} · ${it.title}` : it.kind === "created" || it.kind === "deal" ? it.label : it.title || it.label;
   const meta = [it.kind === "act" && it.title && it.title !== it.label ? it.label : it.kind === "note" && it.title ? "Nota" : "", it.who, it.where,
@@ -1650,21 +1659,23 @@ function briefCard(s, where) {
   // sin vincular, con candidatas: no se sabe qué pasó en Pipedrive (no es «sin nada»)
   if (b.cold && b.unlinked) return `<div class="callout info cb-cold">${icon("building")}<span><b>Todavía no está vinculado a Pipedrive.</b> Elegí la organización para ver su historia antes de llamar.</span><button class="btn sm" data-cbcands>Elegir</button></div>`;
   if (b.cold) {
-    if (where === "prep") return `<div class="callout info cb-cold">${icon("phone")}<span><b>Primer contacto en frío.</b> Todavía no hay llamadas, mensajes ni notas en Pipedrive ni en la app: usá la apertura de abajo.</span></div>${warns}`;
-    return `<section class="sec cb">${title}${tools}</h3><p class="cb-head">${esc(b.headline)}</p>
+    if (where === "prep" && !b.origin) return `<div class="callout info cb-cold">${icon("phone")}<span><b>Primer contacto en frío.</b> Todavía no hay llamadas, mensajes ni notas en Pipedrive ni en la app: usá la apertura de abajo.</span></div>${warns}`;
+    return `<section class="sec cb">${title}${tools}</h3><p class="cb-head">${esc(b.headline)}</p>${originHtml(b)}
       <div class="say cb-say"><span class="cb-k">Apertura sugerida</span>${esc(opening)}<button class="icon-btn" data-copy="${esc(opening)}" aria-label="Copiar apertura">${icon("copy")}</button></div>
-      <p class="faint cb-src">${esc(b.openingSrc)}</p>${warns}</section>`;
+      <p class="faint cb-src">${esc(b.openingSrc)}</p>${b.facts?.length ? cbList(b.facts, f => `<li><b>${esc(f.k)}:</b> ${factVal(f, s)}</li>`) : ""}${warns}</section>`;
   }
   const src = x => x.src ? `<span class="faint cb-from">${esc(x.src)}</span>` : "";
   const full = where === "prep";
   return `<section class="sec cb" aria-label="Resumen para la próxima llamada">${title}${tools}</h3>
     <p class="cb-head">${esc(b.headline)}</p>
+    ${b.reach ? `<p class="cb-reach ${b.reach.answered === true ? "ok" : b.reach.answered === false ? "no" : ""}">${icon(b.reach.answered === true ? "checkCircle" : b.reach.answered === false ? "phone" : "clock", "sm")}<span>${esc(b.reach.text)}${src(b.reach)}</span></p>` : ""}
+    ${originHtml(b)}
     <div class="say cb-say"><span class="cb-k">Apertura sugerida</span>${esc(opening)}<button class="icon-btn" data-copy="${esc(opening)}" aria-label="Copiar apertura">${icon("copy")}</button></div>
     <p class="faint cb-src">Sale de: ${esc(b.openingSrc)}</p>
     ${b.noted ? `<p class="cb-noted">${esc(b.noted.text)}</p>` : ""}
     ${b.askFor?.length ? `<p class="cb-ask">Preguntá por ${b.askFor.map(a => `<b>${esc(a.text)}</b>`).join(" o ")}.</p>` : ""}
     ${warns}
-    <details class="cb-more" ${full ? "open" : ""}><summary>${full ? "Qué pasó, datos y pendientes" : "Qué pasó y datos"}</summary>
+    <details class="cb-more" ${full || D.cbOpen ? "open" : ""}><summary>${full ? "Qué pasó, datos y pendientes" : "Qué pasó y datos"}</summary>
       ${b.happened?.length ? `<div class="cb-h">Qué pasó</div>${cbList(b.happened, h => `<li>${h.lead ? `<b>${esc(h.lead)}</b>${h.text ? ": " : ""}` : ""}${h.text ? (h.quote ? `«${esc(h.text)}»` : esc(h.text)) : ""}${src(h)}</li>`)}` : ""}
       ${b.facts?.length ? `<div class="cb-h">Datos de las notas</div>${cbList(b.facts, f => `<li><b>${esc(f.k)}:</b> ${factVal(f, s)}${src(f)}</li>`)}` : ""}
       ${b.plan?.length ? `<div class="cb-h">Plan anotado</div>${cbList(b.plan, p => `<li>«${esc(p.text)}»${src(p)}</li>`)}` : ""}
@@ -1673,6 +1684,9 @@ function briefCard(s, where) {
       ${[b.aiNote, b.openingNote].filter(Boolean).map(x => `<p class="faint" style="margin:8px 0 0;font-size:13px">${esc(x)}</p>`).join("")}
     </details></section>`;
 }
+// lead inbound (la nota de «Tus inbound»): de dónde vino y lo que escribió la persona
+const originHtml = b => !b.origin ? "" : `<div class="cb-origin">${icon("bolt", "sm")}<div><b>Entró como inbound</b> ${esc(b.origin.when)}${b.origin.text ? ` · ${esc(b.origin.text)}` : ""}${b.origin.who ? `<br><span class="faint">${esc(b.origin.who)}</span>` : ""}
+  ${b.origin.message ? `<blockquote>${esc(b.origin.message)}</blockquote>` : ""}</div></div>`;
 // En Registrar no se redibuja (se está escribiendo): solo la apertura de arriba y el número de la pestaña Historial.
 function redrawTl(id) {
   if (D.id !== id) return;
