@@ -1687,3 +1687,8 @@ button.dl-kpi[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offs
   .dm .act { grid-template-columns: auto minmax(0, 1fr); }
   .dm .act .ops { grid-column: 2; justify-content: flex-start; }
 }
+
+/* asistente: copiar el mensaje propuesto (la cita) o la respuesta entera */
+.assistant .b.md .md-copy { margin: 2px 0 10px; }
+.assistant .b.md .md-acts { display: flex; justify-content: flex-end; margin-top: 6px; }
+.assistant .b.md .md-acts .linkbtn { font-size: 12.5px; display: inline-flex; gap: 4px; align-items: center; color: var(--muted); }

@@ -96,7 +96,28 @@ function awInit() {
 function drawSugs() { $("sugs").innerHTML = C.busy ? "" : suggestions().map(s => `<button>${esc(s)}</button>`).join(""); $("sugs").querySelectorAll("button").forEach(b => b.onclick = () => send(b.textContent)); }
 function bubble(cls, text) { const d = document.createElement("div"); d.className = "b " + cls; d.textContent = text; $("msgs").appendChild(d); $("msgs").scrollTop = 1e9; return d; }
 // respuesta del asistente: Markdown → HTML seguro (renderMd escapa todo antes de armar las etiquetas)
-function mdBubble(text, el = bubble("a", "")) { el.className = "b a md"; el.innerHTML = renderMd(text); return el; }
+// Respuesta con formato. Un mensaje propuesto para mandar (el modelo lo escribe como cita «> …») lleva «Copiar mensaje»;
+// toda respuesta lleva además «Copiar» abajo (pedido del líder: «que me deje copiar el mensaje propuesto, no copiarlo a mano»).
+const textOf = node => { const c = node.cloneNode(true); c.querySelectorAll(".md-copy, .md-acts").forEach(x => x.remove()); c.querySelectorAll("br").forEach(b => b.replaceWith("\n")); c.querySelectorAll("p, li, h4, blockquote").forEach(x => x.append("\n")); return c.textContent.replace(/\n{3,}/g, "\n\n").trim(); };
+async function copyText(text, btn) {
+  let ok = false;
+  try { await navigator.clipboard.writeText(text); ok = true; } catch { ok = legacyCopy(text); }
+  if (btn) { const old = btn.innerHTML; btn.innerHTML = ok ? `${icon("check", "sm")} Copiado` : "No pude copiar"; setTimeout(() => { if (btn.isConnected) btn.innerHTML = old; }, 1800); }
+  return ok;
+}
+function mdBubble(text, el = bubble("a", "")) {
+  el.className = "b a md"; el.innerHTML = renderMd(text);
+  el.querySelectorAll("blockquote").forEach(q => {
+    const b = document.createElement("button"); b.type = "button"; b.className = "btn sm md-copy"; b.innerHTML = `${icon("copy", "sm")} Copiar mensaje`;
+    b.onclick = () => copyText(textOf(q), b); q.after(b);
+  });
+  if (textOf(el).length > 40) {
+    const acts = document.createElement("div"); acts.className = "md-acts";
+    const b = document.createElement("button"); b.type = "button"; b.className = "linkbtn"; b.innerHTML = `${icon("copy", "sm")} Copiar respuesta`;
+    b.onclick = () => copyText(textOf(el), b); acts.append(b); el.append(acts);
+  }
+  return el;
+}
 
 // ---------- tablas para exportar (las arma el servidor con lo que devolvieron las herramientas: lib/aitables.js)
 const PREVIEW = 5;
