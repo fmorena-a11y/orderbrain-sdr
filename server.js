@@ -33,6 +33,7 @@ import { setMailPrefs, getMailPrefs, once, release, bump } from "./lib/store.js"
 import { mountAccounts } from "./lib/accounts-api.js";
 import { mountBases } from "./lib/bases-api.js";
 import { mountInbound } from "./lib/inbound-api.js";
+import { mountDeals } from "./lib/deals-api.js";
 
 const app = express();
 const escHtml = v => String(v).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -402,6 +403,8 @@ mountAccounts(app, { auth, wrap, schoolParam, viewerFor, leadScopeFor, meName: r
 // Cargar base: la planilla de un evento por link, archivo o pegada, cruzada con Pipedrive (lib/bases.js, rutas en lib/bases-api.js)
 mountBases(app, { auth, wrap, schoolParam, leadScopeFor });
 mountInbound(app, { auth, wrap, leadScopeFor });
+// Tratos abiertos (vista para los accounts): solo lectura, con el alcance de Métricas y Equipo (lib/deals-api.js, lib/dealsview.js)
+mountDeals(app, { auth, wrap, viewerFor, leadScopeFor });
 
 // ficha de un prospecto (lead) o de una organización de Pipedrive que no está en la base
 app.get("/api/records/:kind/:rid", auth, wrap(async (req, res) => {

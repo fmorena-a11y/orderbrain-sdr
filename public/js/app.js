@@ -14,10 +14,13 @@ import { pdSearcher, pdFlat, pdTitle, pdLinesHtml, pdBadge, pdCount, pdNameHit, 
 import { profileExtrasHtml, bindProfileExtras } from "./accounts.js";
 import { renderBase } from "./base.js";
 import { renderInbound, slackDialog } from "./inbound.js";
+import { renderDeals } from "./deals.js";
 
 const VIEWS = {
   hoy: { label: "Hoy", icon: "sun", render: renderToday },
   prospectar: { label: "Prospectar", icon: "map", render: renderExplore },
+  // tratos abiertos y en qué etapa están (pedido del líder de SDR, para los accounts): la ven todos, solo lectura
+  tratos: { label: "Tratos abiertos", short: "Tratos", icon: "deal", render: renderDeals },
   agenda: { label: "Agenda", icon: "calendar", render: renderAgenda },
   radar: { label: "Radar", icon: "target", render: renderRadar },
   base: { label: "Cargar base", short: "Base", icon: "upload", render: renderBase },

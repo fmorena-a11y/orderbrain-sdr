@@ -119,6 +119,7 @@ Cada colegio recibe un puntaje de 1 a 100 con los motivos visibles: nunca contac
 ## Otras pantallas
 
 - **Prospectar:** mapa y lista por país y ciudad, cruce en lote con Pipedrive, filtros por estado, sesión de llamadas de una ciudad y descarga en CSV.
+- **Tratos abiertos** (`#/tratos`, en el celular «Tratos»): los tratos abiertos de los embudos de venta (sin los de clientes ni las etapas muertas) y en qué etapa están, para los accounts. Arriba cantidad, valor por moneda, sin próximo paso, quietos más de 14 días en la etapa y con la próxima vencida; filtros por persona (líderes y dirección), embudo, etapa, «sin próximo paso», «quietos +14 días», «con actividad vencida» y buscador. «Por etapa» (columnas del embudo, en orden) o «Lista» (ordenable por días en la etapa, próxima actividad o valor). Tocar un trato abre la ficha del colegio (o de la organización) y al lado «Abrir en Pipedrive». Solo lectura.
 - **Agenda:** tus actividades pendientes por día, con hecha, reprogramar y abrir ficha.
 - **Equipo:** demos de la semana (solo demos: no se compite por cantidad de contactos) y actividad reciente.
 - **Asistente (con IA):** «¿a quién llamo ahora?», «agendá una demo con Vallesol el jueves a las 10 para Juan Diego», «armame un guion para San José Obrero», «¿cómo respondo "ya tenemos un sistema"?». Todo lo que escribe en Pipedrive se confirma con un botón.
@@ -310,6 +311,7 @@ lib/store.js           Colegios, cache del cruce y registro de contactos (Redis 
 lib/time.js            Zonas horarias y días hábiles
 lib/photos.js          Fotos de cada colegio (Google, web y satélite)
 lib/brain.js           Sitios de World Dominion (OrderBrain) para marcar clientes
+lib/dealsview.js      Tratos abiertos: qué entra, días en la etapa, próxima y alcance por rol (puro; rutas en lib/deals-api.js)
 lib/accounts.js        Accounts por país de cada SDR, calendario de cada account y sus horarios libres (rutas en lib/accounts-api.js)
 lib/calendar.js        .ics → ocupado (ical.js), huecos, sugerencias y zonas (puro; demo en lib/calendar-demo.js)
 lib/scan.js            Búsqueda en OpenStreetMap compartida por el radar y el buscador de zonas
