@@ -7292,7 +7292,10 @@
   "MX|Tecate": "2026-11-16T03:26:13.939Z",
   "PE|Huaral": "2026-11-16T03:26:56.321Z",
   "PE|Jaén": "2026-11-16T03:27:44.492Z",
-  "MX|Cárdenas": "2026-11-16T03:35:14.698Z"
+  "MX|Cárdenas": "2026-11-16T03:35:14.698Z",
+  "AR|Villa María": "2026-11-16T05:44:24.856Z",
+  "AR|Glew": "2026-11-16T05:45:04.560Z",
+  "AR|Tartagal": "2026-11-16T06:01:24.280Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7384,9 +7387,51 @@
    "n": 1,
    "at": "2026-11-15T15:17:09.335Z",
    "error": "The operation was aborted due to timeout"
+  },
+  "AR|Guernica": {
+   "n": 1,
+   "at": "2026-11-16T05:56:37.299Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-16T05:43:46.324Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Villa María",
+     "found": 12,
+     "updated": 0,
+     "osm": 72
+    },
+    {
+     "cc": "AR",
+     "city": "Glew",
+     "found": 6,
+     "updated": 0,
+     "osm": 59
+    },
+    {
+     "cc": "AR",
+     "city": "Tartagal",
+     "found": 3,
+     "updated": 0,
+     "osm": 10
+    }
+   ],
+   "added": 21,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "AR|Guernica: The operation was aborted due to timeout"
+   ],
+   "minutes": 17.7,
+   "total": 21792
+  },
   {
    "at": "2026-11-16T03:17:22.812Z",
    "cities": [
@@ -9864,34 +9909,6 @@
     "AR|San Fernando del Valle de Catamarca: Overpass 504"
    ],
    "minutes": 15,
-   "total": 19156
-  },
-  {
-   "at": "2026-11-12T21:06:24.367Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Salamanca",
-     "found": 3,
-     "updated": 0,
-     "osm": 4
-    },
-    {
-     "cc": "MX",
-     "city": "Ciudad Acuña",
-     "found": 2,
-     "updated": 0,
-     "osm": 19
-    }
-   ],
-   "added": 5,
-   "enriched": 0,
-   "photos": 11,
-   "contacts": 2,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 15.6,
    "total": 19156
   }
  ]
