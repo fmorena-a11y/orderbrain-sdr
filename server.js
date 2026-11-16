@@ -31,6 +31,7 @@ import * as pdmcp from "./lib/pdmcp.js";
 import * as SIG from "./lib/signature.js";
 import { setMailPrefs, getMailPrefs, once, release, bump } from "./lib/store.js";
 import { mountAccounts } from "./lib/accounts-api.js";
+import { mountBases } from "./lib/bases-api.js";
 
 const app = express();
 const escHtml = v => String(v).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -397,6 +398,8 @@ app.post("/api/mail/signature", auth, pdProof, wrap(async (req, res) => {
 
 // Accounts por país y calendario para demos (lib/accounts.js, rutas en lib/accounts-api.js)
 mountAccounts(app, { auth, wrap, schoolParam, viewerFor, leadScopeFor, meName: req => meName(req) });
+// Cargar base: la planilla de un evento por link, archivo o pegada, cruzada con Pipedrive (lib/bases.js, rutas en lib/bases-api.js)
+mountBases(app, { auth, wrap, schoolParam, leadScopeFor });
 
 // ficha de un prospecto (lead) o de una organización de Pipedrive que no está en la base
 app.get("/api/records/:kind/:rid", auth, wrap(async (req, res) => {

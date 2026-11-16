@@ -12,12 +12,14 @@ import { loadGmail, gmailReturn } from "./gmail.js";
 import { loadPdMail, mailProfileHtml, bindMailProfile, resetSigMode } from "./pdmail.js";
 import { pdSearcher, pdFlat, pdTitle, pdLinesHtml, pdBadge, pdCount, pdNameHit, openPd, isPhoneQ, isMailQ, PD_MIN } from "./pdsearch.js";
 import { profileExtrasHtml, bindProfileExtras } from "./accounts.js";
+import { renderBase } from "./base.js";
 
 const VIEWS = {
   hoy: { label: "Hoy", icon: "sun", render: renderToday },
   prospectar: { label: "Prospectar", icon: "map", render: renderExplore },
   agenda: { label: "Agenda", icon: "calendar", render: renderAgenda },
   radar: { label: "Radar", icon: "target", render: renderRadar },
+  base: { label: "Cargar base", short: "Base", icon: "upload", render: renderBase },
   equipo: { label: "Equipo", icon: "users", render: renderTeam },
   metricas: { label: "Métricas", icon: "chart", render: renderMetrics },
 };
@@ -180,7 +182,7 @@ function toggleTheme() {
 
 // ---------- navegación
 function renderNav() {
-  $("nav").innerHTML = views().map(([k, v], i) => `<button class="nav-item" data-v="${k}" title="${v.label} (${i + 1})" aria-keyshortcuts="${i + 1}" ${S.view === k ? 'aria-current="page"' : ""}>${icon(v.icon)}<span class="lbl">${v.label}</span></button>`).join("");
+  $("nav").innerHTML = views().map(([k, v], i) => `<button class="nav-item" data-v="${k}" title="${v.label} (${i + 1})" aria-keyshortcuts="${i + 1}" ${S.view === k ? 'aria-current="page"' : ""}>${icon(v.icon)}<span class="lbl">${v.label}</span>${v.short ? `<span class="lbl-s" aria-hidden="true">${v.short}</span>` : ""}</button>`).join("");
   $("nav").querySelectorAll("[data-v]").forEach(b => b.onclick = () => { go(b.dataset.v); $("main").focus({ preventScroll: true }); });
 }
 // n: cantidad pendiente, o "!" con label (un aviso)

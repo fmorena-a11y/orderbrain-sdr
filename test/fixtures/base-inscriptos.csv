@@ -1,0 +1,15 @@
+ID,Nombre y apellido,Email,Teléfono,Institucion Educativa,Rol,Tipo de organización,Cantidad de alumnos,Cantidad de acompañantes
+1,"Fabiana, Robles",fabiana.robles@congreso.example,5492615550101,Colegio Congreso,Directora,Colegio Privado / Particular,601 a 1.000 alumnos,1
+2,"Martín, Quiroga",mquiroga@congreso.example,2615550102,Colegio Congreso,Administrador,Colegio Privado / Particular,601 a 1.000 alumnos,0
+3,"Lucía, Ferrer",lucia.ferrer@correo.example,0261 15-555-0103,COLEGIO CONGRESO,Docente,Colegio Privado / Particular,601 a 1.000 alumnos,0
+4,"Sofía, Benítez",sbenitez@cerrosdelsol.example,5492615550104,Colegio Los Cerros del Sol,Representante legal,Colegio Privado / Particular,Más de 1.000 alumnos,2
+5,"Diego, Ortiz",dortiz@andinodelsur.example,2615550105,Colegio Andino del Sur,Director,Colegio Privado / Particular,301 a 600 alumnos,0
+6,"Paula, Giménez",pgimenez@cuyoandino.example,2615550106,Instituto Cuyo Andino,Coordinadora,Colegio Privado / Particular,601 a 1.000 alumnos,0
+7,"Carla, Moyano",cmoyano@escuela1901.example,2615550107,Escuela Nº 1-901 Ejemplo,Directora,Colegio Publico,301 a 600 alumnos,0
+8,"Jorge, Videla",jvidela@supervision.example,2615550108,Supervisión DEP Sección 9,Supervisor,Colegio Publico,,0
+9,"Valeria, Sosa",vsosa@uejemplo.example,2615550109,Universidad de Ejemplo del Cuyo,Secretaria académica,Colegio Privado / Particular,Más de 1.000 alumnos,0
+10,"Ramiro, Lucero",rlucero@correo.example,#ERROR!,Instituto Nuevo Horizonte Ejemplo,Dueño,Colegio Privado / Particular,Hasta 300 alumnos,0
+11,"Andrea, Pizarro",apizarro@maristasb.example,2615550111,Marista San Benito Ejemplo,Docente,Colegio Privado / Particular,601 a 1.000 alumnos,0
+12,"Gabriel, Funes",gfunes@maristasb.example,2615550112,Colegio Marista San Benito Ejemplo,Rector,Colegio Privado / Particular,601 a 1.000 alumnos,0
+13,"Natalia, Aguirre",naguirre@sanandres.example,2615550113,San Andrés School,Directora de nivel,Colegio Privado / Particular,601 a 1.000 alumnos,0
+14,"Hernán, Domínguez",hdominguez@consolata.example,2615550114,Colegio Nuestra Señora de la Consolata,Vicedirector,Colegio Privado / Particular,301 a 600 alumnos,1

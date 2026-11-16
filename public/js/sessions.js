@@ -5,7 +5,7 @@ import { openSchool, openRecord, resumeSession } from "./school.js";
 
 const CH = { call: ["Llamada", "phone"], whatsapp: ["WhatsApp", "whatsapp"], mail: ["Mail", "mail"], visit: ["Visita", "user"] };
 const SKIP = { client: "ya es cliente", churn: "es ex cliente", archived: "está archivado", open: "tiene un trato abierto", owner: "es de otra persona", manual: "lo salteaste", missing: "no se pudo abrir" };
-const ORIGIN = { today: "Tu agenda y tu cola", zone: "Zona o evento", agenda: "Agenda con filtros", explore: "Prospectar", radar: "Radar", list: "Lista" };
+const ORIGIN = { today: "Tu agenda y tu cola", zone: "Zona o evento", agenda: "Agenda con filtros", explore: "Prospectar", radar: "Radar", base: "Base cargada", list: "Lista" };
 const END = { terminada: "la terminaste", completa: "se trabajó toda", "reemplazada": "empezaste otra igual", "límite": "había 12 abiertas", inactiva: "30 días sin movimiento", "otro día": "era de otro día" };
 // en la tarjeta de Hoy van las más recientes; el resto, en «Ver las N abiertas»
 const SHOWN = 2;
@@ -190,7 +190,7 @@ async function detail(id, redraw, anchor) {
   const bindItems = () => m.querySelectorAll("[data-it]").forEach(b => b.onclick = () => {
     const i = Number(b.dataset.it), it = v.items[i]; m.close();
     if (open && b.dataset.st === "pending") return resumeSession(v.id, { at: i });
-    if (/^(lead|org):/.test(it.ref)) return openRecord(it.ref);
+    if (/^(lead|org|bx):/.test(it.ref)) return openRecord(it.ref);
     if (S.byId.has(it.ref)) return openSchool(it.ref);
     const sid = (by.get(it.ref) || []).find(s => s.schoolId)?.schoolId;
     return sid && S.byId.has(sid) ? openSchool(sid) : toast("No encontré ese colegio en la base.", { type: "err" });

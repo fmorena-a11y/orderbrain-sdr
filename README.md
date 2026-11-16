@@ -15,6 +15,19 @@ La herramienta de prospección del equipo de ventas de OrderEAT. Le dice a cada 
 
 La Agenda filtra por fecha (hoy, vencidas, ayer, próximos 7 días o un rango), por zona o evento y por tipo. Lo filtrado se trabaja como sesión con un toque. El evento sale del título del prospecto, por ejemplo «(EduExperience Mendoza 2026)». La ciudad sale de la base, de los campos del prospecto o de la dirección de la organización. En Hoy, la sesión arranca por lo de hoy, sigue con lo vencido y después con los colegios nuevos. «Trabajar una zona o evento» arma una sesión especial, por ejemplo Puebla.
 
+## Cargar base: la planilla de un evento
+
+Después de un evento (por ejemplo «EduExperience Mendoza 2026») llega una planilla de Google Sheets con los inscriptos. En **Cargar base** (`#/base`) se pega el link y se trabaja esa base:
+
+1. **Cargar.** Con el link (si es privada, se lee con tu Google cuando el servidor tiene Google configurado y conectaste tu cuenta; si no, tiene que estar compartida «Cualquier persona con el enlace – Lector»), subiendo el archivo (CSV o Excel .xlsx) o pegando las filas copiadas de la planilla. Si no se puede leer, la app dice las dos salidas: compartirla o descargarla (Archivo › Descargar › CSV o Excel) y subirla.
+2. **Pestaña y columnas.** Sugiere la pestaña que más sirve, encuentra la fila del encabezado aunque no sea la primera y detecta las columnas (institución, persona, cargo, teléfono, email, ciudad o zona, alumnos, público o privado, link de Pipedrive, contactado, otros contactos, notas…). Cada una se corrige con un selector. El evento sale del título del archivo («Base de Inscriptos EduExperience Mendoza 2026 (OrderEAT) (1)» → «EduExperience Mendoza 2026»), con país y ciudad (Mendoza → Argentina), y se puede editar.
+3. **Por colegio.** Junta a las personas de cada institución (sin importar mayúsculas, acentos o «Colegio …»), con sus teléfonos con el código del país (Argentina con el 9 de los celulares) y sus mails. Lo que la planilla dice que no es colegio privado (público, supervisión, universidad) queda afuera; hay un filtro para verlo.
+4. **Pipedrive.** Revisa cada institución con las mismas reglas de «Antes de crear» (si la fila trae el link de Pipedrive, usa ese): nada en Pipe, prospecto, trato abierto, perdido, cliente o ex cliente, y de quién es: «Es tuyo», «Es de X: coordinar con quien lo tiene», «Cliente: no contactar».
+5. **Prioridad explicada** con lo que trae la planilla: alumnos, privado, cuántos se inscribieron, si vino alguien que decide (dirección, representante legal, administración, dueño).
+6. **Trabajar esta base.** Arma una sesión con lo tuyo o libre que se puede contactar, por prioridad. La ficha muestra los contactos de la planilla (llamar, WhatsApp, mail) y el primero queda elegido para Registrar: al guardar el primer contacto se crea la persona y el prospecto lleva el evento al final, como en la cuenta: «Colegio … (EduExperience Mendoza 2026)». Si el colegio no está en la base de la app, se trabaja igual con su ciudad y país.
+
+Cada base dura 60 días y se retoma desde **Bases cargadas**; cada uno ve las suyas y un líder, las de su gente. El link se guarda solo si la planilla es compartida.
+
 ## Qué se escribe en Pipedrive
 
 Cada registro hace, según el caso:
@@ -67,7 +80,7 @@ En la ficha, **Mail** arma el mensaje con las plantillas (o con IA) y lo mandás
 **Gmail (segunda opción).** Si alguien conectó su Gmail y no su Pipedrive, el mail sale de su Gmail como antes (con `PIPEDRIVE_SMART_BCC`, en copia oculta a Pipedrive). Para ofrecerlo, el administrador configura una vez:
 
 1. Google Cloud (el mismo proyecto del login): APIs y servicios → Biblioteca → habilitar **Gmail API**.
-2. Pantalla de consentimiento OAuth: tipo **Interno** (solo cuentas @ordereat.com) con los scopes `https://www.googleapis.com/auth/gmail.send`, `https://www.googleapis.com/auth/gmail.settings.basic` (leer la firma y el email principal) y `https://www.googleapis.com/auth/calendar.freebusy` (libre/ocupado del account en «Proponer demo»); habilitar también **Google Calendar API**.
+2. Pantalla de consentimiento OAuth: tipo **Interno** (solo cuentas @ordereat.com) con los scopes `https://www.googleapis.com/auth/gmail.send`, `https://www.googleapis.com/auth/gmail.settings.basic` (leer la firma y el email principal) y `https://www.googleapis.com/auth/calendar.freebusy` (libre/ocupado del account en «Proponer demo») y `https://www.googleapis.com/auth/spreadsheets.readonly` (leer la planilla privada de un evento en «Cargar base»); habilitar también **Google Calendar API** y **Google Sheets API**.
 3. Credenciales → el cliente OAuth **web** que ya usa el login → URIs de redireccionamiento autorizados: `https://orderbrain-sdr.vercel.app/auth/gmail/callback` (y `http://localhost:3000/auth/gmail/callback` para probar).
 4. Vercel → Settings → Environment Variables: `GOOGLE_CLIENT_SECRET` (el secreto de ese cliente). La copia a Pipedrive (Smart BCC) ya va a `ordereat@pipedrivemail.com`; `PIPEDRIVE_SMART_BCC` solo para usar otra dirección (o `off` para no mandarla). Redeploy.
 
@@ -175,7 +188,7 @@ npm install
 npm run demo
 ```
 
-Abrí http://localhost:3000 y entrá con «Entrar en modo desarrollo». Usa un Pipedrive de prueba en memoria: nada se guarda en la cuenta real.
+Abrí http://localhost:3000 y entrá con «Entrar en modo desarrollo». Usa un Pipedrive de prueba en memoria: nada se guarda en la cuenta real. En **Cargar base**, «Probar con la planilla de ejemplo» carga una planilla inventada de «EduExperience Mendoza 2026» (`test/fixtures/base-*.csv`) sin salir a Google.
 
 ## Correrlo con la cuenta real
 

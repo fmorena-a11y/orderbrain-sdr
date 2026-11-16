@@ -63,7 +63,7 @@ export async function openRecord(ref, opts = {}) {
   }
 }
 // En la sesión, las tareas de prospectos u organizaciones fuera de la base van como "lead:…" / "org:…".
-const isRef = id => /^(lead|org):/.test(id);
+const isRef = id => /^(lead|org|bx):/.test(id);
 // sref: el colegio de la sesión que se está trabajando (lo que se registre en la ficha queda anotado ahí)
 // Un colegio que ya no está en la base (un extra que se sacó, un id viejo) se saltea anotado, como la tarea que no se pudo abrir;
 // si la base todavía no cargó (Retomar apenas entrás), se espera.
@@ -97,6 +97,31 @@ export async function openSchool(id, { activityId = null, tab = null, keepSessio
   loadTimeline(id);
   loadPhotos(id);
   loadStudy(id);
+  loadBaseInfo(id);
+}
+// ---------- de una base cargada (Cargar base, lib/bases.js): los contactos de la planilla del evento. El primero (quien decide)
+// queda elegido para Registrar: al guardar el primer contacto se crea como persona en Pipedrive (se puede cambiar o quitar).
+const BASEINFO = new Map();
+async function loadBaseInfo(id) {
+  let r;
+  try { r = await api(`/api/schools/${encodeURIComponent(id)}/base`); } catch { return; }
+  BASEINFO.set(id, r.bases || []); if (BASEINFO.size > 60) BASEINFO.delete(BASEINFO.keys().next().value);
+  if (D.id !== id || !r.bases?.length) return;
+  const f = D.form, c = r.bases[0].contacts?.[0];
+  if (c && !f.outcome && !f.contact.name && !f.contact.phone && !f.contact.email) { f.contact = { name: c.name || "", role: c.role || "", phone: c.phone || "", email: c.email || "" }; f.fromBase = true; }
+  keepScroll(draw);
+}
+const sameContact = (a, b) => !!a && !!b && (a.name || "") === (b.name || "") && (a.phone || "") === (b.phone || "") && (a.email || "") === (b.email || "");
+function baseSec(s) {
+  const L = BASEINFO.get(s.id) || []; if (!L.length) return "";
+  return L.map((x, k) => `<section class="sec bx-base"><h3><span class="l">${icon("table")} De la base «${esc(x.base.event)}»</span></h3>
+    <p class="muted" style="margin:0 0 8px;font-size:13.5px">${esc([x.students, x.typeText, `${x.count || x.contacts.length} ${x.count === 1 ? "inscripto" : "inscriptos"}`, x.contacted === true ? "ya figura contactado en la planilla" : ""].filter(Boolean).join(" · "))}</p>
+    ${x.out ? `<div class="callout warn" style="margin-bottom:8px">${icon("alert")}<span>${esc(x.out)}: en la planilla figura así.</span></div>` : ""}
+    <div class="bx-cs" style="padding-left:0">${x.contacts.map((c, i) => `<div class="bx-c${sameContact(D.form?.contact, c) ? " picked" : ""}"><span class="t"><b>${esc(c.name || "Sin nombre")}</b>${c.role ? ` <span class="faint">${esc(c.role)}</span>` : ""}${c.decisor ? ` <span class="tag">decide</span>` : ""}</span>
+      <span class="bx-cl">${c.phone ? `<a href="${esc(telLink(c.phone))}">${icon("phone", "sm")} ${esc(c.phone)}</a><button class="linkbtn" data-bwa="${esc(c.phone)}">${icon("whatsapp", "sm")} WhatsApp</button>` : ""}${c.email ? `<button class="linkbtn" data-bmail="${esc(c.email)}">${icon("mail", "sm")} ${esc(c.email)}</button>` : ""}
+      <button class="linkbtn" data-bpick="${k}:${i}">${sameContact(D.form?.contact, c) ? "Elegido para Registrar" : "Usar al registrar"}</button></span></div>`).join("") || `<span class="faint">Sin contactos en la planilla.</span>`}</div>
+    ${x.notes ? `<p class="bx-note" style="padding-left:0;margin-top:8px"><b>Notas:</b> ${esc(x.notes)}</p>` : ""}${x.next ? `<p class="bx-note" style="padding-left:0"><b>Próximo paso:</b> ${esc(x.next)}</p>` : ""}
+  </section>`).join("");
 }
 // Estudio: si no existe, se pide solo (tarda 1 o 2 minutos) y aparece cuando está listo.
 async function loadStudy(id, { refresh = false } = {}) {
@@ -522,14 +547,15 @@ export async function startSession(ids, label = "tu territorio", { acts = null, 
     label = `Tu día · ${new Intl.DateTimeFormat("es", { weekday: "short", day: "numeric", month: "short" }).format(new Date()).replace(",", "")}`;
     origin = origin || { kind: "today", key: `today:${t}`, filters: S.territory.length ? { territorio: S.territory } : null };
   }
-  const items = [], seen = new Set(), add = (ref, a = null) => {
+  const items = [], seen = new Set(), add = (ref, a = null, x = null) => {
     if (!ref || seen.has(ref) || archivedRef(ref) || (a && archivedAct(a))) return; // los archivados no entran en ninguna sesión
     seen.add(ref);
     const sc = S.byId.get(ref) || (a?.schoolId && S.byId.get(a.schoolId));
-    items.push({ ref, act: a?.id || null, type: a?.type || null, name: sc?.name || a?.who || a?.subject || null, city: sc?.city || a?.city || null });
+    items.push({ ref, act: a?.id || null, type: a?.type || null, name: sc?.name || x?.name || a?.who || a?.subject || null, city: sc?.city || x?.city || a?.city || null });
   };
   if (acts) { for (const a of acts) add(a.schoolId || a.record, a); for (const id of extra) add(id); }
-  else for (const id of ids || []) add(id);
+  // ids: colegios (id) o { ref, name, city } (una base cargada: bx:… no está en S.byId)
+  else for (const id of ids || []) typeof id === "object" ? add(id?.ref, null, id) : add(id);
   if (!items.length) return toast("No hay colegios para esta sesión.", { type: "err" });
   // tope de colegios por sesión: se avisa cuántos entran (el servidor guarda hasta S.sessionMax)
   const max = S.sessionMax || 300;
@@ -926,6 +952,7 @@ function prepBody(s, d) {
     ${warn ? `<div class="callout warn">${icon("alert")}<span>${esc(warn)}</span></div>` : ""}
     ${pdChecked(s, m)}
     ${existingSec(s, m)}
+    ${baseSec(s)}
     ${briefCard(s, "prep")}
     ${historySec(s)}
     ${s.lat == null && !(D.photos || []).length ? "" : gallery(s)}
@@ -963,6 +990,13 @@ function bindPrep(s, d) {
   });
   el.querySelectorAll("[data-stwa]").forEach(b => b.onclick = () => templateMenu(b, s, d, "whatsapp", { phone: b.dataset.stwa }));
   el.querySelectorAll("[data-sdwa]").forEach(b => b.onclick = () => templateMenu(b, s, d, "whatsapp", { phone: b.dataset.sdwa }));
+  el.querySelectorAll("[data-bwa]").forEach(b => b.onclick = () => templateMenu(b, s, d, "whatsapp", { phone: b.dataset.bwa }));
+  el.querySelectorAll("[data-bmail]").forEach(b => b.onclick = () => templateMenu(b, s, d, "mail", { email: b.dataset.bmail }));
+  el.querySelectorAll("[data-bpick]").forEach(b => b.onclick = () => {
+    const [k, i] = b.dataset.bpick.split(":").map(Number), c = BASEINFO.get(s.id)?.[k]?.contacts?.[i]; if (!c) return;
+    D.form.contact = { name: c.name || "", role: c.role || "", phone: c.phone || "", email: c.email || "" }; D.form.fromBase = true;
+    toast(`${c.name || "Ese contacto"} queda para Registrar: se crea como persona en Pipedrive al guardar`, { type: "info" }); keepScroll(draw);
+  });
   el.querySelectorAll("[data-sdmail]").forEach(b => b.onclick = () => templateMenu(b, s, d, "mail", { email: b.dataset.sdmail }));
   el.querySelectorAll("[data-sdopen]").forEach(b => b.onclick = () => openSchool(b.dataset.sdopen));
   el.querySelectorAll("[data-stmail]").forEach(b => b.onclick = () => templateMenu(b, s, d, "mail", { email: b.dataset.stmail }));
@@ -1292,7 +1326,7 @@ function logBody(s, d) {
       <label class="field"><span>Cargo</span><input class="inp" data-f="contact.role" value="${esc(f.contact.role)}" placeholder="Directora, administrador, concesionario" list="roles"></label>
       <label class="field"><span>Teléfono / WhatsApp</span><input class="inp" type="tel" data-f="contact.phone" value="${esc(f.contact.phone)}" placeholder="${esc(pre)}"></label>
       <label class="field"><span>Email</span><input class="inp" type="email" data-f="contact.email" value="${esc(f.contact.email)}" placeholder="nombre@colegio.edu"></label></div>
-      <datalist id="roles"><option>Director/a</option><option>Administrador/a</option><option>Concesionario/a ${esc(delaEsp(d.market))}</option><option>Coordinador/a de servicios</option><option>Dueño/a</option></datalist></div>` : ""}
+      <datalist id="roles"><option>Director/a</option><option>Administrador/a</option><option>Concesionario/a ${esc(delaEsp(d.market))}</option><option>Coordinador/a de servicios</option><option>Dueño/a</option></datalist></div>` : f.fromBase && f.contact.name ? `<div class="callout info">${icon("user")}<span>Contacto de la base: <b>${esc(personLine(f.contact))}</b>. Se crea como persona en Pipedrive al guardar. <button class="linkbtn" data-unpick>Quitar</button></span></div>` : ""}
     ${qualify ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>Calificación <span class="faint" style="font-weight:400;font-size:13px">lo que sepas</span></div>
       <div class="field"><span>${esc(laEsp(d.market).replace(/^./, c => c.toUpperCase()))} es…</span><div class="seg">${["Propia", "Externa", "No tiene"].map(c => `<button data-caf="${c}" aria-pressed="${f.qual.cafeteria === c}">${c === "Externa" ? "Concesionada" : c}</button>`).join("")}</div></div>
       <div class="grid2"><label class="field"><span>Alumnos</span><input class="inp" type="number" min="0" step="10" data-f="qual.alumnos" value="${esc(f.qual.alumnos)}" placeholder="Ej: 600"></label>
@@ -1359,9 +1393,11 @@ function gotLead(s, r) {
   if (D.data.match) D.data.match = { ...D.data.match, leadId: l.id };
 }
 function setPath(obj, path, val) { const ks = path.split("."); let o = obj; ks.slice(0, -1).forEach(k => (o = o[k])); o[ks.at(-1)] = val; }
+const personLine = c => [c.name, c.role && `(${c.role})`, c.phone].filter(Boolean).join(" ");
 function bindLog(s, d) {
   const el = $("drawer"), f = D.form;
   bindTimeline(s);
+  el.querySelector("[data-unpick]")?.addEventListener("click", () => { f.contact = { name: "", role: "", phone: "", email: "" }; f.fromBase = false; redrawLog(); });
   el.querySelectorAll("[data-ch]").forEach(b => b.onclick = () => { f.channel = b.dataset.ch; redrawLog(); suggest(s); });
   el.querySelectorAll("[data-oc]").forEach(b => b.onclick = () => {
     // tocar el que ya estaba elegido lo quita (por ejemplo, para guardar solo un comentario)
