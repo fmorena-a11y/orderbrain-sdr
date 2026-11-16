@@ -28,6 +28,17 @@ Después de un evento (por ejemplo «EduExperience Mendoza 2026») llega una pla
 
 Cada base dura 60 días y se retoma desde **Bases cargadas**; cada uno ve las suyas y un líder, las de su gente. El link se guarda solo si la planilla es compartida.
 
+## Tus inbound: los leads del reparto de Slack
+
+El bot del reparto round robin publica en Slack (#round-robin-spam-sdrs) un mensaje por lead: «Lead para llamar» (formulario de la web: Meta Ads, Google Ads u orgánico), «Referido de padre» (con el link al prospecto) y cualquier otro tipo con el mismo formato (por ejemplo «SDR revival»). En **Tus inbound** (`#/inbound`, debajo de Métricas; la ve todo el que no es Account Executive):
+
+1. **Los tuyos.** Los leads de los últimos 30 días que te tocaron («le toca a …»: por tu email de Slack o por tu nombre —«Facu Morena» es «Facundo Morena»—; si no te reconoce, elegí **Tu usuario de Slack** en el menú de tu cuenta). Con tipo, fuente, cuánto falta para las 72 h, nombre, puesto, colegio, país, teléfono (llamar y WhatsApp), mail y mensaje. Un líder ve los de su gente (filtro por persona); dirección, todos.
+2. **Ya creados.** Al abrir la vista (y con **Revisar ahora**) cada lead tuyo queda en Pipedrive una sola vez: antes de crear revisa con las reglas de «Antes de crear» (teléfono, mail y el colegio si el nombre sirve). Si ya está tuyo o libre, usa ese (lo libre pasa a tu nombre); de otra persona o cliente, no lo toca y avisa; si hay algo parecido, pregunta «Es este / Es otro». Si no hay nada, crea el prospecto a tu nombre («Colegio … (Inbound Meta Ads)»; si el colegio es un número, una ciudad o nada, con el nombre de la persona: «Natanael – 21 de José C. Paz (Inbound Meta Ads)»), la persona con su teléfono y mail, la fuente y el país, y una nota con todo el mensaje.
+3. **Una llamada pendiente** a tu nombre en ese prospecto (hoy si entró en horario; si no, el próximo día hábil), salvo que ya tengas una: aparece en Hoy y en la Agenda como cualquier llamada.
+4. **Sin el token de Slack** (hoy en producción): la sección dice qué falta y se puede **pegar el mensaje de Slack** (uno o varios); pasa por lo mismo.
+
+Hoy avisa «Tenés N inbound nuevos · Ver» mientras haya alguno sin procesar. Un líder puede crear uno a nombre de alguien de su gente solo con «Crear a nombre de X».
+
 ## Qué se escribe en Pipedrive
 
 Cada registro hace, según el caso:
@@ -249,6 +260,8 @@ Con `CRON_SECRET` en Vercel, el cron diario (`vercel.json`, 08:17 UTC) sigue una
 | `GOOGLE_GEOCODING_KEY` | Opcional: clave aparte solo para ubicar direcciones con la Geocoding API de Google (manda sobre `GOOGLE_MAPS_API_KEY`). Sin ninguna de las dos, las direcciones se ubican con OpenStreetMap (Nominatim y Photon) | Google Cloud → APIs y servicios → Geocoding API |
 | `PHOTON_URL` | Opcional: otro servidor de Photon (por defecto `https://photon.komoot.io`) | |
 | `SLACK_BOT_TOKEN`, `SLACK_CHANNEL_ID` | Lanzamientos y bajas de Slack en «Qué pasó con OrderEAT» (lee el formato del bot Orderito: tipo, motivo, account, onboarder). Canales separados por coma; por defecto #launches-and-churn (`C0B52KT5F7F`). Scopes `channels:history` y `users:read`; el bot tiene que estar en los canales | api.slack.com/apps |
+| `SLACK_BOT_TOKEN`, `SLACK_INBOUND_CHANNEL` | «Tus inbound»: lee el canal privado del reparto round robin (por defecto #round-robin-spam-sdrs, `C0CC3QWSSHK`). Scopes `channels:history`, `groups:history` (el canal es privado), `users:read` y `users:read.email`; la app tiene que estar en el canal (`/invite`). Sin token, se pegan los mensajes | api.slack.com/apps |
+| `INBOUND_FUENTE` | Opcional: opciones del campo Fuente para los inbound en JSON (por defecto `{"meta":773,"google":489,"organic":488,"referral":492,"revival":786}`) | |
 | `FREE_OWNER_IDS` | Cuentas generales de Pipedrive cuyos colegios están libres (por defecto «OrderEAT» y «Contacto OrderEAT») | |
 | `READ_ONLY` | `1` bloquea las escrituras a Pipedrive (para probar) | |
 | `CRON_SECRET` | Activa el cron diario de sincronización con Pipedrive (Vercel lo manda como `Authorization: Bearer …`) | `openssl rand -hex 32` |

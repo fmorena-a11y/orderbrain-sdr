@@ -3,6 +3,7 @@ import { S, api, esc, icon, potTag, save, patchSchool, today, addDays, nextBusin
 import { openSchool, openRecord, startSession, resumeSession } from "./school.js";
 import { setBadge, baseErrorCallout } from "./app.js";
 import { loadSessions, sessionsCard, bindSessionsCard } from "./sessions.js";
+import { inboundNotice } from "./inbound.js";
 
 let host = null, showAll = false, hotLeads = null, hotAll = false;
 const STATUS_REASONS = /^(Nunca contactado|Sin revisar|En Pipe sin trato)$/;
@@ -73,6 +74,7 @@ function draw() {
 
   host.innerHTML = `<div class="page">
     ${baseErrorCallout()}
+    <div id="inbNote"></div>
     ${S.demo ? `<div class="callout warn" style="margin-bottom:16px">${icon("alert")}<span><b>Modo demo.</b> Pipedrive todavía no está conectado: la agenda, los tratos y las notas que ves son de prueba. Los colegios y los clientes de World Dominion sí son reales.</span></div>` : ""}
     ${S.brainDown || S.brain?.down ? `<div class="callout warn" style="margin-bottom:16px">${icon("alert")}<span>No pudimos leer los clientes de World Dominion: algún cliente puede aparecer en tu cola. Revisá en Pipedrive antes de llamar.</span></div>` : ""}
     ${brainTokenCallout()}
@@ -115,6 +117,7 @@ function draw() {
   host.querySelector("#go")?.addEventListener("click", () => startSession());
   host.querySelector("#resume")?.addEventListener("click", () => resumeSession(last.id));
   bindSessionsCard(host, () => host?.isConnected && draw());
+  inboundNotice(host.querySelector("#inbNote")); // «Tenés N inbound nuevos · Ver»
   host.querySelector("#terr").onclick = territoryPicker;
   host.querySelector("#zoneGo")?.addEventListener("click", zoneSession);
   host.querySelector("#more")?.addEventListener("click", () => { showAll = !showAll; draw(); });

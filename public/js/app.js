@@ -13,6 +13,7 @@ import { loadPdMail, mailProfileHtml, bindMailProfile, resetSigMode } from "./pd
 import { pdSearcher, pdFlat, pdTitle, pdLinesHtml, pdBadge, pdCount, pdNameHit, openPd, isPhoneQ, isMailQ, PD_MIN } from "./pdsearch.js";
 import { profileExtrasHtml, bindProfileExtras } from "./accounts.js";
 import { renderBase } from "./base.js";
+import { renderInbound, slackDialog } from "./inbound.js";
 
 const VIEWS = {
   hoy: { label: "Hoy", icon: "sun", render: renderToday },
@@ -22,10 +23,12 @@ const VIEWS = {
   base: { label: "Cargar base", short: "Base", icon: "upload", render: renderBase },
   equipo: { label: "Equipo", icon: "users", render: renderTeam },
   metricas: { label: "Métricas", icon: "chart", render: renderMetrics },
+  inbound: { label: "Tus inbound", short: "Inbound", icon: "bolt", render: renderInbound },
 };
 // Métricas: solo líderes y dirección (S.profile.leader; el servidor también corta con 403)
 const LEADER_ONLY = new Set(["metricas"]);
-const views = () => Object.entries(VIEWS).filter(([k]) => !LEADER_ONLY.has(k) || S.profile?.leader);
+// Tus inbound: todos menos los Account Executive
+const views = () => Object.entries(VIEWS).filter(([k]) => (!LEADER_ONLY.has(k) || S.profile?.leader) && (k !== "inbound" || S.me?.role !== "ae"));
 const show = id => { for (const x of ["boot", "login", "app"]) $(x).hidden = x !== id; };
 
 // ---------- login
@@ -129,6 +132,7 @@ function accountMenu(anchor) {
     { head: S.me.email, cls: "plain" },
     { label: S.me.pdUserId ? "Conectado a Pipedrive" : "Sin usuario en Pipedrive", sub: S.me.pdUserId ? "Tus actividades y notas se guardan a tu nombre" : "Pedí que te den de alta con este email", fn: () => S.pdWeb && window.open(S.pdWeb, "_blank", "noopener") },
     { label: "Tu perfil", sub: `${S.me.name}${S.me.roleLabel ? " · " + S.me.roleLabel : ""}`, fn: () => profileDialog() },
+    ...(S.me.role !== "ae" ? [{ label: "Tu usuario de Slack", sub: "Para ver tus inbound del reparto", fn: () => slackDialog() }] : []),
     { label: isDark() ? "Modo claro" : "Modo oscuro", sub: "Cambiar el tema", fn: toggleTheme },
     { label: "Salir", sub: "Cerrar sesión en este dispositivo", fn: async () => { await api("/auth/logout", { body: {} }).catch(() => {}); location.reload(); } },
   ]);
