@@ -43,7 +43,7 @@ test("con token: lee el canal (sin entradas al canal ni lo de hace m√°s de 30 d√
   assert.equal(h.params.channel, "C0PRUEBA01"); assert.equal(h.auth, "Bearer xoxb-prueba"); assert.ok(Number(h.params.oldest) < now - 30 * 86400);
   const r = await IR.processMine(me, { tz: "America/Argentina/Buenos_Aires" });
   const s = r.results[0].state;
-  assert.equal(s.status, "done"); assert.equal(s.title, "Colegio Slack de Prueba (Inbound Meta Ads)");
+  assert.equal(s.status, "done"); assert.equal(s.title, "Colegio Slack de Prueba (SDR Meta Ads Revival)");
   const notes = await pd.notesForLead(s.id, 5);
   assert.ok(notes.some(n => n.content.includes(`https://ordereat.slack.com/archives/C0PRUEBA01/p${MSGS[0].ts.replace(".", "")}`)));
 });

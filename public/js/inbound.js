@@ -2,6 +2,7 @@
 // Slack que te tocaron (últimos 30 días). Al abrir la vista (y con «Revisar ahora») el servidor deja cada uno en Pipedrive:
 // el prospecto a tu nombre (o el que ya estaba, tuyo o libre) y UNA llamada pendiente. Lo de otra persona y los clientes no
 // se tocan; lo dudoso se pregunta («Es este» / «Es otro»). Sin el token de Slack: «Pegá el mensaje de Slack».
+// Los de Meta Ads son SDR revival (etiqueta «SDR revival · Meta Ads»; el prospecto lleva la Fuente «Inbound - SDR Meta Ads Revival»).
 // Un líder ve lo de su gente (y lo crea a su nombre solo con «Crear a nombre de X»); dirección, todo. Servidor:
 // lib/inbound.js (reglas), lib/inbound-run.js y lib/inbound-api.js.
 import { S, api, esc, icon, toast, telLink, agoText, shortDay, modal, leadsOver } from "./core.js";
@@ -9,7 +10,7 @@ import { go } from "./app.js";
 
 let host = null;
 const st = { data: null, err: null, busy: false, prog: "", who: "mine", pasting: false, pasteErr: "", roErr: "" };
-const page = body => `<div class="page inb-page"><div class="page-head"><div><h1>Tus inbound</h1><p>Los leads del reparto de Slack que te tocaron. Cada uno queda en Pipedrive como prospecto a tu nombre, con una llamada pendiente.</p></div></div>${body}</div>`;
+const page = body => `<div class="page inb-page"><div class="page-head"><div><h1>Tus inbound</h1><p>Los leads del reparto de Slack que te tocaron. Cada uno queda en Pipedrive como prospecto a tu nombre, con una llamada pendiente. Los de Meta Ads van como SDR revival (Fuente «Inbound - SDR Meta Ads Revival»).</p></div></div>${body}</div>`;
 const SRC_TONE = { meta: "meta", google: "google", organic: "org", referral: "ref", revival: "rev" };
 
 export async function renderInbound(el) {

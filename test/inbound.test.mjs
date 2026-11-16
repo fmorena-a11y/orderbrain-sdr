@@ -31,17 +31,36 @@ const B = [":mortar_board: *Referido de padre* — le toca a <@U0ARI00001|Ariana
   "*Quien decide:* Mireya · Quien opera la cafetería  ·  +528100000033", "", "*Lead en Pipedrive:* <https://ordereat.pipedrive.com/leads/inbox/1d783870-e174-11f1-a926-b1ba2c8edf68>",
   "_Llamalo antes de 72 h. Al agendar la demo convertí el lead en trato._", "_Reparto del piloto — Ariana Moreira 6 (+1)_"].join("\n");
 
-test("formato A (Lead para llamar): campos, fuente, campaña, teléfono normalizado y mensaje de varias líneas", () => {
+test("formato A (Lead para llamar de Meta Ads = SDR revival): campos, fuente, campaña, teléfono normalizado y mensaje de varias líneas", () => {
   const p = I.parseInbound(A, { ts: "1763302445.000100" });
-  assert.equal(p.kind, "call"); assert.equal(p.kindLabel, "Lead para llamar");
+  assert.equal(p.kind, "revival"); assert.equal(p.baseKind, "call"); assert.equal(p.kindLabel, "SDR revival · Meta Ads");
   assert.deepEqual(p.to, { slackId: "U0FACU0001", name: "Facu Morena" });
   assert.equal(p.source, "meta"); assert.equal(p.sourceLabel, "Meta Ads"); assert.equal(p.campaign, "120249217681380243");
   assert.equal(p.phone, "1155550000"); assert.equal(p.phoneE164, "+5491155550000"); assert.equal(p.country, "Argentina");
   assert.equal(p.email, "natanael.prueba@gmail.com"); assert.equal(p.name, "Natanael"); assert.equal(p.role, "Otro");
   assert.equal(p.message, "Que el ppff pague antes.\nRealmente es muy chica la cantina.");
   assert.match(p.filter, /puesto no decisor/); assert.equal(p.pd, null);
-  assert.equal(I.leadTitleFor(p), "Natanael – 21 de José C. Paz (Inbound Meta Ads)");
-  assert.equal(I.subjectFor(p), "Llamar · inbound Meta Ads · Natanael");
+  assert.equal(I.leadTitleFor(p), "Natanael – 21 de José C. Paz (SDR Meta Ads Revival)");
+  assert.equal(I.subjectFor(p), "Llamar · SDR revival Meta Ads · Natanael");
+  assert.match(I.noteHtml(p), /<b>Tipo:<\/b> SDR revival · Meta Ads/);
+});
+test("SDR revival = Meta Ads: Google Ads, orgánico y referido quedan como están; lo pegado antes de la regla también pasa", () => {
+  const g = I.parseInbound(A.replace("PAUTA en Meta Ads (Facebook/Instagram)", "PAUTA en Google Ads"), { ts: "2" });
+  assert.equal(g.kind, "call"); assert.equal(g.source, "google"); assert.equal(g.kindLabel, "Lead para llamar");
+  assert.equal(I.leadTitleFor(g), "Natanael – 21 de José C. Paz (Inbound Google Ads)"); assert.equal(I.subjectFor(g), "Llamar · inbound Google Ads · Natanael");
+  const o = I.parseInbound(A.replace(/^:moneybag:.*$/m, ":seedling: Este lead es ORGÁNICO: entró directo a la web, sin UTM"), { ts: "3" });
+  assert.equal(o.kind, "call"); assert.equal(o.source, "organic"); assert.match(I.leadTitleFor(o), /\(Inbound orgánico\)$/);
+  assert.equal(I.parseInbound(B).kind, "referral");
+  // un mensaje pegado y guardado con la lectura de antes (kind call, fuente meta)
+  const old = { ...I.parseInbound(A), kind: "call", kindLabel: "Lead para llamar" }; delete old.baseKind;
+  const r = I.asRevival(old);
+  assert.equal(r.kind, "revival"); assert.equal(r.baseKind, "call"); assert.match(I.leadTitleFor(r), /\(SDR Meta Ads Revival\)$/);
+  assert.equal(I.asRevival(g), g);
+  // la clave de lo pegado no cambia con la regla (sale del tipo del mensaje)
+  const txt = "Lead para llamar — le toca a @Facu Morena\nEste lead viene de PAUTA en Meta Ads\nTeléfono: 1155550000\nNombre: Natanael\nColegio: Prueba";
+  const [k] = I.splitPasted(txt);
+  assert.equal(k.kind, "revival");
+  assert.equal(k.ts, I.splitPasted(txt)[0].ts);
 });
 test("formato B (Referido de padre): colegio · ciudad, quien decide, link del prospecto, prioridad y país por el prefijo", () => {
   const p = I.parseInbound(B, { ts: "1" });
@@ -87,8 +106,10 @@ test("pegado desde Slack (sin asteriscos ni <…>), varios juntos, y lo que no e
 });
 test("SDR revival y tipos nuevos con el mismo formato", () => {
   const r = I.parseInbound(DEMO.history().find(m => /SDR revival/.test(m.text)).text, { ts: "9" });
-  assert.equal(r.kind, "revival"); assert.equal(r.source, "revival"); assert.equal(r.kindLabel, "SDR revival");
-  assert.match(I.leadTitleFor(r), /\(SDR revival\)$/); assert.match(I.subjectFor(r), /^Llamar · SDR revival · /);
+  assert.equal(r.kind, "revival"); assert.equal(r.source, "meta"); assert.equal(r.kindLabel, "SDR revival · Meta Ads");
+  assert.match(I.leadTitleFor(r), /\(SDR Meta Ads Revival\)$/); assert.match(I.subjectFor(r), /^Llamar · SDR revival Meta Ads · /);
+  const solo = I.parseInbound("*SDR revival* — le toca a <@U9|Belu Bargen>\n*Teléfono:* +5215555550000\n*Nombre:* Ana");
+  assert.equal(solo.kind, "revival"); assert.equal(solo.source, "revival"); assert.match(I.leadTitleFor(solo), /\(SDR Meta Ads Revival\)$/);
   const n = I.parseInbound("*Lead de evento* — le toca a <@U9|Belu Bargen>\n*Teléfono:* +59899000111\n*Nombre:* Ana\n*Colegio:* Liceo Prueba");
   assert.equal(n.kind, "other"); assert.equal(n.kindLabel, "Lead de evento"); assert.equal(n.country, "Uruguay"); assert.equal(I.leadTitleFor(n), "Liceo Prueba (Inbound)");
 });
@@ -153,6 +174,13 @@ test("cada SDR ve solo los suyos (Slack de prueba: por email y por nombre); dire
   assert.deepEqual(lider.items.map(x => x.name).sort(), ["Marta Ejemplo", "Tomás Ejemplo"]);
   const dir = await IR.listFor({ email: "ceo@ordereat.com" }, true);
   assert.equal(dir.items.length, mine.items.length + 3);
+  // todo es personal: lo que falta (el aviso de Hoy) cuenta solo lo tuyo, también para dirección (que ve todo pero no tiene nada propio)
+  assert.equal(dir.pending, 0); assert.ok(dir.items.every(x => !x.mine));
+  assert.equal((await IR.pendingCount({ email: "ceo@ordereat.com" })).pending, 0);
+  assert.equal((await IR.pendingCount(jd)).pending, 2);
+  assert.equal((await IR.pendingCount(me)).pending, mine.pending);
+  // procesar sin nada propio no toca lo de otros
+  assert.deepEqual((await IR.processMine({ email: "ceo@ordereat.com", pdUserId: 1 }, {})).results, []);
 });
 
 test("procesar: crea prospecto + persona + nota + UNA llamada; lo que ya está no se crea; lo de otro no se toca; dos veces no duplica", async () => {
@@ -160,25 +188,34 @@ test("procesar: crea prospecto + persona + nota + UNA llamada; lo que ya está n
   while (r.more) r = await IR.processMine(me, { tz: "America/Mexico_City" });
   const l = await IR.listFor(me, false);
   assert.equal(l.pending, 0);
-  // nuevo de Meta Ads: prospecto a tu nombre, con fuente, país, SDR y teléfono; persona; nota; una llamada
+  // nuevo de Meta Ads (SDR revival): prospecto a tu nombre, con Fuente 786, país, SDR y teléfono; persona; nota; una llamada
   const pinos = byName(l, "Laura Prueba").state;
-  assert.equal(pinos.status, "done"); assert.equal(pinos.created, true); assert.equal(pinos.title, "Colegio Los Pinos del Sur (Inbound Meta Ads)");
+  assert.equal(pinos.status, "done"); assert.equal(pinos.created, true); assert.equal(pinos.title, "Colegio Los Pinos del Sur (SDR Meta Ads Revival)");
   const lead = await pd.getLead(pinos.id);
-  assert.equal(lead.ownerId, 1); assert.equal(String(lead.fuenteOpt), "773"); assert.equal(String(lead.paisOpt), "93"); assert.equal(lead.phone, "+5491155550123");
+  assert.equal(lead.ownerId, 1); assert.equal(String(lead.fuenteOpt), "786"); assert.equal(String(lead.paisOpt), "93"); assert.equal(lead.phone, "+5491155550123");
   assert.ok(lead.personId);
   assert.ok((await pd.notesForLead(pinos.id, 5)).some(n => /Inbound desde Slack/.test(n.content) && /Queremos ordenar la cantina/.test(n.content)));
   const calls = await pendingCalls(pinos.id);
-  assert.equal(calls.length, 1); assert.equal(calls[0].owner_id, 1); assert.equal(calls[0].subject, "Llamar · inbound Meta Ads · Laura Prueba"); assert.equal(calls[0].person_id, lead.personId);
+  assert.equal(calls.length, 1); assert.equal(calls[0].owner_id, 1); assert.equal(calls[0].subject, "Llamar · SDR revival Meta Ads · Laura Prueba"); assert.equal(calls[0].person_id, lead.personId);
   // «Colegio» basura: el título usa la persona; fuente orgánico
   const carla = byName(l, "Carla Ejemplo").state;
   assert.equal(carla.title, "Carla Ejemplo – 3080 (Inbound orgánico)"); assert.equal(String((await pd.getLead(carla.id)).fuenteOpt), "488");
   // revival: fuente «Inbound - SDR Meta Ads Revival»
   const rosa = byName(l, "Rosa Prueba").state;
-  assert.equal(rosa.title, "Instituto Jacarandas (SDR revival)"); assert.equal(String((await pd.getLead(rosa.id)).fuenteOpt), "786");
-  // ya estaba por teléfono (prospecto tuyo con llamada pendiente): no se crea otro ni otra llamada
+  assert.equal(rosa.title, "Instituto Jacarandas (SDR Meta Ads Revival)"); assert.equal(String((await pd.getLead(rosa.id)).fuenteOpt), "786");
+  // ya estaba por teléfono (prospecto tuyo con llamada pendiente): no se crea otro ni otra llamada; Fuente vacía → revival
   const maria = byName(l, "María Paredes").state;
   assert.equal(maria.status, "done"); assert.equal(maria.created, false); assert.equal(maria.id, "demo-lead-0"); assert.equal(maria.callExisting, true);
-  assert.equal((await pendingCalls("demo-lead-0")).length, 1);
+  assert.equal((await pendingCalls("demo-lead-0")).length, 1); assert.equal(String((await pd.getLead("demo-lead-0")).fuenteOpt), "786");
+  // ya estaba, tuyo con otra Fuente (Cold calling): no se pisa; de la cuenta general con «Inbound - Meta Ads»: pasa a tu nombre y a 786
+  const ines = byName(l, "Inés Ejemplo").state;
+  assert.equal(ines.status, "done"); assert.equal(ines.created, false); assert.equal(ines.id, "7a1c0000-0000-4000-8000-00000000c001");
+  assert.equal(String((await pd.getLead(ines.id)).fuenteOpt), "502"); assert.ok(ines.warnings.some(w => /otra Fuente/.test(w)));
+  assert.equal((await pendingCalls(ines.id)).length, 1);
+  const raul = byName(l, "Raúl Ejemplo").state;
+  assert.equal(raul.status, "done"); assert.equal(raul.created, false);
+  const nog = await pd.getLead("7a1c0000-0000-4000-8000-00000000c002");
+  assert.equal(nog.ownerId, 1); assert.equal(String(nog.fuenteOpt), "786"); assert.ok(raul.done.some(d => /SDR Meta Ads Revival/.test(d.label)));
   // referido con link a un prospecto de la cuenta general: pasa a tu nombre y lleva la llamada
   const ana = byName(l, "Ana Ejemplo").state;
   assert.equal(ana.status, "done"); assert.equal(ana.id, DEMO.LEAD_FREE); assert.equal((await pd.getLead(DEMO.LEAD_FREE)).ownerId, 1);
@@ -193,26 +230,28 @@ test("procesar: crea prospecto + persona + nota + UNA llamada; lo que ya está n
   // el mismo nombre que un prospecto sin ciudad: se pregunta, no se crea
   const jorge = byName(l, "Jorge Ejemplo").state;
   assert.equal(jorge.status, "review"); assert.equal(jorge.candidates[0].title, "Colegio Monte Verde");
-  assert.equal((await leadsTitled("Colegio Monte Verde (Inbound Meta Ads)")).length, 0);
+  assert.equal((await leadsTitled("Colegio Monte Verde (SDR Meta Ads Revival)")).length, 0);
 
   // otra vuelta (y otra más): nada nuevo
-  const before = { pinos: (await leadsTitled("Colegio Los Pinos del Sur (Inbound Meta Ads)")).length, calls: (await pendingCalls(pinos.id)).length };
+  const before = { pinos: (await leadsTitled("Colegio Los Pinos del Sur (SDR Meta Ads Revival)")).length, calls: (await pendingCalls(pinos.id)).length };
   const again = await IR.processMine(me, { tz: "America/Mexico_City", refresh: true });
   assert.equal(again.results.length, 0);
   const one = await IR.processOne(me, false, byName(l, "Laura Prueba").key, { tz: "America/Mexico_City" });
   assert.equal(one.state.status, "done");
-  assert.equal((await leadsTitled("Colegio Los Pinos del Sur (Inbound Meta Ads)")).length, before.pinos);
+  assert.equal((await leadsTitled("Colegio Los Pinos del Sur (SDR Meta Ads Revival)")).length, before.pinos);
   assert.equal(before.pinos, 1);
   assert.equal((await pendingCalls(pinos.id)).length, before.calls);
   // aunque se pida dos veces a la vez
   await Promise.all([IR.processOne(me, false, byName(l, "Rosa Prueba").key, {}), IR.processOne(me, false, byName(l, "Rosa Prueba").key, {})]);
-  assert.equal((await leadsTitled("Instituto Jacarandas (SDR revival)")).length, 1);
+  assert.equal((await leadsTitled("Instituto Jacarandas (SDR Meta Ads Revival)")).length, 1);
+  assert.equal(String((await pd.getLead("7a1c0000-0000-4000-8000-00000000c001")).fuenteOpt), "502");
 });
 
 test("«Es este» usa el que estaba (y no duplica la llamada); «Es otro» crea uno nuevo", async () => {
   const l = await IR.listFor(me, false), jorge = byName(l, "Jorge Ejemplo");
   const r = await IR.answerExisting(me, false, jorge.key, { pick: jorge.state.candidates[0].key });
   assert.equal(r.state.status, "done"); assert.equal(r.state.id, "demo-lead-2"); assert.equal(r.state.created, false); assert.equal(r.state.callExisting, true);
+  assert.equal(String((await pd.getLead("demo-lead-2")).fuenteOpt), "786");
   await assert.rejects(IR.answerExisting(me, false, jorge.key, { none: true }), /ya no está para revisar/);
   // otro con el mismo nombre (y otro teléfono): «Es otro» crea uno nuevo y no lo vuelve a preguntar
   await IR.paste(me, "*Lead para llamar* — le toca a @\n*Teléfono:* +52 55 5555 0777\n*Nombre:* Otra Persona\n*Colegio:* Colegio Monte Verde\n*País:* México");
