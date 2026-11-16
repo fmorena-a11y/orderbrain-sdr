@@ -7299,7 +7299,11 @@
   "MX|Altamira": "2026-11-16T11:40:19.804Z",
   "MX|San Francisco del Rincón": "2026-11-16T11:46:38.365Z",
   "PY|n648476706": "2026-11-16T11:48:34.586Z",
-  "AR|Ushuaia": "2026-11-16T11:55:59.793Z"
+  "AR|Ushuaia": "2026-11-16T11:55:59.793Z",
+  "MX|Ciudad Mante": "2026-11-16T17:31:02.759Z",
+  "DO|n250651124": "2026-11-16T17:38:52.183Z",
+  "DO|n2614072580": "2026-11-16T17:39:39.282Z",
+  "ES|n496524427": "2026-11-16T17:47:23.845Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7399,6 +7403,48 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-16T17:30:28.951Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Ciudad Mante",
+     "found": 1,
+     "updated": 0,
+     "osm": 8
+    },
+    {
+     "cc": "DO",
+     "city": "Nagua",
+     "found": 3,
+     "updated": 0,
+     "osm": 17
+    },
+    {
+     "cc": "DO",
+     "city": "Bávaro",
+     "found": 3,
+     "updated": 0,
+     "osm": 3
+    },
+    {
+     "cc": "ES",
+     "city": "Talavera de la Reina",
+     "found": 15,
+     "updated": 0,
+     "osm": 49
+    }
+   ],
+   "added": 22,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 16.9,
+   "total": 21840
+  },
   {
    "at": "2026-11-16T11:38:53.334Z",
    "cities": [
@@ -9899,48 +9945,6 @@
    "errors": [],
    "minutes": 16,
    "total": 19286
-  },
-  {
-   "at": "2026-11-13T01:28:18.290Z",
-   "cities": [
-    {
-     "cc": "CO",
-     "city": "Jamundí",
-     "found": 8,
-     "updated": 0,
-     "osm": 30
-    },
-    {
-     "cc": "MX",
-     "city": "Manzanillo",
-     "found": 18,
-     "updated": 0,
-     "osm": 126
-    },
-    {
-     "cc": "BO",
-     "city": "Quillacollo",
-     "found": 33,
-     "updated": 0,
-     "osm": 78
-    },
-    {
-     "cc": "PE",
-     "city": "Nuevo Chimbote",
-     "found": 7,
-     "updated": 0,
-     "osm": 193
-    }
-   ],
-   "added": 66,
-   "enriched": 0,
-   "photos": 18,
-   "contacts": 1,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 19,
-   "total": 19222
   }
  ]
 }
