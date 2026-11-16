@@ -7308,7 +7308,10 @@
   "NI|n291471414": "2026-11-16T18:34:15.713Z",
   "BO|n413185906": "2026-11-16T18:35:42.439Z",
   "ES|n1081751552": "2026-11-16T18:50:31.897Z",
-  "ES|n1470838508": "2026-11-16T19:18:40.297Z"
+  "ES|n1470838508": "2026-11-16T19:18:40.297Z",
+  "NI|n306243099": "2026-11-16T21:12:03.389Z",
+  "CO|n703168608": "2026-11-16T21:16:42.687Z",
+  "VE|n4433004302": "2026-11-16T21:18:00.739Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7413,6 +7416,43 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-16T21:05:45.168Z",
+   "cities": [
+    {
+     "cc": "NI",
+     "city": "Bilwi",
+     "found": 10,
+     "updated": 1,
+     "osm": 26
+    },
+    {
+     "cc": "CO",
+     "city": "Madrid",
+     "found": 0,
+     "updated": 0,
+     "osm": 23
+    },
+    {
+     "cc": "VE",
+     "city": "Nirgua",
+     "found": 0,
+     "updated": 0,
+     "osm": 0
+    }
+   ],
+   "added": 10,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "AR|Goya: sin tiempo en esta corrida"
+   ],
+   "minutes": 19,
+   "total": 21873
+  },
   {
    "at": "2026-11-16T19:17:59.074Z",
    "cities": [
@@ -9844,21 +9884,6 @@
    "errors": [],
    "minutes": 16.9,
    "total": 19690
-  },
-  {
-   "at": "2026-11-13T07:38:00.778Z",
-   "cities": [],
-   "added": 0,
-   "enriched": 0,
-   "photos": 16,
-   "contacts": 1,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "CL|Osorno: The operation was aborted due to timeout"
-   ],
-   "minutes": 15.9,
-   "total": 19608
   }
  ]
 }
