@@ -50,13 +50,12 @@ function draw() {
   const byWhen = a => inWhen(a, t), byZone = a => matchZone(a, F.zone) && matchZone(a, F.q, { loose: true }), byType = a => F.type === "all" || a.type === F.type;
   const base = all.filter(a => byWhen(a) && byZone(a));
   const c = { all: base.length }; for (const a of base) c[a.type] = (c[a.type] || 0) + 1;
-  // un tipo elegido que no tiene nada con esta fecha y zona vuelve solo a «Todas» (si no, «Hoy 0» con actividades para hoy)
-  if (S.agenda && !loading && F.type !== "all" && !c[F.type]) { F.type = "all"; keep(); }
   // el tipo elegido siempre queda a la vista (aunque hoy tenga 0): si se escondía, seguía filtrando sin que se viera («Hoy 0»)
   const types = [["all", "Todas"], ...Object.entries(S.types || {}).filter(([k]) => c[k] || k === F.type)];
   // las zonas cuentan con la fecha y el tipo elegidos; la elegida queda aunque ahora tenga 0
   const zc = new Map(zoneOptions(all.filter(a => byWhen(a) && byType(a))).map(z => [z.key, z.n]));
   const zones = zonesAll.map(z => ({ ...z, n: zc.get(z.key) || 0 })).filter(z => z.n || z.key === F.zone).sort((a, b) => b.n - a.n || a.label.localeCompare(b.label));
+  if (S.agenda && !loading && F.type !== "all" && !c[F.type] && !all.some(a => a.type === F.type)) { F.type = "all"; keep(); }
   const items = base.filter(byType);
   const wc = Object.fromEntries(WHEN.map(([k]) => [k, all.filter(a => byZone(a) && byType(a) && (k === "range" || inWhenK(a, t, k))).length]));
   const byDay = new Map();
