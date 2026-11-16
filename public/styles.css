@@ -1427,3 +1427,52 @@ details.tl-body p { margin: 6px 0 0; padding: 10px 12px; border-radius: 10px; ba
 .codes-find { display: flex; align-items: center; gap: 10px; margin: 4px 0 10px; }
 .codes-find .inp { flex: 1; min-width: 0; }
 .code-row[hidden] { display: none !important; }
+
+/* ---------- Tratos abiertos (public/js/deals.js): tablero por etapa y lista; en el celular las columnas pasan a lista */
+.dl-filters .dl-q { flex: 1 1 220px; }
+.dl-bar { display: flex; flex-wrap: wrap; gap: 8px 16px; justify-content: space-between; margin: 0 0 10px; }
+.dl-kpis { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+.dl-kpi { text-align: left; font: inherit; color: inherit; }
+button.dl-kpi { cursor: pointer; }
+button.dl-kpi:disabled { cursor: default; opacity: 1; }
+button.dl-kpi[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offset: -2px; }
+.dl-kpi.warn b { color: var(--err); }
+.dl-kpi .dl-money { font-size: 20px; overflow-wrap: anywhere; }
+.dl-board { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(228px, 1fr); gap: 12px; overflow-x: auto; padding-bottom: 8px; align-items: start; }
+.dl-col { background: var(--surface-2); border-radius: var(--r-lg); padding: 10px; min-width: 0; }
+.dl-col header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; padding: 2px 4px 10px; }
+.dl-col header small { flex-basis: 100%; color: var(--muted); font-size: 12px; }
+.dl-n { font-size: 12px; font-weight: 600; padding: 0 7px; border-radius: 999px; background: var(--surface); color: var(--muted); }
+.dl-cards { display: grid; gap: 8px; }
+.dl-none { margin: 4px; color: var(--faint); font-size: 13px; }
+.dl-card { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow-sm); min-width: 0; }
+.dl-open { display: grid; gap: 4px; width: 100%; padding: 10px 12px 34px; border: 0; background: none; text-align: left; cursor: pointer; color: inherit; font: inherit; border-radius: inherit; min-width: 0; }
+@media (hover: hover) { .dl-open:hover .dl-t { color: var(--accent-ink); } }
+.dl-t { font-weight: 600; overflow-wrap: anywhere; }
+.dl-open small { color: var(--muted); font-size: 12.5px; display: flex; align-items: center; gap: 4px; min-width: 0; overflow-wrap: anywhere; }
+.dl-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; font-size: 13px; }
+.dl-days, .dl-next { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; color: var(--ink-2); min-width: 0; }
+.dl-next span { overflow-wrap: anywhere; }
+.dl-days.late, .dl-next.late { color: var(--err); font-weight: 600; }
+.dl-next.none { color: var(--warn); background: var(--warn-soft); padding: 2px 8px; border-radius: 999px; font-weight: 600; justify-self: start; }
+.dl-val { font-weight: 600; font-variant-numeric: tabular-nums; }
+.dl-meta .stage-tag { margin-left: 0; }
+.dl-pd { position: absolute; right: 8px; bottom: 6px; display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; color: var(--accent-ink); text-decoration: none; padding: 4px 6px; border-radius: 6px; }
+.dl-pd:hover { background: var(--surface-2); }
+.dl-list { display: grid; }
+.dl-lh, .dl-row { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr) 96px minmax(0, 1.4fr) 110px minmax(0, 1.2fr) 96px; gap: 10px; align-items: center; padding: 9px 6px; border-top: 1px solid var(--line); }
+.dl-lh { border-top: 0; font-size: 12px; color: var(--muted); font-weight: 600; }
+.dl-row .dl-open { padding: 0; }
+.dl-row .dl-pd { position: static; }
+.dl-row .dl-c-stage { font-size: 13px; color: var(--ink-2); }
+.dl-row .dl-who { color: var(--muted); font-size: 12.5px; }
+.dl-sort { border: 0; background: none; padding: 0; font: inherit; color: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 2px; font-weight: 600; text-align: left; }
+.dl-sort[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.dl-sorts { display: none; }
+@media (max-width: 899px) {
+  .dl-board { grid-auto-flow: row; grid-auto-columns: auto; overflow: visible; }
+  .dl-lh { display: none; }
+  .dl-sorts { display: flex; flex-wrap: wrap; gap: 8px 16px; padding: 2px 0 8px; font-size: 13px; color: var(--muted); }
+  .dl-row { grid-template-columns: minmax(0, 1fr); gap: 4px; position: relative; padding: 12px 6px 34px; }
+  .dl-row .dl-pd { position: absolute; right: 4px; bottom: 4px; }
+}
