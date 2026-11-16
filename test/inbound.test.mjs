@@ -279,9 +279,9 @@ test("Ver historial: dónde quedó cada lead (targetOf) y el último contacto po
   const keyOf = n => byName(l, n).key, names = ["Gabriel Ejemplo", "Lorena Ejemplo", "Hugo Ejemplo", "Marcela Ejemplo"];
   const all = await IR.contactsFor(me, false, names.map(keyOf), { tz: "America/Mexico_City" });
   const st = n => all.items[keyOf(n)]?.stage || byName(l, n).state;
-  assert.deepEqual(names.map(n => st(n).key), ["noreply", "demo", "deal", "out"], JSON.stringify(names.map(st)));
+  assert.deepEqual(names.map(n => st(n).key), ["noreply", "demo", "held", "out"], JSON.stringify(names.map(st)));
   assert.equal(st("Gabriel Ejemplo").mine.late, true); assert.equal(st("Marcela Ejemplo").detail, "Ya tiene un software del estilo");
-  assert.match(st("Lorena Ejemplo").detail, /con Joaquín Márquez/); assert.match(st("Hugo Ejemplo").detail, /^trato tuyo · PROPOSAL SENT/);
+  assert.match(st("Lorena Ejemplo").detail, /con Joaquín Márquez/); assert.match(st("Hugo Ejemplo").detail, /trato tuyo · PROPOSAL SENT/);
 });
 
 test("inboundStage: un estado por lead, en orden de prioridad, solo con lo que dicen Pipedrive y la app", async () => {
@@ -396,4 +396,19 @@ test("READ_ONLY: procesar y responder escriben en Pipedrive (se bloquean); pegar
   assert.equal(writesPipedrive("POST", "/api/inbound/me"), false);
   assert.equal(writesPipedrive("GET", "/api/inbound"), false);
   assert.ok(DEAL_FIELDS.fuente);
+});
+
+// demo ya realizada y no show (pedido del líder: separar por demo realizada)
+test("inboundStage: demo realizada, no show y trato perdido después de la demo", async () => {
+  const { inboundStage } = await import("../lib/inbound.js");
+  const base = { items: [], pending: [], deals: [], ownerId: 1, today: "2026-11-16", users: { 2: "Joaquín" }, stages: {} };
+  const meet = (x = {}) => ({ id: 1, type: "meeting", done: true, due_date: "2026-11-10", owner_id: 2, ...x });
+  const s = info => inboundStage({ state: { status: "done" } }, { ...base, ...info });
+  assert.equal(s({ acts: [meet()] }).key, "held");
+  assert.match(s({ acts: [meet()] }).detail, /con Joaquín/);
+  assert.equal(s({ acts: [meet({ type: "lunch" })] }).key, "noshow");
+  assert.equal(s({ acts: [meet({ done: false, note: "[Resultado de la demo] No se presentó · marcado por X desde OrderBrain SDR el 10/11" })] }).key, "noshow");
+  assert.equal(s({ acts: [meet()], deals: [{ id: 9, status: "lost", lost_reason: "No es fit" }] }).key, "out");
+  assert.equal(s({ acts: [meet()], pending: [{ type: "meeting", done: false, due_date: "2026-11-20", owner_id: 2 }] }).key, "demo");
+  assert.equal(s({ acts: [] }).key, "new");
 });

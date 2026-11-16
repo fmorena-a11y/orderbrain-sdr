@@ -128,9 +128,9 @@ function drawList() {
 }
 // el estado de un lead: el que llegó por tanda (/api/inbound/contacts) o el que se sabe sin leer (sin procesar, de otra persona…)
 const stageOf = x => st.info[x.key]?.stage || x.stage || null;
-const STAGE_CHIPS = [["all", "Todos los estados"], ["pend", "Pendiente tuya"], ["new", "Sin contactar"], ["noreply", "Contactado sin respuesta"], ["maybe", "Posible demo"], ["demo", "Demo agendada"], ["deal", "En trato"], ["out", "Descartado"],
+const STAGE_CHIPS = [["all", "Todos los estados"], ["pend", "Pendiente tuya"], ["new", "Sin contactar"], ["noreply", "Contactado sin respuesta"], ["maybe", "Posible demo"], ["demo", "Demo agendada"], ["held", "Demo realizada"], ["noshow", "No show"], ["deal", "En trato"], ["out", "Descartado"],
   ["review", "Para revisar"], ["todo", "Sin procesar"], ["theirs", "De otra persona"], ["client", "Cliente"], ["unknown", "Sin datos"]];
-const FIXED = new Set(["all", "pend", "new", "noreply", "maybe", "demo", "deal", "out"]);
+const FIXED = new Set(["all", "pend", "new", "noreply", "maybe", "demo", "held", "deal", "out"]);
 const inStage = (x, k) => k === "all" ? true : k === "pend" ? !!stageOf(x)?.mine : stageOf(x)?.key === k;
 // orden por importancia: pendiente tuya vencida, posible demo, sin contactar, sin respuesta, demo, trato, descartado; lo que
 // todavía no llegó, al final de lo suyo; dentro de cada uno, lo más nuevo primero
@@ -143,7 +143,7 @@ function stageChips(list) {
 }
 function stageTag(x) {
   const g = stageOf(x); if (!g) return "";
-  return `<span class="inb-stage s-${esc(g.key)}" title="${esc([g.label, g.detail].filter(Boolean).join(": "))}">${esc(g.label)}${g.detail && g.key !== "new" ? `<small>${esc(g.key === "demo" && g.date ? [shortDay(g.date) + (g.time ? ` ${g.time}` : ""), g.detail.split(" · ").slice(1).join(" · ")].filter(Boolean).join(" · ") : g.detail)}</small>` : ""}</span>`;
+  return `<span class="inb-stage s-${esc(g.key)}" title="${esc([g.label, g.detail].filter(Boolean).join(": "))}">${esc(g.label)}${g.detail && g.key !== "new" ? `<small>${esc((g.key === "demo" || g.key === "held" || g.key === "noshow") && g.date ? [shortDay(g.date) + (g.time ? ` ${g.time}` : ""), g.detail.split(" · ").slice(1).join(" · ")].filter(Boolean).join(" · ") : g.detail)}</small>` : ""}</span>`;
 }
 function pendHtml(x) {
   const p = stageOf(x)?.mine; if (!p) return "";
