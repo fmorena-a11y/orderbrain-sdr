@@ -1579,3 +1579,5 @@ button.dl-kpi[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offs
   .nav { overflow-x: auto; scrollbar-width: none; } .nav::-webkit-scrollbar { display: none; }
   .nav-item { flex: 1 0 64px; }
 }
+
+#sess .sess-sub { font-weight: 500; opacity: .8; font-size: .85em; }

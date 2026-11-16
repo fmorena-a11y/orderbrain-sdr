@@ -420,9 +420,11 @@ function drawFoot() {
   const n = S.schools.length ? callable().length : 0, max = S.sessionMax || 300;
   const b = host.querySelector("#sess");
   // una sesión lleva hasta S.sessionMax colegios: el botón no promete más de lo que entra
-  b.innerHTML = `${icon("play")} ${!n ? "Nadie para llamar" : n > max ? `Llamar a los primeros ${fmt(max)}` : `Llamar a ${fmt(n)}`}`;
+  // «Para llamar 23» y «Llamar a 6»: la diferencia son los que no tienen teléfono (se dice, para que no parezca un error)
+  const noTel = S.schools.length ? visible().filter(s => canCall(s) && !s.phone).length : 0;
+  b.innerHTML = `${icon("play")} ${!n ? (noTel ? `${fmt(noTel)} sin teléfono` : "Nadie para llamar") : n > max ? `Llamar a los primeros ${fmt(max)}` : `Llamar a ${fmt(n)}`}${n && noTel ? ` <small class="sess-sub">· ${fmt(noTel)} sin tel.</small>` : ""}`;
   b.disabled = !n;
-  b.title = !n ? "No hay colegios para llamar con teléfono en esta selección" : n > max ? `Hay ${fmt(n)} con teléfono en esta selección: la sesión toma los primeros ${fmt(max)}, en el orden de la lista` : "Sesión de llamadas con los colegios de esta selección que tienen teléfono";
+  b.title = !n ? (noTel ? `Los ${fmt(noTel)} de esta selección no tienen teléfono: abrí uno y tocá «Enriquecer» para buscarlo` : "No hay colegios para llamar con teléfono en esta selección") : n > max ? `Hay ${fmt(n)} con teléfono en esta selección: la sesión toma los primeros ${fmt(max)}, en el orden de la lista` : `Sesión de llamadas con los ${fmt(n)} de esta selección que tienen teléfono${noTel ? ` (${fmt(noTel)} no tienen: abrilos y tocá «Enriquecer» para buscarlo)` : ""}`;
   host.querySelector("#csv").disabled = !S.schools.length;
 }
 function openCity(country, city) {
