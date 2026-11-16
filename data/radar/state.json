@@ -7311,7 +7311,11 @@
   "ES|n1470838508": "2026-11-16T19:18:40.297Z",
   "NI|n306243099": "2026-11-16T21:12:03.389Z",
   "CO|n703168608": "2026-11-16T21:16:42.687Z",
-  "VE|n4433004302": "2026-11-16T21:18:00.739Z"
+  "VE|n4433004302": "2026-11-16T21:18:00.739Z",
+  "AR|Goya": "2026-11-16T23:02:50.744Z",
+  "MX|Amozoc de Mota": "2026-11-16T23:03:30.330Z",
+  "MX|Salina Cruz": "2026-11-16T23:10:00.048Z",
+  "CO|n263295783": "2026-11-16T23:16:33.834Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7416,6 +7420,48 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-16T23:02:17.232Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Goya",
+     "found": 6,
+     "updated": 0,
+     "osm": 36
+    },
+    {
+     "cc": "MX",
+     "city": "Amozoc de Mota",
+     "found": 0,
+     "updated": 0,
+     "osm": 4
+    },
+    {
+     "cc": "MX",
+     "city": "Salina Cruz",
+     "found": 18,
+     "updated": 0,
+     "osm": 89
+    },
+    {
+     "cc": "CO",
+     "city": "La Dorada",
+     "found": 2,
+     "updated": 0,
+     "osm": 5
+    }
+   ],
+   "added": 26,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 14.5,
+   "total": 21899
+  },
   {
    "at": "2026-11-16T21:05:45.168Z",
    "cities": [
@@ -9835,55 +9881,6 @@
    ],
    "minutes": 15.2,
    "total": 19722
-  },
-  {
-   "at": "2026-11-13T09:17:19.899Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Villa de Álvarez",
-     "found": 33,
-     "updated": 2,
-     "osm": 271
-    },
-    {
-     "cc": "DO",
-     "city": "Puerto Plata",
-     "found": 4,
-     "updated": 0,
-     "osm": 12
-    },
-    {
-     "cc": "PY",
-     "city": "Caaguazú",
-     "found": 1,
-     "updated": 0,
-     "osm": 65
-    },
-    {
-     "cc": "VE",
-     "city": "El Vigía",
-     "found": 10,
-     "updated": 0,
-     "osm": 16
-    },
-    {
-     "cc": "ES",
-     "city": "Salamanca",
-     "found": 34,
-     "updated": 1,
-     "osm": 129
-    }
-   ],
-   "added": 82,
-   "enriched": 0,
-   "photos": 12,
-   "contacts": 2,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 16.9,
-   "total": 19690
   }
  ]
 }
