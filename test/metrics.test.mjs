@@ -13,6 +13,11 @@ test("período y fechas: contando hoy, en la zona de quien mira", () => {
   assert.deepEqual(M.periodOf("2026-11-10", 7), { from: "2026-11-04", to: "2026-11-10", days: 7 });
   assert.deepEqual(M.periodOf("2026-11-10", 30), { from: "2026-10-12", to: "2026-11-10", days: 30 });
   assert.equal(M.periodOf("2026-11-10", 5).days, 7); // solo 7, 30 o 90
+  // el mes y el trimestre en curso, hasta hoy (los objetivos son por mes)
+  assert.deepEqual(M.periodOf("2026-11-16", "mes"), { from: "2026-11-01", to: "2026-11-16", days: 16, kind: "mes" });
+  assert.deepEqual(M.periodOf("2026-11-16", "trim"), { from: "2026-10-01", to: "2026-11-16", days: 47, kind: "trim" });
+  assert.deepEqual(M.periodOf("2026-03-01", "trim"), { from: "2026-01-01", to: "2026-03-01", days: 60, kind: "trim" });
+  assert.deepEqual([M.periodParam("mes"), M.periodParam("30"), M.periodParam("x"), M.periodParam(undefined)], ["mes", 30, 7, 7]);
   assert.equal(M.isoUtc("2026-11-04 02:00:00"), "2026-11-04T02:00:00Z");
   assert.equal(M.isoUtc("2026-11-04T02:00:00Z"), "2026-11-04T02:00:00Z");
   assert.equal(M.localDay("2026-11-04T02:00:00Z", TZ), "2026-11-03"); // las 23:00 del 3 en Montevideo

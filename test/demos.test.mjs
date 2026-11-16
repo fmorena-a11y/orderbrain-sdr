@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { resultMarks, demoResult, outcomeKey, resultLine, withResult, demoPast, people, demoBoard, pastResult, boardFor } from "../lib/demos.js";
+import { resultMarks, demoResult, outcomeKey, resultLine, withResult, demoPast, people, pastResult, monthBoard, periodOf, periodChoices, pickPeriod, sourceKind, fuenteKindOf, countsFor, heldState } from "../lib/demos.js";
 
 test("el resultado sale solo de la línea fija (o de outcome): sin marca es «?» aunque esté hecha", () => {
   const line = resultLine("noshow", { by: "Ana <Ruiz>", day: "2026-11-09" });
@@ -46,71 +46,133 @@ test("quién la agendó: el nombre de la nota en las de la app (el creador es el
   assert.deepEqual(P.setter({}), { id: null, name: "" });
 });
 
-test("demoBoard: últimos 7 días y próximos 14, conteo por quién agendó en orden alfabético (sin puestos)", () => {
-  const d = (id, due_date, due_time, creator, extra = {}) => ({ id, due_date, due_time, creator_user_id: creator, owner_id: 4, ...extra });
-  const now = Date.parse("2026-11-10T20:00:00Z"); // 14:00 en México
-  const r = demoBoard([d(1, "2026-11-12", "15:00", 2), d(2, "2026-11-05", "", 3, { result: "done", done: true }), d(3, "2026-10-01", "", 2), d(4, "2026-11-25", "", 2), d(5, "2026-11-10", "02:00", 2),
-    d(6, "2026-10-25", "16:00", 2), d(7, "2026-10-26", "16:00", 2, { result: "canceled" })],
-    { users, profiles, today: "2026-11-10", tz: "America/Mexico_City", now });
-  assert.deepEqual(r.upcoming.map(x => x.id), [1]); // la 4 queda fuera (más de 14 días); la 5 es el 9 en México
-  assert.deepEqual(r.recent.map(x => x.id), [5, 2]);
-  assert.deepEqual(r.pending.map(x => x.id), [6]); // antes de los 7 días y sin resultado (la 3 es de hace más de 30 días; la 7 tiene resultado)
-  assert.equal(r.upcoming[0].time, "09:00");
-  assert.equal(r.recent[1].result, "done");
-  assert.equal(r.recent[1].owner, "Matías");
-  assert.deepEqual(r.people, [{ id: 3, name: "Ana Pérez", upcoming: 0, recent: 1 }, { id: 2, name: "Zoe", upcoming: 1, recent: 1 }]);
-  assert.ok(!("pos" in r.people[0]) && !("rank" in r.people[0]));
-});
-
-test("demoBoard: una demo de hoy que ya pasó va a «ya pasaron»; una reprogramada cuya fecha nueva pasó queda «?»", () => {
-  const now = Date.parse("2026-11-10T20:01:00Z"); // 14:01 en México
-  const r = demoBoard([{ id: 1, due_date: "2026-11-10", due_time: "15:00", owner_id: 4 }, { id: 2, due_date: "2026-11-10", due_time: "22:00", owner_id: 4 },
-    { id: 3, due_date: "2026-11-09", due_time: "15:00", owner_id: 4, result: "moved", moved: true }, { id: 4, due_date: "2026-11-12", due_time: "15:00", owner_id: 4, result: "moved", moved: true }],
-    { users, profiles, today: "2026-11-10", tz: "America/Mexico_City", now });
-  assert.deepEqual(r.upcoming.map(x => [x.id, x.result]), [[2, null], [4, "moved"]]); // la reprogramada a futuro dice «Reprogramada»
-  assert.deepEqual(r.recent.map(x => [x.id, x.past, x.result, x.moved]), [[1, true, null, false], [3, true, null, true]]);
+test("pastResult: una reprogramada cuya fecha nueva ya pasó queda «?»", () => {
   assert.equal(pastResult({ result: "moved" }, true), null);
   assert.equal(pastResult({ result: "moved" }, false), "moved");
   assert.equal(pastResult({ result: "done" }, true), "done");
 });
 
-test("demoBoard: entradas automáticas aparte, No Show no queda en «Falta marcar», y un SDR ve solo lo suyo y el total", () => {
-  const now = Date.parse("2026-11-10T20:00:00Z"), free = new Set([99]);
-  const b = demoBoard([
-    { id: 1, due_date: "2026-11-08", due_time: "", owner_id: 4, creator_user_id: 99, done: true }, // automática
-    { id: 2, due_date: "2026-11-09", due_time: "", owner_id: 4, creator_user_id: 2 },
-    { id: 3, due_date: "2026-10-20", due_time: "", owner_id: 4, creator_user_id: 2, type: "lunch", done: true }, // No Show en Pipedrive
-    { id: 4, due_date: "2026-10-21", due_time: "", owner_id: 4, creator_user_id: 3 }, // vieja sin marcar
-    { id: 5, due_date: "2026-11-12", due_time: "15:00", owner_id: 4, creator_user_id: 99, by: "Ana Pérez" }, // la nota manda sobre la cuenta general
-  ], { users, profiles, free, today: "2026-11-10", tz: "UTC", now });
-  assert.deepEqual(b.pending.map(r => r.id), [4]);
-  assert.equal(b.recent.find(r => r.id === 1).auto, true);
-  assert.deepEqual(b.people.map(p => [p.name, p.recent, p.upcoming, !!p.auto]), [["Ana Pérez", 0, 1, false], ["Zoe", 1, 0, false], ["", 1, 0, true]]);
-  assert.equal(boardFor(b, { leader: true }), b);
-  const s = boardFor(b, { leader: false, me: 2 });
-  assert.ok(!("people" in s));
-  assert.deepEqual(s.mine, { id: 2, name: "Zoe", upcoming: 0, recent: 1 });
-  assert.deepEqual(s.total, { upcoming: 1, recent: 2 });
-  assert.deepEqual(boardFor(b, { me: 77 }).mine, { id: 77, upcoming: 0, recent: 0 });
+// ---------- Demos por mes o trimestre (tarjeta «Demos» de Equipo, solo líderes y dirección)
+test("períodos: mes, trimestre (Q1 = enero a marzo) y lo que se puede elegir (desde enero del año anterior, nada futuro)", () => {
+  assert.deepEqual(periodOf("2026-11"), { kind: "month", key: "2026-11", year: 2026, from: "2026-11-01", to: "2026-11-30", label: "noviembre 2026" });
+  assert.deepEqual([periodOf("2026-02").to, periodOf("2028-02").to], ["2026-02-28", "2028-02-29"]);
+  assert.deepEqual(periodOf("2026-q4"), { kind: "q", key: "2026-Q4", year: 2026, q: 4, from: "2026-10-01", to: "2026-12-31", label: "Q4 2026 (octubre a diciembre)" });
+  assert.deepEqual([periodOf("2026-Q1").to, periodOf("2026-Q2").from], ["2026-03-31", "2026-04-01"]);
+  assert.equal(periodOf("2026-13"), null); assert.equal(periodOf("2026-Q5"), null); assert.equal(periodOf("noviembre"), null);
+  const c = periodChoices("2026-11-16");
+  assert.equal(c.current, "2026-11");
+  assert.deepEqual([c.months[0].key, c.months.at(-1).key, c.months.length], ["2026-11", "2025-01", 23]);
+  assert.deepEqual(c.quarters.map(q => q.key), ["2025-Q1", "2025-Q2", "2025-Q3", "2025-Q4", "2026-Q1", "2026-Q2", "2026-Q3", "2026-Q4"]);
+  assert.deepEqual(periodChoices("2026-02-01").quarters.map(q => q.key).slice(-2), ["2025-Q4", "2026-Q1"]); // Q2 todavía no empezó
+  assert.equal(pickPeriod("", "2026-11-16").key, "2026-11");
+  assert.equal(pickPeriod("2026-12", "2026-11-16").key, "2026-11"); // futuro: el mes en curso
+  assert.equal(pickPeriod("2024-12", "2026-11-16").key, "2026-11"); // más viejo que el año anterior
+  assert.equal(pickPeriod("2025-Q2", "2026-11-16").key, "2025-Q2");
 });
 
-test("demoBoard: 7 días = hoy y los 6 anteriores (como Métricas), sin duplicados, hechas fuera de «Falta marcar»; a un SDR, quién cargó solo en las suyas", () => {
-  const now = Date.parse("2026-11-10T20:00:00Z"), free = new Set([99]);
-  const b = demoBoard([
-    { id: 1, due_date: "2026-11-03", due_time: "15:00", owner_id: 4, creator_user_id: 2 }, // hace 7 días: ya no es «ya pasaron»
-    { id: 2, due_date: "2026-11-04", due_time: "15:00", owner_id: 4, creator_user_id: 2, deal_id: 9, add_time: "2026-11-01T10:00:00Z" },
-    { id: 3, due_date: "2026-11-04", due_time: "", owner_id: 4, creator_user_id: 99, deal_id: 9, done: true, add_time: "2026-11-05T10:00:00Z" }, // automática que repite la 2
-    { id: 4, due_date: "2026-11-05", due_time: "", owner_id: 4, creator_user_id: 3 },
-    { id: 5, due_date: "2026-10-20", due_time: "", owner_id: 4, creator_user_id: 2, done: true }, // vieja, hecha en Pipedrive: no falta marcar
-  ].map(a => ({ type: "meeting", ...a })), { users, profiles, free, today: "2026-11-10", tz: "UTC", now });
-  assert.equal(b.from, "2026-11-04");
-  assert.deepEqual(b.recent.map(r => r.id).sort(), [2, 4]);
-  assert.equal(b.recent.find(r => r.id === 2).done, true); // la automática dice que se hizo
-  assert.deepEqual(b.pending.map(r => r.id), [1]);
-  const s = boardFor(b, { leader: false, me: 2 });
-  const r2 = s.recent.find(r => r.id === 2), r4 = s.recent.find(r => r.id === 4);
-  assert.deepEqual([r2.setterId, r2.mineLoaded], [2, true]);
-  assert.ok(!("setter" in r4) && !("setterId" in r4)); // de otro: no se manda quién la cargó
-  assert.equal(r4.owner, "Matías"); // quién la da sí
-  assert.ok(boardFor(b, { leader: true }).recent.find(r => r.id === 4).setterId === 3);
+// las opciones reales del campo Fuente (lib/config.js FUENTE_LABELS, leídas de la cuenta el 16/11/2026)
+const LBL = new Map([["502", "Outbound - Cold Calling"], ["503", "Outbound - Evento"], ["684", "Oubound - Contacto Cercano"], ["732", "Outbound - Referral Usuarios"],
+  ["773", "Inbound - Meta Ads"], ["786", "Inbound - SDR Meta Ads Revival"], ["489", "Inbound - Búsqueda en Google"], ["505", "Inbound - Expansión de Cuenta"], ["494", "Otro (especificar en actividad de Demo)"]]);
+test("Fuente → outbound o inbound por el nombre de la opción; vacía, «Otro», desconocida o las dos a la vez: sin fuente", () => {
+  assert.deepEqual([fuenteKindOf("Inbound - Alianza"), fuenteKindOf("Outbound - Mailing"), fuenteKindOf("Oubound - Contacto Cercano"), fuenteKindOf("Otro (especificar…)"), fuenteKindOf("")], ["in", "out", "out", null, null]);
+  assert.deepEqual(sourceKind([502], LBL), { kind: "out", label: "Outbound - Cold Calling" }); // v2: lista de ids
+  assert.deepEqual(sourceKind("786", LBL), { kind: "in", label: "Inbound - SDR Meta Ads Revival" }); // v1 y prospectos: texto
+  assert.equal(sourceKind([684], LBL).kind, "out");
+  assert.equal(sourceKind([{ id: 505, label: "Inbound - Expansión de Cuenta" }], LBL).kind, "in");
+  assert.deepEqual(sourceKind(null, LBL), { kind: "none", label: "" });
+  assert.deepEqual(sourceKind([], LBL), { kind: "none", label: "" });
+  assert.deepEqual(sourceKind([494], LBL), { kind: "none", label: "Otro (especificar en actividad de Demo)" });
+  assert.deepEqual(sourceKind([9999], LBL), { kind: "none", label: "Opción que no está en la lista" });
+  assert.deepEqual(sourceKind("502,773", LBL), { kind: "none", label: "Outbound - Cold Calling, Inbound - Meta Ads", mixed: true });
+  assert.equal(sourceKind([494, 773], LBL).kind, "in"); // «Otro» más una inbound: inbound
+});
+
+test("Cuentan: en un SDR 2 inbound = 1 outbound; un AE sin ponderar; si alguna hecha no se pudo leer, «?»", () => {
+  assert.equal(countsFor({ out: 6, in: 2, unread: 0 }), 7);
+  assert.equal(countsFor({ out: 1, in: 1, unread: 0 }), 1.5);
+  assert.equal(countsFor({ out: 6, in: 2, unread: 0 }, true), 8);
+  assert.equal(countsFor({ out: 6, in: 2, unread: 1 }), null);
+});
+
+test("heldState: la marca de la app manda; No Show; hecha en Pipedrive; de hoy sin hora; sin marcar", () => {
+  assert.equal(heldState({ mark: "canceled", done: true }, true), "appCanceled");
+  assert.equal(heldState({ type: "lunch", done: true }, true), "noshow");
+  assert.equal(heldState({ type: "meeting", done: true }, false), "done"); // hecha antes de la fecha: hecha
+  assert.equal(heldState({ type: "meeting" }, true, true), "today");
+  assert.equal(heldState({ type: "meeting", mark: "moved" }, false), "upcoming"); // reprogramada a futuro: agendada
+  assert.equal(heldState({ type: "meeting", mark: "moved" }, true), "unmarked"); // y si la fecha nueva pasó, falta marcar
+});
+
+// Caso real (Pipedrive, solo lectura, 16/11/2026): las demos de noviembre que cargó Joaquin Fabregat (SDR, id 28543627) en las
+// agendas de 6 personas. El líder: «tiene hechas 6 outbound, 2 inbound y 4 agendadas». La tarjeta vieja decía 6 «ya pasaron» y
+// 3 «próximas» porque miraba del 10 al 16/11 y contaba la del 16 sin hora (y la No Show del 10) como «ya pasaron».
+const JF = 28543627, FAV = 20758179, MAR = 24821777, COR = 26099394, FER = 22144333, JDE = 26594042, MAC = 28903866, RIC = 25513259;
+const realUsers = [[JF, "Joaquin Fabregat"], [FAV, "Matias Favaro"], [MAR, "Joaquin Márquez"], [COR, "Santiago Correa"], [FER, "Feryenn Berriel"], [JDE, "Juan Diego Etcheverry"], [MAC, "Ignacio Maceiras"], [RIC, "Ricardo"]]
+  .map(([id, name]) => ({ id, name, email: `${id}@x.com` }));
+const jf = (id, owner, due_date, due_time, type, done, deal_id) => ({ id, type, owner_id: owner, creator_user_id: JF, due_date, due_time, done, deal_id, add_time: "2026-10-30T12:00:00Z" });
+const JF_NOV = [
+  jf(100479, MAC, "2026-11-02", "", "meeting", true, 6417), // St. Tomás de Aquino College Salta · 502 Outbound - Cold Calling
+  jf(100514, COR, "2026-11-02", "", "meeting", true, 6419), // Universidad Cayetano Heredia · 786 Inbound - SDR Meta Ads Revival
+  jf(99967, RIC, "2026-11-03", "", "lunch", true, 4816), // No Show
+  jf(99015, MAR, "2026-11-05", "17:00", "meeting", true, 6370), // Liceo del Valle · 502
+  jf(102494, JDE, "2026-11-06", "", "meeting", true, 6449), // Justo Juez - Arequipa · 786
+  jf(101435, FER, "2026-11-10", "", "meeting", true, 6435), // COLEGIO LA PAZ VERACRUZ · 502
+  jf(102835, JDE, "2026-11-10", "", "meeting", true, 6460), // Colegio Jean Piaget La Tinguiña · 502
+  jf(103273, MAR, "2026-11-10", "", "lunch", true, 6470), // No Show (Paty Chávez · 786)
+  jf(103485, FER, "2026-11-11", "", "meeting", true, 6473), // Colegio Cristobal Colon Veracruz · 502
+  jf(103994, FAV, "2026-11-13", "", "meeting", true, 6485), // CENTRO EDUCATIVO DIOS PADRE · 503 Outbound - Evento
+  jf(103817, FER, "2026-11-16", "", "meeting", false, 6483), // Colegio Buckingham · sin Fuente · hoy, sin hora
+  jf(104555, FAV, "2026-11-17", "", "meeting", false, 6495), // Instituto Ayelén · 502
+  jf(103685, FAV, "2026-11-19", "12:00", "meeting", false, 6477), // Adventist Institute Mendoza · sin Fuente
+  jf(103705, COR, "2026-11-19", "", "meeting", false, 6478), // Colegio Adventista El Faro · 502
+  jf(98860, MAC, "2026-10-29", "22:15", "meeting", true, 6363), // octubre: no entra
+];
+const JF_FUENTE = { 6417: [502], 6419: [786], 4816: null, 6370: [502], 6449: [786], 6435: [502], 6460: [502], 6470: [786], 6473: [502], 6485: [503], 6483: null, 6495: [502], 6477: null, 6478: [502], 6363: [502] };
+const jfSource = a => sourceKind(JF_FUENTE[a.deal_id], LBL);
+test("monthBoard, caso real: Joaquin Fabregat en noviembre = 6 outbound y 2 inbound hechas (cuentan 7), 4 agendadas, 2 No Show", () => {
+  const now = Date.parse("2026-11-16T15:00:00Z"), tz = "America/Argentina/Buenos_Aires";
+  const b = monthBoard(JF_NOV, { users: realUsers, profiles: {}, period: periodOf("2026-11"), tz, now, sourceOf: jfSource, ae: new Set([FAV, MAR, COR]) });
+  const r = b.rows.find(x => x.id === JF);
+  assert.deepEqual([r.out, r.in, r.none, r.done, r.counts, r.booked, r.noshow, r.unmarked, r.role], [6, 2, 0, 8, 7, 4, 2, 0, "sdr"]);
+  assert.equal(b.rows.length, 1);
+  assert.equal(b.items.length, 14); // la de octubre no
+  assert.equal(b.items.find(x => x.id === 103817).state, "booked"); // hoy sin hora: agendada hasta que termine el día
+  assert.deepEqual(b.items.filter(x => x.state === "booked").map(x => [x.id, x.kind]), [[103817, "none"], [104555, "out"], [103685, "none"], [103705, "out"]]);
+  assert.deepEqual([b.totals.out, b.totals.in, b.totals.counts, b.totals.booked], [6, 2, 7, 4]);
+  // el trimestre (Q4) también la incluye a la de octubre
+  const q = monthBoard(JF_NOV, { users: realUsers, profiles: {}, period: periodOf("2026-Q4"), tz, now, sourceOf: jfSource });
+  assert.deepEqual([q.rows[0].out, q.rows[0].in, q.rows[0].counts], [7, 2, 8]);
+});
+
+test("monthBoard: sin fuente y sin poder leer van aparte (nunca como outbound); AE sin ponderar; automáticas aparte; reprogramada, cancelada y sin marcar", () => {
+  const users = [{ id: 2, name: "Zoe", email: "z@x.com" }, { id: 3, name: "Ana", email: "a@x.com" }, { id: 4, name: "Matías", email: "m@x.com" }], free = new Set([99]);
+  const now = Date.parse("2026-11-16T15:00:00Z"), tz = "UTC";
+  const d = (id, creator, due_date, x = {}) => ({ id, type: "meeting", owner_id: 4, creator_user_id: creator, due_date, due_time: "", done: true, deal_id: id, add_time: "2026-11-01T10:00:00Z", ...x });
+  const src = { 1: [502], 2: [773], 3: null, 4: "unread", 5: [494], 6: [786], 7: [502], 8: [502], 9: [502], 10: [489], 11: [786] };
+  const sourceOf = a => src[a.deal_id] === "unread" ? { kind: "unread", label: "" } : sourceKind(src[a.deal_id], LBL);
+  const b = monthBoard([
+    d(1, 2, "2026-11-02"), d(2, 2, "2026-11-03"), d(3, 2, "2026-11-04"), d(5, 2, "2026-11-05"),
+    d(4, 3, "2026-11-06"), d(6, 3, "2026-11-06"), // a Ana no se le pudo leer una: «?»
+    d(7, 2, "2026-11-09", { mark: "canceled" }), d(8, 2, "2026-11-12", { done: false }), // cancelada y sin marcar (pasó y no está hecha)
+    d(9, 2, "2026-11-20", { done: false, mark: "moved", moved: true }), // reprogramada a futuro: agendada
+    d(10, 4, "2026-11-10"), d(11, 4, "2026-11-11"), // Matías (AE) cargó las suyas: sin ponderar
+    d(12, 99, "2026-11-11"), // entrada automática: aparte, sin «Cuentan»
+    d(13, 2, "2026-12-01"), // diciembre: no entra
+  ], { users, profiles: {}, free, period: periodOf("2026-11"), tz, now, sourceOf, ae: new Set([4]) });
+  const by = Object.fromEntries(b.rows.map(r => [r.auto ? "auto" : r.name, r]));
+  assert.deepEqual(b.rows.map(r => r.auto ? "auto" : r.name), ["Ana", "Matías", "Zoe", "auto"]);
+  assert.deepEqual([by.Zoe.out, by.Zoe.in, by.Zoe.none, by.Zoe.counts, by.Zoe.canceled, by.Zoe.unmarked, by.Zoe.booked], [1, 1, 2, 1.5, 1, 1, 1]);
+  assert.deepEqual([by.Ana.in, by.Ana.unread, by.Ana.counts], [1, 1, null]);
+  assert.deepEqual([by.Matías.in, by.Matías.counts, by.Matías.role], [2, 2, "ae"]);
+  assert.deepEqual([by.auto.done, by.auto.counts, by.auto.role], [1, null, null]);
+  assert.equal(b.totals.counts, null); // una persona con «?»: el total también
+  assert.equal(b.items.find(x => x.id === 3).kind, "none");
+});
+
+test("monthBoard por equipo: la lista, las que da o cargó su gente; las filas, solo su gente", () => {
+  const users = [{ id: 5, name: "A1" }, { id: 6, name: "A2" }, { id: 7, name: "B1" }, { id: 2, name: "AE" }], A = { ids: new Set([5, 6]) };
+  const dm = (id, owner, creator) => ({ id, type: "meeting", owner_id: owner, creator_user_id: creator, due_date: "2026-11-09", due_time: "15:00", done: true, add_time: "2026-11-01T10:00:00Z" });
+  const b = monthBoard([dm(1, 2, 5), dm(2, 2, 7), dm(3, 7, 6), dm(4, 99, 99)], { users, free: new Set([99]), period: periodOf("2026-11"), tz: "UTC", now: Date.parse("2026-11-16T12:00:00Z"), team: A, sourceOf: () => ({ kind: "out", label: "" }) });
+  assert.deepEqual(b.items.map(r => r.id), [1, 3]);
+  assert.deepEqual(b.rows.map(r => r.id), [5, 6]);
 });
