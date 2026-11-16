@@ -50,7 +50,8 @@ function draw() {
   const byWhen = a => inWhen(a, t), byZone = a => matchZone(a, F.zone) && matchZone(a, F.q, { loose: true }), byType = a => F.type === "all" || a.type === F.type;
   const base = all.filter(a => byWhen(a) && byZone(a));
   const c = { all: base.length }; for (const a of base) c[a.type] = (c[a.type] || 0) + 1;
-  const types = [["all", "Todas"], ...Object.entries(S.types || {}).filter(([k]) => c[k])];
+  // el tipo elegido siempre queda a la vista (aunque hoy tenga 0): si se escondía, seguía filtrando sin que se viera («Hoy 0»)
+  const types = [["all", "Todas"], ...Object.entries(S.types || {}).filter(([k]) => c[k] || k === F.type)];
   // las zonas cuentan con la fecha y el tipo elegidos; la elegida queda aunque ahora tenga 0
   const zc = new Map(zoneOptions(all.filter(a => byWhen(a) && byType(a))).map(z => [z.key, z.n]));
   const zones = zonesAll.map(z => ({ ...z, n: zc.get(z.key) || 0 })).filter(z => z.n || z.key === F.zone).sort((a, b) => b.n - a.n || a.label.localeCompare(b.label));
@@ -85,12 +86,12 @@ function draw() {
           </select></label>
           <label class="field"><span>Buscar</span><input class="inp" type="search" id="agQ" data-focus-key="q" placeholder="Colegio, ciudad o evento" value="${esc(F.q)}"></label>
         </div>
-        ${types.length > 2 ? `<div class="chips" role="group" aria-label="Tipo de actividad">${types.map(([k, l]) => `<button class="chip" data-t="${k}" data-focus-key="t-${k}" aria-pressed="${F.type === k}">${esc(PLURAL[k] || l)} <b>${c[k] || 0}</b></button>`).join("")}</div>` : ""}
+        ${types.length > 2 || F.type !== "all" ? `<div class="chips" role="group" aria-label="Tipo de actividad">${types.map(([k, l]) => `<button class="chip" data-t="${k}" data-focus-key="t-${k}" aria-pressed="${F.type === k}">${esc(PLURAL[k] || l)} <b>${c[k] || 0}</b></button>`).join("")}</div>` : ""}
       </div>
       ${filtered ? `<div class="ag-bar"><span><b>${items.length}</b> ${items.length === 1 ? "actividad" : "actividades"} ${esc([whenLabel(t), zoneName && `· ${zoneName}`].filter(Boolean).join(" "))}</span>
         <span class="ag-bar-act"><button class="btn ghost sm" id="agClear">Limpiar filtros</button>${fichas ? `<button class="btn primary sm" id="agWork">${icon("play", "sm")} ${fichas === 1 ? "Trabajar este colegio" : `Trabajar estos ${fichas} colegios`}</button>` : ""}</span></div>` : ""}
       ${keys.length ? keys.map(k => `<section class="card agenda-day" aria-label="${k === "late" ? "Vencidas" : esc(dayLabel(k))}"><h3 style="${k === "late" ? "color:var(--err)" : ""}">${k === "late" ? "Vencidas" : esc(dayLabel(k))} <small>${byDay.get(k).length}</small></h3>${byDay.get(k).map(a => actRow(a, k === "late")).join("")}</section>`).join("")
-        : filtered ? `<div class="card"><div class="empty">${icon("search")}<b>Nada con estos filtros</b><span>Probá con otra fecha o zona.</span></div></div>`
+        : filtered ? `<div class="card"><div class="empty">${icon("search")}<b>Nada con estos filtros</b><span>Probá con otra fecha, zona o tipo.</span></div></div>`
         : `<div class="card"><div class="empty">${icon("checkCircle")}<b>Nada pendiente</b><span>Cuando registres un contacto con próximo paso, aparece acá.</span></div></div>`}` : ""}
   </div>`;
   drawHead();
