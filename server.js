@@ -22,7 +22,7 @@ import * as ai from "./lib/ai.js";
 import * as psync from "./lib/sync.js";
 import { photosFor, googleEnabled } from "./lib/photos.js";
 import fs from "fs";
-import { MARKETS, LOST_REASONS, TYPE_LABEL, DAILY_GOAL } from "./lib/config.js";
+import { MARKETS, LOST_REASONS, TYPE_LABEL, DAILY_GOAL, FOUNDERS_DEFAULT } from "./lib/config.js";
 import { safeTz, toUtc, todayIn } from "./lib/time.js";
 import { composeMessage, templates } from "./lib/playbook.js";
 import * as gmail from "./lib/gmail.js";
@@ -85,7 +85,7 @@ app.get("/auth/config", (req, res) => res.json({ googleClientId: GOOGLE_CLIENT_I
 // del token) y LEADER_EMAILS son líderes, FOUNDER_EMAILS dirección; los dos ven todos los equipos y los arman. Lo demás lo
 // asigna dirección en Equipo (getAccessMap, getTeams). Con equipos, un líder de equipo ve y toca solo lo de su gente.
 // El rol no se elige en el perfil: lo define esto.
-const LEADERS = ACC.parseEmails(process.env.LEADER_EMAILS), FOUNDERS = ACC.parseEmails(process.env.FOUNDER_EMAILS);
+const LEADERS = ACC.parseEmails(process.env.LEADER_EMAILS), FOUNDERS = ACC.parseEmails([process.env.FOUNDER_EMAILS || "", ...FOUNDERS_DEFAULT].join(","));
 const ownerEmail = async () => { try { return (await pd.tokenOwner()).email || ""; } catch { return ""; } };
 const fixedOf = (email, owner) => ACC.fixedLevel(email, { owner, leaders: LEADERS, founders: FOUNDERS });
 const lc = e => String(e || "").trim().toLowerCase();
