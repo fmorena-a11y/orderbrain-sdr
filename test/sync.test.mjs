@@ -140,7 +140,7 @@ test("de punta a punta en el demo: se pausa y se sigue, y da lo mismo que checkS
   }
   // la misma respuesta que el cruce de a uno, en una muestra
   let compared = 0;
-  for (const s of sample(list, 400)) {
+  for (const s of sample(list, 600)) {
     if (s.id === manual.id || store.getMatch(s.id)?.via !== "sync" || await truncated(s)) continue;
     compared++;
     const bulk = pick(store.getMatch(s.id)), one = pick(await sales.checkSchool(s.id, { force: true }));
