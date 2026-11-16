@@ -95,6 +95,8 @@ export async function api(path, opts = {}) {
 
 // ---------- íconos (trazos estilo Lucide)
 const P = {
+  minus: '<path d="M5 12h14"/>',
+  dock: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M15 4v16"/>',
   search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
   sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
   map: '<path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2Z"/><path d="M9 4v14M15 6v14"/>',

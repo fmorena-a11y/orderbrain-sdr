@@ -13,6 +13,7 @@ function suggestions() {
 export function openAssistant() {
   if (!S.ai) return;
   $("assistant").hidden = false;
+  { const w = awLoad(); if (w?.min) { awSave({ ...w, min: false }); awApply(); } } // abrirlo lo agranda si estaba minimizado
   if (!C.started) {
     C.started = true;
     bubble("a", `Hola ${(S.me.name || "").split(" ")[0]}. Puedo decirte a quién llamar, armarte un guion o un mensaje, agendar llamadas y demos (para vos o para el equipo) y cargar notas en Pipedrive. Antes de guardar algo te lo muestro para que lo confirmes.`);
@@ -21,6 +22,46 @@ export function openAssistant() {
   setTimeout(() => $("chatIn").focus(), 50);
 }
 export function closeAssistant() { $("assistant").hidden = true; }
+
+// ---------- ventana movible (pantallas de 900 px o más): arrastrar desde el título, agrandar desde la esquina, minimizar.
+// Dónde quedó se recuerda en este navegador (solo comodidad: si no se puede guardar, vuelve a la derecha).
+const AW_KEY = "ob.assistant.win", wide = () => matchMedia("(min-width: 900px)").matches;
+const awLoad = () => { try { return JSON.parse(localStorage.getItem(AW_KEY) || "null"); } catch { return null; } };
+const awSave = w => { try { w ? localStorage.setItem(AW_KEY, JSON.stringify(w)) : localStorage.removeItem(AW_KEY); } catch { /* sin almacenamiento */ } };
+function awApply() {
+  const el = $("assistant"), w = awLoad();
+  const float = wide() && w && w.float;
+  el.classList.toggle("floating", !!float); el.classList.toggle("min", !!(wide() && w?.min));
+  $("assistDock").hidden = !float;
+  $("assistMin").setAttribute("aria-label", w?.min ? "Agrandar" : "Minimizar"); $("assistMin").title = w?.min ? "Agrandar" : "Minimizar";
+  if (!float) { el.style.left = el.style.top = el.style.width = el.style.height = ""; return; }
+  const W = Math.min(w.w || 420, innerWidth - 16), H = Math.min(w.h || 640, innerHeight - 16);
+  el.style.width = W + "px"; if (!w.min) el.style.height = H + "px";
+  el.style.left = Math.max(8, Math.min(w.x ?? innerWidth - W - 24, innerWidth - 120)) + "px";
+  el.style.top = Math.max(8, Math.min(w.y ?? 16, innerHeight - 56)) + "px";
+}
+function awInit() {
+  const el = $("assistant"), head = el.querySelector("header");
+  head.addEventListener("pointerdown", e => {
+    if (!wide() || e.button !== 0 || e.target.closest("button")) return;
+    const r = el.getBoundingClientRect(), w = awLoad() || {};
+    // la primera vez que se arrastra, se despega de la derecha y queda flotando donde estaba
+    if (!w.float) awSave({ ...w, float: true, x: r.left, y: r.top, w: r.width, h: Math.min(r.height, 640) }), awApply();
+    const r2 = el.getBoundingClientRect(), dx = e.clientX - r2.left, dy = e.clientY - r2.top;
+    el.classList.add("dragging"); head.setPointerCapture(e.pointerId);
+    const move = ev => { el.style.left = Math.max(8, Math.min(ev.clientX - dx, innerWidth - 120)) + "px"; el.style.top = Math.max(8, Math.min(ev.clientY - dy, innerHeight - 56)) + "px"; };
+    const up = () => { head.removeEventListener("pointermove", move); el.classList.remove("dragging"); const b = el.getBoundingClientRect(); awSave({ ...(awLoad() || {}), float: true, x: b.left, y: b.top }); };
+    head.addEventListener("pointermove", move); head.addEventListener("pointerup", up, { once: true }); head.addEventListener("pointercancel", up, { once: true });
+  });
+  // doble clic en el título: vuelve a la derecha
+  head.addEventListener("dblclick", e => { if (wide() && !e.target.closest("button")) { awSave(null); awApply(); } });
+  // agrandar/achicar desde la esquina (resize de CSS): se guarda el tamaño
+  new ResizeObserver(() => { const w = awLoad(); if (!wide() || !w?.float || w.min || el.hidden) return; const b = el.getBoundingClientRect(); if (Math.abs(b.width - (w.w || 0)) > 2 || Math.abs(b.height - (w.h || 0)) > 2) awSave({ ...w, w: Math.round(b.width), h: Math.round(b.height) }); }).observe(el);
+  $("assistMin").onclick = () => { const w = awLoad() || {}, r = el.getBoundingClientRect(); awSave({ ...w, float: true, x: w.float ? w.x : r.left, y: w.float ? w.y : r.top, w: w.w || r.width, min: !w.min }); awApply(); };
+  $("assistDock").onclick = () => { awSave(null); awApply(); };
+  addEventListener("resize", awApply);
+  awApply();
+}
 function drawSugs() { $("sugs").innerHTML = C.busy ? "" : suggestions().map(s => `<button>${esc(s)}</button>`).join(""); $("sugs").querySelectorAll("button").forEach(b => b.onclick = () => send(b.textContent)); }
 function bubble(cls, text) { const d = document.createElement("div"); d.className = "b " + cls; d.textContent = text; $("msgs").appendChild(d); $("msgs").scrollTop = 1e9; return d; }
 
@@ -73,6 +114,7 @@ async function send(text) {
   C.busy = false; $("chatSend").disabled = false; drawSugs(); $("chatIn").focus();
 }
 $("assistClose").onclick = closeAssistant;
+awInit();
 $("compose").onsubmit = e => { e.preventDefault(); const v = $("chatIn").value; $("chatIn").value = ""; autosize(); send(v); };
 const autosize = () => { const t = $("chatIn"); t.style.height = "auto"; t.style.height = Math.min(t.scrollHeight, 140) + "px"; };
 $("chatIn").addEventListener("input", autosize);

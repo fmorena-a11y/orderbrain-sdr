@@ -1293,3 +1293,18 @@ details.tl-body p { margin: 6px 0 0; padding: 10px 12px; border-radius: 10px; ba
 .ds-reg .callout { font-size: 13.5px; padding: 10px 12px; }
 .ds-reg .linkbtn { justify-self: start; font-size: 13px; }
 @media (max-width: 480px) { .ds .row .btn { flex: 1 1 auto; } .ds-slot { flex: 1 1 calc(50% - 6px); } }
+
+/* Asistente como ventana: en pantallas grandes se arrastra desde el título, se agranda desde la esquina y se minimiza */
+.assistant .aw-btns { display: flex; gap: 2px; }
+@media (min-width: 900px) {
+  .assistant header { cursor: grab; user-select: none; }
+  .assistant.dragging header { cursor: grabbing; }
+  .assistant.floating { top: auto; right: auto; bottom: auto; height: min(640px, calc(100vh - 32px)); width: 420px; min-width: 320px; min-height: 260px;
+    max-width: calc(100vw - 16px); max-height: calc(100vh - 16px); border: 1px solid var(--line); border-radius: 14px; resize: both; overflow: hidden; animation: none; }
+  .assistant.min { height: auto !important; min-height: 0; resize: none; }
+  .assistant.min .msgs, .assistant.min .sugs, .assistant.min .compose { display: none; }
+  .assistant.min header { border-bottom: 0; }
+}
+@media (max-width: 899px) { .assistant #assistDock, .assistant #assistMin { display: none; } }
+.assistant .ah, .assistant .ah > div { min-width: 0; }
+.assistant .ah small { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
