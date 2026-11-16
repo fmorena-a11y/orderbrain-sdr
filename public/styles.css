@@ -1423,3 +1423,7 @@ details.tl-body p { margin: 6px 0 0; padding: 10px 12px; border-radius: 10px; ba
   .shell.rail-mini .rail-foot { width: 100%; } .shell.rail-mini .me { justify-content: center; padding: 6px 0; } .shell.rail-mini .me .who { display: none; }
 }
 @media (max-width: 1080px), (max-height: 520px) and (orientation: landscape) { .rail-toggle { display: none; } }
+/* Accesos del equipo: buscador */
+.codes-find { display: flex; align-items: center; gap: 10px; margin: 4px 0 10px; }
+.codes-find .inp { flex: 1; min-width: 0; }
+.code-row[hidden] { display: none !important; }

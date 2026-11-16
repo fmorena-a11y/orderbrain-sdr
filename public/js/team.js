@@ -2,7 +2,7 @@
 // actividad reciente y, para líderes, equipos, accesos, sincronización y World Dominion. Las métricas están en Métricas.
 // Con equipos (lib/teams.js), todo es del equipo: un líder ve el suyo (dirección elige uno o «Toda la cuenta» arriba), un miembro el suyo
 // y alguien sin equipo, lo suyo. Sincronizar y World Dominion son de toda la cuenta: los ve quien ve todo.
-import { S, api, esc, icon, ago, copy, toast, pill, setSchools, ST, DEMO_RES, shortDay, modal, leadsOver, teamSelect, teamQuery, setTeamView } from "./core.js";
+import { S, api, esc, icon, ago, copy, toast, pill, setSchools, ST, DEMO_RES, shortDay, modal, leadsOver, teamSelect, teamQuery, setTeamView, norm } from "./core.js";
 import { openSchool, openRecord } from "./school.js";
 import { demoResultMenu } from "./today.js";
 import { brainBadge, refreshMe } from "./app.js";
@@ -70,14 +70,26 @@ function codeRows(c) {
 }
 const codesHtml = c => c.error ? `<div class="callout err">${icon("alert")}<span>${esc(c.error)}</span></div>`
   : `<p class="faint" style="margin:0 0 6px;font-size:13.5px">${c.admin ? `Dirección ve todos los equipos; cada líder, solo el suyo (Métricas, demos, actividad y estos accesos).${c.on ? " Una persona está en un solo equipo." : " Sin equipos, los líderes ven todo."}` : c.on ? "Tu gente: pasale su código para que entre. Para sumar o sacar a alguien, usá «Equipos»." : "Los accesos los cambia dirección."}</p>
-  <div class="codes">${codeRows(c).map(u => `<div class="code-row"><span class="t"><b>${esc(u.name)}${u.me ? " (vos)" : ""} ${accTag(u)}</b><small>${esc(u.email)}</small></span>${u.code ? `<code>${esc(u.code)}</code><button class="btn sm" data-invite="${u.id}">${icon("copy", "sm")} Copiar invitación</button>` : `<small class="faint code-off">Tiene acceso de líder o dirección: su código se lo pasa dirección.</small>`}${u.choices ? accHtml(u) : ""}${acctBtn(u)}</div>`).join("") || `<p class="faint" style="margin:0">Nadie en tu equipo todavía.</p>`}</div>`;
+  ${codeRows(c).length > 6 ? `<div class="codes-find"><input class="inp" id="codesQ" type="search" placeholder="Buscar persona por nombre o email" autocomplete="off" aria-label="Buscar persona" value="${esc(codesQ)}"><small class="faint" id="codesN"></small></div>` : ""}
+  <div class="codes">${codeRows(c).map(u => `<div class="code-row" data-q="${esc(norm(`${u.name} ${u.email} ${u.role || ""}`))}"><span class="t"><b>${esc(u.name)}${u.me ? " (vos)" : ""} ${accTag(u)}</b><small>${esc(u.email)}</small></span>${u.code ? `<code>${esc(u.code)}</code><button class="btn sm" data-invite="${u.id}">${icon("copy", "sm")} Copiar invitación</button>` : `<small class="faint code-off">Tiene acceso de líder o dirección: su código se lo pasa dirección.</small>`}${u.choices ? accHtml(u) : ""}${acctBtn(u)}</div>`).join("") || `<p class="faint" style="margin:0">Nadie en tu equipo todavía.</p>`}</div>`;
 // quién da sus demos en cada país (public/js/accounts.js); a un Account Executive no le hace falta
 const acctBtn = u => /Account Executive/.test(u.role || "") ? "" : `<button type="button" class="btn sm ghost acct-btn" data-paccts="${esc(u.email)}">${icon("users", "sm")} Accounts${u.me ? "" : ` de ${esc(u.name.split(" ")[0])}`}</button>`;
+let codesQ = "";
+function filterCodes(box) {
+  const q = norm(codesQ), rows = [...box.querySelectorAll(".code-row[data-q]")];
+  let n = 0; for (const r of rows) { const on = !q || q.split(" ").every(w => r.dataset.q.includes(w)); r.hidden = !on; if (on) n++; }
+  const c = box.querySelector("#codesN"); if (c) c.textContent = q ? (n ? `${n} de ${rows.length}` : "Nadie con ese nombre o email") : `${rows.length} personas`;
+}
 function drawCodes() {
   const box = host?.isConnected && host.querySelector("#codes"); if (!box || !codes) return;
   // si estabas escribiendo el cargo, el foco vuelve al mismo campo después de redibujar
   const f = document.activeElement, keep = box.contains(f) ? { email: f.closest("[data-acc]")?.dataset.acc, title: f.matches("[data-acc-title]"), pos: f.selectionStart } : null;
+  const searching = f?.id === "codesQ";
   box.innerHTML = codesHtml(codes);
+  // buscador: filtra las filas sin redibujar (somos muchos)
+  const qIn = box.querySelector("#codesQ");
+  if (qIn) { qIn.oninput = () => { codesQ = qIn.value; filterCodes(box); }; if (searching) { qIn.focus(); qIn.setSelectionRange(qIn.value.length, qIn.value.length); } }
+  filterCodes(box);
   box.querySelectorAll("[data-invite]").forEach(b => b.onclick = () => {
     const u = codes.users.find(x => String(x.id) === b.dataset.invite); if (!u?.code) return;
     copy(`Hola ${u.name.split(" ")[0]}! Entrá a OrderBrain SDR: ${codes.url}\nTu email: ${u.email}\nTu código personal: ${u.code}\n(No lo compartas: es solo tuyo.)`);
