@@ -10,7 +10,7 @@ import { openSchool, closeSchool, drawerOpen, startSession } from "./school.js";
 import { openAssistant, closeAssistant } from "./chat.js";
 import { loadGmail, gmailReturn } from "./gmail.js";
 import { loadPdMail, mailProfileHtml, bindMailProfile, resetSigMode } from "./pdmail.js";
-import { pdSearcher, pdFlat, pdTitle, pdLinesHtml, pdBadge, pdCount, pdNameHit, openPd, isPhoneQ, isMailQ, PD_MIN } from "./pdsearch.js";
+import { pdSearcher, pdFlat, pdTitle, pdLinesHtml, pdBadge, pdCount, pdNameHit, openPd, isPhoneQ, isMailQ, PD_MIN, pdLinkOf, openPdLink } from "./pdsearch.js";
 import { profileExtrasHtml, bindProfileExtras } from "./accounts.js";
 import { renderBase } from "./base.js";
 import { renderInbound, slackDialog } from "./inbound.js";
@@ -236,6 +236,7 @@ export function rerender() { route(); }
 const PAL = { items: [], sel: 0, ret: null, pd: null }, PALS = pdSearcher(), PAL_PD = 8, PAL_SCH = 3;
 const PD_IC = { person: "user", organization: "building", lead: "lead", deal: "deal" };
 function palPd() {
+  if (pdLinkOf($("palIn").value)) { PALS.cancel(); PAL.pd = null; return; }
   let sync = true;
   PALS.run($("palIn").value, st => { PAL.pd = st; if (!sync && !$("palette").hidden) renderPalette({ keep: true }); });
   sync = false;
@@ -272,6 +273,11 @@ function renderPalette({ keep = false } = {}) {
     sections.push(["Acciones", [{ a: { label: "Empezar sesión de llamadas", sub: "Los mejores prospectos de tu territorio, uno tras otro", ic: "play", fn: () => startSession() } },
       { a: { label: "Buscar colegios en una zona…", sub: "Un país, una provincia o una ciudad: los sumo al mapa", ic: "globe", fn: () => import("./scan.js").then(m => m.openScanDialog()) } },
       ...(S.ai ? [{ a: { label: "Abrir asistente", sub: "Que agende, cargue notas o arme un guion", ic: "sparkles", fn: () => openAssistant() } }] : [])]]);
+  } else if (pdLinkOf(t)) {
+    // un link de Pipedrive pegado: abrir su ficha (no se busca como texto ni como lugar)
+    const l = pdLinkOf(t);
+    sections.push(["Pipedrive", [{ a: { key: "a:pdlink", label: l.kind === "other" ? "Abrir en Pipedrive" : `Abrir la ficha de ${l.kind === "organization" || l.kind === "person" ? "esta" : "este"} ${l.label}`,
+      sub: "Link de Pipedrive", ic: "external", fn: () => openPdLink(t) } }]]);
   } else {
     // un teléfono también encuentra el colegio por sus dígitos (los últimos 8, con o sin código de país)
     const ph = isPhoneQ(raw) ? digits(raw) : "", key = ph.slice(-Math.min(ph.length, 8));

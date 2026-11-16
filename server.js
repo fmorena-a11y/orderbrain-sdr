@@ -419,6 +419,14 @@ app.get("/api/pd-search", auth, wrap(async (req, res) => {
   if ((await bump(`pds:${req.session.user.email}`, 60)) > 90) return res.status(429).json({ error: "Muchas búsquedas seguidas: esperá un minuto." });
   res.json(await (str("type") ? sales.pdSearchMore(str("q"), str("type"), str("cursor"), str("term")) : sales.pdSearch(str("q"))));
 }));
+// un trato pegado como link en un buscador: a qué ficha lleva (su organización o su persona), solo lectura
+app.get("/api/pd-deal/:id", auth, wrap(async (req, res) => {
+  if (!/^\d+$/.test(req.params.id)) return res.status(400).json({ error: "Trato inválido" });
+  const d = await pd.getDeal(req.params.id);
+  if (!d) return res.status(404).json({ error: "No encontré ese trato en Pipedrive: puede estar borrado." });
+  const id = x => (x && typeof x === "object" ? x.value ?? x.id : x) || null;
+  res.json({ id: d.id, title: d.title || "", orgId: id(d.org_id ?? d.orgId), personId: id(d.person_id ?? d.personId) });
+}));
 // ficha de una persona de Pipedrive (sus datos, su organización, tratos, prospectos, actividades y notas)
 app.get("/api/pd-person/:id", auth, wrap(async (req, res) => res.json(await sales.personCard(req.params.id))));
 app.get("/api/schools", auth, (req, res) => res.json(schools.map(sales.schoolListItem)));

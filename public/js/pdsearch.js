@@ -12,6 +12,19 @@ const KIND = { person: "Persona", organization: "Organización", lead: "Prospect
 // un teléfono o un email no son lugares: Prospectar no los ubica en el mapa
 export const isPhoneQ = q => /^\+?[\d\s\-().\/]+$/.test(String(q || "").trim()) && digits(q).length >= 6;
 export const isMailQ = q => /\S@\S/.test(String(q || ""));
+// Un link de Pipedrive pegado en un buscador («https://ordereat.pipedrive.com/leads/inbox/<uuid>», «…/deal/123»,
+// «…/organization/45», «…/person/67»): no es un nombre ni una dirección, se abre su ficha directo.
+export function pdLinkOf(q) {
+  const t = String(q || "").trim();
+  if (!/^(https?:\/\/)?[\w-]+\.pipedrive\.com\//i.test(t)) return null;
+  const path = t.replace(/^(https?:\/\/)?[^/]+/i, "").split(/[?#]/)[0];
+  let m = /\/leads?\/(?:(?:inbox|archived|archive)\/)?([0-9a-z][\w-]{5,})/i.exec(path); // en Pipedrive es un UUID
+  if (m) return { kind: "lead", id: m[1].toLowerCase(), label: "prospecto" };
+  m = /\/(deal|organization|person)s?\/(\d+)/i.exec(path);
+  if (m) return { kind: m[1].toLowerCase(), id: m[2], label: { deal: "trato", organization: "organización", person: "persona" }[m[1].toLowerCase()] };
+  return { kind: "other", id: "", label: "" };
+}
+export const isPdLink = q => !!pdLinkOf(q);
 
 // Buscador con espera y cancelación. run(q, cb): cb(null) si es muy corto; si no cb({ q, state: "loading" }) enseguida y
 // después cb({ q, state: "ok", data }) o cb({ q, state: "err", err }). Lo que llega tarde (ya escribiste otra cosa) se descarta.
@@ -144,6 +157,26 @@ export function openTo(to, url) {
   if (to.kind === "person") return openPerson(to.id);
 }
 export const openPd = it => it && openTo(it.to, it.url);
+// Abre la ficha del link de Pipedrive (pdLinkOf): prospecto u organización → su ficha; persona → su tarjeta; trato → la ficha
+// de su organización (o su persona). Lo que no se reconoce se abre en Pipedrive.
+export async function openPdLink(q) {
+  const l = pdLinkOf(q), url = String(q || "").trim();
+  if (!l) return false;
+  if (l.kind === "lead") { await openRecord(`lead:${l.id}`); return true; }
+  if (l.kind === "organization") { await openRecord(`org:${l.id}`); return true; }
+  if (l.kind === "person") { await openPerson(l.id); return true; }
+  if (l.kind === "deal") {
+    try {
+      const d = await api(`/api/pd-deal/${encodeURIComponent(l.id)}`);
+      if (d.orgId) await openRecord(`org:${d.orgId}`);
+      else if (d.personId) await openPerson(d.personId);
+      else { toast(`El trato «${d.title || l.id}» no tiene organización ni persona: lo abro en Pipedrive.`); window.open(url, "_blank", "noopener"); }
+    } catch (e) { toast(e.message, { type: "err" }); }
+    return true;
+  }
+  window.open(/^https?:/i.test(url) ? url : `https://${url}`, "_blank", "noopener");
+  return true;
+}
 
 // Ficha de una persona de Pipedrive (la que se buscó): sus teléfonos y emails, su organización (botón a su ficha), tratos,
 // prospectos, actividades y notas. Para corroborar sin entrar a Pipedrive.

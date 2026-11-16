@@ -47,3 +47,17 @@ test("pdSectionHtml: «o más» si Pipedrive tiene más, «Ver más» por grupo 
   assert.match(pdSectionHtml({ q: bad, state: "ok", data: { groups: [], total: 0 } }), /Tampoco hay .* con «&lt;img/);
   assert.match(pdSectionHtml({ q: "x", state: "err", err: bad }), /No pude buscar en Pipedrive \(&lt;img/);
 });
+
+// un link de Pipedrive pegado en un buscador: se abre su ficha, nunca se busca como texto ni dirección
+test("pdLinkOf: prospecto, trato, organización y persona", async () => {
+  const { pdLinkOf, isPdLink } = await import("../public/js/pdsearch.js");
+  assert.deepEqual(pdLinkOf("https://ordereat.pipedrive.com/leads/inbox/00fdb3a0-1b2c-11f0-9a6b-2f6e3c1d4e5f"), { kind: "lead", id: "00fdb3a0-1b2c-11f0-9a6b-2f6e3c1d4e5f", label: "prospecto" });
+  assert.equal(pdLinkOf("  ordereat.pipedrive.com/leads/archived/00FDB3A0-1B2C-11F0-9A6B-2F6E3C1D4E5F?x=1 ").id, "00fdb3a0-1b2c-11f0-9a6b-2f6e3c1d4e5f");
+  assert.deepEqual(pdLinkOf("https://ordereat.pipedrive.com/deal/6091"), { kind: "deal", id: "6091", label: "trato" });
+  assert.equal(pdLinkOf("https://ordereat.pipedrive.com/organization/45#notes").kind, "organization");
+  assert.equal(pdLinkOf("https://ordereat.pipedrive.com/person/67").id, "67");
+  assert.equal(pdLinkOf("https://ordereat.pipedrive.com/pipeline/3").kind, "other");
+  assert.equal(isPdLink("mar del plata"), false);
+  assert.equal(isPdLink("Calle 100 # 15-20, Bogotá"), false);
+  assert.equal(isPdLink("https://www.colegio.edu.ar/deal/3"), false);
+});

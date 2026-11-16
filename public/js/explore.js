@@ -2,7 +2,7 @@
 import { S, api, esc, norm, icon, pill, statusPill, stageTag, potTag, markOf, PH, ST, cssVar, patchSchool, toast, ago, shortDay, scroller, brainStaleMsg, brainTokenCallout, callPill, digits, recentSearches, rememberSearch, forgetSearch, clearSearches } from "./core.js";
 import { openSchool, startSession } from "./school.js";
 import { baseErrorCallout } from "./app.js";
-import { pdSearcher, pdSectionHtml, bindPd, pdNamed, isPhoneQ, isMailQ, PD_MIN } from "./pdsearch.js";
+import { pdSearcher, pdSectionHtml, bindPd, pdNamed, isPhoneQ, isMailQ, PD_MIN, pdLinkOf, isPdLink, openPdLink } from "./pdsearch.js";
 
 const E = S.explore;
 // «Para llamar»: todo lo que no es cliente ni está en proceso (incluye los que todavía no se cruzaron con Pipe).
@@ -98,7 +98,12 @@ export function renderExplore(el) {
   </div>`;
   el.querySelectorAll(".scroll-row").forEach(scroller);
   const q = el.querySelector("#q");
-  q.oninput = () => { E.q = q.value; E.place = null; locSeq++; shown = PAGE; pdQuery(); drawAll(); toTop(); histDraw(); clearTimeout(histT); histT = setTimeout(() => { if (q.value.trim().length >= 3 && q.value === E.q) rememberSearch(q.value); }, 2500); };
+  q.oninput = () => {
+    E.q = q.value; E.place = null; locSeq++; shown = PAGE; pdQuery(); drawAll(); toTop(); histDraw(); clearTimeout(histT);
+    // un link de Pipedrive pegado: se abre su ficha (una vez por link), no se busca como nombre ni como dirección
+    if (isPdLink(q.value)) { const k = q.value.trim(); if (k !== lastLink) { lastLink = k; openPdLink(k); } return; }
+    histT = setTimeout(() => { if (q.value.trim().length >= 3 && q.value === E.q) rememberSearch(q.value); }, 2500);
+  };
   // historial de búsquedas: al tocar el buscador vacío aparecen las últimas; tocarla la vuelve a buscar (un lugar, lo ubica)
   const hist = el.querySelector("#qHist");
   function histDraw(force = false) {
@@ -133,6 +138,7 @@ export function renderExplore(el) {
   el.querySelector("#qf").onsubmit = async e => {
     e.preventDefault(); const t = q.value; hist.hidden = true;
     if (!t.trim()) return locate(t);
+    if (isPdLink(t)) return openPdLink(t);
     rememberSearch(t);
     if (isPhoneQ(t) || isMailQ(t)) return;
     if (looksLikePlace(t)) return locate(t);
@@ -160,7 +166,8 @@ export function renderExplore(el) {
 // personas), mientras no se ubicó un lugar, debajo de los colegios de la base va la sección «En Pipedrive» (personas,
 // organizaciones, prospectos y tratos de toda la cuenta, en vivo, con «Ver más» por grupo). Si Pipedrive falla, un aviso.
 const PDS = pdSearcher();
-const pdOn = () => !E.place && E.q.trim().length >= PD_MIN;
+const pdOn = () => !E.place && E.q.trim().length >= PD_MIN && !isPdLink(E.q);
+let lastLink = "";
 function pdQuery() {
   if (!pdOn()) { PDS.cancel(); E.pd = null; drawPd(); return; }
   PDS.run(E.q, st => { E.pd = st; drawPd(); });
@@ -321,18 +328,22 @@ function drawList() {
     ? `<div class="empty">${icon("list")}<span>${bl.length === 1 ? `«${esc(bl[0].name)}» no está` : `${fmt(bl.length)} coinciden pero no están`} en «${esc(FILTERS.find(f => f[0] === E.filter)?.[1] || "")}»: ${esc(why())}.</span><button class="btn sm" id="fAll">Ver ${bl.length === 1 ? "el colegio" : "todos"}</button></div>`
     : placeMode()
     ? `<div class="empty">${icon("nav")}<span>Todavía no hay colegios cargados en ${esc(placeName(E.place))}.</span><button class="btn primary sm" id="nearScan">${icon("refresh", "sm")} Buscar colegios acá</button></div>`
+    : E.q && pdLinkOf(E.q)
+    // un link de Pipedrive no es un nombre: nunca «no hay nada», se abre su ficha
+    ? (l => `<div class="empty">${icon("external")}<span>${l.kind === "other" ? "Es un link de Pipedrive que no reconozco." : `Es el link de un${l.kind === "organization" || l.kind === "person" ? "a" : ""} ${esc(l.label)} de Pipedrive.`}</span><button class="btn primary sm" id="openLink">${icon("arrowRight", "sm")} ${l.kind === "other" ? "Abrir en Pipedrive" : `Abrir su ficha`}</button></div>`)(pdLinkOf(E.q))
     : E.q
     // «del mapa»: son los colegios de la app; lo que hay en Pipedrive va abajo (no quiere decir que no exista)
     ? `<div class="empty${pdOn() ? " compact" : ""}">${icon("search")}<span>Ningún colegio del mapa coincide con «${esc(E.q)}»${E.country ? ` en ${esc(E.country)}` : ""}.${pdOn() ? " Abajo, lo que hay en Pipedrive." : ""}</span>${isPhoneQ(E.q) || isMailQ(E.q) ? "" : `<button class="btn ${pdOn() ? "" : "primary "}sm" id="loc">${icon("nav", "sm")} Ubicar «${esc(E.q)}» en el mapa</button>`}${E.country ? `<button class="btn sm" id="allC">Buscar en todos los países</button>` : ""}</div>`
     : `<div class="empty">${icon("list")}<span>Nada con este filtro.</span><button class="btn sm" id="fAll">Ver todos</button></div>`;
   L.innerHTML = noticeTab(brainWarn() + checkCallout(bl)) + `<div class="list-h"><span>${fmt(a.length)} colegio${a.length === 1 ? "" : "s"}${E.q && pdOn() ? " del mapa" : ""}</span>${E.q && pdOn() && a.length > 3 ? `<button class="btn ghost sm pd-jump" id="pdJump">${pdJumpLabel()} ${icon("chevDown", "sm")}</button>` : ""}</div>`
     + (a.length ? a.slice(0, shown).map(schoolRow).join("") + (a.length > shown ? `<button class="btn ghost sm block" id="moreS">Ver ${fmt(Math.min(PAGE, a.length - shown))} más</button>` : "") : empty)
-    + (E.q && !placeMode() ? `<div id="pdBox" class="pd-box">${pdSectionHtml(E.pd)}</div>` : "");
-  if (E.q && !placeMode()) bindPd(L.querySelector("#pdBox"), E.pd, pdRetry, drawPd);
+    + (E.q && !placeMode() && !isPdLink(E.q) ? `<div id="pdBox" class="pd-box">${pdSectionHtml(E.pd)}</div>` : "");
+  if (E.q && !placeMode() && !isPdLink(E.q)) bindPd(L.querySelector("#pdBox"), E.pd, pdRetry, drawPd);
   // con muchos colegios, lo de Pipedrive queda abajo: este botón lleva hasta ahí
   L.querySelector("#pdJump")?.addEventListener("click", toPd);
   L.querySelector("#allC")?.addEventListener("click", () => { E.country = null; drawAll(); });
   L.querySelector("#loc")?.addEventListener("click", () => locate(E.q));
+  L.querySelector("#openLink")?.addEventListener("click", () => openPdLink(E.q));
   L.querySelector("#nearScan")?.addEventListener("click", () => import("./scan.js").then(m => m.scanPlace(E.place)));
   L.querySelector("#clr")?.addEventListener("click", () => { E.q = ""; host.querySelector("#q").value = ""; drawAll(); });
   L.querySelector("#fAll")?.addEventListener("click", () => { E.filter = "all"; drawAll(); });
