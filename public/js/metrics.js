@@ -9,7 +9,10 @@ let host, seq = 0;
 // período: 7, 30 o 90 días hasta hoy, o el mes o el trimestre en curso hasta hoy («mes», «trim»: los objetivos son por mes)
 const PERIODS = [[7, "7 días"], [30, "30 días"], [90, "90 días"], ["mes", "Este mes"], ["trim", "Este trimestre"]];
 const F = { days: PERIODS.some(([k]) => k === loadPref("mx.days", 7)) ? loadPref("mx.days", 7) : 7, country: loadPref("mx.country", "") };
-const SECTIONS = ["demos", "deals", "contacts", "base", "clients", "archived"], PEOPLE = ["demos", "deals", "contacts", "archived", "activity"];
+const SECTIONS = ["demos", "inbound", "deals", "contacts", "base", "clients", "archived"], PEOPLE = ["demos", "inbound", "deals", "contacts", "archived", "activity"];
+// Inbound: qué tipo se mira (pestañas; se recuerda)
+const INB = [["revival", "SDR revival · Meta Ads"], ["meta", "Meta Ads"], ["google", "Google"], ["organic", "Orgánico"], ["referral", "Referido de padre"], ["other", "Otros inbound"], ["all", "Todos los inbound"]];
+let inbKind = INB.some(([k]) => k === loadPref("mx.inb", "revival")) ? loadPref("mx.inb", "revival") : "revival";
 // «activity» es solo por persona: la pide solo un líder (las dos rutas dan 403 a los demás)
 // lo leído por filtro (volver a la vista lo muestra al instante y se actualiza atrás)
 const cache = new Map();
@@ -114,6 +117,68 @@ function demosCard() {
       ${src("Tratos", readTxt(d.at.deals))}`;
   })();
   return `<section class="card wide" aria-labelledby="mxA"><div class="card-h"><h2 id="mxA">${icon("video")} Demos</h2><span class="sub">Pipedrive</span></div><div class="card-b">${body}</div></section>`;
+}
+
+// ---------- H. Inbound (pedido del líder de SDR): prospectos y tratos de Pipedrive con Fuente inbound que entraron en el período
+// y qué pasó con cada uno. Cada número con su definición al lado; lo que no se sabe, «?».
+const pct = (n, d) => n == null || !d ? "" : `${Math.round(n / d * 100)}%`;
+const hrs = h => h == null ? "?" : h < 1 ? "menos de 1 h" : h < 48 ? `${fmt(Math.round(h * 10) / 10)} h` : `${fmt(Math.round(h / 24 * 10) / 10)} días`;
+// una fila del embudo: número, % (y de qué) y qué cuenta; base: el total del que sale el %; bar: dibuja la barra
+function frow(n, label, def, { base = null, of = "", sub = false, bar = false } = {}) {
+  const p = base ? pct(n, base) : "";
+  return `<div class="mx-fr${sub ? " sub" : ""}"><b>${fmt(n)}</b><span class="pct">${p}${p && of ? `<small>${esc(of)}</small>` : ""}</span>
+    <span class="lab">${esc(label)}${bar && p ? `<span class="bar" aria-hidden="true"><span style="width:${Math.max(1, Math.min(100, n / base * 100))}%"></span></span>` : ""}<span class="def">${esc(def)}</span></span></div>`;
+}
+const pdLink = (p) => !S.pdWeb ? "" : p.rec === "lead" ? `${S.pdWeb}/leads/inbox/${p.id}` : `${S.pdWeb}/deal/${p.id}`;
+function inboundCard() {
+  const r = D.inbound;
+  const body = !r ? sk(5) : r.error ? err("los inbound", r.error) : (() => {
+    const d = r.data, P = d.partial || {}, x = d.kinds?.[inbKind], T = x?.totals, leader = !!S.profile?.leader, kn = d.known || {};
+    const fuente = { revival: d.fuente?.revival, meta: d.fuente?.meta, google: d.fuente?.google, organic: d.fuente?.organic, referral: d.fuente?.referral };
+    const what = inbKind === "all" ? "con cualquier Fuente «Inbound - …»" : inbKind === "other" ? "con otra Fuente «Inbound - …» (referido de colegio o de cafetería, alianza, nota de prensa…)" : `con la Fuente «${fuente[inbKind] || "?"}»`;
+    const cutTxt = [P.leads && "prospectos", P.deals && "tratos", P.acts && "actividades", P.demos && "demos"].filter(Boolean).join(", ");
+    const tabs = `<div class="chips mx-kinds" role="group" aria-label="Tipo de inbound">${INB.map(([k, l]) => { const n = d.kinds?.[k]?.totals?.entries;
+      return `<button class="chip" data-inb="${k}" aria-pressed="${inbKind === k}">${esc(l)}${n != null ? ` · ${fmt(n)}` : ""}</button>`; }).join("")}</div>`;
+    if (!T) return tabs;
+    const E = T.entries, C = T.contacted, Dm = T.demo, mine = !leader ? x.mine : null, back = x.back || {};
+    const funnel = `<div class="mx-funnel">
+      ${frow(E, "Entraron", `Prospectos y tratos ${what} que entraron en el período: ${fmt(T.leads)} prospectos y ${fmt(T.deals)} tratos (un prospecto convertido cuenta una vez, como trato, el día en que se creó el prospecto).`)}
+      ${frow(C, "Contactados", "Con al menos una llamada, WhatsApp o mail marcado hecho en el prospecto o en su trato (también las llamadas de Aircall).", { base: E, of: "de entradas", bar: true })}
+      ${frow(T.answered, "Contestaron", `Algún contacto con resultado «atendió» (lo que se elige en Registrar, o Aircall atendida) o una demo agendada${T.answeredDemo ? ` (${fmt(T.answeredDemo)} solo por la demo)` : ""}.`, { base: C, of: "de contactados", sub: true })}
+      ${frow(T.noanswer, "No contestaron", "Todos los resultados registrados son «No atendió» (Registrar) o llamadas de Aircall sin respuesta, y no hay demo.", { base: C, of: "de contactados", sub: true })}
+      ${T.bad ? frow(T.bad, "Dato erróneo", "Solo «Dato erróneo» en Registrar: teléfono equivocado o no existe.", { base: C, of: "de contactados", sub: true }) : ""}
+      ${frow(T.noResult, "Sin resultado registrado", "Contactos cargados a mano en Pipedrive: no dicen si atendieron. No se cuentan como «no contestó».", { base: C, of: "de contactados", sub: true })}
+      ${frow(T.notContacted, "Sin contactar todavía", "Ninguna llamada, WhatsApp ni mail hecho todavía.", { base: E, of: "de entradas", bar: true })}
+      ${frow(Dm, "Demo agendada", "Alguna Demo o No Show en el prospecto o en su trato (hasta 15 días adelante).", { base: E, of: "de entradas", bar: true })}
+      ${frow(T.demoDone, "Demo hecha", "Marcada «se hizo» en la app o hecha en Pipedrive (la regla de Equipo › Demos).", { base: Dm, of: "de agendadas", sub: true })}
+      ${frow(T.noshow, "No show", "Pasada a «No Show» o marcada «no se presentó», y ninguna hecha.", { base: Dm, of: "de agendadas", sub: true })}
+      ${frow(T.deals, "Pasaron a trato", "Tratos de los embudos de venta (entraron como trato o se convirtió el prospecto).", { base: E, of: "de entradas", bar: true })}
+      ${frow(T.won, "Ganados", "Como están hoy en Pipedrive.", { base: E, of: "de entradas", sub: true })}
+      ${frow(T.lost, "Perdidos", "Como están hoy en Pipedrive (motivos abajo).", { base: E, of: "de entradas", sub: true })}
+      ${frow(T.open, "Abiertos", "Tratos abiertos hoy.", { base: E, of: "de entradas", sub: true })}
+      ${frow(T.leadOpen, "Siguen como prospecto", `Prospectos abiertos hoy${T.leadArchived ? `; además ${fmt(T.leadArchived)} ${T.leadArchived === 1 ? "archivado" : "archivados"}` : ""}.`, { base: E, of: "de entradas" })}
+    </div>`;
+    const conv = E ? `<p class="mx-conv">De ${fmt(E)} que entraron: <b>${pct(C, E) || "?"}</b> contactados · <b>${pct(T.answered, E) || "?"}</b> contestaron · <b>${pct(Dm, E) || "?"}</b> con demo · <b>${pct(T.demoDone, E) || "?"}</b> con demo hecha · <b>${pct(T.won, E) || "?"}</b> ganados.</p>` : "";
+    return `${src("Pipedrive: prospectos y tratos con Fuente inbound", readTxt(d.at?.leads), periodTxt(d))}
+      ${tabs}
+      ${cutTxt ? cut(cutTxt) : ""}
+      ${mini([[E, "Entraron"], [C, "Contactados"], [T.answered, "Contestaron"], [Dm, "Con demo"], [T.won, "Ganados"], [T.ttfHours == null ? "?" : hrs(T.ttfHours), "Hasta el 1er contacto", "Mediana: desde que entró hasta que se marcó hecho el primer contacto"]])}
+      ${mine ? `<p class="mx-mine">Lo tuyo (SDR o dueño): <b>${fmt(mine.entries)}</b> entraron, <b>${fmt(mine.contacted)}</b> contactados, <b>${fmt(mine.demo)}</b> con demo, <b>${fmt(mine.won)}</b> ganados.</p>` : ""}
+      ${!E ? `<p class="mx-note">No entró ninguno ${what} en el período.</p>` : funnel + conv}
+      ${T.ttfN ? note(`Hasta el primer contacto: la mediana de ${fmt(T.ttfN)} contactados, desde que entró hasta que se marcó hecha la primera llamada, WhatsApp o mail. Es cuando se marcó hecha en Pipedrive, no la hora exacta de la llamada.`) : ""}
+      ${T.earlier ? note(`${T.earlier === 1 ? "1 ya tenía contactos" : `${fmt(T.earlier)} ya tenían contactos`} de antes de entrar (estaba${T.earlier === 1 ? "" : "n"} en Pipedrive como otro prospecto o trato y Pipedrive le${T.earlier === 1 ? "" : "s"} pasó las actividades): cuenta${T.earlier === 1 ? "" : "n"} como entrada${T.earlier === 1 ? "" : "s"} y contactado${T.earlier === 1 ? "" : "s"}, pero no en la mediana.`) : ""}
+      ${T.lost ? `<h3 class="mx-h">Perdidos, por motivo</h3>${bars(x.lostReasons)}` : ""}
+      ${peopleBlock("inbound", p => { const k = p.kinds?.[inbKind]; if (!k) return "";
+        return `<h4 class="mx-h4">Por persona ${leaderOnly}</h4>${table([["entries", "Entraron"], ["contacted", "Contactados"], ["answered", "Contestaron"], ["noanswer", "No contestaron"], ["noResult", "Sin resultado"], ["notContacted", "Sin contactar"], ["demo", "Demo"], ["demoDone", "Demo hecha"], ["won", "Ganados"], ["lost", "Perdidos"], [z => z.ttfHours, "1er contacto (h)"]], k.people)}
+          ${note("Persona: la del campo SDR; si está vacío, el dueño" + (T.ownerAsSdr ? ` (${fmt(T.ownerAsSdr)} sin SDR cargado)` : "") + ". «1er contacto (h)»: mediana de horas hasta el primer contacto.")}
+          ${k.pending.length ? `<details class="follow-alert"><summary><b>Sin contactar todavía</b>: ${fmt(T.notContacted)}${T.notContacted > k.pending.length ? ` (los ${fmt(k.pending.length)} más viejos)` : ""}</summary><ul>${k.pending.map(q => `<li>${pdLink(q) ? `<a href="${esc(pdLink(q))}" target="_blank" rel="noopener">${esc(q.title || (q.rec === "lead" ? "Prospecto" : "Trato " + q.id))}</a>` : esc(q.title)} <small class="faint">${q.rec === "lead" ? "prospecto" : "trato"} · entró el ${dm(q.day)} · ${esc(q.free ? "cuenta general" : q.person || "?")}${q.demo ? " · tiene demo" : ""}</small></li>`).join("")}</ul></details>` : ""}`; })}
+      ${back.n ? note(`Además, ${back.n === 1 ? "1 prospecto" : `${fmt(back.n)} prospectos`} ${inbKind === "all" ? "inbound" : "de este tipo"} ${back.n === 1 ? "volvió" : "volvieron"} de un trato al Buzón en el período (en Pipedrive: «convertir en prospecto»). No son entradas nuevas y no están arriba; ${back.contacted == null ? "?" : fmt(back.contacted)} con un contacto después de volver.`) : ""}
+      ${d.noFuente ? note(`${d.noFuente === 1 ? "1 prospecto o trato entró" : `${fmt(d.noFuente)} prospectos y tratos entraron`} sin Fuente en el período: no se sabe si son inbound y no están acá. Se suman cuando les carguen la Fuente.`) : ""}
+      ${T.mixed ? note(`${T.mixed === 1 ? "1 tiene" : `${fmt(T.mixed)} tienen`} también una Fuente outbound: cuenta${T.mixed === 1 ? "" : "n"} acá igual.`) : ""}
+      ${d.unknownEntry ? note(`${d.unknownEntry === 1 ? "1 trato inbound viene" : `${fmt(d.unknownEntry)} tratos inbound vienen`} de un prospecto cuya fecha no se pudo saber: no se cuenta${d.unknownEntry === 1 ? "" : "n"}.`) : ""}
+      ${note("Fuente de verdad: Pipedrive (lo cargado por la app o a mano). Un tipo por opción de la Fuente; uno con dos opciones inbound va en las dos pestañas y una vez en «Todos». Los prospectos archivados cuentan; los tratos archivados no los devuelve Pipedrive en esta lectura. El país no aplica acá.")}`;
+  })();
+  return `<section class="card wide" aria-labelledby="mxH"><div class="card-h"><h2 id="mxH">${icon("bolt")} Inbound</h2><span class="sub">Pipedrive</span></div><div class="card-b">${body}</div></section>`;
 }
 
 // ---------- C. Tratos
@@ -286,6 +351,7 @@ function draw() {
     ${kpis()}
     <div class="mx-grid">
       ${demosCard()}
+      ${inboundCard()}
       ${leader ? activityCard() : ""}
       ${dealsCard()}
       ${contactsCard()}
@@ -296,6 +362,7 @@ function draw() {
   host.querySelectorAll("[data-mxd]").forEach(b => b.onclick = () => { F.days = PERIODS.find(([k]) => String(k) === b.dataset.mxd)?.[0] ?? 7; save("mx.days", F.days); load(); draw(); });
   host.querySelector("#mxCountry").onchange = e => { F.country = e.target.value; save("mx.country", F.country); load(); draw(); };
   host.querySelector("#mxTeam")?.addEventListener("change", e => { setTeamView(e.target.value); D = cache.get(keyOf()) || { people: {} }; load(); draw(); });
+  host.querySelectorAll("[data-inb]").forEach(b => b.onclick = () => { inbKind = b.dataset.inb; save("mx.inb", inbKind); draw(); });
   host.querySelectorAll("[data-mxretry]").forEach(b => b.onclick = () => { cache.delete(keyOf()); load(); draw(); });
   // el aviso de deslizar: ahora, cuando terminan de cargar las letras y cada vez que cambia el ancho
   fitSwipe(); document.fonts?.ready.then(() => host?.isConnected && fitSwipe());

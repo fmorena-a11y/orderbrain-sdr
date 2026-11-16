@@ -587,6 +587,8 @@ const MX_LOAD = {
   archived: (req, team) => sales.metricsArchived(req.tz, mxOpts(req, team)),
   // actividad por persona: todo es por persona (solo líderes); el país no aplica (una actividad no dice de qué país es)
   activity: (req, team) => sales.metricsActivity(req.tz, mxOpts(req, team)),
+  // inbound (prospectos y tratos con Fuente inbound, lib/metrics.js inboundSummary): el país no aplica (un prospecto no siempre lo dice)
+  inbound: (req, team) => sales.metricsInbound(req.tz, mxOpts(req, team)),
   // base de colegios: exacto (la lista de la app); los estados del cruce no van hasta comprobarlos con una muestra
   base: async req => { const { country } = mxOpts(req), sy = await psync.status().catch(() => null), st = radarState();
     return { country, at: new Date().toISOString(), ...MX.baseSummary(schools, { country }), file: FILE_COUNTS, added: schools.length - FILE_COUNTS.shown, radarAt: st.runs?.[0]?.at || null, syncAt: sy?.last?.finishedAt || null }; },

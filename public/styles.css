@@ -1062,6 +1062,24 @@ details.agent summary .sub { order: 3; }
 /* los nombres largos (de tipo o «Cargadas por cuentas generales/automáticas») en dos líneas, no en cinco */
 .mx .follow.mx-act thead th.num.long { min-width: 160px; }
 .mx .follow.mx-act td small.mx-sub { display: block; max-width: 160px; margin-left: auto; font-weight: 400; font-size: 11.5px; color: var(--muted); white-space: normal; }
+/* Inbound: embudo con el número, el % (y de qué) y la definición de cada paso; los pasos de adentro, con sangría */
+.mx-funnel { margin: 6px 0 8px; border-top: 1px solid var(--line); }
+.mx-fr { display: grid; grid-template-columns: 4em 5.6em minmax(0, 1fr); gap: 4px 12px; padding: 8px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.mx-fr > b { font-size: 18px; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+.mx-fr .pct { text-align: right; font-size: 13.5px; font-weight: 600; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.mx-fr .pct small { display: block; font-size: 11px; font-weight: 400; color: var(--faint); }
+.mx-fr .lab { font-size: 14px; font-weight: 600; min-width: 0; }
+.mx-fr .def { display: block; font-size: 12.5px; font-weight: 400; color: var(--faint); line-height: 1.4; }
+.mx-fr .bar { display: block; height: 6px; margin: 5px 0 2px; border-radius: 3px; background: var(--surface-2); overflow: hidden; }
+.mx-fr .bar > span { display: block; height: 100%; background: var(--info); }
+.mx-fr.sub > b { font-size: 15px; font-weight: 600; }
+.mx-fr.sub .lab { font-weight: 500; padding-left: 12px; border-left: 2px solid var(--line-2); }
+/* en el celular, el % va debajo del número: más lugar para la definición */
+@media (max-width: 480px) { .mx-fr { grid-template-columns: 4.8em minmax(0, 1fr); gap: 2px 10px; } .mx-fr > b { font-size: 16px; grid-column: 1; grid-row: 1; }
+  .mx-fr .pct { grid-column: 1; grid-row: 2; align-self: start; } .mx-fr .lab { grid-column: 2; grid-row: 1 / span 2; } }
+.mx-kinds { margin: 2px 0 6px; }
+.mx-conv { margin: 8px 0 4px; font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+.mx-conv b { font-variant-numeric: tabular-nums; }
 /* «Deslizá la tabla…»: lo muestra metrics.js solo si la tabla no entra (hidden si entra) */
 .mx-swipe { margin: 0 0 4px; font-size: 12.5px; color: var(--faint); }
 .mx-swipe[hidden] { display: none; }
