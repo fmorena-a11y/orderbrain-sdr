@@ -63,7 +63,8 @@
   </header>
   <div class="msgs" id="msgs" aria-live="polite"></div>
   <div class="sugs" id="sugs"></div>
-  <form class="compose" id="compose"><textarea id="chatIn" rows="1" placeholder="Pedile algo: «agendá una demo con Vallesol el jueves a las 10»" aria-label="Mensaje"></textarea><button class="btn primary icon-only" id="chatSend" aria-label="Enviar"><span data-icon="send"></span></button></form>
+  <div class="mic-bar" id="micBar" role="status" aria-live="polite" hidden><span id="micMsg"></span><label class="mic-auto" id="micAutoWrap" hidden><input type="checkbox" id="micAuto" checked> Mandar al terminar de hablar</label></div>
+  <form class="compose" id="compose"><textarea id="chatIn" rows="1" placeholder="Pedile algo: «¿qué tengo para hoy?»" aria-label="Mensaje"></textarea><button type="button" class="btn mic-btn" id="chatMic" aria-label="Dictar un mensaje" aria-pressed="false" title="Dictar"><span data-icon="mic"></span><span class="mic-lbl">Escuchando…</span></button><button class="btn primary icon-only" id="chatSend" aria-label="Enviar"><span data-icon="send"></span></button></form>
 </aside>
 
 <div class="palette" id="palette" hidden role="dialog" aria-modal="true" aria-label="Buscar">

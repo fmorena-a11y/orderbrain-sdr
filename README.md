@@ -122,7 +122,7 @@ Cada colegio recibe un puntaje de 1 a 100 con los motivos visibles: nunca contac
 - **Tratos abiertos** (`#/tratos`, en el celular «Tratos»): los tratos abiertos de los embudos de venta (sin los de clientes ni las etapas muertas) y en qué etapa están, para los accounts. Arriba cantidad, valor por moneda, sin próximo paso, quietos más de 14 días en la etapa y con la próxima vencida; filtros por persona (líderes y dirección), embudo, etapa, «sin próximo paso», «quietos +14 días», «con actividad vencida» y buscador. «Por etapa» (columnas del embudo, en orden) o «Lista» (ordenable por días en la etapa, próxima actividad o valor). Tocar un trato abre la ficha del colegio (o de la organización) y al lado «Abrir en Pipedrive». Solo lectura.
 - **Agenda:** tus actividades pendientes por día, con hecha, reprogramar y abrir ficha.
 - **Equipo:** demos de la semana (solo demos: no se compite por cantidad de contactos) y actividad reciente.
-- **Asistente (con IA):** «¿a quién llamo ahora?», «agendá una demo con Vallesol el jueves a las 10 para Juan Diego», «armame un guion para San José Obrero», «¿cómo respondo "ya tenemos un sistema"?». Todo lo que escribe en Pipedrive se confirma con un botón.
+- **Asistente (con IA):** «¿a quién llamo ahora?», «agendá una demo con Vallesol el jueves a las 10 para Juan Diego», «armame un guion para San José Obrero», «¿cómo respondo "ya tenemos un sistema"?». Todo lo que escribe en Pipedrive se confirma con un botón. Responde con párrafos, listas y negritas. Con el micrófono le hablás en vez de escribir (dicta el navegador: Chrome, Edge o Safari; nada de audio pasa por nuestro servidor) y se manda solo al terminar, salvo que apagues «Mandar al terminar de hablar». Cuando trae una lista («¿qué tengo para hoy?», «¿a quién llamo?»), abajo aparece la tabla completa con «Descargar Excel», «Descargar CSV» y «Llevar a Google Sheets» (la copia y abre una hoja nueva para pegarla con Ctrl+V); «exportá» o «pasalo a un Excel» usa la última tabla.
 - **Búsqueda rápida:** Ctrl K o `/`. Atajos 1 a 4 para cambiar de sección y Esc para cerrar.
 
 ## Radar: el agente que busca colegios 24/7
@@ -307,6 +307,8 @@ lib/existing.js        Antes de crear: reglas para saber si el colegio ya está 
 lib/pipedrive-demo.js  Pipedrive de prueba en memoria (DEMO_MODE=1)
 lib/sales.js           Ficha, registro de contactos, cola de prioridad, agenda y métricas
 lib/ai.js              Claude: notas, brief de llamada, mensajes y asistente con herramientas
+lib/aitables.js        Tablas del asistente para exportar, armadas con lo que devolvieron las herramientas
+lib/sheets-export.js   Crear la hoja de Google Sheets directo (apagado hasta tener el cliente OAuth de Google)
 lib/store.js           Colegios, cache del cruce y registro de contactos (Redis o DATA_DIR)
 lib/time.js            Zonas horarias y días hábiles
 lib/photos.js          Fotos de cada colegio (Google, web y satélite)
