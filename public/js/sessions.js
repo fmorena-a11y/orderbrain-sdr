@@ -1,12 +1,13 @@
 // Sesiones activas (en Hoy): las sesiones de trabajo guardadas de cada persona, para retomarlas y ver qué se contactó,
 // cómo, cuándo y qué falta. Todo lo que se muestra sale de lo que se registró en la app (lib/sessions.js).
-import { S, api, esc, icon, toast, modal, ago, shortDay, openMenu, TYPE_ICON } from "./core.js";
+// La vista entera (#/sesiones, public/js/sessionsview.js) usa de acá el detalle, terminar, reabrir y la barra de avance.
+import { S, api, esc, icon, toast, modal, ago, shortDay, openMenu, save, TYPE_ICON } from "./core.js";
 import { openSchool, openRecord, resumeSession } from "./school.js";
 
 const CH = { call: ["Llamada", "phone"], whatsapp: ["WhatsApp", "whatsapp"], mail: ["Mail", "mail"], visit: ["Visita", "user"] };
 const SKIP = { client: "ya es cliente", churn: "es ex cliente", archived: "está archivado", open: "tiene un trato abierto", owner: "es de otra persona", manual: "lo salteaste", missing: "no se pudo abrir" };
-const ORIGIN = { today: "Tu agenda y tu cola", zone: "Zona o evento", agenda: "Agenda con filtros", explore: "Prospectar", radar: "Radar", base: "Base cargada", list: "Lista" };
-const END = { terminada: "la terminaste", completa: "se trabajó toda", "reemplazada": "empezaste otra igual", "límite": "había 12 abiertas", inactiva: "30 días sin movimiento", "otro día": "era de otro día" };
+export const ORIGIN = { today: "Tu agenda y tu cola", zone: "Zona o evento", agenda: "Agenda con filtros", explore: "Prospectar", radar: "Radar", base: "Base cargada", list: "Lista" };
+export const END = { terminada: "la terminaste", completa: "se trabajó toda", "reemplazada": "empezaste otra igual", "límite": "había 12 abiertas", inactiva: "30 días sin movimiento", "otro día": "era de otro día" };
 // en la tarjeta de Hoy van las más recientes; el resto, en «Ver las N abiertas»
 const SHOWN = 2;
 
@@ -33,10 +34,16 @@ export function cacheSession(v) {
   L.open.sort((a, b) => String(b.updatedAt).localeCompare(String(a.updatedAt)));
 }
 export const cachedSession = id => full.get(id) || null;
+// Saca de la lista una sesión borrada
+export function forgetSession(id) {
+  full.delete(id);
+  const L = S.sessions; if (!L) return;
+  L.open = (L.open || []).filter(x => x.id !== id); L.done = (L.done || []).filter(x => x.id !== id);
+}
 // «hoy 10:20», «ayer 18:05», «lun 3 nov 9:10»
-const when = iso => { const d = new Date(iso); return `${shortDay(d.toLocaleDateString("sv"))} ${d.toTimeString().slice(0, 5)}`; };
+export const when = iso => { const d = new Date(iso); return `${shortDay(d.toLocaleDateString("sv"))} ${d.toTimeString().slice(0, 5)}`; };
 const pct = st => st.total ? Math.round(st.handled / st.total * 100) : 0;
-const bar = (v, cls = "") => `<div class="ss-bar ${cls}"><span class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="${v.stats.total}" aria-valuenow="${v.stats.handled}" aria-label="${v.stats.handled} de ${v.stats.total} trabajados"><span style="width:${pct(v.stats)}%"></span></span><b>${v.stats.handled} de ${v.stats.total}</b><span class="muted">${v.stats.pending ? `faltan ${v.stats.pending}` : "no falta nada"}</span></div>`;
+export const bar = (v, cls = "") => `<div class="ss-bar ${cls}"><span class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="${v.stats.total}" aria-valuenow="${v.stats.handled}" aria-label="${v.stats.handled} de ${v.stats.total} trabajados"><span style="width:${pct(v.stats)}%"></span></span><b>${v.stats.handled} de ${v.stats.total}</b><span class="muted">${v.stats.pending ? `faltan ${v.stats.pending}` : "no falta nada"}</span></div>`;
 
 // ---------- tarjeta de Hoy: las 2 más recientes en filas cortas; Ver detalle y Terminar van en el menú «⋯»
 const left = st => (st.pending ? `faltan ${st.pending}` : "no falta nada");
@@ -44,12 +51,13 @@ export function sessionsCard() {
   const L = S.sessions; if (!L) return "";
   const open = L.open || [], done = L.done || [];
   if (!open.length && !done.length) return "";
-  const links = [open.length > SHOWN && `<button class="linkbtn" id="ssAll" data-focus-key="ssAll">Ver las ${open.length} abiertas</button>`,
-    done.length && `<button class="linkbtn" id="ssDone" data-focus-key="ssDone">Terminadas (${done.length})</button>`].filter(Boolean);
+  // la lista entera, las terminadas, editar y borrar: en la vista Sesiones (#/sesiones)
+  const links = [`<a class="linkbtn" href="#/sesiones" data-ss-tab="activas" data-focus-key="ssAll">${open.length > SHOWN ? `Ver las ${open.length} abiertas` : "Ver todas"}</a>`,
+    done.length && `<a class="linkbtn" href="#/sesiones" data-ss-tab="terminadas" data-focus-key="ssDone">Terminadas (${done.length})</a>`].filter(Boolean);
   return `<section class="card ss-card" aria-labelledby="hSs">
     <div class="card-h"><h2 id="hSs">${icon("play")} Sesiones activas</h2><span class="sub">${open.length ? `${open.length} abierta${open.length > 1 ? "s" : ""}` : "ninguna abierta"}</span></div>
     <div class="card-b">${open.length ? open.slice(0, SHOWN).map(mini).join("") : `<p class="muted ss-empty">No tenés sesiones abiertas.</p>`}
-      ${links.length ? `<div class="ss-links">${links.join("")}</div>` : ""}</div>
+      <div class="ss-links">${links.join("")}</div></div>
   </section>`;
 }
 // nombre, «3 de 61 · faltan 58», lo registrado y cuándo; Retomar y «⋯»
@@ -63,41 +71,19 @@ function mini(v) {
     <button class="icon-btn" data-ss-menu="${esc(v.id)}" data-focus-key="menu-${esc(v.id)}" aria-haspopup="menu" aria-label="Más opciones de ${esc(v.name)}">${icon("dots")}</button>
   </div>`;
 }
-// la fila completa (en «Ver las N abiertas»)
-function row(v) {
-  return `<div class="ss" data-ss="${esc(v.id)}">
-    <div class="ss-top"><div class="ss-t"><b>${esc(v.name)}</b><small>Empezó ${esc(when(v.createdAt))} · última actividad ${esc(ago(v.lastAt))}</small></div>
-      <button class="btn primary sm" data-ss-go="${esc(v.id)}" ${v.resume < 0 ? `disabled title="No falta nada"` : ""}>${icon("play", "sm")} Retomar</button></div>
-    ${bar(v)}
-    <div class="ss-sum">${v.summary ? esc(v.summary) : `<span class="faint">Todavía sin contactos registrados</span>`}</div>
-    <div class="ss-ops"><button class="btn sm" data-ss-see="${esc(v.id)}">${icon("list", "sm")} Ver detalle</button><button class="btn ghost sm" data-ss-end="${esc(v.id)}">Terminar</button></div>
-  </div>`;
-}
 // redraw: redibujar la vista que muestra la tarjeta
 export function bindSessionsCard(host, redraw) {
   host.querySelectorAll("[data-ss-go]").forEach(b => b.onclick = () => resumeSession(b.dataset.ssGo));
   host.querySelectorAll("[data-ss-menu]").forEach(b => b.onclick = () => openMenu(b, [
-    { label: "Ver detalle", sub: "Qué se contactó, cómo, cuándo y qué falta", fn: () => detail(b.dataset.ssMenu, redraw, b) },
+    { label: "Ver detalle", sub: "Qué se contactó, cómo, cuándo y qué falta", fn: () => sessionDetail(b.dataset.ssMenu, redraw, b) },
     { label: "Terminar", sub: "Pasa a terminadas", fn: () => endSession(b.dataset.ssMenu, redraw, b) }]));
-  host.querySelector("#ssAll")?.addEventListener("click", e => openList(redraw, e.currentTarget));
-  host.querySelector("#ssDone")?.addEventListener("click", e => doneList(redraw, e.currentTarget));
-}
-function openList(redraw, anchor) {
-  const L = S.sessions?.open || [];
-  const m = modal(`<div class="ss-dh"><h3>Sesiones abiertas</h3><button class="icon-btn" id="olX" aria-label="Cerrar">${icon("x")}</button></div>
-    <p class="muted" style="margin:0">Podés tener hasta ${S.sessions?.max || 12}. La más reciente primero.</p>
-    <div class="ss-list">${L.map(row).join("")}</div>
-    <div class="row"><button class="btn" id="olOk">Cerrar</button></div>`, { onClose: () => anchor?.isConnected && anchor.focus() });
-  m.querySelector(".modal-box").classList.add("ss-modal");
-  m.querySelector("#olX").onclick = m.querySelector("#olOk").onclick = () => m.close();
-  m.querySelectorAll("[data-ss-go]").forEach(b => b.onclick = () => { m.close(); resumeSession(b.dataset.ssGo); });
-  m.querySelectorAll("[data-ss-see]").forEach(b => b.onclick = () => { m.close(); detail(b.dataset.ssSee, redraw, anchor); });
-  m.querySelectorAll("[data-ss-end]").forEach(b => b.onclick = () => { m.close(); endSession(b.dataset.ssEnd, redraw, anchor); });
+  // la sección que abre la vista Sesiones (la misma preferencia que sus chips)
+  host.querySelectorAll("[data-ss-tab]").forEach(a => a.addEventListener("click", () => save("sessions.tab", a.dataset.ssTab)));
 }
 const find = id => [...(S.sessions?.open || []), ...(S.sessions?.done || [])].find(v => v.id === id);
 
-// ---------- terminar, reabrir, borrar
-function endSession(id, redraw, anchor) {
+// ---------- terminar y reabrir (borrar y editar, en la vista Sesiones)
+export function endSession(id, redraw, anchor) {
   const v = find(id); if (!v) return;
   const m = modal(`<h3>¿Terminar esta sesión?</h3>
     <p style="margin:0"><b>${esc(v.name)}</b>: ${v.stats.handled} de ${v.stats.total}${v.stats.pending ? `, faltan ${v.stats.pending}` : ""}.</p>
@@ -108,32 +94,19 @@ function endSession(id, redraw, anchor) {
     m.close();
     try { const r = await api(`/api/sessions/${encodeURIComponent(id)}`, { method: "PATCH", body: { status: "done" } }); cacheSession(r.session); }
     catch (e) { return toast(e.message, { type: "err" }); }
-    toast(`Terminaste «${v.name}»`, { action: { label: "Deshacer", fn: () => reopen(id, redraw) } });
+    toast(`Terminaste «${v.name}»`, { action: { label: "Deshacer", fn: () => reopenSession(id, redraw) } });
     redraw();
   };
 }
-async function reopen(id, redraw) {
-  try { const r = await api(`/api/sessions/${encodeURIComponent(id)}`, { method: "PATCH", body: { status: "open" } }); cacheSession(r.session); if (r.bumped?.length) await loadSessions(); }
+// Reabrir: con 12 abiertas el servidor termina la de menos movimiento (bumped) y se avisa cuál; una «Tu día» de otro día
+// no se reabre (409, lo dice el servidor).
+export async function reopenSession(id, redraw) {
+  let r;
+  try { r = await api(`/api/sessions/${encodeURIComponent(id)}`, { method: "PATCH", body: { status: "open" } }); cacheSession(r.session); if (r.bumped?.length) await loadSessions().catch(() => {}); }
   catch (e) { return toast(e.message, { type: "err" }); }
+  toast(r.bumped?.length ? `Reabriste «${r.session.name}». Terminé «${r.bumped.map(b => b.name).join("», «")}», la de menos movimiento: podés tener hasta ${S.sessions?.max || 12} abiertas.` : `Reabriste «${r.session.name}»`, { type: r.bumped?.length ? "info" : "" });
   redraw();
-}
-function doneList(redraw, anchor) {
-  const L = S.sessions?.done || [];
-  const m = modal(`<h3>Sesiones terminadas</h3><p class="muted" style="margin:0">Se guardan 14 días.</p>
-    <div class="ss-list">${L.map(v => `<div class="ss" data-ss="${esc(v.id)}"><div class="ss-top"><div class="ss-t"><b>${esc(v.name)}</b><small>Terminó ${esc(when(v.endedAt))}${END[v.endReason] ? ` · ${esc(END[v.endReason])}` : ""}</small></div></div>
-      ${bar(v)}<div class="ss-sum">${v.summary ? esc(v.summary) : `<span class="faint">Sin contactos registrados</span>`}</div>
-      <div class="ss-ops"><button class="btn sm" data-dsee="${esc(v.id)}">${icon("list", "sm")} Ver detalle</button><button class="btn ghost sm" data-dopen="${esc(v.id)}">Reabrir</button><button class="btn ghost sm" data-ddel="${esc(v.id)}">Borrar</button></div></div>`).join("") || `<p class="muted">No hay sesiones terminadas.</p>`}</div>
-    <div class="row"><button class="btn" id="dlX">Cerrar</button></div>`, { onClose: () => anchor?.isConnected && anchor.focus() });
-  m.querySelector(".modal-box").classList.add("ss-modal");
-  m.querySelector("#dlX").onclick = () => m.close();
-  m.querySelectorAll("[data-dsee]").forEach(b => b.onclick = () => { m.close(); detail(b.dataset.dsee, redraw); });
-  m.querySelectorAll("[data-dopen]").forEach(b => b.onclick = async () => { m.close(); await reopen(b.dataset.dopen, redraw); });
-  m.querySelectorAll("[data-ddel]").forEach(b => b.onclick = async () => {
-    if (b.dataset.sure !== "1") { b.dataset.sure = "1"; b.textContent = "¿Seguro? Borrar"; b.classList.add("danger"); return; }
-    try { await api(`/api/sessions/${encodeURIComponent(b.dataset.ddel)}`, { method: "DELETE" }); } catch (e) { return toast(e.message, { type: "err" }); }
-    S.sessions.done = S.sessions.done.filter(x => x.id !== b.dataset.ddel);
-    b.closest(".ss").remove(); redraw();
-  });
+  return r;
 }
 
 // ---------- detalle: lo trabajado (colegio, cómo, cuándo, resultado, próximo paso), lo salteado y lo que falta
@@ -164,8 +137,8 @@ export function itemRow(v, it, i, steps) {
     <button class="t" data-it="${i}" data-st="${it.state}"><b>${esc(it.name || S.byId.get(it.ref)?.name || "Sin nombre")}</b><small>${sub}</small></button>
     ${it.state === "pending" && v.status === "open" && i === v.resume ? `<span class="ops"><span class="tag">Sigue</span></span>` : "<span></span>"}</div>`;
 }
-const filtersText = o => !o?.filters ? "" : Object.entries(o.filters).map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(", ") : v}`).join(" · ");
-async function detail(id, redraw, anchor) {
+export const filtersText = o => !o?.filters ? "" : Object.entries(o.filters).map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(", ") : v}`).join(" · ");
+export async function sessionDetail(id, redraw, anchor) {
   let v = cachedSession(id);
   try { v = (await api(`/api/sessions/${encodeURIComponent(id)}`)).session; cacheSession(v); } catch (e) { if (!v) return toast(e.message, { type: "err" }); }
   const by = new Map(); for (const s of v.steps || []) { if (!by.has(s.ref)) by.set(s.ref, []); by.get(s.ref).push(s); }
@@ -185,7 +158,7 @@ async function detail(id, redraw, anchor) {
   m.querySelector("#sdMore")?.addEventListener("click", () => { m.querySelector("#sdPend").innerHTML = sec("Faltan", pending); bindItems(); });
   m.querySelector("#sdGo")?.addEventListener("click", () => { m.close(); resumeSession(v.id); });
   m.querySelector("#sdEnd")?.addEventListener("click", () => { m.close(); endSession(v.id, redraw, anchor); });
-  m.querySelector("#sdOpen")?.addEventListener("click", async () => { m.close(); await reopen(v.id, redraw); });
+  m.querySelector("#sdOpen")?.addEventListener("click", async () => { m.close(); await reopenSession(v.id, redraw); });
   // lo que falta (en una sesión abierta) sigue la sesión desde ahí; lo demás abre la ficha sola
   const bindItems = () => m.querySelectorAll("[data-it]").forEach(b => b.onclick = () => {
     const i = Number(b.dataset.it), it = v.items[i]; m.close();

@@ -1581,3 +1581,37 @@ button.dl-kpi[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offs
 }
 
 #sess .sess-sub { font-weight: 500; opacity: .8; font-size: .85em; }
+
+/* ---------- Sesiones (#/sesiones, public/js/sessionsview.js) */
+.sv { max-width: 980px; }
+.sv-head { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.sv-tabs { margin-bottom: 8px; }
+.sv-help { margin: 0 0 14px; font-size: 13.5px; }
+.sv-list { display: grid; gap: 12px; }
+.sv-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 14px 16px; }
+.sv-row.idle { border-color: var(--line-2); }
+.sv-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px 12px; flex-wrap: wrap; }
+.sv-top .ss-t b { white-space: normal; overflow-wrap: anywhere; }
+.sv-idle { background: var(--warn-soft); color: var(--warn); white-space: nowrap; }
+.sv-meta { font-size: 12.5px; color: var(--muted); }
+.sv-row .ss-ops { align-items: center; margin-top: 2px; }
+.sv .danger-t { color: var(--err); }
+.se-list { display: grid; max-height: min(46vh, 420px); overflow-y: auto; border: 1px solid var(--line); border-radius: 10px; }
+.se-it { display: flex; align-items: flex-start; gap: 10px; padding: 9px 12px; border-top: 1px solid var(--line); cursor: pointer; }
+.se-it:first-child { border-top: 0; }
+.se-it:hover { background: var(--surface-2); }
+.se-it input { margin-top: 3px; flex: none; width: 16px; height: 16px; accent-color: var(--accent); }
+.se-it span { min-width: 0; }
+.se-it b { display: block; font-weight: 500; overflow-wrap: anywhere; }
+.se-it small { display: block; color: var(--muted); font-size: 12.5px; }
+@media (max-width: 599px) {
+  .sv-row { padding: 12px; }
+  .page-head .sv-head { width: 100%; }
+  .page-head .sv-head #svNew { flex: 1 1 auto; }
+  /* las cuatro secciones en una fila (si no entran, se deslizan de costado) */
+  .sv-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; gap: 4px; }
+  .sv-tabs::-webkit-scrollbar { display: none; }
+  .sv-tabs .chip { flex: 1 0 auto; justify-content: center; gap: 4px; padding-inline: 7px; font-size: 12.5px; }
+  /* Retomar ocupa su renglón; abajo, lo demás */
+  .sv-row .ss-ops [data-go] { flex: 1 0 100%; }
+}

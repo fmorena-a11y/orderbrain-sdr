@@ -119,7 +119,7 @@ function draw() {
   bindSessionsCard(host, () => host?.isConnected && draw());
   inboundNotice(host.querySelector("#inbNote")); // «Tenés N inbound nuevos · Ver»
   host.querySelector("#terr").onclick = territoryPicker;
-  host.querySelector("#zoneGo")?.addEventListener("click", zoneSession);
+  host.querySelector("#zoneGo")?.addEventListener("click", () => zoneSession());
   host.querySelector("#more")?.addEventListener("click", () => { showAll = !showAll; draw(); });
   host.querySelector("#hotMore")?.addEventListener("click", () => { hotAll = !hotAll; draw(); });
   host.querySelectorAll("[data-school]").forEach(b => b.onclick = () => openSchool(b.dataset.school, { activityId: b.dataset.act ? Number(b.dataset.act) : null }));
@@ -131,8 +131,9 @@ function draw() {
 }
 
 // Sesión especial por zona o evento («hoy quiero trabajar Puebla»): primero tus actividades de ahí (hoy, después vencidas)
-// y después los colegios nuevos de esa ciudad que no tienen dueño ni actividad tuya.
-function zoneSession() {
+// y después los colegios nuevos de esa ciudad que no tienen dueño ni actividad tuya. También desde Sesiones › «Nueva sesión»
+// (anchor: dónde vuelve el foco al cerrar).
+export function zoneSession({ anchor = null } = {}) {
   const t = today(), acts = (S.today?.activities.items || []).map(a => ({ ...a, ...localAct(a) })).filter(a => a.date <= t && (a.schoolId || a.record));
   const sug = zoneOptions(acts).slice(0, 12);
   const m = modal(`<h3>Trabajar una zona o evento</h3>
@@ -141,7 +142,7 @@ function zoneSession() {
       <datalist id="zsL">${sug.map(z => `<option value="${esc(z.label)}">`).join("")}</datalist></label>
     ${sug.length ? `<div class="zs-sug">${sug.map(z => `<button class="chip" data-z="${esc(z.key)}" data-l="${esc(z.label)}" title="${esc(ZONE_KIND[z.k])}">${esc(z.label)} <b>${z.n}</b></button>`).join("")}</div>` : ""}
     <div class="zs-prev muted" id="zsP" aria-live="polite"></div>
-    <div class="row"><button class="btn ghost" id="zsNo">Cancelar</button><button class="btn primary" id="zsGo" disabled>${icon("play", "sm")} Empezar sesión</button></div>`, { onClose: () => host?.querySelector("#zoneGo")?.focus() });
+    <div class="row"><button class="btn ghost" id="zsNo">Cancelar</button><button class="btn primary" id="zsGo" disabled>${icon("play", "sm")} Empezar sesión</button></div>`, { onClose: () => (anchor?.isConnected ? anchor : host?.querySelector("#zoneGo"))?.focus() });
   const inp = m.querySelector("#zsQ"), prev = m.querySelector("#zsP"), go = m.querySelector("#zsGo");
   let plan = null, seq = 0, tm, key = "";
   const preview = async () => {

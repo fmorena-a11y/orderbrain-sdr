@@ -15,9 +15,12 @@ import { profileExtrasHtml, bindProfileExtras } from "./accounts.js";
 import { renderBase } from "./base.js";
 import { renderInbound, slackDialog } from "./inbound.js";
 import { renderDeals } from "./deals.js";
+import { renderSessionsView } from "./sessionsview.js";
 
 const VIEWS = {
   hoy: { label: "Hoy", icon: "sun", render: renderToday },
+  // sesiones de trabajo: de hoy, activas, inactivas y terminadas; crear, retomar, editar, terminar y borrar (cada uno las suyas)
+  sesiones: { label: "Sesiones", icon: "play", render: renderSessionsView },
   prospectar: { label: "Prospectar", icon: "map", render: renderExplore },
   // tratos abiertos y en qué etapa están (pedido del líder de SDR, para los accounts): la ven todos, solo lectura
   tratos: { label: "Tratos abiertos", short: "Tratos", icon: "deal", render: renderDeals },

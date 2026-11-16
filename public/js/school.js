@@ -235,7 +235,7 @@ export function closeSchool({ fromPop = false } = {}) {
   if (ss) leaveSession(ss);
   // el foco vuelve a la fila del colegio (aunque la vista se haya redibujado) o al contenido. Hoy vuelve a leer las
   // sesiones al redibujarse (loadToday), después de lo que se esté guardando (S.sessSaving).
-  import("./app.js").then(m => (S.view === "hoy" || S.view === "agenda") && m.rerender()).then(() => {
+  import("./app.js").then(m => ["hoy", "agenda", "sesiones"].includes(S.view) && m.rerender()).then(() => {
     const target = D.opener?.isConnected ? D.opener : document.querySelector(`#main [data-school="${closedId}"], #main [data-id="${closedId}"]`);
     (target || $("main")).focus({ preventScroll: !target });
   });
@@ -602,7 +602,7 @@ function sessionGo(delta) {
     if (drawerOpen()) return closeSchool();
     // se salteó lo último sin llegar a abrir la ficha (por ejemplo, un colegio que ya no está)
     S.session = null; leaveSession(ss);
-    return import("./app.js").then(m => S.view === "hoy" && m.rerender());
+    return import("./app.js").then(m => ["hoy", "sesiones"].includes(S.view) && m.rerender());
   }
   if (i < 0) return;
   openAt(ss, i);

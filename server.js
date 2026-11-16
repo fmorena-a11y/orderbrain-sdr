@@ -897,7 +897,7 @@ app.get("/api/today", auth, wrap(async (req, res) => {
 app.get("/api/sessions", auth, wrap(async (req, res) => res.json(await sessions.listFor(req.session.user.email, Date.now(), todayIn(req.tz)))));
 app.get("/api/sessions/:sid", auth, wrap(async (req, res) => res.json({ session: await sessions.getFor(req.session.user.email, req.params.sid) })));
 app.post("/api/sessions", auth, wrap(async (req, res) => res.json(await sessions.createFor(req.session.user.email, req.body || {}, Date.now(), todayIn(req.tz)))));
-app.patch("/api/sessions/:sid", auth, wrap(async (req, res) => res.json(await sessions.updateFor(req.session.user.email, req.params.sid, req.body || {}))));
+app.patch("/api/sessions/:sid", auth, wrap(async (req, res) => res.json(await sessions.updateFor(req.session.user.email, req.params.sid, req.body || {}, Date.now(), todayIn(req.tz)))));
 app.delete("/api/sessions/:sid", auth, wrap(async (req, res) => res.json(await sessions.deleteFor(req.session.user.email, req.params.sid))));
 // Bandeja caliente de Hoy: los prospectos nuevos para vos (solo los tuyos). Va aparte para no frenar la carga de Hoy.
 app.get("/api/hot", auth, wrap(async (req, res) => res.json(await sales.newForMe(req.session.user))));

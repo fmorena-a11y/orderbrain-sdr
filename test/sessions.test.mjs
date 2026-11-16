@@ -232,3 +232,49 @@ test("fuera de la sesión (sin Redis): cuenta como trabajado, no se anota en la 
   assert.deepEqual(await ss.recordOutside(E, "y", contact("y", "mail", "info", { schoolId: "y" }), { except: a.id }), []);
   assert.equal((await ss.getFor(E, a.id)).steps[0].outside, true);
 });
+
+test("sacar colegios: solo los que faltan, la posición sigue en el mismo colegio y no deja la sesión vacía", () => {
+  const s = mk(6);
+  ss.addStep(s, contact("col-0", "call", "info"), T0 + 1e3);
+  ss.addSkip(s, { ref: "col-1", reason: "client" }, T0 + 2e3);
+  s.pos = 3;
+  const upd = s.updatedAt;
+  // col-0 (trabajado) y col-1 (salteado) quedan; col-2 sale; col-9 no es de la sesión
+  assert.equal(ss.removeItems(s, ["col-0", "col-1", "col-2", "col-9"]), 1);
+  assert.deepEqual(s.items.map(i => i.ref), ["col-0", "col-1", "col-3", "col-4", "col-5"]);
+  assert.equal(s.items[s.pos].ref, "col-3"); // sigue en el mismo colegio
+  // se saca el colegio donde iba: queda en el siguiente
+  assert.equal(ss.applyPatch(s, { remove: ["col-3"] }, T0 + 9e3), true);
+  assert.equal(s.items[s.pos].ref, "col-4");
+  assert.equal(s.updatedAt, upd); // sacar colegios no cuenta como movimiento
+  // el último: la posición queda en el último que quedó
+  s.pos = 3; ss.removeItems(s, ["col-5"]); assert.equal(s.pos, 2); assert.equal(s.items[s.pos].ref, "col-4");
+  assert.equal(ss.applyPatch(s, { remove: [] }), false);
+  assert.throws(() => ss.applyPatch(s, { remove: "col-4" }), /inválida/);
+  // no se puede vaciar ni tocar una terminada
+  const t = mk(2);
+  assert.throws(() => ss.removeItems(t, ["col-0", "col-1"]), /borrala/);
+  assert.equal(t.items.length, 2);
+  ss.finish(t);
+  assert.throws(() => ss.removeItems(t, ["col-0"]), /reabrila/);
+  // el resumen se rearma con lo que quedó
+  assert.deepEqual([ss.sessionStats(s).total, ss.sessionStats(s).pending], [3, 1]);
+});
+
+test("guardado: sacar colegios cambia los colegios de la sesión (un contacto fuera de la sesión ya no la toca) y una «Tu día» de otro día no se reabre", async () => {
+  const E = "editar@ordereat.com";
+  const a = (await ss.createFor(E, { name: "Zona", origin: { kind: "zone", key: "zone:e" }, items: [{ ref: "x" }, { ref: "y" }, { ref: "z" }] }, T0)).session;
+  const r = await ss.updateFor(E, a.id, { remove: ["y"], name: "Zona norte" }, T0 + 1e3);
+  assert.equal(r.removed, 1); assert.equal(r.session.name, "Zona norte");
+  assert.deepEqual(r.session.items.map(i => i.ref), ["x", "z"]);
+  assert.deepEqual(await ss.recordOutside(E, "y", contact("y", "call", "info", { schoolId: "y" }), { now: T0 + 2e3 }), []);
+  assert.equal((await ss.recordOutside(E, "z", contact("z", "call", "info", { schoolId: "z" }), { now: T0 + 3e3 })).length, 1);
+  // z ya se trabajó: sacar x y z saca solo x
+  assert.deepEqual((await ss.updateFor(E, a.id, { remove: ["x", "z"] }, T0 + 4e3)).session.items.map(i => i.ref), ["z"]);
+  // «Tu día» de ayer: al listar con la fecha de hoy se termina y no se puede reabrir; la de hoy sí
+  const y = (await ss.createFor(E, { name: "Tu día · lun 9 nov", origin: { kind: "today", key: "today:2026-11-09" }, items: [{ ref: "x" }] }, T0 - 864e5)).session;
+  await ss.listFor(E, T0, "2026-11-10");
+  await assert.rejects(ss.updateFor(E, y.id, { status: "open" }, T0, "2026-11-10"), e => e.status === 409 && /otro día/.test(e.message));
+  assert.equal(ss.reopenBlock({ status: "done", origin: { kind: "today", key: "today:2026-11-10" } }, "2026-11-10"), null);
+  assert.equal(ss.reopenBlock({ status: "done", origin: { kind: "zone", key: "zone:e" } }, "2026-11-10"), null);
+});
