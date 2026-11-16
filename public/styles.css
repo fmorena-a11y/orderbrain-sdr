@@ -1378,3 +1378,15 @@ details.tl-body p { margin: 6px 0 0; padding: 10px 12px; border-radius: 10px; ba
 .bx-cl a, .bx-cl button { color: var(--accent-ink); display: inline-flex; align-items: center; gap: 4px; overflow-wrap: anywhere; min-height: 28px; }
 @media (max-width: 480px) { .bx-tags, .bx-note, .bx-cs { padding-left: 0; } }
 .bx-base .bx-c.picked { border-color: var(--accent); }
+
+/* Avisos de Prospectar en una solapa que se cierra */
+.notice-tab { margin: 0 0 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.notice-tab > summary { list-style: none; display: flex; align-items: center; gap: 8px; padding: 8px 12px; cursor: pointer; font-size: 13.5px; user-select: none; }
+.notice-tab > summary::-webkit-details-marker { display: none; }
+.notice-tab .nt-n { min-width: 20px; height: 20px; padding: 0 6px; border-radius: 10px; display: inline-grid; place-items: center; font-size: 12px; font-weight: 700; background: var(--warn-soft); color: var(--warn); }
+.notice-tab .nt-n.err { background: var(--err); color: #fff; }
+.notice-tab .nt-hint { margin-left: auto; color: var(--muted); font-size: 12.5px; }
+.notice-tab > summary > svg:last-child { transition: transform .15s; }
+.notice-tab[open] > summary > svg:last-child { transform: rotate(180deg); }
+.notice-tab .nt-body { padding: 0 8px 8px; display: grid; gap: 8px; }
+.notice-tab .nt-body .callout { margin: 0; }

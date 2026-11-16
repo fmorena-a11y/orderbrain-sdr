@@ -272,7 +272,7 @@ function drawList() {
   }
   if ((!E.city && !E.q && !placeMode()) || placeGrouped()) {
     const list = placeMode() ? placeList() : scope(), cs = citiesOf(list);
-    L.innerHTML = brainWarn() + `<div class="list-h"><span>${fmt(cs.length)} ciudades · ${fmt(list.length)} colegios</span><span class="legend"><i class="pros"></i>para llamar <i class="unk"></i>sin revisar <i class="none"></i>nada para llamar</span></div>` + checkCallout(list) + cs.map(c => {
+    L.innerHTML = noticeTab(brainWarn() + checkCallout(list)) + `<div class="list-h"><span>${fmt(cs.length)} ciudades · ${fmt(list.length)} colegios</span><span class="legend"><i class="pros"></i>para llamar <i class="unk"></i>sin revisar <i class="none"></i>nada para llamar</span></div>` + cs.map(c => {
       // la barrita usa los mismos colores que el mapa (la fase manda sobre el estado), en el orden de las referencias
       const n = c.items.length, k = {}; c.items.forEach(s => { const m = markOf(s); (k[m.k] ||= { m, n: 0 }).n++; });
       const pros = c.items.filter(canCall).length;
@@ -293,7 +293,7 @@ function drawList() {
     // «del mapa»: son los colegios de la app; lo que hay en Pipedrive va abajo (no quiere decir que no exista)
     ? `<div class="empty${pdOn() ? " compact" : ""}">${icon("search")}<span>Ningún colegio del mapa coincide con «${esc(E.q)}»${E.country ? ` en ${esc(E.country)}` : ""}.${pdOn() ? " Abajo, lo que hay en Pipedrive." : ""}</span>${isPhoneQ(E.q) || isMailQ(E.q) ? "" : `<button class="btn ${pdOn() ? "" : "primary "}sm" id="loc">${icon("nav", "sm")} Ubicar «${esc(E.q)}» en el mapa</button>`}${E.country ? `<button class="btn sm" id="allC">Buscar en todos los países</button>` : ""}</div>`
     : `<div class="empty">${icon("list")}<span>Nada con este filtro.</span><button class="btn sm" id="fAll">Ver todos</button></div>`;
-  L.innerHTML = brainWarn() + checkCallout(bl) + `<div class="list-h"><span>${fmt(a.length)} colegio${a.length === 1 ? "" : "s"}${E.q && pdOn() ? " del mapa" : ""}</span>${E.q && pdOn() && a.length > 3 ? `<button class="btn ghost sm pd-jump" id="pdJump">${pdJumpLabel()} ${icon("chevDown", "sm")}</button>` : ""}</div>`
+  L.innerHTML = noticeTab(brainWarn() + checkCallout(bl)) + `<div class="list-h"><span>${fmt(a.length)} colegio${a.length === 1 ? "" : "s"}${E.q && pdOn() ? " del mapa" : ""}</span>${E.q && pdOn() && a.length > 3 ? `<button class="btn ghost sm pd-jump" id="pdJump">${pdJumpLabel()} ${icon("chevDown", "sm")}</button>` : ""}</div>`
     + (a.length ? a.slice(0, shown).map(schoolRow).join("") + (a.length > shown ? `<button class="btn ghost sm block" id="moreS">Ver ${fmt(Math.min(PAGE, a.length - shown))} más</button>` : "") : empty)
     + (E.q && !placeMode() ? `<div id="pdBox" class="pd-box">${pdSectionHtml(E.pd)}</div>` : "");
   if (E.q && !placeMode()) bindPd(L.querySelector("#pdBox"), E.pd, pdRetry, drawPd);
@@ -542,4 +542,18 @@ function csv() {
 // fit:false = no mover el mapa (por ejemplo, mientras corre una búsqueda en segundo plano).
 export function refreshExplore({ fit = true } = {}) { if (host?.isConnected) drawAll({ fit }); }
 // Aviso de OrderBrain caído (sin datos de clientes): los clientes pueden aparecer para llamar.
+// Los avisos de arriba de la lista (World Dominion, sin revisar) en una solapa que se abre y se cierra; si la cerraste,
+// queda cerrada (en este navegador) y muestra cuántos hay. Un aviso de error la abre una vez si es nuevo.
+const NT_KEY = "ob.notices.closed";
+export function noticeTab(html) {
+  const n = (html.match(/class="callout /g) || []).length; if (!n) return "";
+  let closed = false; try { closed = localStorage.getItem(NT_KEY) === "1"; } catch { /* sin almacenamiento */ }
+  const err = /class="callout err/.test(html);
+  return `<details class="notice-tab"${closed ? "" : " open"}><summary>${icon("alert", "sm")}<b>Avisos</b><span class="nt-n${err ? " err" : ""}">${n}</span><span class="nt-hint">${closed ? "Ver" : "Ocultar"}</span>${icon("chevDown", "sm")}</summary><div class="nt-body">${html}</div></details>`;
+}
+document.addEventListener("toggle", e => {
+  const d = e.target; if (!d?.classList?.contains("notice-tab")) return;
+  try { localStorage.setItem(NT_KEY, d.open ? "0" : "1"); } catch { /* sin almacenamiento */ }
+  const h = d.querySelector(".nt-hint"); if (h) h.textContent = d.open ? "Ocultar" : "Ver";
+}, true);
 export const brainWarn = () => brainTokenCallout("") + (S.brainDown || S.brain?.down ? `<div class="callout warn">${icon("alert")}<span>No pudimos leer los clientes de World Dominion (${esc(S.brain?.error || "OrderBrain no respondió")}). Hasta que vuelva, revisá en Pipedrive antes de llamar.</span></div>` : brainStaleMsg() ? `<div class="callout warn">${icon("alert")}<span>${esc(brainStaleMsg())}</span></div>` : "");
