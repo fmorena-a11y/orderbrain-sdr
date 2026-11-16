@@ -96,7 +96,7 @@ test("searchTerms y queryPlan: el nombre propio (con y sin acentos), con la ciud
   assert.deepEqual(t.title, ["angeles", "ángeles"]); assert.equal(t.local, "angeles puebla");
   assert.deepEqual(E.searchTerms(school("Colegio Luz Maria Serradel")).title, ["luz serradel"]);
   const light = E.queryPlan(school("Montessori Ángeles"));
-  assert.deepEqual(light.map(q => [q.types, q.fields, q.term]), [["lead,deal", "title", "montessori angeles"], ["lead,deal", "title,custom_fields", "montessori angeles puebla"]]);
+  assert.deepEqual(light.map(q => [q.types, q.fields, q.term]), [["lead,deal", "title", "montessori angeles"], ["lead,deal", "title,custom_fields", "montessori angeles puebla"], ["lead,deal", "title,custom_fields", "montessori puebla"]]);
   const full = E.queryPlan(school("Colegio Ypsilanti", undefined, { phone: "+52 222 555 0248", web: "https://www.colegio-ypsilanti.edu.mx" }), { full: true });
   assert.ok(full.some(q => q.fields === "custom_fields" && q.term === "222 555 0248" && q.types.includes("organization")));
   assert.ok(full.some(q => q.types === "person" && q.fields === "phone" && q.term === "2225550248"));
@@ -137,4 +137,14 @@ test("real: un colegio con nombre parecido de otra ciudad nunca es «sure» (Pue
   assert.deepEqual(r.maybe.map(x => x.key), ["deal:6091"]);
   const { r: r2 } = run(school("Colegio Ángeles de Atlixco", "Atlixco"));
   assert.equal(r2.pick.key, "lead:36a32c80-7193-11f0-ae7b-258e5b6a816f");
+});
+
+test("abreviaturas y número de escuela: «Colegio 28 PS Hermanos Maristas» (San Rafael) es «SAN RAFAEL Hnos. MARISTAS»", async () => {
+  const pd = await import("../lib/pipedrive.js");
+  const s = school("Colegio 28 PS Hermanos Maristas", "San Rafael"), k = E.keyOf(s);
+  assert.deepEqual(pd.tokens("SAN RAFAEL Hnos. MARISTAS"), ["san", "rafael", "hermanos", "maristas"]);
+  assert.equal(E.nameLevel(k, "SAN RAFAEL Hnos. MARISTAS", new Set()), "same");
+  assert.ok(E.queryPlan(s).some(q => q.term === "maristas rafael"));
+  // otro número sigue siendo otro colegio
+  assert.notEqual(E.nameLevel(E.keyOf(school("Escuela Fe y Alegría 13", "Lima")), "Fe y Alegría 08", new Set()), "same");
 });
