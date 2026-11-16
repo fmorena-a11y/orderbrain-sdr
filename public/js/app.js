@@ -181,6 +181,14 @@ function toggleTheme() {
 }
 
 // ---------- navegación
+// menú de la izquierda achicado a íconos (preferencia rail.mini, en este navegador)
+function applyRail() {
+  const mini = !!loadPref("rail.mini", false), t = $("railToggle");
+  $("app").classList.toggle("rail-mini", mini);
+  if (t) { t.setAttribute("aria-pressed", String(mini)); t.setAttribute("aria-label", mini ? "Agrandar el menú" : "Achicar el menú"); t.title = mini ? "Agrandar el menú" : "Achicar el menú"; }
+}
+$("railToggle")?.addEventListener("click", () => { save("rail.mini", !loadPref("rail.mini", false)); applyRail(); dispatchEvent(new Event("resize")); });
+applyRail();
 function renderNav() {
   $("nav").innerHTML = views().map(([k, v], i) => `<button class="nav-item" data-v="${k}" title="${v.label} (${i + 1})" aria-keyshortcuts="${i + 1}" ${S.view === k ? 'aria-current="page"' : ""}>${icon(v.icon)}<span class="lbl">${v.label}</span>${v.short ? `<span class="lbl-s" aria-hidden="true">${v.short}</span>` : ""}</button>`).join("");
   $("nav").querySelectorAll("[data-v]").forEach(b => b.onclick = () => { go(b.dataset.v); $("main").focus({ preventScroll: true }); });
