@@ -1348,12 +1348,23 @@ details.tl-body p { margin: 6px 0 0; padding: 10px 12px; border-radius: 10px; ba
   .assistant header { cursor: grab; user-select: none; }
   .assistant.dragging header { cursor: grabbing; }
   .assistant.floating { top: auto; right: auto; bottom: auto; height: min(640px, calc(100vh - 32px)); width: 420px; min-width: 320px; min-height: 260px;
-    max-width: calc(100vw - 16px); max-height: calc(100vh - 16px); border: 1px solid var(--line); border-radius: 14px; resize: both; overflow: hidden; animation: none; }
-  .assistant.min { height: auto !important; min-height: 0; resize: none; }
+    max-width: calc(100vw - 16px); max-height: calc(100vh - 16px); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; animation: none; }
+  .assistant.min { height: auto !important; min-height: 0; }
+  /* bordes y esquinas para agrandar (también pegada a la derecha: tirar la despega) */
+  .assistant .aw-rz { position: absolute; z-index: 5; touch-action: none; }
+  .assistant .aw-n, .assistant .aw-s { left: 10px; right: 10px; height: 8px; cursor: ns-resize; }
+  .assistant .aw-n { top: -3px; } .assistant .aw-s { bottom: -3px; }
+  .assistant .aw-e, .assistant .aw-w { top: 10px; bottom: 10px; width: 8px; cursor: ew-resize; }
+  .assistant .aw-e { right: -3px; } .assistant .aw-w { left: -3px; }
+  .assistant .aw-ne, .assistant .aw-nw, .assistant .aw-se, .assistant .aw-sw { width: 14px; height: 14px; }
+  .assistant .aw-ne { top: -3px; right: -3px; cursor: nesw-resize; } .assistant .aw-sw { bottom: -3px; left: -3px; cursor: nesw-resize; }
+  .assistant .aw-nw { top: -3px; left: -3px; cursor: nwse-resize; } .assistant .aw-se { bottom: -3px; right: -3px; cursor: nwse-resize; }
+  .assistant.min .aw-rz { display: none; }
+  .assistant.resizing, .assistant.resizing * { user-select: none; }
   .assistant.min .msgs, .assistant.min .sugs, .assistant.min .compose { display: none; }
   .assistant.min header { border-bottom: 0; }
 }
-@media (max-width: 899px) { .assistant #assistDock, .assistant #assistMin { display: none; } }
+@media (max-width: 899px) { .assistant #assistDock, .assistant #assistMin, .assistant .aw-rz { display: none; } }
 .assistant .ah, .assistant .ah > div { min-width: 0; }
 .assistant .ah small { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 

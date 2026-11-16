@@ -29,7 +29,7 @@ export function openAssistant() {
 }
 export function closeAssistant() { micStop(true); $("assistant").hidden = true; }
 
-// ---------- ventana movible (pantallas de 900 px o más): arrastrar desde el título, agrandar desde la esquina, minimizar.
+// ---------- ventana movible (pantallas de 900 px o más): arrastrar desde el título, agrandar desde cualquier borde o esquina, minimizar.
 // Dónde quedó se recuerda en este navegador (solo comodidad: si no se puede guardar, vuelve a la derecha).
 const AW_KEY = "ob.assistant.win", wide = () => matchMedia("(min-width: 900px)").matches;
 const awLoad = () => { try { return JSON.parse(localStorage.getItem(AW_KEY) || "null"); } catch { return null; } };
@@ -61,8 +61,33 @@ function awInit() {
   });
   // doble clic en el título: vuelve a la derecha
   head.addEventListener("dblclick", e => { if (wide() && !e.target.closest("button")) { awSave(null); awApply(); } });
-  // agrandar/achicar desde la esquina (resize de CSS): se guarda el tamaño
-  new ResizeObserver(() => { const w = awLoad(); if (!wide() || !w?.float || w.min || el.hidden) return; const b = el.getBoundingClientRect(); if (Math.abs(b.width - (w.w || 0)) > 2 || Math.abs(b.height - (w.h || 0)) > 2) awSave({ ...w, w: Math.round(b.width), h: Math.round(b.height) }); }).observe(el);
+  // agrandar/achicar desde los 4 bordes y las 4 esquinas (la flechita doble del cursor): se guarda posición y tamaño.
+  // Pegada a la derecha, tirar de un borde la despega y queda flotando donde estaba.
+  const MINW = 320, MINH = 260;
+  for (const d of ["n", "s", "e", "w", "ne", "nw", "se", "sw"]) {
+    const h = document.createElement("div"); h.className = `aw-rz aw-${d}`; h.dataset.d = d; h.setAttribute("aria-hidden", "true"); el.appendChild(h);
+    h.addEventListener("pointerdown", e => {
+      if (!wide() || e.button !== 0) return;
+      e.preventDefault(); e.stopPropagation();
+      let w = awLoad() || {};
+      if (w.min) return;
+      const r0 = el.getBoundingClientRect();
+      if (!w.float) { w = { ...w, float: true, x: r0.left, y: r0.top, w: r0.width, h: r0.height }; awSave(w); awApply(); }
+      const r = el.getBoundingClientRect(), sx = e.clientX, sy = e.clientY;
+      el.classList.add("resizing"); h.setPointerCapture(e.pointerId);
+      const move = ev => {
+        const dx = ev.clientX - sx, dy = ev.clientY - sy;
+        let L = r.left, T = r.top, W = r.width, H = r.height;
+        if (d.includes("e")) W = Math.min(Math.max(MINW, r.width + dx), innerWidth - 8 - L);
+        if (d.includes("s")) H = Math.min(Math.max(MINH, r.height + dy), innerHeight - 8 - T);
+        if (d.includes("w")) { const nl = Math.max(8, Math.min(r.left + dx, r.right - MINW)); W = r.right - nl; L = nl; }
+        if (d.includes("n")) { const nt = Math.max(8, Math.min(r.top + dy, r.bottom - MINH)); H = r.bottom - nt; T = nt; }
+        Object.assign(el.style, { left: L + "px", top: T + "px", width: W + "px", height: H + "px" });
+      };
+      const up = () => { h.removeEventListener("pointermove", move); el.classList.remove("resizing"); const b = el.getBoundingClientRect(); awSave({ ...(awLoad() || {}), float: true, x: Math.round(b.left), y: Math.round(b.top), w: Math.round(b.width), h: Math.round(b.height) }); };
+      h.addEventListener("pointermove", move); h.addEventListener("pointerup", up, { once: true }); h.addEventListener("pointercancel", up, { once: true });
+    });
+  }
   $("assistMin").onclick = () => { const w = awLoad() || {}, r = el.getBoundingClientRect(); awSave({ ...w, float: true, x: w.float ? w.x : r.left, y: w.float ? w.y : r.top, w: w.w || r.width, min: !w.min }); awApply(); };
   $("assistDock").onclick = () => { awSave(null); awApply(); };
   addEventListener("resize", awApply);
