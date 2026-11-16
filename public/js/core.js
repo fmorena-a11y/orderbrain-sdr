@@ -21,6 +21,19 @@ function load(k, d) { try { const v = localStorage.getItem("ob." + k); return v 
 export function save(k, v) { try { localStorage.setItem("ob." + k, JSON.stringify(v)); } catch {} }
 export const loadPref = load;
 
+// ---------- historial de búsquedas (Prospectar y Ctrl K), en este navegador: las 10 últimas, sin repetir.
+// kind: "q" (texto: colegio, teléfono, email, persona) o "place" (un lugar que se ubicó en el mapa)
+const SEARCH_KEY = "searches", SEARCH_MAX = 10;
+const searchNorm = t => String(t || "").trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, " ");
+export const recentSearches = () => (load(SEARCH_KEY, []) || []).filter(x => x && typeof x.t === "string" && x.t.trim());
+export function rememberSearch(text, kind = "q") {
+  const t = String(text || "").trim().replace(/\s+/g, " ").slice(0, 120); if (t.length < 2) return;
+  const k = searchNorm(t), rest = recentSearches().filter(x => searchNorm(x.t) !== k);
+  save(SEARCH_KEY, [{ t, kind: kind === "place" ? "place" : "q", at: Date.now() }, ...rest].slice(0, SEARCH_MAX));
+}
+export const forgetSearch = text => save(SEARCH_KEY, recentSearches().filter(x => searchNorm(x.t) !== searchNorm(text)));
+export const clearSearches = () => save(SEARCH_KEY, []);
+
 // ---------- equipos (lib/teams.js): S.profile.scope = { on, admin, all, led, member, teams, lead } (lo manda /api/me)
 // ¿Actúa como líder sobre lo de esta persona? (dirección y los fijos, o cualquier líder sin equipos: de todos; un líder de
 // equipo: de su gente). El servidor lo vuelve a controlar.

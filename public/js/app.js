@@ -1,5 +1,5 @@
 // OrderBrain SDR · arranque, navegación, cuenta, búsqueda rápida y atajos.
-import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, statusPill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo, modal, toast, brainTokenMsg, digits } from "./core.js";
+import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, statusPill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo, modal, toast, brainTokenMsg, digits, recentSearches, rememberSearch } from "./core.js";
 import { renderToday } from "./today.js";
 import { renderExplore } from "./explore.js";
 import { renderAgenda } from "./agenda.js";
@@ -249,6 +249,10 @@ function renderPalette({ keep = false } = {}) {
     const recent = loadPref("recent", []).map(id => S.byId.get(id)).filter(Boolean);
     const next = (S.today?.queue || []).filter(s => !recent.some(r => r.id === s.id)).slice(0, 4).map(s => S.byId.get(s.id) || s);
     if (recent.length) sections.push(["Recientes", recent.map(s => ({ s }))]);
+    // búsquedas recientes (las mismas que Prospectar): tocarla la vuelve a escribir acá
+    const searches = recentSearches().slice(0, 5);
+    if (searches.length) sections.push(["Búsquedas recientes", searches.map(x => ({ a: { label: x.t, sub: x.kind === "place" ? "Lugar" : "Búsqueda", ic: x.kind === "place" ? "map" : "search",
+      fn: () => { openPalette(); $("palIn").value = x.t; palPd(); renderPalette(); } } }))]);
     if (next.length) sections.push(["Siguientes en tu cola", next.map(s => ({ s }))]);
     sections.push(["Acciones", [{ a: { label: "Empezar sesión de llamadas", sub: "Los mejores prospectos de tu territorio, uno tras otro", ic: "play", fn: () => startSession() } },
       { a: { label: "Buscar colegios en una zona…", sub: "Un país, una provincia o una ciudad: los sumo al mapa", ic: "globe", fn: () => import("./scan.js").then(m => m.openScanDialog()) } },
@@ -312,7 +316,7 @@ function renderPalette({ keep = false } = {}) {
   if (j) { j.onmousedown = e => e.preventDefault(); j.onclick = () => { const h = $("palPdH"), L = $("palList"); if (h) L.scrollTo({ top: L.scrollTop + h.getBoundingClientRect().top - L.getBoundingClientRect().top - 4, behavior: "smooth" }); }; }
 }
 function setSel(i) { PAL.sel = i; $("palList").querySelectorAll("[data-i]").forEach(b => b.setAttribute("aria-selected", +b.dataset.i === i)); $("palList").querySelector(`[data-i="${i}"]`)?.scrollIntoView({ block: "nearest" }); }
-function pick(i) { const it = PAL.items[i]; if (!it) return; closePalette(true); it.fn(); }
+function pick(i) { const it = PAL.items[i]; if (!it) return; const typed = $("palIn").value.trim(); if (typed.length >= 2) rememberSearch(typed); closePalette(true); it.fn(); }
 $("palIn").addEventListener("input", () => { palPd(); renderPalette(); });
 $("palIn").addEventListener("keydown", e => {
   if (e.key === "ArrowDown") { e.preventDefault(); setSel(Math.min(PAL.sel + 1, PAL.items.length - 1)); }

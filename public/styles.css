@@ -1390,3 +1390,14 @@ details.tl-body p { margin: 6px 0 0; padding: 10px 12px; border-radius: 10px; ba
 .notice-tab[open] > summary > svg:last-child { transform: rotate(180deg); }
 .notice-tab .nt-body { padding: 0 8px 8px; display: grid; gap: 8px; }
 .notice-tab .nt-body .callout { margin: 0; }
+
+/* Historial de búsquedas de Prospectar */
+.q-wrap { position: relative; flex: 1; min-width: 0; }
+.q-wrap .inp { width: 100%; }
+.q-hist { position: absolute; left: 0; right: 0; top: calc(100% + 4px); z-index: 40; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-lg); padding: 6px; max-height: 340px; overflow: auto; }
+.q-hist .qh-h { display: flex; justify-content: space-between; align-items: center; padding: 4px 8px 6px; font-size: 12px; color: var(--muted); }
+.q-hist .qh-row { display: flex; align-items: center; gap: 2px; border-radius: 8px; }
+.q-hist .qh-row:hover { background: var(--hover, rgba(127,127,127,.12)); }
+.q-hist .qh-it { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; padding: 8px; background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.q-hist .qh-it span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.q-hist .qh-x { opacity: .6; }

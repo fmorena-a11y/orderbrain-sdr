@@ -1,5 +1,5 @@
 // Prospectar: lista por país y ciudad + mapa, con cruce contra Pipedrive y sesión de llamadas.
-import { S, api, esc, norm, icon, pill, statusPill, stageTag, potTag, markOf, PH, ST, cssVar, patchSchool, toast, ago, shortDay, scroller, brainStaleMsg, brainTokenCallout, callPill, digits } from "./core.js";
+import { S, api, esc, norm, icon, pill, statusPill, stageTag, potTag, markOf, PH, ST, cssVar, patchSchool, toast, ago, shortDay, scroller, brainStaleMsg, brainTokenCallout, callPill, digits, recentSearches, rememberSearch, forgetSearch, clearSearches } from "./core.js";
 import { openSchool, startSession } from "./school.js";
 import { baseErrorCallout } from "./app.js";
 import { pdSearcher, pdSectionHtml, bindPd, pdNamed, isPhoneQ, isMailQ, PD_MIN } from "./pdsearch.js";
@@ -82,7 +82,7 @@ export function renderExplore(el) {
       <div class="explore-top">
         <h1>Prospectar</h1>
         <label class="sr" for="q">Buscar colegio, lugar o en Pipedrive</label>
-        <form id="qf" class="q-row" role="search"><input class="inp" id="q" type="search" placeholder="Colegio, lugar, teléfono, email o persona" value="${esc(E.q)}" autocomplete="off" enterkeyhint="search"><button type="button" class="btn icon-only" id="locate" title="Ubicar en el mapa" aria-label="Ubicar en el mapa">${icon("nav")}</button></form>
+        <form id="qf" class="q-row" role="search"><div class="q-wrap"><input class="inp" id="q" type="search" placeholder="Colegio, lugar, teléfono, email o persona" value="${esc(E.q)}" autocomplete="off" enterkeyhint="search" aria-controls="qHist"><div class="q-hist" id="qHist" role="listbox" aria-label="Búsquedas recientes" hidden></div></div><button type="button" class="btn icon-only" id="locate" title="Ubicar en el mapa" aria-label="Ubicar en el mapa">${icon("nav")}</button></form>
         <div id="placeBox"></div>
         <div class="chips scroll-row" id="countries" role="group" aria-label="País"></div>
         <div class="crumb" id="crumb"></div>
@@ -98,14 +98,38 @@ export function renderExplore(el) {
   </div>`;
   el.querySelectorAll(".scroll-row").forEach(scroller);
   const q = el.querySelector("#q");
-  q.oninput = () => { E.q = q.value; E.place = null; locSeq++; shown = PAGE; pdQuery(); drawAll(); toTop(); };
+  q.oninput = () => { E.q = q.value; E.place = null; locSeq++; shown = PAGE; pdQuery(); drawAll(); toTop(); histDraw(); clearTimeout(histT); histT = setTimeout(() => { if (q.value.trim().length >= 3 && q.value === E.q) rememberSearch(q.value); }, 2500); };
+  // historial de búsquedas: al tocar el buscador vacío aparecen las últimas; tocarla la vuelve a buscar (un lugar, lo ubica)
+  const hist = el.querySelector("#qHist");
+  function histDraw() {
+    const list = recentSearches();
+    if (q.value.trim() || !list.length || document.activeElement !== q) { hist.hidden = true; return; }
+    hist.innerHTML = `<div class="qh-h"><span>Búsquedas recientes</span><button type="button" class="linkbtn" data-clear>Borrar</button></div>` +
+      list.map((x, i) => `<div class="qh-row"><button type="button" class="qh-it" role="option" data-i="${i}">${icon(x.kind === "place" ? "map" : "search", "sm")}<span>${esc(x.t)}</span></button><button type="button" class="icon-btn qh-x" data-x="${i}" aria-label="Sacar «${esc(x.t)}» del historial" title="Sacar">${icon("x", "sm")}</button></div>`).join("");
+    hist.hidden = false;
+  }
+  q.addEventListener("focus", histDraw);
+  q.addEventListener("click", histDraw);
+  q.addEventListener("blur", () => setTimeout(() => { if (!hist.contains(document.activeElement)) hist.hidden = true; }, 150));
+  q.addEventListener("keydown", e => { if (e.key === "Escape") hist.hidden = true; });
+  hist.addEventListener("mousedown", e => e.preventDefault()); // que el input no pierda el foco al tocar una
+  hist.addEventListener("click", e => {
+    const list = recentSearches(), b = e.target.closest("button"); if (!b) return;
+    if (b.dataset.clear != null) { clearSearches(); hist.hidden = true; return; }
+    if (b.dataset.x != null) { forgetSearch(list[+b.dataset.x]?.t); histDraw(); if (!recentSearches().length) hist.hidden = true; return; }
+    const x = list[+b.dataset.i]; if (!x) return;
+    hist.hidden = true; q.value = x.t; rememberSearch(x.t, x.kind);
+    if (x.kind === "place") return locate(x.t);
+    q.dispatchEvent(new Event("input"));
+  });
   // Enter: un teléfono o un email se quedan en la lista (colegios y Pipedrive). Un lugar conocido (con coma, o una ciudad o
   // un país de la base) se ubica en el mapa. Si no, se queda en la lista si coincide con colegios de la base o si en
   // Pipedrive hay algo que se llama así (pdNamed: el nombre empieza con lo escrito, o una persona); si no, se ubica
   // («Metepec» se ubica aunque en Pipedrive esté «Nook Junior School Metepec»). El botón de la flecha siempre ubica.
   el.querySelector("#qf").onsubmit = async e => {
-    e.preventDefault(); const t = q.value;
+    e.preventDefault(); const t = q.value; hist.hidden = true;
     if (!t.trim()) return locate(t);
+    rememberSearch(t);
     if (isPhoneQ(t) || isMailQ(t)) return;
     if (looksLikePlace(t)) return locate(t);
     if (searchList().length) return;
@@ -182,6 +206,7 @@ function splitCountry(text) {
   return { q: parts.filter((_, j) => j !== i).join(", "), cc: S.markets[c]?.code || "" };
 }
 let locSeq = 0;
+let histT = null;
 async function locate(text, { osm } = {}) {
   text = String(text || "").trim(); if (!osm && text.length < 2) return;
   const seq = ++locSeq, box = host.querySelector("#placeBox");
@@ -193,6 +218,7 @@ async function locate(text, { osm } = {}) {
     // si mientras tanto escribió otra cosa o pidió otro lugar, esta respuesta ya no sirve
     if (!host.isConnected || seq !== locSeq) return;
     E.place = place; E.q = ""; E.city = null; E.filter = "prospect"; shown = PAGE; host.querySelector("#q").value = ""; PDS.cancel(); E.pd = null;
+    if (!osm) rememberSearch(text, "place");
     // el país del lugar (o «Todos» si no hay colegios de ese país), aunque el chip dijera otro
     E.country = S.countries.includes(place.country) ? place.country : null;
     drawAll(); toTop();
