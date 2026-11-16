@@ -442523,5 +442523,124 @@
   "src": "osm",
   "osm": "w1193603384",
   "found": "2026-11-16"
+ },
+ {
+  "id": "el-carmen-de-bolivar-institucion-educativa-ellen-white-school",
+  "name": "Institución Educativa Ellen White School",
+  "city": "El Carmen de Bolívar",
+  "country": "Colombia",
+  "lat": 9.69982,
+  "lng": -75.157936,
+  "addr": "",
+  "phone": "+57 313 5588432",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837431",
+  "found": "2026-11-16"
+ },
+ {
+  "id": "el-carmen-de-bolivar-centro-educativo-colombo-americano",
+  "name": "Centro Educativo Colombo Americano",
+  "city": "El Carmen de Bolívar",
+  "country": "Colombia",
+  "lat": 9.714328,
+  "lng": -75.118735,
+  "addr": "",
+  "phone": "+57 605 6860161",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837432",
+  "found": "2026-11-16"
+ },
+ {
+  "id": "el-carmen-de-bolivar-colegio-la-sagrada-familia",
+  "name": "Colegio La Sagrada Familia",
+  "city": "El Carmen de Bolívar",
+  "country": "Colombia",
+  "lat": 9.712418,
+  "lng": -75.115694,
+  "addr": "",
+  "phone": "+57 605 6862414",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837433",
+  "found": "2026-11-16"
+ },
+ {
+  "id": "el-carmen-de-bolivar-centro-educativo-antonio-ricaurte",
+  "name": "Centro Educativo Antonio Ricaurte",
+  "city": "El Carmen de Bolívar",
+  "country": "Colombia",
+  "lat": 9.714052,
+  "lng": -75.119282,
+  "addr": "",
+  "phone": "862999",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837436",
+  "found": "2026-11-16"
+ },
+ {
+  "id": "el-carmen-de-bolivar-colegio-san-rafael",
+  "name": "Colegio San Rafael",
+  "city": "El Carmen de Bolívar",
+  "country": "Colombia",
+  "lat": 9.713615,
+  "lng": -75.11985,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1182193293",
+  "found": "2026-11-16"
+ },
+ {
+  "id": "el-carmen-de-bolivar-instituto-altair-montemariano",
+  "name": "Instituto Altair Montemariano",
+  "city": "El Carmen de Bolívar",
+  "country": "Colombia",
+  "lat": 9.715088,
+  "lng": -75.122456,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1182193301",
+  "found": "2026-11-16"
  }
 ]
