@@ -30,3 +30,12 @@ test("actividades_de da el mismo total por día que la Agenda, en la zona de qui
   const all = await ai._runTool("actividades_de", { persona: "yo" }, { user, proposals: [], tz });
   assert.equal(all.total, ag.length);
 });
+
+test("splitSuggestions: saca la línea SUGERENCIAS del texto y devuelve 2 a 4 cortas, sin repetir", () => {
+  const r = ai.splitSuggestions("Tenés 4 de EduExperience Puebla.\n\nSUGERENCIAS: [\"Armame la sesión con esos 4\", \"¿Cuáles son de hoy?\", \"armame la sesión con esos 4\", \"\"]");
+  assert.equal(r.reply, "Tenés 4 de EduExperience Puebla.");
+  assert.deepEqual(r.suggestions, ["Armame la sesión con esos 4", "¿Cuáles son de hoy?"]);
+  assert.deepEqual(ai.splitSuggestions("Solo texto").suggestions, []);
+  const bad = ai.splitSuggestions("Hola\nSUGERENCIAS: [roto");
+  assert.equal(bad.reply, "Hola"); assert.deepEqual(bad.suggestions, []);
+});

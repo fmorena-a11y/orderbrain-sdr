@@ -2,10 +2,12 @@
 import { $, S, api, esc, icon, toast, shortDay } from "./core.js";
 import { currentSchoolId } from "./school.js";
 
-const C = { turns: [], busy: false, started: false };
+const C = { turns: [], busy: false, started: false, sugs: [] };
 const focusId = () => currentSchoolId();
 
 function suggestions() {
+  // ya charlando: las que propuso el asistente según la conversación (si no propuso, ninguna: nada fuera de tema)
+  if (C.turns.length) return C.sugs || [];
   const f = focusId(), s = f && S.byId.get(f);
   return s ? [`Armame un guion para ${s.name}`, `¿Qué pasó antes con ${s.name}?`, `Agendá una llamada con ${s.name} para mañana a las 10`, `Escribí un WhatsApp para reactivar a ${s.name}`]
     : ["¿A quién llamo ahora?", "Prospectá colegios en España", "¿Qué tengo agendado esta semana?", "¿Cómo respondo «ya tenemos un sistema»?"];
@@ -109,6 +111,7 @@ async function send(text) {
   try {
     const r = await api("/api/chat", { body: { messages: C.turns, focus: focusId() } });
     out.className = "b a"; out.textContent = r.reply; C.turns.push({ role: "assistant", content: r.reply });
+    C.sugs = Array.isArray(r.suggestions) ? r.suggestions.slice(0, 4) : [];
     (r.proposals || []).forEach(propCard);
   } catch (e) { out.className = "b a"; out.textContent = e.message; C.turns.pop(); }
   C.busy = false; $("chatSend").disabled = false; drawSugs(); $("chatIn").focus();
