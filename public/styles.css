@@ -1401,3 +1401,8 @@ details.tl-body p { margin: 6px 0 0; padding: 10px 12px; border-radius: 10px; ba
 .q-hist .qh-it { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; padding: 8px; background: none; border: 0; color: inherit; font: inherit; text-align: left; cursor: pointer; }
 .q-hist .qh-it span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .q-hist .qh-x { opacity: .6; }
+.q-wrap .inp { padding-right: 38px; }
+.q-histbtn { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; display: grid; place-items: center; border: 0; border-radius: 8px; background: none; color: var(--muted); cursor: pointer; }
+.q-histbtn:hover { background: var(--hover, rgba(127,127,127,.12)); color: inherit; }
+.q-hist .qh-empty { margin: 0; padding: 6px 8px 8px; font-size: 13px; color: var(--muted); }
+.q-wrap input[type="search"]::-webkit-search-cancel-button { margin-right: 4px; }

@@ -82,7 +82,7 @@ export function renderExplore(el) {
       <div class="explore-top">
         <h1>Prospectar</h1>
         <label class="sr" for="q">Buscar colegio, lugar o en Pipedrive</label>
-        <form id="qf" class="q-row" role="search"><div class="q-wrap"><input class="inp" id="q" type="search" placeholder="Colegio, lugar, teléfono, email o persona" value="${esc(E.q)}" autocomplete="off" enterkeyhint="search" aria-controls="qHist"><div class="q-hist" id="qHist" role="listbox" aria-label="Búsquedas recientes" hidden></div></div><button type="button" class="btn icon-only" id="locate" title="Ubicar en el mapa" aria-label="Ubicar en el mapa">${icon("nav")}</button></form>
+        <form id="qf" class="q-row" role="search"><div class="q-wrap"><input class="inp" id="q" type="search" placeholder="Colegio, lugar, teléfono, email o persona" value="${esc(E.q)}" autocomplete="off" enterkeyhint="search" aria-controls="qHist"><button type="button" class="q-histbtn" id="qHistBtn" title="Búsquedas recientes" aria-label="Búsquedas recientes" aria-controls="qHist">${icon("clock", "sm")}</button><div class="q-hist" id="qHist" role="listbox" aria-label="Búsquedas recientes" hidden></div></div><button type="button" class="btn icon-only" id="locate" title="Ubicar en el mapa" aria-label="Ubicar en el mapa">${icon("nav")}</button></form>
         <div id="placeBox"></div>
         <div class="chips scroll-row" id="countries" role="group" aria-label="País"></div>
         <div class="crumb" id="crumb"></div>
@@ -101,22 +101,26 @@ export function renderExplore(el) {
   q.oninput = () => { E.q = q.value; E.place = null; locSeq++; shown = PAGE; pdQuery(); drawAll(); toTop(); histDraw(); clearTimeout(histT); histT = setTimeout(() => { if (q.value.trim().length >= 3 && q.value === E.q) rememberSearch(q.value); }, 2500); };
   // historial de búsquedas: al tocar el buscador vacío aparecen las últimas; tocarla la vuelve a buscar (un lugar, lo ubica)
   const hist = el.querySelector("#qHist");
-  function histDraw() {
+  function histDraw(force = false) {
     const list = recentSearches();
-    if (q.value.trim() || !list.length || document.activeElement !== q) { hist.hidden = true; return; }
+    if (!force && (q.value.trim() || document.activeElement !== q)) { hist.hidden = true; return; }
+    if (!list.length) { hist.innerHTML = `<div class="qh-h"><span>Búsquedas recientes</span></div><p class="qh-empty">Todavía no buscaste nada. Lo que busques (colegios, teléfonos, mails, personas o lugares) va a quedar acá.</p>`; hist.hidden = false; return; }
     hist.innerHTML = `<div class="qh-h"><span>Búsquedas recientes</span><button type="button" class="linkbtn" data-clear>Borrar</button></div>` +
       list.map((x, i) => `<div class="qh-row"><button type="button" class="qh-it" role="option" data-i="${i}">${icon(x.kind === "place" ? "map" : "search", "sm")}<span>${esc(x.t)}</span></button><button type="button" class="icon-btn qh-x" data-x="${i}" aria-label="Sacar «${esc(x.t)}» del historial" title="Sacar">${icon("x", "sm")}</button></div>`).join("");
     hist.hidden = false;
   }
-  q.addEventListener("focus", histDraw);
-  q.addEventListener("click", histDraw);
-  q.addEventListener("blur", () => setTimeout(() => { if (!hist.contains(document.activeElement)) hist.hidden = true; }, 150));
+  q.addEventListener("focus", () => histDraw());
+  q.addEventListener("click", () => histDraw());
+  const hb = el.querySelector("#qHistBtn");
+  hb.addEventListener("mousedown", e => e.preventDefault());
+  hb.addEventListener("click", () => { if (!hist.hidden) { hist.hidden = true; return; } q.focus(); histDraw(true); });
+  q.addEventListener("blur", () => setTimeout(() => { if (!hist.contains(document.activeElement) && document.activeElement !== hb) hist.hidden = true; }, 150));
   q.addEventListener("keydown", e => { if (e.key === "Escape") hist.hidden = true; });
   hist.addEventListener("mousedown", e => e.preventDefault()); // que el input no pierda el foco al tocar una
   hist.addEventListener("click", e => {
     const list = recentSearches(), b = e.target.closest("button"); if (!b) return;
-    if (b.dataset.clear != null) { clearSearches(); hist.hidden = true; return; }
-    if (b.dataset.x != null) { forgetSearch(list[+b.dataset.x]?.t); histDraw(); if (!recentSearches().length) hist.hidden = true; return; }
+    if (b.dataset.clear != null) { clearSearches(); histDraw(true); return; }
+    if (b.dataset.x != null) { forgetSearch(list[+b.dataset.x]?.t); histDraw(true); return; }
     const x = list[+b.dataset.i]; if (!x) return;
     hist.hidden = true; q.value = x.t; rememberSearch(x.t, x.kind);
     if (x.kind === "place") return locate(x.t);
@@ -138,6 +142,8 @@ export function renderExplore(el) {
     locate(t);
   };
   el.querySelector("#locate").onclick = () => locate(q.value);
+  // abrir un resultado de Pipedrive (o su enlace) con algo escrito también lo guarda en el historial
+  el.addEventListener("click", e => { if (e.target.closest("[data-pdi], .pd-ext") && E.q.trim().length >= 2) rememberSearch(E.q); }, true);
   el.querySelector("#sess").onclick = () => {
     const ids = callable().map(s => s.id); // startSession toma los primeros S.sessionMax y lo avisa
     const where = E.city || (E.place && placeName(E.place)) || E.country || "selección", list = FILTERS.find(([k]) => k === E.filter)?.[1] || "";
@@ -331,7 +337,8 @@ function drawList() {
   L.querySelector("#clr")?.addEventListener("click", () => { E.q = ""; host.querySelector("#q").value = ""; drawAll(); });
   L.querySelector("#fAll")?.addEventListener("click", () => { E.filter = "all"; drawAll(); });
   L.querySelector("#moreS")?.addEventListener("click", () => { shown += PAGE; drawList(); });
-  L.querySelectorAll(".school-row[data-id]").forEach(b => b.onclick = () => openSchool(b.dataset.id));
+  // abrir un resultado de lo que escribiste también lo guarda en el historial de búsquedas
+  L.querySelectorAll(".school-row[data-id]").forEach(b => b.onclick = () => { if (E.q.trim().length >= 2) rememberSearch(E.q); openSchool(b.dataset.id); });
   bindCheck();
 }
 function bindCheck() { host.querySelector("#check")?.addEventListener("click", checkScope); }
