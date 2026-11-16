@@ -7282,7 +7282,17 @@
   "AR|San Ramón de la Nueva Orán": "2026-11-16T01:56:58.265Z",
   "CO|n703177110": "2026-11-16T01:57:32.245Z",
   "CO|n13283974021": "2026-11-16T01:58:01.162Z",
-  "AR|Venado Tuerto": "2026-11-16T01:58:22.874Z"
+  "AR|Venado Tuerto": "2026-11-16T01:58:22.874Z",
+  "CO|n703169253": "2026-11-16T03:22:31.089Z",
+  "DO|n250651597": "2026-11-16T03:23:06.028Z",
+  "UY|Paysandú": "2026-11-16T03:23:35.305Z",
+  "PE|Paita": "2026-11-16T03:24:09.073Z",
+  "AR|Pilar": "2026-11-16T03:24:50.325Z",
+  "PY|n2211962256": "2026-11-16T03:25:30.865Z",
+  "MX|Tecate": "2026-11-16T03:26:13.939Z",
+  "PE|Huaral": "2026-11-16T03:26:56.321Z",
+  "PE|Jaén": "2026-11-16T03:27:44.492Z",
+  "MX|Cárdenas": "2026-11-16T03:35:14.698Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7377,6 +7387,90 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-16T03:17:22.812Z",
+   "cities": [
+    {
+     "cc": "CO",
+     "city": "Montelíbano",
+     "found": 10,
+     "updated": 0,
+     "osm": 25
+    },
+    {
+     "cc": "DO",
+     "city": "Bonao",
+     "found": 2,
+     "updated": 0,
+     "osm": 13
+    },
+    {
+     "cc": "UY",
+     "city": "Paysandú",
+     "found": 1,
+     "updated": 0,
+     "osm": 47
+    },
+    {
+     "cc": "PE",
+     "city": "Paita",
+     "found": 5,
+     "updated": 0,
+     "osm": 29
+    },
+    {
+     "cc": "AR",
+     "city": "Pilar",
+     "found": 15,
+     "updated": 0,
+     "osm": 41
+    },
+    {
+     "cc": "PY",
+     "city": "Itá",
+     "found": 0,
+     "updated": 0,
+     "osm": 1
+    },
+    {
+     "cc": "MX",
+     "city": "Tecate",
+     "found": 7,
+     "updated": 0,
+     "osm": 94
+    },
+    {
+     "cc": "PE",
+     "city": "Huaral",
+     "found": 5,
+     "updated": 0,
+     "osm": 81
+    },
+    {
+     "cc": "PE",
+     "city": "Jaén",
+     "found": 0,
+     "updated": 0,
+     "osm": 59
+    },
+    {
+     "cc": "MX",
+     "city": "Cárdenas",
+     "found": 2,
+     "updated": 0,
+     "osm": 15
+    }
+   ],
+   "added": 47,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 17.9,
+   "total": 21771
+  },
   {
    "at": "2026-11-16T01:45:19.016Z",
    "cities": [
@@ -9799,55 +9893,6 @@
    "errors": [],
    "minutes": 15.6,
    "total": 19156
-  },
-  {
-   "at": "2026-11-12T19:15:50.862Z",
-   "cities": [
-    {
-     "cc": "VE",
-     "city": "San Fernando de Apure",
-     "found": 11,
-     "updated": 0,
-     "osm": 22
-    },
-    {
-     "cc": "CL",
-     "city": "Chillán",
-     "found": 62,
-     "updated": 1,
-     "osm": 122
-    },
-    {
-     "cc": "CO",
-     "city": "Uribia",
-     "found": 0,
-     "updated": 0,
-     "osm": 39
-    },
-    {
-     "cc": "VE",
-     "city": "Güigüe",
-     "found": 4,
-     "updated": 0,
-     "osm": 26
-    },
-    {
-     "cc": "MX",
-     "city": "Miramar",
-     "found": 3,
-     "updated": 0,
-     "osm": 45
-    }
-   ],
-   "added": 80,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 14,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 18.1,
-   "total": 19151
   }
  ]
 }
