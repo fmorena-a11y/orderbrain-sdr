@@ -54,6 +54,7 @@ function draw() {
     ${st.roErr ? `<div class="callout warn">${icon("lock")}<span>${esc(st.roErr)} Los leads se ven, pero no se crea nada.</span></div>` : ""}
     ${!S.me?.pdUserId ? `<div class="callout warn">${icon("alert")}<span>Tu email no coincide con un usuario de Pipedrive: no puedo crear los prospectos a tu nombre. Pedí que te den de alta.</span></div>` : ""}
     ${d.notices?.length ? d.notices.map(n => `<div class="callout warn">${icon("alert")}<span><b>Corrección del reparto</b> (${esc(agoText(n.at))}): ${esc(n.text)}</span></div>`).join("") : ""}
+    ${pasteCard(d)}
     <div class="inb-bar">
       <button class="btn primary" id="inRun" ${st.busy ? "disabled" : ""}>${st.busy ? `<span class="spin"></span> ${esc(st.prog || "Revisando…")}` : `${icon("refresh", "sm")} Revisar ahora`}</button>
       <span class="faint inb-me">${meLine(d)}</span>
@@ -61,7 +62,6 @@ function draw() {
     ${whoChips(d)}
     <section class="card" aria-labelledby="hInb"><div class="card-h"><h2 id="hInb">${icon("bolt")} ${st.who === "mine" ? "Te tocaron" : st.who === "all" ? "Todos" : esc(st.who)} <span class="faint">· últimos 30 días</span></h2></div>
       <div class="card-b inb-items">${list.length ? list.map(itemHtml).join("") : emptyHtml(d)}</div></section>
-    ${pasteCard(d)}
   </div>`);
   bind();
 }
@@ -87,14 +87,14 @@ function slackCallout(d) {
   const s = d.slack, scopes = (s.scopes || []).map(x => `<code>${esc(x)}</code>`).join(", ");
   if (s.demo) return `<div class="callout warn">${icon("alert")}<span><b>Slack de prueba.</b> Los mensajes son inventados (modo demo). Con el token real se leen del canal del reparto.</span></div>`;
   if (!s.on) return `<div class="callout warn inb-need">${icon("alert")}<div><b>Todavía no leemos Slack solos.</b> Para leer Slack solos, un admin de Slack crea la app y pega el token en Vercel: <code>SLACK_BOT_TOKEN</code>, con estos permisos: ${scopes}. Después la suma al canal #round-robin-spam-sdrs. <span class="faint">Mientras, pegá abajo el mensaje de Slack y hago lo mismo.</span></div></div>`;
-  if (s.error) return `<div class="callout err">${icon("alert")}<span>No pude leer Slack: ${esc(SLACK_ERR[s.error] || s.error)} Mientras, podés pegar los mensajes abajo.</span></div>`;
+  if (s.error) return `<div class="callout err">${icon("alert")}<span>No pude leer Slack: ${esc(SLACK_ERR[s.error] || s.error)} Mientras, podés pegar los mensajes arriba.</span></div>`;
   return "";
 }
 function pasteCard(d) {
   const open = !d.slack.on || st.pasting;
   return `<details class="card inb-paste" ${open ? "open" : ""}><summary class="card-h"><h2>${icon("copy")} Pegá el mensaje de Slack</h2></summary><div class="card-b stack" style="gap:10px">
     <p class="muted" style="margin:0">Copiá uno o varios mensajes del canal (desde «Lead para llamar» o «Referido de padre» hasta el final) y pegalos acá. Lo que no dice a quién le toca queda para vos.</p>
-    <textarea class="inp" id="inPaste" rows="6" placeholder="Lead para llamar — le toca a @…&#10;Teléfono: …&#10;Nombre: …&#10;Colegio: …"></textarea>
+    <textarea class="inp" id="inPaste" rows="3" placeholder="Lead para llamar — le toca a @…&#10;Teléfono: …&#10;Nombre: …&#10;Colegio: …"></textarea>
     ${st.pasteErr ? `<p class="err" role="alert" style="margin:0;color:var(--err)">${esc(st.pasteErr)}</p>` : ""}
     <div><button class="btn" id="inPasteGo">Leer mensajes</button></div></div></details>`;
 }
@@ -163,6 +163,7 @@ function bind() {
     } catch (x) { st.pasteErr = x.message; st.pasting = true; draw(); }
   });
 }
+// (la caja de pegar va arriba de todo, pedido del líder: «es incómodo bajar cada vez que tenés que pegar uno»)
 // «Tu usuario de Slack»: el nombre con el que te nombra el bot (manda sobre el email y el nombre)
 export async function slackDialog() {
   const r = await api("/api/inbound/me").catch(() => ({ names: [], slack: null }));
