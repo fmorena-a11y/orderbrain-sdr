@@ -51,7 +51,10 @@ function draw() {
   const base = all.filter(a => byWhen(a) && byZone(a));
   const c = { all: base.length }; for (const a of base) c[a.type] = (c[a.type] || 0) + 1;
   // el tipo elegido siempre queda a la vista (aunque hoy tenga 0): si se escondía, seguía filtrando sin que se viera («Hoy 0»)
-  const types = [["all", "Todas"], ...Object.entries(S.types || {}).filter(([k]) => c[k] || k === F.type)];
+  // todos los tipos que hay (también los que la app no conoce, como «Tarea interna»: si no, «Todas 15» y los botones sumaban 12)
+  const tlabel = new Map(all.map(a => [a.type, S.types?.[a.type] || a.typeLabel || a.type]));
+  const types = [["all", "Todas"], ...Object.entries(S.types || {}).filter(([k]) => c[k] || k === F.type),
+    ...[...tlabel].filter(([k]) => !S.types?.[k] && (c[k] || k === F.type)).sort((a, b) => a[1].localeCompare(b[1]))];
   // las zonas cuentan con la fecha y el tipo elegidos; la elegida queda aunque ahora tenga 0
   const zc = new Map(zoneOptions(all.filter(a => byWhen(a) && byType(a))).map(z => [z.key, z.n]));
   const zones = zonesAll.map(z => ({ ...z, n: zc.get(z.key) || 0 })).filter(z => z.n || z.key === F.zone).sort((a, b) => b.n - a.n || a.label.localeCompare(b.label));
