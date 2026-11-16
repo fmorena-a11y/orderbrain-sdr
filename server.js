@@ -955,6 +955,18 @@ const CONTINENTS = [
   { re: /^(europa)$/, name: "Europa (España)", codes: ["ES"], lat: 40.2, lng: -3.7, bbox: [[35.9, -9.4], [43.8, 4.4]] },
 ];
 const appCountry = place => { const known = Object.entries(MARKETS).find(([, m]) => m.code === place.cc); if (known) place.country = known[0]; return place; };
+// sugerencias de lugares mientras se escribe en Prospectar (solo lectura; copia de un día por texto)
+app.get("/api/places/suggest", auth, wrap(async (req, res) => {
+  const q = String(req.query.q || "").trim().slice(0, 120), nq = scan.norm(q);
+  if (nq.length < 2) return res.json({ places: [] });
+  if ((await bump(`psug:${req.session.user.email}`, 60)) > 120) return res.status(429).json({ error: "Muchas búsquedas seguidas: esperá un minuto." });
+  const prefer = /^[A-Z]{2}$/.test(String(req.query.cc || "")) ? String(req.query.cc) : "";
+  const k = `psug:${prefer}:${nq}`, hit = await cacheGet(k);
+  if (hit) return res.json(hit);
+  const r = await scan.suggestPlaces(q, { codes: Object.values(MARKETS).map(m => m.code).filter(c => /^[A-Z]{2}$/.test(c)), prefer });
+  if (!r.failed) await cacheSet(k, r, 86400);
+  res.json(r);
+}));
 app.post("/api/scan/resolve", auth, wrap(async (req, res) => {
   const osm = String(req.body?.osm || "");
   if (osm) {

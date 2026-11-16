@@ -108,12 +108,73 @@ export function renderExplore(el) {
   const hist = el.querySelector("#qHist");
   function histDraw(force = false) {
     const list = recentSearches();
+    if (!force && document.activeElement === q && q.value.trim()) return sugDraw();
     if (!force && (q.value.trim() || document.activeElement !== q)) { hist.hidden = true; return; }
+    SUG.items = [];
     if (!list.length) { hist.innerHTML = `<div class="qh-h"><span>Búsquedas recientes</span></div><p class="qh-empty">Todavía no buscaste nada. Lo que busques (colegios, teléfonos, mails, personas o lugares) va a quedar acá.</p>`; hist.hidden = false; return; }
     hist.innerHTML = `<div class="qh-h"><span>Búsquedas recientes</span><button type="button" class="linkbtn" data-clear>Borrar</button></div>` +
       list.map((x, i) => `<div class="qh-row"><button type="button" class="qh-it" role="option" data-i="${i}">${icon(x.kind === "place" ? "map" : "search", "sm")}<span>${esc(x.t)}</span></button><button type="button" class="icon-btn qh-x" data-x="${i}" aria-label="Sacar «${esc(x.t)}» del historial" title="Sacar">${icon("x", "sm")}</button></div>`).join("");
     hist.hidden = false;
   }
+  // Sugerencias mientras escribís (en la misma solapa): lugares (ciudades de la base al instante y de OpenStreetMap con
+  // Photon, con su contorno) y colegios de la base. Flechas para elegir, Enter abre la marcada, Esc cierra.
+  const SUG = { items: [], sel: -1, t: null, seq: 0, remote: { q: "", places: [], failed: false, loading: false } };
+  function sugLocal(t) {
+    const f = norm(t), words = f.split(" ");
+    const starts = x => { const n = norm(x); return n.startsWith(f) || ` ${n}`.includes(` ${f}`); };
+    const cities = new Map();
+    for (const sc of S.schools) if (sc.city && starts(sc.city)) { const k = `${sc.country}|${sc.city}`; const c = cities.get(k) || cities.set(k, { city: sc.city, country: sc.country, n: 0 }).get(k); c.n++; }
+    const schools = S.schools.filter(sc => { const n = norm(sc.name); return words.every(w => ` ${n}`.includes(` ${w}`)) || n.includes(f); })
+      .sort((a, b) => (norm(b.name).startsWith(f) - norm(a.name).startsWith(f)) || ((b.country === E.country) - (a.country === E.country)) || a.name.length - b.name.length).slice(0, 8);
+    return { cities: [...cities.values()].sort((a, b) => (norm(b.city).startsWith(f) - norm(a.city).startsWith(f)) || b.n - a.n).slice(0, 4), schools };
+  }
+  function sugFetch(t) {
+    clearTimeout(SUG.t); const my = ++SUG.seq;
+    if (SUG.remote.q === t) return;
+    SUG.remote = { q: t, places: [], failed: false, loading: true };
+    SUG.t = setTimeout(async () => {
+      try { const r = await api(`/api/places/suggest?q=${encodeURIComponent(t)}&cc=${encodeURIComponent(S.markets[E.country]?.code || "")}`); if (my !== SUG.seq) return; SUG.remote = { q: t, places: r.places || [], failed: !!r.failed, loading: false }; }
+      catch { if (my !== SUG.seq) return; SUG.remote = { q: t, places: [], failed: true, loading: false }; }
+      if (document.activeElement === q && q.value.trim() === t) sugDraw();
+    }, 220);
+  }
+  function sugDraw() {
+    const t = q.value.trim();
+    if (t.length < 2 || isPhoneQ(t) || isMailQ(t) || isPdLink(t)) { hist.hidden = true; SUG.items = []; return; }
+    if (t !== SUG.lastT) { SUG.sel = -1; SUG.lastT = t; }
+    sugFetch(t);
+    const loc = sugLocal(t), rem = SUG.remote.q === t ? SUG.remote : { places: [], loading: true };
+    const items = [], seen = new Set(loc.cities.map(c => norm(`${c.city} ${S.markets[c.country]?.code || ""}`)));
+    const row = (i, ic, title, sub) => `<div class="qh-row${i === SUG.sel ? " on" : ""}"><button type="button" class="qh-it" role="option" aria-selected="${i === SUG.sel}" data-s="${i}">${icon(ic, "sm")}<span class="qs-t"><b>${esc(title)}</b>${sub ? `<small>${esc(sub)}</small>` : ""}</span></button></div>`;
+    let html = "";
+    const places = [...loc.cities.map(c => ({ kind: "city", ...c })), ...rem.places.filter(p => !seen.has(norm(`${p.name} ${p.cc}`))).map(p => ({ kind: "osm", ...p }))].slice(0, 10);
+    if (places.length || rem.loading) {
+      html += `<div class="qh-h"><span>Lugares</span>${rem.loading ? `<span class="spin" aria-label="Buscando lugares"></span>` : ""}</div>`;
+      for (const p of places) { const i = items.push(p) - 1; html += p.kind === "city" ? row(i, "map", p.city, `${p.country} · ${fmt(p.n)} colegio${p.n === 1 ? "" : "s"} en la base`) : row(i, "nav", p.name, [p.kind && p.kind !== "Lugar" ? p.kind : "", p.sub].filter(Boolean).join(" · ")); }
+    }
+    if (loc.schools.length) {
+      html += `<div class="qh-h"><span>Colegios</span></div>`;
+      for (const sc of loc.schools) { const i = items.push({ kind: "school", s: sc }) - 1; html += row(i, "building", sc.name, [sc.city, sc.country, ST[sc.status]?.l].filter(Boolean).join(" · ")); }
+    }
+    if (rem.failed && !places.length) html += `<p class="qh-empty">No pude traer lugares de OpenStreetMap: con Enter igual lo busco.</p>`;
+    html += `<div class="qh-row"><button type="button" class="qh-it" data-go>${icon("search", "sm")}<span>Buscar «${esc(t)}»</span></button></div>`;
+    SUG.items = items; if (SUG.sel >= items.length) SUG.sel = -1;
+    hist.innerHTML = html; hist.hidden = false;
+  }
+  function sugPick(i) {
+    const x = SUG.items[i]; if (!x) return false;
+    hist.hidden = true; SUG.sel = -1;
+    if (x.kind === "school") { if (q.value.trim().length >= 2) rememberSearch(q.value); openSchool(x.s.id); return true; }
+    const label = x.kind === "city" ? `${x.city}, ${x.country}` : x.label;
+    q.value = label; E.q = label; rememberSearch(label, "place");
+    locate(label, x.kind === "osm" ? { osm: x.osm } : {});
+    return true;
+  }
+  q.addEventListener("keydown", e => {
+    if (hist.hidden || !SUG.items.length || !q.value.trim()) return;
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); const n = SUG.items.length; SUG.sel = e.key === "ArrowDown" ? (SUG.sel + 1) % n : (SUG.sel <= 0 ? n - 1 : SUG.sel - 1); sugDraw(); hist.querySelector(".qh-row.on")?.scrollIntoView({ block: "nearest" }); }
+    else if (e.key === "Enter" && SUG.sel >= 0) { e.preventDefault(); sugPick(SUG.sel); }
+  });
   q.addEventListener("focus", () => histDraw());
   q.addEventListener("click", () => histDraw());
   const hb = el.querySelector("#qHistBtn");
@@ -124,6 +185,8 @@ export function renderExplore(el) {
   hist.addEventListener("mousedown", e => e.preventDefault()); // que el input no pierda el foco al tocar una
   hist.addEventListener("click", e => {
     const list = recentSearches(), b = e.target.closest("button"); if (!b) return;
+    if (b.dataset.s != null) return sugPick(+b.dataset.s);
+    if (b.dataset.go != null) { hist.hidden = true; return el.querySelector("#qf").requestSubmit(); }
     if (b.dataset.clear != null) { clearSearches(); histDraw(true); return; }
     if (b.dataset.x != null) { forgetSearch(list[+b.dataset.x]?.t); histDraw(true); return; }
     const x = list[+b.dataset.i]; if (!x) return;
