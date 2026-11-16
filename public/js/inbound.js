@@ -10,10 +10,17 @@ import { go } from "./app.js";
 import { openRecord } from "./school.js";
 
 let host = null;
-const st = { data: null, err: null, busy: false, prog: "", who: "mine", pasting: false, pasteErr: "", roErr: "", info: {}, stage: (() => { try { return localStorage.getItem("ob.inbound.stage") || "all"; } catch { return "all"; } })() };
+const st = { q: "", data: null, err: null, busy: false, prog: "", who: "mine", pasting: false, pasteErr: "", roErr: "", info: {}, stage: (() => { try { return localStorage.getItem("ob.inbound.stage") || "all"; } catch { return "all"; } })() };
 const page = body => `<div class="page inb-page"><div class="page-head"><div><h1>Tus inbound</h1><p>Los leads del reparto de Slack que te tocaron. Cada uno queda en Pipedrive como prospecto a tu nombre, con una llamada pendiente. Los de Meta Ads van como SDR revival (Fuente «Inbound - SDR Meta Ads Revival»).</p></div></div>${body}</div>`;
 const SRC_TONE = { meta: "meta", google: "google", organic: "org", referral: "ref", revival: "rev" };
 
+// «/» lleva al buscador (si no estás escribiendo en otro lado)
+addEventListener("keydown", e => {
+  if (e.key !== "/" || e.ctrlKey || e.metaKey || e.altKey || !host?.isConnected) return;
+  const a = document.activeElement; if (a && (a.isContentEditable || /^(input|textarea|select)$/i.test(a.tagName))) return;
+  const qi = host.querySelector("#inQ"); if (!qi || qi.offsetParent === null) return;
+  e.preventDefault(); qi.focus(); qi.select();
+});
 export async function renderInbound(el) {
   host = el;
   draw();
@@ -94,6 +101,11 @@ function patch(key, state) { const it = st.data?.items.find(x => x.key === key);
 
 function draw() {
   if (!host?.isConnected) return;
+  const qEl = host.querySelector("#inQ"), qFocus = qEl && document.activeElement === qEl ? [qEl.selectionStart, qEl.selectionEnd] : null;
+  drawPage();
+  if (qFocus) { const n = host.querySelector("#inQ"); if (n) { n.focus(); try { n.setSelectionRange(...qFocus); } catch { /* type=search */ } } }
+}
+function drawPage() {
   const d = st.data;
   if (!d && !st.err) { host.innerHTML = page(`<div class="card card-b">${'<div class="skel" style="margin:12px 0;height:64px"></div>'.repeat(3)}</div>`); return; }
   if (!d) { host.innerHTML = page(`<div class="callout err">${icon("alert")}<span>No pude traer tus inbound: ${esc(st.err)}</span><button class="btn sm" id="inRetry">Reintentar</button></div>`); host.querySelector("#inRetry").onclick = () => { st.err = null; draw(); load().then(() => autoRun()); }; return; }
@@ -107,6 +119,7 @@ function draw() {
       <button class="btn primary" id="inRun" ${st.busy ? "disabled" : ""}>${st.busy ? `<span class="spin"></span> ${esc(st.prog || "Revisando…")}` : `${icon("refresh", "sm")} Revisar ahora`}</button>
       <span class="faint inb-me">${meLine(d)}</span>
     </div>
+    <label class="inb-q"><span class="sr">Buscar en tus inbound</span>${icon("search", "sm")}<input class="inp" id="inQ" type="search" autocomplete="off" placeholder="Buscar por nombre, colegio, teléfono, mail o ciudad  ( / )" value="${esc(st.q)}"></label>
     <div id="inbList" class="stack inb-stack">${listHtml(d)}</div>
   </div>`);
   bind();
@@ -118,7 +131,7 @@ function listHtml(d) {
   const mineList = filtered(d), list = mineList.filter(x => inStage(x, st.stage)).sort(byImportance);
   return `${whoChips(d)}${stageChips(mineList)}
     <section class="card" aria-labelledby="hInb"><div class="card-h"><h2 id="hInb">${icon("bolt")} ${st.who === "mine" ? "Te tocaron" : st.who === "all" ? "Todos" : esc(st.who)} <span class="faint">· últimos 30 días${st.stage !== "all" ? ` · ${esc(STAGE_CHIPS.find(c => c[0] === st.stage)?.[1] || "")}` : ""}</span></h2></div>
-      <div class="card-b inb-items">${list.length ? list.map(itemHtml).join("") : mineList.length ? `<div class="empty">${icon("bolt")}<span>Nada en «${esc(STAGE_CHIPS.find(c => c[0] === st.stage)?.[1] || "este estado")}». <button class="linkbtn" data-stage="all">Ver todos</button></span></div>` : emptyHtml(d)}</div></section>`;
+      <div class="card-b inb-items">${list.length ? list.map(itemHtml).join("") : st.q.trim() && !mineList.length ? `<div class="empty">${icon("search")}<span>Nada con «${esc(st.q.trim())}». <button class="linkbtn" data-clearq>Borrar la búsqueda</button></span></div>` : mineList.length ? `<div class="empty">${icon("bolt")}<span>Nada en «${esc(STAGE_CHIPS.find(c => c[0] === st.stage)?.[1] || "este estado")}». <button class="linkbtn" data-stage="all">Ver todos</button></span></div>` : emptyHtml(d)}</div></section>`;
 }
 function drawList() {
   const el = host?.isConnected && host.querySelector("#inbList"); if (!el || !st.data) return;
@@ -150,7 +163,17 @@ function pendHtml(x) {
   const who = x.mine ? "Pendiente tuya" : `Pendiente de ${x.assignee.name || "quien le tocó"}`;
   return `<p class="inb-pend${p.late ? " late" : ""}">${icon("calendar", "sm")}<span><b>${esc(who)}:</b> ${esc(p.subject || "actividad")} · ${esc(shortDay(p.date))}${p.time ? ` ${esc(p.time)}` : ""}${p.late ? " · vencida" : ""}</span></p>`;
 }
-const filtered = d => d.items.filter(x => st.who === "all" ? true : st.who === "mine" ? x.mine : (x.assignee.name || "Sin asignar") === st.who);
+// el buscador: nombre, colegio, ciudad, país, mail, título en Pipedrive, a quién le tocó o los dígitos del teléfono (los últimos
+// 7 alcanzan: «8841355» encuentra «+54 9 11 2884-1355»); sin acentos y por palabras
+const fold = v => String(v || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+function matchQ(x, q) {
+  const t = fold(q).trim(); if (!t) return true;
+  const dig = q.replace(/\D/g, "");
+  if (dig.length >= 4 && String(x.phone || "").replace(/\D/g, "").includes(dig)) return true;
+  const hay = fold([x.name, x.school, x.city, x.country, x.email, x.title, x.state?.title, x.assignee?.name, x.role, x.kindLabel, x.sourceLabel, x.message].filter(Boolean).join(" "));
+  return t.split(/\s+/).every(w => hay.includes(w));
+}
+const filtered = d => d.items.filter(x => (st.who === "all" ? true : st.who === "mine" ? x.mine : (x.assignee.name || "Sin asignar") === st.who) && matchQ(x, st.q));
 function whoChips(d) {
   if (!d.leader) return "";
   const names = [...new Set(d.items.filter(x => !x.mine).map(x => x.assignee.name || "Sin asignar"))].sort((a, b) => a.localeCompare(b));
@@ -231,7 +254,13 @@ async function act(btn, path, body, ok) {
   try { const r = await api(path, { body }); patch(r.key, r.state); if (ok) toast(ok); draw(); }
   catch (e) { btn.disabled = false; btn.innerHTML = old; toast(e.message, { type: "err" }); }
 }
+let qT = null;
 function bind() {
+  const qi = host.querySelector("#inQ");
+  if (qi) {
+    qi.oninput = () => { st.q = qi.value; clearTimeout(qT); qT = setTimeout(drawList, 120); };
+    qi.onkeydown = e => { if (e.key === "Escape" && qi.value) { e.preventDefault(); qi.value = st.q = ""; drawList(); } if (e.key === "Enter") { e.preventDefault(); host.querySelector("#inbList .inb-it [data-hist]")?.click(); } };
+  }
   host.querySelector("#inRun")?.addEventListener("click", async () => { await load({ refresh: true }); autoRun({ refresh: true }); });
   host.querySelectorAll("#inSlackMe").forEach(b => b.onclick = () => slackDialog());
   const det = host.querySelector(".inb-paste"); if (det) det.ontoggle = () => { st.pasting = det.open; };
@@ -251,6 +280,7 @@ function bindList() {
   const box = host?.querySelector("#inbList"); if (!box) return;
   box.querySelectorAll("[data-slackme]").forEach(b => b.onclick = () => slackDialog());
   box.querySelectorAll("[data-who]").forEach(b => b.onclick = () => { st.who = b.dataset.who; drawList(); });
+  box.querySelectorAll("[data-clearq]").forEach(b => b.onclick = () => { st.q = ""; const qi = host.querySelector("#inQ"); if (qi) { qi.value = ""; qi.focus(); } drawList(); });
   box.querySelectorAll("[data-retry]").forEach(b => b.onclick = () => act(b, `/api/inbound/${encodeURIComponent(b.dataset.retry)}/process`, {}, "Listo"));
   box.querySelectorAll("[data-as]").forEach(b => b.onclick = () => act(b, `/api/inbound/${encodeURIComponent(b.dataset.as)}/process`, { as: b.dataset.email }, "Listo: quedó a su nombre"));
   box.querySelectorAll("[data-pick]").forEach(b => b.onclick = () => act(b, `/api/inbound/${encodeURIComponent(b.dataset.k)}/existing`, { pick: b.dataset.pick, as: b.dataset.email || "" }, "Listo"));

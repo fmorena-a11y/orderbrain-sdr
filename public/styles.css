@@ -1711,3 +1711,8 @@ button.dl-kpi[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offs
 .assistant .b.md .md-copy { margin: 2px 0 10px; }
 .assistant .b.md .md-acts { display: flex; justify-content: flex-end; margin-top: 6px; }
 .assistant .b.md .md-acts .linkbtn { font-size: 12.5px; display: inline-flex; gap: 4px; align-items: center; color: var(--muted); }
+
+/* Tus inbound: buscador (nombre, colegio, teléfono, mail, ciudad) */
+.inb-q { position: relative; display: block; }
+.inb-q .ico { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+.inb-q .inp { width: 100%; padding-left: 36px; }
