@@ -13,7 +13,6 @@ import { ARCHIVE_REASONS } from "./lib/archive.js";
 import * as scan from "./lib/scan.js";
 import { ensureBrain, brainState, brainDown, brainAdmin, saveBrainToken, brainTokenAlert, brainSites } from "./lib/brain.js";
 import * as MX from "./lib/metrics.js";
-import { boardFor } from "./lib/demos.js";
 import { verifyCandidates, enrichSources } from "./lib/enrich.js";
 import { research, studyEnabled, studyToHtml } from "./lib/study.js";
 import * as sales from "./lib/sales.js";
@@ -568,19 +567,19 @@ async function viewTeam(req) {
   if (f.error) throw httpErr(f.error);
   return { v, filter: f.filter, team: teamInfo(v.T, f.id), self: !!f.self, unknown: !!f.unknown };
 }
-// Demos de la semana: las cargadas en Pipedrive, quién la cargó, quién la da y el resultado. Sin ranking: cuántas cargó
-// cada uno solo lo ve un líder; los demás reciben lo suyo y el total (boardFor). Con equipos, solo las de su gente
-// (un líder: el equipo elegido; un miembro: su equipo; sin equipo: las suyas).
+// Demos del mes o del trimestre (tarjeta «Demos» de Equipo): SOLO líderes y dirección (a los demás, 403 antes de leer nada).
+// ?period=2026-11 o 2026-Q4 (sin elegir: el mes en curso). Con equipos, el equipo elegido (?team=, como Métricas): la lista, las
+// que da o cargó alguien del equipo; por persona, solo su gente. Outbound/inbound por la Fuente (lib/demos.js monthBoard).
 app.get("/api/team/demos", auth, wrap(async (req, res) => {
-  const t = await viewTeam(req), r = await sales.teamDemos(req.tz, t.filter);
-  res.json({ ...boardFor(r, { leader: t.v.leader, me: req.session.user.pdUserId }), team: t.team, self: t.self, ...(t.unknown ? { unknown: true } : {}) });
+  const t = await mxTeam(req, "Las demos del equipo solo las ven los líderes y dirección.");
+  res.json({ ...(await sales.demosMonth(req.tz, String(req.query.period || "").slice(0, 10), t.filter)), team: t.team, on: t.on });
 }));
 // ---------- Métricas (vista Métricas): solo líderes y dirección (los totales, lo suyo y el desglose por persona; a los demás,
 // 403 antes de leer nada). Con equipos, todo es del equipo elegido (?team=, lib/teams.js pickTeam): totales y por persona,
 // solo su gente; dirección elige un equipo o «Toda la cuenta»; un líder de equipo, solo los suyos (otro equipo: 403). La base de
 // colegios y los clientes de World Dominion son de toda la cuenta. Pipedrive se lee de a páginas y se guarda 10 minutos
 // (lib/sales.js); los cálculos están en lib/metrics.js. Cada respuesta dice de cuándo es y si la lista vino cortada (partial).
-const mxOpts = (req, team = null) => ({ days: Number(req.query.days) || 7, country: String(req.query.country || "").slice(0, 60), team });
+const mxOpts = (req, team = null) => ({ days: MX.periodParam(req.query.days), country: String(req.query.country || "").slice(0, 60), team });
 const MX_LOAD = {
   demos: (req, team) => sales.metricsDemos(req.tz, mxOpts(req, team)),
   deals: (req, team) => sales.metricsDeals(req.tz, mxOpts(req, team)),

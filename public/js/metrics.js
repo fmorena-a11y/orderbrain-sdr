@@ -6,7 +6,9 @@
 import { S, api, esc, icon, ago, TZ, save, loadPref, teamSelect, teamView, teamQuery, setTeamView } from "./core.js";
 
 let host, seq = 0;
-const F = { days: [7, 30, 90].includes(loadPref("mx.days", 7)) ? loadPref("mx.days", 7) : 7, country: loadPref("mx.country", "") };
+// período: 7, 30 o 90 días hasta hoy, o el mes o el trimestre en curso hasta hoy («mes», «trim»: los objetivos son por mes)
+const PERIODS = [[7, "7 días"], [30, "30 días"], [90, "90 días"], ["mes", "Este mes"], ["trim", "Este trimestre"]];
+const F = { days: PERIODS.some(([k]) => k === loadPref("mx.days", 7)) ? loadPref("mx.days", 7) : 7, country: loadPref("mx.country", "") };
 const SECTIONS = ["demos", "deals", "contacts", "base", "clients", "archived"], PEOPLE = ["demos", "deals", "contacts", "archived", "activity"];
 // «activity» es solo por persona: la pide solo un líder (las dos rutas dan 403 a los demás)
 // lo leído por filtro (volver a la vista lo muestra al instante y se actualiza atrás)
@@ -104,7 +106,7 @@ function demosCard() {
       ${!leader && !ph ? `<p class="mx-mine">Las que cargaste: <b>${fmt(ml?.total || 0)}</b>${ml ? ` (${st(ml)})` : ""}. Las que diste: <b>${fmt(mo?.total || 0)}</b>${mo ? ` (${st(mo)})` : ""}.</p>` : ""}
       ${peopleBlock("demos", p => ph ? "" : (() => { const cols = [["appDone", "Se hizo (app)"], ["done", "Hecha en Pipedrive"], ["appNoshow", "No se presentó (app)"], ["noshow", "No Show"], ["appCanceled", "Se canceló (app)"], ["unmarked", "Sin marcar"], ["today", "Hoy, sin hora"], ["upcoming", "Todavía no"], ["total", "Total"]];
         return `<h4 class="mx-h4">Por quién la da ${leaderOnly}</h4>${table(cols, p.heldByOwner)}<h4 class="mx-h4">Por quién la cargó ${leaderOnly}</h4>${table(cols, p.heldByLoader)}`; })())}
-      ${note("Qué pasó, en este orden: la marca que deja la app, el tipo «No Show», hecha en Pipedrive y, si ya pasó y no está hecha, sin marcar. Cuenta actividades, no colegios: una 2ª reunión cuenta aparte; la misma demo cargada dos veces (mismo trato, día y tipo) cuenta una vez. Incluye las que están a nombre de una cuenta general (van en su fila, al final). Sin hora y con fecha de hoy: «hoy, sin hora» hasta que termine el día. La asistencia (%) no se muestra hasta confirmar que todo no-show se pasa a «No Show».")}
+      ${note("Qué pasó, en este orden: la marca que deja la app, el tipo «No Show», hecha en Pipedrive y, si ya pasó y no está hecha, sin marcar. Cuenta actividades, no colegios: una 2ª reunión cuenta aparte; la misma demo cargada dos veces (mismo trato, día y tipo) cuenta una vez. Incluye las que están a nombre de una cuenta general (van en su fila, al final). Sin hora y con fecha de hoy: «hoy, sin hora» hasta que termine el día. La asistencia (%) no se muestra hasta confirmar que todo no-show se pasa a «No Show». Por mes o por trimestre, con outbound, inbound y cuántas cuentan para el objetivo de cada SDR (2 inbound = 1 outbound): Equipo › Demos (la misma regla de qué pasó).")}
       <h3 class="mx-h">El trato de esas demos, hoy</h3>
       ${ph ? "" : `${mini([[A.won, "Ganados"], [A.lost, "Perdidos"], [A.open, "Abiertos"], [A.unknown, "Demos sin trato (?)", "La demo no tiene trato vinculado en Pipedrive, o no lo encontramos"]])}
       <p class="mx-note" style="margin-top:0">De ${fmt(A.demos)} demos, ${fmt(A.withDeal)} tienen trato (${fmt(A.deals)} tratos distintos). Solo el trato vinculado a la demo en Pipedrive; sin trato, «?».</p>
@@ -276,7 +278,7 @@ function draw() {
   host.innerHTML = `<div class="page mx">
     <div class="page-head"><div><h1>Métricas</h1><p>Lo exacto del período, con su fuente y su hora. «?» es que no se puede saber.</p></div></div>
     <div class="mx-filters">
-      <div class="chips" role="group" aria-label="Período">${[7, 30, 90].map(n => `<button class="chip" data-mxd="${n}" aria-pressed="${F.days === n}">${n} días</button>`).join("")}</div>
+      <div class="chips" role="group" aria-label="Período">${PERIODS.map(([k, l]) => `<button class="chip" data-mxd="${k}" aria-pressed="${F.days === k}">${l}</button>`).join("")}</div>
       ${teamSelect("mxTeam")}
       <label class="field" style="margin:0"><span>País</span><select class="inp" id="mxCountry"><option value="">Todos</option>${countries().map(c => `<option value="${esc(c)}" ${F.country === c ? "selected" : ""}>${esc(c)}</option>`).join("")}<option value="?" ${F.country === "?" ? "selected" : ""}>Sin país</option></select></label>
     </div>
@@ -291,7 +293,7 @@ function draw() {
       ${baseCard()}
       ${clientsCard()}
     </div></div>`;
-  host.querySelectorAll("[data-mxd]").forEach(b => b.onclick = () => { F.days = Number(b.dataset.mxd); save("mx.days", F.days); load(); draw(); });
+  host.querySelectorAll("[data-mxd]").forEach(b => b.onclick = () => { F.days = PERIODS.find(([k]) => String(k) === b.dataset.mxd)?.[0] ?? 7; save("mx.days", F.days); load(); draw(); });
   host.querySelector("#mxCountry").onchange = e => { F.country = e.target.value; save("mx.country", F.country); load(); draw(); };
   host.querySelector("#mxTeam")?.addEventListener("change", e => { setTeamView(e.target.value); D = cache.get(keyOf()) || { people: {} }; load(); draw(); });
   host.querySelectorAll("[data-mxretry]").forEach(b => b.onclick = () => { cache.delete(keyOf()); load(); draw(); });

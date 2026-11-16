@@ -1,5 +1,5 @@
-// Equipo: demos de Pipedrive (la lista y «Falta marcar»; cuántas cargó cada uno solo para líderes, en orden alfabético),
-// actividad reciente y, para líderes, equipos, accesos, sincronización y World Dominion. Las métricas están en Métricas.
+// Equipo: actividad reciente y, para líderes y dirección, las demos del mes o del trimestre (outbound, inbound, cuántas cuentan,
+// agendadas; por quién la cargó, en orden alfabético), equipos, accesos, sincronización y World Dominion. Las métricas están en Métricas.
 // Con equipos (lib/teams.js), todo es del equipo: un líder ve el suyo (dirección elige uno o «Toda la cuenta» arriba), un miembro el suyo
 // y alguien sin equipo, lo suyo. Sincronizar y World Dominion son de toda la cuenta: los ve quien ve todo.
 import { S, api, esc, icon, ago, copy, toast, pill, setSchools, ST, DEMO_RES, shortDay, modal, leadsOver, teamSelect, teamQuery, setTeamView, norm } from "./core.js";
@@ -17,10 +17,13 @@ export function renderTeam(el) {
   refresh(); // si ya había datos se ven al instante y se actualizan atrás
 }
 let seq = 0;
+// período de la tarjeta «Demos»: «2026-11» (mes) o «2026-Q4» (trimestre); vacío = el mes en curso (lo decide el servidor, en tu zona)
+let dmPeriod = "", dmWho = "";
 async function refresh() {
-  const my = ++seq, q = teamQuery() ? `?${teamQuery()}` : "";
+  const my = ++seq, tq = teamQuery(), q = tq ? `?${tq}` : "", leader = !!S.profile?.leader;
+  const dq = new URLSearchParams(tq); if (dmPeriod) dq.set("period", dmPeriod);
   const [demos, feed] = await Promise.all([
-    api(`/api/team/demos${q}`).catch(e => ({ error: e.message })),
+    leader ? api(`/api/team/demos?${dq}`).catch(e => ({ error: e.message })) : null,
     api(`/api/feed${q}`).catch(e => ({ error: e.message })),
   ]);
   if (my !== seq) return; // se cambió de equipo mientras tanto
@@ -407,38 +410,59 @@ async function saveWd() {
     b.querySelector("#wdMsg").innerHTML = `<div class="callout err" style="margin-top:8px">${icon("alert")}<span>${esc(e.message)}</span></div>`;
   }
 }
-// Demos (todos): la lista, con quién la cargó, quién la da y qué pasó. Cuántas cargó cada uno solo lo ve un líder
-// (el servidor a los demás les manda lo suyo y el total). Las métricas de demos están en Métricas.
-// El resultado es el que quedó marcado (desde la app o en Pipedrive); sin marca, «?». Pasada a «No Show» en Pipedrive: ya tiene resultado.
+// Demos (solo líderes y dirección; pedido del líder de SDR: «los objetivos son por mes»): un mes o un trimestre, por quién la
+// cargó. Outbound e inbound por la Fuente del trato (o del prospecto); en los SDR, 2 inbound = 1 outbound («Cuentan»); un AE, sin
+// ponderar. Sin Fuente (o «Otro», o las dos a la vez): aparte, no entra en «Cuentan». Lo que no se pudo leer: «?».
+// El resultado es el que quedó marcado (desde la app o en Pipedrive); sin marca y ya pasada, «Sin marcar» (se marca desde acá).
 // «Se hizo» con el color de lo positivo (res-ok), para que no se confunda con el «?» gris.
 const RES_PILL = { done: "res-ok", noshow: "lost", moved: "org", canceled: "stalled" };
-const resPill = r => r.result ? `<span class="pill ${RES_PILL[r.result]}">${esc(DEMO_RES[r.result])}</span>`
+const ST_PILL = { done: ["res-ok", "Hecha"], noshow: ["lost", "No show"], canceled: ["stalled", "Cancelada"], booked: ["open", "Agendada"], unmarked: ["unk", "Sin marcar"] };
+const resPill = r => r.result && r.state !== "booked" ? `<span class="pill ${RES_PILL[r.result]}">${esc(DEMO_RES[r.result])}</span>`
+  : r.state === "done" && r.done ? `<span class="pill res-ok" title="En Pipedrive está hecha; nadie marcó qué pasó desde la app">Hecha en Pipedrive</span>`
   : r.noShowType ? `<span class="pill lost" title="En Pipedrive la pasaron al tipo «No Show»">No Show</span>`
-  : r.done ? `<span class="pill res-ok" title="En Pipedrive está hecha; nadie marcó qué pasó desde la app">Hecha en Pipedrive</span>`
-  : r.past ? `<span class="pill unk" title="${r.moved ? "Se reprogramó y la fecha nueva ya pasó: falta marcar qué pasó" : "Falta marcar qué pasó con la demo"}">?</span>` : "";
+  : `<span class="pill ${ST_PILL[r.state]?.[0] || "unk"}"${r.state === "unmarked" ? ` title="${r.moved ? "Se reprogramó y la fecha nueva ya pasó: falta marcar qué pasó" : "Ya pasó y no está hecha: falta marcar qué pasó"}"` : ""}>${esc(ST_PILL[r.state]?.[1] || "?")}</span>`;
+const KIND = { out: ["Outbound", "dm-out"], in: ["Inbound", "dm-in"], none: ["Sin fuente", "dm-none"], unread: ["Fuente ?", "dm-none"] };
+const kindPill = r => { const [t, c] = KIND[r.kind] || KIND.unread;
+  return `<span class="dm-kind ${c}" title="${esc(r.fuente || (r.kind === "unread" ? "No pude leer la Fuente en Pipedrive" : "El trato (o el prospecto) no tiene Fuente"))}">${esc(r.kind === "none" && r.mixed ? "Outbound e inbound" : t)}</span>`; };
 const canMark = r => !r.noShowType && (!!(r.ownerId && r.ownerId === S.me.pdUserId) || leadsOver(r.ownerId));
-// a un SDR el servidor solo le manda quién cargó las suyas («cargaste vos»); en las demás no va (no se cuenta por persona)
-const setterTxt = r => r.auto ? "entrada automática" : r.mineLoaded || (r.setterId && r.setterId === S.me.pdUserId) ? "cargaste vos"
-  : "setter" in r || "setterId" in r ? `cargó ${r.setter || (r.setterId ? "un usuario no activo" : "?")}` : "";
+const rowKey = p => p.auto ? "auto" : p.id ? String(p.id) : p.name ? `n:${p.name}` : "?";
+const itemKey = r => r.auto ? "auto" : r.setterId ? String(r.setterId) : r.setter ? `n:${r.setter}` : "?";
 function demoRow(r) {
-  const when = `${shortDay(r.date)}${r.time ? ` · ${r.time}` : ""}`, inner = `<b>${esc(r.name || "Colegio sin nombre")}</b><small style="white-space:normal">${esc([when, setterTxt(r), `la da ${r.owner || (r.ownerFree ? "una cuenta general" : "?")}`].filter(Boolean).join(" · "))}</small>`;
+  const when = `${shortDay(r.date)}${r.time ? ` · ${r.time}` : ""}`, by = r.auto ? "entrada automática" : r.setterId && r.setterId === S.me.pdUserId ? "cargaste vos" : `cargó ${r.setter || (r.setterId ? "un usuario no activo" : "?")}`;
+  const inner = `<b>${esc(r.name || "Colegio sin nombre")}</b><small style="white-space:normal">${esc([when, by, `la da ${r.owner || (r.ownerFree ? "una cuenta general" : "?")}`, r.fuente].filter(Boolean).join(" · "))}</small>`;
   const open = r.schoolId ? `<button class="t" data-dsch="${esc(r.schoolId)}">${inner}</button>` : r.record ? `<button class="t" data-drec="${esc(r.record)}" title="Abrir la ficha">${inner}</button>` : `<div class="t">${inner}</div>`;
-  const mark = r.past && !r.result && canMark(r) ? `<button class="btn sm" data-dres="${r.id}" data-time="${esc(r.time)}">Marcar</button>` : "";
-  return `<div class="act"><span class="ty meeting" role="img" aria-label="Demo">${icon("video")}</span>${open}<div class="ops">${resPill(r)}${mark}</div></div>`;
+  const mark = r.state === "unmarked" && canMark(r) ? `<button class="btn sm" data-dres="${r.id}" data-time="${esc(r.time)}">Marcar</button>` : "";
+  return `<div class="act"><span class="ty meeting" role="img" aria-label="Demo">${icon("video")}</span>${open}<div class="ops">${kindPill(r)}${resPill(r)}${mark}</div></div>`;
+}
+const half = n => n == null ? "?" : Number.isInteger(n) ? String(n) : String(n).replace(".", ",");
+function periodPick(d) {
+  const c = d.choices || { months: [], quarters: [] }, p = d.period, isQ = p?.kind === "q", year = p?.year;
+  const opts = `${isQ ? `<option value="" selected disabled>${esc(p.label)}</option>` : ""}${[...new Set(c.months.map(m => m.year))].map(y => `<optgroup label="${y}">${c.months.filter(m => m.year === y).map(m => `<option value="${esc(m.key)}" ${!isQ && m.key === p?.key ? "selected" : ""}>${esc(m.label)}${m.key === c.current ? " (en curso)" : ""}</option>`).join("")}</optgroup>`).join("")}`;
+  const qs = [1, 2, 3, 4].map(q => { const k = `${year}-Q${q}`, ok = c.quarters.some(x => x.key === k);
+    return `<button class="chip sm" data-dmq="${esc(k)}" aria-pressed="${isQ && p.key === k}" ${ok ? "" : 'disabled title="Todavía no empezó"'}>Q${q}</button>`; }).join("");
+  return `<div class="dm-pick"><label class="field" style="margin:0"><span>Mes</span><select class="inp" id="dmMonth">${opts}</select></label>
+    <div class="dm-q"><span class="faint">Por Q ${year || ""}</span><div class="chips" role="group" aria-label="Trimestre">${qs}</div></div></div>`;
 }
 function demosHtml(d) {
-  const intro = `<p class="faint" style="margin:0 0 8px;font-size:13.5px">Quién la cargó: en las de la app, quien dice la nota; si no, quien la creó en Pipedrive. Del ${esc(shortDay(d.from))} al ${esc(shortDay(d.to))}${d.at ? ` · Pipedrive, leído ${esc(ago(d.at))}` : ""}.${S.profile?.leader ? ' Las métricas están en <a href="#/metricas">Métricas</a>.' : ""}</p>`;
-  // por persona solo a los líderes (orden alfabético, sin puestos); a los demás, lo suyo y el total
-  const ppl = d.people ? (d.people.length ? `<div class="follow-wrap"><table class="follow"><thead><tr><th scope="col">Cargó <span class="mx-tag">solo líderes y dirección</span></th><th scope="col" class="num">Ya pasaron</th><th scope="col" class="num">Próximas</th></tr></thead>
-    <tbody>${d.people.map(p => `<tr><th scope="row">${esc(p.auto ? "Entrada automática, sin agendador" : p.name || (p.id ? "Usuario no activo en Pipedrive" : "?"))}${p.id && p.id === S.me.pdUserId ? " (vos)" : ""}</th><td class="num">${p.recent}</td><td class="num">${p.upcoming}</td></tr>`).join("")}</tbody></table></div>` : "")
-    : d.mine ? `<p style="margin:0 0 6px;font-size:14px">Cargadas por vos: <b>${d.mine.recent}</b> ya pasaron y <b>${d.mine.upcoming}</b> próximas. ${d.self ? "Las tuyas" : d.team ? `${esc(d.team.name)}` : "Todo el equipo"}: ${d.total.recent} y ${d.total.upcoming}.</p>` : "";
-  const sec = (h, l) => `<h3 style="margin:14px 0 4px;font-size:14px">${h} <small class="faint">${l.length}</small></h3>${l.length ? l.map(demoRow).join("") : `<p class="faint" style="margin:0;font-size:13.5px">Ninguna.</p>`}`;
-  // las de antes de los 7 días que quedaron sin resultado: solo las que podés marcar (las tuyas; un líder, todas)
-  // hechas en Pipedrive (sin marca de la app) no son «falta marcar»: Métricas las cuenta como «Hecha en Pipedrive»
-  const pending = (d.pending || []).filter(r => !r.done && canMark(r)), unk = [...d.recent, ...pending].some(r => !r.result && !r.noShowType && !r.done);
-  return `${intro}${d.partial ? `<div class="callout warn" style="margin-bottom:10px">${icon("alert")}<span>Pipedrive devolvió demasiado: puede faltar alguna.</span></div>` : ""}${ppl}
-    ${sec("Próximas", d.upcoming)}${sec("Ya pasaron (7 días)", d.recent)}${pending.length ? sec(`Falta marcar (desde el ${esc(shortDay(d.pendingFrom))})`, pending) : ""}
-    ${unk ? `<p class="faint" style="margin:10px 0 0;font-size:13px">«?»: falta marcar qué pasó con la demo. La marca quien la da (o un líder).</p>` : ""}`;
+  const p = d.period || {}, cut = !!d.partial, n = v => cut ? "?" : v, T = d.totals || {};
+  const range = `del ${esc(shortDay(p.from))} al ${esc(shortDay(p.to))}`;
+  const intro = `<p class="faint" style="margin:8px 0;font-size:13.5px">${range[0].toUpperCase() + range.slice(1)}, en tu hora. Por quién la cargó: en las de la app, quien dice la nota; si no, quien la creó en Pipedrive${d.at ? ` · Pipedrive, leído ${esc(ago(d.at))}` : ""}.</p>`;
+  const rule = `<div class="callout" style="margin:0 0 10px">${icon("target")}<span><b>2 inbound = 1 outbound.</b> En los SDR, «Cuentan» = outbound + inbound ÷ 2. Un Account Executive, sin ponderar. Las sin fuente no entran.</span></div>`;
+  const head = [["Cuentan<small>objetivo</small>", "Para el objetivo: outbound + inbound ÷ 2 (SDR); AE, sin ponderar"], ["Outbound<small>hechas</small>", "Hechas con Fuente «Outbound - …» en el trato (o el prospecto)"], ["Inbound<small>hechas</small>", "Hechas con Fuente «Inbound - …»"],
+    ["Agendadas", "Todavía no pasaron (las de hoy sin hora, también)"], ["Sin fuente", "Hechas sin Fuente, con «Otro» o con outbound e inbound a la vez: no entran en «Cuentan»"], ["No show", "Tipo No Show o marcadas «no se presentó»"], ["Sin marcar", "Ya pasaron y no están hechas ni marcadas"]];
+  const cells = x => [x.counts, x.out, x.in, x.booked, x.none + (x.unread || 0), x.noshow, x.unmarked];
+  const fmt = (v, i, x) => i === 0 ? (x.role ? `<b>${cut ? "?" : half(v)}</b>` : "—") : i === 4 && x.unread ? `${n(v)} <span class="faint" title="${x.unread} sin poder leer la Fuente">(${x.unread} ?)</span>` : n(v);
+  const name = x => x.auto ? "Entrada automática, sin agendador" : x.name || (x.id ? "Usuario no activo en Pipedrive" : "?");
+  const rows = d.rows || [];
+  const tbl = rows.length ? `<div class="follow-wrap"><table class="follow dm-t"><thead><tr><th scope="col">Cargó</th>${head.map(([h, t]) => `<th scope="col" class="num" title="${esc(t)}">${h}</th>`).join("")}</tr></thead>
+    <tbody>${rows.map(x => `<tr${dmWho === rowKey(x) ? ' class="sel"' : ""}><th scope="row"><button class="linklike" data-dmp="${esc(rowKey(x))}" title="Ver sus demos">${esc(name(x))}</button>${x.id && x.id === S.me.pdUserId ? " (vos)" : ""}${x.role ? `<small>${x.role === "ae" ? "AE · sin ponderar" : x.name ? "SDR" : "se pondera como SDR"}</small>` : ""}</th>${cells(x).map((v, i) => `<td class="num">${fmt(v, i, x)}</td>`).join("")}</tr>`).join("")}</tbody>
+    <tfoot><tr><th scope="row">Total</th>${cells({ ...T, role: "t" }).map((v, i) => `<td class="num">${i === 0 ? `<b>${cut ? "?" : half(v)}</b>` : fmt(v, i, T)}</td>`).join("")}</tr></tfoot></table></div>`
+    : `<p class="faint" style="margin:0;font-size:13.5px">Ninguna demo en este período.</p>`;
+  const list = (d.items || []).filter(r => !dmWho || itemKey(r) === dmWho), who = dmWho && rows.find(x => rowKey(x) === dmWho);
+  const items = `<details class="dm-list"${dmWho ? " open" : ""}><summary>${who ? `Las demos de ${esc(name(who))}` : "Todas las demos del período"} <small class="faint">${list.length}</small>${dmWho ? ` <button class="btn sm" data-dmp="">Ver todas</button>` : ""}</summary>
+    ${list.length ? list.map(demoRow).join("") : `<p class="faint" style="margin:0;font-size:13.5px">Ninguna.</p>`}</details>`;
+  const defs = `<p class="faint" style="margin:10px 0 0;font-size:13px">Hecha: marcada «se hizo» desde la app o hecha en Pipedrive. La misma demo cargada dos veces cuenta una. ${d.team ? `Con equipo: por persona, solo su gente; la lista, las que da o cargó alguien de ${esc(d.team.name)}.` : ""} Las métricas están en <a href="#/metricas">Métricas</a>.</p>`;
+  return `${periodPick(d)}${intro}${cut ? `<div class="callout warn" style="margin-bottom:10px">${icon("alert")}<span>Pipedrive devolvió demasiado y cortó la lista: los números van «?».</span></div>` : ""}${rule}${tbl}${items}${defs}`;
 }
 function draw() {
   const t = S.team7;
@@ -446,7 +470,7 @@ function draw() {
   const sk = '<div class="skel" style="margin:14px 0"></div>'.repeat(5);
   let rank = sk, feed = sk;
   if (t) {
-    rank = t.demos.error ? err(t.demos, "las demos") : demosHtml(t.demos);
+    rank = !t.demos ? sk : t.demos.error ? err(t.demos, "las demos") : demosHtml(t.demos);
     feed = t.feed.error ? err(t.feed, "la actividad") : t.feed.length ? t.feed.map(f => {
       const inner = `<span class="ty ${f.demo ? "meeting" : ""}" role="img" aria-label="${esc(f.title)}">${icon(f.demo ? "video" : CH_ICON[f.channel] || "note")}</span><span class="t"><b>${esc(f.org)}</b><span>${esc(f.title)}</span><small>${esc(f.author)} · ${esc(ago(f.at))}</small></span>`;
       return f.schoolId ? `<button class="feed-item" data-id="${esc(f.schoolId)}">${inner}</button>` : `<div class="feed-item">${inner}</div>`;
@@ -456,15 +480,13 @@ function draw() {
   // de qué equipo es lo que ves (con equipos)
   const stale = !!S.profile?.access?.stale, unknown = !!sc.unknown || !!t?.demos?.unknown;
   const sub = unknown && !sc.admin ? "No pude leer los equipos: ves lo tuyo. Probá de nuevo en unos segundos."
-    : !sc.on ? "Demos y actividad reciente" : leader ? (shown ? `Demos y actividad de ${shown}` : sc.all ? "Demos y actividad de toda la cuenta, también de gente sin equipo" : "Demos y actividad de tu equipo")
-    : sc.member ? `Demos y actividad de ${sc.member.name}` : stale ? "Ves lo tuyo." : "Todavía no estás en un equipo: ves lo tuyo. Te suma su líder o dirección.";
+    : !sc.on ? (leader ? "Demos y actividad reciente" : "Actividad reciente") : leader ? (shown ? `Demos y actividad de ${shown}` : sc.all ? "Demos y actividad de toda la cuenta, también de gente sin equipo" : "Demos y actividad de tu equipo")
+    : sc.member ? `Actividad de ${sc.member.name}` : stale ? "Ves lo tuyo." : "Todavía no estás en un equipo: ves lo tuyo. Te suma su líder o dirección.";
   host.innerHTML = `<div class="page">
     <div class="page-head"><div><h1>Equipo</h1><p>${esc(sub)}</p></div><div class="team-head">${teamSelect("teamPick")}${leader ? `<a class="btn" href="#/metricas">${icon("chart", "sm")} Ver métricas</a>` : ""}</div></div>
     ${stale && !leader ? `<div class="callout warn" style="margin-bottom:14px">${icon("alert")}<span>Eras líder antes de los equipos. Ahora hay equipos: pedile a dirección que te asigne el tuyo. Mientras, ves lo tuyo (sin Métricas).</span></div>` : ""}
-    <div class="two">
-      <section class="card" aria-labelledby="hRk"><div class="card-h"><h2 id="hRk">${icon("video")} Demos</h2><span class="sub">últimos 7 días y próximas 2 semanas</span></div><div class="card-b">${rank}</div></section>
-      <section class="card" aria-labelledby="hFd"><div class="card-h"><h2 id="hFd">${icon("clock")} Actividad reciente</h2></div><div class="card-b">${feed}</div></section>
-    </div>
+    ${leader ? `<section class="card dm" style="margin-bottom:16px" aria-labelledby="hRk"><div class="card-h"><h2 id="hRk">${icon("video")} Demos</h2><span class="sub">por mes o por trimestre · solo líderes y dirección</span></div><div class="card-b">${rank}</div></section>` : ""}
+    <section class="card" aria-labelledby="hFd"><div class="card-h"><h2 id="hFd">${icon("clock")} Actividad reciente</h2></div><div class="card-b">${feed}</div></section>
     ${leader && (sc.admin || sc.on) ? `<section class="card" style="margin-top:16px" aria-labelledby="hTm"><div class="card-h"><h2 id="hTm">${icon("users")} Equipos</h2><span class="sub" id="tmSub">${sc.admin ? "" : "tu equipo"}</span></div>
       <div class="card-b" id="teamsBox">${'<div class="skel" style="margin:14px 0"></div>'.repeat(2)}</div></section>` : ""}
     ${leader ? `<section class="card" style="margin-top:16px" aria-labelledby="hAc"><div class="card-h"><h2 id="hAc">${icon("user")} Accesos del equipo</h2><span class="sub">cada persona entra con su email y su código personal</span></div>
@@ -484,4 +506,9 @@ function draw() {
   host.querySelectorAll("[data-dsch]").forEach(b => b.onclick = () => openSchool(b.dataset.dsch));
   host.querySelectorAll("[data-drec]").forEach(b => b.onclick = () => openRecord(b.dataset.drec));
   host.querySelectorAll("[data-dres]").forEach(b => b.onclick = () => demoResultMenu(b, { id: Number(b.dataset.dres), time: b.dataset.time }, () => refresh()));
+  // período de las demos: un mes del selector o un trimestre (Q1 a Q4 del año del mes elegido); quién: filtra la lista
+  const again = () => { dmWho = ""; if (S.team7) S.team7 = { ...S.team7, demos: null }; draw(); refresh(); };
+  host.querySelector("#dmMonth")?.addEventListener("change", e => { if (e.target.value) { dmPeriod = e.target.value; again(); } });
+  host.querySelectorAll("[data-dmq]").forEach(b => b.onclick = () => { dmPeriod = b.getAttribute("aria-pressed") === "true" ? `${b.dataset.dmq.slice(0, 4)}-${S.team7?.demos?.choices?.current?.slice(5) || "01"}` : b.dataset.dmq; again(); });
+  host.querySelectorAll("[data-dmp]").forEach(b => b.onclick = e => { e.preventDefault(); dmWho = dmWho === b.dataset.dmp ? "" : b.dataset.dmp; draw(); });
 }

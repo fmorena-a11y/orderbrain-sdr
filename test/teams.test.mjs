@@ -7,7 +7,7 @@ import os from "node:os";
 import path from "node:path";
 import * as TM from "../lib/teams.js";
 import * as M from "../lib/metrics.js";
-import { demoBoard, boardFor } from "../lib/demos.js";
+import { monthBoard, periodOf } from "../lib/demos.js";
 import { archiveError, canUnarchive } from "../lib/archive.js";
 import { mergeBlock } from "../lib/merge.js";
 import * as ACC from "../lib/access.js";
@@ -235,18 +235,17 @@ test("Métricas por equipo: tratos (dueño o SDR del equipo), actividad, contact
   assert.deepEqual([arch.n, arch.everN, arch.people.map(p => p.email)], [1, 1, [E("a1")]]);
 });
 
-test("Demos de la semana por equipo: las que da o cargó su gente; a un miembro, el total de su equipo", () => {
-  const today = "2026-11-10", dm = (id, owner, creator, day = "2026-11-09") => ({ id, type: "meeting", owner_id: owner, creator_user_id: creator, due_date: day, due_time: "15:00", add_time: "2026-11-01T10:00:00Z", subject: `Demo · C${id}` });
+test("Demos del mes por equipo: las que da o cargó su gente; las filas, solo su gente", () => {
+  const dm = (id, owner, creator, day = "2026-11-09") => ({ id, type: "meeting", owner_id: owner, creator_user_id: creator, due_date: day, due_time: "15:00", done: day < "2026-11-10", add_time: "2026-11-01T10:00:00Z", subject: `Demo · C${id}` });
   const demos = [dm(1, 2, 5), dm(2, 2, 7), dm(3, 7, 6), dm(4, 4, 4, "2026-11-12"), dm(5, 99, 99)];
-  const opts = { users, profiles: {}, free, today, tz: TZ, now: Date.parse("2026-11-10T12:00:00Z") };
-  const all = demoBoard(demos, opts), a = demoBoard(demos, { ...opts, team: A }), b = demoBoard(demos, { ...opts, team: Bf });
-  assert.equal(all.recent.length + all.upcoming.length, 5);
-  assert.deepEqual(a.recent.map(r => r.id).sort(), [1, 3]); assert.deepEqual(a.upcoming, []);
-  assert.deepEqual([b.recent.map(r => r.id).sort(), b.upcoming.map(r => r.id)], [[2, 3], [4]]);
-  assert.deepEqual(a.people.map(p => p.id).sort(), [5, 6]); // quién cargó: solo gente del equipo
-  assert.deepEqual(b.people.map(p => p.id).sort(), [4, 7]); // la 3 la da alguien de B pero la cargó alguien de A: a A no se lo cuenta en B
-  const mine = boardFor(a, { leader: false, me: 5 });
-  assert.deepEqual([mine.mine.recent, mine.total.recent, mine.people], [1, 2, undefined]);
+  const opts = { users, profiles: {}, free, period: periodOf("2026-11"), tz: TZ, now: Date.parse("2026-11-10T12:00:00Z"), sourceOf: () => ({ kind: "out", label: "" }) };
+  const all = monthBoard(demos, opts), a = monthBoard(demos, { ...opts, team: A }), b = monthBoard(demos, { ...opts, team: Bf });
+  assert.equal(all.items.length, 5);
+  assert.deepEqual(a.items.map(r => r.id).sort(), [1, 3]);
+  assert.deepEqual(b.items.map(r => r.id).sort(), [2, 3, 4]);
+  assert.deepEqual(a.rows.map(p => p.id).sort(), [5, 6]); // quién cargó: solo gente del equipo
+  assert.deepEqual(b.rows.map(p => p.id).sort(), [4, 7]); // la 3 la da alguien de B pero la cargó alguien de A: a A no se lo cuenta en B
+  assert.deepEqual([b.rows.find(p => p.id === 4).booked, b.rows.find(p => p.id === 7).out], [1, 1]);
 });
 
 // ---------- lo que un líder de equipo NO toca aunque esté en su equipo: otro líder, dirección o un fijo (eso lo hace un admin)
