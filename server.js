@@ -428,7 +428,14 @@ async function accessRows(v) {
       access: accessView(o.acc), team: { member: o.member, led: o.led }, choices: v.admin ? ACC.accessChoices({ actorEmail: v.email, targetEmail: e, target: o.acc }) : null };
   };
   const users = teamUsers(m);
-  if (v.admin || !v.on) return { users: users.map(rowOf), free: [] };
+  // a dirección también le aparecen los fijos que no son usuarios de Pipedrive (los dueños de FOUNDERS_DEFAULT): así ve su
+  // código personal y les pasa la invitación
+  if (v.admin) {
+    const known = new Set(users.map(u => lc(u.email)));
+    const extra = [...FOUNDERS, ...LEADERS].filter(e => !known.has(e)).map(e => ({ ...rowOf({ id: `x-${e}`, name: prs[e]?.name || e, email: e }), choices: null }));
+    return { users: [...users.map(rowOf), ...extra], free: [] };
+  }
+  if (!v.on) return { users: users.map(rowOf), free: [] };
   const mine = new Set(v.led.flatMap(id => TM.peopleOf(TM.teamById(T, id))));
   const free = users.filter(u => !mine.has(lc(u.email)) && !TM.teamOfPerson(T, u.email)).map(rowOf).filter(r => !r.access.fixed && r.access.level === "equipo")
     .map(({ id, name, email, role }) => ({ id, name, email, role }));
