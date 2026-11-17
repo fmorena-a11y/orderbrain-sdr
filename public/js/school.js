@@ -51,6 +51,20 @@ const newForm = () => ({ channel: "call", outcome: null, contact: { name: "", ro
 
 // ---------- abrir / cerrar
 // Abre la ficha de un prospecto (lead) o de una organización de Pipedrive que no está en la base ("lead:…" / "org:…").
+// La dirección para mostrar y copiar (pedido del líder: «un título que diga Dirección y que se pueda copiar con un clic»):
+// la de la base, si no la que encontró el estudio, y si no la ciudad y el país.
+const phoneOnly = v => (String(v || "").match(/\+?\d[\d\s().\/-]{5,}\d/) || [""])[0].trim();
+const fold = x => String(x || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+function fullAddr(street, s) {
+  const out = [];
+  for (const p of [street, s.city, s.country].map(x => String(x || "").trim()).filter(Boolean)) if (!out.some(o => fold(o).includes(fold(p)))) out.push(p);
+  return out.join(", ");
+}
+function addrRow(s) {
+  const street = s.addr || (D.id === s.id ? D.study?.contacto?.direccion : "") || "";
+  const line = fullAddr(street, s); if (!line) return "";
+  return `<div class="sub d-addr"><span class="k">Dirección${street ? "" : " (solo ciudad)"}</span> <span class="v">${esc(line)}</span><button class="icon-btn sm" data-copy="${esc(line)}" aria-label="Copiar la dirección" title="Copiar la dirección">${icon("copy", "sm")}</button></div>`;
+}
 export async function openRecord(ref, opts = {}) {
   const [kind, rid] = String(ref).split(/:(.*)/s), ss = S.session;
   try {
@@ -823,7 +837,7 @@ function draw() {
     <span class="lbl">${icon("play", "sm")} <span class="ell"><b>${ss.i + 1}</b>/${ss.ids.length}<span class="hide-sm"> · ${esc(ss.name || "sesión")}</span></span></span>
     <button class="btn sm ghost" id="prev" ${ss.i ? "" : "disabled"} aria-label="Colegio anterior">${icon("arrowLeft", "sm")}</button><button class="btn sm" id="skip">${icon("skip", "sm")} Saltar</button></div>` : ""}
   <div class="d-top">
-    <div class="d-title"><div class="tt"><h2 id="dTitle">${esc(s.name)}</h2><div class="sub">${esc([s.addr, s.city, s.country].filter(Boolean).join(", "))}</div></div>
+    <div class="d-title"><div class="tt"><h2 id="dTitle">${esc(s.name)}</h2>${addrRow(s)}</div>
       <div class="d-tr">${statusPill(s)}${d?.orgUrl ? `<a class="icon-btn" href="${esc(d.orgUrl)}" target="_blank" rel="noopener" title="Abrir en Pipedrive" aria-label="Abrir en Pipedrive">${icon("external")}</a>` : ""}<button class="icon-btn" id="dClose" aria-label="Cerrar ficha" title="Cerrar (Esc)">${icon("x")}</button></div></div>
     <div class="d-meta">
       ${statusPill(s)}${stageTag({ ...s, status: m?.status === "open" ? "open" : s.status, lead: s.lead || !!d?.leads?.length || !!s.leadOnly })}${potTag(s)}
@@ -857,6 +871,7 @@ function draw() {
   <div class="d-body" id="dBody" role="tabpanel" aria-labelledby="tab-${D.tab}" aria-busy="${!d && !D.err}">${S.demo ? `<div class="callout warn demo-note">${icon("alert")}<span><b>Datos de prueba.</b> Pipedrive todavía no está conectado: los tratos, notas y personas de esta ficha son inventados y no son los de tu cuenta.</span></div>` : ""}${D.err ? `<div class="callout err">${icon("alert")}<span>No se pudo cargar la ficha: ${esc(D.err)}</span><button class="btn sm" id="retry">Reintentar</button></div>` : !d ? loadingBody() : D.tab === "prep" ? prepBody(s, d) : D.tab === "log" ? (D.result ? resultBody(s, d) : logBody(s, d)) : histBody(s, d)}</div>
   ${D.tab === "log" && d && !D.result ? `<div class="d-foot"><div class="sum" id="sum">${summary(s, d)}</div><button class="btn primary lg" id="save" ${saveDisabled(s) ? "disabled" : ""}>${D.saving ? `<span class="spin"></span> Guardando…` : saveLabel()}</button></div>` : ""}`;
   bindTop(s, d);
+  el.querySelectorAll(".d-addr [data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy));
   if (d) {
     if (D.tab === "prep") bindPrep(s, d);
     if (D.tab === "log") D.result ? bindResult(s, d) : bindLog(s, d);
@@ -948,8 +963,10 @@ function studyCard(s) {
     <p class="lead">${esc(st.resumen)}</p>
     ${facts.length ? `<dl class="facts">${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>` : ""}
     ${st.decisores?.length ? `<div class="sub-h">Decisores</div>${st.decisores.map(x => `<div class="person"><div class="t"><b>${esc(x.nombre)}</b><small>${esc(x.cargo)}${x.fuente ? ` · ${/^https?:/.test(x.fuente) ? `<a href="${esc(x.fuente)}" target="_blank" rel="noopener">fuente</a>` : esc(x.fuente)}` : ""}</small></div></div>`).join("")}` : ""}
-    ${(c.telefonos?.length || c.emails?.length || c.redes?.length || c.whatsapp) ? `<div class="sub-h">Contacto</div><div class="chips">
-      ${(c.telefonos || []).map(t => `<a class="chip" href="${esc(telLink(t))}">${icon("phone", "sm")} ${esc(t)}</a>`).join("")}
+    ${(c.telefonos?.length || c.emails?.length || c.redes?.length || c.whatsapp || c.direccion) ? `<div class="sub-h">Contacto</div>
+      ${c.direccion ? `<div class="copy-row"><span class="k">Dirección</span><span class="v">${esc(c.direccion)}</span><button class="btn sm" data-copy="${esc(fullAddr(c.direccion, s))}" aria-label="Copiar la dirección">${icon("copy", "sm")} Copiar</button></div>` : ""}
+      <div class="chips">
+      ${(c.telefonos || []).map(t => { const n = phoneOnly(t), note = n ? String(t).replace(n, "").replace(/^[\s,;·-]*\(?|\)?\s*$/g, "").trim() : ""; return `<a class="chip${note ? " has-note" : ""}" href="${esc(telLink(n || t))}" title="${esc(t)}">${icon("phone", "sm")} <span>${esc(n || t)}${note ? `<small>${esc(note)}</small>` : ""}</span></a>`; }).join("")}
       ${[c.whatsapp, ...(c.telefonos || [])].filter(Boolean).slice(0, 1).map(t => `<button class="chip" data-stwa="${esc(t)}">${icon("whatsapp", "sm")} WhatsApp</button>`).join("")}
       ${(c.emails || []).map(m => `<button class="chip" data-stmail="${esc(m)}">${icon("mail", "sm")} ${esc(m)}</button>`).join("")}
       ${(c.redes || []).filter(u => /^https?:\/\//.test(u)).map(u => `<a class="chip" href="${esc(u)}" target="_blank" rel="noopener">${icon("external", "sm")} ${esc(u.replace(/^https?:\/\/(www\.)?/, "").split("/")[0])}</a>`).join("")}</div>` : ""}

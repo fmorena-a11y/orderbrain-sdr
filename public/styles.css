@@ -1716,3 +1716,13 @@ button.dl-kpi[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offs
 .inb-q { position: relative; display: block; }
 .inb-q .ico { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
 .inb-q .inp { width: 100%; padding-left: 36px; }
+
+/* ficha: «Dirección» con copiar en un clic (encabezado y Contacto del estudio) */
+.d-addr { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.d-addr .k, .copy-row .k { font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.d-addr .icon-btn { width: 26px; height: 26px; }
+.copy-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 4px 0 8px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; }
+.copy-row .v { flex: 1 1 200px; min-width: 0; overflow-wrap: anywhere; }
+.study .chip.has-note { align-items: flex-start; text-align: left; }
+.study .chip.has-note span { display: flex; flex-direction: column; }
+.study .chip.has-note small { font-size: 11.5px; color: var(--muted); font-weight: 400; }
