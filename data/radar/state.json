@@ -7375,7 +7375,10 @@
   "CO|n6141180690": "2026-11-17T13:32:30.967Z",
   "ES|n291768008": "2026-11-17T15:19:16.855Z",
   "AR|Ciudad Evita": "2026-11-17T15:26:59.228Z",
-  "PR|n1900430225": "2026-11-17T15:27:34.969Z"
+  "PR|n1900430225": "2026-11-17T15:27:34.969Z",
+  "AR|San Miguel": "2026-11-17T17:28:11.367Z",
+  "PY|n6813083835": "2026-11-17T17:28:46.996Z",
+  "MX|San Mateo Atenco": "2026-11-17T17:29:21.323Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7492,9 +7495,51 @@
    "n": 1,
    "at": "2026-11-17T15:37:53.773Z",
    "error": "The operation was aborted due to timeout"
+  },
+  "ES|n2375518653": {
+   "n": 1,
+   "at": "2026-11-17T17:40:50.947Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-17T17:21:43.720Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "San Miguel",
+     "found": 0,
+     "updated": 0,
+     "osm": 97
+    },
+    {
+     "cc": "PY",
+     "city": "San Antonio",
+     "found": 0,
+     "updated": 0,
+     "osm": 96
+    },
+    {
+     "cc": "MX",
+     "city": "San Mateo Atenco",
+     "found": 0,
+     "updated": 0,
+     "osm": 165
+    }
+   ],
+   "added": 0,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "ES|n2375518653: The operation was aborted due to timeout"
+   ],
+   "minutes": 19.2,
+   "total": 22301
+  },
   {
    "at": "2026-11-17T15:18:46.084Z",
    "cities": [
@@ -10037,50 +10082,6 @@
    "errors": [],
    "minutes": 17.3,
    "total": 20484
-  },
-  {
-   "at": "2026-11-14T03:06:00.557Z",
-   "cities": [
-    {
-     "cc": "AR",
-     "city": "Maipú",
-     "found": 1,
-     "updated": 0,
-     "osm": 34
-    },
-    {
-     "cc": "PY",
-     "city": "Encarnación",
-     "found": 10,
-     "updated": 0,
-     "osm": 36
-    },
-    {
-     "cc": "ES",
-     "city": "Santander",
-     "found": 44,
-     "updated": 1,
-     "osm": 115
-    },
-    {
-     "cc": "CO",
-     "city": "Duitama",
-     "found": 29,
-     "updated": 0,
-     "osm": 49
-    }
-   ],
-   "added": 84,
-   "enriched": 0,
-   "photos": 1,
-   "contacts": 1,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "BO|n415165546: The operation was aborted due to timeout"
-   ],
-   "minutes": 19.3,
-   "total": 20143
   }
  ]
 }
