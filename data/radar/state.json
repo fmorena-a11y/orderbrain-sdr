@@ -7372,7 +7372,15 @@
   "ES|n152377920": "2026-11-17T11:22:44.133Z",
   "MX|Cortazar": "2026-11-17T11:23:22.363Z",
   "AR|San Fernando": "2026-11-17T11:24:01.829Z",
-  "CO|n6141180690": "2026-11-17T13:32:30.967Z"
+  "CO|n6141180690": "2026-11-17T13:32:30.967Z",
+  "ES|n291768008": "2026-11-17T15:05:08.673Z",
+  "AR|Ciudad Evita": "2026-11-17T15:05:48.474Z",
+  "PR|n1900430225": "2026-11-17T15:06:26.868Z",
+  "PY|n660785278": "2026-11-17T15:06:57.510Z",
+  "AR|San Miguel": "2026-11-17T15:07:44.584Z",
+  "PY|n6813083835": "2026-11-17T15:08:20.230Z",
+  "MX|San Mateo Atenco": "2026-11-17T15:08:57.682Z",
+  "ES|n2375518653": "2026-11-17T15:18:20.534Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7487,6 +7495,76 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-17T15:04:29.752Z",
+   "cities": [
+    {
+     "cc": "ES",
+     "city": "Ceuta",
+     "found": 12,
+     "updated": 0,
+     "osm": 28
+    },
+    {
+     "cc": "AR",
+     "city": "Ciudad Evita",
+     "found": 0,
+     "updated": 0,
+     "osm": 93
+    },
+    {
+     "cc": "PR",
+     "city": "Guaynabo",
+     "found": 3,
+     "updated": 0,
+     "osm": 77
+    },
+    {
+     "cc": "PY",
+     "city": "Presidente Franco",
+     "found": 0,
+     "updated": 0,
+     "osm": 87
+    },
+    {
+     "cc": "AR",
+     "city": "San Miguel",
+     "found": 0,
+     "updated": 0,
+     "osm": 97
+    },
+    {
+     "cc": "PY",
+     "city": "San Antonio",
+     "found": 9,
+     "updated": 0,
+     "osm": 96
+    },
+    {
+     "cc": "MX",
+     "city": "San Mateo Atenco",
+     "found": 33,
+     "updated": 0,
+     "osm": 165
+    },
+    {
+     "cc": "ES",
+     "city": "Viladecans",
+     "found": 0,
+     "updated": 0,
+     "osm": 0
+    }
+   ],
+   "added": 57,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 2,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 14,
+   "total": 22301
+  },
   {
    "at": "2026-11-17T13:31:57.978Z",
    "cities": [
@@ -10036,55 +10114,6 @@
    ],
    "minutes": 19.3,
    "total": 20143
-  },
-  {
-   "at": "2026-11-14T01:24:56.415Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Delicias",
-     "found": 11,
-     "updated": 0,
-     "osm": 50
-    },
-    {
-     "cc": "VE",
-     "city": "Cagua",
-     "found": 0,
-     "updated": 0,
-     "osm": 9
-    },
-    {
-     "cc": "VE",
-     "city": "Táriba",
-     "found": 0,
-     "updated": 0,
-     "osm": 44
-    },
-    {
-     "cc": "DO",
-     "city": "Azua",
-     "found": 1,
-     "updated": 0,
-     "osm": 8
-    },
-    {
-     "cc": "CO",
-     "city": "Malambo",
-     "found": 0,
-     "updated": 0,
-     "osm": 48
-    }
-   ],
-   "added": 12,
-   "enriched": 0,
-   "photos": 23,
-   "contacts": 13,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 18.7,
-   "total": 20059
   }
  ]
 }
