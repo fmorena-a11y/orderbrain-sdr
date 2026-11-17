@@ -7308,7 +7308,71 @@
   "NI|n291471414": "2026-11-16T18:34:15.713Z",
   "BO|n413185906": "2026-11-16T18:35:42.439Z",
   "ES|n1081751552": "2026-11-16T18:50:31.897Z",
-  "ES|n1470838508": "2026-11-16T19:18:40.297Z"
+  "ES|n1470838508": "2026-11-16T19:18:40.297Z",
+  "NI|n306243099": "2026-11-16T21:12:03.389Z",
+  "CO|n703168608": "2026-11-16T21:16:42.687Z",
+  "VE|n4433004302": "2026-11-16T21:18:00.739Z",
+  "AR|Goya": "2026-11-16T23:02:50.744Z",
+  "MX|Amozoc de Mota": "2026-11-16T23:03:30.330Z",
+  "MX|Salina Cruz": "2026-11-16T23:10:00.048Z",
+  "CO|n263295783": "2026-11-16T23:16:33.834Z",
+  "VE|n377690696": "2026-11-17T01:34:37.067Z",
+  "CL|Ovalle": "2026-11-17T01:35:12.292Z",
+  "PY|n313911833": "2026-11-17T01:35:52.601Z",
+  "MX|Cadereyta Jiménez": "2026-11-17T01:36:49.095Z",
+  "MX|Texmelucan": "2026-11-17T01:38:28.175Z",
+  "ES|n1470838099": "2026-11-17T01:44:13.781Z",
+  "ES|n240423012": "2026-11-17T01:52:00.963Z",
+  "AR|Santo Tomé": "2026-11-17T03:06:38.134Z",
+  "AR|Villa Ciudad Jardín El Libertador": "2026-11-17T03:07:15.005Z",
+  "VE|n2302015395": "2026-11-17T03:07:47.633Z",
+  "ES|n154892855": "2026-11-17T03:08:29.950Z",
+  "ES|n3248338760": "2026-11-17T03:09:09.982Z",
+  "PE|Pisco": "2026-11-17T03:15:23.064Z",
+  "CL|Linares": "2026-11-17T03:16:08.706Z",
+  "AR|Boulogne Sur Mer": "2026-11-17T03:18:33.715Z",
+  "ES|n31335145": "2026-11-17T05:23:10.445Z",
+  "PY|n313912581": "2026-11-17T05:23:38.199Z",
+  "CL|Quillota": "2026-11-17T05:24:15.014Z",
+  "SV|n461959353": "2026-11-17T05:24:55.476Z",
+  "CO|n703168998": "2026-11-17T05:25:31.412Z",
+  "MX|Valle de Santiago": "2026-11-17T05:26:09.784Z",
+  "VE|n5372786651": "2026-11-17T05:26:47.327Z",
+  "MX|San Miguel de Allende": "2026-11-17T05:27:28.823Z",
+  "CO|n703168192": "2026-11-17T05:28:01.224Z",
+  "PE|Abancay": "2026-11-17T05:28:38.308Z",
+  "BO|n5059605309": "2026-11-17T05:29:25.332Z",
+  "CL|Melipilla": "2026-11-17T05:29:52.443Z",
+  "CO|n8109824087": "2026-11-17T05:30:24.210Z",
+  "AR|Bella Vista": "2026-11-17T07:40:15.103Z",
+  "VE|n5758746889": "2026-11-17T07:40:44.945Z",
+  "PE|Yurimaguas": "2026-11-17T07:41:17.935Z",
+  "VE|n332581617": "2026-11-17T07:41:50.540Z",
+  "ES|n1470839561": "2026-11-17T07:42:18.129Z",
+  "ES|n1470839504": "2026-11-17T07:42:53.740Z",
+  "MX|Guasave": "2026-11-17T07:43:26.126Z",
+  "ES|n26517895": "2026-11-17T07:43:57.461Z",
+  "VE|n586981219": "2026-11-17T09:21:31.167Z",
+  "BO|n695661633": "2026-11-17T09:22:02.123Z",
+  "PE|Ilo": "2026-11-17T09:22:30.865Z",
+  "CO|n703222138": "2026-11-17T09:23:07.133Z",
+  "PR|n1945970066": "2026-11-17T09:23:39.071Z",
+  "MX|Guanajuato": "2026-11-17T09:24:17.351Z",
+  "MX|Temascalcingo": "2026-11-17T09:24:47.611Z",
+  "CR|Limón": "2026-11-17T09:25:24.001Z",
+  "CR|Puntarenas": "2026-11-17T09:26:06.457Z",
+  "VE|n2172650558": "2026-11-17T09:26:47.584Z",
+  "ES|n1470837694": "2026-11-17T09:27:26.022Z",
+  "CO|n3159363873": "2026-11-17T09:28:05.714Z",
+  "PE|Moquegua": "2026-11-17T09:28:32.181Z",
+  "ES|n1470838201": "2026-11-17T09:29:08.708Z",
+  "VE|n3440152205": "2026-11-17T09:30:37.872Z",
+  "CO|n282916376": "2026-11-17T09:32:16.432Z",
+  "VE|n5291801995": "2026-11-17T09:38:31.913Z",
+  "ES|n152377920": "2026-11-17T11:22:44.133Z",
+  "MX|Cortazar": "2026-11-17T11:23:22.363Z",
+  "AR|San Fernando": "2026-11-17T11:24:01.829Z",
+  "CO|n6141180690": "2026-11-17T13:32:30.967Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7410,9 +7474,603 @@
    "n": 1,
    "at": "2026-11-16T19:31:56.537Z",
    "error": "The operation was aborted due to timeout"
+  },
+  "AR|San Pedro de Jujuy": {
+   "n": 1,
+   "at": "2026-11-17T07:55:33.392Z",
+   "error": "The operation was aborted due to timeout"
+  },
+  "CO|n703168345": {
+   "n": 1,
+   "at": "2026-11-17T13:45:42.924Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-17T13:31:57.978Z",
+   "cities": [
+    {
+     "cc": "CO",
+     "city": "Santa Rosa de Cabal",
+     "found": 0,
+     "updated": 0,
+     "osm": 17
+    }
+   ],
+   "added": 0,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "CO|n703168345: The operation was aborted due to timeout"
+   ],
+   "minutes": 13.8,
+   "total": 22244
+  },
+  {
+   "at": "2026-11-17T11:16:20.381Z",
+   "cities": [
+    {
+     "cc": "ES",
+     "city": "Tarragona",
+     "found": 1,
+     "updated": 0,
+     "osm": 50
+    },
+    {
+     "cc": "MX",
+     "city": "Cortazar",
+     "found": 3,
+     "updated": 0,
+     "osm": 22
+    },
+    {
+     "cc": "AR",
+     "city": "San Fernando",
+     "found": 3,
+     "updated": 0,
+     "osm": 167
+    }
+   ],
+   "added": 7,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "CO|n6141180690: sin tiempo en esta corrida"
+   ],
+   "minutes": 18.3,
+   "total": 22244
+  },
+  {
+   "at": "2026-11-17T09:20:59.577Z",
+   "cities": [
+    {
+     "cc": "VE",
+     "city": "Guasdualito",
+     "found": 1,
+     "updated": 0,
+     "osm": 1
+    },
+    {
+     "cc": "BO",
+     "city": "Cotoca",
+     "found": 0,
+     "updated": 0,
+     "osm": 4
+    },
+    {
+     "cc": "PE",
+     "city": "Ilo",
+     "found": 1,
+     "updated": 0,
+     "osm": 50
+    },
+    {
+     "cc": "CO",
+     "city": "El Espinal",
+     "found": 6,
+     "updated": 1,
+     "osm": 26
+    },
+    {
+     "cc": "PR",
+     "city": "Caguas",
+     "found": 12,
+     "updated": 0,
+     "osm": 60
+    },
+    {
+     "cc": "MX",
+     "city": "Guanajuato",
+     "found": 12,
+     "updated": 0,
+     "osm": 34
+    },
+    {
+     "cc": "MX",
+     "city": "Temascalcingo",
+     "found": 0,
+     "updated": 0,
+     "osm": 3
+    },
+    {
+     "cc": "CR",
+     "city": "Limón",
+     "found": 4,
+     "updated": 0,
+     "osm": 38
+    },
+    {
+     "cc": "CR",
+     "city": "Puntarenas",
+     "found": 0,
+     "updated": 0,
+     "osm": 14
+    },
+    {
+     "cc": "VE",
+     "city": "Punta de Mata",
+     "found": 1,
+     "updated": 0,
+     "osm": 7
+    },
+    {
+     "cc": "ES",
+     "city": "Alcalá de Guadaíra",
+     "found": 11,
+     "updated": 0,
+     "osm": 18
+    },
+    {
+     "cc": "CO",
+     "city": "Marinilla",
+     "found": 4,
+     "updated": 0,
+     "osm": 53
+    },
+    {
+     "cc": "PE",
+     "city": "Moquegua",
+     "found": 17,
+     "updated": 0,
+     "osm": 75
+    },
+    {
+     "cc": "ES",
+     "city": "Castelldefels",
+     "found": 3,
+     "updated": 0,
+     "osm": 44
+    },
+    {
+     "cc": "VE",
+     "city": "Pariaguán",
+     "found": 4,
+     "updated": 0,
+     "osm": 13
+    },
+    {
+     "cc": "CO",
+     "city": "Arjona",
+     "found": 14,
+     "updated": 0,
+     "osm": 36
+    },
+    {
+     "cc": "VE",
+     "city": "San Juan de Colón",
+     "found": 3,
+     "updated": 0,
+     "osm": 9
+    }
+   ],
+   "added": 93,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 17.6,
+   "total": 22237
+  },
+  {
+   "at": "2026-11-17T07:39:48.032Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Bella Vista",
+     "found": 0,
+     "updated": 0,
+     "osm": 78
+    },
+    {
+     "cc": "VE",
+     "city": "Biruaca",
+     "found": 0,
+     "updated": 0,
+     "osm": 1
+    },
+    {
+     "cc": "PE",
+     "city": "Yurimaguas",
+     "found": 2,
+     "updated": 0,
+     "osm": 36
+    },
+    {
+     "cc": "VE",
+     "city": "Morón",
+     "found": 12,
+     "updated": 0,
+     "osm": 28
+    },
+    {
+     "cc": "ES",
+     "city": "Vilanova i la Geltrú",
+     "found": 1,
+     "updated": 0,
+     "osm": 36
+    },
+    {
+     "cc": "ES",
+     "city": "Torremolinos",
+     "found": 9,
+     "updated": 0,
+     "osm": 33
+    },
+    {
+     "cc": "MX",
+     "city": "Guasave",
+     "found": 4,
+     "updated": 0,
+     "osm": 15
+    },
+    {
+     "cc": "ES",
+     "city": "Avilés",
+     "found": 9,
+     "updated": 0,
+     "osm": 43
+    }
+   ],
+   "added": 37,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "AR|San Pedro de Jujuy: The operation was aborted due to timeout"
+   ],
+   "minutes": 15.9,
+   "total": 22144
+  },
+  {
+   "at": "2026-11-17T05:16:58.789Z",
+   "cities": [
+    {
+     "cc": "ES",
+     "city": "Torrevieja",
+     "found": 4,
+     "updated": 0,
+     "osm": 29
+    },
+    {
+     "cc": "PY",
+     "city": "Villarrica",
+     "found": 2,
+     "updated": 0,
+     "osm": 25
+    },
+    {
+     "cc": "CL",
+     "city": "Quillota",
+     "found": 31,
+     "updated": 0,
+     "osm": 64
+    },
+    {
+     "cc": "SV",
+     "city": "Usulután",
+     "found": 2,
+     "updated": 0,
+     "osm": 20
+    },
+    {
+     "cc": "CO",
+     "city": "Cumaribo",
+     "found": 1,
+     "updated": 0,
+     "osm": 5
+    },
+    {
+     "cc": "MX",
+     "city": "Valle de Santiago",
+     "found": 2,
+     "updated": 0,
+     "osm": 7
+    },
+    {
+     "cc": "VE",
+     "city": "San Joaquín",
+     "found": 4,
+     "updated": 0,
+     "osm": 22
+    },
+    {
+     "cc": "MX",
+     "city": "San Miguel de Allende",
+     "found": 5,
+     "updated": 0,
+     "osm": 18
+    },
+    {
+     "cc": "CO",
+     "city": "Garzón",
+     "found": 10,
+     "updated": 0,
+     "osm": 25
+    },
+    {
+     "cc": "PE",
+     "city": "Abancay",
+     "found": 3,
+     "updated": 0,
+     "osm": 100
+    },
+    {
+     "cc": "BO",
+     "city": "Yacuiba",
+     "found": 8,
+     "updated": 0,
+     "osm": 34
+    },
+    {
+     "cc": "CL",
+     "city": "Melipilla",
+     "found": 30,
+     "updated": 0,
+     "osm": 59
+    },
+    {
+     "cc": "CO",
+     "city": "El Banco",
+     "found": 10,
+     "updated": 0,
+     "osm": 37
+    }
+   ],
+   "added": 112,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 13.6,
+   "total": 22107
+  },
+  {
+   "at": "2026-11-17T03:05:52.431Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Santo Tomé",
+     "found": 0,
+     "updated": 0,
+     "osm": 61
+    },
+    {
+     "cc": "AR",
+     "city": "Villa Ciudad Jardín El Libertador",
+     "found": 5,
+     "updated": 0,
+     "osm": 170
+    },
+    {
+     "cc": "VE",
+     "city": "Guanta",
+     "found": 0,
+     "updated": 0,
+     "osm": 50
+    },
+    {
+     "cc": "ES",
+     "city": "Ciudad Real",
+     "found": 8,
+     "updated": 0,
+     "osm": 53
+    },
+    {
+     "cc": "ES",
+     "city": "Rubí",
+     "found": 0,
+     "updated": 0,
+     "osm": 56
+    },
+    {
+     "cc": "PE",
+     "city": "Pisco",
+     "found": 5,
+     "updated": 0,
+     "osm": 66
+    },
+    {
+     "cc": "CL",
+     "city": "Linares",
+     "found": 21,
+     "updated": 1,
+     "osm": 64
+    },
+    {
+     "cc": "AR",
+     "city": "Boulogne Sur Mer",
+     "found": 3,
+     "updated": 0,
+     "osm": 168
+    }
+   ],
+   "added": 42,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "ES|n31335145: sin tiempo en esta corrida"
+   ],
+   "minutes": 19,
+   "total": 21995
+  },
+  {
+   "at": "2026-11-17T01:33:52.622Z",
+   "cities": [
+    {
+     "cc": "VE",
+     "city": "Santa Rita",
+     "found": 0,
+     "updated": 0,
+     "osm": 0
+    },
+    {
+     "cc": "CL",
+     "city": "Ovalle",
+     "found": 19,
+     "updated": 0,
+     "osm": 51
+    },
+    {
+     "cc": "PY",
+     "city": "Areguá",
+     "found": 2,
+     "updated": 0,
+     "osm": 41
+    },
+    {
+     "cc": "MX",
+     "city": "Cadereyta Jiménez",
+     "found": 2,
+     "updated": 0,
+     "osm": 11
+    },
+    {
+     "cc": "MX",
+     "city": "Texmelucan",
+     "found": 1,
+     "updated": 0,
+     "osm": 20
+    },
+    {
+     "cc": "ES",
+     "city": "Benidorm",
+     "found": 4,
+     "updated": 0,
+     "osm": 26
+    },
+    {
+     "cc": "ES",
+     "city": "Palencia",
+     "found": 26,
+     "updated": 0,
+     "osm": 55
+    }
+   ],
+   "added": 54,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 18.4,
+   "total": 21953
+  },
+  {
+   "at": "2026-11-16T23:02:17.232Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Goya",
+     "found": 6,
+     "updated": 0,
+     "osm": 36
+    },
+    {
+     "cc": "MX",
+     "city": "Amozoc de Mota",
+     "found": 0,
+     "updated": 0,
+     "osm": 4
+    },
+    {
+     "cc": "MX",
+     "city": "Salina Cruz",
+     "found": 18,
+     "updated": 0,
+     "osm": 89
+    },
+    {
+     "cc": "CO",
+     "city": "La Dorada",
+     "found": 2,
+     "updated": 0,
+     "osm": 5
+    }
+   ],
+   "added": 26,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 14.5,
+   "total": 21899
+  },
+  {
+   "at": "2026-11-16T21:05:45.168Z",
+   "cities": [
+    {
+     "cc": "NI",
+     "city": "Bilwi",
+     "found": 10,
+     "updated": 1,
+     "osm": 26
+    },
+    {
+     "cc": "CO",
+     "city": "Madrid",
+     "found": 0,
+     "updated": 0,
+     "osm": 23
+    },
+    {
+     "cc": "VE",
+     "city": "Nirgua",
+     "found": 0,
+     "updated": 0,
+     "osm": 0
+    }
+   ],
+   "added": 10,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "AR|Goya: sin tiempo en esta corrida"
+   ],
+   "minutes": 19,
+   "total": 21873
+  },
   {
    "at": "2026-11-16T19:17:59.074Z",
    "cities": [
@@ -9427,438 +10085,6 @@
    "errors": [],
    "minutes": 18.7,
    "total": 20059
-  },
-  {
-   "at": "2026-11-13T22:59:10.409Z",
-   "cities": [
-    {
-     "cc": "ES",
-     "city": "Mataró",
-     "found": 1,
-     "updated": 0,
-     "osm": 55
-    },
-    {
-     "cc": "CO",
-     "city": "Rionegro",
-     "found": 23,
-     "updated": 0,
-     "osm": 71
-    },
-    {
-     "cc": "VE",
-     "city": "Zaraza",
-     "found": 0,
-     "updated": 0,
-     "osm": 0
-    },
-    {
-     "cc": "PE",
-     "city": "Puno",
-     "found": 9,
-     "updated": 0,
-     "osm": 110
-    }
-   ],
-   "added": 33,
-   "enriched": 0,
-   "photos": 11,
-   "contacts": 16,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 16.4,
-   "total": 20047
-  },
-  {
-   "at": "2026-11-13T21:07:58.203Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "San Pedro Garza García",
-     "found": 0,
-     "updated": 0,
-     "osm": 57
-    },
-    {
-     "cc": "PE",
-     "city": "Huacho",
-     "found": 3,
-     "updated": 0,
-     "osm": 111
-    },
-    {
-     "cc": "NI",
-     "city": "Masaya",
-     "found": 8,
-     "updated": 0,
-     "osm": 30
-    },
-    {
-     "cc": "CO",
-     "city": "Fusagasugá",
-     "found": 4,
-     "updated": 0,
-     "osm": 21
-    },
-    {
-     "cc": "CL",
-     "city": "San Pedro de la Paz",
-     "found": 6,
-     "updated": 0,
-     "osm": 106
-    }
-   ],
-   "added": 21,
-   "enriched": 0,
-   "photos": 11,
-   "contacts": 11,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 19.2,
-   "total": 20014
-  },
-  {
-   "at": "2026-11-13T19:15:29.357Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Cuauhtémoc",
-     "found": 0,
-     "updated": 0,
-     "osm": 11
-    },
-    {
-     "cc": "CO",
-     "city": "Buga",
-     "found": 10,
-     "updated": 1,
-     "osm": 16
-    },
-    {
-     "cc": "CO",
-     "city": "Cartago",
-     "found": 5,
-     "updated": 0,
-     "osm": 26
-    },
-    {
-     "cc": "BO",
-     "city": "La Guardia",
-     "found": 0,
-     "updated": 0,
-     "osm": 4
-    },
-    {
-     "cc": "AR",
-     "city": "Merlo",
-     "found": 8,
-     "updated": 2,
-     "osm": 218
-    },
-    {
-     "cc": "AR",
-     "city": "San Nicolás de los Arroyos",
-     "found": 13,
-     "updated": 0,
-     "osm": 60
-    },
-    {
-     "cc": "CO",
-     "city": "Yopal",
-     "found": 51,
-     "updated": 1,
-     "osm": 110
-    },
-    {
-     "cc": "MX",
-     "city": "Iguala",
-     "found": 2,
-     "updated": 0,
-     "osm": 30
-    }
-   ],
-   "added": 89,
-   "enriched": 0,
-   "photos": 1,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "MX|San Pedro Garza García: sin tiempo en esta corrida"
-   ],
-   "minutes": 19.3,
-   "total": 19993
-  },
-  {
-   "at": "2026-11-13T17:14:14.506Z",
-   "cities": [
-    {
-     "cc": "DO",
-     "city": "Santa Cruz de Barahona",
-     "found": 5,
-     "updated": 0,
-     "osm": 14
-    },
-    {
-     "cc": "ES",
-     "city": "Parla",
-     "found": 0,
-     "updated": 0,
-     "osm": 68
-    },
-    {
-     "cc": "CO",
-     "city": "Sogamoso",
-     "found": 8,
-     "updated": 0,
-     "osm": 18
-    },
-    {
-     "cc": "MX",
-     "city": "Ciudad Valles",
-     "found": 17,
-     "updated": 1,
-     "osm": 103
-    },
-    {
-     "cc": "MX",
-     "city": "San José del Cabo",
-     "found": 2,
-     "updated": 0,
-     "osm": 12
-    },
-    {
-     "cc": "AR",
-     "city": "San Carlos de Bariloche",
-     "found": 16,
-     "updated": 0,
-     "osm": 72
-    },
-    {
-     "cc": "CO",
-     "city": "Pitalito",
-     "found": 14,
-     "updated": 0,
-     "osm": 33
-    }
-   ],
-   "added": 62,
-   "enriched": 0,
-   "photos": 16,
-   "contacts": 14,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 18.5,
-   "total": 19904
-  },
-  {
-   "at": "2026-11-13T15:06:25.448Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Zacatecas",
-     "found": 5,
-     "updated": 0,
-     "osm": 29
-    },
-    {
-     "cc": "PR",
-     "city": "Carolina",
-     "found": 13,
-     "updated": 0,
-     "osm": 53
-    }
-   ],
-   "added": 18,
-   "enriched": 0,
-   "photos": 17,
-   "contacts": 8,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 16.4,
-   "total": 19842
-  },
-  {
-   "at": "2026-11-13T13:29:35.753Z",
-   "cities": [
-    {
-     "cc": "CL",
-     "city": "Los Ángeles",
-     "found": 44,
-     "updated": 0,
-     "osm": 105
-    },
-    {
-     "cc": "ES",
-     "city": "Torrejón de Ardoz",
-     "found": 0,
-     "updated": 0,
-     "osm": 52
-    },
-    {
-     "cc": "ES",
-     "city": "Lérida",
-     "found": 5,
-     "updated": 0,
-     "osm": 75
-    },
-    {
-     "cc": "AR",
-     "city": "Monte Grande",
-     "found": 1,
-     "updated": 0,
-     "osm": 130
-    },
-    {
-     "cc": "EC",
-     "city": "Milagro",
-     "found": 12,
-     "updated": 0,
-     "osm": 54
-    },
-    {
-     "cc": "MX",
-     "city": "Kanasín",
-     "found": 0,
-     "updated": 0,
-     "osm": 22
-    },
-    {
-     "cc": "DO",
-     "city": "La Romana",
-     "found": 18,
-     "updated": 0,
-     "osm": 34
-    },
-    {
-     "cc": "MX",
-     "city": "Hacienda Santa Fe",
-     "found": 1,
-     "updated": 0,
-     "osm": 115
-    },
-    {
-     "cc": "MX",
-     "city": "Córdoba",
-     "found": 18,
-     "updated": 0,
-     "osm": 175
-    },
-    {
-     "cc": "DO",
-     "city": "Verón",
-     "found": 3,
-     "updated": 0,
-     "osm": 3
-    }
-   ],
-   "added": 102,
-   "enriched": 0,
-   "photos": 16,
-   "contacts": 14,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 14.9,
-   "total": 19824
-  },
-  {
-   "at": "2026-11-13T11:14:46.866Z",
-   "cities": [
-    {
-     "cc": "CO",
-     "city": "Apartadó",
-     "found": 14,
-     "updated": 0,
-     "osm": 54
-    },
-    {
-     "cc": "ES",
-     "city": "Huelva",
-     "found": 18,
-     "updated": 0,
-     "osm": 62
-    }
-   ],
-   "added": 32,
-   "enriched": 0,
-   "photos": 12,
-   "contacts": 7,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "MX|Fresnillo: The operation was aborted due to timeout"
-   ],
-   "minutes": 15.2,
-   "total": 19722
-  },
-  {
-   "at": "2026-11-13T09:17:19.899Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Villa de Álvarez",
-     "found": 33,
-     "updated": 2,
-     "osm": 271
-    },
-    {
-     "cc": "DO",
-     "city": "Puerto Plata",
-     "found": 4,
-     "updated": 0,
-     "osm": 12
-    },
-    {
-     "cc": "PY",
-     "city": "Caaguazú",
-     "found": 1,
-     "updated": 0,
-     "osm": 65
-    },
-    {
-     "cc": "VE",
-     "city": "El Vigía",
-     "found": 10,
-     "updated": 0,
-     "osm": 16
-    },
-    {
-     "cc": "ES",
-     "city": "Salamanca",
-     "found": 34,
-     "updated": 1,
-     "osm": 129
-    }
-   ],
-   "added": 82,
-   "enriched": 0,
-   "photos": 12,
-   "contacts": 2,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 16.9,
-   "total": 19690
-  },
-  {
-   "at": "2026-11-13T07:38:00.778Z",
-   "cities": [],
-   "added": 0,
-   "enriched": 0,
-   "photos": 16,
-   "contacts": 1,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "CL|Osorno: The operation was aborted due to timeout"
-   ],
-   "minutes": 15.9,
-   "total": 19608
   }
  ]
 }
