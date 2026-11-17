@@ -7343,7 +7343,15 @@
   "PE|Abancay": "2026-11-17T05:28:38.308Z",
   "BO|n5059605309": "2026-11-17T05:29:25.332Z",
   "CL|Melipilla": "2026-11-17T05:29:52.443Z",
-  "CO|n8109824087": "2026-11-17T05:30:24.210Z"
+  "CO|n8109824087": "2026-11-17T05:30:24.210Z",
+  "AR|Bella Vista": "2026-11-17T07:40:15.103Z",
+  "VE|n5758746889": "2026-11-17T07:40:44.945Z",
+  "PE|Yurimaguas": "2026-11-17T07:41:17.935Z",
+  "VE|n332581617": "2026-11-17T07:41:50.540Z",
+  "ES|n1470839561": "2026-11-17T07:42:18.129Z",
+  "ES|n1470839504": "2026-11-17T07:42:53.740Z",
+  "MX|Guasave": "2026-11-17T07:43:26.126Z",
+  "ES|n26517895": "2026-11-17T07:43:57.461Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7445,9 +7453,86 @@
    "n": 1,
    "at": "2026-11-16T19:31:56.537Z",
    "error": "The operation was aborted due to timeout"
+  },
+  "AR|San Pedro de Jujuy": {
+   "n": 1,
+   "at": "2026-11-17T07:55:33.392Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-17T07:39:48.032Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Bella Vista",
+     "found": 0,
+     "updated": 0,
+     "osm": 78
+    },
+    {
+     "cc": "VE",
+     "city": "Biruaca",
+     "found": 0,
+     "updated": 0,
+     "osm": 1
+    },
+    {
+     "cc": "PE",
+     "city": "Yurimaguas",
+     "found": 2,
+     "updated": 0,
+     "osm": 36
+    },
+    {
+     "cc": "VE",
+     "city": "Morón",
+     "found": 12,
+     "updated": 0,
+     "osm": 28
+    },
+    {
+     "cc": "ES",
+     "city": "Vilanova i la Geltrú",
+     "found": 1,
+     "updated": 0,
+     "osm": 36
+    },
+    {
+     "cc": "ES",
+     "city": "Torremolinos",
+     "found": 9,
+     "updated": 0,
+     "osm": 33
+    },
+    {
+     "cc": "MX",
+     "city": "Guasave",
+     "found": 4,
+     "updated": 0,
+     "osm": 15
+    },
+    {
+     "cc": "ES",
+     "city": "Avilés",
+     "found": 9,
+     "updated": 0,
+     "osm": 43
+    }
+   ],
+   "added": 37,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "AR|San Pedro de Jujuy: The operation was aborted due to timeout"
+   ],
+   "minutes": 15.9,
+   "total": 22144
+  },
   {
    "at": "2026-11-17T05:16:58.789Z",
    "cities": [
@@ -9944,69 +10029,6 @@
    ],
    "minutes": 19.3,
    "total": 19993
-  },
-  {
-   "at": "2026-11-13T17:14:14.506Z",
-   "cities": [
-    {
-     "cc": "DO",
-     "city": "Santa Cruz de Barahona",
-     "found": 5,
-     "updated": 0,
-     "osm": 14
-    },
-    {
-     "cc": "ES",
-     "city": "Parla",
-     "found": 0,
-     "updated": 0,
-     "osm": 68
-    },
-    {
-     "cc": "CO",
-     "city": "Sogamoso",
-     "found": 8,
-     "updated": 0,
-     "osm": 18
-    },
-    {
-     "cc": "MX",
-     "city": "Ciudad Valles",
-     "found": 17,
-     "updated": 1,
-     "osm": 103
-    },
-    {
-     "cc": "MX",
-     "city": "San José del Cabo",
-     "found": 2,
-     "updated": 0,
-     "osm": 12
-    },
-    {
-     "cc": "AR",
-     "city": "San Carlos de Bariloche",
-     "found": 16,
-     "updated": 0,
-     "osm": 72
-    },
-    {
-     "cc": "CO",
-     "city": "Pitalito",
-     "found": 14,
-     "updated": 0,
-     "osm": 33
-    }
-   ],
-   "added": 62,
-   "enriched": 0,
-   "photos": 16,
-   "contacts": 14,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 18.5,
-   "total": 19904
   }
  ]
 }
