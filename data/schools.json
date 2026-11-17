@@ -451475,5 +451475,381 @@
   "src": "osm",
   "osm": "r8503452",
   "found": "2026-11-17"
+ },
+ {
+  "id": "zihuatanejo-instituto-montessori",
+  "name": "Instituto Montessori",
+  "city": "Zihuatanejo",
+  "country": "México",
+  "lat": 17.65265,
+  "lng": -101.550263,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12208333065",
+  "found": "2026-11-17"
+ },
+ {
+  "id": "corozal-liceo-vicente-caviedes-sede-morroa",
+  "name": "Liceo Vicente Caviedes Sede Morroa",
+  "city": "Corozal",
+  "country": "Colombia",
+  "lat": 9.333663,
+  "lng": -75.306476,
+  "addr": "",
+  "phone": "+57 605 2809156",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836838",
+  "found": "2026-11-17"
+ },
+ {
+  "id": "corozal-centro-educativo-mi-nueva-generacion",
+  "name": "Centro Educativo Mi Nueva Generación",
+  "city": "Corozal",
+  "country": "Colombia",
+  "lat": 9.323953,
+  "lng": -75.295809,
+  "addr": "",
+  "phone": "+57 301 7020665",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836850",
+  "found": "2026-11-17"
+ },
+ {
+  "id": "corozal-centro-educativo-laboratorio-de-suenos",
+  "name": "Centro Educativo Laboratorio De Sueños",
+  "city": "Corozal",
+  "country": "Colombia",
+  "lat": 9.315901,
+  "lng": -75.289394,
+  "addr": "",
+  "phone": "+57 301 3601448",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836851",
+  "found": "2026-11-17"
+ },
+ {
+  "id": "corozal-centro-educativo-elohim",
+  "name": "Centro Educativo Elohim",
+  "city": "Corozal",
+  "country": "Colombia",
+  "lat": 9.3235,
+  "lng": -75.297312,
+  "addr": "",
+  "phone": "+57 312 6021151",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836852",
+  "found": "2026-11-17"
+ },
+ {
+  "id": "corozal-centro-educativo-prosperity",
+  "name": "Centro Educativo Prosperity",
+  "city": "Corozal",
+  "country": "Colombia",
+  "lat": 9.325207,
+  "lng": -75.293582,
+  "addr": "",
+  "phone": "+57 321 5292405",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836853",
+  "found": "2026-11-17"
+ },
+ {
+  "id": "corozal-centro-educativo-gardner-school",
+  "name": "Centro Educativo Gardner School",
+  "city": "Corozal",
+  "country": "Colombia",
+  "lat": 9.312765,
+  "lng": -75.295085,
+  "addr": "",
+  "phone": "+57 323 5844645",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836854",
+  "found": "2026-11-17"
+ },
+ {
+  "id": "corozal-centro-educativo-pequenines-del-saber",
+  "name": "Centro Educativo Pequeñines Del Saber",
+  "city": "Corozal",
+  "country": "Colombia",
+  "lat": 9.313054,
+  "lng": -75.296285,
+  "addr": "",
+  "phone": "+57 300 2956850",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836855",
+  "found": "2026-11-17"
+ },
+ {
+  "id": "corozal-centro-educativo-springfield-de-la-sabana",
+  "name": "Centro Educativo Springfield de la Sabana",
+  "city": "Corozal",
+  "country": "Colombia",
+  "lat": 9.316042,
+  "lng": -75.289632,
+  "addr": "",
+  "phone": "+57 300 3951794",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836856",
+  "found": "2026-11-17"
+ },
+ {
+  "id": "corozal-colegio-mayor-de-la-sabana",
+  "name": "Colegio Mayor de la Sabana",
+  "city": "Corozal",
+  "country": "Colombia",
+  "lat": 9.323256,
+  "lng": -75.291582,
+  "addr": "",
+  "phone": "+57 605 2842312",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836857",
+  "found": "2026-11-17"
+ },
+ {
+  "id": "corozal-centro-educativo-liceo-shalom",
+  "name": "Centro Educativo Liceo Shalom",
+  "city": "Corozal",
+  "country": "Colombia",
+  "lat": 9.316219,
+  "lng": -75.288974,
+  "addr": "",
+  "phone": "+57 605 2857143",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836858",
+  "found": "2026-11-17"
+ },
+ {
+  "id": "corozal-centro-educativo-tercer-milenio",
+  "name": "Centro Educativo Tercer Milenio",
+  "city": "Corozal",
+  "country": "Colombia",
+  "lat": 9.31782,
+  "lng": -75.293444,
+  "addr": "",
+  "phone": "+57 605 2841497",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836859",
+  "found": "2026-11-17"
+ },
+ {
+  "id": "corozal-institucion-juan-pablo-ii",
+  "name": "Institución Juan Pablo Ii",
+  "city": "Corozal",
+  "country": "Colombia",
+  "lat": 9.311555,
+  "lng": -75.293431,
+  "addr": "",
+  "phone": "841513",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836860",
+  "found": "2026-11-17"
+ },
+ {
+  "id": "corozal-jardin-infantil-reyecitos",
+  "name": "Jardín Infantil Reyecitos",
+  "city": "Corozal",
+  "country": "Colombia",
+  "lat": 9.317476,
+  "lng": -75.297153,
+  "addr": "",
+  "phone": "+57 605 2857336",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836861",
+  "found": "2026-11-17"
+ },
+ {
+  "id": "corozal-colegio-nino-jesus-de-praga",
+  "name": "Colegio Nino Jesus de Praga",
+  "city": "Corozal",
+  "country": "Colombia",
+  "lat": 9.314427,
+  "lng": -75.293694,
+  "addr": "",
+  "phone": "840087",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836862",
+  "found": "2026-11-17"
+ },
+ {
+  "id": "corozal-colegio-pestalozziiano",
+  "name": "Colegio Pestalozziiano",
+  "city": "Corozal",
+  "country": "Colombia",
+  "lat": 9.316418,
+  "lng": -75.285791,
+  "addr": "",
+  "phone": "840709",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836863",
+  "found": "2026-11-17"
+ },
+ {
+  "id": "corozal-escuela-urbano-11-de-nov",
+  "name": "Escuela Urbano 11 de Nov",
+  "city": "Corozal",
+  "country": "Colombia",
+  "lat": 9.302894,
+  "lng": -75.286346,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836864",
+  "found": "2026-11-17"
+ },
+ {
+  "id": "general-pico-instituto-correcional-abierto",
+  "name": "Instituto Correcional ABierto",
+  "city": "General Pico",
+  "country": "Argentina",
+  "lat": -35.659221,
+  "lng": -63.76553,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2967684884",
+  "found": "2026-11-17"
+ },
+ {
+  "id": "general-pico-colegio-nuestra-senora-del-lujan",
+  "name": "Colegio Nuestra Señora del Luján",
+  "city": "General Pico",
+  "country": "Argentina",
+  "lat": -35.666851,
+  "lng": -63.749929,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13135196710",
+  "found": "2026-11-17"
  }
 ]
