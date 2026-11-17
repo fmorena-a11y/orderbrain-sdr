@@ -7351,7 +7351,24 @@
   "ES|n1470839561": "2026-11-17T07:42:18.129Z",
   "ES|n1470839504": "2026-11-17T07:42:53.740Z",
   "MX|Guasave": "2026-11-17T07:43:26.126Z",
-  "ES|n26517895": "2026-11-17T07:43:57.461Z"
+  "ES|n26517895": "2026-11-17T07:43:57.461Z",
+  "VE|n586981219": "2026-11-17T09:21:31.167Z",
+  "BO|n695661633": "2026-11-17T09:22:02.123Z",
+  "PE|Ilo": "2026-11-17T09:22:30.865Z",
+  "CO|n703222138": "2026-11-17T09:23:07.133Z",
+  "PR|n1945970066": "2026-11-17T09:23:39.071Z",
+  "MX|Guanajuato": "2026-11-17T09:24:17.351Z",
+  "MX|Temascalcingo": "2026-11-17T09:24:47.611Z",
+  "CR|Limón": "2026-11-17T09:25:24.001Z",
+  "CR|Puntarenas": "2026-11-17T09:26:06.457Z",
+  "VE|n2172650558": "2026-11-17T09:26:47.584Z",
+  "ES|n1470837694": "2026-11-17T09:27:26.022Z",
+  "CO|n3159363873": "2026-11-17T09:28:05.714Z",
+  "PE|Moquegua": "2026-11-17T09:28:32.181Z",
+  "ES|n1470838201": "2026-11-17T09:29:08.708Z",
+  "VE|n3440152205": "2026-11-17T09:30:37.872Z",
+  "CO|n282916376": "2026-11-17T09:32:16.432Z",
+  "VE|n5291801995": "2026-11-17T09:38:31.913Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7461,6 +7478,139 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-17T09:20:59.577Z",
+   "cities": [
+    {
+     "cc": "VE",
+     "city": "Guasdualito",
+     "found": 1,
+     "updated": 0,
+     "osm": 1
+    },
+    {
+     "cc": "BO",
+     "city": "Cotoca",
+     "found": 0,
+     "updated": 0,
+     "osm": 4
+    },
+    {
+     "cc": "PE",
+     "city": "Ilo",
+     "found": 1,
+     "updated": 0,
+     "osm": 50
+    },
+    {
+     "cc": "CO",
+     "city": "El Espinal",
+     "found": 6,
+     "updated": 1,
+     "osm": 26
+    },
+    {
+     "cc": "PR",
+     "city": "Caguas",
+     "found": 12,
+     "updated": 0,
+     "osm": 60
+    },
+    {
+     "cc": "MX",
+     "city": "Guanajuato",
+     "found": 12,
+     "updated": 0,
+     "osm": 34
+    },
+    {
+     "cc": "MX",
+     "city": "Temascalcingo",
+     "found": 0,
+     "updated": 0,
+     "osm": 3
+    },
+    {
+     "cc": "CR",
+     "city": "Limón",
+     "found": 4,
+     "updated": 0,
+     "osm": 38
+    },
+    {
+     "cc": "CR",
+     "city": "Puntarenas",
+     "found": 0,
+     "updated": 0,
+     "osm": 14
+    },
+    {
+     "cc": "VE",
+     "city": "Punta de Mata",
+     "found": 1,
+     "updated": 0,
+     "osm": 7
+    },
+    {
+     "cc": "ES",
+     "city": "Alcalá de Guadaíra",
+     "found": 11,
+     "updated": 0,
+     "osm": 18
+    },
+    {
+     "cc": "CO",
+     "city": "Marinilla",
+     "found": 4,
+     "updated": 0,
+     "osm": 53
+    },
+    {
+     "cc": "PE",
+     "city": "Moquegua",
+     "found": 17,
+     "updated": 0,
+     "osm": 75
+    },
+    {
+     "cc": "ES",
+     "city": "Castelldefels",
+     "found": 3,
+     "updated": 0,
+     "osm": 44
+    },
+    {
+     "cc": "VE",
+     "city": "Pariaguán",
+     "found": 4,
+     "updated": 0,
+     "osm": 13
+    },
+    {
+     "cc": "CO",
+     "city": "Arjona",
+     "found": 14,
+     "updated": 0,
+     "osm": 36
+    },
+    {
+     "cc": "VE",
+     "city": "San Juan de Colón",
+     "found": 3,
+     "updated": 0,
+     "osm": 9
+    }
+   ],
+   "added": 93,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 17.6,
+   "total": 22237
+  },
   {
    "at": "2026-11-17T07:39:48.032Z",
    "cities": [
@@ -9957,78 +10107,6 @@
    "errors": [],
    "minutes": 19.2,
    "total": 20014
-  },
-  {
-   "at": "2026-11-13T19:15:29.357Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Cuauhtémoc",
-     "found": 0,
-     "updated": 0,
-     "osm": 11
-    },
-    {
-     "cc": "CO",
-     "city": "Buga",
-     "found": 10,
-     "updated": 1,
-     "osm": 16
-    },
-    {
-     "cc": "CO",
-     "city": "Cartago",
-     "found": 5,
-     "updated": 0,
-     "osm": 26
-    },
-    {
-     "cc": "BO",
-     "city": "La Guardia",
-     "found": 0,
-     "updated": 0,
-     "osm": 4
-    },
-    {
-     "cc": "AR",
-     "city": "Merlo",
-     "found": 8,
-     "updated": 2,
-     "osm": 218
-    },
-    {
-     "cc": "AR",
-     "city": "San Nicolás de los Arroyos",
-     "found": 13,
-     "updated": 0,
-     "osm": 60
-    },
-    {
-     "cc": "CO",
-     "city": "Yopal",
-     "found": 51,
-     "updated": 1,
-     "osm": 110
-    },
-    {
-     "cc": "MX",
-     "city": "Iguala",
-     "found": 2,
-     "updated": 0,
-     "osm": 30
-    }
-   ],
-   "added": 89,
-   "enriched": 0,
-   "photos": 1,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "MX|San Pedro Garza García: sin tiempo en esta corrida"
-   ],
-   "minutes": 19.3,
-   "total": 19993
   }
  ]
 }
