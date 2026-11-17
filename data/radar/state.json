@@ -7322,7 +7322,15 @@
   "MX|Cadereyta Jiménez": "2026-11-17T01:36:49.095Z",
   "MX|Texmelucan": "2026-11-17T01:38:28.175Z",
   "ES|n1470838099": "2026-11-17T01:44:13.781Z",
-  "ES|n240423012": "2026-11-17T01:52:00.963Z"
+  "ES|n240423012": "2026-11-17T01:52:00.963Z",
+  "AR|Santo Tomé": "2026-11-17T03:06:38.134Z",
+  "AR|Villa Ciudad Jardín El Libertador": "2026-11-17T03:07:15.005Z",
+  "VE|n2302015395": "2026-11-17T03:07:47.633Z",
+  "ES|n154892855": "2026-11-17T03:08:29.950Z",
+  "ES|n3248338760": "2026-11-17T03:09:09.982Z",
+  "PE|Pisco": "2026-11-17T03:15:23.064Z",
+  "CL|Linares": "2026-11-17T03:16:08.706Z",
+  "AR|Boulogne Sur Mer": "2026-11-17T03:18:33.715Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7427,6 +7435,78 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-17T03:05:52.431Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Santo Tomé",
+     "found": 0,
+     "updated": 0,
+     "osm": 61
+    },
+    {
+     "cc": "AR",
+     "city": "Villa Ciudad Jardín El Libertador",
+     "found": 5,
+     "updated": 0,
+     "osm": 170
+    },
+    {
+     "cc": "VE",
+     "city": "Guanta",
+     "found": 0,
+     "updated": 0,
+     "osm": 50
+    },
+    {
+     "cc": "ES",
+     "city": "Ciudad Real",
+     "found": 8,
+     "updated": 0,
+     "osm": 53
+    },
+    {
+     "cc": "ES",
+     "city": "Rubí",
+     "found": 0,
+     "updated": 0,
+     "osm": 56
+    },
+    {
+     "cc": "PE",
+     "city": "Pisco",
+     "found": 5,
+     "updated": 0,
+     "osm": 66
+    },
+    {
+     "cc": "CL",
+     "city": "Linares",
+     "found": 21,
+     "updated": 1,
+     "osm": 64
+    },
+    {
+     "cc": "AR",
+     "city": "Boulogne Sur Mer",
+     "found": 3,
+     "updated": 0,
+     "osm": 168
+    }
+   ],
+   "added": 42,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "ES|n31335145: sin tiempo en esta corrida"
+   ],
+   "minutes": 19,
+   "total": 21995
+  },
   {
    "at": "2026-11-17T01:33:52.622Z",
    "cities": [
@@ -9837,90 +9917,6 @@
    "errors": [],
    "minutes": 16.4,
    "total": 19842
-  },
-  {
-   "at": "2026-11-13T13:29:35.753Z",
-   "cities": [
-    {
-     "cc": "CL",
-     "city": "Los Ángeles",
-     "found": 44,
-     "updated": 0,
-     "osm": 105
-    },
-    {
-     "cc": "ES",
-     "city": "Torrejón de Ardoz",
-     "found": 0,
-     "updated": 0,
-     "osm": 52
-    },
-    {
-     "cc": "ES",
-     "city": "Lérida",
-     "found": 5,
-     "updated": 0,
-     "osm": 75
-    },
-    {
-     "cc": "AR",
-     "city": "Monte Grande",
-     "found": 1,
-     "updated": 0,
-     "osm": 130
-    },
-    {
-     "cc": "EC",
-     "city": "Milagro",
-     "found": 12,
-     "updated": 0,
-     "osm": 54
-    },
-    {
-     "cc": "MX",
-     "city": "Kanasín",
-     "found": 0,
-     "updated": 0,
-     "osm": 22
-    },
-    {
-     "cc": "DO",
-     "city": "La Romana",
-     "found": 18,
-     "updated": 0,
-     "osm": 34
-    },
-    {
-     "cc": "MX",
-     "city": "Hacienda Santa Fe",
-     "found": 1,
-     "updated": 0,
-     "osm": 115
-    },
-    {
-     "cc": "MX",
-     "city": "Córdoba",
-     "found": 18,
-     "updated": 0,
-     "osm": 175
-    },
-    {
-     "cc": "DO",
-     "city": "Verón",
-     "found": 3,
-     "updated": 0,
-     "osm": 3
-    }
-   ],
-   "added": 102,
-   "enriched": 0,
-   "photos": 16,
-   "contacts": 14,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 14.9,
-   "total": 19824
   }
  ]
 }
