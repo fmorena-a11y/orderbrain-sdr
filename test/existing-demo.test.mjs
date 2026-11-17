@@ -182,3 +182,13 @@ test("prospecto de otra persona: el 409 dice de quién es y «pasámelo» lo pas
   const ok = await sales.logContact(ID.margarita, me, { outcome: "no_answer", channel: "call" }, "UTC");
   assert.equal(ok.where?.kind, "lead");
 });
+
+// dirección escrita a mano (pedido del líder): queda en el cruce (la ve el equipo), en el prospecto tuyo o libre y en los campos del prospecto nuevo
+test("dirección a mano: se guarda y va al prospecto", async () => {
+  const r = await sales.setAddress(ID.pestalozzi, me, "  Av. Juárez   1234, Centro ");
+  assert.equal(r.addr, "Av. Juárez 1234, Centro");
+  assert.equal((await sales.addressView(ID.pestalozzi)).src, "manual");
+  assert.match((await pd.getLead("demo-sep-pestalozzi")).addr, /Av\. Juárez 1234, Centro, Puebla/);
+  assert.equal(sales.schoolListItem(byId.get(ID.pestalozzi)).addr, "Av. Juárez 1234, Centro");
+  await assert.rejects(sales.setAddress(ID.pestalozzi, me, "x"), e => e.status === 400);
+});

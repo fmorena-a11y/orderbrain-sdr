@@ -60,10 +60,35 @@ function fullAddr(street, s) {
   for (const p of [street, s.city, s.country].map(x => String(x || "").trim()).filter(Boolean)) if (!out.some(o => fold(o).includes(fold(p)))) out.push(p);
   return out.join(", ");
 }
+// D.addr: lo que dice el servidor (/address): escrita a mano, de la base o del punto del mapa
 function addrRow(s) {
-  const street = s.addr || (D.id === s.id ? D.study?.contacto?.direccion : "") || "";
-  const line = fullAddr(street, s); if (!line) return "";
-  return `<div class="sub d-addr"><span class="k">Dirección${street ? "" : " (solo ciudad)"}</span> <span class="v">${esc(line)}</span><button class="icon-btn sm" data-copy="${esc(line)}" aria-label="Copiar la dirección" title="Copiar la dirección">${icon("copy", "sm")}</button></div>`;
+  const A = D.id === s.id ? D.addr : null;
+  if (D.id === s.id && D.addrEdit) return `<form class="sub d-addr edit" id="addrF"><span class="k">Dirección</span><input class="inp sm" id="addrIn" value="${esc(A?.src === "manual" ? A.addr : s.addr || A?.addr || "")}" placeholder="Calle y número, barrio" maxlength="200" autocomplete="off"><button class="btn sm primary" type="submit">Guardar</button><button class="btn sm ghost" type="button" id="addrNo">Cancelar</button></form>`;
+  const street = (A?.src === "manual" && A.addr) || s.addr || (A?.src === "mapa" && A.addr) || (D.id === s.id ? D.study?.contacto?.direccion : "") || "";
+  const line = fullAddr(street, s);
+  const tag = A?.src === "manual" ? ` <span class="faint" title="${esc([A.by && `Cargada a mano por ${A.by}`, A.at && new Date(A.at).toLocaleDateString()].filter(Boolean).join(" · "))}">(a mano)</span>` : A?.src === "mapa" && !s.addr ? ` <span class="faint" title="Sale del punto del colegio en el mapa (OpenStreetMap): revisala">(del mapa)</span>` : !street ? " (solo ciudad)" : "";
+  return `<div class="sub d-addr"><span class="k">Dirección${tag}</span> <span class="v">${esc(line || "sin dirección")}</span>${line ? `<button class="icon-btn sm" data-copy="${esc(line)}" aria-label="Copiar la dirección" title="Copiar la dirección">${icon("copy", "sm")}</button>` : ""}<button class="icon-btn sm" id="addrEd" aria-label="Escribir la dirección a mano" title="Escribir la dirección a mano">${icon("edit", "sm")}</button></div>`;
+}
+async function loadAddr(id) {
+  try { const r = await api(`/api/schools/${encodeURIComponent(id)}/address`); if (D.id !== id) return; D.addr = r; keepScroll(draw); } catch { /* sin dirección del servidor: queda la de la base */ }
+}
+function bindAddr(s) {
+  const el = $("drawer");
+  el.querySelector("#addrEd")?.addEventListener("click", () => { D.addrEdit = true; draw(); const i = el.querySelector("#addrIn"); i?.focus(); i?.select(); });
+  el.querySelector("#addrNo")?.addEventListener("click", () => { D.addrEdit = false; draw(); });
+  el.querySelector("#addrIn")?.addEventListener("keydown", e => { if (e.key === "Escape") { e.preventDefault(); D.addrEdit = false; draw(); } });
+  el.querySelector("#addrF")?.addEventListener("submit", async e => {
+    e.preventDefault();
+    const b = e.currentTarget.querySelector("button[type=submit]"), v = el.querySelector("#addrIn").value.trim();
+    b.disabled = true; b.innerHTML = `<span class="spin"></span>`;
+    try {
+      const r = await api(`/api/schools/${encodeURIComponent(s.id)}/address`, { body: { addr: v } });
+      D.addr = { addr: r.addr, src: "manual", by: S.me?.name || "", at: new Date().toISOString() }; D.addrEdit = false;
+      patchSchool({ id: s.id, addr: r.addr });
+      toast([`Dirección guardada: ${r.line}`, ...(r.done || []).map(x => x.label), ...(r.warnings || [])].join(" · "), r.warnings?.length ? { type: "info", ms: 8000 } : {});
+      draw();
+    } catch (x) { toast(x.message, { type: "err" }); b.disabled = false; b.textContent = "Guardar"; }
+  });
 }
 export async function openRecord(ref, opts = {}) {
   const [kind, rid] = String(ref).split(/:(.*)/s), ss = S.session;
@@ -99,7 +124,7 @@ export async function openSchool(id, { activityId = null, tab = null, keepSessio
   if ($("drawer").hidden) { D.opener = document.activeElement; history.pushState({ ...(history.state || {}), drawer: id }, ""); }
   import("./app.js").then(m => m.rememberSchool(id));
   const draft = drafts.get(id); drafts.delete(id);
-  Object.assign(D, { sref: keepSession ? sref || id : null, inCall: false, call: null, id, data: null, form: draft?.form || newForm(), activityId: activityId ?? draft?.activityId ?? null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null, tl: null, cbOpen: !!cbOpen, tab: draft ? "log" : tab || (activityId ? "log" : "prep") });
+  Object.assign(D, { sref: keepSession ? sref || id : null, inCall: false, call: null, id, data: null, form: draft?.form || newForm(), activityId: activityId ?? draft?.activityId ?? null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null, tl: null, addr: null, addrEdit: false, cbOpen: !!cbOpen, tab: draft ? "log" : tab || (activityId ? "log" : "prep") });
   if (draft) toast("Recuperé lo que estabas cargando", { type: "info" });
   $("drawer").hidden = false; $("scrim").hidden = false;
   $("scrim").onclick = closeSchool;
@@ -111,6 +136,7 @@ export async function openSchool(id, { activityId = null, tab = null, keepSessio
   loadTimeline(id);
   loadPhotos(id);
   loadStudy(id);
+  loadAddr(id);
   loadBaseInfo(id);
 }
 // ---------- de una base cargada (Cargar base, lib/bases.js): los contactos de la planilla del evento. El primero (quien decide)
@@ -872,6 +898,7 @@ function draw() {
   ${D.tab === "log" && d && !D.result ? `<div class="d-foot"><div class="sum" id="sum">${summary(s, d)}</div><button class="btn primary lg" id="save" ${saveDisabled(s) ? "disabled" : ""}>${D.saving ? `<span class="spin"></span> Guardando…` : saveLabel()}</button></div>` : ""}`;
   bindTop(s, d);
   el.querySelectorAll(".d-addr [data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy));
+  bindAddr(s);
   if (d) {
     if (D.tab === "prep") bindPrep(s, d);
     if (D.tab === "log") D.result ? bindResult(s, d) : bindLog(s, d);

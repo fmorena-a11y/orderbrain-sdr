@@ -817,6 +817,9 @@ app.post("/api/schools/:id/deals/:dealId", auth, schoolParam, wrap(async (req, r
 }));
 // Archivar en la app (y en Pipedrive solo lo tuyo o lo libre). No clientes ni tratos abiertos de otra persona (salvo un líder).
 // Desarchivar: quien lo archivó o un líder. Las reglas están en lib/archive.js.
+// dirección de la ficha: ver (manual, base o del mapa) y escribirla a mano (también en el prospecto y la organización si son tuyos o libres)
+app.get("/api/schools/:id/address", auth, schoolParam, wrap(async (req, res) => res.json(await sales.addressView(req.params.id))));
+app.post("/api/schools/:id/address", auth, schoolParam, wrap(async (req, res) => res.json(await sales.setAddress(req.params.id, req.session.user, req.body?.addr))));
 app.post("/api/schools/:id/archive", auth, schoolParam, wrap(async (req, res) => {
   const user = req.session.user, b = req.body || {};
   res.json(await sales.archiveSchool(req.params.id, user, { leader: await leadScopeFor(user.email), by: await signName(user), reason: String(b.reason || ""), text: String(b.text || "") }));
