@@ -7378,7 +7378,11 @@
   "PR|n1900430225": "2026-11-17T15:27:34.969Z",
   "AR|San Miguel": "2026-11-17T17:28:11.367Z",
   "PY|n6813083835": "2026-11-17T17:28:46.996Z",
-  "MX|San Mateo Atenco": "2026-11-17T17:29:21.323Z"
+  "MX|San Mateo Atenco": "2026-11-17T17:29:21.323Z",
+  "MX|Zihuatanejo": "2026-11-17T19:25:00.506Z",
+  "CO|n339990106": "2026-11-17T19:25:34.607Z",
+  "DO|n12372247529": "2026-11-17T19:33:18.803Z",
+  "AR|General Pico": "2026-11-17T19:38:18.583Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7503,6 +7507,48 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-17T19:24:12.105Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Zihuatanejo",
+     "found": 1,
+     "updated": 0,
+     "osm": 9
+    },
+    {
+     "cc": "CO",
+     "city": "Corozal",
+     "found": 16,
+     "updated": 0,
+     "osm": 47
+    },
+    {
+     "cc": "DO",
+     "city": "San Luis",
+     "found": 0,
+     "updated": 0,
+     "osm": 36
+    },
+    {
+     "cc": "AR",
+     "city": "General Pico",
+     "found": 2,
+     "updated": 0,
+     "osm": 11
+    }
+   ],
+   "added": 19,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 14.1,
+   "total": 22320
+  },
   {
    "at": "2026-11-17T17:21:43.720Z",
    "cities": [
@@ -9907,181 +9953,6 @@
    "errors": [],
    "minutes": 19.5,
    "total": 20571
-  },
-  {
-   "at": "2026-11-14T05:10:15.802Z",
-   "cities": [
-    {
-     "cc": "CO",
-     "city": "Turbo",
-     "found": 14,
-     "updated": 0,
-     "osm": 40
-    },
-    {
-     "cc": "CL",
-     "city": "Curicó",
-     "found": 41,
-     "updated": 1,
-     "osm": 83
-    },
-    {
-     "cc": "ES",
-     "city": "Algeciras",
-     "found": 11,
-     "updated": 0,
-     "osm": 52
-    },
-    {
-     "cc": "CL",
-     "city": "Villa Alemana",
-     "found": 35,
-     "updated": 0,
-     "osm": 119
-    },
-    {
-     "cc": "CO",
-     "city": "Facatativá",
-     "found": 6,
-     "updated": 0,
-     "osm": 23
-    },
-    {
-     "cc": "BO",
-     "city": "Warnes",
-     "found": 0,
-     "updated": 0,
-     "osm": 5
-    },
-    {
-     "cc": "ES",
-     "city": "Badajoz",
-     "found": 21,
-     "updated": 0,
-     "osm": 61
-    },
-    {
-     "cc": "CO",
-     "city": "Maicao",
-     "found": 36,
-     "updated": 0,
-     "osm": 138
-    },
-    {
-     "cc": "AR",
-     "city": "Santa María",
-     "found": 3,
-     "updated": 0,
-     "osm": 138
-    },
-    {
-     "cc": "CL",
-     "city": "Punta Arenas",
-     "found": 31,
-     "updated": 0,
-     "osm": 76
-    },
-    {
-     "cc": "AR",
-     "city": "Morón",
-     "found": 0,
-     "updated": 0,
-     "osm": 101
-    },
-    {
-     "cc": "HN",
-     "city": "Puerto Cortés",
-     "found": 3,
-     "updated": 0,
-     "osm": 11
-    },
-    {
-     "cc": "MX",
-     "city": "Navojoa",
-     "found": 7,
-     "updated": 0,
-     "osm": 23
-    },
-    {
-     "cc": "VE",
-     "city": "Mariara",
-     "found": 1,
-     "updated": 0,
-     "osm": 37
-    },
-    {
-     "cc": "AR",
-     "city": "Florencio Varela",
-     "found": 0,
-     "updated": 0,
-     "osm": 124
-    },
-    {
-     "cc": "PY",
-     "city": "Coronel Oviedo",
-     "found": 7,
-     "updated": 0,
-     "osm": 56
-    },
-    {
-     "cc": "PY",
-     "city": "Pedro Juan Caballero",
-     "found": 5,
-     "updated": 0,
-     "osm": 11
-    },
-    {
-     "cc": "MX",
-     "city": "Orizaba",
-     "found": 25,
-     "updated": 0,
-     "osm": 169
-    },
-    {
-     "cc": "AR",
-     "city": "San Rafael",
-     "found": 7,
-     "updated": 0,
-     "osm": 32
-    },
-    {
-     "cc": "PE",
-     "city": "Huaraz",
-     "found": 15,
-     "updated": 0,
-     "osm": 124
-    },
-    {
-     "cc": "CO",
-     "city": "Ciénaga",
-     "found": 50,
-     "updated": 0,
-     "osm": 86
-    },
-    {
-     "cc": "VE",
-     "city": "La Concepción",
-     "found": 1,
-     "updated": 0,
-     "osm": 5
-    },
-    {
-     "cc": "ES",
-     "city": "León",
-     "found": 22,
-     "updated": 0,
-     "osm": 91
-    }
-   ],
-   "added": 341,
-   "enriched": 0,
-   "photos": 14,
-   "contacts": 19,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 17.3,
-   "total": 20484
   }
  ]
 }
