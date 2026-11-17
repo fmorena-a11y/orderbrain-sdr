@@ -660,9 +660,30 @@ export function noticeTab(html) {
   const err = /class="callout err/.test(html);
   return `<details class="notice-tab"${closed ? "" : " open"}><summary>${icon("alert", "sm")}<b>Avisos</b><span class="nt-n${err ? " err" : ""}">${n}</span><span class="nt-hint">${closed ? "Ver" : "Ocultar"}</span>${icon("chevDown", "sm")}</summary><div class="nt-body">${html}</div></details>`;
 }
+// se guarda al instante del clic: si la lista se redibuja enseguida (revisando la zona, cargando Pipedrive), el «toggle» llega a
+// un elemento que ya no está y la solapa volvía a aparecer abierta
+// Con el mouse se resuelve al apretar (pointerdown): si la lista se redibuja entre apretar y soltar, el «click» no llega nunca.
+let ntPress = 0;
+const ntSet = (d, open) => {
+  try { localStorage.setItem(NT_KEY, open ? "0" : "1"); } catch { /* sin almacenamiento */ }
+  d.open = open; const h = d.querySelector(".nt-hint"); if (h) h.textContent = open ? "Ocultar" : "Ver";
+  // las otras solapas dibujadas (si la lista se redibujó) quedan igual
+  document.querySelectorAll("details.notice-tab").forEach(x => { if (x !== d) x.open = open; });
+};
+document.addEventListener("pointerdown", e => {
+  if (e.button !== 0) return;
+  const sm = e.target.closest?.(".notice-tab > summary"); if (!sm) return;
+  ntPress = Date.now(); ntSet(sm.parentElement, !sm.parentElement.open);
+}, true);
+document.addEventListener("click", e => {
+  const sm = e.target.closest?.(".notice-tab > summary"); if (!sm) return;
+  e.preventDefault(); // la solapa la abre o cierra ntSet, no el navegador
+  if (Date.now() - ntPress < 1500) return; // ya lo resolvió el pointerdown
+  ntSet(sm.parentElement, !sm.parentElement.open); // teclado (Enter o espacio)
+}, true);
 document.addEventListener("toggle", e => {
+  // solo el texto: el estado lo guarda el clic (el «toggle» de una solapa recién dibujada abierta no tiene que pisar lo elegido)
   const d = e.target; if (!d?.classList?.contains("notice-tab")) return;
-  try { localStorage.setItem(NT_KEY, d.open ? "0" : "1"); } catch { /* sin almacenamiento */ }
   const h = d.querySelector(".nt-hint"); if (h) h.textContent = d.open ? "Ocultar" : "Ver";
 }, true);
 export const brainWarn = () => brainTokenCallout("") + (S.brainDown || S.brain?.down ? `<div class="callout warn">${icon("alert")}<span>No pudimos leer los clientes de World Dominion (${esc(S.brain?.error || "OrderBrain no respondió")}). Hasta que vuelva, revisá en Pipedrive antes de llamar.</span></div>` : brainStaleMsg() ? `<div class="callout warn">${icon("alert")}<span>${esc(brainStaleMsg())}</span></div>` : "");
