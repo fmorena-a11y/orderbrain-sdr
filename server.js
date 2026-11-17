@@ -203,7 +203,9 @@ const wrap = fn => (req, res) => fn(req, res).catch(e => {
   const code = typeof e.code === "string" && /^[a-z][a-z_]{1,40}$/.test(e.code) ? { code: e.code } : {};
   // candidates: lo que ya hay en Pipedrive y se parece al colegio (sales.settleExisting): la ficha pregunta «¿es alguno de estos?»
   const cands = Array.isArray(e.candidates) ? { candidates: e.candidates } : {};
-  res.status(status).json({ error: e instanceof pd.PipedriveError ? `Pipedrive: ${e.message}` : e.message, ...code, ...cands });
+  // take: el prospecto de otra persona que se puede pasar a tu nombre («Ya hablé con X: pasámelo»): clave y dueño
+  const take = e.take && typeof e.take.key === "string" ? { take: { key: e.take.key, owner: String(e.take.owner || "") } } : {};
+  res.status(status).json({ error: e instanceof pd.PipedriveError ? `Pipedrive: ${e.message}` : e.message, ...code, ...cands, ...take });
 });
 // Cada uno cambia solo sus actividades (marcar hecha, deshacer, reprogramar); un líder, las de la gente de sus equipos
 // (dirección y los fijos, o cualquier líder si no hay equipos: todas).
@@ -684,7 +686,7 @@ app.post("/api/schools/:id/match", auth, schoolParam, wrap(async (req, res) => {
 // organización); «Es otro colegio» { none: true } lo descarta y lo próximo que se registre crea lo suyo.
 app.post("/api/schools/:id/existing", auth, schoolParam, wrap(async (req, res) => {
   const b = req.body || {}, user = req.session.user;
-  const r = b.none ? await sales.dismissExisting(req.params.id) : await sales.useExisting(req.params.id, user, String(b.key || ""));
+  const r = b.none ? await sales.dismissExisting(req.params.id) : await sales.useExisting(req.params.id, user, String(b.key || ""), { take: b.take === true });
   res.json({ ...r, detail: await sales.schoolDetail(req.params.id, { user, tz: req.tz }) });
 }));
 // «Es esta» → «¿Estás seguro?»: lo que dice Pipedrive de esa organización, para comparar con el colegio

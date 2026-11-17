@@ -168,3 +168,17 @@ test("Smart BCC: sin PIPEDRIVE_SMART_BCC va la de la cuenta de OrderEAT; «off»
   process.env.PIPEDRIVE_SMART_BCC = "off"; assert.equal(G.smartBcc(), "");
   delete process.env.PIPEDRIVE_SMART_BCC;
 });
+
+// «Ya hablé con X: pasámelo» (pedido del líder de SDR): el aviso dice de quién es y ofrece pasarlo; con take pasa a tu
+// nombre, queda una nota y después se registra normal en ese prospecto
+test("prospecto de otra persona: el 409 dice de quién es y «pasámelo» lo pasa a tu nombre con una nota", async () => {
+  const err = await sales.logContact(ID.margarita, me, { outcome: "no_answer", channel: "call" }, "UTC").catch(e => e);
+  assert.equal(err.code, "pd_theirs"); assert.deepEqual(err.take, { key: "lead:demo-sep-margarita", owner: "Juan Diego" });
+  const r = await sales.useExisting(ID.margarita, me, "lead:demo-sep-margarita", { take: true });
+  assert.match(r.done.map(d => d.label).join(" "), /pasó a tu nombre \(era de Juan Diego\)/);
+  assert.equal((await pd.getLead("demo-sep-margarita")).ownerId, 1);
+  const notes = await pd.notesForLead("demo-sep-margarita");
+  assert.ok(notes.some(n => /Prospecto pasado a/.test(n.content) && /Juan Diego/.test(n.content)));
+  const ok = await sales.logContact(ID.margarita, me, { outcome: "no_answer", channel: "call" }, "UTC");
+  assert.equal(ok.where?.kind, "lead");
+});

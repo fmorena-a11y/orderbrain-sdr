@@ -1048,6 +1048,7 @@ function bindPrep(s, d) {
   el.querySelectorAll("[data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy));
   el.querySelectorAll("[data-org]").forEach(b => b.onclick = () => confirmOrg(s, +b.dataset.org, b.dataset.name, b));
   el.querySelectorAll("[data-exkey]").forEach(b => b.onclick = () => chooseExisting(s, { key: b.dataset.exkey }, b));
+  el.querySelectorAll("[data-extake]").forEach(b => b.onclick = () => takeExisting(s, b.dataset.extake, b.dataset.owner, b));
   el.querySelector("#exNone")?.addEventListener("click", e => chooseExisting(s, { none: true }, e.currentTarget));
   el.querySelector("#unlink")?.addEventListener("click", () => { D.data = null; draw(); load({ match: { orgId: null } }); });
   el.querySelector("#dupReview")?.addEventListener("click", e => reviewDupes(s, e.currentTarget));
@@ -1060,7 +1061,25 @@ const exOwner = c => c.ownerId && c.ownerId === S.me.pdUserId ? "tuyo" : c.owner
 function exRow(c) {
   const sub = [c.what, exOwner(c), c.place || "sin ciudad en Pipedrive", c.phone].filter(Boolean).join(" · ");
   return `<div class="cand"><span class="cand-b"><span>${esc(c.title)}</span><small>${esc(sub)}</small>${c.why ? `<small class="cand-why">${esc(cap(c.why))}</small>` : ""}</span>
-    <span class="cand-a"><a class="icon-btn" href="${esc(c.url)}" target="_blank" rel="noopener" title="Ver en Pipedrive" aria-label="Ver «${esc(c.title)}» en Pipedrive">${icon("external")}</a><button class="btn sm" data-exkey="${esc(c.key)}">Es este</button></span></div>`;
+    <span class="cand-a"><a class="icon-btn" href="${esc(c.url)}" target="_blank" rel="noopener" title="Ver en Pipedrive" aria-label="Ver «${esc(c.title)}» en Pipedrive">${icon("external")}</a>${theirsLead(c) ? `<button class="btn sm" data-extake="${esc(c.key)}" data-owner="${esc(c.owner || "otra persona")}" title="Pasa a tu nombre en Pipedrive, con una nota">Ya hablé con ${esc(firstName(c.owner))}: pasámelo</button>` : ""}<button class="btn sm" data-exkey="${esc(c.key)}">Es este</button></span></div>`;
+}
+const theirsLead = c => c.kind === "lead" && c.ownerId && c.ownerId !== S.me.pdUserId;
+const firstName = n => String(n || "esa persona").replace(/\s*\(.*\)$/, "").split(" ")[0] || "esa persona";
+// «Ya hablé con X: pasámelo»: confirma y pasa el prospecto de otra persona a tu nombre (con una nota en Pipedrive)
+function confirmTake(owner, msg = "") {
+  return new Promise(resolve => {
+    let ok = false;
+    const m = modal(`<h3>¿Lo pasás a tu nombre?</h3>
+      ${msg ? `<p class="muted" style="margin:0">${esc(msg)}</p>` : ""}
+      <p style="margin:0">El prospecto es de <b>${esc(owner || "otra persona")}</b>. Si ya lo hablaste, pasa a tu nombre en Pipedrive y queda una nota que lo dice.</p>
+      <div class="row"><button class="btn ghost" id="tkNo">No, lo dejo</button><button class="btn primary" id="tkGo">Ya lo hablé: pasámelo</button></div>`, { onClose: () => resolve(ok) });
+    m.querySelector("#tkNo").onclick = () => m.close();
+    m.querySelector("#tkGo").onclick = () => { ok = true; m.close(); };
+  });
+}
+async function takeExisting(s, key, owner, btn, msg = "") {
+  if (!(await confirmTake(owner, msg))) return false;
+  return chooseExisting(s, { key, take: true }, btn);
 }
 // «Es este» o «Es otro colegio» (desde la ficha o desde la pregunta): queda en el cruce y la ficha se actualiza
 async function chooseExisting(s, choice, btn) {
@@ -1071,7 +1090,10 @@ async function chooseExisting(s, choice, btn) {
     S.today = null;
     toast(choice.none ? "Listo: lo próximo que registres crea el prospecto de este colegio" : (r.done || []).map(x => x.label).join(" · ") || "Listo: queda vinculado");
     return true;
-  } catch (e) { toast(e.message, { type: "err", ms: 9000 }); if (D.id === s.id) draw(); return false; }
+  } catch (e) {
+    if (e.code === "pd_theirs" && e.data?.take && !choice.take) { if (D.id === s.id) draw(); return takeExisting(s, e.data.take.key, e.data.take.owner, null, e.message); }
+    toast(e.message, { type: "err", ms: 9000 }); if (D.id === s.id) draw(); return false;
+  }
 }
 function askPdExisting(s, cands) {
   return new Promise(resolve => {
@@ -1086,6 +1108,7 @@ function askPdExisting(s, cands) {
     q("#pdxX").onclick = q("#pdxNo").onclick = () => m.close();
     const pick = async (choice, b) => { m.locked = true; const ok = await chooseExisting(s, choice, b); m.locked = false; if (ok) { out = true; m.close(); } else if (b) { b.disabled = false; b.textContent = choice.none ? "Es otro colegio, crear prospecto nuevo" : "Es este"; } };
     m.querySelectorAll("[data-exkey]").forEach(b => b.onclick = () => pick({ key: b.dataset.exkey }, b));
+    m.querySelectorAll("[data-extake]").forEach(b => b.onclick = async () => { m.locked = true; const ok = await takeExisting(s, b.dataset.extake, b.dataset.owner, b); m.locked = false; if (ok) { out = true; m.close(); } });
     q("#pdxNew").onclick = e => pick({ none: true }, e.currentTarget);
   });
 }
@@ -1093,6 +1116,8 @@ async function apiEx(s, path, opts) {
   for (let i = 0; ; i++) {
     try { return await api(path, opts); }
     catch (e) {
+      // de otra persona: «Ya hablé con X: pasámelo» y se vuelve a pedir lo mismo
+      if (e.code === "pd_theirs" && e.data?.take && i < 2) { if (await takeExisting(s, e.data.take.key, e.data.take.owner, null, e.message)) continue; throw e; }
       if (e.code !== "pd_maybe" || !e.data?.candidates?.length || i >= 2) throw e;
       if (!(await askPdExisting(s, e.data.candidates))) throw new Error("No guardé nada: primero decí si es alguno de esos o si es otro colegio.");
     }
