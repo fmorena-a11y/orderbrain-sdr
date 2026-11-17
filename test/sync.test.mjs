@@ -166,3 +166,18 @@ test("de punta a punta en el demo: se pausa y se sigue, y da lo mismo que checkS
   const sharing = list.filter(s => store.getMatch(s.id)?.orgId === tm.orgId).length;
   assert.equal(r.last.changed, sharing); assert.deepEqual(r.last.to, { open: sharing });
 });
+
+// «4188 (14091) New American School» (Asunción): la organización con el número y otra sin ningún número («Escuela New
+// American School») empatan (rate no exige el número si la organización no tiene). La masiva las ve a las dos y no
+// confirma sola; el cruce de a uno paraba en la búsqueda con el número y la confirmaba: tiene que buscar también sin él.
+test("número de escuela: el cruce de a uno también busca sin el número y da lo mismo que la masiva", async () => {
+  const withNum = await pd.createOrganization({ name: "7311 (25022) Carpincho Nandutí School", ownerId: 1 });
+  const noNum = await pd.createOrganization({ name: "Escuela Carpincho Nandutí School", ownerId: 1 });
+  const s = { id: "x-carpincho", name: "7311 (25022) Carpincho Nandutí School", city: "Asunción", country: "Paraguay" };
+  const ctx = pd.matchCtx([s], { memo: false }), k = ctx.key(s);
+  const one = await pd.findOrgCandidates(s, ctx), [many] = sync.candidatesFor([s], await allOrgs(), { ctx });
+  assert.deepEqual(one.map(c => [c.id, c.score]), [[withNum.id, 1], [noNum.id, 1]]);
+  assert.deepEqual(many.map(c => [c.id, c.score]), one.map(c => [c.id, c.score]));
+  assert.equal(pd.pickOrg(one).id, withNum.id);
+  assert.equal(pd.isSure(one, k), false); assert.equal(pd.isSure(many, k), false);
+});
