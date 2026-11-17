@@ -148,3 +148,16 @@ test("abreviaturas y número de escuela: «Colegio 28 PS Hermanos Maristas» (Sa
   // otro número sigue siendo otro colegio
   assert.notEqual(E.nameLevel(E.keyOf(school("Escuela Fe y Alegría 13", "Lima")), "Fe y Alegría 08", new Set()), "same");
 });
+
+// «no ofrecer colegios de otra ciudad»: la dirección del prospecto (o la de los prospectos de una organización sin ciudad)
+// dice dónde está; una dirección sin calle empieza por la ciudad («Rosario, Santa Fe, Argentina», como la carga la app)
+test("dirección: otra ciudad descarta; sin calle, el primero es la ciudad", async () => {
+  const EX = await import("../lib/existing.js");
+  const s = { city: "Rosario", country: "Argentina" };
+  assert.equal(EX.placeLevel(s, { kind: "organization", texts: ["Bacacay 746, Ituzaingó, Provincia de Buenos Aires, Argentina"] }), "other");
+  assert.equal(EX.placeLevel(s, { kind: "lead", texts: ["Rosario, Santa Fe, Argentina"] }), "same");
+  assert.equal(EX.placeLevel(s, { kind: "lead", texts: ["Rosario, Argentina"] }), "same");
+  assert.equal(EX.placeLevel({ city: "Puebla de Zaragoza", country: "México" }, { kind: "lead", texts: ["Puebla de Zaragoza, México"] }), "same");
+  assert.deepEqual(EX.addrParts("Calle de prueba 15, Colonia el carmen, puebla, puebla, C.P. 72530"), EX.addrParts("Calle de prueba 15, Colonia el carmen, puebla, puebla, C.P. 72530"));
+  assert.equal(EX.addrParts("Calle de prueba 15, Colonia el carmen, puebla, puebla").muni.toLowerCase(), "puebla");
+});
