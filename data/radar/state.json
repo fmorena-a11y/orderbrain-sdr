@@ -7368,7 +7368,10 @@
   "ES|n1470838201": "2026-11-17T09:29:08.708Z",
   "VE|n3440152205": "2026-11-17T09:30:37.872Z",
   "CO|n282916376": "2026-11-17T09:32:16.432Z",
-  "VE|n5291801995": "2026-11-17T09:38:31.913Z"
+  "VE|n5291801995": "2026-11-17T09:38:31.913Z",
+  "ES|n152377920": "2026-11-17T11:22:44.133Z",
+  "MX|Cortazar": "2026-11-17T11:23:22.363Z",
+  "AR|San Fernando": "2026-11-17T11:24:01.829Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7478,6 +7481,43 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-17T11:16:20.381Z",
+   "cities": [
+    {
+     "cc": "ES",
+     "city": "Tarragona",
+     "found": 1,
+     "updated": 0,
+     "osm": 50
+    },
+    {
+     "cc": "MX",
+     "city": "Cortazar",
+     "found": 3,
+     "updated": 0,
+     "osm": 22
+    },
+    {
+     "cc": "AR",
+     "city": "San Fernando",
+     "found": 3,
+     "updated": 0,
+     "osm": 167
+    }
+   ],
+   "added": 7,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "CO|n6141180690: sin tiempo en esta corrida"
+   ],
+   "minutes": 18.3,
+   "total": 22244
+  },
   {
    "at": "2026-11-17T09:20:59.577Z",
    "cities": [
@@ -10058,55 +10098,6 @@
    "errors": [],
    "minutes": 16.4,
    "total": 20047
-  },
-  {
-   "at": "2026-11-13T21:07:58.203Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "San Pedro Garza García",
-     "found": 0,
-     "updated": 0,
-     "osm": 57
-    },
-    {
-     "cc": "PE",
-     "city": "Huacho",
-     "found": 3,
-     "updated": 0,
-     "osm": 111
-    },
-    {
-     "cc": "NI",
-     "city": "Masaya",
-     "found": 8,
-     "updated": 0,
-     "osm": 30
-    },
-    {
-     "cc": "CO",
-     "city": "Fusagasugá",
-     "found": 4,
-     "updated": 0,
-     "osm": 21
-    },
-    {
-     "cc": "CL",
-     "city": "San Pedro de la Paz",
-     "found": 6,
-     "updated": 0,
-     "osm": 106
-    }
-   ],
-   "added": 21,
-   "enriched": 0,
-   "photos": 11,
-   "contacts": 11,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 19.2,
-   "total": 20014
   }
  ]
 }
