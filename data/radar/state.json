@@ -7315,7 +7315,14 @@
   "AR|Goya": "2026-11-16T23:02:50.744Z",
   "MX|Amozoc de Mota": "2026-11-16T23:03:30.330Z",
   "MX|Salina Cruz": "2026-11-16T23:10:00.048Z",
-  "CO|n263295783": "2026-11-16T23:16:33.834Z"
+  "CO|n263295783": "2026-11-16T23:16:33.834Z",
+  "VE|n377690696": "2026-11-17T01:34:37.067Z",
+  "CL|Ovalle": "2026-11-17T01:35:12.292Z",
+  "PY|n313911833": "2026-11-17T01:35:52.601Z",
+  "MX|Cadereyta Jiménez": "2026-11-17T01:36:49.095Z",
+  "MX|Texmelucan": "2026-11-17T01:38:28.175Z",
+  "ES|n1470838099": "2026-11-17T01:44:13.781Z",
+  "ES|n240423012": "2026-11-17T01:52:00.963Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7420,6 +7427,69 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-17T01:33:52.622Z",
+   "cities": [
+    {
+     "cc": "VE",
+     "city": "Santa Rita",
+     "found": 0,
+     "updated": 0,
+     "osm": 0
+    },
+    {
+     "cc": "CL",
+     "city": "Ovalle",
+     "found": 19,
+     "updated": 0,
+     "osm": 51
+    },
+    {
+     "cc": "PY",
+     "city": "Areguá",
+     "found": 2,
+     "updated": 0,
+     "osm": 41
+    },
+    {
+     "cc": "MX",
+     "city": "Cadereyta Jiménez",
+     "found": 2,
+     "updated": 0,
+     "osm": 11
+    },
+    {
+     "cc": "MX",
+     "city": "Texmelucan",
+     "found": 1,
+     "updated": 0,
+     "osm": 20
+    },
+    {
+     "cc": "ES",
+     "city": "Benidorm",
+     "found": 4,
+     "updated": 0,
+     "osm": 26
+    },
+    {
+     "cc": "ES",
+     "city": "Palencia",
+     "found": 26,
+     "updated": 0,
+     "osm": 55
+    }
+   ],
+   "added": 54,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 18.4,
+   "total": 21953
+  },
   {
    "at": "2026-11-16T23:02:17.232Z",
    "cities": [
@@ -9851,36 +9921,6 @@
    "errors": [],
    "minutes": 14.9,
    "total": 19824
-  },
-  {
-   "at": "2026-11-13T11:14:46.866Z",
-   "cities": [
-    {
-     "cc": "CO",
-     "city": "Apartadó",
-     "found": 14,
-     "updated": 0,
-     "osm": 54
-    },
-    {
-     "cc": "ES",
-     "city": "Huelva",
-     "found": 18,
-     "updated": 0,
-     "osm": 62
-    }
-   ],
-   "added": 32,
-   "enriched": 0,
-   "photos": 12,
-   "contacts": 7,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "MX|Fresnillo: The operation was aborted due to timeout"
-   ],
-   "minutes": 15.2,
-   "total": 19722
   }
  ]
 }
