@@ -7371,7 +7371,8 @@
   "VE|n5291801995": "2026-11-17T09:38:31.913Z",
   "ES|n152377920": "2026-11-17T11:22:44.133Z",
   "MX|Cortazar": "2026-11-17T11:23:22.363Z",
-  "AR|San Fernando": "2026-11-17T11:24:01.829Z"
+  "AR|San Fernando": "2026-11-17T11:24:01.829Z",
+  "CO|n6141180690": "2026-11-17T13:32:30.967Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7478,9 +7479,37 @@
    "n": 1,
    "at": "2026-11-17T07:55:33.392Z",
    "error": "The operation was aborted due to timeout"
+  },
+  "CO|n703168345": {
+   "n": 1,
+   "at": "2026-11-17T13:45:42.924Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-17T13:31:57.978Z",
+   "cities": [
+    {
+     "cc": "CO",
+     "city": "Santa Rosa de Cabal",
+     "found": 0,
+     "updated": 0,
+     "osm": 17
+    }
+   ],
+   "added": 0,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "CO|n703168345: The operation was aborted due to timeout"
+   ],
+   "minutes": 13.8,
+   "total": 22244
+  },
   {
    "at": "2026-11-17T11:16:20.381Z",
    "cities": [
@@ -10056,48 +10085,6 @@
    "errors": [],
    "minutes": 18.7,
    "total": 20059
-  },
-  {
-   "at": "2026-11-13T22:59:10.409Z",
-   "cities": [
-    {
-     "cc": "ES",
-     "city": "Mataró",
-     "found": 1,
-     "updated": 0,
-     "osm": 55
-    },
-    {
-     "cc": "CO",
-     "city": "Rionegro",
-     "found": 23,
-     "updated": 0,
-     "osm": 71
-    },
-    {
-     "cc": "VE",
-     "city": "Zaraza",
-     "found": 0,
-     "updated": 0,
-     "osm": 0
-    },
-    {
-     "cc": "PE",
-     "city": "Puno",
-     "found": 9,
-     "updated": 0,
-     "osm": 110
-    }
-   ],
-   "added": 33,
-   "enriched": 0,
-   "photos": 11,
-   "contacts": 16,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 16.4,
-   "total": 20047
   }
  ]
 }
