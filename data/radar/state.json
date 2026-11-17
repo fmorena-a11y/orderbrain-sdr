@@ -7373,14 +7373,9 @@
   "MX|Cortazar": "2026-11-17T11:23:22.363Z",
   "AR|San Fernando": "2026-11-17T11:24:01.829Z",
   "CO|n6141180690": "2026-11-17T13:32:30.967Z",
-  "ES|n291768008": "2026-11-17T15:05:08.673Z",
-  "AR|Ciudad Evita": "2026-11-17T15:05:48.474Z",
-  "PR|n1900430225": "2026-11-17T15:06:26.868Z",
-  "PY|n660785278": "2026-11-17T15:06:57.510Z",
-  "AR|San Miguel": "2026-11-17T15:07:44.584Z",
-  "PY|n6813083835": "2026-11-17T15:08:20.230Z",
-  "MX|San Mateo Atenco": "2026-11-17T15:08:57.682Z",
-  "ES|n2375518653": "2026-11-17T15:18:20.534Z"
+  "ES|n291768008": "2026-11-17T15:19:16.855Z",
+  "AR|Ciudad Evita": "2026-11-17T15:26:59.228Z",
+  "PR|n1900430225": "2026-11-17T15:27:34.969Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7492,11 +7487,16 @@
    "n": 1,
    "at": "2026-11-17T13:45:42.924Z",
    "error": "The operation was aborted due to timeout"
+  },
+  "PY|n660785278": {
+   "n": 1,
+   "at": "2026-11-17T15:37:53.773Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
   {
-   "at": "2026-11-17T15:04:29.752Z",
+   "at": "2026-11-17T15:18:46.084Z",
    "cities": [
     {
      "cc": "ES",
@@ -7518,52 +7518,19 @@
      "found": 3,
      "updated": 0,
      "osm": 77
-    },
-    {
-     "cc": "PY",
-     "city": "Presidente Franco",
-     "found": 0,
-     "updated": 0,
-     "osm": 87
-    },
-    {
-     "cc": "AR",
-     "city": "San Miguel",
-     "found": 0,
-     "updated": 0,
-     "osm": 97
-    },
-    {
-     "cc": "PY",
-     "city": "San Antonio",
-     "found": 9,
-     "updated": 0,
-     "osm": 96
-    },
-    {
-     "cc": "MX",
-     "city": "San Mateo Atenco",
-     "found": 33,
-     "updated": 0,
-     "osm": 165
-    },
-    {
-     "cc": "ES",
-     "city": "Viladecans",
-     "found": 0,
-     "updated": 0,
-     "osm": 0
     }
    ],
-   "added": 57,
+   "added": 15,
    "enriched": 0,
-   "photos": 1,
-   "contacts": 2,
+   "photos": 0,
+   "contacts": 0,
    "ai": 0,
    "studies": 0,
-   "errors": [],
-   "minutes": 14,
-   "total": 22301
+   "errors": [
+    "PY|n660785278: The operation was aborted due to timeout"
+   ],
+   "minutes": 19.2,
+   "total": 22259
   },
   {
    "at": "2026-11-17T13:31:57.978Z",
