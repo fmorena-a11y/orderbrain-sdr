@@ -7330,7 +7330,20 @@
   "ES|n3248338760": "2026-11-17T03:09:09.982Z",
   "PE|Pisco": "2026-11-17T03:15:23.064Z",
   "CL|Linares": "2026-11-17T03:16:08.706Z",
-  "AR|Boulogne Sur Mer": "2026-11-17T03:18:33.715Z"
+  "AR|Boulogne Sur Mer": "2026-11-17T03:18:33.715Z",
+  "ES|n31335145": "2026-11-17T05:23:10.445Z",
+  "PY|n313912581": "2026-11-17T05:23:38.199Z",
+  "CL|Quillota": "2026-11-17T05:24:15.014Z",
+  "SV|n461959353": "2026-11-17T05:24:55.476Z",
+  "CO|n703168998": "2026-11-17T05:25:31.412Z",
+  "MX|Valle de Santiago": "2026-11-17T05:26:09.784Z",
+  "VE|n5372786651": "2026-11-17T05:26:47.327Z",
+  "MX|San Miguel de Allende": "2026-11-17T05:27:28.823Z",
+  "CO|n703168192": "2026-11-17T05:28:01.224Z",
+  "PE|Abancay": "2026-11-17T05:28:38.308Z",
+  "BO|n5059605309": "2026-11-17T05:29:25.332Z",
+  "CL|Melipilla": "2026-11-17T05:29:52.443Z",
+  "CO|n8109824087": "2026-11-17T05:30:24.210Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7435,6 +7448,111 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-17T05:16:58.789Z",
+   "cities": [
+    {
+     "cc": "ES",
+     "city": "Torrevieja",
+     "found": 4,
+     "updated": 0,
+     "osm": 29
+    },
+    {
+     "cc": "PY",
+     "city": "Villarrica",
+     "found": 2,
+     "updated": 0,
+     "osm": 25
+    },
+    {
+     "cc": "CL",
+     "city": "Quillota",
+     "found": 31,
+     "updated": 0,
+     "osm": 64
+    },
+    {
+     "cc": "SV",
+     "city": "Usulután",
+     "found": 2,
+     "updated": 0,
+     "osm": 20
+    },
+    {
+     "cc": "CO",
+     "city": "Cumaribo",
+     "found": 1,
+     "updated": 0,
+     "osm": 5
+    },
+    {
+     "cc": "MX",
+     "city": "Valle de Santiago",
+     "found": 2,
+     "updated": 0,
+     "osm": 7
+    },
+    {
+     "cc": "VE",
+     "city": "San Joaquín",
+     "found": 4,
+     "updated": 0,
+     "osm": 22
+    },
+    {
+     "cc": "MX",
+     "city": "San Miguel de Allende",
+     "found": 5,
+     "updated": 0,
+     "osm": 18
+    },
+    {
+     "cc": "CO",
+     "city": "Garzón",
+     "found": 10,
+     "updated": 0,
+     "osm": 25
+    },
+    {
+     "cc": "PE",
+     "city": "Abancay",
+     "found": 3,
+     "updated": 0,
+     "osm": 100
+    },
+    {
+     "cc": "BO",
+     "city": "Yacuiba",
+     "found": 8,
+     "updated": 0,
+     "osm": 34
+    },
+    {
+     "cc": "CL",
+     "city": "Melipilla",
+     "found": 30,
+     "updated": 0,
+     "osm": 59
+    },
+    {
+     "cc": "CO",
+     "city": "El Banco",
+     "found": 10,
+     "updated": 0,
+     "osm": 37
+    }
+   ],
+   "added": 112,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 13.6,
+   "total": 22107
+  },
   {
    "at": "2026-11-17T03:05:52.431Z",
    "cities": [
@@ -9889,34 +10007,6 @@
    "errors": [],
    "minutes": 18.5,
    "total": 19904
-  },
-  {
-   "at": "2026-11-13T15:06:25.448Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Zacatecas",
-     "found": 5,
-     "updated": 0,
-     "osm": 29
-    },
-    {
-     "cc": "PR",
-     "city": "Carolina",
-     "found": 13,
-     "updated": 0,
-     "osm": 53
-    }
-   ],
-   "added": 18,
-   "enriched": 0,
-   "photos": 17,
-   "contacts": 8,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 16.4,
-   "total": 19842
   }
  ]
 }
