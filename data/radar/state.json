@@ -7387,7 +7387,18 @@
   "CO|n703470767": "2026-11-17T23:12:49.863Z",
   "CO|n6456982022": "2026-11-17T23:20:27.416Z",
   "AR|Oberá": "2026-11-17T23:20:58.574Z",
-  "CO|n7985775004": "2026-11-17T23:27:22.231Z"
+  "CO|n7985775004": "2026-11-17T23:27:22.231Z",
+  "AR|Martínez": "2026-11-18T01:39:51.411Z",
+  "CO|n703169922": "2026-11-18T01:40:40.516Z",
+  "PE|Lambayeque": "2026-11-18T01:47:07.804Z",
+  "CL|Buin": "2026-11-18T01:47:40.282Z",
+  "ES|n1470838297": "2026-11-18T01:48:18.020Z",
+  "VE|n930218679": "2026-11-18T01:48:53.971Z",
+  "MX|Tultepec": "2026-11-18T01:49:31.168Z",
+  "AR|Garín": "2026-11-18T01:50:13.536Z",
+  "VE|n5258085065": "2026-11-18T01:50:52.801Z",
+  "ES|n1470838828": "2026-11-18T01:51:39.530Z",
+  "CO|n3308587742": "2026-11-18T01:52:17.280Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7512,6 +7523,97 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-18T01:39:12.548Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Martínez",
+     "found": 7,
+     "updated": 1,
+     "osm": 242
+    },
+    {
+     "cc": "CO",
+     "city": "Agustín Codazzi",
+     "found": 0,
+     "updated": 0,
+     "osm": 0
+    },
+    {
+     "cc": "PE",
+     "city": "Lambayeque",
+     "found": 0,
+     "updated": 0,
+     "osm": 20
+    },
+    {
+     "cc": "CL",
+     "city": "Buin",
+     "found": 19,
+     "updated": 0,
+     "osm": 47
+    },
+    {
+     "cc": "ES",
+     "city": "Gandia",
+     "found": 10,
+     "updated": 0,
+     "osm": 40
+    },
+    {
+     "cc": "VE",
+     "city": "Caja Seca",
+     "found": 0,
+     "updated": 0,
+     "osm": 3
+    },
+    {
+     "cc": "MX",
+     "city": "Tultepec",
+     "found": 0,
+     "updated": 0,
+     "osm": 68
+    },
+    {
+     "cc": "AR",
+     "city": "Garín",
+     "found": 14,
+     "updated": 0,
+     "osm": 71
+    },
+    {
+     "cc": "VE",
+     "city": "Achaguas",
+     "found": 0,
+     "updated": 0,
+     "osm": 0
+    },
+    {
+     "cc": "ES",
+     "city": "Sant Cugat del Vallès",
+     "found": 0,
+     "updated": 0,
+     "osm": 79
+    },
+    {
+     "cc": "CO",
+     "city": "Sevilla",
+     "found": 0,
+     "updated": 0,
+     "osm": 5
+    }
+   ],
+   "added": 50,
+   "enriched": 0,
+   "photos": 2,
+   "contacts": 5,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 13.4,
+   "total": 22431
+  },
   {
    "at": "2026-11-17T23:11:35.241Z",
    "cities": [
@@ -9839,76 +9941,6 @@
    ],
    "minutes": 19.3,
    "total": 20647
-  },
-  {
-   "at": "2026-11-14T09:05:09.009Z",
-   "cities": [
-    {
-     "cc": "UY",
-     "city": "Salto",
-     "found": 2,
-     "updated": 0,
-     "osm": 52
-    },
-    {
-     "cc": "MX",
-     "city": "Ramos Arizpe",
-     "found": 4,
-     "updated": 0,
-     "osm": 22
-    },
-    {
-     "cc": "CO",
-     "city": "Lorica",
-     "found": 15,
-     "updated": 0,
-     "osm": 40
-    },
-    {
-     "cc": "MX",
-     "city": "Hidalgo del Parral",
-     "found": 2,
-     "updated": 0,
-     "osm": 13
-    },
-    {
-     "cc": "MX",
-     "city": "Comitán",
-     "found": 1,
-     "updated": 0,
-     "osm": 6
-    },
-    {
-     "cc": "CO",
-     "city": "Villa del Rosario",
-     "found": 0,
-     "updated": 0,
-     "osm": 96
-    },
-    {
-     "cc": "UY",
-     "city": "Ciudad de la Costa",
-     "found": 7,
-     "updated": 0,
-     "osm": 33
-    },
-    {
-     "cc": "HN",
-     "city": "Catacamas",
-     "found": 7,
-     "updated": 0,
-     "osm": 18
-    }
-   ],
-   "added": 38,
-   "enriched": 0,
-   "photos": 19,
-   "contacts": 5,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 17.5,
-   "total": 20609
   }
  ]
 }
