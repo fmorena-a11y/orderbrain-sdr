@@ -1000,7 +1000,28 @@ app.post("/api/scan/resolve", auth, wrap(async (req, res) => {
   // copia por texto normalizado («No. 47» = «47», «Col.» = «Colonia»); el país elegido cuenta solo si el texto no dice otro
   const k = `place5:${a.cc ? "=" + a.cc : prefer}:${a.key}`;
   const cached = await cacheGet(k);
-  const place = cached || await scan.resolvePlace(q, { codes: Object.values(MARKETS).map(m => m.code).filter(c => /^[A-Z]{2}$/.test(c)), prefer, cc: given });
+  const codes = Object.values(MARKETS).map(m => m.code).filter(c => /^[A-Z]{2}$/.test(c));
+  // un texto suelto («Tlaxcala. La lada 241 corresponde a la zona de Apizaco.»): primero los lugares que nombra, y se dice
+  // cuál se usó; si el texto parece una dirección, primero el texto tal cual y después los lugares de adentro
+  const cands = cached ? [] : scan.placeCandidates(q).filter(c => scan.norm(c) !== nq), sentence = scan.looksLikeSentence(q);
+  const tryCands = async () => {
+    const until = Date.now() + 14e3;
+    for (const c of cands.slice(0, 4)) {
+      if (Date.now() > until) break;
+      const p = await scan.resolvePlace(c, { codes, prefer, cc: given, deadline: Math.min(until, Date.now() + 6000) }).catch(e => { if (e.status === 503) throw e; return null; });
+      if (p) return { ...p, searched: c, note: [`No encontré el texto tal cual: te muestro «${c}», que sale de lo que escribiste.`, p.note].filter(Boolean).join(" ") };
+    }
+    return null;
+  };
+  // Google Maps «buscar texto» (lo que usa World Dominion): entiende frases; lo que devuelve se ubica con su contorno
+  const tryGoogle = async () => {
+    const g = await scan.googleTextPlace(q, { codes, prefer: given || prefer }).catch(() => null); if (!g) return null;
+    const p = await scan.resolvePlace(g.formatted, { codes, prefer: g.cc || prefer, cc: g.cc || given }).catch(e => { if (e.status === 503) throw e; return null; });
+    return p ? { ...p, searched: g.formatted, note: [`Google lo ubicó como «${g.name && !g.formatted.includes(g.name) ? `${g.name}, ` : ""}${g.formatted}».`, p.note].filter(Boolean).join(" ") } : null;
+  };
+  let place = cached || (sentence ? (await tryGoogle()) || (cands.length ? await tryCands() : null) : null);
+  if (!place) place = cached || await scan.resolvePlace(q, { codes, prefer, cc: given });
+  if (!place && !sentence) place = (await tryGoogle()) || (cands.length ? await tryCands() : null);
   if (!place) {
     const country = Object.entries(MARKETS).find(([, m]) => m.code === a.cc)?.[0] || "";
     const mx = a.cc === "MX" || (!a.cc && a.soft === "MX");

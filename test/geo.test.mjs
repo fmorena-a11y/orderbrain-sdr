@@ -272,3 +272,14 @@ test("Google: el resultado aproximado no cuenta como dirección", () => {
   assert.equal(h.approx, true);
   assert.equal(h.level, "street");
 });
+
+// texto suelto pegado en Prospectar (pedido del líder): se sacan los lugares que nombra y se combinan con el estado
+test("placeCandidates: lugares dentro de un texto", async () => {
+  const { placeCandidates, looksLikeSentence } = await import("../lib/geo.js");
+  assert.deepEqual(placeCandidates("Tlaxcala. La lada 241 corresponde a la zona de Apizaco."), ["Apizaco, Tlaxcala", "Apizaco", "Tlaxcala"]);
+  assert.equal(placeCandidates("queda en la zona de San Pedro Garza García, Nuevo León")[0], "San Pedro Garza García, Nuevo León");
+  assert.equal(placeCandidates("El colegio está en Rosario, Santa Fe")[0], "Rosario, Santa Fe");
+  assert.equal(looksLikeSentence("Tlaxcala. La lada 241 corresponde a la zona de Apizaco."), true);
+  assert.equal(looksLikeSentence("Mar del Plata"), false);
+  assert.equal(looksLikeSentence("Calle 5 Pte 120, Puebla"), false);
+});
