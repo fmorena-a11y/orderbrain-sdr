@@ -7422,7 +7422,10 @@
   "CO|n347183701": "2026-11-18T09:29:57.418Z",
   "MX|San Andrés Tuxtla": "2026-11-18T09:30:28.893Z",
   "ES|n27552575": "2026-11-18T09:31:21.081Z",
-  "DO|n5937852460": "2026-11-18T09:31:59.371Z"
+  "DO|n5937852460": "2026-11-18T09:31:59.371Z",
+  "MX|Uriangato": "2026-11-18T11:19:24.743Z",
+  "UY|Las Piedras": "2026-11-18T11:21:01.794Z",
+  "CO|n703168193": "2026-11-18T11:27:09.714Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7547,6 +7550,43 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-18T11:18:56.808Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Uriangato",
+     "found": 8,
+     "updated": 0,
+     "osm": 33
+    },
+    {
+     "cc": "UY",
+     "city": "Las Piedras",
+     "found": 3,
+     "updated": 0,
+     "osm": 51
+    },
+    {
+     "cc": "CO",
+     "city": "La Plata",
+     "found": 3,
+     "updated": 0,
+     "osm": 8
+    }
+   ],
+   "added": 14,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "HN|n321606235: sin tiempo en esta corrida"
+   ],
+   "minutes": 19.1,
+   "total": 22553
+  },
   {
    "at": "2026-11-18T09:22:17.438Z",
    "cities": [
@@ -10014,29 +10054,6 @@
    "errors": [],
    "minutes": 14.3,
    "total": 20843
-  },
-  {
-   "at": "2026-11-14T19:04:02.379Z",
-   "cities": [
-    {
-     "cc": "CO",
-     "city": "Aguachica",
-     "found": 4,
-     "updated": 0,
-     "osm": 6
-    }
-   ],
-   "added": 4,
-   "enriched": 0,
-   "photos": 15,
-   "contacts": 5,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "AR|General Roca: Overpass 502"
-   ],
-   "minutes": 15.3,
-   "total": 20733
   }
  ]
 }
