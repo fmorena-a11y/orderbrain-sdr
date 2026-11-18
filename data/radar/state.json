@@ -7398,7 +7398,11 @@
   "AR|Garín": "2026-11-18T01:50:13.536Z",
   "VE|n5258085065": "2026-11-18T01:50:52.801Z",
   "ES|n1470838828": "2026-11-18T01:51:39.530Z",
-  "CO|n3308587742": "2026-11-18T01:52:17.280Z"
+  "CO|n3308587742": "2026-11-18T01:52:17.280Z",
+  "AR|Don Torcuato": "2026-11-18T03:09:16.605Z",
+  "CO|n703167871": "2026-11-18T03:10:03.560Z",
+  "ES|n1470838306": "2026-11-18T03:16:05.478Z",
+  "MX|Sahuayo de Morelos": "2026-11-18T03:21:07.499Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7523,6 +7527,50 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-18T03:08:37.250Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Don Torcuato",
+     "found": 2,
+     "updated": 0,
+     "osm": 72
+    },
+    {
+     "cc": "CO",
+     "city": "Puerto Asís",
+     "found": 7,
+     "updated": 0,
+     "osm": 35
+    },
+    {
+     "cc": "ES",
+     "city": "Granollers",
+     "found": 0,
+     "updated": 0,
+     "osm": 0
+    },
+    {
+     "cc": "MX",
+     "city": "Sahuayo de Morelos",
+     "found": 0,
+     "updated": 0,
+     "osm": 0
+    }
+   ],
+   "added": 9,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "HN|n307406289: sin tiempo en esta corrida"
+   ],
+   "minutes": 19,
+   "total": 22440
+  },
   {
    "at": "2026-11-18T01:39:12.548Z",
    "cities": [
@@ -9897,50 +9945,6 @@
    "errors": [],
    "minutes": 19.3,
    "total": 20656
-  },
-  {
-   "at": "2026-11-14T10:58:36.270Z",
-   "cities": [
-    {
-     "cc": "NI",
-     "city": "Chinandega",
-     "found": 2,
-     "updated": 0,
-     "osm": 9
-    },
-    {
-     "cc": "CO",
-     "city": "Girardot",
-     "found": 11,
-     "updated": 0,
-     "osm": 27
-    },
-    {
-     "cc": "VE",
-     "city": "San Felipe",
-     "found": 5,
-     "updated": 0,
-     "osm": 15
-    },
-    {
-     "cc": "CL",
-     "city": "Coronel",
-     "found": 20,
-     "updated": 0,
-     "osm": 59
-    }
-   ],
-   "added": 38,
-   "enriched": 0,
-   "photos": 2,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "MX|Ciudad Guzmán: sin tiempo en esta corrida"
-   ],
-   "minutes": 19.3,
-   "total": 20647
   }
  ]
 }

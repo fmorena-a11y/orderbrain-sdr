@@ -454093,5 +454093,185 @@
   "src": "osm",
   "osm": "w852556231",
   "found": "2026-11-18"
+ },
+ {
+  "id": "don-torcuato-colegio-35-sofi",
+  "name": "colegio 35 SOFI",
+  "city": "Don Torcuato",
+  "country": "Argentina",
+  "lat": -34.465591,
+  "lng": -58.664703,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5566896221",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "don-torcuato-colegio-roald-amundsen",
+  "name": "Colegio Roald Amundsen",
+  "city": "Don Torcuato",
+  "country": "Argentina",
+  "lat": -34.455167,
+  "lng": -58.639038,
+  "addr": "San Luis 912",
+  "phone": "+54 11 2141-7517",
+  "web": "",
+  "email": "secundaria@colegioamundsen.edu.ar",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n10235102629",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "puerto-asis-jardin-infantil-retonitos",
+  "name": "Jardín Infantil Retoñitos",
+  "city": "Puerto Asís",
+  "country": "Colombia",
+  "lat": 0.496772,
+  "lng": -76.498573,
+  "addr": "",
+  "phone": "+57 608 4227079",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717289",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "puerto-asis-institucion-nueva-colombia",
+  "name": "Institución Nueva Colombia",
+  "city": "Puerto Asís",
+  "country": "Colombia",
+  "lat": 0.497117,
+  "lng": -76.503893,
+  "addr": "",
+  "phone": "+57 608 4229995",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717486",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "puerto-asis-escuela-central-de-varones-puerto-asis",
+  "name": "Escuela Central de Varones Puerto Asis",
+  "city": "Puerto Asís",
+  "country": "Colombia",
+  "lat": 0.494719,
+  "lng": -76.504946,
+  "addr": "",
+  "phone": "+57 608 4228434",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717740",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "puerto-asis-jardin-infantil-geniecitos",
+  "name": "Jardín Infantil Geniecitos",
+  "city": "Puerto Asís",
+  "country": "Colombia",
+  "lat": 0.498696,
+  "lng": -76.493538,
+  "addr": "",
+  "phone": "+57 608 4220138",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717938",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "puerto-asis-escuela-rural-mixta-la-playa-hong-kong",
+  "name": "Escuela Rural Mixta La Playa Hong Kong",
+  "city": "Puerto Asís",
+  "country": "Colombia",
+  "lat": 0.490691,
+  "lng": -76.515149,
+  "addr": "",
+  "phone": "+57 608 4228574",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480718193",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "puerto-asis-preesc-despertar-infantil",
+  "name": "Preesc Despertar Infantil",
+  "city": "Puerto Asís",
+  "country": "Colombia",
+  "lat": 0.494899,
+  "lng": -76.491473,
+  "addr": "",
+  "phone": "+57 608 4228844",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480718391",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "puerto-asis-colegio-campestre-los-angeles",
+  "name": "Colegio Campestre Los Angeles",
+  "city": "Puerto Asís",
+  "country": "Colombia",
+  "lat": 0.499823,
+  "lng": -76.48855,
+  "addr": "",
+  "phone": "+57 608 4220492",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480718646",
+  "found": "2026-11-18"
  }
 ]
