@@ -454995,7 +454995,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w419530161",
-  "found": "2026-11-18"
+  "found": "2026-11-18",
+  "img": "",
+  "webAt": "2026-11-18"
  },
  {
   "id": "pontevedra-sek-atlantico-colegio-internacional",
@@ -455148,7 +455150,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n4573675891",
-  "found": "2026-11-18"
+  "found": "2026-11-18",
+  "img": "https://iadve.educacionadventista.com/assets/images/fachada-padrao.jpg",
+  "webAt": "2026-11-18"
  },
  {
   "id": "eldorado-instituto-divino-nino-jesus",
@@ -455187,7 +455191,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "n7101262832",
-  "found": "2026-11-18"
+  "found": "2026-11-18",
+  "img": "",
+  "whatsapp": "+543764728034",
+  "webAt": "2026-11-18"
  },
  {
   "id": "eldorado-instituto-bautista-del-centro",
@@ -455228,7 +455235,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n8570144252",
-  "found": "2026-11-18"
+  "found": "2026-11-18",
+  "img": "https://ishm.ar/ced/wp-content/uploads/2019/02/cropped-logo-mano23.jpg",
+  "webAt": "2026-11-18"
  },
  {
   "id": "eldorado-instituto-puerto-bemberg-eldorado",
@@ -455334,6 +455343,421 @@
   "private": "probable",
   "src": "osm",
   "osm": "w510826457",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "villa-tesei-colegio-santa-hilda",
+  "name": "Colegio Santa Hilda",
+  "city": "Villa Tesei",
+  "country": "Argentina",
+  "lat": -34.595028,
+  "lng": -58.633821,
+  "addr": "Isabel La Católica",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4597053291",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "viacha-unidad-educativa-evaristo-valle-san-salvador",
+  "name": "Unidad Educativa Evaristo Valle, San Salvador",
+  "city": "Viacha",
+  "country": "Bolivia",
+  "lat": -16.650506,
+  "lng": -68.298757,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w334891518",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "villa-carlos-paz-instituto-arturo-ilia",
+  "name": "Instituto Arturo Ilia",
+  "city": "Villa Carlos Paz",
+  "country": "Argentina",
+  "lat": -31.415131,
+  "lng": -64.49396,
+  "addr": "Olsacher",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w266252541",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "villa-carlos-paz-instituto-parroquial-bernardo-d-elia",
+  "name": "Instituto Parroquial Bernardo D'Elia",
+  "city": "Villa Carlos Paz",
+  "country": "Argentina",
+  "lat": -31.420919,
+  "lng": -64.512071,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w266255035",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "villa-carlos-paz-instituto-de-ensenanza-secundaria-y-superior",
+  "name": "Instituto de Enseñanza Secundaria y Superior",
+  "city": "Villa Carlos Paz",
+  "country": "Argentina",
+  "lat": -31.414316,
+  "lng": -64.490463,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w266255040",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "villa-carlos-paz-instituto-remedios-e-de-san-martin",
+  "name": "Instituto Remedios E. de San Martín",
+  "city": "Villa Carlos Paz",
+  "country": "Argentina",
+  "lat": -31.428859,
+  "lng": -64.491392,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w266255411",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "villa-carlos-paz-instituto-industrial-cristo-obrero",
+  "name": "Instituto Industrial Cristo Obrero",
+  "city": "Villa Carlos Paz",
+  "country": "Argentina",
+  "lat": -31.429503,
+  "lng": -64.490874,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.iico.com.ar/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w266255412",
+  "found": "2026-11-18",
+  "imgTry": "2026-11-18"
+ },
+ {
+  "id": "villa-carlos-paz-costa-azul-college",
+  "name": "Costa Azul College",
+  "city": "Villa Carlos Paz",
+  "country": "Argentina",
+  "lat": -31.399675,
+  "lng": -64.465543,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1173144269",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "santa-cruz-de-mompox-institucion-educativa-integral-saber-hacer",
+  "name": "Institución Educativa Integral Saber Hacer",
+  "city": "Santa Cruz de Mompox",
+  "country": "Colombia",
+  "lat": 9.233996,
+  "lng": -74.420141,
+  "addr": "",
+  "phone": "+57 314 5014079",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837390",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "santa-cruz-de-mompox-jardin-infantil-mi-mundo-de-ilusiones",
+  "name": "Jardín Infantil Mi Mundo de Ilusiones",
+  "city": "Santa Cruz de Mompox",
+  "country": "Colombia",
+  "lat": 9.232991,
+  "lng": -74.419702,
+  "addr": "",
+  "phone": "+57 311 4169383",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837391",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "santa-cruz-de-mompox-colegio-los-ositos",
+  "name": "Colegio Los Ositos",
+  "city": "Santa Cruz de Mompox",
+  "country": "Colombia",
+  "lat": 9.245605,
+  "lng": -74.427506,
+  "addr": "",
+  "phone": "+57 311 6762397",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837392",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "santa-cruz-de-mompox-colegio-santa-cruz-de-mompos",
+  "name": "Colegio Santa Cruz de Mompos",
+  "city": "Santa Cruz de Mompox",
+  "country": "Colombia",
+  "lat": 9.231533,
+  "lng": -74.419842,
+  "addr": "",
+  "phone": "+57 605 6855861",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837393",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "santa-cruz-de-mompox-liceo-candelario-obeso",
+  "name": "Liceo Candelario Obeso",
+  "city": "Santa Cruz de Mompox",
+  "country": "Colombia",
+  "lat": 9.243588,
+  "lng": -74.427076,
+  "addr": "Carrera 3",
+  "phone": "+57 605 6840462",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837394",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "santa-cruz-de-mompox-institucion-peniel",
+  "name": "Institución Peniel",
+  "city": "Santa Cruz de Mompox",
+  "country": "Colombia",
+  "lat": 9.233395,
+  "lng": -74.418356,
+  "addr": "",
+  "phone": "855627",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837395",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "santa-cruz-de-mompox-jardin-infantil-gotitas-de-gente",
+  "name": "Jardín Infantil Gotitas de Gente",
+  "city": "Santa Cruz de Mompox",
+  "country": "Colombia",
+  "lat": 9.238528,
+  "lng": -74.423407,
+  "addr": "",
+  "phone": "+57 605 6855013",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837396",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "santa-cruz-de-mompox-colegio-sagrado-corazon-de-jesus",
+  "name": "Colegio Sagrado Corazon de Jesus",
+  "city": "Santa Cruz de Mompox",
+  "country": "Colombia",
+  "lat": 9.243659,
+  "lng": -74.425542,
+  "addr": "",
+  "phone": "855297",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485837397",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "socopo-liceo-nacional-basico-socopo",
+  "name": "Liceo Nacional Básico Socopó",
+  "city": "Socopó",
+  "country": "Venezuela",
+  "lat": 8.229116,
+  "lng": -70.814421,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w222221840",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "dajabon-colegio-loyola",
+  "name": "Colegio Loyola",
+  "city": "Dajabón",
+  "country": "República Dominicana",
+  "lat": 19.547099,
+  "lng": -71.707324,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2341433869",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "dajabon-instituto-tecnologico-san-ignacio-de-loyola",
+  "name": "Instituto Tecnológico San Ignacio de Loyola",
+  "city": "Dajabón",
+  "country": "República Dominicana",
+  "lat": 19.547951,
+  "lng": -71.70353,
+  "addr": "Calle Padre Emiliano",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4711638589",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "dajabon-liceo-secundario-manuel-arturo-machado",
+  "name": "Liceo Secundario Manuel Arturo Machado",
+  "city": "Dajabón",
+  "country": "República Dominicana",
+  "lat": 19.54449,
+  "lng": -71.699167,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w686497770",
+  "found": "2026-11-18"
+ },
+ {
+  "id": "dajabon-colegio-la-altagracia",
+  "name": "Colegio La Altagracia",
+  "city": "Dajabón",
+  "country": "República Dominicana",
+  "lat": 19.547635,
+  "lng": -71.707849,
+  "addr": "Calle Francisco del Rosario Sánchez",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w686500557",
   "found": "2026-11-18"
  }
 ]

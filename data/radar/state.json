@@ -7412,7 +7412,13 @@
   "AR|Eldorado": "2026-11-18T05:28:45.633Z",
   "MX|Jesús María": "2026-11-18T05:29:21.044Z",
   "MX|Guamúchil": "2026-11-18T05:29:58.750Z",
-  "AR|San Francisco Solano": "2026-11-18T05:30:47.909Z"
+  "AR|San Francisco Solano": "2026-11-18T05:30:47.909Z",
+  "AR|Villa Tesei": "2026-11-18T07:39:30.537Z",
+  "BO|n412332419": "2026-11-18T07:40:02.904Z",
+  "AR|Villa Carlos Paz": "2026-11-18T07:47:32.189Z",
+  "CO|n306366616": "2026-11-18T07:48:08.663Z",
+  "VE|n2612622788": "2026-11-18T07:48:45.081Z",
+  "DO|n250651187": "2026-11-18T07:57:27.116Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7537,6 +7543,62 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-18T07:38:54.845Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Villa Tesei",
+     "found": 1,
+     "updated": 0,
+     "osm": 110
+    },
+    {
+     "cc": "BO",
+     "city": "Viacha",
+     "found": 1,
+     "updated": 0,
+     "osm": 9
+    },
+    {
+     "cc": "AR",
+     "city": "Villa Carlos Paz",
+     "found": 6,
+     "updated": 0,
+     "osm": 21
+    },
+    {
+     "cc": "CO",
+     "city": "Santa Cruz de Mompox",
+     "found": 8,
+     "updated": 0,
+     "osm": 26
+    },
+    {
+     "cc": "VE",
+     "city": "Socopó",
+     "found": 1,
+     "updated": 0,
+     "osm": 3
+    },
+    {
+     "cc": "DO",
+     "city": "Dajabón",
+     "found": 4,
+     "updated": 0,
+     "osm": 5
+    }
+   ],
+   "added": 21,
+   "enriched": 0,
+   "photos": 2,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 18.8,
+   "total": 22514
+  },
   {
    "at": "2026-11-18T05:19:54.104Z",
    "cities": [
@@ -9978,41 +10040,6 @@
    ],
    "minutes": 16,
    "total": 20729
-  },
-  {
-   "at": "2026-11-14T14:57:13.691Z",
-   "cities": [
-    {
-     "cc": "AR",
-     "city": "Villa Mercedes",
-     "found": 4,
-     "updated": 0,
-     "osm": 37
-    },
-    {
-     "cc": "MX",
-     "city": "Río Bravo",
-     "found": 2,
-     "updated": 0,
-     "osm": 14
-    },
-    {
-     "cc": "AR",
-     "city": "Temperley",
-     "found": 4,
-     "updated": 0,
-     "osm": 141
-    }
-   ],
-   "added": 10,
-   "enriched": 0,
-   "photos": 16,
-   "contacts": 7,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 15.6,
-   "total": 20666
   }
  ]
 }
