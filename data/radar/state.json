@@ -7418,7 +7418,11 @@
   "AR|Villa Carlos Paz": "2026-11-18T07:47:32.189Z",
   "CO|n306366616": "2026-11-18T07:48:08.663Z",
   "VE|n2612622788": "2026-11-18T07:48:45.081Z",
-  "DO|n250651187": "2026-11-18T07:57:27.116Z"
+  "DO|n250651187": "2026-11-18T07:57:27.116Z",
+  "CO|n347183701": "2026-11-18T09:29:57.418Z",
+  "MX|San Andrés Tuxtla": "2026-11-18T09:30:28.893Z",
+  "ES|n27552575": "2026-11-18T09:31:21.081Z",
+  "DO|n5937852460": "2026-11-18T09:31:59.371Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7543,6 +7547,50 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-18T09:22:17.438Z",
+   "cities": [
+    {
+     "cc": "CO",
+     "city": "Plato",
+     "found": 11,
+     "updated": 0,
+     "osm": 30
+    },
+    {
+     "cc": "MX",
+     "city": "San Andrés Tuxtla",
+     "found": 6,
+     "updated": 0,
+     "osm": 25
+    },
+    {
+     "cc": "ES",
+     "city": "Irún",
+     "found": 4,
+     "updated": 0,
+     "osm": 39
+    },
+    {
+     "cc": "DO",
+     "city": "Hato Mayor del Rey",
+     "found": 4,
+     "updated": 0,
+     "osm": 9
+    }
+   ],
+   "added": 25,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "MX|Uriangato: sin tiempo en esta corrida"
+   ],
+   "minutes": 19.1,
+   "total": 22539
+  },
   {
    "at": "2026-11-18T07:38:54.845Z",
    "cities": [
@@ -9989,57 +10037,6 @@
    ],
    "minutes": 15.3,
    "total": 20733
-  },
-  {
-   "at": "2026-11-14T16:56:26.575Z",
-   "cities": [
-    {
-     "cc": "VE",
-     "city": "Tovar",
-     "found": 2,
-     "updated": 0,
-     "osm": 4
-    },
-    {
-     "cc": "SV",
-     "city": "Sonsonate",
-     "found": 12,
-     "updated": 0,
-     "osm": 51
-    },
-    {
-     "cc": "CO",
-     "city": "Santander de Quilichao",
-     "found": 29,
-     "updated": 0,
-     "osm": 71
-    },
-    {
-     "cc": "VE",
-     "city": "Quíbor",
-     "found": 1,
-     "updated": 0,
-     "osm": 2
-    },
-    {
-     "cc": "ES",
-     "city": "Cádiz",
-     "found": 19,
-     "updated": 0,
-     "osm": 54
-    }
-   ],
-   "added": 63,
-   "enriched": 0,
-   "photos": 15,
-   "contacts": 12,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "CR|Cartago: Overpass 504"
-   ],
-   "minutes": 16,
-   "total": 20729
   }
  ]
 }
