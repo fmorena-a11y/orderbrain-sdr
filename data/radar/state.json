@@ -7434,7 +7434,11 @@
   "AR|Hurlingham": "2026-11-18T15:25:48.759Z",
   "AR|Palpalá": "2026-11-18T15:33:33.649Z",
   "VE|n1834063872": "2026-11-18T15:53:05.577Z",
-  "MX|Martínez de la Torre": "2026-11-18T15:53:33.388Z"
+  "MX|Martínez de la Torre": "2026-11-18T15:53:33.388Z",
+  "MX|Huamantla": "2026-11-18T19:17:43.891Z",
+  "AR|San Vicente": "2026-11-18T19:18:37.198Z",
+  "ES|n1470837704": "2026-11-18T19:24:54.616Z",
+  "ES|n688986898": "2026-11-18T19:26:16.131Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7569,6 +7573,50 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-18T19:17:04.966Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Huamantla",
+     "found": 2,
+     "updated": 0,
+     "osm": 20
+    },
+    {
+     "cc": "AR",
+     "city": "San Vicente",
+     "found": 1,
+     "updated": 0,
+     "osm": 10
+    },
+    {
+     "cc": "ES",
+     "city": "Alcoy",
+     "found": 9,
+     "updated": 0,
+     "osm": 23
+    },
+    {
+     "cc": "ES",
+     "city": "Zamora",
+     "found": 21,
+     "updated": 0,
+     "osm": 42
+    }
+   ],
+   "added": 33,
+   "enriched": 0,
+   "photos": 6,
+   "contacts": 3,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "CL|Los Andes: sin tiempo en esta corrida"
+   ],
+   "minutes": 19,
+   "total": 22617
+  },
   {
    "at": "2026-11-18T15:52:30.745Z",
    "cities": [
@@ -9783,97 +9831,6 @@
    "errors": [],
    "minutes": 15.7,
    "total": 21154
-  },
-  {
-   "at": "2026-11-15T03:05:38.627Z",
-   "cities": [
-    {
-     "cc": "DO",
-     "city": "Villa Hermosa",
-     "found": 0,
-     "updated": 0,
-     "osm": 17
-    },
-    {
-     "cc": "UY",
-     "city": "Maldonado",
-     "found": 19,
-     "updated": 0,
-     "osm": 59
-    },
-    {
-     "cc": "BO",
-     "city": "Trinidad",
-     "found": 9,
-     "updated": 0,
-     "osm": 34
-    },
-    {
-     "cc": "AR",
-     "city": "Junín",
-     "found": 0,
-     "updated": 0,
-     "osm": 11
-    },
-    {
-     "cc": "AR",
-     "city": "Rafaela",
-     "found": 5,
-     "updated": 0,
-     "osm": 43
-    },
-    {
-     "cc": "MX",
-     "city": "Minatitlán",
-     "found": 5,
-     "updated": 0,
-     "osm": 55
-    },
-    {
-     "cc": "AR",
-     "city": "Berisso",
-     "found": 0,
-     "updated": 0,
-     "osm": 40
-    },
-    {
-     "cc": "AR",
-     "city": "Presidencia Roque Sáenz Peña",
-     "found": 15,
-     "updated": 0,
-     "osm": 65
-    },
-    {
-     "cc": "ES",
-     "city": "Dos Hermanas",
-     "found": 21,
-     "updated": 0,
-     "osm": 50
-    },
-    {
-     "cc": "MX",
-     "city": "Rosarito",
-     "found": 3,
-     "updated": 0,
-     "osm": 77
-    },
-    {
-     "cc": "AR",
-     "city": "Libertad",
-     "found": 2,
-     "updated": 0,
-     "osm": 188
-    }
-   ],
-   "added": 79,
-   "enriched": 0,
-   "photos": 1,
-   "contacts": 3,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 13.4,
-   "total": 21071
   }
  ]
 }
