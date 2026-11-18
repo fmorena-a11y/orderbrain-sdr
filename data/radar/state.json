@@ -7426,7 +7426,13 @@
   "MX|Uriangato": "2026-11-18T11:19:24.743Z",
   "UY|Las Piedras": "2026-11-18T11:21:01.794Z",
   "CO|n703168193": "2026-11-18T11:27:09.714Z",
-  "PY|n2899038353": "2026-11-18T13:47:56.474Z"
+  "PY|n2899038353": "2026-11-18T13:47:56.474Z",
+  "UY|Tacuarembó": "2026-11-18T15:16:22.670Z",
+  "MX|Ciudad Hidalgo": "2026-11-18T15:24:01.560Z",
+  "ES|n1679058496": "2026-11-18T15:24:41.220Z",
+  "AR|Alta Gracia": "2026-11-18T15:25:17.924Z",
+  "AR|Hurlingham": "2026-11-18T15:25:48.759Z",
+  "AR|Palpalá": "2026-11-18T15:33:33.649Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7556,6 +7562,62 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-18T15:15:38.282Z",
+   "cities": [
+    {
+     "cc": "UY",
+     "city": "Tacuarembó",
+     "found": 1,
+     "updated": 0,
+     "osm": 44
+    },
+    {
+     "cc": "MX",
+     "city": "Ciudad Hidalgo",
+     "found": 3,
+     "updated": 0,
+     "osm": 10
+    },
+    {
+     "cc": "ES",
+     "city": "Toledo",
+     "found": 12,
+     "updated": 0,
+     "osm": 43
+    },
+    {
+     "cc": "AR",
+     "city": "Alta Gracia",
+     "found": 10,
+     "updated": 0,
+     "osm": 34
+    },
+    {
+     "cc": "AR",
+     "city": "Hurlingham",
+     "found": 0,
+     "updated": 0,
+     "osm": 78
+    },
+    {
+     "cc": "AR",
+     "city": "Palpalá",
+     "found": 4,
+     "updated": 0,
+     "osm": 40
+    }
+   ],
+   "added": 30,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 2,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 18.2,
+   "total": 22583
+  },
   {
    "at": "2026-11-18T13:34:40.295Z",
    "cities": [
@@ -9880,125 +9942,6 @@
    "errors": [],
    "minutes": 13.8,
    "total": 20992
-  },
-  {
-   "at": "2026-11-14T22:53:07.470Z",
-   "cities": [
-    {
-     "cc": "DO",
-     "city": "Santa Cruz de Mao",
-     "found": 7,
-     "updated": 0,
-     "osm": 15
-    },
-    {
-     "cc": "MX",
-     "city": "La Piedad de Cabadas",
-     "found": 6,
-     "updated": 0,
-     "osm": 25
-    },
-    {
-     "cc": "AR",
-     "city": "La Banda",
-     "found": 0,
-     "updated": 0,
-     "osm": 30
-    },
-    {
-     "cc": "AR",
-     "city": "Trelew",
-     "found": 3,
-     "updated": 0,
-     "osm": 46
-    },
-    {
-     "cc": "VE",
-     "city": "Puerto Ayacucho",
-     "found": 7,
-     "updated": 0,
-     "osm": 23
-    },
-    {
-     "cc": "MX",
-     "city": "Tulancingo",
-     "found": 4,
-     "updated": 0,
-     "osm": 10
-    },
-    {
-     "cc": "CO",
-     "city": "Tumaco",
-     "found": 20,
-     "updated": 0,
-     "osm": 50
-    },
-    {
-     "cc": "CO",
-     "city": "Cereté",
-     "found": 14,
-     "updated": 0,
-     "osm": 45
-    },
-    {
-     "cc": "CO",
-     "city": "Turbaco",
-     "found": 9,
-     "updated": 0,
-     "osm": 45
-    },
-    {
-     "cc": "MX",
-     "city": "Temoaya",
-     "found": 0,
-     "updated": 0,
-     "osm": 32
-    },
-    {
-     "cc": "AR",
-     "city": "Cipolletti",
-     "found": 0,
-     "updated": 0,
-     "osm": 90
-    },
-    {
-     "cc": "MX",
-     "city": "Texcoco de Mora",
-     "found": 3,
-     "updated": 0,
-     "osm": 64
-    },
-    {
-     "cc": "CL",
-     "city": "Alto Hospicio",
-     "found": 20,
-     "updated": 0,
-     "osm": 90
-    },
-    {
-     "cc": "VE",
-     "city": "Yaritagua",
-     "found": 1,
-     "updated": 0,
-     "osm": 1
-    },
-    {
-     "cc": "MX",
-     "city": "Temixco",
-     "found": 0,
-     "updated": 0,
-     "osm": 35
-    }
-   ],
-   "added": 94,
-   "enriched": 0,
-   "photos": 1,
-   "contacts": 1,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 16,
-   "total": 20937
   }
  ]
 }
