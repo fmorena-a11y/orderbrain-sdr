@@ -7402,7 +7402,17 @@
   "AR|Don Torcuato": "2026-11-18T03:09:16.605Z",
   "CO|n703167871": "2026-11-18T03:10:03.560Z",
   "ES|n1470838306": "2026-11-18T03:16:05.478Z",
-  "MX|Sahuayo de Morelos": "2026-11-18T03:21:07.499Z"
+  "MX|Sahuayo de Morelos": "2026-11-18T03:21:07.499Z",
+  "HN|n307406289": "2026-11-18T05:24:56.370Z",
+  "HN|n307976883": "2026-11-18T05:25:26.908Z",
+  "CO|n321633105": "2026-11-18T05:26:03.431Z",
+  "CO|n703169255": "2026-11-18T05:26:43.697Z",
+  "CL|San Felipe": "2026-11-18T05:27:20.116Z",
+  "ES|n764716504": "2026-11-18T05:27:59.633Z",
+  "AR|Eldorado": "2026-11-18T05:28:45.633Z",
+  "MX|Jesús María": "2026-11-18T05:29:21.044Z",
+  "MX|Guamúchil": "2026-11-18T05:29:58.750Z",
+  "AR|San Francisco Solano": "2026-11-18T05:30:47.909Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7527,6 +7537,92 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-18T05:19:54.104Z",
+   "cities": [
+    {
+     "cc": "HN",
+     "city": "Yoro",
+     "found": 2,
+     "updated": 0,
+     "osm": 9
+    },
+    {
+     "cc": "HN",
+     "city": "Sonaguera",
+     "found": 1,
+     "updated": 0,
+     "osm": 2
+    },
+    {
+     "cc": "CO",
+     "city": "Ciénaga de Oro",
+     "found": 2,
+     "updated": 0,
+     "osm": 13
+    },
+    {
+     "cc": "CO",
+     "city": "Planeta Rica",
+     "found": 5,
+     "updated": 0,
+     "osm": 23
+    },
+    {
+     "cc": "CL",
+     "city": "San Felipe",
+     "found": 24,
+     "updated": 0,
+     "osm": 52
+    },
+    {
+     "cc": "ES",
+     "city": "Pontevedra",
+     "found": 5,
+     "updated": 0,
+     "osm": 56
+    },
+    {
+     "cc": "AR",
+     "city": "Eldorado",
+     "found": 11,
+     "updated": 1,
+     "osm": 54
+    },
+    {
+     "cc": "MX",
+     "city": "Jesús María",
+     "found": 0,
+     "updated": 0,
+     "osm": 82
+    },
+    {
+     "cc": "MX",
+     "city": "Guamúchil",
+     "found": 3,
+     "updated": 0,
+     "osm": 11
+    },
+    {
+     "cc": "AR",
+     "city": "San Francisco Solano",
+     "found": 0,
+     "updated": 0,
+     "osm": 127
+    }
+   ],
+   "added": 53,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "AR|Villa Tesei: sin tiempo en esta corrida"
+   ],
+   "minutes": 19.3,
+   "total": 22493
+  },
   {
    "at": "2026-11-18T03:08:37.250Z",
    "cities": [
@@ -9917,34 +10013,6 @@
    "errors": [],
    "minutes": 15.6,
    "total": 20666
-  },
-  {
-   "at": "2026-11-14T13:13:42.721Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Ciudad Guzmán",
-     "found": 9,
-     "updated": 0,
-     "osm": 101
-    },
-    {
-     "cc": "MX",
-     "city": "Lagos de Moreno",
-     "found": 0,
-     "updated": 0,
-     "osm": 0
-    }
-   ],
-   "added": 9,
-   "enriched": 0,
-   "photos": 11,
-   "contacts": 7,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 19.3,
-   "total": 20656
   }
  ]
 }
