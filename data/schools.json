@@ -457148,5 +457148,27 @@
   "src": "osm",
   "osm": "w559626236",
   "found": "2026-11-18"
+ },
+ {
+  "id": "martinez-de-la-torre-universidad-del-golfo-de-mexico",
+  "name": "Universidad del Golfo de México",
+  "city": "Martínez de la Torre",
+  "country": "México",
+  "lat": 20.069274,
+  "lng": -97.063755,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4630840239",
+  "found": "2026-11-18"
  }
 ]
