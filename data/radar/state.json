@@ -7438,7 +7438,9 @@
   "MX|Huamantla": "2026-11-18T19:17:43.891Z",
   "AR|San Vicente": "2026-11-18T19:18:37.198Z",
   "ES|n1470837704": "2026-11-18T19:24:54.616Z",
-  "ES|n688986898": "2026-11-18T19:26:16.131Z"
+  "ES|n688986898": "2026-11-18T19:26:16.131Z",
+  "CL|Los Andes": "2026-11-18T21:15:32.690Z",
+  "GT|Concepción Tutuapa": "2026-11-18T21:17:03.302Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7573,6 +7575,36 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-18T21:10:22.428Z",
+   "cities": [
+    {
+     "cc": "CL",
+     "city": "Los Andes",
+     "found": 28,
+     "updated": 0,
+     "osm": 59
+    },
+    {
+     "cc": "GT",
+     "city": "Concepción Tutuapa",
+     "found": 0,
+     "updated": 0,
+     "osm": 0
+    }
+   ],
+   "added": 28,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "AR|El Palomar: sin tiempo en esta corrida"
+   ],
+   "minutes": 19.2,
+   "total": 22645
+  },
   {
    "at": "2026-11-18T19:17:04.966Z",
    "cities": [
@@ -9747,90 +9779,6 @@
    "errors": [],
    "minutes": 13.9,
    "total": 21267
-  },
-  {
-   "at": "2026-11-15T05:12:24.764Z",
-   "cities": [
-    {
-     "cc": "VE",
-     "city": "San Juan de Los Morros",
-     "found": 12,
-     "updated": 0,
-     "osm": 38
-    },
-    {
-     "cc": "PY",
-     "city": "Itauguá",
-     "found": 2,
-     "updated": 0,
-     "osm": 4
-    },
-    {
-     "cc": "CO",
-     "city": "Magangué",
-     "found": 30,
-     "updated": 0,
-     "osm": 71
-    },
-    {
-     "cc": "ES",
-     "city": "Orense",
-     "found": 5,
-     "updated": 0,
-     "osm": 68
-    },
-    {
-     "cc": "AR",
-     "city": "Burzaco",
-     "found": 1,
-     "updated": 1,
-     "osm": 99
-    },
-    {
-     "cc": "MX",
-     "city": "Tepatitlán",
-     "found": 11,
-     "updated": 0,
-     "osm": 100
-    },
-    {
-     "cc": "AR",
-     "city": "Zárate",
-     "found": 11,
-     "updated": 0,
-     "osm": 40
-    },
-    {
-     "cc": "DO",
-     "city": "San Ignacio de Sabaneta",
-     "found": 4,
-     "updated": 0,
-     "osm": 8
-    },
-    {
-     "cc": "AR",
-     "city": "Río Grande",
-     "found": 7,
-     "updated": 0,
-     "osm": 39
-    },
-    {
-     "cc": "CO",
-     "city": "Chía",
-     "found": 0,
-     "updated": 0,
-     "osm": 34
-    }
-   ],
-   "added": 83,
-   "enriched": 0,
-   "photos": 1,
-   "contacts": 1,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 15.7,
-   "total": 21154
   }
  ]
 }
