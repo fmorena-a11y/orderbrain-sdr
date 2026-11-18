@@ -7425,7 +7425,8 @@
   "DO|n5937852460": "2026-11-18T09:31:59.371Z",
   "MX|Uriangato": "2026-11-18T11:19:24.743Z",
   "UY|Las Piedras": "2026-11-18T11:21:01.794Z",
-  "CO|n703168193": "2026-11-18T11:27:09.714Z"
+  "CO|n703168193": "2026-11-18T11:27:09.714Z",
+  "PY|n2899038353": "2026-11-18T13:47:56.474Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7547,9 +7548,37 @@
    "n": 1,
    "at": "2026-11-17T17:40:50.947Z",
    "error": "The operation was aborted due to timeout"
+  },
+  "HN|n321606235": {
+   "n": 1,
+   "at": "2026-11-18T13:47:16.031Z",
+   "error": "Overpass 504"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-18T13:34:40.295Z",
+   "cities": [
+    {
+     "cc": "PY",
+     "city": "Cambyretá",
+     "found": 0,
+     "updated": 0,
+     "osm": 2
+    }
+   ],
+   "added": 0,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "HN|n321606235: Overpass 504"
+   ],
+   "minutes": 13.3,
+   "total": 22553
+  },
   {
    "at": "2026-11-18T11:18:56.808Z",
    "cities": [
@@ -9970,90 +9999,6 @@
    "errors": [],
    "minutes": 16,
    "total": 20937
-  },
-  {
-   "at": "2026-11-14T20:55:16.636Z",
-   "cities": [
-    {
-     "cc": "EC",
-     "city": "Ibarra",
-     "found": 34,
-     "updated": 0,
-     "osm": 90
-    },
-    {
-     "cc": "DO",
-     "city": "Samaná",
-     "found": 1,
-     "updated": 0,
-     "osm": 1
-    },
-    {
-     "cc": "NI",
-     "city": "Estelí",
-     "found": 20,
-     "updated": 0,
-     "osm": 44
-    },
-    {
-     "cc": "NI",
-     "city": "Matagalpa",
-     "found": 10,
-     "updated": 0,
-     "osm": 24
-    },
-    {
-     "cc": "AR",
-     "city": "Trujui",
-     "found": 0,
-     "updated": 0,
-     "osm": 102
-    },
-    {
-     "cc": "PR",
-     "city": "Ponce",
-     "found": 13,
-     "updated": 0,
-     "osm": 69
-    },
-    {
-     "cc": "CO",
-     "city": "Sahagún",
-     "found": 9,
-     "updated": 0,
-     "osm": 31
-    },
-    {
-     "cc": "DO",
-     "city": "Pedernales",
-     "found": 5,
-     "updated": 0,
-     "osm": 13
-    },
-    {
-     "cc": "ES",
-     "city": "Jaén",
-     "found": 17,
-     "updated": 0,
-     "osm": 48
-    },
-    {
-     "cc": "ES",
-     "city": "Reus",
-     "found": 1,
-     "updated": 0,
-     "osm": 57
-    }
-   ],
-   "added": 110,
-   "enriched": 0,
-   "photos": 7,
-   "contacts": 5,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 14.3,
-   "total": 20843
   }
  ]
 }
