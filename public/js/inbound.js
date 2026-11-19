@@ -5,14 +5,14 @@
 // Los de Meta Ads son SDR revival (etiqueta «SDR revival · Meta Ads»; el prospecto lleva la Fuente «Inbound - SDR Meta Ads Revival»).
 // Un líder ve lo de su gente (y lo crea a su nombre solo con «Crear a nombre de X»); dirección, todo. Servidor:
 // lib/inbound.js (reglas), lib/inbound-run.js y lib/inbound-api.js.
-import { S, api, esc, icon, toast, telLink, agoText, shortDay, modal, leadsOver, openMenu } from "./core.js";
+import { S, api, esc, icon, toast, telLink, agoText, shortDay, modal, leadsOver, openMenu, emptyState } from "./core.js";
 import { go } from "./app.js";
 import { openRecord } from "./school.js";
 
 let host = null;
 const st = { q: "", data: null, err: null, busy: false, prog: "", who: "mine", pasting: false, pasteErr: "", roErr: "", info: {}, help: false, openMsg: new Set(), stage: (() => { try { return localStorage.getItem("ob.inbound.stage") || "all"; } catch { return "all"; } })() };
 // la introducción va en una línea; el «?» despliega el resto (cómo queda cada lead en Pipedrive)
-const page = body => `<div class="page inb-page"><div class="page-head"><div><h1>Tus inbound</h1>
+const page = body => `<div class="page read inb-page"><div class="page-head"><div><h1>Tus inbound</h1>
   <details class="inb-intro" id="inHelp"${st.help ? " open" : ""}><summary><span>Los leads del reparto de Slack que te tocaron.</span><span class="inb-help" role="img" aria-label="Cómo funciona" title="Cómo funciona">?</span></summary>
     <p>Cada uno queda en Pipedrive como prospecto a tu nombre, con una llamada pendiente. Los de Meta Ads van como SDR revival (Fuente «Inbound - SDR Meta Ads Revival»).</p></details></div></div>${body}</div>`;
 const SRC_TONE = { meta: "meta", google: "google", organic: "org", referral: "ref", revival: "rev" };
@@ -134,7 +134,7 @@ function listHtml(d) {
   const mineList = filtered(d), list = mineList.filter(x => inStage(x, st.stage)).sort(byImportance);
   return `${whoChips(d)}${stageChips(mineList)}
     <section class="card" aria-labelledby="hInb"><div class="card-h"><h2 id="hInb">${icon("bolt")} ${st.who === "mine" ? "Te tocaron" : st.who === "all" ? "Todos" : esc(st.who)} <span class="faint">· últimos 30 días${st.stage !== "all" ? ` · ${esc(STAGE_CHIPS.find(c => c[0] === st.stage)?.[1] || "")}` : ""}</span></h2></div>
-      <div class="card-b inb-items">${list.length ? list.map(itemHtml).join("") : st.q.trim() && !mineList.length ? `<div class="empty">${icon("search")}<span>Nada con «${esc(st.q.trim())}». <button class="linkbtn" data-clearq>Borrar la búsqueda</button></span></div>` : mineList.length ? `<div class="empty">${icon("bolt")}<span>Nada en «${esc(STAGE_CHIPS.find(c => c[0] === st.stage)?.[1] || "este estado")}». <button class="linkbtn" data-stage="all">Ver todos</button></span></div>` : emptyHtml(d)}</div></section>`;
+      <div class="card-b inb-items">${list.length ? list.map(itemHtml).join("") : st.q.trim() && !mineList.length ? emptyState({ icon: "search", title: `Nada con «${st.q.trim()}»`, action: { label: "Borrar la búsqueda", attrs: "data-clearq" } }) : mineList.length ? emptyState({ icon: "bolt", title: `Nada en «${STAGE_CHIPS.find(c => c[0] === st.stage)?.[1] || "este estado"}»`, action: { label: "Ver todos", attrs: 'data-stage="all"' } }) : emptyHtml(d)}</div></section>`;
 }
 function drawList() {
   const el = host?.isConnected && host.querySelector("#inbList"); if (!el || !st.data) return;
@@ -196,8 +196,8 @@ function meLine(d) {
     : d.me?.auto ? `En Slack sos <b>${esc(d.me.auto)}</b> · <button class="linkbtn" id="inSlackMe">No soy yo</button>` : `<button class="linkbtn" id="inSlackMe">¿No ves los tuyos? Elegí tu usuario de Slack</button>`;
 }
 function emptyHtml(d) {
-  if (st.who !== "mine") return `<div class="empty">${icon("bolt")}<span>Nada por acá.</span></div>`;
-  return `<div class="empty">${icon("bolt")}<span>${d.slack.on ? "No te tocó ningún lead en los últimos 30 días." : "Todavía no hay mensajes: pegá abajo los de Slack."}</span>${d.names?.length && !d.me?.slack ? `<button class="linkbtn" data-slackme>¿Tu nombre en Slack es otro? Elegilo</button>` : ""}</div>`;
+  if (st.who !== "mine") return emptyState({ icon: "bolt", title: "Nada por acá" });
+  return emptyState({ icon: "bolt", title: d.slack.on ? "No te tocó ningún lead en los últimos 30 días" : "Todavía no hay mensajes", text: d.slack.on ? "" : "Pegá abajo los de Slack.", action: d.names?.length && !d.me?.slack ? { label: "¿Tu nombre en Slack es otro? Elegilo", attrs: "data-slackme", cls: "linkbtn" } : null });
 }
 const SLACK_ERR = { not_in_channel: "la app de Slack no está en el canal: hay que sumarla (/invite).", channel_not_found: "la app de Slack no ve el canal: hay que sumarla (/invite).", missing_scope: "a la app de Slack le faltan permisos.", invalid_auth: "el token de Slack no es válido.", not_authed: "falta el token de Slack.", account_inactive: "el token de Slack es de una app desactivada.", ratelimited: "Slack pidió esperar un poco." };
 function slackCallout(d) {
@@ -333,7 +333,7 @@ export async function slackDialog() {
   const m = modal(`<div class="modal-h"><h3>Tu usuario de Slack</h3><button class="icon-btn" id="slX" aria-label="Cerrar">${icon("x")}</button></div>
     <p class="muted" style="margin:-6px 0 0">El nombre con el que te nombra el reparto («le toca a …»). Con esto ves tus leads aunque tu nombre en Slack sea distinto al de Pipedrive.</p>
     <label class="field"><span>Nombre en Slack</span><input class="inp" id="slName" list="slNames" value="${esc(r.slack?.name || "")}" placeholder="${esc(r.auto?.name ? `Automático: ${r.auto.name}` : "Ej: Facu Morena")}"><datalist id="slNames">${(r.names || []).map(n => `<option value="${esc(n)}">`).join("")}</datalist></label>
-    <p class="faint" style="margin:0;font-size:12.5px">Vacío = automático (por tu email de Slack o tu nombre).</p>
+    <p class="faint" style="margin:0;font-size:var(--fs-sm)">Vacío = automático (por tu email de Slack o tu nombre).</p>
     <div class="row"><button class="btn ghost" id="slNo">Cancelar</button><button class="btn primary" id="slGo">Guardar</button></div>`);
   m.querySelector("#slX").onclick = m.querySelector("#slNo").onclick = () => m.close();
   m.querySelector("#slGo").onclick = async () => {

@@ -6,7 +6,7 @@
 // vez, con el motivo más grave primero). Arriba, el resumen (tocar un número filtra o lleva a Tratos abiertos) y el botón
 // «Trabajar mis tratos»: una sesión (origen «deals») con los tratos que piden atención, en ese orden. Acá no va la cola de
 // prospección ni la meta diaria de contactos: eso es del Hoy de SDR. Lo que no se pudo leer va «?» con su aviso.
-import { S, api, esc, icon, cap, toast, today, addDays, nextBusinessDay, shortDay, dayLabel, openMenu, modal, ago, TYPE_ICON, demoDue, archivedRef, homeSwitchHtml, bindHomeSwitch } from "./core.js";
+import { S, api, esc, icon, cap, toast, today, addDays, nextBusinessDay, shortDay, dayLabel, openMenu, modal, ago, TYPE_ICON, demoDue, archivedRef, homeSwitchHtml, bindHomeSwitch, emptyState } from "./core.js";
 import { openSchool, openRecord, startSession, resumeSession } from "./school.js";
 import { setBadge, baseErrorCallout } from "./app.js";
 import { loadSessions, sessionsCard, bindSessionsCard } from "./sessions.js";
@@ -106,7 +106,7 @@ function draw() {
         <section class="card" id="aeDemos" aria-labelledby="hAeD" tabindex="-1">
           <div class="card-h"><h2 id="hAeD">${icon("video")} Demos de hoy y de mañana</h2><span class="sub">${q(d.demos.n)}</span></div>
           <div class="card-b">${demos.length ? demoGroup("Sin marcar", d.demos.unmarked, "late") + demoGroup("Hoy", d.demos.today) + demoGroup("Mañana", d.demos.tomorrow)
-            : `<div class="empty compact"><b>${d.demos.complete ? "Sin demos hoy ni mañana." : "No se pudieron leer tus demos."}</b>${d.demos.complete ? `<span>Las que te agenden aparecen acá con su hora.</span>` : ""}</div>`}</div>
+            : emptyState({ title: d.demos.complete ? "Sin demos hoy ni mañana" : "No se pudieron leer tus demos", text: d.demos.complete ? "Las que te agenden aparecen acá con su hora." : "", compact: true })}</div>
         </section>
         <section class="card" id="aeTasks" aria-labelledby="hAeT" tabindex="-1">
           <div class="card-h"><h2 id="hAeT">${icon("check")} Tareas vencidas y de hoy</h2><span class="sub">${q(d.tasks.n)}${d.tasks.late ? ` · ${pl(d.tasks.late, "vencida", "vencidas")}` : ""}</span></div>
@@ -202,7 +202,7 @@ function demoGroup(title, list, cls = "") {
 // ---------- tareas: por trato, la más vieja primero
 function tasksHtml(d) {
   const all = d.tasks.groups, groups = F.late ? all.filter(g => g.late).map(g => ({ ...g, items: g.items.filter(x => x.late) })) : all;
-  if (!all.length) return `<div class="empty compact"><b>${d.tasks.complete ? "Sin tareas vencidas ni para hoy." : "No se pudieron leer tus tareas."}</b></div>`;
+  if (!all.length) return emptyState({ title: d.tasks.complete ? "Sin tareas vencidas ni para hoy" : "No se pudieron leer tus tareas", compact: true });
   const shown = groups.slice(0, F.tasks);
   return `${d.tasks.late ? `<div class="chips ae-filter"><button class="chip" id="aeLate" aria-pressed="${F.late}" data-focus-key="aeLate">Solo vencidas <b>${fmtN(d.tasks.late)}</b></button></div>` : ""}
     ${shown.map(g => { const name = nameOf(g); return `<div class="ae-group">
@@ -234,7 +234,7 @@ function moveMenu(anchor, id, time) {
 // ---------- tratos que piden atención: cada uno una vez, con el motivo más grave primero
 function attHtml(d) {
   const all = d.attention.deals;
-  if (!all.length) return `<div class="empty compact"><b>${d.attention.complete ? "Ningún trato pide atención." : "No se pudieron leer tus tratos."}</b>${d.attention.complete ? `<span>Todos tienen próximo paso al día y se movieron en los últimos ${d.staleDays} días.</span>` : ""}</div>`;
+  if (!all.length) return emptyState({ title: d.attention.complete ? "Ningún trato pide atención" : "No se pudieron leer tus tratos", text: d.attention.complete ? `Todos tienen próximo paso al día y se movieron en los últimos ${d.staleDays} días.` : "", compact: true });
   const n = k => d.attention.counts?.[k] ?? all.filter(r => r.why.includes(k)).length, list = F.why ? all.filter(r => r.why.includes(F.why)) : all, shown = list.slice(0, F.att);
   return `<div class="chips ae-filter" role="group" aria-label="Por qué piden atención">${Object.keys(WHY).filter(k => n(k)).map(k => `<button class="chip" data-why="${k}" aria-pressed="${F.why === k}" data-focus-key="why-${k}">${esc(k === "stale" ? `Quietos +${d.staleDays} días` : WHY[k])} <b>${fmtN(n(k))}</b></button>`).join("")}</div>
     <div class="dl-cards">${shown.map(r => `<article class="dl-card ae-deal">

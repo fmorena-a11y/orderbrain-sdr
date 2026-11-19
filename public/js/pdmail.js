@@ -69,8 +69,8 @@ let sigMode = null, formOpen = false; // lo elegido en el perfil mientras está 
 export function mailProfileHtml(p, g) {
   if (!p) return `<p class="faint" style="margin:0">Cargando…</p>`;
   const ready = pdReady(p), sig = p.sig || {};
-  const st = !p.enabled ? `<p class="muted" style="margin:0;font-size:13.5px">${p.failed ? "No pude leer tu conexión con Pipedrive. Probá de nuevo en un rato." : "Para enviar desde Pipedrive falta configurar el servidor (avisale al administrador)."}</p>`
-    : p.noUser ? `<p class="muted" style="margin:0;font-size:13.5px">Tu email no es usuario de Pipedrive: pedí que te den de alta.</p>`
+  const st = !p.enabled ? `<p class="muted" style="margin:0;font-size:var(--fs-md)">${p.failed ? "No pude leer tu conexión con Pipedrive. Probá de nuevo en un rato." : "Para enviar desde Pipedrive falta configurar el servidor (avisale al administrador)."}</p>`
+    : p.noUser ? `<p class="muted" style="margin:0;font-size:var(--fs-md)">Tu email no es usuario de Pipedrive: pedí que te den de alta.</p>`
     : formOpen && !ready && pdCanConnect(p) ? tokenFormHtml(p, { confirm: p.connected })
     : `<div class="gm-st">${ready
       ? `<span>${icon("checkCircle", "sm")} Pipedrive conectado${p.name ? ` como <b>${esc(p.name)}</b>` : ""}${p.demo ? " (simulado)" : ""}</span><button type="button" class="linkbtn" id="pdOff">Desconectar</button>`
@@ -84,14 +84,14 @@ export function mailProfileHtml(p, g) {
       ${mode === "armada" ? `<div class="sig-grid">
           <label class="field"><span>Cargo</span><input class="inp" id="sgTitle" value="${esc(sig.title || "")}" maxlength="80" placeholder="${esc(sig.titleDefault || "Sales Development Representative")}"></label>
           <label class="field"><span>Teléfono <span class="faint">opcional</span></span><input class="inp" id="sgPhone" type="tel" value="${esc(sig.phone || "")}" maxlength="40" placeholder="+598 99 123 456" autocomplete="tel"></label></div>
-        <p class="faint" style="margin:6px 0 0;font-size:12.5px">Con el isotipo de OrderEAT, tu nombre, tu email y www.ordereat.com, como la de Pipedrive.</p>`
+        <p class="faint" style="margin:6px 0 0;font-size:var(--fs-sm)">Con el isotipo de OrderEAT, tu nombre, tu email y www.ordereat.com, como la de Pipedrive.</p>`
       : mode === "pegada" ? `<label class="field" style="margin-top:8px"><span>Pegá tu firma de Pipedrive <span class="faint">texto o HTML</span></span>
           <textarea class="inp" id="sgCustom" rows="4" placeholder="En Pipedrive: Configuración personal › Correo › Firma. Copiala y pegala acá.">${esc(sig.custom || "")}</textarea></label>`
-      : `<p class="faint" style="margin:8px 0 0;font-size:12.5px">La que tenés en Gmail. Solo va en los mails que salen por Gmail.</p>`}
+      : `<p class="faint" style="margin:8px 0 0;font-size:var(--fs-sm)">La que tenés en Gmail. Solo va en los mails que salen por Gmail.</p>`}
       ${prev ? sigPreview(prev) : ""}
       <div class="row" style="justify-content:flex-start;gap:8px;margin-top:8px"><button type="button" class="btn sm" id="sgSave">Guardar firma</button></div>
-      <p class="faint" style="margin:6px 0 0;font-size:12.5px">Pipedrive no agrega tu firma a los mails que manda la app: va esta.</p>
-    </details>` : p.enabled && !p.noUser && !formOpen ? `<p class="faint" style="margin:0;font-size:12.5px">La firma se elige después de conectar Pipedrive.</p>` : "";
+      <p class="faint" style="margin:6px 0 0;font-size:var(--fs-sm)">Pipedrive no agrega tu firma a los mails que manda la app: va esta.</p>
+    </details>` : p.enabled && !p.noUser && !formOpen ? `<p class="faint" style="margin:0;font-size:var(--fs-sm)">La firma se elige después de conectar Pipedrive.</p>` : "";
   const alt = g?.enabled ? `<details class="gm-sig"><summary>Gmail · <span class="faint">otra opción, si no conectás Pipedrive</span></summary><div class="gm-box" id="pfGmail" style="margin-top:8px">${gmailProfileHtml(g, { signature: false })}</div></details>` : "";
   return st + firma + alt;
 }

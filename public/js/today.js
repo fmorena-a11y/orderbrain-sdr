@@ -1,5 +1,5 @@
 // Hoy: meta del día, agenda propia y a quién contactar ahora.
-import { S, api, esc, icon, potTag, homeMode, homeSwitchHtml, bindHomeSwitch, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg, brainTokenCallout, matchZone, zoneOptions, ZONE_KIND, workOrder, norm, callPill, callQueue, hotRows, demoDue, archivedRef, archivedAct, cleanTitle, subjectSansName, titleTag, territoryChosen, setTerritory } from "./core.js";
+import { S, api, esc, icon, potTag, homeMode, homeSwitchHtml, bindHomeSwitch, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg, brainTokenCallout, matchZone, zoneOptions, ZONE_KIND, workOrder, norm, callPill, callQueue, hotRows, demoDue, archivedRef, archivedAct, cleanTitle, subjectSansName, titleTag, territoryChosen, setTerritory, emptyState } from "./core.js";
 import { openSchool, openRecord, startSession, resumeSession } from "./school.js";
 import { setBadge, baseErrorCallout } from "./app.js";
 import { loadSessions, sessionsCard, bindSessionsCard } from "./sessions.js";
@@ -145,7 +145,7 @@ function draw() {
     <div class="today-grid">
       <section class="card" aria-labelledby="hAg">
         <div class="card-h"><h2 id="hAg">${icon("calendar")} Tu agenda</h2><span class="sub">${acts.length} pendientes</span></div>
-        <div class="card-b">${late.length + now.length + soon.length ? group("Hoy", now) + group("Vencidas", late, "late") + group("Próximos 7 días", soon) : `<div class="empty">${icon("checkCircle")}<b>Sin pendientes</b><span>Lo que agendes desde una ficha aparece acá.</span></div>`}</div>
+        <div class="card-b">${late.length + now.length + soon.length ? group("Hoy", now) + group("Vencidas", late, "late") + group("Próximos 7 días", soon) : emptyState({ icon: "checkCircle", title: "Sin pendientes", text: "Lo que agendes desde una ficha aparece acá." })}</div>
       </section>
       <div class="stack" id="right">
         <section class="card" aria-labelledby="hQ">
@@ -153,7 +153,7 @@ function draw() {
           <div class="card-b">
             ${territoryChosen() ? "" : `<p class="terr-hint">${icon("globe", "sm")}<span>Estás viendo todos los países · <button class="linkbtn" id="terrPick" data-focus-key="terrPick">Elegir</button></span></p>`}
             ${list.length ? list.map(prospectRow).join("") + (fresh.length > 6 ? `<button class="btn ghost sm block" id="more" data-focus-key="more">${showAll ? "Ver menos" : `Ver ${fresh.length - 6} más`}</button>` : "")
-              : `<div class="empty">${icon("search")}<span>No hay colegios para prospectar en ${esc(terr.toLowerCase())}. Sumá países o revisá ciudades en Prospectar.</span></div>`}
+              : emptyState({ icon: "search", title: `No hay colegios para prospectar en ${terr.toLowerCase()}`, text: "Sumá países o revisá ciudades en Prospectar.", action: { label: "Ir a Prospectar", href: "#/prospectar" } })}
           </div>
         </section>
         ${revive.length ? `<section class="card" aria-labelledby="hR"><div class="card-h"><h2 id="hR">${icon("refresh")} Para reactivar</h2><span class="sub">perdidos hace más de 4 meses</span></div><div class="card-b">${revive.slice(0, 4).map(prospectRow).join("")}</div></section>` : ""}
@@ -384,7 +384,7 @@ export function demoResultMenu(anchor, a, after) {
       await loadToday().catch(() => {}); after ? after() : draw();
     }, { needTime: true, ok: "Reagendar", skip: () => toast("Quedó sin demo nueva: acordate de volver a contactarlo.", { type: "err" }) });
   };
-  openMenu(anchor, [{ head: "¿Se hizo la demo?" }, { label: "Se hizo", fn: () => send("done") }, { label: "No se presentó (no-show)", sub: "Te proponemos reagendarla", fn: () => send("noshow") },
+  openMenu(anchor, [{ head: "¿Se hizo la demo?" }, { label: "Se hizo", fn: () => send("done") }, { label: "No se presentó (no show)", sub: "Te proponemos reagendarla", fn: () => send("noshow") },
     { label: "Se reprogramó…", sub: "Elegís la fecha nueva", fn: () => pickDemoDate(anchor, "¿Para cuándo se reprogramó?", a.time, (d, tm) => send("moved", { date: d, time: tm }), { ok: "Reprogramar" }) },
     { label: "Se canceló", fn: () => send("canceled") }]);
 }

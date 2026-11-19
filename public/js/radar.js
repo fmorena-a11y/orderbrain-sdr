@@ -1,5 +1,5 @@
 // Radar: colegios nuevos que encuentra el agente que recorre todas las ciudades cada 2 horas.
-import { api, esc, icon, ago, fmtNum } from "./core.js";
+import { api, esc, icon, ago, fmtNum, emptyState } from "./core.js";
 import { openSchool, startSession } from "./school.js";
 import { go } from "./app.js";
 import { openCityFromOutside } from "./explore.js";
@@ -21,7 +21,7 @@ export async function renderRadar(el) {
   }
   if (host?.isConnected) draw(r);
 }
-const page = body => `<div class="page"><div class="page-head"><div><h1>Radar</h1><p>Colegios nuevos que encontró el agente en los últimos 7 días.</p></div></div>${body}</div>`;
+const page = body => `<div class="page read"><div class="page-head"><div><h1>Radar</h1><p>Colegios nuevos que encontró el agente en los últimos 7 días.</p></div></div>${body}</div>`;
 
 function draw(r) {
   const last = r.runs[0];
@@ -43,7 +43,7 @@ function draw(r) {
       <section class="card" aria-labelledby="hOp"><div class="card-h"><h2 id="hOp">${icon("flame")} Mejores oportunidades nuevas</h2></div><div class="card-b">
         ${list.length ? list.map(q => `<button class="prospect" data-school="${esc(q.id)}"><span class="score ${q.score >= 60 ? "" : q.score >= 40 ? "mid" : "low"}" title="Prioridad ${q.score} de 100" aria-label="Prioridad ${q.score} de 100">${q.score}</span><span class="t"><b class="wrap2">${esc(q.name)}</b><small>${esc(q.city)}, ${esc(q.country)}${q.phone ? "" : " · sin teléfono"}</small><span class="why">${[...new Set([...q.opp.filter(o => !/^Privado confirmado/.test(o)), ...q.reasons.filter(x => !/Sin revisar|Nuevo en el radar|Nunca contactado/.test(x))])].slice(0, 3).map(x => `<span class="tag">${esc(x)}</span>`).join("")}</span></span>${icon("arrowRight", "faint")}</button>`).join("")
           + (r.top.length > 8 ? `<button class="btn ghost sm block" id="moreOp">${all ? "Ver menos" : `Ver ${r.top.length - 8} más`}</button>` : "")
-          : `<div class="empty">${icon("target")}<span>Cuando el agente encuentre colegios nuevos, los mejores aparecen acá.</span></div>`}
+          : emptyState({ icon: "target", title: "Todavía nada nuevo", text: "Cuando el agente encuentre colegios nuevos, los mejores aparecen acá." })}
       </div></section>
       <div class="stack">
         ${r.topCities.length ? `<section class="card" aria-labelledby="hCi"><div class="card-h"><h2 id="hCi">${icon("map")} Dónde encontró más</h2></div><div class="card-b">${r.topCities.map(c => `<button class="city-row" data-city="${esc(c.city)}" data-country="${esc(c.country)}"><span class="t"><b>${esc(c.city)}</b><small>${esc(c.country)}</small></span><span class="num"><b>${fmt(c.n)}</b></span></button>`).join("")}</div></section>` : ""}

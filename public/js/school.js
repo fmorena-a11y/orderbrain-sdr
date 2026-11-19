@@ -169,7 +169,7 @@ const sameContact = (a, b) => !!a && !!b && (a.name || "") === (b.name || "") &&
 function baseSec(s) {
   const L = BASEINFO.get(s.id) || []; if (!L.length) return "";
   return L.map((x, k) => `<section class="sec bx-base"><h3><span class="l">${icon("table")} De la base «${esc(x.base.event)}»</span></h3>
-    <p class="muted" style="margin:0 0 8px;font-size:13.5px">${esc([x.students, x.typeText, `${x.count || x.contacts.length} ${x.count === 1 ? "inscripto" : "inscriptos"}`, x.contacted === true ? "ya figura contactado en la planilla" : ""].filter(Boolean).join(" · "))}</p>
+    <p class="muted" style="margin:0 0 8px;font-size:var(--fs-md)">${esc([x.students, x.typeText, `${x.count || x.contacts.length} ${x.count === 1 ? "inscripto" : "inscriptos"}`, x.contacted === true ? "ya figura contactado en la planilla" : ""].filter(Boolean).join(" · "))}</p>
     ${x.out ? `<div class="callout warn" style="margin-bottom:8px">${icon("alert")}<span>${esc(x.out)}: en la planilla figura así.</span></div>` : ""}
     <div class="bx-cs" style="padding-left:0">${x.contacts.map((c, i) => `<div class="bx-c${sameContact(D.form?.contact, c) ? " picked" : ""}"><span class="t"><b>${esc(c.name || "Sin nombre")}</b>${c.role ? ` <span class="faint">${esc(c.role)}</span>` : ""}${c.decisor ? ` <span class="tag">decide</span>` : ""}</span>
       <span class="bx-cl">${c.phone ? `<a href="${esc(telLink(c.phone))}">${icon("phone", "sm")} ${esc(c.phone)}</a><button class="linkbtn" data-bwa="${esc(c.phone)}">${icon("whatsapp", "sm")} WhatsApp</button>` : ""}${c.email ? `<button class="linkbtn" data-bmail="${esc(c.email)}">${icon("mail", "sm")} ${esc(c.email)}</button>` : ""}
@@ -385,7 +385,7 @@ function historySec(s) {
   if (!b && !deals.length && !h.notes.length && !h.slack?.msgs?.length) return "";
   return `<section class="sec" id="histSec"><h3><span class="l">${icon("refresh")} Qué pasó con OrderEAT</span></h3>
     ${b ? `<div class="hist-b"><b>World Dominion: ${esc(b.label)}</b>${b.client ? ` · cliente «${esc(b.client)}»` : ""}${b.site && b.site !== s.name ? ` · sitio «${esc(b.site)}»` : ""}${b.start ? ` · inicio ${day(b.start)}` : ""}
-      ${Object.keys(b.info || {}).length ? `<div class="faint" style="font-size:12.5px;margin-top:4px">${Object.entries(b.info).map(([k, v]) => `${esc(INFO_LABEL(k))}: ${esc(/^\d{4}-\d{2}-\d{2}/.test(String(v)) ? day(v) : String(v))}`).join(" · ")}</div>` : ""}</div>` : ""}
+      ${Object.keys(b.info || {}).length ? `<div class="faint" style="font-size:var(--fs-sm);margin-top:4px">${Object.entries(b.info).map(([k, v]) => `${esc(INFO_LABEL(k))}: ${esc(/^\d{4}-\d{2}-\d{2}/.test(String(v)) ? day(v) : String(v))}`).join(" · ")}</div>` : ""}</div>` : ""}
     ${deals.length ? `<div class="sub-h">Tratos en Pipedrive${h.orgs > 1 ? ` (${h.orgs} organizaciones con este nombre)` : ""}</div>${deals.map(x => `<div class="act"><span class="ty">${icon("deal")}</span><div class="t"><b><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a></b>
       <small>${esc([x.pipeline, x.stage].filter(Boolean).join(" · "))} · ${x.status === "won" ? `ganado ${day(x.won)}` : x.status === "lost" ? `perdido ${day(x.lost)}${x.lostReason ? ` · «${esc(x.lostReason)}»` : ""}` : `abierto desde ${day(x.added)}`}${x.owner ? ` · ${esc(x.owner)}` : ""}</small></div></div>`).join("")}` : ""}
     ${h.notes.length ? `<div class="sub-h">Últimas notas</div>${h.notes.slice(0, 4).map(n => `<details class="obj"><summary>${day(n.at)}${n.author ? ` · ${esc(n.author)}` : ""}${n.deal ? ` · ${esc(n.deal)}` : ""} — ${esc(clip(n.text.split("\n")[0], 90))}</summary><p style="white-space:pre-wrap">${esc(n.text)}</p></details>`).join("")}` : ""}
@@ -393,7 +393,7 @@ function historySec(s) {
       const head = m.kind ? `${esc(m.kind)}${f.reason ? ` — ${esc(f.reason.slice(0, 90))}` : ""}` : esc(m.text.slice(0, 90));
       const who = [f.account && `Account: ${f.account}`, f.onboarder && `Onboarder: ${f.onboarder}`, f.author && `Cargó: ${f.author}`].filter(Boolean).join(" · ");
       return `<details class="obj"><summary>${day(m.at)} · ${head}</summary>${m.kind ? `${f.reason ? `<p><b>Motivo:</b> ${esc(f.reason)}</p>` : ""}${f.before ? `<p class="faint">Estado previo: ${esc(f.before)}</p>` : ""}${who ? `<p class="faint">${esc(who)}</p>` : ""}${f.place ? `<p class="faint">${esc(f.site || "")} · ${esc(f.place)}</p>` : ""}` : `<p style="white-space:pre-wrap">${esc(m.text)}</p>`}<a href="${esc(m.url)}" target="_blank" rel="noopener">Abrir en Slack</a></details>`; }).join("")}`
-      : h.slackEnabled ? `<p class="faint" style="margin:8px 0 0;font-size:12.5px">${h.slack?.error ? `No pude leer Slack: ${esc(h.slack.error)}` : "No hay mensajes en Slack que nombren a este colegio."}</p>` : ""}
+      : h.slackEnabled ? `<p class="faint" style="margin:8px 0 0;font-size:var(--fs-sm)">${h.slack?.error ? `No pude leer Slack: ${esc(h.slack.error)}` : "No hay mensajes en Slack que nombren a este colegio."}</p>` : ""}
   </section>`;
 }
 
@@ -425,7 +425,7 @@ function dealConfirm(s, x, body, title) {
   const m = modal(`<div class="modal-h"><h3>${icon("deal")} ${esc(title)}</h3><button class="icon-btn" id="dcX" aria-label="Cerrar">${icon("x")}</button></div>
     <p class="muted" style="margin:-6px 0 0">${esc(x.title)} · ${esc([x.pipeline, x.stage].filter(Boolean).join(" · "))}</p>
     ${lost ? `<label class="field"><span>Motivo</span><select class="inp" id="dcWhy"><option value="">Elegí el motivo</option>${S.lostReasons.map(r => `<option value="${esc(r)}">${esc(r.replace(/\s+/g, " "))}</option>`).join("")}</select></label>` : ""}
-    <p class="muted" style="margin:0;font-size:13.5px">Se cambia en Pipedrive y queda una nota en el trato a tu nombre.</p>
+    <p class="muted" style="margin:0;font-size:var(--fs-md)">Se cambia en Pipedrive y queda una nota en el trato a tu nombre.</p>
     <div class="row" style="justify-content:flex-end;gap:8px"><button class="btn ghost" id="dcNo">Cancelar</button><button class="btn primary" id="dcGo">${icon("check")} Confirmar</button></div>`);
   m.querySelector("#dcX").onclick = m.querySelector("#dcNo").onclick = () => m.close();
   m.querySelector("#dcGo").onclick = async e => {
@@ -522,12 +522,12 @@ function enrichSec(s) {
   };
   const groups = Object.entries(KIND_E).map(([k, [ic, label]]) => [label, ic, e.items.filter(x => x.kind === k)]).filter(([, , l]) => l.length);
   const nt = e.note || {}, fecha = esc(new Intl.DateTimeFormat("es", { day: "numeric", month: "numeric" }).format(new Date(e.at)));
-  return `<section class="sec" id="enrichSec"><h3><span class="l">${icon("building")} Datos del colegio</span><span class="faint" style="font-size:12.5px;font-weight:500">Enriquecido el ${fecha} por ${esc(e.by)}</span></h3>
-    <p class="faint" style="margin:0 0 10px;font-size:13px">${nt.saved ? `${icon("check", "sm")} Quedó en una nota ${nt.lead ? "del prospecto" : "de Pipedrive"} · <a href="${esc(nt.url)}" target="_blank" rel="noopener">abrir</a>` : notInPd(nt.reason) ? `${icon("clock", "sm")} ${esc(nt.reason)}${canProspect(s, D.data?.match) ? ` <button class="linkbtn" data-enr-prospect>Crear prospecto</button>` : ""}` : nt.reason ? `${icon("alert", "sm")} ${esc(nt.reason)}` : ""}${e.fields?.saved?.length ? `<br>${icon("check", "sm")} Completé en el prospecto: ${esc(e.fields.saved.join(", "))}` : ""}</p>
+  return `<section class="sec" id="enrichSec"><h3><span class="l">${icon("building")} Datos del colegio</span><span class="faint" style="font-size:var(--fs-sm);font-weight:500">Enriquecido el ${fecha} por ${esc(e.by)}</span></h3>
+    <p class="faint" style="margin:0 0 10px;font-size:var(--fs-sm)">${nt.saved ? `${icon("check", "sm")} Quedó en una nota ${nt.lead ? "del prospecto" : "de Pipedrive"} · <a href="${esc(nt.url)}" target="_blank" rel="noopener">abrir</a>` : notInPd(nt.reason) ? `${icon("clock", "sm")} ${esc(nt.reason)}${canProspect(s, D.data?.match) ? ` <button class="linkbtn" data-enr-prospect>Crear prospecto</button>` : ""}` : nt.reason ? `${icon("alert", "sm")} ${esc(nt.reason)}` : ""}${e.fields?.saved?.length ? `<br>${icon("check", "sm")} Completé en el prospecto: ${esc(e.fields.saved.join(", "))}` : ""}</p>
     ${groups.length ? `<div class="enr">${groups.map(([label, ic, l]) => `<div class="enr-g"><div class="sub-h">${icon(ic, "sm")} ${esc(label)}</div>${l.map(row).join("")}</div>`).join("")}</div>` : `<p class="muted" style="margin:0">No encontré teléfonos, mails ni web.</p>`}
     ${e.rating ? `<p class="muted" style="margin:8px 0 0">Google Maps: ${esc(String(e.rating.value))}★ · ${esc(String(e.rating.count))} reseñas</p>` : ""}
     ${e.decisores.length ? `<div class="sub-h" style="margin-top:10px">Decisores</div>${e.decisores.map(d => `<div class="sede-row"><b>${esc(d.nombre)}</b>${d.cargo ? `<span class="muted">${esc(d.cargo)}</span>` : ""}</div>`).join("")}` : ""}
-    <p class="faint" style="margin:8px 0 0;font-size:12.5px">Buscado en: su web (${esc(e.sources.web)}) · Google Maps (${esc(e.sources.google)}) · estudio (${esc(e.sources.estudio)})${e.photos ? ` · ${e.photos} foto${e.photos === 1 ? "" : "s"}` : ""}</p>
+    <p class="faint" style="margin:8px 0 0;font-size:var(--fs-sm)">Buscado en: su web (${esc(e.sources.web)}) · Google Maps (${esc(e.sources.google)}) · estudio (${esc(e.sources.estudio)})${e.photos ? ` · ${e.photos} foto${e.photos === 1 ? "" : "s"}` : ""}</p>
   </section>`;
 }
 
@@ -560,7 +560,7 @@ function sedesSec(s) {
       <div class="sede-f">${[z.url && link(z.url, "Organización en Pipedrive"), ...z.leads.map((l, i) => link(l.url, `Prospecto${z.leads.length > 1 ? ` ${i + 1}` : ""}${l.archived ? " (archivado)" : ""}`)),
         z.schoolId && !z.here ? `<button class="linkbtn" data-sdopen="${esc(z.schoolId)}">Abrir su ficha</button>` : "", `Fuente: ${esc(z.src.join(", "))}`].filter(Boolean).join(" · ")}</div>
     </div>`).join("")}</div>
-    ${L.some(z => z.phones.some(p => p.short)) ? `<p class="faint" style="margin:8px 0 0;font-size:12.5px">«Sin lada»: la web lo publica sin código de área, así no se puede marcar. Pedilo o buscalo antes de llamar.</p>` : ""}
+    ${L.some(z => z.phones.some(p => p.short)) ? `<p class="faint" style="margin:8px 0 0;font-size:var(--fs-sm)">«Sin lada»: la web lo publica sin código de área, así no se puede marcar. Pedilo o buscalo antes de llamar.</p>` : ""}
   </section>`;
 }
 
@@ -797,7 +797,7 @@ function createProspect(s) {
       <div class="next-when">${miniCal(st.date, t, false, st.month)}<div class="next-side">
         <label class="field"><span>Hora <span class="faint">opcional</span></span><input class="inp" type="time" id="cpTime" value="${esc(st.time)}" step="900"></label>
         <label class="field"><span>Detalle <span class="faint">opcional</span></span><input class="inp" id="cpSub" value="${esc(st.subject)}" placeholder="Ej: preguntar por quien maneja la cafetería" maxlength="140"></label>
-        <p class="muted" style="margin:0;font-size:13px">${esc(S.types[st.type] || "Tarea")} el ${esc(dayLabel(st.date).toLowerCase())}${st.time ? ` a las ${esc(st.time)}` : ""} · para ${esc(st.ownerId ? team.find(u => String(u.id) === String(st.ownerId))?.name || "" : "vos")}</p></div></div>`;
+        <p class="muted" style="margin:0;font-size:var(--fs-sm)">${esc(S.types[st.type] || "Tarea")} el ${esc(dayLabel(st.date).toLowerCase())}${st.time ? ` a las ${esc(st.time)}` : ""} · para ${esc(st.ownerId ? team.find(u => String(u.id) === String(st.ownerId))?.name || "" : "vos")}</p></div></div>`;
     body.querySelector("#cpType").onchange = e => { st.type = e.target.value; paint(); };
     body.querySelector("#cpOwner").onchange = e => { st.ownerId = e.target.value; paint(); };
     body.querySelector("#cpTime").onchange = e => { st.time = e.target.value; paint(); };
@@ -1110,7 +1110,7 @@ function prepBody(s, d) {
     ${sedesSec(s)}
     ${fromHist ? "" : `<section class="sec"><h3><span class="l">${icon("phone")} Primeros 15 segundos</span></h3>
       <div class="say">${esc(apertura)}<button class="icon-btn" data-copy="${esc(apertura)}" aria-label="Copiar apertura">${icon("copy")}</button></div>
-      <p class="muted" style="margin:10px 0 0;font-size:13.5px">${d.askFor ? `Preguntá por <b>${esc(d.askFor.name)}</b>${d.askFor.role ? ` (${esc(d.askFor.role)})` : ""}. <span class="faint">Lo dijeron en recepción ${esc(ago(d.askFor.at))}.</span>` : decisor ? `Preguntá por <b>${esc(decisor.nombre)}</b>${decisor.cargo ? ` (${esc(decisor.cargo)})` : ""}.` : `Si atiende recepción, pedí el nombre de quien maneja ${esc(laEsp(d.market))} y su mejor horario.`}</p>
+      <p class="muted" style="margin:10px 0 0;font-size:var(--fs-md)">${d.askFor ? `Preguntá por <b>${esc(d.askFor.name)}</b>${d.askFor.role ? ` (${esc(d.askFor.role)})` : ""}. <span class="faint">Lo dijeron en recepción ${esc(ago(d.askFor.at))}.</span>` : decisor ? `Preguntá por <b>${esc(decisor.nombre)}</b>${decisor.cargo ? ` (${esc(decisor.cargo)})` : ""}.` : `Si atiende recepción, pedí el nombre de quien maneja ${esc(laEsp(d.market))} y su mejor horario.`}</p>
     </section>`}
     <section class="sec"><h3><span class="l">${icon("target")} Situación</span></h3>
       <p style="margin:0">${esc(sit.situacion)} <b>${esc(sit.objetivo)}</b></p>
@@ -1443,7 +1443,7 @@ function nextFields(f, none = "Sin tarea") {
         <div class="next-side"><div class="chips">${quickDates().map(([l, v]) => `<button class="chip sm" data-nd="${v}" aria-pressed="${f.next.date === v}">${l}</button>`).join("")}</div>
         <label class="field"><span>Hora <span class="faint">opcional</span></span><input class="inp" type="time" data-f="next.time" data-touch value="${esc(f.next.time)}" step="900"></label>
         <label class="field"><span>Detalle <span class="faint">opcional</span></span><input class="inp" data-f="next.subject" value="${esc(f.next.subject || "")}" placeholder="Ej: llamar a la directora después de las 11" maxlength="140"></label>
-        <p class="muted" id="nextLine" style="margin:0;font-size:13px">${esc(nextLine(f))}</p></div></div>` : ""}`;
+        <p class="muted" id="nextLine" style="margin:0;font-size:var(--fs-sm)">${esc(nextLine(f))}</p></div></div>` : ""}`;
 }
 // Registrar después de enviar un mail desde la ficha: el contacto ya quedó (canal mail, «Mail enviado»); falta el próximo paso.
 // Siempre queda algo para hacer: la llamada automática que dejó el envío o la actividad tuya que ya estaba (base). Se
@@ -1508,7 +1508,7 @@ function logBody(s, d) {
       <div class="outcomes">${S.outcomes.map((x, i) => { const tx = ocText(x, f.channel); return `<button class="oc ${GOOD.includes(x.id) ? "good" : ""}" data-oc="${x.id}" aria-pressed="${f.outcome === x.id}" ${x.id === "demo" && s.status === "client" ? `disabled title="Ya es cliente"` : ""}><b>${esc(tx.label)}</b><small>${esc(tx.hint)}</small>${i < 9 ? `<span class="kbd-hint oc-k" aria-hidden="true">${i + 1}</span>` : ""}</button>`; }).join("")}</div></div>
     ${warn && own ? `<p class="reg-line">${icon("deal", "sm")}<span>${esc(warn)}${HIST.get(s.id) ? ` <button class="linkbtn" data-see-hist>Ver qué pasó</button>` : ""}</span></p>` : ""}
     ${act ? `<label class="callout info toggle"><input type="checkbox" data-f="completeAct" ${f.completeAct ? "checked" : ""}> Marcar como hecha: <b>${esc(act.subject)}</b></label>` : ""}
-    <div class="sec step"><div class="step-h"><span class="n">${++n}</span>Comentario <span class="faint" style="font-weight:400;font-size:13px">${f.outcome ? "lo que te dijeron, con tus palabras" : contactPending() ? "lo que pasó, con tus palabras" : "opcional · se puede guardar solo, sin registrar un contacto"}</span></div>
+    <div class="sec step"><div class="step-h"><span class="n">${++n}</span>Comentario <span class="faint" style="font-weight:400;font-size:var(--fs-sm)">${f.outcome ? "lo que te dijeron, con tus palabras" : contactPending() ? "lo que pasó, con tus palabras" : "opcional · se puede guardar solo, sin registrar un contacto"}</span></div>
       <textarea class="inp" data-f="text" aria-label="Comentario" placeholder="Ej: atendió la secretaria, la cafetería la maneja un concesionario (Don Pedro), llamar después de las 11.">${esc(f.text)}</textarea>
       ${quickFor(f).length ? `<div class="quick">${quickFor(f).map(q => `<button data-quick="${esc(q)}">+ ${esc(q)}</button>`).join("")}</div>` : ""}
       ${S.ai && f.outcome ? `<label class="toggle"><input type="checkbox" data-f="ai" ${f.ai ? "checked" : ""}> Ordenar la nota con IA (resumen, decisor, objeción e interés)</label>` : ""}</div>
@@ -1519,22 +1519,22 @@ function logBody(s, d) {
       <label class="field"><span>Duración</span><select class="inp" data-f="demo.duration">${[20, 30, 45, 60].map(m => `<option value="${m}" ${+f.demo.duration === m ? "selected" : ""}>${m} min</option>`).join("")}</select></label></div>
       <label class="field"><span>¿Quién da la demo?</span><select class="inp" data-f="demo.ownerId">${ownerOpts(f.demo.ownerId, true).replace("Para mí", "Yo")}</select></label>
       ${regSlotsHtml(s, f)}
-      <p class="muted" style="margin:0;font-size:13.5px">${d.match.openDealId ? "Se agenda en el trato abierto." : `Se crea el trato en <b>${esc(pipeName(s))}</b> con fuente «Outbound - Cold Calling» y vos como SDR.`}</p></div>` : ""}
-    ${connected ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>${f.outcome === "gatekeeper" ? "¿Por quién preguntar?" : "¿Con quién hablaste?"} <span class="faint" style="font-weight:400;font-size:13px">${f.outcome === "gatekeeper" ? "opcional · nombre y cargo si te lo dijeron, se crea como contacto" : "opcional, se crea como contacto"}</span></div>
+      <p class="muted" style="margin:0;font-size:var(--fs-md)">${d.match.openDealId ? "Se agenda en el trato abierto." : `Se crea el trato en <b>${esc(pipeName(s))}</b> con fuente «Outbound - Cold Calling» y vos como SDR.`}</p></div>` : ""}
+    ${connected ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>${f.outcome === "gatekeeper" ? "¿Por quién preguntar?" : "¿Con quién hablaste?"} <span class="faint" style="font-weight:400;font-size:var(--fs-sm)">${f.outcome === "gatekeeper" ? "opcional · nombre y cargo si te lo dijeron, se crea como contacto" : "opcional, se crea como contacto"}</span></div>
       <div class="grid2"><label class="field"><span>Nombre</span><input class="inp" data-f="contact.name" value="${esc(f.contact.name)}" placeholder="Ej: Laura Gómez" autocomplete="off"></label>
       <label class="field"><span>Cargo</span><input class="inp" data-f="contact.role" value="${esc(f.contact.role)}" placeholder="Directora, administrador, concesionario" list="roles"></label>
       <label class="field"><span>Teléfono / WhatsApp</span><input class="inp" type="tel" data-f="contact.phone" value="${esc(f.contact.phone)}" placeholder="${esc(pre)}"></label>
       <label class="field"><span>Email</span><input class="inp" type="email" data-f="contact.email" value="${esc(f.contact.email)}" placeholder="nombre@colegio.edu"></label></div>
       <datalist id="roles"><option>Director/a</option><option>Administrador/a</option><option>Concesionario/a ${esc(delaEsp(d.market))}</option><option>Coordinador/a de servicios</option><option>Dueño/a</option></datalist></div>` : f.fromBase && f.contact.name ? `<div class="callout info">${icon("user")}<span>Contacto de la base: <b>${esc(personLine(f.contact))}</b>. Se crea como persona en Pipedrive al guardar. <button class="linkbtn" data-unpick>Quitar</button></span></div>` : ""}
-    ${qualify ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>Calificación <span class="faint" style="font-weight:400;font-size:13px">lo que sepas</span></div>
+    ${qualify ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>Calificación <span class="faint" style="font-weight:400;font-size:var(--fs-sm)">lo que sepas</span></div>
       <div class="field"><span>${esc(laEsp(d.market).replace(/^./, c => c.toUpperCase()))} es…</span><div class="seg">${["Propia", "Externa", "No tiene"].map(c => `<button data-caf="${c}" aria-pressed="${f.qual.cafeteria === c}">${c === "Externa" ? "Concesionada" : c}</button>`).join("")}</div></div>
       <div class="grid2"><label class="field"><span>Alumnos</span><input class="inp" type="number" min="0" step="10" data-f="qual.alumnos" value="${esc(f.qual.alumnos)}" placeholder="Ej: 600"></label>
       <label class="field"><span>Sistema actual</span><input class="inp" data-f="qual.sistema" value="${esc(f.qual.sistema)}" placeholder="Efectivo, Excel, otro software…"></label></div>
       <div class="field"><span>Niveles</span><div class="chips">${NIVELES.map(nv => `<button class="chip" data-niv="${nv}" aria-pressed="${f.qual.niveles.includes(nv)}">${nv}</button>`).join("")}</div></div></div>` : ""}
     ${lostish ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>Motivo</div>
       <select class="inp" data-f="lostReason"><option value="">Sin motivo (no cerrar)</option>${S.lostReasons.map(r => `<option ${f.lostReason === r ? "selected" : ""}>${esc(r.replace("  ", " "))}</option>`).join("")}</select>
-      <p class="muted" style="margin:0;font-size:13.5px">${d.match.openDealId ? "El trato abierto se marca como perdido con este motivo." : "Queda en la nota. No hay trato abierto para cerrar."}</p></div>` : ""}
-    ${f.outcome || !contactPending() ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>${f.outcome ? "Próximo paso" : `Tarea para más adelante <span class="faint" style="font-weight:400;font-size:13px">opcional · para vos o para alguien del equipo</span>`}</div>
+      <p class="muted" style="margin:0;font-size:var(--fs-md)">${d.match.openDealId ? "El trato abierto se marca como perdido con este motivo." : "Queda en la nota. No hay trato abierto para cerrar."}</p></div>` : ""}
+    ${f.outcome || !contactPending() ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>${f.outcome ? "Próximo paso" : `Tarea para más adelante <span class="faint" style="font-weight:400;font-size:var(--fs-sm)">opcional · para vos o para alguien del equipo</span>`}</div>
       ${f.outcome && f.why ? `<div class="callout">${icon("sparkles")}<span>${esc(f.why)}</span></div>` : ""}
       ${!f.next.type && f.outcome && !NO_NEXT.includes(f.outcome) && !d.match?.orgId && !s.leadOnly ? `<div class="callout info">${icon("calendar")}<span>Es la primera vez que se lo contacta: al guardar queda a tu nombre en Pipedrive y, si no elegís otro paso, con una llamada para el ${esc(dayLabel(nextBusinessDay(today())).toLowerCase())}.</span></div>`
         : !f.next.type && (f.outcome ? !NO_NEXT.includes(f.outcome) : !!f.text?.trim()) ? `<div class="callout warn">${icon("alert")}<span>Sin ${f.outcome ? "próximo paso" : "tarea a futuro"} este colegio se pierde de vista. Conviene dejar algo para hacer.</span></div>` : ""}
@@ -1729,7 +1729,7 @@ function resultBody(s, d) {
       ${ss ? `<button class="btn primary lg" id="nextSchool">Siguiente colegio ${icon("arrowRight")}</button>` : `<button class="btn primary" id="closeD">Listo</button>`}
       <button class="btn ghost" id="again">Registrar otro contacto</button>
     </div>
-    ${ss ? `<p class="faint" style="margin:0;font-size:13px">${pendingOf(ss) ? `Faltan ${pendingOf(ss)} en la sesión` : "Es el último de la sesión"}</p>` : ""}
+    ${ss ? `<p class="faint" style="margin:0;font-size:var(--fs-sm)">${pendingOf(ss) ? `Faltan ${pendingOf(ss)} en la sesión` : "Es el último de la sesión"}</p>` : ""}
   </div>`;
 }
 function bindResult(s, d) {
@@ -1787,7 +1787,7 @@ function tlItem(it) {
     <div class="h tl-top"><b>Entró como inbound</b><span class="tl-date" title="${esc(tlFull(it))}">${esc(tlWhen(it))}</span></div>
     <div class="faint tl-meta">${esc(["Nota de «Tus inbound»", it.who, it.where].filter(Boolean).join(" · "))}${ib.slack ? ` · <a href="${esc(ib.slack)}" target="_blank" rel="noopener">Mensaje en Slack</a>` : ""}</div>
     ${(it.rows || []).length ? `<div class="tl-rows">${it.rows.map(([k, v]) => `<span><b>${esc(k)}:</b> ${esc(v)}</span>`).join("")}</div>` : ""}
-    ${ib.filter ? `<p class="faint tl-txt" style="font-size:13px">${esc(ib.filter)}</p>` : ""}
+    ${ib.filter ? `<p class="faint tl-txt" style="font-size:var(--fs-sm)">${esc(ib.filter)}</p>` : ""}
     ${it.text ? `<blockquote class="tl-msg"><span class="faint">Mensaje:</span> ${esc(it.text)}</blockquote>` : ""}</div></div>`;
   }
   if (it.kind === "mail") return mailItem({ ...it.mail, by: it.who, at: it.at }, tlWhen(it), it.closed ? closedText(it.closed) : "");
@@ -1833,7 +1833,7 @@ function briefCard(s, where) {
       <div class="say cb-say">${esc(opening)}<button class="icon-btn" data-copy="${esc(opening)}" aria-label="Copiar apertura">${icon("copy")}</button></div>
       <p class="faint cb-src"><span>${esc(b.headline)}</span> <button class="linkbtn" data-cbprep>Ver resumen</button></p></details>`;
   }
-  if (!t || (!t.summary && !t.err)) return `<section class="sec cb" aria-busy="true">${title}</h3><div class="skel" style="width:70%"></div><div class="skel" style="margin-top:10px"></div><div class="skel" style="margin-top:8px;width:85%"></div><p class="faint" style="margin:10px 0 0;font-size:13px">Leyendo el historial de Pipedrive…</p></section>`;
+  if (!t || (!t.summary && !t.err)) return `<section class="sec cb" aria-busy="true">${title}</h3><div class="skel" style="width:70%"></div><div class="skel" style="margin-top:10px"></div><div class="skel" style="margin-top:8px;width:85%"></div><p class="faint" style="margin:10px 0 0;font-size:var(--fs-sm)">Leyendo el historial de Pipedrive…</p></section>`;
   if (!t.summary) return `<div class="callout warn">${icon("alert")}<span>No pude leer el historial de Pipedrive: ${esc(t.err)}</span><button class="btn sm" data-tlretry>Reintentar</button></div>`;
   const b = t.brief || t.summary, me = (S.me.name || "").split(/[\s.@_]/)[0];
   const opening = String(b.opening || "").replace(/\[tu nombre\]/g, me || "[tu nombre]");
@@ -1863,9 +1863,9 @@ function briefCard(s, where) {
       ${b.happened?.length ? `<div class="cb-h">Qué pasó</div>${cbList(b.happened, h => `<li>${h.lead ? `<b>${esc(h.lead)}</b>${h.text ? ": " : ""}` : ""}${h.text ? (h.quote ? `«${esc(h.text)}»` : esc(h.text)) : ""}${src(h)}</li>`)}` : ""}
       ${b.facts?.length ? `<div class="cb-h">Datos de las notas</div>${cbBySrc(b.facts, f => `<li><b>${esc(f.k)}:</b> ${factVal(f, s)}</li>`)}` : ""}
       ${b.plan?.length ? `<div class="cb-h">Plan anotado</div>${cbBySrc(b.plan, p => `<li>«${esc(p.text)}»</li>`)}` : ""}
-      ${!full ? "" : b.pending?.length ? `<div class="cb-h">Pendiente</div>${cbList(b.pending, p => `<li class="${p.late ? "late" : ""}">${esc(p.text)}</li>`)}` : `<p class="faint" style="margin:8px 0 0;font-size:13px">No hay nada pendiente con este colegio.</p>`}
-      ${b.thin ? `<p class="faint" style="margin:8px 0 0;font-size:13px">${esc(b.thin)}</p>` : ""}
-      ${[b.aiNote, b.openingNote].filter(Boolean).map(x => `<p class="faint" style="margin:8px 0 0;font-size:13px">${esc(x)}</p>`).join("")}
+      ${!full ? "" : b.pending?.length ? `<div class="cb-h">Pendiente</div>${cbList(b.pending, p => `<li class="${p.late ? "late" : ""}">${esc(p.text)}</li>`)}` : `<p class="faint" style="margin:8px 0 0;font-size:var(--fs-sm)">No hay nada pendiente con este colegio.</p>`}
+      ${b.thin ? `<p class="faint" style="margin:8px 0 0;font-size:var(--fs-sm)">${esc(b.thin)}</p>` : ""}
+      ${[b.aiNote, b.openingNote].filter(Boolean).map(x => `<p class="faint" style="margin:8px 0 0;font-size:var(--fs-sm)">${esc(x)}</p>`).join("")}
     </details></section>`;
 }
 // lead inbound (la nota de «Tus inbound»): de dónde vino y lo que escribió la persona
@@ -1951,17 +1951,17 @@ function histBody(s, d) {
     ${briefCard(s, "hist")}
     <div class="sec" id="tlSec"><h3><span class="l">${icon("clock")} Historial${t?.total ? ` <span class="faint tl-count">${t.total}</span>` : ""}</span>${m.checkedAt || t ? `<button class="btn sm ghost" id="refresh">${t?.loading ? `<span class="spin"></span>` : icon("refresh", "sm")} Actualizar</button>` : ""}</h3>
       ${t?.warnings?.length ? `<div class="callout warn" style="margin-bottom:8px">${icon("alert")}<span>No pude leer de Pipedrive ${esc(t.warnings.join(", "))}. Muestro lo demás.</span></div>` : ""}
-      ${t?.cut?.length ? `<p class="faint" style="margin:0 0 8px;font-size:13px">Pipedrive tiene más de 500 entradas en ${esc(t.cut.join(", "))}: acá van las 500 más nuevas. El resto, en Pipedrive.</p>` : ""}
+      ${t?.cut?.length ? `<p class="faint" style="margin:0 0 8px;font-size:var(--fs-sm)">Pipedrive tiene más de 500 entradas en ${esc(t.cut.join(", "))}: acá van las 500 más nuevas. El resto, en Pipedrive.</p>` : ""}
       ${!t || (!t.items && !t.err) ? `<div class="skel" style="width:60%"></div><div class="skel" style="margin-top:10px"></div><div class="skel" style="margin-top:8px;width:80%"></div>`
         : !t.items ? `<div class="callout warn">${icon("alert")}<span>No pude leer el historial: ${esc(t.err)}</span><button class="btn sm" data-tlretry>Reintentar</button></div>`
         : t.items.length ? `<div class="timeline">${t.items.map(tlItem).join("")}</div>${t.more ? `<button class="btn ghost tl-load" id="tlMore">${t.loadingMore ? `<span class="spin"></span> Cargando…` : `Cargar más · faltan ${left}`}</button>` : ""}`
         : `<div class="empty">${icon("note")}<span>Todavía no hay actividades ni notas. Lo que registres aparece acá y en Pipedrive.</span></div>`}
     </div>
     ${d.activities?.length ? `<div class="sec"><h3><span class="l">${icon("calendar")} Pendientes</span></h3>${d.activities.map(a => { const l = localAct(a); return `<div class="act"><span class="ty ${a.type}">${icon(TYPE_ICON[a.type] || "check")}</span><div class="t"><b>${esc(a.subject)}</b><small class="${l.date < today() ? "late" : ""}">${esc(a.typeLabel)} · ${esc(dayLabel(l.date))}${l.time ? ` ${l.time}` : ""} · ${esc(a.owner)}</small></div><div class="ops">${a.type === "meeting" && demoDue(l) ? (a.ownerId === S.me.pdUserId || leadsOver(a.ownerId) ? `<button class="btn sm" data-hdemo="${a.id}" data-time="${esc(l.time)}">¿Se hizo la demo?</button>` : "") : a.ownerId === S.me.pdUserId ? `<button class="icon-btn" data-hdone="${a.id}" aria-label="Marcar como hecha" title="Marcar como hecha">${icon("check")}</button>` : ""}</div></div>`; }).join("")}</div>` : ""}
-    ${d.persons?.length || canAddPerson(s) ? `<div class="sec"><h3><span class="l">${icon("users")} Contactos</span>${canAddPerson(s) ? `<button class="btn sm ghost" id="addDec">${icon("plus", "sm")} Agregar decisor</button>` : ""}</h3>${d.persons?.length ? "" : `<p class="muted" style="margin:0">Todavía no hay contactos cargados.</p>`}${(d.persons || []).map(p => `<div class="person"><div class="av" style="width:34px;height:34px;border-radius:50%;background:var(--surface-3);display:grid;place-items:center;font-weight:600;font-size:13px">${initials(p.name)}</div><div class="t"><b>${esc(p.name)}</b><small>${esc([...(p.phones?.length ? p.phones : [p.phone]), p.email].filter(Boolean).join(" · ") || "Sin datos")}</small></div>
+    ${d.persons?.length || canAddPerson(s) ? `<div class="sec"><h3><span class="l">${icon("users")} Contactos</span>${canAddPerson(s) ? `<button class="btn sm ghost" id="addDec">${icon("plus", "sm")} Agregar decisor</button>` : ""}</h3>${d.persons?.length ? "" : `<p class="muted" style="margin:0">Todavía no hay contactos cargados.</p>`}${(d.persons || []).map(p => `<div class="person"><div class="av" style="width:34px;height:34px;border-radius:50%;background:var(--surface-3);display:grid;place-items:center;font-weight:600;font-size:var(--fs-sm)">${initials(p.name)}</div><div class="t"><b>${esc(p.name)}</b><small>${esc([...(p.phones?.length ? p.phones : [p.phone]), p.email].filter(Boolean).join(" · ") || "Sin datos")}</small></div>
       ${p.phone ? `<a class="icon-btn" href="${esc(telLink(p.phone))}" aria-label="Llamar">${icon("phone")}</a><button class="icon-btn" data-pwa="${esc(p.phone)}" data-pname="${esc(p.name)}" aria-label="WhatsApp">${icon("whatsapp")}</button>` : ""}${p.email ? `<button class="icon-btn" data-pmail="${esc(p.email)}" data-pname="${esc(p.name)}" aria-label="Mail">${icon("mail")}</button>` : ""}</div>`).join("")}</div>` : ""}
     ${d.deals?.length ? `<div class="sec"><h3><span class="l">${icon("deal")} Tratos</span></h3>${d.deals.map(x => `<div class="act"><span class="ty">${icon("deal")}</span><div class="t"><b><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a></b><small>${esc(x.pipeline)} · ${esc(x.stage)} · ${x.status === "won" ? "ganado" : x.status === "lost" ? "perdido" + (x.lostReason ? ` (${esc(x.lostReason)})` : "") : "abierto"}${x.owner ? ` · ${esc(x.owner)}` : ""} · ${esc(x.updated)}</small>${dealOpsHtml(x)}</div></div>`).join("")}</div>` : ""}
-    ${m.orgId && m.confirmed ? `<p class="faint" style="font-size:13px;margin:0">Vinculado a <a href="${esc(d.orgUrl)}" target="_blank" rel="noopener">${esc(m.orgName)}</a> en Pipedrive · <button class="linkbtn" id="unlink2">no es esta organización</button></p>` : ""}
+    ${m.orgId && m.confirmed ? `<p class="faint" style="font-size:var(--fs-sm);margin:0">Vinculado a <a href="${esc(d.orgUrl)}" target="_blank" rel="noopener">${esc(m.orgName)}</a> en Pipedrive · <button class="linkbtn" id="unlink2">no es esta organización</button></p>` : ""}
   </div>`;
 }
 // lo que se toca en la tarjeta del resumen y en la línea de tiempo (Preparar, Historial y Registrar)
@@ -2067,7 +2067,7 @@ async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
     <div class="m-ai" id="mCtxBox"><button type="button" class="linkbtn m-ai-t" id="mAiT" aria-expanded="${aiOpen}" aria-controls="mAiBox">${icon("sparkles", "sm")} ${S.ai ? "Armar con IA" : "Armar el mensaje por mí"}</button>
       <div class="field" id="mAiBox" ${aiOpen ? "" : "hidden"}><label for="mCtx"><span>¿Qué querés decirle?</span></label>
       <textarea class="inp" id="mCtx" rows="2" placeholder="Ej: me pasó tu contacto el de sistemas; la concesionaria anterior dejó los planteles y quiero retomar"></textarea>
-      <div class="row" style="justify-content:flex-start;margin-top:6px"><button class="btn sm" id="mAi">${icon("sparkles", "sm")} Armar mensaje</button><span class="faint" id="mAiNote" style="font-size:12.5px">${S.ai ? "Usa lo que escribas y lo que dice Pipedrive (notas, tratos, contactos)." : "Arma el mensaje con tu contexto y la forma de escribir de la casa."}</span></div></div></div>
+      <div class="row" style="justify-content:flex-start;margin-top:6px"><button class="btn sm" id="mAi">${icon("sparkles", "sm")} Armar mensaje</button><span class="faint" id="mAiNote" style="font-size:var(--fs-sm)">${S.ai ? "Usa lo que escribas y lo que dice Pipedrive (notas, tratos, contactos)." : "Arma el mensaje con tu contexto y la forma de escribir de la casa."}</span></div></div></div>
     <p class="callout err" id="mErr" role="alert" style="margin:0" hidden></p>
     <div class="stack mact" id="mAct"></div>`, { onClose: () => { if (timer) { clearInterval(timer); timer = null; if (!finished) toast("No se envió: cerraste antes de que salga", { type: "info" }); } } });
   const q = sel => m.querySelector(sel);
@@ -2149,7 +2149,7 @@ async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
     const a = q("#mAct"), g = S.gmail;
     if (!isMail) {
       a.innerHTML = `<div class="row"><button class="btn" id="mCopy">${icon("copy")} Copiar</button><button class="btn wa main" id="mGo">${icon("whatsapp")} Abrir WhatsApp</button></div>
-        <p class="faint" style="margin:0;font-size:12.5px">Se abre WhatsApp Web o la app. Si usás Volt, la conversación queda en el CRM automáticamente.</p>`;
+        <p class="faint" style="margin:0;font-size:var(--fs-sm)">Se abre WhatsApp Web o la app. Si usás Volt, la conversación queda en el CRM automáticamente.</p>`;
       q("#mCopy").onclick = () => copy(q("#mText").value);
       q("#mGo").onclick = () => { const to = q("#mTo").value.trim(); if (!to) return toast("Poné el número", { type: "err" }); open(waLink(to, q("#mText").value, s.country)); finished = true; m.close(); afterOpen(); };
       return;

@@ -176,3 +176,21 @@ test("monthBoard por equipo: la lista, las que da o cargó su gente; las filas, 
   assert.deepEqual(b.items.map(r => r.id), [1, 3]);
   assert.deepEqual(b.rows.map(r => r.id), [5, 6]);
 });
+
+// Hoy del líder (leadhome.js) muestra «Demos que cuentan» con «de N hechas en el mes» al lado: son dos números distintos y la
+// pantalla lo dice. Hechas = todas las hechas del mes (con o sin fuente, también las automáticas); Cuentan = outbound + inbound ÷ 2
+// de las personas (sin fuente ni automáticas). Equipo › Demos muestra los mismos dos totales (fila Total: «Cuentan» y la suma de
+// outbound, inbound y sin fuente).
+test("Hoy del líder: «Cuentan» y «hechas en el mes» salen del mismo tablero y miden cosas distintas", async () => {
+  const { demosPart } = await import("../lib/leadview.js");
+  const users = [{ id: 2, name: "Zoe", email: "z@x.com" }], free = new Set([99]), now = Date.parse("2026-11-16T15:00:00Z"), tz = "UTC";
+  const d = (id, creator, x = {}) => ({ id, type: "meeting", owner_id: 2, creator_user_id: creator, due_date: "2026-11-10", due_time: "", done: true, deal_id: id, add_time: "2026-11-01T10:00:00Z", ...x });
+  const src = { 1: [502], 2: [786], 3: [786], 4: null, 5: [502] };
+  const b = monthBoard([d(1, 2), d(2, 2), d(3, 2), d(4, 2), d(5, 99)], { users, profiles: {}, free, period: periodOf("2026-11"), tz, now, sourceOf: a => sourceKind(src[a.deal_id], LBL) });
+  // Zoe: 1 outbound + 2 inbound + 1 sin fuente; la automática (cuenta general 99): 1 outbound
+  assert.deepEqual([b.totals.done, b.totals.out, b.totals.in, b.totals.none, b.totals.counts], [5, 2, 2, 1, 2]);
+  const p = demosPart({ month: { ...b, partial: false }, win: { items: [], partial: false }, ids: new Set([2]), today: "2026-11-16", tomorrow: "2026-11-17" });
+  assert.equal(p.totals.done, 5);   // «de 5 hechas en el mes»
+  assert.equal(p.totals.counts, 2); // «Demos que cuentan»: 1 + 2 ÷ 2
+  assert.deepEqual([p.by[2].done, p.by[2].counts], [4, 2]);
+});

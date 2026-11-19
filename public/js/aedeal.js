@@ -2,12 +2,12 @@
 // atención, su próxima actividad y la franja «tu trato» que va arriba de la ficha en una sesión «Tus tratos». Sin estado de
 // pantalla: solo formato y la lectura de los tratos de una ficha (GET /api/ae/deals, lib/ae-api.js). Nunca se inventa: lo que
 // no se sabe va «?».
-import { S, api, esc, icon, dayLabel, TYPE_ICON } from "./core.js";
+import { S, api, esc, icon, dayLabel, TYPE_ICON, fmtNum } from "./core.js";
 
-export const fmtN = n => Number(n).toLocaleString("es");
+export const fmtN = n => fmtNum(n, { none: "?" });
 export function money(v, cur) {
   if (v == null) return "";
-  try { return new Intl.NumberFormat("es", { style: "currency", currency: cur || "USD", maximumFractionDigits: 0 }).format(v); } catch { return `${fmtN(v)} ${cur || ""}`.trim(); }
+  try { return new Intl.NumberFormat("es-AR", { style: "currency", currency: cur || "USD", maximumFractionDigits: 0 }).format(v); } catch { return `${fmtN(v)} ${cur || ""}`.trim(); }
 }
 export const typeName = t => S.types?.[t] || t || "Actividad";
 export const daysTxt = n => n == null ? "? días" : n === 0 ? "desde hoy" : n === 1 ? "1 día" : `${fmtN(n)} días`;

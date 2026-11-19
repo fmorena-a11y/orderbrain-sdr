@@ -1,5 +1,5 @@
 // Agenda: actividades pendientes propias en Pipedrive, con filtros de fecha, zona o evento y tipo.
-import { S, api, esc, icon, today, addDays, localAct, dayLabel, shortDay, norm, save, matchZone, zoneOptions, ZONE_KIND, workOrder } from "./core.js";
+import { S, api, esc, icon, today, addDays, localAct, dayLabel, shortDay, norm, save, matchZone, zoneOptions, ZONE_KIND, workOrder, emptyState } from "./core.js";
 import { actRow, checkAct, logsFirst, moveMenu, demoResultMenu, syncBadge } from "./today.js";
 import { openSchool, openRecord, startSession } from "./school.js";
 
@@ -106,8 +106,8 @@ function draw() {
       ${filtered ? `<div class="ag-bar"><span><b>${items.length}</b> ${items.length === 1 ? "actividad" : "actividades"} ${esc([whenLabel(t), zoneName && `· ${zoneName}`].filter(Boolean).join(" "))}</span>
         <span class="ag-bar-act"><button class="btn ghost sm" id="agClear">Limpiar filtros</button>${fichas ? `<button class="btn primary sm" id="agWork">${icon("play", "sm")} ${fichas === 1 ? "Trabajar este colegio" : `Trabajar estos ${fichas} colegios`}</button>` : ""}</span></div>` : ""}
       ${keys.length ? keys.map(k => `<section class="card agenda-day" aria-label="${k === "late" ? "Vencidas" : esc(dayLabel(k))}"><h3 style="${k === "late" ? "color:var(--err)" : ""}">${k === "late" ? "Vencidas" : esc(dayLabel(k))} <small>${byDay.get(k).length}</small></h3>${byDay.get(k).map(a => actRow(a, k === "late")).join("")}</section>`).join("")
-        : filtered ? `<div class="card"><div class="empty">${icon("search")}<b>Nada con estos filtros</b><span>Probá con otra fecha, zona o tipo.</span></div></div>`
-        : `<div class="card"><div class="empty">${icon("checkCircle")}<b>Nada pendiente</b><span>Cuando registres un contacto con próximo paso, aparece acá.</span></div></div>`}` : ""}
+        : filtered ? `<div class="card">${emptyState({ icon: "search", title: "Nada con estos filtros", text: "Probá con otra fecha, zona o tipo." })}</div>`
+        : `<div class="card">${emptyState({ icon: "checkCircle", title: "Nada pendiente", text: "Cuando registres un contacto con próximo paso, aparece acá." })}</div>`}` : ""}
   </div>`;
   drawHead();
   const q = s => host.querySelector(s);

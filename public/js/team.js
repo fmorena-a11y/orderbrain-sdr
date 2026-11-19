@@ -2,7 +2,10 @@
 // agendadas; por quién la cargó, en orden alfabético), equipos, accesos, sincronización y World Dominion. Las métricas están en Métricas.
 // Con equipos (lib/teams.js), todo es del equipo: un líder ve el suyo (dirección elige uno o «Toda la cuenta» arriba), un miembro el suyo
 // y alguien sin equipo, lo suyo. Sincronizar y World Dominion son de toda la cuenta: los ve quien ve todo.
-import { S, api, esc, icon, ago, copy, toast, pill, setSchools, ST, DEMO_RES, shortDay, modal, leadsOver, teamSelect, teamQuery, setTeamView, norm } from "./core.js";
+// Subpestañas (Demos · Actividad · Equipos · Accesos · Base y clientes): cada uno ve solo las que le tocan (las mismas reglas de
+// siempre); la elegida va en el hash (#/equipo/accesos) y se recuerda en este navegador («team.tab»). Con una sola, no hay pestañas.
+import { S, api, esc, icon, ago, copy, toast, pill, setSchools, ST, DEMO_RES, shortDay, modal, leadsOver, teamSelect, teamQuery, setTeamView, norm, fmtNum, emptyState, openMenu, loadPref, save, today } from "./core.js";
+import { periodHtml, bindPeriod, pickPeriod, storedPeriod, demosAccepts, demosParam, normPeriod } from "./period.js";
 import { openSchool, openRecord } from "./school.js";
 import { demoResultMenu } from "./today.js";
 import { brainBadge, refreshMe } from "./app.js";
@@ -17,11 +20,12 @@ export function renderTeam(el) {
   refresh(); // si ya había datos se ven al instante y se actualizan atrás
 }
 let seq = 0;
-// período de la tarjeta «Demos»: «2026-11» (mes) o «2026-Q4» (trimestre); vacío = el mes en curso (lo decide el servidor, en tu zona)
-let dmPeriod = "", dmWho = "";
+// período de la tarjeta «Demos» (el selector de period.js, el mismo de Métricas; lo elegido se comparte): «mes» / «trim» (el mes o
+// el trimestre en curso), «2026-10» (otro mes) o «2026-Q3» (otro trimestre). Al servidor: vacío = el mes en curso, en tu zona.
+let dmPeriod = pickPeriod({ shared: storedPeriod(), own: loadPref("dm.period", "mes"), accepts: demosAccepts(null), fallback: "mes", today: today() }), dmWho = "";
 async function refresh() {
   const my = ++seq, tq = teamQuery(), q = tq ? `?${tq}` : "", leader = !!S.profile?.leader;
-  const dq = new URLSearchParams(tq); if (dmPeriod) dq.set("period", dmPeriod);
+  const dq = new URLSearchParams(tq), pp = demosParam(dmPeriod, today()); if (pp) dq.set("period", pp);
   const [demos, feed] = await Promise.all([
     leader ? api(`/api/team/demos?${dq}`).catch(e => ({ error: e.message })) : null,
     api(`/api/feed${q}`).catch(e => ({ error: e.message })),
@@ -36,9 +40,13 @@ async function refresh() {
 // (choices) y vuelve a controlar todo al guardar. Un líder de equipo ve a su gente (y la suma o saca en «Equipos»).
 let codes = null;
 const accDraft = new Map(); // email → { level, title, team, busy, err }: lo que estás eligiendo en cada fila (sobrevive a redibujar)
+// Una fila compacta por persona (nombre y email, rol, código con «Copiar invitación» y «⋯» con el resto). El formulario del
+// acceso se abre en la misma fila con «Cambiar acceso» (y queda abierto mientras haya algo sin guardar o un error).
+const accOpen = new Set();
+const isOpen = u => accOpen.has(u.email) || accDraft.has(u.email);
 async function loadCodes() { try { codes = await api("/api/team/codes"); } catch (e) { codes = { error: e.message, users: [] }; } if (host?.isConnected) drawCodes(); }
 const fShort = v => new Intl.DateTimeFormat("es", { day: "numeric", month: "short" }).format(new Date(v));
-const accTag = u => u.role ? `<span class="acc-tag${u.access?.level !== "equipo" ? " lead" : ""}">${esc(u.role)}</span>` : "";
+const accTag = u => u.role ? `<span class="acc-tag${u.access?.level !== "equipo" ? " lead" : ""}"${u.access ? ` title="${esc(accNote(u))}"` : ""}>${esc(u.role)}</span>` : "";
 function accNote(u) {
   const a = u.access, why = [];
   if (a.fixed) why.push(a.fixed === "direccion" ? "Dirección definida por el administrador" : "Líder definido por el administrador: ve todos los equipos");
@@ -61,6 +69,7 @@ function accHtml(u) {
     ${teamSel}
     ${level === "direccion" ? `<label class="acc-f acc-title"><span>Cargo <small class="faint">opcional</small></span><input class="inp" data-acc-title maxlength="24" value="${esc(title)}" placeholder="CEO, CTO, COO…" autocomplete="off" ${d.busy ? "disabled" : ""}></label>` : ""}
     <button class="btn sm ${dirty ? "primary" : ""}" data-acc-save ${dirty && !d.busy ? "" : "disabled"}>${d.busy ? "Guardando…" : "Guardar"}</button>
+    <button type="button" class="btn sm ghost" data-acc-close ${d.busy ? "disabled" : ""}>${dirty ? "Cancelar" : "Cerrar"}</button>
     ${note ? `<small class="acc-note">${esc(note)}</small>` : ""}
     ${d.err ? `<div class="callout err acc-err" role="alert">${icon("alert")}<span>${esc(d.err)}</span></div>` : ""}
   </div>`;
@@ -71,12 +80,28 @@ function codeRows(c) {
   if (!c.admin || !c.on || !tv || tv === "all") return c.users;
   return c.users.filter(u => u.team?.member === tv || u.team?.led?.includes(tv) || (!u.team?.member && !u.team?.led?.length));
 }
+// el equipo, si el rol no lo dice ya («SDR · SDR México» ya lo dice): «sin equipo» solo con equipos
+function teamTxt(u) {
+  if (!codes?.on || u.access?.level === "direccion") return "";
+  const led = u.team?.led || [], id = led.length > 1 ? "" : led[0] || u.team?.member || "", name = led.length > 1 ? `lidera ${led.length} equipos` : (codes.teams || []).find(t => t.id === id)?.name || "";
+  if (!name) return u.access?.level === "equipo" ? "sin equipo" : "";
+  return String(u.role || "").includes(name) ? "" : name;
+}
+const codeRow = u => {
+  const tt = teamTxt(u), menu = !!u.choices || !!acctBtn(u);
+  return `<div class="code-row${isOpen(u) ? " open" : ""}" data-q="${esc(norm(`${u.name} ${u.email} ${u.role || ""} ${tt}`))}">
+    <span class="t"><b>${esc(u.name)}${u.me ? " (vos)" : ""}</b><small>${esc(u.email)}</small></span>
+    <span class="cr-role">${accTag(u)}${tt ? `<small class="faint">${esc(tt)}</small>` : ""}</span>
+    <span class="cr-code">${u.code ? `<code>${esc(u.code)}</code><button type="button" class="btn sm" data-invite="${u.id}" title="Copia un mensaje con el link, su email y su código">${icon("copy", "sm")} Copiar invitación</button>` : `<small class="faint code-off" title="Tiene acceso de líder o dirección: su código se lo pasa dirección.">Su código lo pasa dirección</small>`}</span>
+    ${menu ? `<button type="button" class="icon-btn cr-menu" data-rowmenu="${esc(u.email)}" aria-label="Más acciones para ${esc(u.name)}" title="Más acciones">${icon("dots")}</button>` : `<span class="cr-menu"></span>`}
+    ${u.choices && isOpen(u) ? accHtml(u) : ""}</div>`;
+};
 const codesHtml = c => c.error ? `<div class="callout err">${icon("alert")}<span>${esc(c.error)}</span></div>`
-  : `<p class="faint" style="margin:0 0 6px;font-size:13.5px">${c.admin ? `Dirección ve todos los equipos; cada líder, solo el suyo (Métricas, demos, actividad y estos accesos).${c.on ? " Una persona está en un solo equipo." : " Sin equipos, los líderes ven todo."}` : c.on ? "Tu gente: pasale su código para que entre. Para sumar o sacar a alguien, usá «Equipos»." : "Los accesos los cambia dirección."}</p>
+  : `<p class="faint tm-intro">${c.admin ? `Dirección ve todos los equipos; cada líder, solo el suyo (Métricas, demos, actividad y estos accesos).${c.on ? " Una persona está en un solo equipo." : " Sin equipos, los líderes ven todo."} Para cambiar el acceso de alguien, «⋯» › Cambiar acceso.` : c.on ? "Tu gente: pasale su código para que entre. Para sumar o sacar a alguien, usá «Equipos»." : "Los accesos los cambia dirección."}</p>
   ${codeRows(c).length > 6 ? `<div class="codes-find"><input class="inp" id="codesQ" type="search" placeholder="Buscar persona por nombre o email" autocomplete="off" aria-label="Buscar persona" value="${esc(codesQ)}"><small class="faint" id="codesN"></small></div>` : ""}
-  <div class="codes">${codeRows(c).map(u => `<div class="code-row" data-q="${esc(norm(`${u.name} ${u.email} ${u.role || ""}`))}"><span class="t"><b>${esc(u.name)}${u.me ? " (vos)" : ""} ${accTag(u)}</b><small>${esc(u.email)}</small></span>${u.code ? `<code>${esc(u.code)}</code><button class="btn sm" data-invite="${u.id}">${icon("copy", "sm")} Copiar invitación</button>` : `<small class="faint code-off">Tiene acceso de líder o dirección: su código se lo pasa dirección.</small>`}${u.choices ? accHtml(u) : ""}${acctBtn(u)}</div>`).join("") || `<p class="faint" style="margin:0">Nadie en tu equipo todavía.</p>`}</div>`;
+  <div class="codes">${codeRows(c).map(codeRow).join("") || emptyState({ icon: "users", title: "Nadie en tu equipo todavía", text: "Sumá a tu gente en «Equipos».", compact: true })}</div>`;
 // quién da sus demos en cada país (public/js/accounts.js); a un Account Executive no le hace falta
-const acctBtn = u => /Account Executive/.test(u.role || "") ? "" : `<button type="button" class="btn sm ghost acct-btn" data-paccts="${esc(u.email)}">${icon("users", "sm")} Accounts${u.me ? "" : ` de ${esc(u.name.split(" ")[0])}`}</button>`;
+const acctBtn = u => /Account Executive/.test(u.role || "") ? "" : `Accounts${u.me ? "" : ` de ${u.name.split(" ")[0]}`}`;
 let codesQ = "";
 function filterCodes(box) {
   const q = norm(codesQ), rows = [...box.querySelectorAll(".code-row[data-q]")];
@@ -97,7 +122,15 @@ function drawCodes() {
     const u = codes.users.find(x => String(x.id) === b.dataset.invite); if (!u?.code) return;
     copy(`Hola ${u.name.split(" ")[0]}! Entrá a OrderBrain SDR: ${codes.url}\nTu email: ${u.email}\nTu código personal: ${u.code}\n(No lo compartas: es solo tuyo.)`);
   });
-  box.querySelectorAll("[data-paccts]").forEach(b => b.onclick = () => { const u = codes.users.find(x => x.email === b.dataset.paccts); if (u) openPersonAccounts(u); });
+  // «⋯»: cambiar el acceso (abre el formulario en la fila) y quién da sus demos
+  box.querySelectorAll("[data-rowmenu]").forEach(b => b.onclick = () => {
+    const u = codes.users.find(x => x.email === b.dataset.rowmenu); if (!u) return;
+    const items = [{ head: u.name }];
+    if (u.choices) items.push({ label: isOpen(u) ? "Cerrar el acceso" : "Cambiar acceso", sub: accNote(u) || (codes.on ? "Nivel y equipo" : "Nivel"), fn: () => { if (isOpen(u) && !accDraft.get(u.email)?.busy) { accOpen.delete(u.email); accDraft.delete(u.email); } else accOpen.add(u.email); drawCodes(); box.querySelector(`[data-acc="${CSS.escape(u.email)}"] [data-acc-level]`)?.focus(); } });
+    if (acctBtn(u)) items.push({ label: acctBtn(u), sub: "Quién da sus demos en cada país", fn: () => openPersonAccounts(u) });
+    if (u.code) items.push({ label: "Copiar invitación", sub: "Link, email y código", fn: () => b.closest(".code-row")?.querySelector("[data-invite]")?.click() });
+    openMenu(b, items);
+  });
   box.querySelectorAll("[data-acc]").forEach(row => {
     const email = row.dataset.acc, u = codes.users.find(x => x.email === email); if (!u) return;
     const set = patch => { accDraft.set(email, { ...(accDraft.get(email) || {}), ...patch, err: "" }); drawCodes(); };
@@ -107,6 +140,7 @@ function drawCodes() {
     if (t) { t.oninput = () => { accDraft.set(email, { ...(accDraft.get(email) || {}), title: t.value, err: "" }); const b = row.querySelector("[data-acc-save]"), dirty = (accDraft.get(email).level ?? u.access.level) !== u.access.level || t.value.trim() !== (u.access.title || ""); b.disabled = !dirty; b.classList.toggle("primary", dirty); };
       t.onkeydown = e => { if (e.key === "Enter") { e.preventDefault(); saveAccess(u); } }; }
     row.querySelector("[data-acc-save]").onclick = () => saveAccess(u);
+    row.querySelector("[data-acc-close]").onclick = () => { accDraft.delete(email); accOpen.delete(email); drawCodes(); box.querySelector(`[data-rowmenu="${CSS.escape(email)}"]`)?.focus(); };
   });
   if (keep?.email) { const el = box.querySelector(`[data-acc="${CSS.escape(keep.email)}"] ${keep.title ? "[data-acc-title]" : "[data-acc-level]"}`); if (el && !el.disabled) { el.focus(); if (keep.title && keep.pos != null) try { el.setSelectionRange(keep.pos, keep.pos); } catch {} } }
 }
@@ -118,7 +152,7 @@ async function saveAccess(u) {
     // el equipo va si cambió (o si pasa a líder: el que eligió); «varios» no se toca
     const body = { email: u.email, level, title, ...(codes.on && level !== "direccion" && team !== "*" && (team !== curTeam(u) || level !== u.access.level) ? { team } : {}) };
     const r = await api("/api/team/access", { body });
-    codes = { ...codes, users: r.users || codes.users.map(x => x.email === u.email ? r.user : x), teams: r.teams || codes.teams }; accDraft.delete(u.email); drawCodes();
+    codes = { ...codes, users: r.users || codes.users.map(x => x.email === u.email ? r.user : x), teams: r.teams || codes.teams }; accDraft.delete(u.email); accOpen.delete(u.email); drawCodes();
     const first = u.name.split(" ")[0];
     toast(r.user.access.level === "equipo" ? `Listo: ${first} es ${r.user.role || "miembro"}` : `Listo: ${first} ahora es ${r.user.role || r.user.access.label}`);
     afterTeamChange({ codes: false });
@@ -171,7 +205,7 @@ function teamsHtml() {
   const st = admin && tdata.stale?.length ? tdata.stale : [];
   const stTxt = !st.length ? "" : st.length === 1 ? `${st[0].name} era líder antes de los equipos y todavía no lidera ninguno: sin equipo no ve Métricas. Elegí su equipo con «+ Líder» o «+ Miembro».`
     : `${st.length} líderes de antes de los equipos todavía no lideran ninguno (${st.map(x => x.name).join(", ")}): sin equipo no ven Métricas. Elegí el equipo de cada uno con «+ Líder» o «+ Miembro».`;
-  return `<p class="faint" style="margin:0 0 10px;font-size:13.5px">${esc(intro)}</p>
+  return `<p class="faint" style="margin:0 0 10px;font-size:var(--fs-md)">${esc(intro)}</p>
     ${stTxt ? `<div class="callout warn" style="margin-bottom:10px">${icon("alert")}<span>${esc(stTxt)}</span></div>` : ""}
     ${tdata.teams.map(card).join("") || (admin ? "" : `<p class="faint" style="margin:0">Todavía no liderás ningún equipo: te lo asigna dirección.</p>`)}
     ${admin ? `<form class="tm-new" id="tmNew"><input class="inp" id="tmNewName" maxlength="40" placeholder="Nombre del equipo nuevo (SDR México…)" value="${esc(tNew)}" autocomplete="off" aria-label="Nombre del equipo nuevo"><button class="btn primary" ${tBusy ? "disabled" : ""}>${icon("plus", "sm")} Crear equipo</button></form>` : ""}
@@ -251,7 +285,7 @@ function askDelete(t) {
 // el navegador repite hasta terminar; «Pausar» deja de pedir (lo hecho queda guardado y se sigue después).
 // Si la está siguiendo otra pestaña, otro líder o el cron (sync.active), no se ofrece «Seguir»: se mira cada 5 s.
 let sync = null, syncing = false, pausing = false, starting = false, askFull = false, pollT = 0;
-const fmt = n => Number(n || 0).toLocaleString("es-MX");
+const fmt = n => fmtNum(n);
 const ORDER = ["unk", "new", "org", "stalled", "lost", "open", "churn", "client", "lead"];
 async function loadSync() {
   try { sync = await api("/api/admin/sync"); } catch (e) { sync = { error: { message: e.message } }; }
@@ -297,8 +331,8 @@ function syncHtml() {
     ${sync.error ? `<div class="callout err" style="margin-bottom:10px">${icon("alert")}<span>${esc(sync.error.message)}</span></div>` : ""}
     ${p ? `<div style="margin:4px 0 12px"><p style="margin:0 0 6px">${esc(p.text)}${j ? state : ""}</p>${bar}
       ${j ? `<small class="faint">${j.mode === "full" ? "Completa" : "Solo lo cambiado desde la última"}${j.by ? ` · la empezó ${esc(j.by === "cron" ? "el cron diario" : j.by)}` : ""}${sync.busy ? " · hay otro paso corriendo, espero…" : ""}</small>` : ""}${hint}</div>` : ""}
-    ${last ? `<p class="faint" style="margin:0 0 10px;font-size:13.5px">${lastHtml(last)}</p>`
-      : !p ? `<p class="faint" style="margin:0 0 10px;font-size:13.5px">Todavía no se sincronizó: cada colegio se revisa recién cuando alguien abre su ficha.</p>` : ""}
+    ${last ? `<p class="faint" style="margin:0 0 10px;font-size:var(--fs-md)">${lastHtml(last)}</p>`
+      : !p ? `<p class="faint" style="margin:0 0 10px;font-size:var(--fs-md)">Todavía no se sincronizó: cada colegio se revisa recién cuando alguien abre su ficha.</p>` : ""}
     <div style="display:flex;flex-wrap:wrap;gap:8px 14px;margin:0 0 14px">${counts}</div>
     <div style="display:flex;flex-wrap:wrap;gap:8px">${buttons}</div>`;
 }
@@ -363,13 +397,13 @@ function wdHtml() {
   return `
     ${notes.map(([k, t]) => `<div class="callout ${k}" style="margin-bottom:10px">${icon("alert")}<span>${esc(t)}</span></div>`).join("")}
     <p style="margin:0 0 4px"><b>${fmt(wd.sites)}</b> ${wd.demo ? "sitios de prueba (modo demo, sin token)" : `sitio${wd.sites === 1 ? "" : "s"}`}${wd.dataAt ? ` · datos <span title="${esc(fWhen(wd.dataAt))}">${esc(ago(wd.dataAt))}</span>` : ""}${wd.stale ? " (copia guardada)" : ""}</p>
-    ${tokTxt ? `<p class="faint" style="margin:0 0 4px;font-size:13.5px">${tokTxt}${expTxt}</p>` : ""}
-    ${lr?.ok ? `<p class="faint" style="margin:0 0 4px;font-size:13.5px">Última lectura ${esc(ago(lr.at))}: anduvo${lr.n != null ? ` (${fmt(lr.n)} sitios)` : ""}.</p>` : ""}
+    ${tokTxt ? `<p class="faint" style="margin:0 0 4px;font-size:var(--fs-md)">${tokTxt}${expTxt}</p>` : ""}
+    ${lr?.ok ? `<p class="faint" style="margin:0 0 4px;font-size:var(--fs-md)">Última lectura ${esc(ago(lr.at))}: anduvo${lr.n != null ? ` (${fmt(lr.n)} sitios)` : ""}.</p>` : ""}
     <div class="field" style="margin-top:14px"><span><label for="wdTok">${wd.source ? "Cambiar el token" : "Cargar el token"}</label></span>
       <div class="scan-form"><input class="inp" id="wdTok" type="password" autocomplete="off" spellcheck="false" placeholder="Pegá el token acá" aria-describedby="wdHelp">
       <button class="btn primary" id="wdSave">Probar y guardar</button></div>
       <small class="faint" id="wdHelp">Es el token de sesión de ${esc(wd.host || "brain.ordereat.com")}. Lo probamos antes de guardarlo y después no se muestra más.</small>
-      <details style="margin-top:6px;font-size:13.5px"><summary>Cómo conseguirlo</summary>
+      <details style="margin-top:6px;font-size:var(--fs-md)"><summary>Cómo conseguirlo</summary>
         <ol style="margin:6px 0 0;padding-left:20px;line-height:1.5">
           <li>En una computadora, entrá a <a href="https://${esc(wd.host || "brain.ordereat.com")}" target="_blank" rel="noopener">${esc(wd.host || "brain.ordereat.com")}</a> con una cuenta que vea World Dominion.</li>
           <li>Abrí las herramientas del navegador (F12, o clic derecho → Inspeccionar) y andá a la pestaña Consola.</li>
@@ -434,35 +468,47 @@ function demoRow(r) {
   const mark = r.state === "unmarked" && canMark(r) ? `<button class="btn sm" data-dres="${r.id}" data-time="${esc(r.time)}">Marcar</button>` : "";
   return `<div class="act"><span class="ty meeting" role="img" aria-label="Demo">${icon("video")}</span>${open}<div class="ops">${kindPill(r)}${resPill(r)}${mark}</div></div>`;
 }
-const half = n => n == null ? "?" : Number.isInteger(n) ? String(n) : String(n).replace(".", ",");
-function periodPick(d) {
-  const c = d.choices || { months: [], quarters: [] }, p = d.period, isQ = p?.kind === "q", year = p?.year;
-  const opts = `${isQ ? `<option value="" selected disabled>${esc(p.label)}</option>` : ""}${[...new Set(c.months.map(m => m.year))].map(y => `<optgroup label="${y}">${c.months.filter(m => m.year === y).map(m => `<option value="${esc(m.key)}" ${!isQ && m.key === p?.key ? "selected" : ""}>${esc(m.label)}${m.key === c.current ? " (en curso)" : ""}</option>`).join("")}</optgroup>`).join("")}`;
-  const qs = [1, 2, 3, 4].map(q => { const k = `${year}-Q${q}`, ok = c.quarters.some(x => x.key === k);
-    return `<button class="chip sm" data-dmq="${esc(k)}" aria-pressed="${isQ && p.key === k}" ${ok ? "" : 'disabled title="Todavía no empezó"'}>Q${q}</button>`; }).join("");
-  return `<div class="dm-pick"><label class="field" style="margin:0"><span>Mes</span><select class="inp" id="dmMonth">${opts}</select></label>
-    <div class="dm-q"><span class="faint">Por Q ${year || ""}</span><div class="chips" role="group" aria-label="Trimestre">${qs}</div></div></div>`;
-}
+const half = n => fmtNum(n, { none: "?", dec: Number.isInteger(n) ? 0 : 1 });
+// el período que se ve es el que devolvió el servidor (si se pidió uno que no se puede elegir, manda el mes en curso)
+const periodPick = d => periodHtml({ id: "dmPer", value: normPeriod(d.period?.key, today()) ?? dmPeriod, rel: ["mes", "trim"], other: d.choices || { months: [], quarters: [] }, today: today() });
 function demosHtml(d) {
-  const p = d.period || {}, cut = !!d.partial, n = v => cut ? "?" : v, T = d.totals || {};
+  const p = d.period || {}, cut = !!d.partial, n = v => cut ? "?" : fmtNum(v, { none: "?" }), T = d.totals || {};
   const range = `del ${esc(shortDay(p.from))} al ${esc(shortDay(p.to))}`;
-  const intro = `<p class="faint" style="margin:8px 0;font-size:13.5px">${range[0].toUpperCase() + range.slice(1)}, en tu hora. Por quién la cargó: en las de la app, quien dice la nota; si no, quien la creó en Pipedrive${d.at ? ` · Pipedrive, leído ${esc(ago(d.at))}` : ""}.</p>`;
+  const intro = `<p class="faint" style="margin:8px 0;font-size:var(--fs-md)">${range[0].toUpperCase() + range.slice(1)}, en tu hora. Por quién la cargó: en las de la app, quien dice la nota; si no, quien la creó en Pipedrive${d.at ? ` · Pipedrive, leído ${esc(ago(d.at))}` : ""}.</p>`;
   const rule = `<div class="callout" style="margin:0 0 10px">${icon("target")}<span><b>2 inbound = 1 outbound.</b> En los SDR, «Cuentan» = outbound + inbound ÷ 2. Un Account Executive, sin ponderar. Las sin fuente no entran.</span></div>`;
   const head = [["Cuentan<small>objetivo</small>", "Para el objetivo: outbound + inbound ÷ 2 (SDR); AE, sin ponderar"], ["Outbound<small>hechas</small>", "Hechas con Fuente «Outbound - …» en el trato (o el prospecto)"], ["Inbound<small>hechas</small>", "Hechas con Fuente «Inbound - …»"],
     ["Agendadas", "Todavía no pasaron (las de hoy sin hora, también)"], ["Sin fuente", "Hechas sin Fuente, con «Otro» o con outbound e inbound a la vez: no entran en «Cuentan»"], ["No show", "Tipo No Show o marcadas «no se presentó»"], ["Sin marcar", "Ya pasaron y no están hechas ni marcadas"]];
   const cells = x => [x.counts, x.out, x.in, x.booked, x.none + (x.unread || 0), x.noshow, x.unmarked];
-  const fmt = (v, i, x) => i === 0 ? (x.role ? `<b>${cut ? "?" : half(v)}</b>` : "—") : i === 4 && x.unread ? `${n(v)} <span class="faint" title="${x.unread} sin poder leer la Fuente">(${x.unread} ?)</span>` : n(v);
+  const fmt = (v, i, x) => i === 0 ? (x.role ? `<b>${cut ? "?" : half(v)}</b>` : "—") : i === 4 && x.unread ? `${n(v)} <span class="faint" title="${x.unread} sin poder leer la Fuente">(${fmtNum(x.unread)} ?)</span>` : n(v);
   const name = x => x.auto ? "Entrada automática, sin agendador" : x.name || (x.id ? "Usuario no activo en Pipedrive" : "?");
   const rows = d.rows || [];
   const tbl = rows.length ? `<div class="follow-wrap"><table class="follow dm-t"><thead><tr><th scope="col">Cargó</th>${head.map(([h, t]) => `<th scope="col" class="num" title="${esc(t)}">${h}</th>`).join("")}</tr></thead>
     <tbody>${rows.map(x => `<tr${dmWho === rowKey(x) ? ' class="sel"' : ""}><th scope="row"><button class="linklike" data-dmp="${esc(rowKey(x))}" title="Ver sus demos">${esc(name(x))}</button>${x.id && x.id === S.me.pdUserId ? " (vos)" : ""}${x.role ? `<small>${x.role === "ae" ? "AE · sin ponderar" : x.name ? "SDR" : "se pondera como SDR"}</small>` : ""}</th>${cells(x).map((v, i) => `<td class="num">${fmt(v, i, x)}</td>`).join("")}</tr>`).join("")}</tbody>
     <tfoot><tr><th scope="row">Total</th>${cells({ ...T, role: "t" }).map((v, i) => `<td class="num">${i === 0 ? `<b>${cut ? "?" : half(v)}</b>` : fmt(v, i, T)}</td>`).join("")}</tr></tfoot></table></div>`
-    : `<p class="faint" style="margin:0;font-size:13.5px">Ninguna demo en este período.</p>`;
+    : emptyState({ icon: "video", title: "Ninguna demo en este período", text: "Probá con otro mes o trimestre.", compact: true });
   const list = (d.items || []).filter(r => !dmWho || itemKey(r) === dmWho), who = dmWho && rows.find(x => rowKey(x) === dmWho);
-  const items = `<details class="dm-list"${dmWho ? " open" : ""}><summary>${who ? `Las demos de ${esc(name(who))}` : "Todas las demos del período"} <small class="faint">${list.length}</small>${dmWho ? ` <button class="btn sm" data-dmp="">Ver todas</button>` : ""}</summary>
-    ${list.length ? list.map(demoRow).join("") : `<p class="faint" style="margin:0;font-size:13.5px">Ninguna.</p>`}</details>`;
-  const defs = `<p class="faint" style="margin:10px 0 0;font-size:13px">Hecha: marcada «se hizo» desde la app o hecha en Pipedrive. La misma demo cargada dos veces cuenta una. ${d.team ? `Con equipo: por persona, solo su gente; la lista, las que da o cargó alguien de ${esc(d.team.name)}.` : ""} Las métricas están en <a href="#/metricas">Métricas</a>.</p>`;
+  const items = `<details class="dm-list"${dmWho ? " open" : ""}><summary>${who ? `Las demos de ${esc(name(who))}` : "Todas las demos del período"} <small class="faint">${fmtNum(list.length)}</small>${dmWho ? ` <button class="btn sm" data-dmp="">Ver todas</button>` : ""}</summary>
+    ${list.length ? list.map(demoRow).join("") : `<p class="faint" style="margin:0;font-size:var(--fs-md)">Ninguna.</p>`}</details>`;
+  const defs = `<p class="faint" style="margin:10px 0 0;font-size:var(--fs-sm)">Hecha: marcada «se hizo» desde la app o hecha en Pipedrive. La misma demo cargada dos veces cuenta una. ${d.team ? `Con equipo: por persona, solo su gente; la lista, las que da o cargó alguien de ${esc(d.team.name)}.` : ""} Las métricas están en <a href="#/metricas">Métricas</a>.</p>`;
   return `${periodPick(d)}${intro}${cut ? `<div class="callout warn" style="margin-bottom:10px">${icon("alert")}<span>Pipedrive devolvió demasiado y cortó la lista: los números van «?».</span></div>` : ""}${rule}${tbl}${items}${defs}`;
+}
+// ---------- subpestañas: las que le tocan a cada uno (las mismas reglas que antes decidían qué tarjetas se veían)
+const TABS = [["demos", "Demos", "video"], ["actividad", "Actividad", "clock"], ["equipos", "Equipos", "users"], ["accesos", "Accesos", "user"], ["cuenta", "Base y clientes", "refresh"]];
+function tabsFor() {
+  const sc = S.profile?.scope || {}, leader = !!S.profile?.leader;
+  return TABS.filter(([k]) => k === "actividad" || (leader && (k === "demos" || k === "accesos")) || (k === "equipos" && leader && (sc.admin || sc.on)) || (k === "cuenta" && leader && sc.all));
+}
+const hashTab = () => (location.hash.match(/^#\/equipo\/(\w+)/) || [])[1] || "";
+function curTab() {
+  const ok = tabsFor().map(([k]) => k), h = hashTab(), p = loadPref("team.tab", "");
+  return ok.includes(h) ? h : ok.includes(p) ? p : ok[0];
+}
+function pickTab(k) {
+  save("team.tab", k);
+  if (location.hash !== `#/equipo/${k}`) history.replaceState(null, "", `#/equipo/${k}`); // sin hashchange: no se vuelve a pedir todo
+  draw();
+  document.getElementById("main")?.scrollTo({ top: 0 });
+  host.querySelector(`[data-tab="${k}"]`)?.focus();
 }
 function draw() {
   const t = S.team7;
@@ -474,7 +520,7 @@ function draw() {
     feed = t.feed.error ? err(t.feed, "la actividad") : t.feed.length ? t.feed.map(f => {
       const inner = `<span class="ty ${f.demo ? "meeting" : ""}" role="img" aria-label="${esc(f.title)}">${icon(f.demo ? "video" : CH_ICON[f.channel] || "note")}</span><span class="t"><b>${esc(f.org)}</b><span>${esc(f.title)}</span><small>${esc(f.author)} · ${esc(ago(f.at))}</small></span>`;
       return f.schoolId ? `<button class="feed-item" data-id="${esc(f.schoolId)}">${inner}</button>` : `<div class="feed-item">${inner}</div>`;
-    }).join("") : `<div class="empty">${icon("note")}<span>Sin actividad todavía.</span></div>`;
+    }).join("") : emptyState({ icon: "note", title: "Sin actividad todavía", text: "Lo que el equipo registre desde la app aparece acá." });
   }
   const sc = S.profile?.scope || {}, leader = !!S.profile?.leader, shown = t?.demos?.team?.name;
   // de qué equipo es lo que ves (con equipos)
@@ -482,33 +528,40 @@ function draw() {
   const sub = unknown && !sc.admin ? "No pude leer los equipos: ves lo tuyo. Probá de nuevo en unos segundos."
     : !sc.on ? (leader ? "Demos y actividad reciente" : "Actividad reciente") : leader ? (shown ? `Demos y actividad de ${shown}` : sc.all ? "Demos y actividad de toda la cuenta, también de gente sin equipo" : "Demos y actividad de tu equipo")
     : sc.member ? `Actividad de ${sc.member.name}` : stale ? "Ves lo tuyo." : "Todavía no estás en un equipo: ves lo tuyo. Te suma su líder o dirección.";
-  host.innerHTML = `<div class="page">
+  const tabs = tabsFor(), tab = curTab();
+  const section = (id, ic, title, subTxt, body, extra = "") => `<section class="card${extra}" aria-labelledby="${id}"><div class="card-h"><h2 id="${id}">${icon(ic)} ${title}</h2>${subTxt ? `<span class="sub"${id === "hTm" ? ' id="tmSub"' : ""}>${subTxt}</span>` : id === "hTm" ? '<span class="sub" id="tmSub"></span>' : ""}</div>${body}</section>`;
+  const panel = {
+    demos: () => section("hRk", "video", "Demos", "por mes o por trimestre · solo líderes y dirección", `<div class="card-b">${rank}</div>`, " dm"),
+    actividad: () => section("hFd", "clock", "Actividad reciente", "", `<div class="card-b">${feed}</div>`),
+    equipos: () => section("hTm", "users", "Equipos", sc.admin ? "" : "tu equipo", `<div class="card-b" id="teamsBox">${'<div class="skel" style="margin:14px 0"></div>'.repeat(2)}</div>`),
+    accesos: () => section("hAc", "user", "Accesos del equipo", "cada persona entra con su email y su código personal", `<div class="card-b" id="codes">${'<div class="skel" style="margin:14px 0"></div>'.repeat(3)}</div>`),
+    cuenta: () => `${section("hSy", "refresh", "Sincronizar con Pipedrive", "cruza toda la base de colegios de una vez", '<div class="card-b" id="syncBox" aria-live="polite"></div>')}
+      ${section("hWd", "globe", "World Dominion", "qué colegios ya son clientes de OrderEAT", '<div class="card-b" id="wdBox"></div>')}`,
+  };
+  host.innerHTML = `<div class="page read">
     <div class="page-head"><div><h1>Equipo</h1><p>${esc(sub)}</p></div><div class="team-head">${teamSelect("teamPick")}${leader ? `<a class="btn" href="#/metricas">${icon("chart", "sm")} Ver métricas</a>` : ""}</div></div>
     ${stale && !leader ? `<div class="callout warn" style="margin-bottom:14px">${icon("alert")}<span>Eras líder antes de los equipos. Ahora hay equipos: pedile a dirección que te asigne el tuyo. Mientras, ves lo tuyo (sin Métricas).</span></div>` : ""}
-    ${leader ? `<section class="card dm" style="margin-bottom:16px" aria-labelledby="hRk"><div class="card-h"><h2 id="hRk">${icon("video")} Demos</h2><span class="sub">por mes o por trimestre · solo líderes y dirección</span></div><div class="card-b">${rank}</div></section>` : ""}
-    <section class="card" aria-labelledby="hFd"><div class="card-h"><h2 id="hFd">${icon("clock")} Actividad reciente</h2></div><div class="card-b">${feed}</div></section>
-    ${leader && (sc.admin || sc.on) ? `<section class="card" style="margin-top:16px" aria-labelledby="hTm"><div class="card-h"><h2 id="hTm">${icon("users")} Equipos</h2><span class="sub" id="tmSub">${sc.admin ? "" : "tu equipo"}</span></div>
-      <div class="card-b" id="teamsBox">${'<div class="skel" style="margin:14px 0"></div>'.repeat(2)}</div></section>` : ""}
-    ${leader ? `<section class="card" style="margin-top:16px" aria-labelledby="hAc"><div class="card-h"><h2 id="hAc">${icon("user")} Accesos del equipo</h2><span class="sub">cada persona entra con su email y su código personal</span></div>
-      <div class="card-b" id="codes">${'<div class="skel" style="margin:14px 0"></div>'.repeat(3)}</div></section>` : ""}
-    ${leader && sc.all ? `<section class="card" style="margin-top:16px" aria-labelledby="hSy"><div class="card-h"><h2 id="hSy">${icon("refresh")} Sincronizar con Pipedrive</h2><span class="sub">cruza toda la base de colegios de una vez</span></div>
-      <div class="card-b" id="syncBox" aria-live="polite"></div></section>
-    <section class="card" style="margin-top:16px" aria-labelledby="hWd"><div class="card-h"><h2 id="hWd">${icon("globe")} World Dominion</h2><span class="sub">qué colegios ya son clientes de OrderEAT</span></div>
-      <div class="card-b" id="wdBox"></div></section>` : ""}
+    ${tabs.length > 1 ? `<div class="tm-tabs" role="tablist" aria-label="Secciones de Equipo">${tabs.map(([k, l, ic]) => `<button type="button" class="tab" role="tab" id="tab-${k}" data-tab="${k}" aria-selected="${k === tab}" aria-controls="tmPanel" tabindex="${k === tab ? 0 : -1}">${icon(ic, "sm")} ${l}${k === "cuenta" && S.brain?.token ? ' <span class="dot-warn" aria-label="Aviso del token de World Dominion"></span>' : ""}</button>`).join("")}</div>` : ""}
+    <div class="stack tm-panel" id="tmPanel"${tabs.length > 1 ? ` role="tabpanel" aria-labelledby="tab-${tab}"` : ""}>${panel[tab]()}</div>
     </div>`;
   host.querySelectorAll("[data-retry]").forEach(b => b.onclick = () => { S.team7 = null; draw(); refresh(); });
+  // la pestaña elegida, a la vista (en el celular la fila se desliza); un hash con una pestaña que no te toca queda en la tuya
+  const bar = host.querySelector(".tm-tabs"), on = bar?.querySelector('[aria-selected="true"]');
+  if (bar && on && (on.offsetLeft < bar.scrollLeft || on.offsetLeft + on.offsetWidth > bar.scrollLeft + bar.clientWidth)) bar.scrollLeft = Math.max(0, on.offsetLeft - 16);
+  if (hashTab() && hashTab() !== tab) history.replaceState(null, "", tabs.length > 1 ? `#/equipo/${tab}` : "#/equipo");
+  // pestañas: clic, y flechas / Inicio / Fin con el teclado
+  const tb = [...host.querySelectorAll("[data-tab]")];
+  tb.forEach((b, i) => { b.onclick = () => { if (b.dataset.tab !== tab) pickTab(b.dataset.tab); };
+    b.onkeydown = e => { const j = e.key === "ArrowRight" ? i + 1 : e.key === "ArrowLeft" ? i - 1 : e.key === "Home" ? 0 : e.key === "End" ? tb.length - 1 : null; if (j == null) return; e.preventDefault(); pickTab(tb[(j + tb.length) % tb.length].dataset.tab); }; });
   host.querySelector("#teamPick")?.addEventListener("change", e => { setTeamView(e.target.value); S.team7 = null; draw(); refresh(); drawCodes(); });
-  if (leader && (sc.admin || sc.on)) { if (!tdata) loadTeams(); else drawTeams(); }
-  if (leader) { if (!codes) loadCodes(); else drawCodes(); }
-  if (leader && sc.all) { drawSync(); if (!syncing) loadSync(); }
-  if (leader && sc.all) { drawWd(); if (!wdBusy && Date.now() - wdAt > 20e3) loadWd(); }
+  if (tab === "equipos") { if (!tdata) loadTeams(); else drawTeams(); }
+  if (tab === "accesos") { if (!codes) loadCodes(); else drawCodes(); }
+  if (tab === "cuenta") { drawSync(); if (!syncing) loadSync(); drawWd(); if (!wdBusy && Date.now() - wdAt > 20e3) loadWd(); }
   host.querySelectorAll("[data-id]").forEach(b => b.onclick = () => openSchool(b.dataset.id));
   host.querySelectorAll("[data-dsch]").forEach(b => b.onclick = () => openSchool(b.dataset.dsch));
   host.querySelectorAll("[data-drec]").forEach(b => b.onclick = () => openRecord(b.dataset.drec));
   host.querySelectorAll("[data-dres]").forEach(b => b.onclick = () => demoResultMenu(b, { id: Number(b.dataset.dres), time: b.dataset.time }, () => refresh()));
-  // período de las demos: un mes del selector o un trimestre (Q1 a Q4 del año del mes elegido); quién: filtra la lista
-  const again = () => { dmWho = ""; if (S.team7) S.team7 = { ...S.team7, demos: null }; draw(); refresh(); };
-  host.querySelector("#dmMonth")?.addEventListener("change", e => { if (e.target.value) { dmPeriod = e.target.value; again(); } });
-  host.querySelectorAll("[data-dmq]").forEach(b => b.onclick = () => { dmPeriod = b.getAttribute("aria-pressed") === "true" ? `${b.dataset.dmq.slice(0, 4)}-${S.team7?.demos?.choices?.current?.slice(5) || "01"}` : b.dataset.dmq; again(); });
+  // período de las demos (period.js, el mismo selector de Métricas; lo elegido se comparte); quién: filtra la lista
+  bindPeriod(host, "dmPer", v => { dmPeriod = v; save("dm.period", v); dmWho = ""; if (S.team7) S.team7 = { ...S.team7, demos: null }; draw(); refresh(); }, today());
   host.querySelectorAll("[data-dmp]").forEach(b => b.onclick = e => { e.preventDefault(); dmWho = dmWho === b.dataset.dmp ? "" : b.dataset.dmp; draw(); });
 }

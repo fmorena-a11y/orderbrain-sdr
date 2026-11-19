@@ -78,8 +78,8 @@ export const sigLabel = g => g.signatureSource === "perfil" || g.signatureSource
 // signature: false cuando la firma se elige en «Tu firma» (public/js/pdmail.js), para Pipedrive y Gmail a la vez.
 export function gmailProfileHtml(g, { signature = true } = {}) {
   if (!g) return `<p class="faint" style="margin:0">Cargando…</p>`;
-  if (!g.enabled) return `<p class="muted" style="margin:0;font-size:13.5px">Para enviar mails desde la app falta configurar Gmail (lo hace el administrador).</p>`;
-  if (g.config) return `<p class="muted" style="margin:0;font-size:13.5px">Gmail está mal configurado en el servidor (avisale al administrador).</p>`;
+  if (!g.enabled) return `<p class="muted" style="margin:0;font-size:var(--fs-md)">Para enviar mails desde la app falta configurar Gmail (lo hace el administrador).</p>`;
+  if (g.config) return `<p class="muted" style="margin:0;font-size:var(--fs-md)">Gmail está mal configurado en el servidor (avisale al administrador).</p>`;
   const ready = gmailReady(g);
   return `<div class="gm-st">${ready
       ? `<span>${icon("checkCircle", "sm")} Gmail conectado como <b>${esc(g.email)}</b>${g.demo ? " (simulado)" : ""}</span><button type="button" class="linkbtn" id="gmOff">Desconectar</button>`
@@ -90,8 +90,8 @@ export function gmailProfileHtml(g, { signature = true } = {}) {
       <label class="field" style="margin-top:8px"><span>Pegá la misma firma que usás en Pipedrive <span class="faint">texto o HTML · manda sobre la de Gmail</span></span>
         <textarea class="inp" id="gmSig" rows="4" placeholder="Juan Pérez · SDR · OrderEAT&#10;+52 55 1234 5678 · ordereat.com">${esc(g.custom || "")}</textarea></label>
       <div class="row" style="justify-content:flex-start;gap:8px;margin-top:6px"><button type="button" class="btn sm" id="gmSigSave">Guardar firma</button>${g.custom ? `<button type="button" class="btn sm ghost" id="gmSigClear">Usar la de Gmail</button>` : ""}</div>
-      <p class="faint" style="margin:6px 0 0;font-size:12.5px">Pipedrive no deja leer tu firma: copiala desde Pipedrive (Configuración del correo) y pegala acá.</p>
-    </details>` : `<p class="faint" style="margin:0;font-size:12.5px">La firma se elige después de conectar Gmail: por defecto, la de tu Gmail.</p>`}`;
+      <p class="faint" style="margin:6px 0 0;font-size:var(--fs-sm)">Pipedrive no deja leer tu firma: copiala desde Pipedrive (Configuración del correo) y pegala acá.</p>
+    </details>` : `<p class="faint" style="margin:0;font-size:var(--fs-sm)">La firma se elige después de conectar Gmail: por defecto, la de tu Gmail.</p>`}`;
 }
 export function bindGmailProfile(box, redraw) {
   const q = s => box.querySelector(s);

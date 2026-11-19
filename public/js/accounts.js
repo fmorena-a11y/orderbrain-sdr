@@ -45,7 +45,7 @@ function calHtml(c, ui) {
       ${ui.test ? `<p class="cal-out" role="status">${esc(ui.test)}</p>` : ""}
       ${c.problem ? `<div class="callout warn">${icon("alert")}<span>${esc(c.problem)} Pegá la dirección de nuevo.</span></div>` : ""}
       ${c.problem || ui.change ? "" : `<button type="button" class="linkbtn cal-change" id="calChange">Cambiar la dirección</button>`}` : ""}
-    ${!c.connected || c.problem || ui.change ? `${c.connected ? "" : `<p class="muted" style="margin:0;font-size:13.5px">Así el equipo ve cuándo estás libre y te propone demos en esos horarios. Lo conectás una vez.</p>`}${stepsHtml}
+    ${!c.connected || c.problem || ui.change ? `${c.connected ? "" : `<p class="muted" style="margin:0;font-size:var(--fs-md)">Así el equipo ve cuándo estás libre y te propone demos en esos horarios. Lo conectás una vez.</p>`}${stepsHtml}
       <div class="cal-url"><input class="inp" id="calUrl" type="text" inputmode="url" autocomplete="off" spellcheck="false" placeholder="https://calendar.google.com/calendar/ical/…/basic.ics" aria-label="Dirección secreta en formato iCal">
         <button type="button" class="btn sm primary" id="calGo">${ui.saving ? `<span class="spin"></span> Probando…` : "Conectar"}</button></div>` : ""}
     ${ui.err ? `<p class="err" role="alert" style="margin:0">${esc(ui.err)}</p>` : ""}
@@ -53,7 +53,7 @@ function calHtml(c, ui) {
       <div class="chips" role="group" aria-label="Días">${DOWS.map(([d, l]) => `<button type="button" class="chip sm" data-cdow="${d}" aria-pressed="${h.days.includes(d)}" aria-label="${DOW_NAME[d]}">${l}</button>`).join("")}</div>
       <div class="cal-hh"><label>De <input class="inp" type="time" step="900" id="calFrom" value="${esc(h.from)}"></label><label>a <input class="inp" type="time" step="900" id="calTo" value="${esc(h.to)}"></label>
         <button type="button" class="btn sm" id="calHours" ${ui.hours ? "" : "disabled"}>Guardar horario</button></div></div>
-    <p class="faint" style="margin:0;font-size:12.5px">${icon("lock", "sm")} Solo se ve libre u ocupado: nadie ve los títulos ni los detalles de tus eventos.</p>`;
+    <p class="faint" style="margin:0;font-size:var(--fs-sm)">${icon("lock", "sm")} Solo se ve libre u ocupado: nadie ve los títulos ni los detalles de tus eventos.</p>`;
 }
 
 // ---------- perfil: los dos bloques. Devuelve { roleChanged, save } para app.js (save confirma los accounts).

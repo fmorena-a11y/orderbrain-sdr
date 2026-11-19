@@ -5,7 +5,7 @@
 // Datos: GET /api/lead/today?part=…&team= (lib/lead-api.js; lógica y definiciones en lib/leadview.js). Cada parte (actividades,
 // demos, inbound, tratos) se pide y se dibuja por separado: si una tarda o falla, las otras se ven igual.
 // Regla de números: cada uno con su definición (title y letra chica); lo que no se sabe va «?».
-import { S, api, esc, icon, ago, cap, homeSwitchHtml, bindHomeSwitch, teamSelect, teamView, teamQuery, setTeamView, shortDay, TYPE_ICON, modal, toast } from "./core.js";
+import { S, api, esc, icon, ago, cap, homeSwitchHtml, bindHomeSwitch, teamSelect, teamView, teamQuery, setTeamView, shortDay, TYPE_ICON, modal, toast, fmtNum, emptyState } from "./core.js";
 import { openSchool, openRecord } from "./school.js";
 import { showDeals } from "./deals.js";
 
@@ -43,7 +43,7 @@ function load() {
 }
 
 // ---------- formato
-const fmt = n => n == null || Number.isNaN(n) ? "?" : Number(n).toLocaleString("es", { maximumFractionDigits: 1 });
+const fmt = n => fmtNum(n, { none: "?", dec: n == null || Number.isInteger(Number(n)) ? 0 : 1 });
 const part = p => { const x = B?.parts?.[p]; return x && !x.error ? x : null; };
 const waiting = p => !B?.parts?.[p] && B?.loading?.has(p);
 const def = k => B?.meta?.defs?.[k] || "";
@@ -87,7 +87,7 @@ function errorBox() {
 function kpis() {
   const a = part("acts"), d = part("demos"), i = part("inbound"), t = part("deals");
   const tiles = [
-    { k: "demos", l: `Demos que cuentan${d?.period ? ` · ${d.period.label.split(" ")[0]}` : ""}`, v: d?.totals.counts, sub: d ? `${fmt(d.totals.done)} ${d.totals.done === 1 ? "hecha" : "hechas"} en el mes` : "", def: def("counts"), go: "view:equipo", cta: "Ver en Equipo" },
+    { k: "demos", l: `Demos que cuentan${d?.period ? ` · ${d.period.label.split(" ")[0]}` : ""}`, v: d?.totals.counts, sub: d ? `de ${fmt(d.totals.done)} ${d.totals.done === 1 ? "hecha" : "hechas"} en el mes: sin fuente o automáticas no cuentan` : "", def: `${def("counts")} «Hechas»: todas las hechas del mes por quién la cargó, con o sin Fuente y también las entradas automáticas.`, go: "view:equipo/demos", cta: "Ver en Equipo" },
     { k: "demos", l: "Demos de hoy", v: d?.totals.today, sub: d ? `mañana: ${fmt(d.totals.tomorrow)}${d.totals.unmarked ? ` · ${fmt(d.totals.unmarked)} sin marcar` : ""}` : "", def: "Demos del equipo con fecha de hoy, sin las canceladas.", go: "anchor:demos", cta: "Ver cuáles", warn: !!d?.totals.unmarked },
     { k: "acts", l: "Vencidas del equipo", v: a?.totals.overdue, sub: a ? `para hoy: ${fmt(a.totals.today)} · hechas hoy: ${fmt(a.totals.doneToday)}` : "", def: `${def("overdue")} Suma de las personas de la lista.`, go: "anchor:people", cta: "Ver por persona", bad: a?.totals.overdue > 0 },
     { k: "inbound", l: "Inbound sin contactar", v: i?.totals.new, sub: i ? (i.totals.late == null ? "plazo de 72 h: ?" : i.totals.late ? `${fmt(i.totals.late)} ya pasaron las 72 h` : i.totals.soon ? `${fmt(i.totals.soon)} vencen en menos de 24 h` : `de ${fmt(i.totals.entries)} que entraron en 7 días`) : "", def: def("inbNew"), go: "anchor:inbound", cta: "Ver cuáles", bad: i?.totals.late > 0 },
@@ -109,7 +109,7 @@ function alertsCard() {
     <div class="t"><b title="${esc(a.def || "")}">${esc(a.text)}</b><small>${esc([a.sub, whoTxt(a.who)].filter(Boolean).join(a.sub && a.who?.length ? ": " : ""))}</small></div>
     <button class="btn sm" data-go="${esc(goOf(a.go))}" data-focus-key="al-${esc(a.key)}">${esc(a.label)}</button></li>`;
   const body = alerts.length ? `<ul class="lh-alerts">${alerts.map(row).join("")}</ul>`
-    : pending.length ? "" : failed.length ? "" : `<div class="empty compact lh-ok">${icon("checkCircle")}<b>Todo al día</b><span>Sin demos de hoy, sin demos por marcar, sin inbound esperando, nadie con muchas vencidas y los tratos con próximo paso.</span></div>`;
+    : pending.length ? "" : failed.length ? "" : emptyState({ icon: "checkCircle", title: "Todo al día", text: "Sin demos de hoy, sin demos por marcar, sin inbound esperando, nadie con muchas vencidas y los tratos con próximo paso.", compact: true, cls: "lh-ok" });
   return `<section class="card lh-card" aria-labelledby="lhA"><div class="card-h"><h2 id="lhA">${icon("alert")} Para mirar hoy</h2><span class="sub">${alerts.length ? "lo más urgente arriba" : ""}</span></div>
     <div class="card-b">${body}${pending.length ? `<div aria-busy="true">${skel(2, 34)}</div><p class="mx-note">Leyendo ${esc(pending.map(p => PART_NAME[p]).join(", "))}…</p>` : ""}
     ${failed.map(p => `<div class="callout warn" style="margin-top:8px">${icon("alert")}<span>No pude leer ${PART_NAME[p]}: ${esc(B.parts[p].error)} Lo de esa parte no está en esta lista.</span><button class="btn sm" data-retry>Reintentar</button></div>`).join("")}</div></section>`;
@@ -137,15 +137,15 @@ function peopleCard() {
       ${cell("Hechas hoy", a, num(A?.doneToday, "ok"), def("doneToday"))}
       ${cell("Vencidas", a, num(A?.overdue, many ? "bad" : "warn"), def("overdue"))}
       ${cell("Demos hoy · mañana", d, `${num(Dm?.today)}<b class="sep">·</b>${num(Dm?.tomorrow)}${sm(Dm?.unmarked ? `<span class="warn">${fmt(Dm.unmarked)} sin marcar</span>` : "")}`, `${def("demosToday")} ${def("demosTomorrow")}`)}
-      ${cell("Cuentan en el mes", d, `${num(Dm?.counts)}${sm(Dm?.done ? `${fmt(Dm.done)} ${Dm.done === 1 ? "hecha" : "hechas"}` : "")}`, def("counts"))}
+      ${cell("Cuentan en el mes", d, `${num(Dm?.counts)}${sm(Dm?.done ? `de ${fmt(Dm.done)} ${Dm.done === 1 ? "hecha" : "hechas"}` : "")}`, def("counts"))}
       ${cell("Inbound sin contactar", p.role === "ae" ? {} : i, inb, p.role === "ae" ? "No aplica a un account." : `${def("inbNew")} ${def("inbCalls")}`, p.role === "ae")}
       ${cell("Tratos abiertos", p.role === "sdr" ? {} : t, deals, p.role === "sdr" ? "Los tratos se miran en los accounts." : `${def("deals")} ${def("attn")}`, p.role === "sdr")}`;
     return p.open ? `<button type="button" class="lh-row" data-person="${p.id}" data-focus-key="p${p.id}" aria-label="${esc(p.name)}: abrir su día">${cells}<span class="go" aria-hidden="true">${icon("chevR", "sm")}</span></button>`
       : `<div class="lh-row" title="Su día lo ve su líder o dirección.">${cells}<span class="go"></span></div>`;
   };
   const head = `<div class="lh-row head" aria-hidden="true"><span class="who">Persona</span>${["Para hoy", "Hechas hoy", "Vencidas", "Demos hoy · mañana", "Cuentan en el mes", "Inbound sin contactar", "Tratos abiertos"].map(h => `<span class="c">${h}</span>`).join("")}<span class="go"></span></div>`;
-  return `<section class="card lh-card" id="lh-people" aria-labelledby="lhP"><div class="card-h"><h2 id="lhP">${icon("users")} Tu gente hoy</h2><span class="sub">${rows.length} ${rows.length === 1 ? "persona" : "personas"} · tocá una para ver su día</span></div>
-    <div class="card-b">${rows.length ? `<div class="lh-table">${head}${rows.map(line).join("")}</div>` : `<div class="empty compact"><b>Todavía no hay nadie en este equipo</b><span>Sumá a tu gente en Equipo › Equipos.</span></div>`}
+  return `<section class="card lh-card" id="lh-people" aria-labelledby="lhP"><div class="card-h"><h2 id="lhP">${icon("users")} Tu gente hoy</h2><span class="sub">${fmt(rows.length)} ${rows.length === 1 ? "persona" : "personas"} · tocá una para ver su día</span></div>
+    <div class="card-b">${rows.length ? `<div class="lh-table">${head}${rows.map(line).join("")}</div>` : emptyState({ title: "Todavía no hay nadie en este equipo", text: "Sumá a tu gente en Equipo › Equipos.", action: { label: "Ir a Equipos", href: "#/equipo/equipos" }, compact: true })}
     ${hidden.length ? `<button class="btn ghost sm" id="lhQuiet" data-focus-key="lhQuiet" style="margin-top:8px">${showQuiet ? "Ocultar" : "Ver"} ${hidden.length} ${hidden.length === 1 ? "persona" : "personas"} sin nada hoy que no ${hidden.length === 1 ? "entró" : "entraron"} a la app</button>` : ""}
     <p class="mx-note">En orden alfabético (SDR, accounts y el resto). Cada número es de hoy, en tu hora; pasá el mouse para ver qué cuenta. «?» = no se pudo saber.</p></div></section>`;
 }
@@ -163,10 +163,10 @@ function demosCard() {
   const body = !p ? `<div aria-busy="true">${skel(4, 30)}</div>` : p.error ? `<div class="callout warn">${icon("alert")}<span>No pude leer las demos: ${esc(p.error)}</span><button class="btn sm" data-retry>Reintentar</button></div>`
     : `${!d.known ? `<div class="callout warn" style="margin-bottom:8px">${icon("alert")}<span>Pipedrive devolvió la lista de demos cortada: los números quedan en «?». Esto es lo que se pudo leer.</span></div>` : ""}
       ${group("Hoy", d.today, d.totals.today)}${group("Mañana", d.tomorrow, d.totals.tomorrow)}
-      ${!d.today.length && !d.tomorrow.length ? `<div class="empty compact">${icon("calendar")}<b>Sin demos hoy ni mañana</b></div>` : ""}
+      ${!d.today.length && !d.tomorrow.length ? emptyState({ icon: "calendar", title: "Sin demos hoy ni mañana", compact: true }) : ""}
       ${d.unmarked.length ? `<div class="group-h late">Pasadas sin marcar <span class="n">${fmt(d.totals.unmarked)}</span></div>${(more.unmarked ? d.unmarked : d.unmarked.slice(0, 4)).map(it => demoRow(it, true)).join("")}
-        <div class="lh-more">${d.unmarked.length > 4 ? `<button class="btn ghost sm" data-more="unmarked" data-focus-key="moreU">${more.unmarked ? "Ver menos" : `Ver ${d.unmarked.length - 4} más`}</button>` : ""}<a class="btn sm" href="#/equipo">Marcar en Equipo</a></div>` : ""}`;
-  return `<section class="card lh-card" id="lh-demos" aria-labelledby="lhD"><div class="card-h"><h2 id="lhD">${icon("video")} Demos de hoy y mañana</h2><a class="sub" href="#/equipo">Demos del mes en Equipo</a></div><div class="card-b">${body}
+        <div class="lh-more">${d.unmarked.length > 4 ? `<button class="btn ghost sm" data-more="unmarked" data-focus-key="moreU">${more.unmarked ? "Ver menos" : `Ver ${d.unmarked.length - 4} más`}</button>` : ""}<a class="btn sm" href="#/equipo/demos">Marcar en Equipo</a></div>` : ""}`;
+  return `<section class="card lh-card" id="lh-demos" aria-labelledby="lhD"><div class="card-h"><h2 id="lhD">${icon("video")} Demos de hoy y mañana</h2><a class="sub" href="#/equipo/demos">Demos del mes en Equipo</a></div><div class="card-b">${body}
     <p class="mx-note" title="${esc(def("unmarked"))}">Las que da o cargó tu gente, sin las canceladas. Sin marcar: ya pasaron (este mes o en los últimos 7 días) y nadie dijo si se hicieron.</p></div></section>`;
 }
 const group = (title, list, n) => list.length ? `<div class="group-h">${title} <span class="n">${fmt(n)}</span></div>${list.map(it => demoRow(it)).join("")}` : "";
@@ -185,7 +185,7 @@ function inboundCard() {
   const list = d?.list || [], shown = more.inbound ? list : list.slice(0, 6);
   const body = !p ? `<div aria-busy="true">${skel(4, 30)}</div>` : p.error ? `<div class="callout warn">${icon("alert")}<span>No pude leer los inbound: ${esc(p.error)}</span><button class="btn sm" data-retry>Reintentar</button></div>`
     : `${!d.known ? `<div class="callout warn" style="margin-bottom:8px">${icon("alert")}<span>Pipedrive devolvió alguna lista cortada: cuántos hay sin contactar queda en «?».</span></div>` : ""}
-      ${list.length ? shown.map(row).join("") : d.known ? `<div class="empty compact">${icon("checkCircle")}<b>Ninguno sin contactar</b><span>${fmt(d.totals.entries)} entraron en los últimos 7 días.</span></div>` : ""}
+      ${list.length ? shown.map(row).join("") : d.known ? emptyState({ icon: "checkCircle", title: "Ninguno sin contactar", text: `${fmt(d.totals.entries)} entraron en los últimos 7 días.`, compact: true }) : ""}
       ${list.length > 6 ? `<div class="lh-more"><button class="btn ghost sm" data-more="inbound" data-focus-key="moreI">${more.inbound ? "Ver menos" : `Ver ${list.length - 6} más`}</button></div>` : ""}
       ${d.cut ? `<p class="mx-note">Se ven los ${list.length} más viejos de ${fmt(d.totals.new)}. El resto, en Métricas › Inbound.</p>` : ""}
       ${d.slack?.todo ? `<div class="callout" style="margin-top:10px">${icon("bolt")}<span title="${esc(def("inbTodo"))}"><b>${fmt(d.slack.todo)} del reparto sin procesar</b>: todavía no están en Pipedrive${d.slack.soon ? ` (a ${fmt(d.slack.soon)} les quedan 24 h o menos)` : ""}.</span><a class="btn sm" href="#/inbound">Tus inbound</a></div>` : ""}
@@ -198,14 +198,14 @@ function foot() {
   const bits = [a?.at && `actividades leídas ${ago(a.at)}`, d?.at?.window && `demos ${ago(d.at.window)}`, i?.at?.leads && `inbound ${ago(i.at.leads)}`, t?.at && `tratos ${ago(t.at)}`].filter(Boolean);
   const stale = PARTS.filter(p => B.parts[p]?.stale);
   return `${stale.length ? `<div class="callout warn" style="margin-top:12px">${icon("alert")}<span>No pude actualizar ${esc(stale.map(p => PART_NAME[p]).join(", "))}: ves la lectura anterior.</span><button class="btn sm" data-retry>Reintentar</button></div>` : ""}
-    <p class="mx-src" style="margin-top:14px">${esc(bits.length ? `Pipedrive · ${bits.join(" · ")}. Las lecturas se guardan hasta 10 minutos.` : "")} Esto es el día a día: lo histórico, por período y por persona, está en <a href="#/metricas">Métricas</a> y las demos del mes en <a href="#/equipo">Equipo</a>.</p>`;
+    <p class="mx-src" style="margin-top:14px">${esc(bits.length ? `Pipedrive · ${bits.join(" · ")}. Las lecturas se guardan hasta 10 minutos.` : "")} Esto es el día a día: lo histórico, por período y por persona, está en <a href="#/metricas">Métricas</a> y las demos del mes en <a href="#/equipo/demos">Equipo</a>.</p>`;
 }
 
 // ---------- acciones
 function goTo(spec) {
   const [kind, to] = String(spec || "").split(":");
   if (kind === "anchor") { const el = host.querySelector(`#lh-${CSS.escape(to)}`); el?.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" }); el?.querySelector("h2")?.setAttribute("tabindex", "-1"); el?.querySelector("h2")?.focus({ preventScroll: true }); }
-  else if (kind === "view") location.hash = `#/${to}`;
+  else if (kind === "view") location.hash = `#/${to === "equipo" ? "equipo/demos" : to}`; // lo de Equipo que se pide desde acá son las demos
   else if (kind === "deals") showDeals({ owner: to });
 }
 function bind() {
@@ -260,7 +260,7 @@ function personModal(id) {
         <div><div class="group-h late">Vencidas <span class="n">${fmt(data.n.overdue)}</span></div>${late.length ? lateShown.map(a => actRow(a, true)).join("") : `<p class="mx-note" style="margin:4px 6px">Sin vencidas.</p>`}
           ${late.length > 8 ? `<button class="btn ghost sm" data-late style="margin-top:6px">${moreLate ? "Ver menos" : `Ver ${late.length - 8} más`}</button>` : ""}
           ${data.n.overdue > late.length ? `<p class="mx-note">Se ven las ${late.length} más recientes.</p>` : ""}</div>`}
-      ${demos.length ? `<div><div class="group-h">Sus demos <span class="n">${demos.length}</span></div>${demos.join("")}</div>` : ""}
+      ${demos.length ? `<div><div class="group-h">Sus demos <span class="n">${fmt(demos.length)}</span></div>${demos.join("")}</div>` : ""}
       ${p.role !== "ae" && I ? `<p class="lh-pline" title="${esc(def("inbNew"))}">${icon("bolt", "sm")} <span><b>Inbound:</b> ${fmt(I.new)} sin contactar${I.late ? ` (${fmt(I.late)} ya pasaron las 72 h)` : ""}${I.todo ? ` · ${fmt(I.todo)} del reparto sin procesar` : ""}${A?.inbCalls ? ` · ${fmt(A.inbCalls)} ${A.inbCalls === 1 ? "llamada de inbound vencida" : "llamadas de inbound vencidas"}` : ""}.</span></p>` : ""}
       <div class="row lh-prow">${T ? `<span class="muted" title="${esc(def("deals"))} ${esc(def("attn"))}">${icon("deal", "sm")} ${fmt(T.n)} ${T.n === 1 ? "trato abierto" : "tratos abiertos"}${T.attn ? ` · ${fmt(T.attn)} piden atención` : ""}</span>` : ""}
         <button type="button" class="btn" data-deals>${icon("deal", "sm")} Ver sus tratos</button></div>`;

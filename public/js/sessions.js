@@ -153,7 +153,7 @@ export async function sessionDetail(id, redraw, anchor) {
     ${bar(v)}
     ${v.summary ? `<p style="margin:0">${esc(v.summary)}</p>` : ""}
     <div class="ss-items">${sec("Trabajados", worked)}${sec("Salteados", skipped)}<div id="sdPend">${sec("Faltan", pending, 20)}</div></div>
-    ${open && (pending.length || skipped.length) ? `<p class="faint" style="margin:0;font-size:12.5px">Tocá uno de los que ${[pending.length && "faltan", skipped.length && "se saltearon"].filter(Boolean).join(" o ")} para seguir la sesión desde ahí.</p>` : ""}
+    ${open && (pending.length || skipped.length) ? `<p class="faint" style="margin:0;font-size:var(--fs-sm)">Tocá uno de los que ${[pending.length && "faltan", skipped.length && "se saltearon"].filter(Boolean).join(" o ")} para seguir la sesión desde ahí.</p>` : ""}
     <div class="row">${open ? `<button class="btn ghost" id="sdEnd">Terminar</button>` : `<button class="btn ghost" id="sdOpen">Reabrir</button>`}${open && v.resume >= 0 ? `<button class="btn primary" id="sdGo">${icon("play", "sm")} Retomar</button>` : ""}</div>`, { onClose: () => anchor?.isConnected && anchor.focus() });
   m.querySelector(".modal-box").classList.add("ss-modal");
   m.querySelector("#sdX").onclick = () => m.close();

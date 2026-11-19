@@ -109,6 +109,16 @@ export function fmtNum(n, { dec = 0, none = "0" } = {}) {
   let f = NUM_FMT.get(dec); if (!f) NUM_FMT.set(dec, f = new Intl.NumberFormat("es-AR", { minimumFractionDigits: dec, maximumFractionDigits: dec }));
   return f.format(v);
 }
+// ---------- estado vacío (una sola pieza en todas las vistas): ícono, título, texto y una acción opcional.
+// action: { label, href } (enlace), { label, id } o { label, attrs } (botón; attrs: atributos ya escritos, p. ej. «data-clearq»),
+// con cls para la clase del botón («btn sm» por defecto, «linkbtn» para un enlace en el texto). compact: la versión chica (sin ícono).
+// title y text van escapados.
+export function emptyState({ icon: ic = "", title = "", text = "", action = null, compact = false, cls = "" } = {}) {
+  const a = !action ? "" : typeof action === "string" ? action
+    : action.href ? `<a class="${esc(action.cls || "btn sm")}" href="${esc(action.href)}">${esc(action.label)}</a>`
+    : `<button type="button" class="${esc(action.cls || "btn sm")}"${action.id ? ` id="${esc(action.id)}"` : ""}${action.attrs ? ` ${action.attrs}` : ""}>${action.icon ? icon(action.icon, "sm") + " " : ""}${esc(action.label)}</button>`;
+  return `<div class="empty${compact ? " compact" : ""}${cls ? ` ${esc(cls)}` : ""}">${ic ? icon(ic) : ""}${title ? `<b>${esc(title)}</b>` : ""}${text ? `<span>${esc(text)}</span>` : ""}${a}</div>`;
+}
 // Fila que se corre de costado (países, filtros): flechas con mouse, rueda vertical → horizontal,
 // bordes difuminados que avisan que hay más, y la opción elegida siempre a la vista.
 export function scroller(el) {
@@ -217,7 +227,7 @@ export const icon = (n, cls = "") => `<svg class="ico ${cls}" viewBox="0 0 24 24
 export function hydrateIcons(root = document) { root.querySelectorAll("[data-icon]").forEach(e => { if (!e.firstChild) e.innerHTML = icon(e.dataset.icon); }); }
 // Demos: una ya vencida (fecha y hora locales) pregunta «¿Se hizo la demo?»; el resultado sale de Pipedrive (sin marca: «?»)
 export const demoDue = (l, now = new Date()) => { const t = today(); return l.date < t || (l.date === t && (!l.time || l.time <= now.toTimeString().slice(0, 5))); };
-export const DEMO_RES = { done: "Se hizo", noshow: "No-show", moved: "Reprogramada", canceled: "Cancelada" };
+export const DEMO_RES = { done: "Se hizo", noshow: "No show", moved: "Reprogramada", canceled: "Cancelada" };
 export const TYPE_ICON = { call: "phone", meeting: "video", deadline: "whatsapp", task: "mail", contacto_decisor: "user" };
 
 // ---------- estados de colegio
@@ -464,7 +474,7 @@ export function brainTokenMsg() {
 }
 export const brainTokenCallout = (style = "margin-bottom:16px") => {
   const m = brainTokenMsg(); if (!m) return "";
-  return `<div class="callout ${m[0]}" style="${style}">${icon("alert")}<span>${esc(m[1])} <a href="#/equipo">Ir a Equipo</a></span></div>`;
+  return `<div class="callout ${m[0]}" style="${style}">${icon("alert")}<span>${esc(m[1])} <a href="#/equipo/cuenta">Ir a Equipo</a></span></div>`;
 };
 export const mapsSearch = s => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + " " + s.city)}`;
 
