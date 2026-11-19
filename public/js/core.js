@@ -264,6 +264,59 @@ export function localAct(a) {
   if (isNaN(d)) return { date: a.date, time: a.time.slice(0, 5) };
   return { date: d.toLocaleDateString("sv"), time: d.toTimeString().slice(0, 5) };
 }
+// ---------- títulos de Pipedrive sin etiquetas internas (Hoy, Agenda, Bandeja caliente; puro, pruebas en test/cleantitle.test.mjs)
+// Las mismas reglas que msgSchoolName de lib/playbook.js: afuera «(Inbound …)», «(SDR Meta Ads Revival)», «(EduExperience …)»,
+// «[…]», «· OE-MX-…» y «– Inbound …» del final. cleanTitle(título) → { name, tag, tags }: el nombre limpio y lo que se sacó como
+// etiqueta corta para un chip al lado («SDR revival», «Inbound Google», el evento). Nada se pierde: lo que sale del título va al chip.
+const TITLE_TAGS = [/\s*\(([^()]*)\)\s*$/, /\s*\[([^\]]*)\]\s*$/, /\s+[·|]\s*(OE-[A-Z]{2}-\d+.*)$/i, /\s+[–—-]\s*((?:inbound|sdr|referido|eduexperience|evento|revival)\b.*)$/i];
+const tagLabel = t => { const n = norm(t); return /\brevival\b/.test(n) ? "SDR revival" : /^inbound google( ads)?$/.test(n) ? "Inbound Google" : /^inbound meta( ads)?$/.test(n) ? "Inbound Meta" : t.replace(/\s+/g, " ").trim(); };
+export function cleanTitle(title) {
+  const full = String(title ?? "").replace(/\s+/g, " ").trim(), tags = [];
+  let n = full, prev;
+  do {
+    prev = n;
+    for (const re of TITLE_TAGS) { const m = n.match(re); if (!m) continue; if (m[1].trim()) tags.unshift(tagLabel(m[1])); n = n.slice(0, m.index).trim(); break; }
+  } while (n !== prev && n);
+  // el título era solo la etiqueta («(Inbound)»): se deja como está
+  return n ? { name: n, tag: tags.join(" · "), tags } : { name: full, tag: "", tags: [] };
+}
+// El asunto de una actividad sin el nombre del colegio o prospecto (ya va en el título), esté donde esté:
+// «Volver a llamar · Colegio Olivos de Prueba · prospecto» → «Volver a llamar · prospecto». names: el título y sus variantes.
+export function subjectSansName(subject, ...names) {
+  const keys = new Set(names.flatMap(n => [norm(n), norm(cleanTitle(n).name)]).filter(Boolean));
+  return String(subject ?? "").split(/\s+·\s+/).map(p => p.trim()).filter(p => { const k = norm(p); return k && !keys.has(k) && !keys.has(norm(cleanTitle(p).name)); }).join(" · ");
+}
+// el chip chico de la etiqueta, para poner al lado del título
+export const titleTag = tag => tag ? `<span class="row-tag" title="${esc(tag)}">${esc(tag)}</span>` : "";
+// ---------- territorio: los países que trabajás (la cola de Hoy). Se guarda en este navegador («ob.territory»), como siempre.
+// Sin elegir, la cola trae todos los países: se pide en el perfil y, mientras no se eligió, Hoy lo avisa («Elegir»).
+let terrSet = false;
+export const territoryChosen = () => { if (terrSet) return true; try { return localStorage.getItem("ob.territory") != null; } catch { return true; } };
+export function setTerritory(list) { S.territory = [...new Set(list || [])].filter(c => S.countries.includes(c)); terrSet = true; save("territory", S.territory); }
+// el campo del perfil («Contanos quién sos» y «Tu perfil»): chips por país y «Todos», en una caja que se abre sola mientras no se
+// eligió (después queda plegada con lo elegido). bindTerritoryField → { save() }: guarda solo si la persona eligió algo (países o
+// «Todos»); para un Account Executive no se muestra (su Hoy son sus tratos).
+const terrLabel = (sel, all) => sel.length ? sel.join(", ") : all ? "todos" : "sin elegir: ves todos";
+export function territoryFieldHtml(role = "") {
+  if (!S.countries?.length) return "";
+  const chosen = territoryChosen(), all = chosen && !S.territory.length;
+  return `<details class="cal-box terr-field" id="pfTerr"${chosen ? "" : " open"}${role === "ae" ? " hidden" : ""}><summary><b>Países que trabajás</b> <span class="faint" id="pfTerrSum">· ${esc(terrLabel(S.territory, all))}</span></summary>
+    <div class="cal-in"><div class="chips" role="group" aria-label="Países que trabajás">${S.countries.map(c => `<button type="button" class="chip" data-terr="${esc(c)}" aria-pressed="${S.territory.includes(c)}">${esc(c)}</button>`).join("")}<button type="button" class="chip" data-terr="" aria-pressed="${all}">Todos</button></div>
+      <small class="faint">Es tu cola de «A quién llamar ahora» en Hoy. Queda guardado en este dispositivo.</small></div></details>`;
+}
+export function bindTerritoryField(root) {
+  const box = root?.querySelector("#pfTerr"); if (!box) return { save: () => false };
+  let sel = [...S.territory], all = territoryChosen() && !sel.length, touched = false;
+  const paint = () => { box.querySelectorAll("[data-terr]").forEach(b => b.setAttribute("aria-pressed", b.dataset.terr ? sel.includes(b.dataset.terr) : all)); box.querySelector("#pfTerrSum").textContent = `· ${terrLabel(sel, all)}`; };
+  box.querySelectorAll("[data-terr]").forEach(b => b.onclick = () => {
+    const c = b.dataset.terr; touched = true;
+    if (!c) { all = true; sel = []; } else { all = false; sel = sel.includes(c) ? sel.filter(x => x !== c) : [...sel, c]; }
+    paint();
+  });
+  // el rol se elige en el mismo diálogo: con «Account Executive» el campo se esconde
+  root.addEventListener("click", e => { const r = e.target.closest?.("[data-role]"); if (r) box.hidden = r.dataset.role === "ae"; });
+  return { save() { if (!touched || box.hidden || (!all && !sel.length)) return false; setTerritory(sel); return true; } };
+}
 // Bandeja caliente de Hoy: tus demos de hoy y mañana sin hacer (de tu agenda) y los prospectos nuevos para vos (/api/hot).
 // Cada fila dice por qué está. Si una demo y un prospecto son de la misma ficha, queda la demo.
 export const agoText = (iso, now = Date.now()) => { const m = Math.max(1, Math.round((now - Date.parse(iso)) / 60e3)), h = Math.round(m / 60), d = Math.round(m / 1440); return m < 60 ? `${m} min` : m < 1440 ? `${h} h` : `${d} ${d === 1 ? "día" : "días"}`; };
@@ -277,7 +330,21 @@ export function hotRows(acts = [], leads = [], t = today(), now = Date.now()) {
 // local del colegio, lunes a viernes) dice si ahora es horario de oficina o cuándo abre. local: la hora allá, solo si es otro huso que el tuyo.
 // s: { country, city, lng }. En un país con varios husos (husos/husoLng) sin saber el de la ciudad, null: no se afirma nada.
 const WD = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"], hh = t => t.replace(/^0/, "");
-const clock = (tz, now) => Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: tz, weekday: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).formatToParts(now).map(x => [x.type, x.value]));
+// un formateador por zona (crearlo es lo caro: antes se armaba uno por colegio y por comparación del orden) y la hora de cada
+// zona una vez por minuto
+const CLOCK_FMT = new Map(), CLOCK_AT = new Map();
+let clockMin = -1;
+function clock(tz, now) {
+  const min = Math.floor(now / 60e3);
+  if (min !== clockMin) { CLOCK_AT.clear(); clockMin = min; }
+  let c = CLOCK_AT.get(tz);
+  if (!c) {
+    let f = CLOCK_FMT.get(tz);
+    if (!f) CLOCK_FMT.set(tz, f = new Intl.DateTimeFormat("en-US", { timeZone: tz, weekday: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23" })); // zona inválida: tira (callWindow lo ataja)
+    CLOCK_AT.set(tz, c = Object.fromEntries(f.formatToParts(now).map(x => [x.type, x.value])));
+  }
+  return c;
+}
 export function tzOf(s) {
   const m = S.markets[s?.country]; if (!m?.tz) return null; if (!m.husos) return m.tz;
   const c = norm(s.city), hit = c && Object.entries(m.husos).find(([, l]) => l.some(x => norm(x) === c));
@@ -296,7 +363,11 @@ export function callWindow(s, now = new Date()) {
 }
 export const callPill = s => { const w = callWindow(s); return w ? `<span class="cw ${w.ok ? "ok" : ""}" title="Horario habitual de oficina escolar en ${esc(s.country)} (no es un dato del colegio), hora local: ${esc(w.span)}">${icon("clock", "sm")}${esc([w.label, w.local].filter(Boolean).join(" · "))}</span>` : ""; };
 // La cola de Hoy en el orden en que se muestra y se llama: los nuevos (primero los que están en horario de oficina, orden estable) y después los de reactivar
-export const callQueue = (queue, now = new Date()) => { const rv = q => q.status === "lost" || q.status === "stalled", off = q => callWindow(q, now)?.ok ? 0 : 1; return [...queue.filter(q => !rv(q)).sort((a, b) => off(a) - off(b)), ...queue.filter(rv)]; };
+// («en horario» se calcula una vez por colegio antes de ordenar, no en cada comparación)
+export const callQueue = (queue, now = new Date()) => {
+  const rv = q => q.status === "lost" || q.status === "stalled", fresh = queue.filter(q => !rv(q)), off = new Map(fresh.map(q => [q, callWindow(q, now)?.ok ? 0 : 1]));
+  return [...fresh.sort((a, b) => off.get(a) - off.get(b)), ...queue.filter(rv)];
+};
 // «Registrar en 10 segundos»: cuánto tardó en volver a la app después de tocar Llamar (no es la duración exacta de la llamada). Menos de 25 s casi siempre es que no atendieron:
 // se preselecciona «No atendió» (el SDR confirma). Más de una hora no se muestra: es tiempo fuera de la app, no la llamada.
 export const SHORT_CALL_S = 25;

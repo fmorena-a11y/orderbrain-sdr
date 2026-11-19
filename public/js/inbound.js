@@ -5,13 +5,16 @@
 // Los de Meta Ads son SDR revival (etiqueta «SDR revival · Meta Ads»; el prospecto lleva la Fuente «Inbound - SDR Meta Ads Revival»).
 // Un líder ve lo de su gente (y lo crea a su nombre solo con «Crear a nombre de X»); dirección, todo. Servidor:
 // lib/inbound.js (reglas), lib/inbound-run.js y lib/inbound-api.js.
-import { S, api, esc, icon, toast, telLink, agoText, shortDay, modal, leadsOver, today } from "./core.js";
+import { S, api, esc, icon, toast, telLink, agoText, shortDay, modal, leadsOver, openMenu } from "./core.js";
 import { go } from "./app.js";
 import { openRecord } from "./school.js";
 
 let host = null;
-const st = { q: "", data: null, err: null, busy: false, prog: "", who: "mine", pasting: false, pasteErr: "", roErr: "", info: {}, stage: (() => { try { return localStorage.getItem("ob.inbound.stage") || "all"; } catch { return "all"; } })() };
-const page = body => `<div class="page inb-page"><div class="page-head"><div><h1>Tus inbound</h1><p>Los leads del reparto de Slack que te tocaron. Cada uno queda en Pipedrive como prospecto a tu nombre, con una llamada pendiente. Los de Meta Ads van como SDR revival (Fuente «Inbound - SDR Meta Ads Revival»).</p></div></div>${body}</div>`;
+const st = { q: "", data: null, err: null, busy: false, prog: "", who: "mine", pasting: false, pasteErr: "", roErr: "", info: {}, help: false, openMsg: new Set(), stage: (() => { try { return localStorage.getItem("ob.inbound.stage") || "all"; } catch { return "all"; } })() };
+// la introducción va en una línea; el «?» despliega el resto (cómo queda cada lead en Pipedrive)
+const page = body => `<div class="page inb-page"><div class="page-head"><div><h1>Tus inbound</h1>
+  <details class="inb-intro" id="inHelp"${st.help ? " open" : ""}><summary><span>Los leads del reparto de Slack que te tocaron.</span><span class="inb-help" role="img" aria-label="Cómo funciona" title="Cómo funciona">?</span></summary>
+    <p>Cada uno queda en Pipedrive como prospecto a tu nombre, con una llamada pendiente. Los de Meta Ads van como SDR revival (Fuente «Inbound - SDR Meta Ads Revival»).</p></details></div></div>${body}</div>`;
 const SRC_TONE = { meta: "meta", google: "google", organic: "org", referral: "ref", revival: "rev" };
 
 // «/» lleva al buscador (si no estás escribiendo en otro lado)
@@ -113,7 +116,7 @@ function drawPage() {
     ${slackCallout(d)}
     ${st.roErr ? `<div class="callout warn">${icon("lock")}<span>${esc(st.roErr)} Los leads se ven, pero no se crea nada.</span></div>` : ""}
     ${!S.me?.pdUserId ? `<div class="callout warn">${icon("alert")}<span>Tu email no coincide con un usuario de Pipedrive: no puedo crear los prospectos a tu nombre. Pedí que te den de alta.</span></div>` : ""}
-    ${d.notices?.length ? d.notices.map(n => `<div class="callout warn">${icon("alert")}<span><b>Corrección del reparto</b> (${esc(agoText(n.at))}): ${esc(n.text)}</span></div>`).join("") : ""}
+    ${d.notices?.length ? d.notices.map(n => `<div class="callout warn inb-slim">${icon("alert")}<span><b>Corrección del reparto</b> (${esc(agoText(n.at))}): ${esc(n.text)}</span></div>`).join("") : ""}
     ${pasteCard(d)}
     <div class="inb-bar">
       <button class="btn primary" id="inRun" ${st.busy ? "disabled" : ""}>${st.busy ? `<span class="spin"></span> ${esc(st.prog || "Revisando…")}` : `${icon("refresh", "sm")} Revisar ahora`}</button>
@@ -135,7 +138,7 @@ function listHtml(d) {
 }
 function drawList() {
   const el = host?.isConnected && host.querySelector("#inbList"); if (!el || !st.data) return;
-  const f = document.activeElement, focusSel = f && el.contains(f) ? (f.dataset.stage != null ? `[data-stage="${CSS.escape(f.dataset.stage)}"]` : f.dataset.hist ? `[data-hist="${CSS.escape(f.dataset.hist)}"]` : f.dataset.who != null ? `[data-who="${CSS.escape(f.dataset.who)}"]` : "") : "";
+  const f = document.activeElement, focusSel = f && el.contains(f) ? (f.dataset.stage != null ? `[data-stage="${CSS.escape(f.dataset.stage)}"]` : f.dataset.hist ? `[data-hist="${CSS.escape(f.dataset.hist)}"]` : f.dataset.who != null ? `[data-who="${CSS.escape(f.dataset.who)}"]` : f.id === "inMore" ? "#inMore" : f.dataset.msg ? `[data-msg="${CSS.escape(f.dataset.msg)}"]` : "") : "";
   el.innerHTML = listHtml(st.data); bindList();
   if (focusSel) el.querySelector(focusSel)?.focus();
 }
@@ -143,17 +146,23 @@ function drawList() {
 const stageOf = x => st.info[x.key]?.stage || x.stage || null;
 const STAGE_CHIPS = [["all", "Todos los estados"], ["pend", "Pendiente tuya"], ["new", "Sin contactar"], ["noreply", "Contactado sin respuesta"], ["maybe", "Posible demo"], ["demo", "Demo agendada"], ["held", "Demo realizada"], ["noshow", "No show"], ["deal", "En trato"], ["out", "Descartado"],
   ["review", "Para revisar"], ["todo", "Sin procesar"], ["theirs", "De otra persona"], ["client", "Cliente"], ["unknown", "Sin datos"]];
-const FIXED = new Set(["all", "pend", "new", "noreply", "maybe", "demo", "held", "deal", "out"]);
+// A la vista, los estados de todos los días; el resto va en «Más estados ▾» (los de siempre —demo realizada, en trato,
+// descartado— aunque estén en 0; los demás, solo con algo). El elegido, si es de «Más estados», se ve en ese botón.
+const MAIN = new Set(["all", "pend", "new", "noreply", "maybe", "demo"]), FIXED = new Set([...MAIN, "held", "deal", "out"]);
 const inStage = (x, k) => k === "all" ? true : k === "pend" ? !!stageOf(x)?.mine : stageOf(x)?.key === k;
 // orden por importancia: pendiente tuya vencida, posible demo, sin contactar, sin respuesta, demo, trato, descartado; lo que
 // todavía no llegó, al final de lo suyo; dentro de cada uno, lo más nuevo primero
 const byImportance = (a, b) => (stageOf(a)?.rank ?? 8) - (stageOf(b)?.rank ?? 8) || String(b.at).localeCompare(String(a.at));
 function stageChips(list) {
   const n = k => list.filter(x => inStage(x, k)).length, known = list.filter(x => stageOf(x)).length, waiting = list.length - known;
-  const chips = STAGE_CHIPS.filter(([k]) => FIXED.has(k) || n(k) || st.stage === k);
+  const chips = STAGE_CHIPS.filter(([k]) => MAIN.has(k)), more = moreStages(list), cur = more.find(([k]) => k === st.stage);
   return `<div class="chips inb-stages" role="group" aria-label="Estado">${chips.map(([k, l]) => `<button class="chip${k === "pend" ? " pend" : ""}" data-stage="${k}" aria-pressed="${st.stage === k}"${k === "pend" ? ` title="Con una actividad sin hacer a nombre de quien le tocó (no del account)"` : ""}>${esc(l)} <b>${k === "all" ? list.length : n(k)}</b></button>`).join("")}
+    ${more.length ? `<button class="chip inb-more" id="inMore" aria-haspopup="menu" aria-pressed="${!!cur}">${cur ? `${esc(cur[1])} <b>${n(cur[0])}</b>` : "Más estados"} ${icon("chevDown", "sm")}</button>` : ""}
     ${waiting && st.data?.items.some(x => x.state?.ref) ? `<span class="faint inb-wait" aria-live="polite"><span class="spin"></span> Leyendo ${waiting} de Pipedrive…</span>` : ""}</div>`;
 }
+// los estados de «Más estados ▾», con su contador
+const moreStages = list => STAGE_CHIPS.filter(([k]) => !MAIN.has(k) && (FIXED.has(k) || st.stage === k || list.some(x => inStage(x, k))));
+const setStage = k => { st.stage = k; try { localStorage.setItem("ob.inbound.stage", k); } catch {} drawList(); };
 function stageTag(x) {
   const g = stageOf(x); if (!g) return "";
   return `<span class="inb-stage s-${esc(g.key)}" title="${esc([g.label, g.detail].filter(Boolean).join(": "))}">${esc(g.label)}${g.detail && g.key !== "new" ? `<small>${esc((g.key === "demo" || g.key === "held" || g.key === "noshow") && g.date ? [shortDay(g.date) + (g.time ? ` ${g.time}` : ""), g.detail.split(" · ").slice(1).join(" · ")].filter(Boolean).join(" · ") : g.detail)}</small>` : ""}</span>`;
@@ -193,7 +202,7 @@ function emptyHtml(d) {
 const SLACK_ERR = { not_in_channel: "la app de Slack no está en el canal: hay que sumarla (/invite).", channel_not_found: "la app de Slack no ve el canal: hay que sumarla (/invite).", missing_scope: "a la app de Slack le faltan permisos.", invalid_auth: "el token de Slack no es válido.", not_authed: "falta el token de Slack.", account_inactive: "el token de Slack es de una app desactivada.", ratelimited: "Slack pidió esperar un poco." };
 function slackCallout(d) {
   const s = d.slack, scopes = (s.scopes || []).map(x => `<code>${esc(x)}</code>`).join(", ");
-  if (s.demo) return `<div class="callout warn">${icon("alert")}<span><b>Slack de prueba.</b> Los mensajes son inventados (modo demo). Con el token real se leen del canal del reparto.</span></div>`;
+  if (s.demo) return `<div class="callout warn inb-slim" title="Con el token real se leen del canal del reparto.">${icon("alert")}<span><b>Slack de prueba.</b> Los mensajes son inventados (modo demo).</span></div>`;
   if (!s.on) return `<div class="callout warn inb-need">${icon("alert")}<div><b>Todavía no leemos Slack solos.</b> Para leer Slack solos, un admin de Slack crea la app y pega el token en Vercel: <code>SLACK_BOT_TOKEN</code>, con estos permisos: ${scopes}. Después la suma al canal #round-robin-spam-sdrs. <span class="faint">Mientras, pegá abajo el mensaje de Slack y hago lo mismo.</span></div></div>`;
   if (s.error) return `<div class="callout err">${icon("alert")}<span>No pude leer Slack: ${esc(SLACK_ERR[s.error] || s.error)} Mientras, podés pegar los mensajes arriba.</span></div>`;
   return "";
@@ -206,10 +215,13 @@ function pasteCard(d) {
     ${st.pasteErr ? `<p class="err" role="alert" style="margin:0;color:var(--err)">${esc(st.pasteErr)}</p>` : ""}
     <div><button class="btn" id="inPasteGo">Leer mensajes</button></div></div></details>`;
 }
-const fmtLeft = h => h == null ? "" : h > 0 ? `Quedan ${h} h` : "Pasaron las 72 h";
+// El plazo para el primer llamado (72 h desde que entró), dicho como lo que hay que hacer y solo mientras no se contactó
+// (después no dice nada: ya no corre).
+const fmtLeft = h => h == null ? "" : h > 0 ? `Llamalo antes de ${h} h` : "Pasaron las 72 h para llamarlo";
+const NO_RUSH = new Set(["noreply", "maybe", "demo", "held", "noshow", "deal", "out", "client", "theirs"]);
+const rushOf = x => { const l = st.info[x.key]?.last; return x.hoursLeft == null || (l && !l.none) || NO_RUSH.has(stageOf(x)?.key) ? null : x.hoursLeft; };
 function stateHtml(x) {
   const s = x.state, other = !x.mine ? (x.assignee.name || "esa persona") : "";
-  const link = (u, t) => u ? ` <a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)} ${icon("external", "sm")}</a>` : "";
   if (!s) {
     if (x.mine) return `<div class="inb-st mute">${st.busy ? `<span class="spin"></span> En cola…` : "Sin procesar"}</div>`;
     const can = !!x.assignee.email && leadsOver(null, x.assignee.email);
@@ -219,11 +231,12 @@ function stateHtml(x) {
   const whose = x.mine ? "a tu nombre" : `a nombre de ${other}`;
   const what = s.kind === "deal" ? "trato" : "prospecto";
   if (s.status === "done") {
-    const call = s.callExisting ? `ya ${x.mine ? "tenías" : "tenía"} una actividad pendiente (${esc(day)})` : `llamada pendiente ${esc(day)}`;
-    return `<div class="inb-st ok">${icon("checkCircle", "sm")}<span>${s.created ? `Prospecto creado ${whose}` : `Ya estaba: ${what} «${esc(s.title)}»`} · ${call}${link(s.url, "Abrir")}</span></div>${warnHtml(s)}`;
+    // la llamada pendiente no se repite si abajo ya va la «Pendiente tuya» con su asunto y su día
+    const call = stageOf(x)?.mine ? "" : s.callExisting ? `ya ${x.mine ? "tenías" : "tenía"} una actividad pendiente (${esc(day)})` : `llamada pendiente ${esc(day)}`;
+    return `<div class="inb-st ok">${icon("checkCircle", "sm")}<span>${[s.created ? `Prospecto creado ${whose}` : `Ya estaba: ${what} «${esc(s.title)}»`, call].filter(Boolean).join(" · ")}</span></div>${warnHtml(s)}`;
   }
-  if (s.status === "theirs") return `<div class="inb-st warn">${icon("alert", "sm")}<span>Ya estaba: «${esc(s.title)}» de ${esc(s.owner || "otra persona")}. No lo toqué: coordiná con esa persona.${link(s.url, "Ver")}</span></div>`;
-  if (s.status === "client") return `<div class="inb-st warn">${icon("alert", "sm")}<span>Cliente de OrderEAT («${esc(s.title)}»): no contactar.${link(s.url, "Ver")}</span></div>`;
+  if (s.status === "theirs") return `<div class="inb-st warn">${icon("alert", "sm")}<span>Ya estaba: «${esc(s.title)}» de ${esc(s.owner || "otra persona")}. No lo toqué: coordiná con esa persona.</span></div>`;
+  if (s.status === "client") return `<div class="inb-st warn">${icon("alert", "sm")}<span>Cliente de OrderEAT («${esc(s.title)}»): no contactar.</span></div>`;
   if (s.status === "review") return `<div class="inb-st warn">${icon("alert", "sm")}<span>Ya hay algo parecido en Pipedrive: ¿es alguno de estos?</span></div>
     <div class="inb-cands">${s.candidates.map(c => `<div class="inb-c"><span class="t"><b>${esc(c.title)}</b><small>${esc([c.what, c.owner === "libre" ? "libre" : `de ${c.owner}`, c.why].filter(Boolean).join(" · "))}</small></span>
       <span class="inb-ca"><a href="${esc(c.url)}" target="_blank" rel="noopener" class="linkbtn">Ver ${icon("external", "sm")}</a><button class="btn sm" data-pick="${esc(c.key)}" data-k="${esc(x.key)}" ${x.mine ? "" : `data-email="${esc(x.assignee.email)}"`}>Es este</button></span></div>`).join("")}
@@ -231,22 +244,35 @@ function stateHtml(x) {
   return `<div class="inb-st err">${icon("alert", "sm")}<span>No pude terminar${s.status === "partial" ? " (el prospecto quedó creado)" : ""}: ${esc(s.error || "error")}</span>${x.mine ? ` <button class="btn sm" data-retry="${esc(x.key)}">Reintentar</button>` : ""}</div>`;
 }
 const warnHtml = s => s.warnings?.length ? `<p class="faint inb-note">${esc(s.warnings.join(" "))}</p>` : "";
+// La tarjeta, compacta y con todo: a la izquierda quién es y cómo contactarlo (nombre, colegio, teléfono, WhatsApp, mail y su
+// mensaje); a la derecha dónde quedó (estado, lo que hizo la app, la pendiente y el último contacto) con «Abrir ficha» (la
+// ficha abre en el Historial) y el enlace «Abrir en Pipedrive». En el celular, una columna.
+const LONG_MSG = 150;
 function itemHtml(x) {
-  const left = x.hoursLeft, late = left != null && left <= 0;
+  const left = rushOf(x), late = left != null && left <= 0, s = x.state;
   const wa = x.phone ? `https://wa.me/${String(x.phone).replace(/\D/g, "")}` : "";
   const place = [x.school && x.city ? `${x.school} · ${x.city}` : x.school || x.city, x.country].filter(Boolean).join(" · ");
-  const can = !!x.state?.ref;
+  const can = !!s?.ref, who = x.name || x.title || "este lead";
+  const long = !!x.message && (x.message.length > LONG_MSG || /\n/.test(x.message)), open = st.openMsg.has(x.key);
+  // el título en Pipedrive va una vez: si el estado ya lo nombra («Ya estaba: prospecto «…»»), no se repite
+  const named = !!s && (s.status === "theirs" || s.status === "client" || (s.status === "done" && !s.created));
   return `<article class="inb-it${can ? " can-open" : ""}" data-key="${esc(x.key)}">
-    <div class="inb-tags">${stageTag(x)}<span class="inb-k ${esc(x.kind)}">${esc(x.kindLabel)}</span>${x.sourceLabel && x.kind !== "referral" && x.kind !== "revival" ? `<span class="inb-src ${SRC_TONE[x.source] || ""}">${esc(x.sourceLabel)}</span>` : ""}${x.priority ? `<span class="tag">prioridad ${esc(x.priority)}</span>` : ""}
-      <span class="tag" title="${esc(new Date(x.at).toLocaleString())}">${x.pasted ? "pegado " : ""}hace ${esc(agoText(x.at))}</span><span class="tag ${late ? "late" : left != null && left < 24 ? "soon" : ""}">${esc(fmtLeft(left))}</span>${!x.mine ? `<span class="tag">de ${esc(x.assignee.name || "sin asignar")}</span>` : ""}</div>
-    <div class="inb-main"><b>${esc(x.name || "Sin nombre")}</b>${x.role && !/^otro$/i.test(x.role) ? ` <span class="faint">· ${esc(x.role)}</span>` : ""}<small>${esc(place || "Sin colegio")}</small><small class="faint">En Pipedrive: «${esc(x.title)}»</small></div>
-    <div class="inb-cl">${x.phone ? `<a href="${esc(telLink(x.phone))}">${icon("phone", "sm")} ${esc(x.phone)}</a><a href="${esc(wa)}" target="_blank" rel="noopener">${icon("whatsapp", "sm")} WhatsApp</a>` : ""}${x.email ? `<a href="mailto:${esc(x.email)}">${icon("mail", "sm")} ${esc(x.email)}</a>` : ""}${x.pd?.url ? `<a href="${esc(x.pd.url)}" target="_blank" rel="noopener">${icon("lead", "sm")} Lead del mensaje</a>` : ""}</div>
-    ${x.message ? `<blockquote class="inb-msg">${esc(x.message).replace(/\n/g, "<br>")}</blockquote>` : ""}
-    ${x.filter ? `<p class="faint inb-note">${esc(x.filter)}</p>` : ""}
-    ${stateHtml(x)}
-    ${pendHtml(x)}
-    <div class="inb-foot">${can ? lastHtml(x.key) : `<p class="inb-last mute">${icon("clock", "sm")}<span>${x.state?.status === "review" ? "Todavía no está en Pipedrive: elegí arriba" : "Todavía no está en Pipedrive"}</span></p>`}
-      <button class="btn sm ${can ? "" : "ghost"}" data-hist="${esc(x.key)}" aria-label="Ver historial de ${esc(x.name || x.title || "este lead")}">${icon("clock", "sm")} Ver historial</button></div>
+    <div class="inb-a">
+      <div class="inb-main"><b>${esc(x.name || "Sin nombre")}</b>${x.role && !/^otro$/i.test(x.role) ? ` <span class="faint">· ${esc(x.role)}</span>` : ""}<small>${esc(place || "Sin colegio")}</small></div>
+      <div class="inb-tags"><span class="inb-k ${esc(x.kind)}">${esc(x.kindLabel)}</span>${x.sourceLabel && x.kind !== "referral" && x.kind !== "revival" ? `<span class="inb-src ${SRC_TONE[x.source] || ""}">${esc(x.sourceLabel)}</span>` : ""}${x.priority ? `<span class="tag">prioridad ${esc(x.priority)}</span>` : ""}
+        <span class="tag" title="${esc(new Date(x.at).toLocaleString())}">${x.pasted ? "pegado " : ""}hace ${esc(agoText(x.at))}</span>${left != null ? `<span class="tag ${late ? "late" : left < 24 ? "soon" : ""}" title="El primer llamado va dentro de las 72 h de que entró">${esc(fmtLeft(left))}</span>` : ""}${!x.mine ? `<span class="tag">de ${esc(x.assignee.name || "sin asignar")}</span>` : ""}</div>
+      <div class="inb-cl">${x.phone ? `<a href="${esc(telLink(x.phone))}">${icon("phone", "sm")} ${esc(x.phone)}</a><a href="${esc(wa)}" target="_blank" rel="noopener">${icon("whatsapp", "sm")} WhatsApp</a>` : ""}${x.email ? `<a href="mailto:${esc(x.email)}">${icon("mail", "sm")} ${esc(x.email)}</a>` : ""}${x.pd?.url ? `<a href="${esc(x.pd.url)}" target="_blank" rel="noopener">${icon("lead", "sm")} Lead del mensaje</a>` : ""}</div>
+      ${x.message ? `<blockquote class="inb-msg${long && !open ? " clamp" : ""}">${esc(x.message).replace(/\n/g, "<br>")}</blockquote>${long ? `<button class="linkbtn inb-msg-more" data-msg="${esc(x.key)}" aria-expanded="${open}">${open ? "Ver menos" : "Ver el mensaje entero"}</button>` : ""}` : ""}
+      ${x.filter ? `<p class="faint inb-note">${esc(x.filter)}</p>` : ""}
+    </div>
+    <div class="inb-b">
+      ${stageTag(x) ? `<div class="inb-top">${stageTag(x)}</div>` : ""}
+      ${stateHtml(x)}
+      ${named ? "" : `<p class="faint inb-note">En Pipedrive: «${esc(x.title)}»</p>`}
+      ${pendHtml(x)}
+      ${can ? lastHtml(x.key) : `<p class="inb-last mute">${icon("clock", "sm")}<span>${s?.status === "review" ? "Todavía no está en Pipedrive: elegí arriba" : "Todavía no está en Pipedrive"}</span></p>`}
+      <div class="inb-foot"><button class="btn sm ${can ? "" : "ghost"}" data-hist="${esc(x.key)}" aria-label="Abrir la ficha de ${esc(who)}" title="La ficha abre en el Historial: qué se hizo, si contestó y qué se dijo">${icon("arrowRight", "sm")} Abrir ficha</button>${s?.url ? `<a class="inb-pd" href="${esc(s.url)}" target="_blank" rel="noopener">Abrir en Pipedrive ${icon("external", "sm")}</a>` : ""}</div>
+    </div>
   </article>`;
 }
 async function act(btn, path, body, ok) {
@@ -262,6 +288,7 @@ function bind() {
     qi.onkeydown = e => { if (e.key === "Escape" && qi.value) { e.preventDefault(); qi.value = st.q = ""; drawList(); } if (e.key === "Enter") { e.preventDefault(); host.querySelector("#inbList .inb-it [data-hist]")?.click(); } };
   }
   host.querySelector("#inRun")?.addEventListener("click", async () => { await load({ refresh: true }); autoRun({ refresh: true }); });
+  const help = host.querySelector("#inHelp"); if (help) help.ontoggle = () => { st.help = help.open; };
   host.querySelectorAll("#inSlackMe").forEach(b => b.onclick = () => slackDialog());
   const det = host.querySelector(".inb-paste"); if (det) det.ontoggle = () => { st.pasting = det.open; };
   host.querySelector("#inPasteGo")?.addEventListener("click", async e => {
@@ -292,7 +319,12 @@ function bindList() {
     if (e.target.closest("a, button, input, textarea, select, summary, details, label") || String(getSelection?.() || "").trim()) return;
     const x = itemOf(a.dataset.key); if (x) openLead(x, a.querySelector("[data-hist]"));
   });
-  box.querySelectorAll("[data-stage]").forEach(b => b.onclick = () => { st.stage = b.dataset.stage; try { localStorage.setItem("ob.inbound.stage", st.stage); } catch {} drawList(); });
+  box.querySelectorAll("[data-stage]").forEach(b => b.onclick = () => setStage(b.dataset.stage));
+  // «Más estados ▾»: el resto de los estados con su contador (el elegido queda dicho en el botón)
+  const more = box.querySelector("#inMore");
+  if (more) more.onclick = () => { const list = filtered(st.data), n = k => list.filter(x => inStage(x, k)).length;
+    openMenu(more, [{ head: "Más estados" }, ...moreStages(list).map(([k, l]) => ({ label: `${l} · ${n(k)}`, sub: st.stage === k ? "elegido" : "", fn: () => { setStage(k); host?.querySelector("#inMore")?.focus(); } }))]); };
+  box.querySelectorAll("[data-msg]").forEach(b => b.onclick = () => { const k = b.dataset.msg; st.openMsg.has(k) ? st.openMsg.delete(k) : st.openMsg.add(k); drawList(); });
 }
 // (la caja de pegar va arriba de todo, pedido del líder: «es incómodo bajar cada vez que tenés que pegar uno»)
 // «Tu usuario de Slack»: el nombre con el que te nombra el bot (manda sobre el email y el nombre)
