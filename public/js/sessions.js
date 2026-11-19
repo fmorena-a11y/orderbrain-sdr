@@ -47,16 +47,18 @@ export const bar = (v, cls = "") => `<div class="ss-bar ${cls}"><span class="pro
 
 // ---------- tarjeta de Hoy: las 2 más recientes en filas cortas; Ver detalle y Terminar van en el menú «⋯»
 const left = st => (st.pending ? `faltan ${st.pending}` : "no falta nada");
-export function sessionsCard() {
+// skip: la sesión que ya ofrece el botón grande de Hoy («Retomar tu día · faltan 34»): no se repite acá (la tarjeta muestra
+// las otras; si no hay otras ni terminadas, no va)
+export function sessionsCard({ skip = null } = {}) {
   const L = S.sessions; if (!L) return "";
-  const open = L.open || [], done = L.done || [];
+  const all = L.open || [], done = L.done || [], top = skip ? all.find(v => v.id === skip) : null, open = top ? all.filter(v => v !== top) : all;
   if (!open.length && !done.length) return "";
   // la lista entera, las terminadas, editar y borrar: en la vista Sesiones (#/sesiones)
-  const links = [`<a class="linkbtn" href="#/sesiones" data-ss-tab="activas" data-focus-key="ssAll">${open.length > SHOWN ? `Ver las ${open.length} abiertas` : "Ver todas"}</a>`,
+  const links = [`<a class="linkbtn" href="#/sesiones" data-ss-tab="activas" data-focus-key="ssAll">${all.length > SHOWN ? `Ver las ${all.length} abiertas` : "Ver todas"}</a>`,
     done.length && `<a class="linkbtn" href="#/sesiones" data-ss-tab="terminadas" data-focus-key="ssDone">Terminadas (${done.length})</a>`].filter(Boolean);
   return `<section class="card ss-card" aria-labelledby="hSs">
-    <div class="card-h"><h2 id="hSs">${icon("play")} Sesiones activas</h2><span class="sub">${open.length ? `${open.length} abierta${open.length > 1 ? "s" : ""}` : "ninguna abierta"}</span></div>
-    <div class="card-b">${open.length ? open.slice(0, SHOWN).map(mini).join("") : `<p class="muted ss-empty">No tenés sesiones abiertas.</p>`}
+    <div class="card-h"><h2 id="hSs">${icon("play")} ${top ? "Otras sesiones" : "Sesiones activas"}</h2><span class="sub">${open.length ? `${open.length} ${top ? "más " : ""}abierta${open.length > 1 ? "s" : ""}` : top ? "la de arriba es la única abierta" : "ninguna abierta"}</span></div>
+    <div class="card-b">${open.length ? open.slice(0, SHOWN).map(mini).join("") : top ? "" : `<p class="muted ss-empty">No tenés sesiones abiertas.</p>`}
       <div class="ss-links">${links.join("")}</div></div>
   </section>`;
 }

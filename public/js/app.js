@@ -1,5 +1,5 @@
 // OrderBrain SDR · arranque, navegación, cuenta, búsqueda rápida y atajos.
-import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, statusPill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo, modal, toast, brainTokenMsg, digits, recentSearches, rememberSearch, myRole } from "./core.js";
+import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, statusPill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo, modal, toast, brainTokenMsg, digits, recentSearches, rememberSearch, myRole, territoryFieldHtml, bindTerritoryField } from "./core.js";
 import { renderToday } from "./today.js";
 import { renderExplore } from "./explore.js";
 import { renderAgenda } from "./agenda.js";
@@ -168,6 +168,7 @@ function profileDialog({ required = false } = {}) {
       <label class="field"><span>Nombre y apellido</span><input class="inp" id="pfName" value="${esc(name)}" autocomplete="name" placeholder="Ej: Javiera Tejos" required></label>
       <div class="field"><span>Rol en el equipo</span>${leader ? `<p class="muted" style="margin:0"><b>${esc(S.me.roleLabel || acc.label || "Líder")}</b> · ${esc(accWhy)}</p>` : `<div class="seg" role="radiogroup" aria-label="Rol en el equipo">${Object.entries(roles).map(([k, l]) => `<button type="button" role="radio" data-role="${k}" aria-checked="${cur === k}" aria-pressed="${cur === k}">${esc(l)}</button>`).join("")}</div>`}${teamTxt ? `<small class="faint">${esc(teamTxt)}</small>` : ""}</div>
       ${profileExtrasHtml()}
+      ${territoryFieldHtml(cur)}
       ${required ? "" : `<div class="field"><span>Mail desde la app</span><div class="gm-box" id="pfMail">${mailProfileHtml(S.pdmail, S.gmail)}</div></div>`}
       <p class="err" id="pfErr" role="alert" style="margin:0;color:var(--err)"></p>
       <button class="btn primary block" id="pfGo">Guardar</button>
@@ -176,6 +177,8 @@ function profileDialog({ required = false } = {}) {
   let role = cur;
   // accounts por país (quien no es AE) y calendario para demos (AE o quien dé demos): public/js/accounts.js
   const extras = bindProfileExtras(m, { role: () => role, required });
+  // países que trabajás (la cola de Hoy): se piden acá para que el territorio no arranque vacío sin que la persona lo sepa (core.js)
+  const terr = bindTerritoryField(m);
   m.querySelectorAll("[data-role]").forEach(b => b.onclick = () => { role = b.dataset.role; m.querySelectorAll("[data-role]").forEach(x => { const on = x === b; x.setAttribute("aria-pressed", on); x.setAttribute("aria-checked", on); }); extras.roleChanged(); });
   m.querySelector("#pfX")?.addEventListener("click", () => m.close());
   // Mail: Pipedrive conectado como…, «Tu firma» (armada con el perfil o la de Pipedrive pegada) y Gmail como otra opción
@@ -188,6 +191,7 @@ function profileDialog({ required = false } = {}) {
     try {
       await extras.save();
       const r = await api("/api/me/profile", { body: { name: m.querySelector("#pfName").value, role: leader ? "lider" : role } });
+      terr.save();
       S.me = r.user; S.profile = { ...(S.profile || {}), complete: true }; m.close(); drawMe(); route();
       toast(required ? `Listo, ${S.me.name.split(" ")[0]}` : "Perfil guardado");
     } catch (x) { m.querySelector("#pfErr").textContent = x.message; go.disabled = false; }

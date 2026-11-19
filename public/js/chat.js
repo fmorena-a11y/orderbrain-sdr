@@ -14,7 +14,7 @@ function suggestions() {
   if (C.turns.length) return C.sugs || [];
   const f = focusId(), s = f && S.byId.get(f);
   return s ? [`Armame un guion para ${s.name}`, `¿Qué pasó antes con ${s.name}?`, `Agendá una llamada con ${s.name} para mañana a las 10`, `Escribí un WhatsApp para reactivar a ${s.name}`]
-    : ["¿A quién llamo ahora?", "Prospectá colegios en España", "¿Qué tengo agendado esta semana?", "¿Cómo respondo «ya tenemos un sistema»?"];
+    : ["¿A quién llamo ahora?", "¿Qué tengo para hoy?", "¿Qué tengo agendado esta semana?", "¿Cómo respondo «ya tenemos un sistema»?"];
 }
 export function openAssistant() {
   if (!S.ai) return;
