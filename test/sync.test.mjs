@@ -16,7 +16,7 @@ const sync = await import("../lib/sync.js");
 async function allOrgs() { const out = new Map(); let cursor = null; do { const r = await pd.orgsPage({ cursor, limit: 500 }); r.items.forEach(o => out.set(o.id, o)); cursor = r.next; } while (cursor); return out; }
 const sample = (list, n) => list.filter((_, i) => i % Math.ceil(list.length / n) === 0);
 // ¿se cortó alguna de las búsquedas de findOrgCandidates (10 por término)?
-const truncated = async s => { const base = pd.tokens(s.name); return (await Promise.all([base.join(" "), base.slice(0, 2).join(" "), s.name].map(t => pd.searchOrganizations(t, 11)))).some(r => r.length > 10); };
+const truncated = async s => (await Promise.all(pd.orgSearchTerms(s).terms.filter(t => t.length >= 2).map(t => pd.searchOrganizations(t, 11)))).some(r => r.length > 10);
 const KEYS = ["status", "detail", "phase", "orgId", "orgName", "ownerId", "ownerName", "confirmed", "openDealId", "openDealOwnerId", "lostReason", "lostAt", "dealCount"];
 const pick = r => Object.fromEntries(KEYS.map(k => [k, r?.[k] ?? null]));
 
@@ -180,4 +180,22 @@ test("número de escuela: el cruce de a uno también busca sin el número y da l
   assert.deepEqual(many.map(c => [c.id, c.score]), one.map(c => [c.id, c.score]));
   assert.equal(pd.pickOrg(one).id, withNum.id);
   assert.equal(pd.isSure(one, k), false); assert.equal(pd.isSure(many, k), false);
+});
+
+// «Colegio Superior Profesor Edmundo Alirio Villacorta» (San Salvador): la masiva compara palabras ya expandidas (tokens:
+// «Prof.» = profesor) y veía «Prof. Calasanz Instituto de Educación Superior…» como candidata («Sin coincidencia clara»);
+// la búsqueda de Pipedrive es por texto y «superior profesor» no encuentra «Prof.»: el cruce de a uno decía «No figura».
+// Tiene que buscar también las dos primeras palabras abreviadas («superior prof», «sta teresa», «hnos maristas»).
+test("abreviaturas: el cruce de a uno busca también «prof», «sta», «hnos» y da lo mismo que la masiva", async () => {
+  assert.deepEqual(pd.abbrVariants(["profesor", "carpincho"]), ["prof carpincho"]);
+  assert.deepEqual(pd.abbrVariants(["santa", "teresa"]), ["sta teresa"]);
+  assert.deepEqual(pd.abbrVariants(["hermanos", "maristas"]), ["hnos maristas", "hh maristas", "hmnos maristas"]);
+  assert.deepEqual(pd.abbrVariants(["carpincho", "yerbal"]), []);
+  const org = await pd.createOrganization({ name: "Prof. Carpincho Yerbal", ownerId: 1 });
+  const s = { id: "x-prof-carpincho", name: "Colegio Profesor Carpincho Yerbal", city: "Asunción", country: "Paraguay" };
+  const ctx = pd.matchCtx([s], { memo: false });
+  assert.ok(pd.orgSearchTerms(s).terms.includes("prof carpincho"));
+  const one = await pd.findOrgCandidates(s, ctx), [many] = sync.candidatesFor([s], await allOrgs(), { ctx });
+  assert.deepEqual(one.map(c => [c.id, c.score]), [[org.id, 1]]);
+  assert.deepEqual(many.map(c => [c.id, c.score]), one.map(c => [c.id, c.score]));
 });

@@ -190,6 +190,7 @@ test("Enriquecer con prospecto: completa solo los campos vacíos (tuyo o libre) 
   const { s, rec } = await find(async r => r.status === "org" && r.ownerId === 1 && await noLeads(r));
   await sales.linkSchool(s.id, { id: rec.orgId, name: rec.orgName, ownerId: 1 });
   s.phone = "222 333 4444"; s.email = "hola@colegio-enr.mx"; s.addr = "Av. Reforma 10";
+  s.levels = []; // el colegio elegido puede traer niveles del padrón (SEP): sin niveles, lo completado es solo lo de arriba
   await setStudy(s.id, { contacto: { emails: ["direccion@colegio-enr.mx"] }, decisores: [] }); // algo nuevo para la nota
   const l = demo.createLead({ title: s.name, ownerId: 99, orgId: rec.orgId, fields: { [F.telefono]: "999 000 1111", [F.email]: "No encontrado" } });
   const r = await sales.enrichSchool(s.id, me, "Demo");

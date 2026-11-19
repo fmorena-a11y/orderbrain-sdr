@@ -15,12 +15,12 @@ const sales = await import("../lib/sales.js");
 const pd = await import("../lib/pipedrive.js");
 const demo = await import("../lib/pipedrive-demo.js");
 const psync = await import("../lib/sync.js");
-const { byId, getMatch, setMatch } = await import("../lib/store.js");
+const { byId, getMatch, setMatch, addSchools } = await import("../lib/store.js");
 const G = await import("../lib/gmail.js");
 const me = { email: "demo@example.com", name: "Demo", pdUserId: 1 };
 const ID = { pestalozzi: "puebla-de-zaragoza-colegio-enrique-pestalozzi", margarita: "puebla-de-zaragoza-colegio-margarita-maza", prometeo: "puebla-de-zaragoza-colegio-prometeo",
   angeles: "puebla-de-zaragoza-colegio-angeles-de-puebla", ypsilanti: "puebla-de-zaragoza-colegio-ypsilanti", velmont: "puebla-de-zaragoza-colegio-velmont-ac",
-  vanderbilt: "puebla-de-zaragoza-instituto-vanderbilt", esparza: "puebla-de-zaragoza-colegio-esparza" };
+  esparza: "puebla-de-zaragoza-colegio-esparza" };
 const acts = async where => [...await pd.activities({ ...where, done: true, limit: 100 }), ...await pd.activities({ ...where, done: false, limit: 100 })];
 const orgCount = async () => (await demo.orgsPage({ limit: 1e6 })).items.length;
 const leadsOf = async term => (await pd.searchItems(term, { types: "lead", fields: "title", limit: 50 })).items.map(i => i.item.id);
@@ -127,14 +127,17 @@ test("nada en Pipedrive: «Revisé en Pipedrive» (pdx) y recién ahí se crea; 
   assert.equal(r.status, "new"); assert.equal(r.pdx.verdict, "none"); assert.ok(r.pdx.at); assert.equal(r.pdx.full, false);
   const c = await sales.createProspect(ID.velmont, me, null, "UTC");
   assert.equal(c.created, true);
-  // un colegio cuya búsqueda falla en Pipedrive (el demo simula la caída)
-  const s = byId.get(ID.vanderbilt); s.name = "Instituto Pipedrive-Caido";
+  // un colegio cuya búsqueda falla en Pipedrive (el demo simula la caída). Se suma a la base con su nombre (no se
+  // renombra uno de la base: el cruce guarda la clave de cada colegio por id, y con el nombre viejo encontraba una
+  // organización de la base, «Centro Educativo Vanderbilt A.C.», sin llegar a buscar el nombre que falla)
+  const caido = { id: "test-instituto-pipedrive-caido", name: "Instituto Pipedrive-Caido", city: "Puebla de Zaragoza", country: "México", lat: 19.0081, lng: -98.2038, addr: "", phone: "", web: "", email: "", levels: [], opp: [], private: "probable" };
+  assert.equal(addSchools([caido]).length, 1);
   const orgs = await orgCount();
-  const m = await sales.checkSchool(ID.vanderbilt);
+  const m = await sales.checkSchool(caido.id);
   assert.equal(m.status, "new"); assert.equal(m.pdx, undefined, "sin búsqueda real, la ficha no dice «revisé»");
-  await assert.rejects(sales.logContact(ID.vanderbilt, me, { outcome: "no_answer", channel: "call" }, "UTC"), e => e.status === 503 && e.message === "No pude revisar si ya existe en Pipedrive: probá de nuevo.");
-  await assert.rejects(sales.createProspect(ID.vanderbilt, me, null, "UTC"), e => e.status === 503);
-  assert.equal(await orgCount(), orgs); assert.equal(getMatch(ID.vanderbilt).orgId, null);
+  await assert.rejects(sales.logContact(caido.id, me, { outcome: "no_answer", channel: "call" }, "UTC"), e => e.status === 503 && e.message === "No pude revisar si ya existe en Pipedrive: probá de nuevo.");
+  await assert.rejects(sales.createProspect(caido.id, me, null, "UTC"), e => e.status === 503);
+  assert.equal(await orgCount(), orgs); assert.equal(getMatch(caido.id).orgId, null);
 });
 
 test("una organización con prospectos de otras ciudades: el de otra ciudad no es de este colegio (se crea el suyo)", async () => {
