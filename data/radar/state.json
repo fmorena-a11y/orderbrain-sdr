@@ -7462,7 +7462,10 @@
   "CO|n703168207": "2026-11-19T09:30:05.401Z",
   "ES|n256291070": "2026-11-19T09:30:53.164Z",
   "DO|n250651595": "2026-11-19T09:32:27.350Z",
-  "ES|n1470838440": "2026-11-19T09:39:54.354Z"
+  "ES|n1470838440": "2026-11-19T09:39:54.354Z",
+  "EC|n249429504": "2026-11-19T11:17:45.906Z",
+  "CO|n703208388": "2026-11-19T11:23:36.636Z",
+  "CL|Talagante": "2026-11-19T11:30:18.137Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7597,6 +7600,41 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-19T11:17:13.612Z",
+   "cities": [
+    {
+     "cc": "EC",
+     "city": "Latacunga",
+     "found": 23,
+     "updated": 1,
+     "osm": 58
+    },
+    {
+     "cc": "CO",
+     "city": "Baranoa",
+     "found": 0,
+     "updated": 0,
+     "osm": 9
+    },
+    {
+     "cc": "CL",
+     "city": "Talagante",
+     "found": 25,
+     "updated": 0,
+     "osm": 56
+    }
+   ],
+   "added": 48,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 2,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 13.5,
+   "total": 22835
+  },
   {
    "at": "2026-11-19T09:26:28.282Z",
    "cities": [
@@ -9734,36 +9772,6 @@
    "errors": [],
    "minutes": 15.9,
    "total": 21420
-  },
-  {
-   "at": "2026-11-15T14:58:02.006Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Tecomán",
-     "found": 8,
-     "updated": 0,
-     "osm": 102
-    },
-    {
-     "cc": "CO",
-     "city": "Caucasia",
-     "found": 7,
-     "updated": 0,
-     "osm": 29
-    }
-   ],
-   "added": 15,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "MX|Juchitán: The operation was aborted due to timeout"
-   ],
-   "minutes": 19.2,
-   "total": 21379
   }
  ]
 }
