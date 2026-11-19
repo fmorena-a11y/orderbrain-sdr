@@ -7453,7 +7453,16 @@
   "CL|San Fernando": "2026-11-19T07:45:06.887Z",
   "AR|Punta Alta": "2026-11-19T07:47:13.258Z",
   "BO|n3139139192": "2026-11-19T07:54:39.526Z",
-  "AR|Chivilcoy": "2026-11-19T07:55:15.132Z"
+  "AR|Chivilcoy": "2026-11-19T07:55:15.132Z",
+  "ES|n91254710": "2026-11-19T09:27:07.953Z",
+  "CO|n703169425": "2026-11-19T09:27:49.062Z",
+  "PR|n1944587067": "2026-11-19T09:28:18.254Z",
+  "DO|n252997068": "2026-11-19T09:28:56.288Z",
+  "CO|n310198588": "2026-11-19T09:29:27.182Z",
+  "CO|n703168207": "2026-11-19T09:30:05.401Z",
+  "ES|n256291070": "2026-11-19T09:30:53.164Z",
+  "DO|n250651595": "2026-11-19T09:32:27.350Z",
+  "ES|n1470838440": "2026-11-19T09:39:54.354Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7588,6 +7597,83 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-19T09:26:28.282Z",
+   "cities": [
+    {
+     "cc": "ES",
+     "city": "Ferrol",
+     "found": 13,
+     "updated": 0,
+     "osm": 58
+    },
+    {
+     "cc": "CO",
+     "city": "San Marcos",
+     "found": 6,
+     "updated": 0,
+     "osm": 19
+    },
+    {
+     "cc": "PR",
+     "city": "Mayagüez",
+     "found": 8,
+     "updated": 0,
+     "osm": 22
+    },
+    {
+     "cc": "DO",
+     "city": "Cotuí",
+     "found": 3,
+     "updated": 0,
+     "osm": 6
+    },
+    {
+     "cc": "CO",
+     "city": "Chigorodó",
+     "found": 9,
+     "updated": 0,
+     "osm": 33
+    },
+    {
+     "cc": "CO",
+     "city": "Florida",
+     "found": 1,
+     "updated": 0,
+     "osm": 3
+    },
+    {
+     "cc": "ES",
+     "city": "Colmenar Viejo",
+     "found": 2,
+     "updated": 0,
+     "osm": 26
+    },
+    {
+     "cc": "DO",
+     "city": "San José de Ocoa",
+     "found": 0,
+     "updated": 0,
+     "osm": 2
+    },
+    {
+     "cc": "ES",
+     "city": "La Línea de la Concepción",
+     "found": 9,
+     "updated": 0,
+     "osm": 55
+    }
+   ],
+   "added": 51,
+   "enriched": 0,
+   "photos": 5,
+   "contacts": 2,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 14.2,
+   "total": 22787
+  },
   {
    "at": "2026-11-19T07:41:43.284Z",
    "cities": [
@@ -9678,64 +9764,6 @@
    ],
    "minutes": 19.2,
    "total": 21379
-  },
-  {
-   "at": "2026-11-15T13:14:31.029Z",
-   "cities": [
-    {
-     "cc": "ES",
-     "city": "Torrent",
-     "found": 1,
-     "updated": 0,
-     "osm": 86
-    },
-    {
-     "cc": "MX",
-     "city": "Tuxpan",
-     "found": 2,
-     "updated": 0,
-     "osm": 17
-    },
-    {
-     "cc": "VE",
-     "city": "Cantaura",
-     "found": 2,
-     "updated": 0,
-     "osm": 5
-    },
-    {
-     "cc": "PA",
-     "city": "Santiago",
-     "found": 11,
-     "updated": 0,
-     "osm": 40
-    },
-    {
-     "cc": "CL",
-     "city": "Colina",
-     "found": 5,
-     "updated": 0,
-     "osm": 58
-    },
-    {
-     "cc": "VE",
-     "city": "La Grita",
-     "found": 1,
-     "updated": 0,
-     "osm": 2
-    }
-   ],
-   "added": 22,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "MX|Tecomán: sin tiempo en esta corrida"
-   ],
-   "minutes": 19.1,
-   "total": 21364
   }
  ]
 }

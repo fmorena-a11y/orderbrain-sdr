@@ -460196,5 +460196,1116 @@
   "src": "osm",
   "osm": "n13030735294",
   "found": "2026-11-19"
+ },
+ {
+  "id": "ferrol-colexio-privado-cristo-rey",
+  "name": "Colexio Privado Cristo Rey",
+  "city": "Ferrol",
+  "country": "España",
+  "lat": 43.484382,
+  "lng": -8.236606,
+  "addr": "Rúa Coruña 37",
+  "phone": "+34 981 353060",
+  "web": "https://cristoreyferrol.com/",
+  "email": "info@cristoreyferrol.com",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w36904523",
+  "found": "2026-11-19",
+  "imgTry": "2026-11-19"
+ },
+ {
+  "id": "ferrol-colexio-privado-sagrado-corazon-madres-mercedarias",
+  "name": "Colexio Privado Sagrado Corazón Madres Mercedarias",
+  "city": "Ferrol",
+  "country": "España",
+  "lat": 43.49072,
+  "lng": -8.216134,
+  "addr": "Estrada de Castela 160-168",
+  "phone": "+34 981 371691",
+  "web": "https://mercedariasferrol.es/",
+  "email": "correo@mercedariasferrol.es",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w36904532",
+  "found": "2026-11-19",
+  "img": "",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "ferrol-colegio-de-educacion-infantil-y-primaria-almirante-juan-de-langara-y-h",
+  "name": "Colegio de Educación Infantil y Primaria Almirante Juan de Lángara y Huarte",
+  "city": "Ferrol",
+  "country": "España",
+  "lat": 43.490365,
+  "lng": -8.234492,
+  "addr": "Juan Lángara 45-71",
+  "phone": "+34 981 322905",
+  "web": "http://www.edu.xunta.gal/centros/ceipalmirantelangara/",
+  "email": "ceip.almirante.langara@edu.xunta.es",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w36904555",
+  "found": "2026-11-19",
+  "imgTry": "2026-11-19"
+ },
+ {
+  "id": "ferrol-colexio-privado-plurilingue-valle-inclan-1",
+  "name": "Colexio Privado Plurilingüe Valle Inclán 1",
+  "city": "Ferrol",
+  "country": "España",
+  "lat": 43.496135,
+  "lng": -8.235204,
+  "addr": "Estrada de Xoane 170-172",
+  "phone": "+34 981 330140",
+  "web": "https://colegiovalleinclan1.es/",
+  "email": "cpr.valleinclan1@edu.xunta.es",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w36904556",
+  "found": "2026-11-19",
+  "img": "",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "ferrol-instituto-de-ensinanza-secundaria-sofia-casanova",
+  "name": "Instituto de Ensinanza Secundaria Sofía Casanova",
+  "city": "Ferrol",
+  "country": "España",
+  "lat": 43.485554,
+  "lng": -8.221634,
+  "addr": "Rúa O Galego Soto",
+  "phone": "+34 981 311 500",
+  "web": "http://www.edu.xunta.gal/centros/iessofiacasanova/",
+  "email": "ies.sofia.casanova@edu.xunta.es",
+  "levels": [
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w192307336",
+  "found": "2026-11-19",
+  "imgTry": "2026-11-19"
+ },
+ {
+  "id": "ferrol-colexio-privado-la-salle",
+  "name": "Colexio Privado La Salle",
+  "city": "Ferrol",
+  "country": "España",
+  "lat": 43.482744,
+  "lng": -8.200639,
+  "addr": "Rúa Pardo Bazán 101",
+  "phone": "+34 981 318111",
+  "web": "https://www.lasalleferrol.es/",
+  "email": "dirferrol@sallep.net",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w192392664",
+  "found": "2026-11-19",
+  "img": "https://lasalleferrol.es/wp-content/uploads/2023/09/portada-2.jpg",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "ferrol-colexio-privado-santa-juana-de-lestonnac",
+  "name": "Colexio Privado Santa Juana de Lestonnac",
+  "city": "Ferrol",
+  "country": "España",
+  "lat": 43.484769,
+  "lng": -8.205153,
+  "addr": "Rúa Nai Lestonnac",
+  "phone": "+34 981 311449",
+  "web": "https://lestonnacferrol.org/",
+  "email": "info@lestonnacferrol.org",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w192392665",
+  "found": "2026-11-19",
+  "img": "https://taudigit.com/proyectos/Lestonnac/wp-content/uploads/2021/12/calendar.svg",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "ferrol-instituto-educacion-secundaria-ricardo-carvalho-calero",
+  "name": "Instituto Educación Secundaria Ricardo Carvalho Calero",
+  "city": "Ferrol",
+  "country": "España",
+  "lat": 43.482954,
+  "lng": -8.205358,
+  "addr": "Avenida de Castelao",
+  "phone": "+34 881 93 81 38",
+  "web": "http://www.edu.xunta.gal/centros/iesricardocarballocalero/",
+  "email": "ies.ricardo.carballo.calero@edu.xunta.es",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w192392667",
+  "found": "2026-11-19",
+  "imgTry": "2026-11-19"
+ },
+ {
+  "id": "ferrol-colegio-plurilingue-jesus-maestro",
+  "name": "Colegio Plurilingüe Jesús Maestro",
+  "city": "Ferrol",
+  "country": "España",
+  "lat": 43.481391,
+  "lng": -8.241045,
+  "addr": "",
+  "phone": "+34 981 351318",
+  "web": "",
+  "email": "contacto@jesusmaestrodiscipulas.org",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w192889671",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "ferrol-colexio-privado-ludy",
+  "name": "Colexio Privado Ludy",
+  "city": "Ferrol",
+  "country": "España",
+  "lat": 43.48936,
+  "lng": -8.226632,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w193268208",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "ferrol-colexio-privado-santiago-apostolo",
+  "name": "Colexio Privado Santiago Apóstolo",
+  "city": "Ferrol",
+  "country": "España",
+  "lat": 43.493941,
+  "lng": -8.199274,
+  "addr": "Rúa Ferrol",
+  "phone": "+34 981 383851",
+  "web": "http://cprsantiagoapostol.com/",
+  "email": "cpr.santiago.apostol.naron@edu.xunta.es",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w220068105",
+  "found": "2026-11-19",
+  "img": "",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "ferrol-centro-privado-ayala",
+  "name": "Centro Privado Ayala",
+  "city": "Ferrol",
+  "country": "España",
+  "lat": 43.499552,
+  "lng": -8.205707,
+  "addr": "Rúa Cristóbal Colón 71",
+  "phone": "",
+  "web": "https://www.colegioayala.com/",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w487198774",
+  "found": "2026-11-19",
+  "img": "https://colegioayala.com/wp-content/uploads/2023/02/cropped-cropped-cropped-cropped-cropped-cropped-cropped-logo-sqr.png",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "ferrol-centro-privado-tirso-de-molina",
+  "name": "Centro Privado Tirso de Molina",
+  "city": "Ferrol",
+  "country": "España",
+  "lat": 43.48316,
+  "lng": -8.238947,
+  "addr": "Rúa Arce",
+  "phone": "+34 981 352109",
+  "web": "http://www.tirsoferrol.org/",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "r9072113",
+  "found": "2026-11-19",
+  "img": "https://tirsoferrol.org/wp-content/uploads/generica-tirso-centro.webp",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "san-marcos-colegio-cristiano-alfa-y-omega",
+  "name": "Colegio Cristiano Alfa y Omega",
+  "city": "San Marcos",
+  "country": "Colombia",
+  "lat": 8.664237,
+  "lng": -75.141929,
+  "addr": "",
+  "phone": "+57 310 6037790",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836818",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-marcos-fundacion-educ-san-jorge",
+  "name": "Fundación Educ San Jorge",
+  "city": "San Marcos",
+  "country": "Colombia",
+  "lat": 8.656146,
+  "lng": -75.125157,
+  "addr": "",
+  "phone": "+57 605 2955711",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836819",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-marcos-escuela-jardin-inf-la-candelaria",
+  "name": "Escuela Jardín Inf La Candelaria",
+  "city": "San Marcos",
+  "country": "Colombia",
+  "lat": 8.661058,
+  "lng": -75.129677,
+  "addr": "",
+  "phone": "+57 605 2955104",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836820",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-marcos-colegio-latinoamericano",
+  "name": "Colegio Latinoamericano",
+  "city": "San Marcos",
+  "country": "Colombia",
+  "lat": 8.657224,
+  "lng": -75.127101,
+  "addr": "",
+  "phone": "+57 605 2955871",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836821",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-marcos-gimnasio-del-san-jorge",
+  "name": "Gimnasio del San Jorge",
+  "city": "San Marcos",
+  "country": "Colombia",
+  "lat": 8.662241,
+  "lng": -75.132604,
+  "addr": "",
+  "phone": "+57 605 2954011",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836822",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-marcos-colegio-maria-auxiliadora",
+  "name": "Colegio María Auxiliadora",
+  "city": "San Marcos",
+  "country": "Colombia",
+  "lat": 8.659296,
+  "lng": -75.13135,
+  "addr": "",
+  "phone": "+57 602 9540108",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485836823",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "mayaguez-academia-adventista-del-oeste",
+  "name": "Academia Adventista del Oeste",
+  "city": "Mayagüez",
+  "country": "Puerto Rico",
+  "lat": 18.242224,
+  "lng": -67.156811,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5190104984",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "mayaguez-university-of-puerto-rico-the-college-of-agricultural-and-mechanical-a",
+  "name": "University of Puerto Rico- the College of Agricultural and Mechanical Arts",
+  "city": "Mayagüez",
+  "country": "Puerto Rico",
+  "lat": 18.209742,
+  "lng": -67.142058,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12091181794",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "mayaguez-mech-tech-college",
+  "name": "Mech-Tech College",
+  "city": "Mayagüez",
+  "country": "Puerto Rico",
+  "lat": 18.161276,
+  "lng": -67.154699,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12195853451",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "mayaguez-universidad-de-puerto-rico-recinto-universitario-de-mayaguez",
+  "name": "Universidad de Puerto Rico - Recinto Universitario de Mayagüez",
+  "city": "Mayagüez",
+  "country": "Puerto Rico",
+  "lat": 18.21405,
+  "lng": -67.142262,
+  "addr": "Carretera 108",
+  "phone": "+1 787-832-4040",
+  "web": "https://www.uprm.edu/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w221078988",
+  "found": "2026-11-19",
+  "img": "",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "mayaguez-academia-de-la-inmaculada-concepcion",
+  "name": "Academia de la Inmaculada Concepcion",
+  "city": "Mayagüez",
+  "country": "Puerto Rico",
+  "lat": 18.216205,
+  "lng": -67.138351,
+  "addr": "Carr. 108 852",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w533946067",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "mayaguez-colegio-episcopal-san-andres",
+  "name": "Colegio Episcopal San Andrés",
+  "city": "Mayagüez",
+  "country": "Puerto Rico",
+  "lat": 18.200044,
+  "lng": -67.136171,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w541567986",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "mayaguez-northbridge-university",
+  "name": "Northbridge University",
+  "city": "Mayagüez",
+  "country": "Puerto Rico",
+  "lat": 18.184442,
+  "lng": -67.14998,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w828958031",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "mayaguez-universidad-adventista-de-las-antillas",
+  "name": "Universidad Adventista de las Antillas",
+  "city": "Mayagüez",
+  "country": "Puerto Rico",
+  "lat": 18.205756,
+  "lng": -67.111844,
+  "addr": "Carretera Universidad Adventista de las Antillas",
+  "phone": "+1 787 834 9595",
+  "web": "https://www.uaa.edu/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1330564425",
+  "found": "2026-11-19",
+  "img": "https://www.uaa.edu/wp-content/uploads/2021/11/Edificio-de-Ciencias.jpg",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "cotui-liceo-francisco-h-y-carvajal",
+  "name": "Liceo Francisco H. y Carvajal",
+  "city": "Cotuí",
+  "country": "República Dominicana",
+  "lat": 19.051348,
+  "lng": -70.151202,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w369422758",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "cotui-universidad-tecnologica-del-cibao-oriental-uteco",
+  "name": "Universidad Tecnologica del Cibao Oriental-UTECO",
+  "city": "Cotuí",
+  "country": "República Dominicana",
+  "lat": 19.058111,
+  "lng": -70.161347,
+  "addr": "Avenida Universitaria 100",
+  "phone": "",
+  "web": "https://uteco.edu.do",
+  "email": "informacion@uteco.edu.do",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w914210341",
+  "found": "2026-11-19",
+  "img": "",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "cotui-liceo-miguel-angel-garcia-viloria",
+  "name": "Liceo Miguel Ángel García Viloria",
+  "city": "Cotuí",
+  "country": "República Dominicana",
+  "lat": 19.096314,
+  "lng": -70.161695,
+  "addr": "Calle Miguel Ángel García Viloria",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w914213599",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "chigorodo-colegio-el-camping",
+  "name": "Colegio El Camping",
+  "city": "Chigorodó",
+  "country": "Colombia",
+  "lat": 7.673855,
+  "lng": -76.683099,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4612816984",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "chigorodo-colegio-nuestro-esfuerzo",
+  "name": "Colegio Nuestro Esfuerzo",
+  "city": "Chigorodó",
+  "country": "Colombia",
+  "lat": 7.667442,
+  "lng": -76.677282,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4613051680",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "chigorodo-otra-sigla-kinder-garden-mundo-de-genios",
+  "name": "Otra sigla Kinder Garden Mundo De Genios",
+  "city": "Chigorodó",
+  "country": "Colombia",
+  "lat": 7.663318,
+  "lng": -76.674489,
+  "addr": "",
+  "phone": "+57 301 2938185",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369839",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "chigorodo-jardin-infantil-los-picarones-alegres",
+  "name": "Jardín Infantil Los Picarones Alegres",
+  "city": "Chigorodó",
+  "country": "Colombia",
+  "lat": 7.666557,
+  "lng": -76.686966,
+  "addr": "",
+  "phone": "+57 604 8251555",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369840",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "chigorodo-colegio-de-educacion-campesina",
+  "name": "Colegio de Educación Campesina",
+  "city": "Chigorodó",
+  "country": "Colombia",
+  "lat": 7.664722,
+  "lng": -76.678611,
+  "addr": "",
+  "phone": "+57 604 8206193",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369841",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "chigorodo-colegio-sta-maria-del-darien",
+  "name": "Colegio Sta Maria Del Darien",
+  "city": "Chigorodó",
+  "country": "Colombia",
+  "lat": 7.665556,
+  "lng": -76.676944,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369842",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "chigorodo-escuela-urbano-simon-bolivar",
+  "name": "Escuela Urbano Simon Bolívar",
+  "city": "Chigorodó",
+  "country": "Colombia",
+  "lat": 7.667778,
+  "lng": -76.675556,
+  "addr": "",
+  "phone": "+57 604 8256485",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369843",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "chigorodo-escuela-urbano-sagrado-corazon-de-jesus",
+  "name": "Escuela Urbano Sagrado Corazon de Jesus",
+  "city": "Chigorodó",
+  "country": "Colombia",
+  "lat": 7.670461,
+  "lng": -76.686916,
+  "addr": "",
+  "phone": "+57 604 8253863",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369844",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "chigorodo-colegio-diocesano-laura-montoya",
+  "name": "Colegio Diocesano Laura Montoya",
+  "city": "Chigorodó",
+  "country": "Colombia",
+  "lat": 7.659019,
+  "lng": -76.673483,
+  "addr": "Calle 83A 90-05",
+  "phone": "+57 604 8253160",
+  "web": "https://diocesanolauramontoya.com/",
+  "email": "coldiolamo@gmail.com",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w466551456",
+  "found": "2026-11-19",
+  "img": "",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "florida-colegio-las-americas",
+  "name": "Colegio las americas",
+  "city": "Florida",
+  "country": "Colombia",
+  "lat": 3.325501,
+  "lng": -76.235466,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4657130389",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "colmenar-viejo-academia-de-aviacion-del-et",
+  "name": "Academia de Aviación del ET",
+  "city": "Colmenar Viejo",
+  "country": "España",
+  "lat": 40.699137,
+  "lng": -3.766358,
+  "addr": "",
+  "phone": "+34 91 846 5310",
+  "web": "http://www.ejercito.mde.es/unidades/Madrid/acaviet/Localizacion/index.html",
+  "email": "acaviet@mde.es",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7160197799",
+  "found": "2026-11-19",
+  "img": "",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "colmenar-viejo-centro-privado-de-educacion-infantil-primaria-y-secundaria-zurbaran",
+  "name": "Centro Privado de Educación Infantil, Primaria y Secundaria Zurbarán",
+  "city": "Colmenar Viejo",
+  "country": "España",
+  "lat": 40.671441,
+  "lng": -3.772539,
+  "addr": "Calle Zurbarán 7",
+  "phone": "+34918450912",
+  "web": "https://www.educa.madrid.org/cc.zurbaran.colmenarviejo",
+  "email": "cc.zurbaran.colmenarviejo@educa.madrid.org",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w339328951",
+  "found": "2026-11-19",
+  "img": "",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "la-linea-de-la-concepcion-academia-iban",
+  "name": "Academia Ibán",
+  "city": "La Línea de la Concepción",
+  "country": "España",
+  "lat": 36.166014,
+  "lng": -5.356563,
+  "addr": "Calle Sevilla",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n13362662275",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "la-linea-de-la-concepcion-academia-c-m",
+  "name": "Academia C&M",
+  "city": "La Línea de la Concepción",
+  "country": "España",
+  "lat": 36.167522,
+  "lng": -5.34114,
+  "addr": "Calle Pavía",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n13453357180",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "la-linea-de-la-concepcion-gnosis",
+  "name": "Gnosis",
+  "city": "La Línea de la Concepción",
+  "country": "España",
+  "lat": 36.172242,
+  "lng": -5.344685,
+  "addr": "Calle Blanca de los Ríos",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n13459216432",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "la-linea-de-la-concepcion-universidad-internacional-menendez-pelayo",
+  "name": "Universidad Internacional Menéndez Pelayo",
+  "city": "La Línea de la Concepción",
+  "country": "España",
+  "lat": 36.166854,
+  "lng": -5.347415,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Bilingüe o internacional",
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w520466007",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "la-linea-de-la-concepcion-e-i-villa-carmela",
+  "name": "E. I. Villa Carmela",
+  "city": "La Línea de la Concepción",
+  "country": "España",
+  "lat": 36.184247,
+  "lng": -5.383286,
+  "addr": "Escuela Infantil Villa Carmela",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1154546545",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "la-linea-de-la-concepcion-colegio-salesianos-san-juan-bosco-de-la-linea-de-la-concepcion",
+  "name": "Colegio Salesianos San Juan Bosco de La Línea de la Concepción",
+  "city": "La Línea de la Concepción",
+  "country": "España",
+  "lat": 36.163509,
+  "lng": -5.344749,
+  "addr": "Avenida Menéndez Pelayo 5",
+  "phone": "",
+  "web": "https://lalinea.salesianos.edu/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1222788500",
+  "found": "2026-11-19",
+  "img": "",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "la-linea-de-la-concepcion-colegio-fundacion-educacion-catolica-providencia-del-sagrado-corazon",
+  "name": "Colegio Fundación Educación Católica Providencia del Sagrado Corazón",
+  "city": "La Línea de la Concepción",
+  "country": "España",
+  "lat": 36.160635,
+  "lng": -5.352524,
+  "addr": "Avenida de España 9",
+  "phone": "+34 956 76 32 20",
+  "web": "https://www.providenciasagradocorazon.com/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1227183390",
+  "found": "2026-11-19",
+  "imgTry": "2026-11-19"
+ },
+ {
+  "id": "la-linea-de-la-concepcion-colegio-juan-pablo-ii-y-san-pedro",
+  "name": "Colegio Juan Pablo II y San Pedro",
+  "city": "La Línea de la Concepción",
+  "country": "España",
+  "lat": 36.166474,
+  "lng": -5.354944,
+  "addr": "Calle del Padre Andrades",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1354218022",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "la-linea-de-la-concepcion-the-garden-school-of-english",
+  "name": "The Garden School of English",
+  "city": "La Línea de la Concepción",
+  "country": "España",
+  "lat": 36.164047,
+  "lng": -5.343629,
+  "addr": "Avenida Menéndez Pelayo",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1456880411",
+  "found": "2026-11-19"
  }
 ]
