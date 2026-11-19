@@ -1679,6 +1679,7 @@ button.dl-kpi[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offs
   .sv-tabs .chip { flex: 1 0 auto; justify-content: center; gap: 4px; padding-inline: 7px; font-size: 12.5px; }
   /* Retomar ocupa su renglón; abajo, lo demás */
   .sv-row .ss-ops [data-go] { flex: 1 0 100%; }
+}
 /* Demos por mes o trimestre (Equipo, solo líderes y dirección: public/js/team.js) */
 .dm-pick { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px 18px; }
 .dm-pick .field { flex: 0 1 270px; min-width: 0; }
