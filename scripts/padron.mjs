@@ -161,7 +161,9 @@ async function mxRows() {
   const pick = nat.length ? [nat[0]] : res;
   log(`SEP: ${pick.length} archivo(s) del catálogo`);
   const rows = [];
-  for (const r of pick) for (const x of parse(await cached("mx-" + path.basename(new URL(r.url).pathname), () => get(r.url)), r.url)) rows.push(x);
+  // el catálogo trae todas las escuelas del país (públicas incluidas): se guardan solo las privadas que sirven, archivo por
+  // archivo, así no se juntan cientos de miles de filas en memoria
+  for (const r of pick) { let n = 0; for (const x of parse(await cached("mx-" + path.basename(new URL(r.url).pathname), () => get(r.url)), r.url)) { n++; if (P.keepMX(P.mxRow(x))) rows.push(x); } log(`  ${path.basename(new URL(r.url).pathname)}: ${n} filas, ${rows.length} privadas hasta acá`); }
   return rows;
 }
 

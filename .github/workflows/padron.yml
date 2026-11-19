@@ -43,6 +43,7 @@ jobs:
       - run: npm ci --omit=dev
       - name: Bajar el padrón
         env:
+          NODE_OPTIONS: --max-old-space-size=6144
           COUNTRY: ${{ inputs.country }}
           URL: ${{ inputs.url }}
         run: |
@@ -53,6 +54,7 @@ jobs:
       - name: Medir
         if: ${{ inputs.dry }}
         env:
+          NODE_OPTIONS: --max-old-space-size=6144
           COUNTRY: ${{ inputs.country }}
           MAX: ${{ inputs.max }}
           URL: ${{ inputs.url }}
@@ -64,6 +66,7 @@ jobs:
       - name: Sumar y guardar
         if: ${{ !inputs.dry }}
         env:
+          NODE_OPTIONS: --max-old-space-size=6144
           COUNTRY: ${{ inputs.country }}
           MAX: ${{ inputs.max }}
           URL: ${{ inputs.url }}
