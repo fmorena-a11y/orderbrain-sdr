@@ -319,6 +319,16 @@ textarea.inp { min-height: 88px; resize: vertical; line-height: 1.45; }
 .explore-list { display: flex; flex-direction: column; min-height: 0; border-right: 1px solid var(--line); background: var(--surface); }
 .explore-top { padding: 16px 16px 10px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; border-bottom: 1px solid var(--line); background: var(--surface); }
 .explore-top h1 { font-size: var(--fs-3xl); font-weight: 700; }
+/* panel de la lista plegable (flechita al lado de «Prospectar»): solo con lista y mapa lado a lado */
+.ex-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.ex-fold, .ex-unfold { display: none; }
+.ex-unfold { position: absolute; z-index: 500; top: 12px; left: 56px; gap: 4px; box-shadow: var(--shadow); }
+@media (min-width: 1081px), (min-width: 600px) and (orientation: landscape) {
+  .ex-fold { display: inline-grid; }
+  .explore.list-off { grid-template-columns: minmax(0, 1fr); }
+  .explore.list-off .explore-list { display: none; }
+  .explore.list-off .ex-unfold { display: inline-flex; }
+}
 .scroll-row { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: -4px -16px; padding: 4px 16px; }
 .scroll-row::-webkit-scrollbar { display: none; }
 .scroll-row .chip { flex: none; }

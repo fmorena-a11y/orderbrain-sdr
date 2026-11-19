@@ -106,10 +106,11 @@ const km = d => d < 1 ? `${Math.round(d * 1000)} m` : `${fmtNum(d, { dec: 1 })} 
 
 export function renderExplore(el) {
   host = el; map = null; shown = PAGE;
-  el.innerHTML = `<div class="explore">
+  let off = false; try { off = localStorage.getItem("ob.explore.listOff") === "1"; } catch { /* sin almacenamiento */ }
+  el.innerHTML = `<div class="explore${off ? " list-off" : ""}">
     <section class="explore-list" aria-label="Colegios">
       <div class="explore-top">
-        <h1>Prospectar</h1>
+        <div class="ex-head"><h1>Prospectar</h1><button type="button" class="icon-btn ex-fold" id="listFold" title="Cerrar el panel: más mapa" aria-label="Cerrar el panel de la lista">${icon("chevL")}</button></div>
         <label class="sr" for="q">Buscar colegio, lugar o en Pipedrive</label>
         <form id="qf" class="q-row" role="search"><div class="q-wrap"><input class="inp" id="q" type="search" placeholder="Colegio, lugar, teléfono, email o persona" value="${esc(E.q)}" autocomplete="off" enterkeyhint="search" aria-controls="qHist"><button type="button" class="q-histbtn" id="qHistBtn" title="Búsquedas recientes" aria-label="Búsquedas recientes" aria-controls="qHist">${icon("clock", "sm")}</button><div class="q-hist" id="qHist" role="listbox" aria-label="Búsquedas recientes" hidden></div></div><button type="button" class="btn icon-only" id="locate" title="Ubicar en el mapa" aria-label="Ubicar en el mapa">${icon("nav")}</button></form>
         <div id="placeBox"></div>
@@ -123,9 +124,18 @@ export function renderExplore(el) {
         <button class="btn icon-only" id="csv" title="Descargar CSV de lo que ves" aria-label="Descargar CSV de lo que ves">${icon("download")}</button>
       </div>
     </section>
-    <div class="mapwrap"><div id="map" role="region" aria-label="Mapa de colegios"></div></div>
+    <div class="mapwrap"><div id="map" role="region" aria-label="Mapa de colegios"></div><button type="button" class="btn ex-unfold" id="listUnfold" title="Abrir el panel de la lista" aria-label="Abrir el panel de la lista">${icon("chevR")}<span>Prospectar</span></button></div>
   </div>`;
   el.querySelectorAll(".scroll-row").forEach(scroller);
+  // panel de la lista plegable (pedido del líder: «una flechita al lado de Prospectar para cerrar y volver a abrir la solapa»,
+  // para ver más mapa); solo con lista y mapa lado a lado (CSS); se recuerda en este navegador
+  const fold = on => {
+    el.querySelector(".explore").classList.toggle("list-off", on);
+    try { localStorage.setItem("ob.explore.listOff", on ? "1" : "0"); } catch { /* sin almacenamiento */ }
+    setTimeout(() => { map?.invalidateSize(); (on ? el.querySelector("#listUnfold") : el.querySelector("#listFold"))?.focus(); }, 30);
+  };
+  el.querySelector("#listFold").onclick = () => fold(true);
+  el.querySelector("#listUnfold").onclick = () => fold(false);
   const q = el.querySelector("#q");
   q.oninput = () => {
     // lo escrito queda en el estado en el acto (ninguna tecla se pierde: Enter, la sesión y el CSV leen E.q); la lista y
