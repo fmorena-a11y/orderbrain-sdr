@@ -1,0 +1,5 @@
+[
+ {"cod_dpto":"76","dpto":"VALLE DEL CAUCA","cod_mpio":"76001","nom_mpio":"SANTIAGO DE CALI","tipo_municipio":"Municipio","longitud":"-76,52133","latitud":"3,413686"},
+ {"cod_dpto":"11","dpto":"BOGOTÁ, D.C.","cod_mpio":"11001","nom_mpio":"BOGOTÁ, D.C.","tipo_municipio":"Municipio","longitud":"-74,106992","latitud":"4,649251"},
+ {"cod_dpto":"13","dpto":"BOLÍVAR","cod_mpio":"13001","nom_mpio":"CARTAGENA DE INDIAS","tipo_municipio":"Municipio","longitud":"-75,5","latitud":"10,4"}
+]
