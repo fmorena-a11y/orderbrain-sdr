@@ -4,6 +4,7 @@ import { $, S, api, esc, icon, pill, statusPill, stageTag, potTag, toast, copy, 
 import { loadGmail, connectGmail, gmailWaiting, sigPreview, sigLabel } from "./gmail.js";
 import { proposeDemo, regSlotsHtml, bindRegSlots } from "./demoslots.js";
 import { loadPdMail, pdReady, pdCanConnect, SIG_LABEL, tokenFormHtml, bindTokenForm } from "./pdmail.js";
+import { fichaDeals, dealBarHtml } from "./aedeal.js";
 // «la cafetería», «el casino», «el bar escolar»
 const laEsp = mk => `${/^(casino|bar)\b/.test(mk?.espacio || "") ? "el" : "la"} ${mk?.espacio || "cafetería"}`, delaEsp = mk => laEsp(mk).replace(/^el /, "del ").replace(/^la /, "de la ");
 const coarse = () => matchMedia("(pointer: coarse)").matches;
@@ -108,6 +109,8 @@ const isRef = id => /^(lead|org|bx):/.test(id);
 // si la base todavía no cargó (Retomar apenas entrás), se espera.
 function openAt(ss, i) {
   ss.i = i; savePos(ss); const r = ss.ids[i];
+  // sesión «Tus tratos»: un trato sin organización (ni su persona tiene) no tiene ficha: se saltea con el motivo
+  if (/^deal:\d+$/.test(r)) { toast(`${ss.items[i]?.name || "Un trato"} no tiene organización en Pipedrive, lo salteé`, { type: "info", href: `${S.pdWeb}/deal/${r.slice(5)}`, action: "Abrir en Pipedrive" }); markSkip(ss, r, "missing", "el trato no tiene organización en Pipedrive"); return sessionGo(1); }
   if (isRef(r) || S.byId.has(r)) return (isRef(r) ? openRecord : openSchool)(r, { keepSession: true, sref: r, activityId: ss.acts[r] || null, tab: "prep" });
   if (!S.schools.length && !S.baseError && S.baseP) {
     toast("Cargando colegios…", { type: "info" });
@@ -118,13 +121,15 @@ function openAt(ss, i) {
   markSkip(ss, r, "missing", "ya no está en la base");
   return sessionGo(1);
 }
-export async function openSchool(id, { activityId = null, tab = null, keepSession = false, sref = null, cbOpen = false } = {}) {
+export async function openSchool(id, { activityId = null, tab = null, keepSession = false, sref = null, cbOpen = false, deals = false } = {}) {
   if (!S.byId.has(id)) return toast("Colegio inexistente", { type: "err" });
   if (!keepSession) S.session = null;
   if ($("drawer").hidden) { D.opener = document.activeElement; history.pushState({ ...(history.state || {}), drawer: id }, ""); }
   import("./app.js").then(m => m.rememberSchool(id));
   const draft = drafts.get(id); drafts.delete(id);
-  Object.assign(D, { sref: keepSession ? sref || id : null, inCall: false, call: null, id, data: null, form: draft?.form || newForm(), activityId: activityId ?? draft?.activityId ?? null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null, tl: null, addr: null, addrEdit: false, cbOpen: !!cbOpen, tab: draft ? "log" : tab || (activityId ? "log" : "prep") });
+  Object.assign(D, { sref: keepSession ? sref || id : null, inCall: false, call: null, id, data: null, form: draft?.form || newForm(), activityId: activityId ?? draft?.activityId ?? null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null, tl: null, addr: null, addrEdit: false, cbOpen: !!cbOpen, tab: draft ? "log" : tab || (activityId ? "log" : "prep"),
+    // tu trato arriba de la ficha: en una sesión «Tus tratos» o si se abrió desde el Hoy del account (deals)
+    dealsOn: !!deals || (keepSession && dealsSession(S.session)), myDeals: null });
   if (draft) toast("Recuperé lo que estabas cargando", { type: "info" });
   $("drawer").hidden = false; $("scrim").hidden = false;
   $("scrim").onclick = closeSchool;
@@ -133,6 +138,7 @@ export async function openSchool(id, { activityId = null, tab = null, keepSessio
   draw();
   $("drawer").querySelector("#dClose")?.focus();
   load();
+  loadMyDeals();
   loadTimeline(id);
   loadPhotos(id);
   loadStudy(id);
@@ -332,7 +338,7 @@ async function load(opts = {}) {
     // en la sesión no se trabaja un cliente, un trato abierto ajeno ni algo de otra persona: se saltea aunque ya figure
     // salteado (la revisión de adelante pudo anotarlo mientras la ficha se abría); lo ya trabajado no se toca
     const ss = S.session, cur = ss && D.sref && ss.items.find(x => x.ref === D.sref);
-    const why = cur && cur.state !== "worked" && !opts.refresh && opts.match === undefined && skipReason(d.school, !!D.activityId && myDeal(d.match));
+    const why = cur && cur.state !== "worked" && !opts.refresh && opts.match === undefined && skipReason(d.school, !!D.activityId && myDeal(d.match), dealsSession(ss));
     if (why) { toast(`${d.school.name}: ${why.text}, lo salteé`); markSkip(ss, D.sref, why.code, why.text); return sessionGo(1); }
     loadSedes(id); loadEnrich(id); loadHistory(id, d);
     if (opts.refresh || opts.match !== undefined) loadTimeline(id, { refresh: !!opts.refresh });
@@ -688,14 +694,18 @@ function prefetch() {
     if (S.session !== ss) return;
     // solo lo que está adelante de donde va ahora: el colegio abierto lo decide load() con su ficha (si la ficha ya se movió
     // a uno de estos, anotarlo acá lo dejaría abierto y marcado). Con tarea tuya y trato abierto tampoco: load() mira de quién es.
-    for (const [id, v] of Object.entries(r)) { const why = !v.error && ss.ids.indexOf(id) > ss.i && skipReason(v, !!ss.acts[id]); if (why) markSkip(ss, id, why.code, why.text); }
+    for (const [id, v] of Object.entries(r)) { const why = !v.error && ss.ids.indexOf(id) > ss.i && skipReason(v, !!ss.acts[id], dealsSession(ss)); if (why) markSkip(ss, id, why.code, why.text); }
   }).catch(() => {});
 }
 
 // En una sesión de llamadas no se llama a clientes, ex clientes, tratos abiertos ni organizaciones de otra persona.
 // El trato abierto solo no se saltea si el colegio entró por una tarea tuya y el trato es tuyo (si no se sabe de quién es, se saltea).
 const myDeal = m => m?.openDealOwnerId ? m.openDealOwnerId === S.me.pdUserId : !!(m?.openDealOwner && S.me.pdName && m.openDealOwner === S.me.pdName);
-function skipReason(v, mine = false) {
+// Sesión «Tus tratos» (origen deals, el Hoy del account): cada colegio entró por un trato abierto tuyo, así que no se saltea
+// por tener trato, por ser cliente (una venta nueva a un cliente) ni porque la organización sea de quien lo prospectó.
+const dealsSession = ss => ss?.origin?.kind === "deals";
+function skipReason(v, mine = false, deals = false) {
+  if (deals) return v.status === "archived" ? { code: "archived", text: "está archivado" } : null;
   if (v.status === "client") return { code: "client", text: "ya es cliente" };
   if (v.status === "churn") return { code: "churn", text: "es ex cliente" };
   if (v.status === "archived") return { code: "archived", text: "está archivado" };
@@ -842,10 +852,13 @@ async function unarchiveSchool(s) {
   D.archiving = null; if (D.id === s.id) draw();
 }
 function clientWarn(s, m) {
-  if (s.ownerId && S.me.pdUserId && s.ownerId !== S.me.pdUserId && s.status !== "client") return `Esta organización es de ${s.ownerName || "otra persona"} en Pipedrive. No la contactes: si te interesa, hablalo con esa persona.`;
+  // con un trato abierto TUYO (un account con el trato de un colegio que prospectó un SDR) no va el aviso de «es de otra
+  // persona» ni el de «coordiná con quien tiene el trato»: lo trabajás vos. Cliente y ex cliente se avisan igual.
+  const mine = myDeal(m);
+  if (!mine && s.ownerId && S.me.pdUserId && s.ownerId !== S.me.pdUserId && s.status !== "client") return `Esta organización es de ${s.ownerName || "otra persona"} en Pipedrive. No la contactes: si te interesa, hablalo con esa persona.`;
   if (s.status === "client") return s.ob && !s.ob.churn ? `Ya es cliente de OrderEAT en OrderBrain (${s.ob.label}${s.ob.client && s.ob.client !== s.name ? `, ${s.ob.client}` : ""}). No lo prospectes: si hay algo, avisale al equipo de cuentas.` : "Ya es cliente de OrderEAT. No lo prospectes: si hay algo, avisale al equipo de cuentas.";
   if (s.ob?.churn || s.phase === "churn") return s.ob?.label && s.ob.label !== "Churn" ? `${s.ob.label} en OrderEAT (firmó y no llegó a usarlo). Antes de contactar, hablá con el equipo de cuentas para saber qué pasó.` : "Ex cliente de OrderEAT (era activo y se dio de baja). Antes de contactar, hablá con el equipo de cuentas para saber por qué se fue.";
-  if (s.status === "open") return `Tiene un trato abierto${m?.openDealOwner ? ` de ${m.openDealOwner}` : ""}. Coordiná con esa persona antes de contactar.`;
+  if (s.status === "open" && !mine) return `Tiene un trato abierto${m?.openDealOwner ? ` de ${m.openDealOwner}` : ""}. Coordiná con esa persona antes de contactar.`;
   return "";
 }
 function draw() {
@@ -862,6 +875,7 @@ function draw() {
   ${ss ? `<div class="d-session"><span class="progress" aria-hidden="true"><span style="width:${(ss.i + 1) / ss.ids.length * 100}%"></span></span>
     <span class="lbl">${icon("play", "sm")} <span class="ell"><b>${ss.i + 1}</b>/${ss.ids.length}<span class="hide-sm"> · ${esc(ss.name || "sesión")}</span></span></span>
     <button class="btn sm ghost" id="prev" ${ss.i ? "" : "disabled"} aria-label="Colegio anterior">${icon("arrowLeft", "sm")}</button><button class="btn sm" id="skip">${icon("skip", "sm")} Saltar</button></div>` : ""}
+  ${D.dealsOn ? dealBarHtml(D.myDeals) : ""}
   <div class="d-top">
     <div class="d-title"><div class="tt"><h2 id="dTitle">${esc(s.name)}</h2>${addrRow(s)}</div>
       <div class="d-tr">${statusPill(s)}${d?.orgUrl ? `<a class="icon-btn" href="${esc(d.orgUrl)}" target="_blank" rel="noopener" title="Abrir en Pipedrive" aria-label="Abrir en Pipedrive">${icon("external")}</a>` : ""}<button class="icon-btn" id="dClose" aria-label="Cerrar ficha" title="Cerrar (Esc)">${icon("x")}</button></div></div>
@@ -1765,6 +1779,21 @@ function redrawTl(id) {
   const box = el.querySelector("#cbLog"), s = S.byId.get(id);
   if (box && s) { box.innerHTML = briefCard(s, "log"); bindTimeline(s); }
 }
+// ---------- tu trato arriba de la ficha (sesión «Tus tratos» o abierta desde el Hoy del account): etapa, días en la etapa,
+// valor y próxima actividad de tus tratos abiertos de esta organización (GET /api/ae/deals, public/js/aedeal.js)
+async function loadMyDeals({ fresh = false } = {}) {
+  const id = D.id; if (!id || !D.dealsOn) return;
+  try { const r = await fichaDeals(D.sref || id, { fresh }); if (D.id === id) D.myDeals = r; }
+  catch (e) { if (D.id === id && !D.myDeals?.deals) D.myDeals = { error: e.message }; }
+  if (D.id === id) keepScroll(draw);
+}
+// se registró algo en la ficha (un contacto, una actividad nueva o cerrada): el trato se lee de nuevo
+let dealTimer = null;
+addEventListener("ob:wrote", e => {
+  const id = D.id, p = String(e.detail?.path || ""); if (!id || !D.dealsOn) return;
+  if (!/^\/api\/(schools|activities|proposals)\//.test(p) || /\/(timeline|call-brief|check|study)(\?|$)/.test(p)) return;
+  clearTimeout(dealTimer); dealTimer = setTimeout(() => { if (D.id === id) loadMyDeals({ fresh: true }); }, 900);
+});
 // algo se escribió de esta ficha (o de una actividad): se vuelve a leer el Historial de Pipedrive, una vez aunque sean varios pedidos
 let tlTimer = null;
 addEventListener("ob:wrote", e => {

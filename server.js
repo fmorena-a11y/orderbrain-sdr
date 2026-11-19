@@ -33,6 +33,7 @@ import { mountAccounts } from "./lib/accounts-api.js";
 import { mountBases } from "./lib/bases-api.js";
 import { mountInbound } from "./lib/inbound-api.js";
 import { mountDeals } from "./lib/deals-api.js";
+import { mountAe } from "./lib/ae-api.js";
 import { sheetsDirect, createSheet } from "./lib/sheets-export.js";
 
 const app = express();
@@ -408,6 +409,8 @@ mountBases(app, { auth, wrap, schoolParam, leadScopeFor });
 mountInbound(app, { auth, wrap, leadScopeFor });
 // Tratos abiertos (vista para los accounts): solo lectura, con el alcance de Métricas y Equipo (lib/deals-api.js, lib/dealsview.js)
 mountDeals(app, { auth, wrap, viewerFor, leadScopeFor });
+// «Hoy» del account: sus demos, sus tareas y sus tratos que piden atención (lib/ae-api.js, lib/aeview.js). Solo lectura, solo lo suyo.
+mountAe(app, { auth, wrap });
 
 // ficha de un prospecto (lead) o de una organización de Pipedrive que no está en la base
 app.get("/api/records/:kind/:rid", auth, wrap(async (req, res) => {
