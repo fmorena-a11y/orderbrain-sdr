@@ -33,6 +33,7 @@ import { mountAccounts } from "./lib/accounts-api.js";
 import { mountBases } from "./lib/bases-api.js";
 import { mountInbound } from "./lib/inbound-api.js";
 import { mountDeals } from "./lib/deals-api.js";
+import { mountLead } from "./lib/lead-api.js";
 import { sheetsDirect, createSheet } from "./lib/sheets-export.js";
 
 const app = express();
@@ -411,6 +412,8 @@ mountBases(app, { auth, wrap, schoolParam, leadScopeFor });
 mountInbound(app, { auth, wrap, leadScopeFor });
 // Tratos abiertos (vista para los accounts): solo lectura, con el alcance de Métricas y Equipo (lib/deals-api.js, lib/dealsview.js)
 mountDeals(app, { auth, wrap, viewerFor, leadScopeFor });
+// «Hoy» del líder (panel del día de su gente): solo lectura, solo líderes y dirección, por equipo (lib/lead-api.js, lib/leadview.js)
+mountLead(app, { auth, wrap, viewerFor, leadScopeFor, teamUsers: m => teamUsers(m) });
 
 // ficha de un prospecto (lead) o de una organización de Pipedrive que no está en la base
 app.get("/api/records/:kind/:rid", auth, wrap(async (req, res) => {

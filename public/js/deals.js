@@ -17,6 +17,15 @@ const F = {
 let D = null, more = { list: 100, cols: new Set() };
 const keyOf = () => `${F.owner}|${F.owner === "team" ? teamView() : ""}`;
 
+// Abrir la vista ya filtrada (desde el «Hoy» del líder, leadhome.js): owner = "team" (el equipo que se mira) o el id de Pipedrive
+// de una persona; attention: con el chip que corresponda ("noNext", "stale" u "overdue"). El servidor vuelve a controlar el alcance.
+export function showDeals({ owner = "team", attention = "" } = {}) {
+  F.owner = String(owner || "me"); save("deals.owner", F.owner);
+  F.pipe = 0; F.stage = 0; F.q = ""; F.noNext = attention === "noNext"; F.stale = attention === "stale"; F.overdue = attention === "overdue";
+  if (attention) { F.mode = "list"; F.sort = attention === "stale" ? "days" : "next"; }
+  more = { list: 100, cols: new Set() };
+  if (location.hash !== "#/tratos") location.hash = "#/tratos"; else if (host?.isConnected) renderDeals(host);
+}
 export function renderDeals(el) {
   host = el;
   if (!S.profile?.leader && F.owner !== "me") F.owner = "me";

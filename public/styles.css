@@ -1733,3 +1733,76 @@ button.dl-kpi[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offs
 
 /* Hoy según el rol: el selector del líder (su equipo o su propio trabajo) */
 .home-switch { margin: 0 0 16px; }
+
+/* «Hoy» del líder (public/js/leadhome.js): indicadores del equipo, «Para mirar hoy» y una fila por persona */
+.lh .lh-card { margin-bottom: 16px; }
+.lh .card-h a.sub { text-decoration: underline; text-underline-offset: 2px; }
+.lh-kpis { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin: 0 0 16px; }
+.lh-kpi { display: grid; gap: 3px; align-content: start; min-width: 0; padding: 14px 16px; text-align: left; font: inherit; color: inherit; cursor: pointer; }
+.lh-kpi:hover { border-color: var(--line-2); box-shadow: var(--shadow); }
+.lh-kpi .l { font-weight: 600; font-size: 13.5px; color: var(--ink-2); }
+.lh-kpi b { font-size: 30px; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.lh-kpi.bad b { color: var(--err); }
+.lh-kpi small { color: var(--muted); font-size: 12px; line-height: 1.35; }
+.lh-kpi small.cta { display: inline-flex; align-items: center; gap: 2px; margin-top: 4px; color: var(--ink-2); font-weight: 500; }
+.lh-kpi small.cta .ico { width: 14px; height: 14px; }
+.lh-alerts { list-style: none; margin: 0; padding: 0; }
+.lh-alert { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 10px 6px; border-top: 1px solid var(--line); }
+.lh-alert:first-child { border-top: 0; }
+.lh-alert .n { display: grid; place-items: center; min-width: 44px; height: 40px; padding: 0 8px; border-radius: 10px; background: var(--surface-2); color: var(--ink); font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.lh-alert.hot .n { background: var(--err-soft); color: var(--err); }
+.lh-alert .t b { display: block; font-weight: 600; }
+.lh-alert .t small { display: block; color: var(--muted); font-size: 13px; line-height: 1.4; }
+.lh-ok .ico { display: block !important; color: var(--ok); }
+.lh-table { display: grid; }
+.lh-row { display: grid; grid-template-columns: minmax(150px, 1.5fr) repeat(7, minmax(0, 1fr)) 24px; gap: 10px; align-items: start; width: 100%; padding: 10px 6px; border: 0; border-top: 1px solid var(--line); background: none; text-align: left; font: inherit; color: inherit; }
+button.lh-row { cursor: pointer; border-radius: 0; }
+button.lh-row:hover { background: var(--surface-2); }
+.lh-row.head { border-top: 0; padding-bottom: 6px; font-size: 12px; font-weight: 600; color: var(--muted); align-items: end; }
+.lh-row .who { min-width: 0; }
+.lh-row .who b { display: block; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lh-row .who b i { font-style: normal; font-weight: 400; color: var(--muted); }
+.lh-row .who small, .lh-row .c small { display: block; color: var(--muted); font-size: 12px; line-height: 1.35; }
+.lh-row .c { min-width: 0; text-align: right; font-variant-numeric: tabular-nums; }
+.lh-row .c .k { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.lh-row .c b { font-weight: 600; font-size: 15px; }
+.lh-row .c b.zero, .lh-row .c b.unk, .lh-row .c b.sep { color: var(--faint); font-weight: 500; }
+.lh-row .c b.sep { margin: 0 3px; }
+.lh-row .c b.bad, .lh-row .c small .bad, .lh-left.bad { color: var(--err); }
+.lh-row .c b.warn, .lh-row .c small .warn, .lh-left.warn { color: var(--warn); }
+.lh-row .c b.ok { color: var(--ok); }
+.lh-row .go { color: var(--faint); align-self: center; }
+.lh-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.lh-two .act { grid-template-columns: auto minmax(0, 1fr) auto; }
+.lh-left { font-size: 12.5px; font-weight: 600; color: var(--muted); white-space: nowrap; align-self: center; }
+.lh-more { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 8px; }
+.lh-person > * { min-width: 0; }
+.lh-person .act { grid-template-columns: auto minmax(0, 1fr); }
+.lh-pk { gap: 18px; }
+.lh-pline { display: flex; gap: 8px; align-items: flex-start; margin: 0; font-size: 14px; color: var(--ink-2); }
+.lh-pline .ico { flex: none; margin-top: 2px; }
+.lh-prow { align-items: center; justify-content: space-between !important; }
+.lh-prow .muted { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; }
+@media (max-width: 1100px) { .lh-kpis { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 900px) {
+  .lh-two { grid-template-columns: minmax(0, 1fr); }
+  /* la fila por persona pasa a tarjeta: el nombre arriba y los números en una grilla con su etiqueta */
+  .lh-row.head { display: none; }
+  .lh-row { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px 8px; padding: 12px 6px; position: relative; }
+  .lh-row .who { grid-column: 1 / -1; padding-right: 28px; }
+  .lh-row .c { text-align: left; }
+  .lh-row .c .k { position: static; width: auto; height: auto; clip-path: none; white-space: normal; display: block; font-size: 11.5px; color: var(--muted); line-height: 1.25; }
+  .lh-row .go { position: absolute; top: 12px; right: 6px; }
+  .lh-row .c.na { display: none; } /* lo que no aplica a su rol (inbound de un account, tratos de un SDR) no ocupa lugar */
+}
+@media (max-width: 599px) {
+  .lh-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .lh-kpi { padding: 12px; } .lh-kpi b { font-size: 24px; }
+  /* hoy, hechas y vencidas en un renglón; lo demás de a dos */
+  .lh-row { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .lh-row .c { grid-column: span 3; }
+  .lh-row .who + .c, .lh-row .who + .c + .c, .lh-row .who + .c + .c + .c { grid-column: span 2; }
+  .lh-alert { grid-template-columns: 44px minmax(0, 1fr); }
+  .lh-alert .btn { grid-column: 2; justify-self: start; }
+  .lh .team-head .btn { flex: 1 1 auto; }
+}
