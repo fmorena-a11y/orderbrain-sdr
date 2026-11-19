@@ -7444,7 +7444,16 @@
   "AR|El Palomar": "2026-11-19T01:35:49.439Z",
   "DO|n3631921604": "2026-11-19T01:44:27.088Z",
   "MX|Huauchinango": "2026-11-19T05:24:20.006Z",
-  "ES|n252217933": "2026-11-19T05:37:13.971Z"
+  "ES|n252217933": "2026-11-19T05:37:13.971Z",
+  "AR|Béccar": "2026-11-19T07:42:14.791Z",
+  "ES|n626639326": "2026-11-19T07:42:55.202Z",
+  "MX|Teziutlán": "2026-11-19T07:43:31.653Z",
+  "HN|n308305741": "2026-11-19T07:44:01.971Z",
+  "AR|San Francisco": "2026-11-19T07:44:34.846Z",
+  "CL|San Fernando": "2026-11-19T07:45:06.887Z",
+  "AR|Punta Alta": "2026-11-19T07:47:13.258Z",
+  "BO|n3139139192": "2026-11-19T07:54:39.526Z",
+  "AR|Chivilcoy": "2026-11-19T07:55:15.132Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7579,6 +7588,83 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-19T07:41:43.284Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Béccar",
+     "found": 0,
+     "updated": 0,
+     "osm": 266
+    },
+    {
+     "cc": "ES",
+     "city": "Ávila",
+     "found": 9,
+     "updated": 1,
+     "osm": 28
+    },
+    {
+     "cc": "MX",
+     "city": "Teziutlán",
+     "found": 4,
+     "updated": 0,
+     "osm": 27
+    },
+    {
+     "cc": "HN",
+     "city": "Comayagua",
+     "found": 15,
+     "updated": 0,
+     "osm": 43
+    },
+    {
+     "cc": "AR",
+     "city": "San Francisco",
+     "found": 4,
+     "updated": 0,
+     "osm": 21
+    },
+    {
+     "cc": "CL",
+     "city": "San Fernando",
+     "found": 39,
+     "updated": 0,
+     "osm": 58
+    },
+    {
+     "cc": "AR",
+     "city": "Punta Alta",
+     "found": 3,
+     "updated": 0,
+     "osm": 18
+    },
+    {
+     "cc": "BO",
+     "city": "Tiquipaya",
+     "found": 1,
+     "updated": 0,
+     "osm": 59
+    },
+    {
+     "cc": "AR",
+     "city": "Chivilcoy",
+     "found": 7,
+     "updated": 1,
+     "osm": 42
+    }
+   ],
+   "added": 82,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 2,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 13.8,
+   "total": 22736
+  },
   {
    "at": "2026-11-19T05:23:42.755Z",
    "cities": [
@@ -9650,62 +9736,6 @@
    ],
    "minutes": 19.1,
    "total": 21364
-  },
-  {
-   "at": "2026-11-15T10:59:36.407Z",
-   "cities": [
-    {
-     "cc": "PE",
-     "city": "Talara",
-     "found": 10,
-     "updated": 0,
-     "osm": 75
-    },
-    {
-     "cc": "MX",
-     "city": "Agua Prieta",
-     "found": 2,
-     "updated": 0,
-     "osm": 14
-    },
-    {
-     "cc": "CL",
-     "city": "Hualpén",
-     "found": 1,
-     "updated": 0,
-     "osm": 126
-    },
-    {
-     "cc": "VE",
-     "city": "Tumeremo",
-     "found": 0,
-     "updated": 0,
-     "osm": 1
-    },
-    {
-     "cc": "ES",
-     "city": "Guadalajara",
-     "found": 9,
-     "updated": 0,
-     "osm": 47
-    },
-    {
-     "cc": "CO",
-     "city": "Ocaña",
-     "found": 35,
-     "updated": 0,
-     "osm": 89
-    }
-   ],
-   "added": 57,
-   "enriched": 0,
-   "photos": 1,
-   "contacts": 3,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 14.3,
-   "total": 21342
   }
  ]
 }
