@@ -13,6 +13,10 @@ export const nextBusinessDay = d => { let x = addDays(d, 1); while ([0, 6].inclu
 export const S = {
   me: null, ai: false, demo: false, goal: 40, pdWeb: "", countries: [], markets: {}, outcomes: [], lostReasons: [], types: {},
   team: [], schools: [], byId: new Map(), today: null, feed: null, agenda: null,
+  // la base por país (schoolbase.js): loaded = países con TODOS sus colegios en S.schools; summary = resumen por país y ciudad del
+  // servidor (GET /api/schools/summary); baseReady = ya cargó lo de entrada. S.byId además tiene colegios sueltos de otros países
+  // (una ficha abierta desde Hoy, una sesión o una búsqueda): esos no entran en S.schools (ni en listas, conteos ni mapa).
+  loaded: new Set(), summary: null, baseReady: false, workCountries: [],
   territory: load("territory", []), view: "hoy",
   explore: { country: null, city: null, filter: "prospect", q: "" },
   session: null, // la sesión abierta en la ficha (school.js: useSession): { id, name, items, steps, i, ids, acts }
@@ -97,11 +101,40 @@ export function schoolIdx(s) {
 }
 // se adelanta de a tandas cuando el navegador está libre (sin trabar la carga); lo que falte se calcula al buscar
 function warmIdx(list, i = 0) {
-  if (list !== S.schools) return;
   for (const end = Math.min(list.length, i + 1500); i < end; i++) schoolIdx(list[i]);
   if (i < list.length) (globalThis.requestIdleCallback || setTimeout)(() => warmIdx(list, i));
 }
-export function setSchools(list) { S.schools = list; S.byId = new Map(list.map(s => [s.id, s])); S.rev = (S.rev || 0) + 1; if (list.length) setTimeout(() => warmIdx(list)); }
+// _in (no se enumera): el colegio está en S.schools (su país está cargado); uno suelto está solo en S.byId
+const markIn = (s, v) => Object.defineProperty(s, "_in", { value: v, writable: true, configurable: true, enumerable: false });
+export function setSchools(list) { list.forEach(s => markIn(s, true)); S.schools = list; S.byId = new Map(list.map(s => [s.id, s])); S.loaded = new Set(list.map(s => s.country)); S.rev = (S.rev || 0) + 1; if (list.length) setTimeout(() => warmIdx(list)); }
+// los colegios de un país que llegó (schoolbase.js): se suman a S.schools; si alguno ya estaba suelto en S.byId (o es de una carga
+// anterior del mismo país), se actualiza ese mismo objeto (la ficha abierta y las listas lo siguen viendo)
+export function addCountrySchools(country, list) {
+  const fresh = [];
+  for (const s of list) {
+    const cur = S.byId.get(s.id);
+    if (cur) { Object.assign(cur, s); cur._sx = null; if (!cur._in) { markIn(cur, true); S.schools.push(cur); } continue; }
+    markIn(s, true); S.schools.push(s); S.byId.set(s.id, s); fresh.push(s);
+  }
+  S.loaded.add(country); S.rev = (S.rev || 0) + 1;
+  if (fresh.length) setTimeout(() => warmIdx(fresh));
+}
+// sacar países de las listas (cambió el territorio): siguen en S.byId (una ficha abierta o una sesión los puede estar usando)
+export function dropCountrySchools(countries) {
+  const out = new Set(countries); if (!out.size) return;
+  S.schools = S.schools.filter(s => { if (!out.has(s.country)) return true; s._in = false; return false; });
+  out.forEach(c => S.loaded.delete(c)); S.rev = (S.rev || 0) + 1;
+}
+// colegios sueltos (de /api/schools/items, la cola de Hoy, una búsqueda en toda la base): solo a S.byId si no estaban; nunca a
+// las listas (su país no está cargado). Sin los campos de la cola (score, reasons).
+export function rememberLoose(items) {
+  for (const it of items || []) {
+    if (!it?.id || S.byId.has(it.id)) continue;
+    const { score, reasons, ...s } = it;
+    if (listed(s.country)) { patchSchool(s); continue; }
+    markIn(s, false); S.byId.set(s.id, s);
+  }
+}
 // ---------- números con una sola regla en toda la app: es-AR («1.234», decimales con coma). dec = decimales fijos
 // («1,5 km»); none = qué va si no hay número (null, vacío o NaN): por defecto «0», en Métricas «?».
 const NUM_FMT = new Map();
@@ -152,7 +185,16 @@ export function scroller(el) {
 }
 // las fichas de Pipedrive que no son colegios de la base (pd-lead-…, pd-org-…) y las de una base cargada (bx-…) van solo al
 // índice, no a listas ni al mapa
-export function patchSchool(s) { if (!s?.id) return; S.rev = (S.rev || 0) + 1; const cur = S.byId.get(s.id); if (cur) { Object.assign(cur, s); if (cur._sx) cur._sx = null; } else { if (!/^(pd-(org|lead)|bx)-/.test(s.id)) S.schools.push(s); S.byId.set(s.id, s); } }
+// Un colegio nuevo va a las listas solo si su país está cargado (o es un país que el resumen no conoce: lo acaba de sumar el
+// buscador de zonas); si no, queda suelto en S.byId (se abre su ficha, pero no cuenta como «cargado»).
+const listed = c => S.loaded.has(c) || !S.countries.includes(c);
+export function patchSchool(s) {
+  if (!s?.id) return; S.rev = (S.rev || 0) + 1; const cur = S.byId.get(s.id);
+  if (cur) { Object.assign(cur, s); if (cur._sx) cur._sx = null; if (!cur._in && !/^(pd-(org|lead)|bx)-/.test(s.id) && cur.country && S.loaded.has(cur.country)) { markIn(cur, true); S.schools.push(cur); } return; }
+  const inList = !/^(pd-(org|lead)|bx)-/.test(s.id) && listed(s.country);
+  markIn(s, inList); if (inList) { S.schools.push(s); if (s.country && !S.countries.includes(s.country)) S.loaded.add(s.country); }
+  S.byId.set(s.id, s);
+}
 
 // ---------- API
 let onUnauthorized = () => {};
@@ -333,7 +375,8 @@ export const titleTag = tag => tag ? `<span class="row-tag" title="${esc(tag)}">
 // Sin elegir, la cola trae todos los países: se pide en el perfil y, mientras no se eligió, Hoy lo avisa («Elegir»).
 let terrSet = false;
 export const territoryChosen = () => { if (terrSet) return true; try { return localStorage.getItem("ob.territory") != null; } catch { return true; } };
-export function setTerritory(list) { S.territory = [...new Set(list || [])].filter(c => S.countries.includes(c)); terrSet = true; save("territory", S.territory); }
+// cambiarlo carga o saca países de la base del navegador (schoolbase.js escucha «ob:territory»)
+export function setTerritory(list) { S.territory = [...new Set(list || [])].filter(c => S.countries.includes(c)); terrSet = true; save("territory", S.territory); dispatchEvent(new Event("ob:territory")); }
 // el campo del perfil («Contanos quién sos» y «Tu perfil»): chips por país y «Todos», en una caja que se abre sola mientras no se
 // eligió (después queda plegada con lo elegido). bindTerritoryField → { save() }: guarda solo si la persona eligió algo (países o
 // «Todos»); para un Account Executive no se muestra (su Hoy son sus tratos).

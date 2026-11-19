@@ -1,5 +1,6 @@
 // OrderBrain SDR · arranque, navegación, cuenta, búsqueda rápida y atajos.
-import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, statusPill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo, modal, toast, brainTokenMsg, digits, recentSearches, rememberSearch, myRole, territoryFieldHtml, bindTerritoryField, schoolIdx, fmtNum } from "./core.js";
+import { loadInitial, searchOther, keepFound } from "./schoolbase.js";
+import { $, S, api, esc, norm, icon, hydrateIcons, setUnauthorized, initials, statusPill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo, modal, toast, brainTokenMsg, digits, recentSearches, rememberSearch, myRole, territoryFieldHtml, bindTerritoryField, schoolIdx, fmtNum } from "./core.js";
 import { renderToday } from "./today.js";
 import { renderExplore } from "./explore.js";
 import { renderAgenda } from "./agenda.js";
@@ -55,7 +56,7 @@ const show = id => { for (const x of ["boot", "login", "app"]) $(x).hidden = x !
 async function start() {
   try {
     const me = await api("/api/me");
-    Object.assign(S, { me: me.user, profile: me.profile, ai: me.ai, study: me.study, demo: me.demo, goal: me.goal, pdWeb: me.pdWeb, sessionMax: me.sessionMax || 300, countries: me.countries, markets: me.markets, outcomes: me.outcomes, lostReasons: me.lostReasons, archiveReasons: me.archiveReasons || [], types: me.types });
+    Object.assign(S, { me: me.user, profile: me.profile, ai: me.ai, study: me.study, demo: me.demo, goal: me.goal, pdWeb: me.pdWeb, sessionMax: me.sessionMax || 300, countries: me.countries, workCountries: me.workCountries || [], markets: me.markets, outcomes: me.outcomes, lostReasons: me.lostReasons, archiveReasons: me.archiveReasons || [], types: me.types });
     enterApp();
     // la primera vez: nombre completo y rol en el equipo (se usa en saludos, firmas y en Equipo)
     if (!me.profile?.complete) profileDialog({ required: true });
@@ -126,8 +127,9 @@ async function readBase() {
     // clientes de World Dominion: se piden junto con la base (el mapa y Hoy los usan)
     S.brainP ??= api("/api/brain").catch(() => ({ enabled: false }));
     S.brainP.then(b => { S.brain = b; brainBadge(); });
-    const [schools, team] = await Promise.all([api("/api/schools"), api("/api/team").catch(() => [])]);
-    setSchools(schools); S.team = team; S.baseError = null;
+    // la base por país (schoolbase.js): los países que trabajás y el resumen del resto; lo demás, a pedido
+    const [, team] = await Promise.all([loadInitial(), api("/api/team").catch(() => [])]);
+    S.team = team; S.baseError = null;
   } catch (e) { S.baseError = e.message; }
   route();
 }
@@ -322,12 +324,22 @@ function palPd() {
   PALS.run($("palIn").value, st => { PAL.pd = st; if (!sync && !$("palette").hidden) renderPalette({ keep: true }); });
   sync = false;
 }
+// Colegios de los países que no tenés cargados (base por país, schoolbase.js): con 3 letras o más, el servidor busca lo mismo en
+// el resto y van en su propia sección, debajo de los colegios cargados (llega rápido, antes que lo de Pipedrive).
+const PALO = { q: "", st: null, seq: 0 };
+function palOther() {
+  const t = $("palIn").value.trim(), my = ++PALO.seq;
+  if (t.length < 3 || pdLinkOf(t) || isMailQ(t)) { PALO.q = ""; PALO.st = null; return; }
+  PALO.q = t; PALO.st = { state: "loading" };
+  searchOther(t).then(r => { if (my !== PALO.seq) return; PALO.st = r ? { state: "ok", ...r } : null; if (r) keepFound(r.items); if (!$("palette").hidden) renderPalette({ keep: true }); })
+    .catch(e => { if (my !== PALO.seq) return; PALO.st = { state: "err", err: e.message }; if (!$("palette").hidden) renderPalette({ keep: true }); });
+}
 export function rememberSchool(id) { const r = [id, ...loadPref("recent", []).filter(x => x !== id)].slice(0, 6); save("recent", r); }
 function openPalette() {
   closeMenu();
   PAL.ret = document.activeElement;
   $("app").inert = true; document.querySelector(".skip").inert = true;
-  $("palette").hidden = false; $("palIn").value = ""; PALS.cancel(); PAL.pd = null; PAL.moved = false; renderPalette(); $("palIn").focus();
+  $("palette").hidden = false; $("palIn").value = ""; PALS.cancel(); PAL.pd = null; PAL.moved = false; PALO.seq++; PALO.q = ""; PALO.st = null; renderPalette(); $("palIn").focus();
 }
 function closePalette(picked = false) {
   $("palette").hidden = true; PALS.cancel();
@@ -349,7 +361,7 @@ function renderPalette({ keep = false } = {}) {
     // búsquedas recientes (las mismas que Prospectar): tocarla la vuelve a escribir acá
     const searches = recentSearches().slice(0, 5);
     if (searches.length) sections.push(["Búsquedas recientes", searches.map(x => ({ a: { label: x.t, sub: x.kind === "place" ? "Lugar" : "Búsqueda", ic: x.kind === "place" ? "map" : "search",
-      fn: () => { openPalette(); $("palIn").value = x.t; palPd(); renderPalette(); } } }))]);
+      fn: () => { openPalette(); $("palIn").value = x.t; palPd(); palOther(); renderPalette(); } } }))]);
     if (next.length) sections.push(["Siguientes en tu cola", next.map(s => ({ s }))]);
     sections.push(["Acciones", [{ a: { label: "Empezar sesión de llamadas", sub: "Los mejores prospectos de tu territorio, uno tras otro", ic: "play", fn: () => startSession() } },
       { a: { label: "Buscar colegios en una zona…", sub: "Un país, una provincia o una ciudad: los sumo al mapa", ic: "globe", fn: () => import("./scan.js").then(m => m.openScanDialog()) } },
@@ -379,6 +391,10 @@ function renderPalette({ keep = false } = {}) {
     ].filter(a => norm(a.label + " " + a.sub).includes(q));
     if (schools.length) sections.push(["Colegios", [...schools.map(s => ({ s })),
       ...(all.length > schools.length ? [{ a: { key: "a:schools", label: `Ver los ${fmtNum(all.length)} colegios en Prospectar`, sub: "Todos los de la base que coinciden", ic: "list", fn: () => toExplore(t) } }] : [])]]);
+    // de los países que no tenés cargados (lo trae el servidor)
+    const po = PALO.q === t ? PALO.st : null;
+    if (po?.state === "ok" && po.items.length) sections.push([`Colegios de otros países · ${fmtNum(po.total)}`, po.items.slice(0, 5).map(s => ({ s, other: true }))]);
+    else if (po?.state === "err") sections.push(["Colegios de otros países", [{ msg: `<div class="pal-msg muted">No pude buscar en los países que no tenés cargados.</div>` }]]);
     const place = t.length >= 3 && !isPhoneQ(raw) && !isMailQ(raw);
     if (place) sections.push(["En el mapa", [
       { a: { key: "a:locate", label: `Ubicar «${t}» en el mapa`, sub: "Ciudad, barrio o dirección, con los colegios de alrededor", ic: "nav", fn: () => import("./explore.js").then(m => { m.locateFromOutside(t); go("prospectar"); }) } },
@@ -435,7 +451,7 @@ function palMineAt() {
 }
 function setSel(i) { PAL.sel = i; $("palList").querySelectorAll("[data-i]").forEach(b => b.setAttribute("aria-selected", +b.dataset.i === i)); $("palList").querySelector(`[data-i="${i}"]`)?.scrollIntoView({ block: "nearest" }); }
 function pick(i) { const it = PAL.items[i]; if (!it) return; const typed = $("palIn").value.trim(); if (typed.length >= 2) rememberSearch(typed); closePalette(true); it.fn(); }
-$("palIn").addEventListener("input", () => { PAL.moved = false; palPd(); renderPalette(); });
+$("palIn").addEventListener("input", () => { PAL.moved = false; palPd(); palOther(); renderPalette(); });
 $("palIn").addEventListener("keydown", e => {
   if (e.key === "ArrowDown") { e.preventDefault(); PAL.moved = true; setSel(Math.min(PAL.sel + 1, PAL.items.length - 1)); }
   if (e.key === "ArrowUp") { e.preventDefault(); PAL.moved = true; setSel(Math.max(PAL.sel - 1, 0)); }

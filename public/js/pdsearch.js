@@ -3,6 +3,7 @@
 // organización o prospecto → el colegio de la base si su organización está cruzada, si no la ficha de Pipedrive; persona →
 // su ficha (teléfonos, emails, tratos, actividades, notas y el botón a la de su organización). Todo lo de Pipedrive se escapa.
 import { S, api, esc, norm, icon, modal, toast, localAct, shortDay, telLink, waLink, digits, statusPill, copy, ago, today, fmtNum } from "./core.js";
+import { ensureSchools } from "./schoolbase.js";
 import { openSchool, openRecord } from "./school.js";
 
 export const PD_MIN = 3;
@@ -162,7 +163,8 @@ export function bindPd(root, st, onRetry, redraw) {
 // ---------- abrir
 function openTo(to, url) {
   if (!to) { window.open(url, "_blank", "noopener"); return; }
-  if (to.kind === "school") return S.byId.has(to.id) ? openSchool(to.id) : openRecord(`org:${to.orgId}`);
+  // (un colegio de un país que no está cargado se trae solo; si el servidor no lo tiene, la organización)
+  if (to.kind === "school") return S.byId.has(to.id) ? openSchool(to.id) : ensureSchools([to.id]).catch(() => {}).then(() => S.byId.has(to.id) ? openSchool(to.id) : openRecord(`org:${to.orgId}`));
   if (to.kind === "record") return openRecord(to.ref);
   if (to.kind === "person") return openPerson(to.id);
 }

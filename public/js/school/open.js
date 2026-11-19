@@ -7,6 +7,7 @@ import { dealsSession, firstPending, flushPos, markSkip, myDeal, pendingOf, pref
 import { draw } from "./render.js";
 import { liveBase } from "./register.js";
 import { loadMyDeals, loadTimeline } from "./history.js";
+import { ensureSchools } from "../schoolbase.js";
 
 // ---------- abrir / cerrar
 // Abre la ficha de un prospecto (lead) o de una organización de Pipedrive que no está en la base ("lead:…" / "org:…").
@@ -69,8 +70,9 @@ const isRef = id => /^(lead|org|bx):/.test(id);
 // /api/schools/:id, que revisa Pipedrive y tarda; se pide apenas el mouse se queda sobre un colegio (200 ms), al apretar
 // (antes de soltar) y, en una sesión, el siguiente. Vale 45 s, una vez, y cualquier escritura (ob:wrote) lo descarta.
 const PF = new Map(), PF_MS = 45000;
+// (un colegio de un país que no está cargado también: el servidor lo conoce; los «lead:…», «org:…» y «bx:…» van por su lado)
 export function prefetchSchool(id) {
-  if (!id || !S.byId.has(id) || D.id === id) return;
+  if (!id || String(id).includes(":") || D.id === id) return;
   const hit = PF.get(id); if (hit && Date.now() - hit.at < PF_MS) return;
   PF.set(id, { at: Date.now(), p: api(`/api/schools/${encodeURIComponent(id)}`).catch(() => null) });
   if (PF.size > 12) PF.delete(PF.keys().next().value);
@@ -92,12 +94,13 @@ export function prefetchFirst(root, n = 3) {
 }
 function takePrefetch(id) { const hit = PF.get(id); PF.delete(id); return hit && Date.now() - hit.at < PF_MS ? hit.p : null; }
 addEventListener("ob:wrote", () => { PF.clear(); PFR.clear(); });
-const pfId = el => { const r = el?.closest?.("[data-school], [data-id], [data-record]"); if (!r) return null; if (r.dataset.record) return r.dataset.record; const id = r.dataset.school || r.dataset.id; return id && S.byId.has(id) ? id : null; };
+const pfId = el => { const r = el?.closest?.("[data-school], [data-id], [data-record]"); if (!r) return null; if (r.dataset.record) return r.dataset.record; const id = r.dataset.school || r.dataset.id; return id && (S.byId.has(id) || r.dataset.school) ? id : null; };
 const pfGo = id => id && (/^(lead|org):/.test(id) ? prefetchRecord(id) : prefetchSchool(id));
 let pfT = 0;
 document.addEventListener("pointerover", e => { const id = pfId(e.target); clearTimeout(pfT); if (id) pfT = setTimeout(() => pfGo(id), 200); }, { passive: true });
 document.addEventListener("pointerdown", e => pfGo(pfId(e.target)), { passive: true, capture: true });
 document.addEventListener("focusin", e => pfGo(pfId(e.target)));
+const TRIED = new WeakMap(); // sesión → colegios sueltos ya pedidos al servidor (si no vinieron, se saltean)
 export function openAt(ss, i, { stay = false } = {}) {
   ss.i = i; savePos(ss); const r = ss.ids[i];
   // el que sigue en la sesión ya se va pidiendo mientras trabajás este
@@ -105,18 +108,29 @@ export function openAt(ss, i, { stay = false } = {}) {
   // sesión «Tus tratos»: un trato sin organización (ni su persona tiene) no tiene ficha: se saltea con el motivo
   if (/^deal:\d+$/.test(r)) { toast(`${ss.items[i]?.name || "Un trato"} no tiene organización en Pipedrive, lo salteé`, { type: "info", href: `${S.pdWeb}/deal/${r.slice(5)}`, action: "Abrir en Pipedrive" }); markSkip(ss, r, "missing", "el trato no tiene organización en Pipedrive"); return sessionGo(1); }
   if (isRef(r) || S.byId.has(r)) return (isRef(r) ? openRecord : openSchool)(r, { keepSession: true, sref: r, activityId: ss.acts[r] || null, tab: "prep", noSkip: stay });
-  if (!S.schools.length && !S.baseError && S.baseP) {
+  if (!S.baseReady && !S.baseError && S.baseP) {
     toast("Cargando colegios…", { type: "info" });
     return S.baseP.then(() => { if (S.session === ss && ss.i === i) openAt(ss, i, { stay }); });
   }
-  if (!S.schools.length) { if (!drawerOpen()) S.session = null; return toast(`No pude cargar los colegios${S.baseError ? `: ${S.baseError}` : ""}. Probá de nuevo en un rato.`, { type: "err" }); }
+  if (!S.baseReady && S.baseError) { if (!drawerOpen()) S.session = null; return toast(`No pude cargar los colegios: ${S.baseError}. Probá de nuevo en un rato.`, { type: "err" }); }
+  // un colegio de un país que no está cargado: se trae solo ese (la base por país, schoolbase.js); si el servidor no lo
+  // conoce, ya no está en la base
+  const tried = TRIED.get(ss) || TRIED.set(ss, new Set()).get(ss);
+  if (!tried.has(r)) {
+    tried.add(r);
+    return ensureSchools([r]).catch(() => {}).then(() => { if (S.session === ss && ss.i === i) openAt(ss, i, { stay }); });
+  }
   toast(`${ss.items[i]?.name || "Un colegio de la sesión"} ya no está en la base, lo salteé`, { type: "info" });
   markSkip(ss, r, "missing", "ya no está en la base");
   return sessionGo(1);
 }
 // cbOpen: «Ver historial» de Tus inbound: abre en Historial con el resumen compacto y lleva la vista a la línea de tiempo.
-export async function openSchool(id, { activityId = null, tab = null, keepSession = false, sref = null, cbOpen = false, noSkip = false, deals = false } = {}) {
-  if (!S.byId.has(id)) return toast("Colegio inexistente", { type: "err" });
+export async function openSchool(id, opts = {}) {
+  // de un país que no está cargado: se trae ese colegio y se abre (el país no se baja entero)
+  if (!S.byId.has(id)) { await ensureSchools([id]).catch(() => {}); if (!S.byId.has(id)) return toast("Colegio inexistente", { type: "err" }); }
+  return openLoaded(id, opts);
+}
+function openLoaded(id, { activityId = null, tab = null, keepSession = false, sref = null, cbOpen = false, noSkip = false, deals = false } = {}) {
   if (!keepSession) S.session = null;
   if ($("drawer").hidden) { D.opener = document.activeElement; history.pushState({ ...(history.state || {}), drawer: id }, ""); }
   import("../app.js").then(m => m.rememberSchool(id));

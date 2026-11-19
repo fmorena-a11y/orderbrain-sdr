@@ -4,7 +4,8 @@
 // y alguien sin equipo, lo suyo. Sincronizar y World Dominion son de toda la cuenta: los ve quien ve todo.
 // Subpestañas (Demos · Actividad · Equipos · Accesos · Base y clientes): cada uno ve solo las que le tocan (las mismas reglas de
 // siempre); la elegida va en el hash (#/equipo/accesos) y se recuerda en este navegador («team.tab»). Con una sola, no hay pestañas.
-import { S, api, esc, icon, ago, copy, toast, pill, setSchools, ST, DEMO_RES, shortDay, modal, leadsOver, teamSelect, teamQuery, setTeamView, norm, fmtNum, emptyState, openMenu, loadPref, save, today } from "./core.js";
+import { reloadSchools } from "./schoolbase.js";
+import { S, api, esc, icon, ago, copy, toast, pill, ST, DEMO_RES, shortDay, modal, leadsOver, teamSelect, teamQuery, setTeamView, norm, fmtNum, emptyState, openMenu, loadPref, save, today } from "./core.js";
 import { periodHtml, bindPeriod, pickPeriod, storedPeriod, demosAccepts, demosParam, normPeriod } from "./period.js";
 import { openSchool, openRecord } from "./school.js";
 import { demoResultMenu } from "./today.js";
@@ -363,7 +364,7 @@ async function runSync(full) {
   syncing = false; pausing = false; starting = false; drawSync();
   if (done) {
     toast("Listo: la base quedó cruzada con Pipedrive");
-    try { setSchools(await api("/api/schools")); } catch {} // la lista y el mapa con los estados nuevos
+    try { await reloadSchools(); } catch {} // la lista y el mapa con los estados nuevos (los países cargados)
   }
 }
 // World Dominion (solo líderes): de cuándo son los clientes, cómo anduvo la última lectura y el token de brain.ordereat.com.
@@ -436,7 +437,7 @@ async function saveWd() {
     toast(`Listo: token guardado. ${fmt(wd.sites)} sitios de World Dominion.`);
     // el mapa, Hoy y la lista con los clientes nuevos
     S.brainP = api("/api/brain").catch(() => ({ enabled: false })); S.brainP.then(b => { S.brain = b; brainBadge(); });
-    try { setSchools(await api("/api/schools")); } catch {}
+    try { await reloadSchools(); } catch {}
   } catch (e) {
     wdBusy = false;
     const b = host.querySelector("#wdBox"); if (!b) return;

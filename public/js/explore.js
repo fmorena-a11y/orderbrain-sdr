@@ -5,6 +5,8 @@ import { save as saveFile } from "./chat.js";
 import { openSchool, startSession } from "./school.js";
 import { baseErrorCallout } from "./app.js";
 import { pdSearcher, pdSectionHtml, bindPd, pdNamed, mineBest, openPd, isPhoneQ, isMailQ, PD_MIN, pdLinkOf, isPdLink, openPdLink } from "./pdsearch.js";
+import { ensureCountries, ensureCountry, toLoad, loadingCountry, loadError, allLoaded, searchOther, keepFound, cityList } from "./schoolbase.js";
+import { aggCities, summaryCities, sortCities, countOf } from "./schoolsum.js";
 
 const E = S.explore;
 // «Para llamar»: todo lo que no es cliente ni está en proceso (incluye los que todavía no se cruzaron con Pipe).
@@ -93,14 +95,22 @@ const callable = () => visible().filter(s => canCall(s) && s.phone);
 const callStats = () => memo("stats", selKey(), () => { let tel = 0, noTel = 0; for (const s of filtered()) if (canCall(s)) s.phone ? tel++ : noTel++; return { tel, noTel }; }, E.place);
 // vista mundial: sin país, ciudad, lugar ni búsqueda (ahí no se arma una sesión: primero se elige dónde)
 const worldView = () => !E.country && !E.city && !E.place && !E.q.trim();
+// La base por país (schoolbase.js): lo que se mira tiene que estar cargado (el país elegido, el de la ciudad o los del lugar
+// ubicado). Mientras no llega, la lista dice «Cargando…» y no se cuenta nada (nunca un 0 de lo que no se bajó).
+const needLoad = () => toLoad([E.country, ...(E.place ? (E.place.kind === "continent" ? E.place.countries || [] : [E.place.country]) : [])]);
+// buscar sin país: lo que coincide en los países que no tenés cargados lo trae el servidor (solo para ver y abrir)
+const partialSearch = () => !!E.q.trim() && !E.country && !E.place && !allLoaded();
 const placeName = p => p.kind === "spot" && !p.geo ? p.label.split(",")[0] : p.name || p.label.split(",")[0];
-function citiesOf(list) {
-  const m = new Map();
-  list.forEach(s => { const k = s.country + "|" + s.city; if (!m.has(k)) m.set(k, { country: s.country, city: s.city, items: [] }); m.get(k).items.push(s); });
-  return [...m.values()].sort((a, b) => a.country.localeCompare(b.country) || b.items.length - a.items.length);
-}
-// la selección agrupada por ciudad (vista general, o un país o provincia ubicados): la usan la lista y el mapa
-const cityGroups = () => memo("cities", `${E.country}|${E.city}`, () => citiesOf(placeMode() ? placeList() : scope()), E.place);
+// La selección agrupada por ciudad (vista general, o un país o provincia ubicados): la usan la lista y el mapa. Cada ciudad:
+// { country, city, n, lat, lng, unk, pros (para llamar), prosMap (burbuja del mapa), k: { marca: cuántos } } (schoolsum.js).
+// En la vista mundial, los países cargados salen de lo cargado y el resto del resumen del servidor.
+const cityGroups = () => memo("cities", `${E.country}|${E.city}|${S.me?.pdUserId || ""}`, () => {
+  const me = S.me?.pdUserId || null;
+  if (placeMode() || E.country) return aggCities(placeMode() ? placeList() : scope(), me);
+  return sortCities([...aggCities(S.schools, me), ...summaryCities(S.summary, { me, skip: S.loaded })]);
+}, E.place);
+// color de una marca de la barrita de la ciudad («ph-activo» o el estado)
+const markColor = k => (k.startsWith("ph-") ? PH[k.slice(3)] : ST[k] || ST.unk).c;
 const fmt = n => fmtNum(n);
 const km = d => d < 1 ? `${Math.round(d * 1000)} m` : `${fmtNum(d, { dec: 1 })} km`;
 
@@ -165,10 +175,10 @@ export function renderExplore(el) {
     const f = norm(t), sf = ` ${f}`, words = f.split(" "), sw = words.map(w => ` ${w}`);
     // Los 8 colegios que van (el nombre empieza con lo escrito, del país elegido, el nombre más corto) se eligen en la misma
     // pasada, sin ordenar los miles que coinciden.
-    const cities = new Map(), top = [], before = (a, b) => (b.st - a.st) || (b.co - a.co) || (a.len - b.len);
+    // las ciudades, de toda la base (cityList: lo cargado y, del resto, el resumen); los colegios, de lo cargado
+    const cities = cityList().filter(c => c.c && (c.c.startsWith(f) || c.c.includes(sf))), top = [], before = (a, b) => (b.st - a.st) || (b.co - a.co) || (a.len - b.len);
     for (const sc of S.schools) {
       const x = schoolIdx(sc), n = x.n;
-      if (x.c && (x.c.startsWith(f) || x.c.includes(sf))) { const k = `${sc.country}|${sc.city}`; const c = cities.get(k) || cities.set(k, { city: sc.city, country: sc.country, n: 0, c: x.c }).get(k); c.n++; }
       if (!(words.every((w, i) => n.startsWith(w) || n.includes(sw[i])) || n.includes(f))) continue;
       const e = { sc, st: n.startsWith(f) ? 1 : 0, co: sc.country === E.country ? 1 : 0, len: sc.name.length };
       if (top.length === 8 && before(e, top[7]) >= 0) continue;
@@ -177,7 +187,7 @@ export function renderExplore(el) {
     }
     const schools = top.map(e => e.sc);
     // primero la ciudad que coincide con lo escrito («Puebla» = «Puebla de Zaragoza»): es la que queda marcada para Enter
-    return { cities: [...cities.values()].sort((a, b) => (cityHit(b.c, f) - cityHit(a.c, f)) || (b.c.startsWith(f) - a.c.startsWith(f)) || ((b.country === E.country) - (a.country === E.country)) || b.n - a.n).slice(0, 4), schools };
+    return { cities: [...cities].sort((a, b) => (cityHit(b.c, f) - cityHit(a.c, f)) || (b.c.startsWith(f) - a.c.startsWith(f)) || ((b.country === E.country) - (a.country === E.country)) || b.n - a.n).slice(0, 4), schools };
   }
   function sugFetch(t) {
     clearTimeout(SUG.t); const my = ++SUG.seq;
@@ -262,12 +272,13 @@ export function renderExplore(el) {
     if (isPhoneQ(t) || isMailQ(t)) return;
     if (looksLikePlace(t)) return locate(t, { city: baseCity(t) });
     const list = searchList(), st = await PDS.done; // lo que encontró Pipedrive con lo escrito (espera si todavía está buscando)
+    const oth = partialSearch() ? await E.otherP?.catch(() => null) : null; // y lo de los países que no tenés cargados
     if (E.q !== t || E.place) return;
     // lo TUYO de Pipedrive primero (pedido del líder: «que Enter vaya a lo mío de Pipedrive»): si ningún colegio de la lista
     // es tuyo y en Pipedrive hay algo tuyo que se llama así (mineBest: el prospecto primero), Enter lo abre
     const mine = !list.some(s => mineId(s.ownerId)) && mineBest(st?.data, t, mineId);
     if (mine) return openPd(mine);
-    if (list.length || pdNamed(st?.data, t)) return;
+    if (list.length || oth?.items?.length || pdNamed(st?.data, t)) return;
     locate(t);
   };
   el.querySelector("#locate").onclick = () => locate(q.value, { city: baseCity(q.value) });
@@ -297,6 +308,33 @@ function pdQuery() {
   PDS.run(E.q, st => { E.pd = st; drawPd(); });
 }
 const pdRetry = () => { PDS.cancel(); pdQuery(); };
+// ---------- buscar en los países que no tenés cargados (base por país): con una búsqueda sin país elegido, el servidor busca lo
+// mismo en el resto (hasta 50, GET /api/schools/search) y va abajo de lo cargado. Abrir uno trae solo ese colegio.
+let otherSeq = 0;
+function otherQuery() {
+  const t = E.q.trim();
+  if (!partialSearch() || t.length < 3 || isPdLink(t) || isMailQ(t)) { if (E.other) { otherSeq++; E.other = null; E.otherP = null; } return; }
+  if (E.other?.q === t && E.other.state !== "err") return;
+  const my = ++otherSeq; E.other = { q: t, state: "loading", items: [], total: 0 };
+  E.otherP = searchOther(t).then(r => {
+    if (my !== otherSeq) return null;
+    E.other = r ? { ...r, state: "ok" } : null; if (r) keepFound(r.items);
+    if (host?.isConnected) drawList();
+    return E.other;
+  }).catch(e => {
+    if (my !== otherSeq) return null;
+    E.other = { q: t, state: "err", err: e.message, items: [], total: 0 }; if (host?.isConnected) drawList();
+    return null;
+  });
+}
+function otherHtml() {
+  const o = E.other; if (!o || !partialSearch() || o.q !== E.q.trim()) return "";
+  if (o.state === "loading") return `<div class="list-h"><span>En los otros países</span><span class="spin" aria-label="Buscando"></span></div>`;
+  if (o.state === "err") return `<div class="callout warn" style="margin:8px 6px">${icon("alert")}<span>No pude buscar en los países que no tenés cargados: ${esc(o.err)}. <button class="linkbtn" id="othRetry">Reintentar</button></span></div>`;
+  if (!o.items.length) return "";
+  return `<div class="list-h"><span>${fmt(o.total)} en países que no tenés cargados</span></div>` + o.items.map(s => schoolRow(s, { country: true })).join("")
+    + (o.total > o.items.length ? `<p class="faint" style="margin:6px 10px 12px">Van los primeros ${fmt(o.items.length)}. Elegí el país arriba para ver todos.</p>` : "");
+}
 const pdJumpLabel = () => { const st = E.pd, d = st?.state === "ok" ? st.data : null; return `En Pipedrive${d ? `: ${fmt(d.total ?? 0)}${d.more ? "+" : ""}` : st?.state === "loading" ? "…" : ""}`; };
 function drawPd() {
   const box = host?.isConnected && host.querySelector("#pdBox"); if (!box) return;
@@ -323,6 +361,10 @@ let drawT = 0, mapT = 0;
 function drawAll({ fit = true, lazyMap = false } = {}) {
   clearTimeout(drawT); clearTimeout(mapT); drawT = mapT = 0;
   host.querySelector(".explore")?.classList.toggle("focused", !!(E.city || E.q || E.place));
+  // lo que falta cargar se pide (al llegar, «ob:schools» vuelve a dibujar) y, buscando sin país, los otros países
+  // (uno que falló no se vuelve a pedir solo: «Reintentar»)
+  const miss = needLoad().filter(c => !loadError(c)); if (miss.length && S.baseReady) ensureCountries(miss).catch(() => {});
+  otherQuery();
   drawCountries(); drawPlace(); drawCrumb(); drawFilters(); drawList(); drawFoot();
   if (!lazyMap) return drawMap({ fit });
   const n = filtered().length; // con miles de marcas el mapa tarda: se espera más a que termines de escribir
@@ -345,7 +387,8 @@ const ADDRESS_RE = /^\s*(calle|c\.|av\.?|avda\.?|avenida|blvd\.?|blvrd\.?|boulev
 function looksLikePlace(text) {
   const t = norm(text); if (!t) return false;
   if (/,/.test(text) || ADDRESS_RE.test(text)) return true;
-  CITY_SET ||= new Set(S.schools.map(x => norm(x.city)).filter(Boolean));
+  // las ciudades de toda la base (las de los países no cargados, del resumen)
+  const cl = cityList(); if (!CITY_SET || CITY_SET.src !== cl) { CITY_SET = new Set(cl.map(x => x.c)); CITY_SET.src = cl; }
   return S.countries.some(c => norm(c) === t) || CITY_SET.has(t) || [...CITY_SET].some(c => c.startsWith(t + " de "));
 }
 // «México, Puebla» → busca «Puebla» en México (el país se usa para elegir, no como parte del nombre)
@@ -362,12 +405,9 @@ const cityHit = (c, f) => f.length >= 3 && (c === f || c.startsWith(f + " de "))
 // que más colegios tiene. null si ninguna.
 function baseCity(text) {
   const sc = splitCountry(text), f = norm(sc.q); if (f.length < 3) return null;
-  const m = new Map();
-  for (const s of S.schools) {
-    const c = schoolIdx(s).c; if (!cityHit(c, f) || (sc.cc && S.markets[s.country]?.code !== sc.cc)) continue;
-    const k = `${s.country}|${s.city}`, x = m.get(k) || m.set(k, { city: s.city, country: s.country, n: 0 }).get(k); x.n++;
-  }
-  return [...m.values()].sort((a, b) => ((b.country === E.country) - (a.country === E.country)) || b.n - a.n)[0] || null;
+  // de toda la base (las de los países no cargados, del resumen: openCity los carga)
+  const m = cityList().filter(x => cityHit(x.c, f) && (!sc.cc || S.markets[x.country]?.code === sc.cc)).map(x => ({ city: x.city, country: x.country, n: x.n }));
+  return m.sort((a, b) => ((b.country === E.country) - (a.country === E.country)) || b.n - a.n)[0] || null;
 }
 let locSeq = 0;
 let histT = null;
@@ -391,8 +431,9 @@ async function locate(text, { osm, city } = {}) {
     drawAll(); toTop();
   } catch (e) {
     if (seq !== locSeq) return;
-    if (city && S.schools.some(s => s.country === city.country && s.city === city.city)) {
-      const n = S.schools.filter(s => s.country === city.country && s.city === city.city).length;
+    const cn = city && cityList().find(x => x.country === city.country && x.city === city.city)?.n;
+    if (cn) {
+      const n = cn;
       box.innerHTML = ""; openCity(city.country, city.city);
       toast(`No pude traer el contorno de ${city.city}: te muestro ${n === 1 ? "el colegio" : `los ${fmt(n)} colegios`} que la base tiene ahí.`, { type: "info" });
       return;
@@ -406,23 +447,33 @@ async function locate(text, { osm, city } = {}) {
 function drawPlace() {
   const box = host.querySelector("#placeBox"), p = E.place;
   if (!p) { box.innerHTML = ""; return; }
-  const n = placeList().length;
+  const n = placeList().length, wait = needLoad().length;
   const where = p.kind === "continent" ? `en ${fmt((p.countries || []).length)} país${(p.countries || []).length === 1 ? "" : "es"}` : p.geo ? `en ${esc(placeName(p))}` : `a menos de ${fmtNum(p.radius || 3, { dec: Number.isInteger(p.radius || 3) ? 0 : 1 })} km`;
   // found: qué encontró la búsqueda de una dirección (el número, la calle, la colonia, el código postal o la ciudad)
   const col = p.cc === "MX" ? "Colonia" : "Barrio";
   const kind = { house: "Dirección", near: "Dirección aproximada", corner: "Cruce de calles", street: "Calle", colonia: col, postcode: "Código postal", city: "Ciudad", region: "Provincia o estado" }[p.found]
     || { continent: "Región del mundo", country: "País", region: "Provincia o estado", city: "Ciudad", spot: p.geo || /suburb|neighbourhood|quarter|city_district|borough/.test(p.type || "") ? "Barrio" : /road|street|highway/.test(p.type || "") ? "Calle" : "Dirección" }[p.kind] || "";
-  box.innerHTML = `<div class="place-card"><span class="pin">${icon("nav", "sm")}</span><div class="t"><b title="${esc(p.label)}">${esc(p.label)}</b><small>${kind ? `${kind} · ` : ""}${fmt(n)} colegio${n === 1 ? "" : "s"} ${where}</small></div>
-    <button class="btn sm" id="pScan" title="Buscar colegios privados nuevos en esta zona y verificarlos">${icon("refresh", "sm")} ${n ? "Buscar más" : "Buscar colegios"}</button><button class="icon-btn" id="pX" aria-label="Quitar ubicación">${icon("x")}</button>
+  box.innerHTML = `<div class="place-card"><span class="pin">${icon("nav", "sm")}</span><div class="t"><b title="${esc(p.label)}">${esc(p.label)}</b><small>${kind ? `${kind} · ` : ""}${wait ? "cargando colegios…" : `${fmt(n)} colegio${n === 1 ? "" : "s"} ${where}`}</small></div>
+    <button class="btn sm" id="pScan" title="Buscar colegios privados nuevos en esta zona y verificarlos">${icon("refresh", "sm")} ${n || wait ? "Buscar más" : "Buscar colegios"}</button><button class="icon-btn" id="pX" aria-label="Quitar ubicación">${icon("x")}</button>
     ${p.note ? `<p class="place-note">${esc(p.note)}</p>` : ""}</div>
     ${p.alts?.length ? `<div class="place-alts"><span class="faint">¿Buscabas otro?</span>${p.alts.map(a => `<button class="chip sm" data-osm="${esc(a.osm)}">${esc(a.label)}</button>`).join("")}</div>` : ""}`;
   box.querySelector("#pX").onclick = () => { E.place = null; locSeq++; drawAll(); };
   box.querySelector("#pScan").onclick = () => import("./scan.js").then(m => m.scanPlace(p));
   box.querySelectorAll("[data-osm]").forEach(b => b.onclick = () => locate(b.textContent, { osm: b.dataset.osm }));
 }
+// Chips de país con cuántos colegios tiene cada uno: de lo cargado o, si el país no está cargado, del resumen del servidor
+// (tocarlo lo carga). Sin resumen y sin cargar, sin número (no se sabe).
+const localCounts = () => memo("ccount", "", () => { const m = new Map(); for (const s of S.schools) m.set(s.country, (m.get(s.country) || 0) + 1); return m; });
+function countryCount(c) {
+  if (!c) return S.summary?.total ?? (allLoaded() ? S.schools.length : null);
+  return S.loaded.has(c) ? localCounts().get(c) || 0 : countOf(S.summary, c);
+}
 function drawCountries() {
   const c = host.querySelector("#countries");
-  c.innerHTML = [["", "Todos"], ...S.countries.map(x => [x, x])].map(([k, l]) => `<button class="chip" data-c="${esc(k)}" aria-pressed="${(E.country || "") === k}">${esc(l)}</button>`).join("");
+  c.innerHTML = [["", "Todos"], ...S.countries.map(x => [x, x])].map(([k, l]) => {
+    const n = countryCount(k), wait = k && loadingCountry(k);
+    return `<button class="chip" data-c="${esc(k)}" aria-pressed="${(E.country || "") === k}"${k && !S.loaded.has(k) ? ` title="Todavía no está cargado: tocalo y lo traigo"` : ""}>${esc(l)}${wait ? ` <span class="spin" aria-label="Cargando"></span>` : n != null ? ` <b>${fmt(n)}</b>` : ""}</button>`;
+  }).join("");
   c.querySelectorAll("button").forEach(b => b.onclick = () => { E.country = b.dataset.c || null; E.city = null; E.place = null; locSeq++; shown = PAGE; drawAll(); toTop(); });
 }
 function drawCrumb() {
@@ -469,7 +520,7 @@ function schoolRow(s, same = {}) {
   // el subtítulo dice lo que la pastilla no: ciudad, último contacto o motivo de pérdida, intentos, teléfono
   const bits = [];
   if (placeMode() && s._d != null) bits.push(km(s._d));
-  if (!E.city) bits.push(s.city);
+  if (!E.city) bits.push(same.country ? [s.city, s.country].filter(Boolean).join(", ") : s.city);
   if (s.lastTouch) bits.push(`${s.lastTouch.outcome} ${ago(s.lastTouch.at)}`);
   else if (s.ob?.churn) bits.push(/activo|^churn$/i.test(s.ob.label) ? "ex cliente OrderEAT" : "firmó y no arrancó");
   else if (s.status === "lost" && s.detail) bits.push(s.detail.replace(/^Perdido \d{4}-\d{2}-\d{2}( · )?/, "") || "Perdido");
@@ -486,18 +537,29 @@ function checkCallout(list) {
 }
 function drawList() {
   const L = host.querySelector("#list");
-  if (!S.schools.length) {
+  if (!S.baseReady) {
     L.innerHTML = S.baseError ? `<div style="padding:12px 6px">${baseErrorCallout()}</div>` : '<div class="skel" style="margin:16px 10px"></div>'.repeat(6);
     return;
   }
+  // lo que se mira es de un país que todavía no está cargado: se está trayendo (o falló, con «Reintentar»)
+  const miss = needLoad();
+  if (miss.length) {
+    const err = miss.map(loadError).find(Boolean), names = miss.join(", ");
+    L.innerHTML = err && !miss.some(loadingCountry)
+      ? `<div style="padding:12px 6px"><div class="callout err">${icon("alert")}<span>No pude cargar los colegios de ${esc(names)}: ${esc(err)}. <button class="linkbtn" id="ldRetry">Reintentar</button></span></div></div>`
+      : `<p class="muted place-msg" style="padding:12px 10px"><span class="spin"></span> Cargando los colegios de ${esc(names)}…</p>` + '<div class="skel" style="margin:16px 10px"></div>'.repeat(4);
+    L.querySelector("#ldRetry")?.addEventListener("click", () => { ensureCountries(miss).catch(() => {}); drawList(); });
+    return;
+  }
   if ((!E.city && !E.q && !placeMode()) || placeGrouped()) {
-    const list = placeMode() ? placeList() : scope(), cs = cityGroups();
-    L.innerHTML = noticeTab(brainWarn() + checkCallout(list)) + `<div class="list-h"><span>${fmt(cs.length)} ciudad${cs.length === 1 ? "" : "es"} · ${fmt(list.length)} colegio${list.length === 1 ? "" : "s"}</span></div>` + cs.map(c => {
+    const list = placeMode() || E.country ? (placeMode() ? placeList() : scope()) : null, cs = cityGroups();
+    const total = list ? list.length : cs.reduce((a, c) => a + c.n, 0);
+    // vista mundial sin el resumen del servidor y con países sin cargar: solo se ve lo cargado (y se dice)
+    const partial = !list && !S.summary && !allLoaded() ? ` <small class="faint">· solo los países cargados</small>` : "";
+    L.innerHTML = noticeTab(brainWarn() + (list ? checkCallout(list) : "")) + `<div class="list-h"><span>${fmt(cs.length)} ciudad${cs.length === 1 ? "" : "es"} · ${fmt(total)} colegio${total === 1 ? "" : "s"}${partial}</span></div>` + cs.map(c => {
       // la barrita usa los mismos colores que el mapa (la fase manda sobre el estado), en el orden de las referencias
-      const n = c.items.length, k = {}; c.items.forEach(s => { const m = markOf(s); (k[m.k] ||= { m, n: 0 }).n++; });
-      const pros = c.items.filter(canCall).length;
-      const allUnk = k.unk?.n === n;
-      return `<button class="city-row" data-city="${esc(c.city)}" data-country="${esc(c.country)}"><span class="t"><b>${esc(c.city)}</b><small>${E.country || placeMode() ? "" : esc(c.country) + " · "}${fmt(n)} colegios · ${fmt(pros)} para llamar</small>${allUnk ? "" : `<span class="bar" aria-hidden="true">${LEG.map(x => k[x] ? `<span data-st="${x}" style="width:${k[x].n / n * 100}%;background:var(${k[x].m.c})"></span>` : "").join("")}</span>`}</span>${allUnk ? `<span class="tag">Sin revisar</span>` : icon("arrowRight", "faint")}</button>`;
+      const n = c.n, k = c.k, allUnk = (k.unk || 0) === n;
+      return `<button class="city-row" data-city="${esc(c.city)}" data-country="${esc(c.country)}"><span class="t"><b>${esc(c.city)}</b><small>${E.country || placeMode() ? "" : esc(c.country) + " · "}${fmt(n)} colegios · ${fmt(c.pros)} para llamar</small>${allUnk ? "" : `<span class="bar" aria-hidden="true">${LEG.map(x => k[x] ? `<span data-st="${x}" style="width:${k[x] / n * 100}%;background:var(${markColor(x)})"></span>` : "").join("")}</span>`}</span>${allUnk ? `<span class="tag">Sin revisar</span>` : icon("arrowRight", "faint")}</button>`;
     }).join("");
     L.querySelectorAll("[data-city]").forEach(b => b.onclick = () => openCity(b.dataset.country, b.dataset.city));
     bindCheck(); return;
@@ -519,8 +581,12 @@ function drawList() {
     // «del mapa»: son los colegios de la app; lo que hay en Pipedrive va abajo (no quiere decir que no exista)
     ? `<div class="empty${pdOn() ? " compact" : ""}">${icon("search")}<span>Ningún colegio del mapa coincide con «${esc(E.q)}»${E.country ? ` en ${esc(E.country)}` : ""}.${pdOn() ? " Abajo, lo que hay en Pipedrive." : ""}</span>${isPhoneQ(E.q) || isMailQ(E.q) ? "" : `<button class="btn ${pdOn() ? "" : "primary "}sm" id="loc">${icon("nav", "sm")} Ubicar «${esc(E.q)}» en el mapa</button>`}${E.country ? `<button class="btn sm" id="allC">Buscar en todos los países</button>` : ""}</div>`
     : `<div class="empty">${icon("list")}<span>Nada con este filtro.</span><button class="btn sm" id="fAll">Ver todos</button></div>`;
-  L.innerHTML = noticeTab(brainWarn() + checkCallout(bl)) + `<div class="list-h"><span>${fmt(a.length)} colegio${a.length === 1 ? "" : "s"}${E.q && pdOn() ? " del mapa" : ""}${sameSt}</span>${sameCw}${E.q && pdOn() && a.length > 3 ? `<button class="btn ghost sm pd-jump" id="pdJump">${pdJumpLabel()} ${icon("chevDown", "sm")}</button>` : ""}</div>`
-    + (a.length ? a.slice(0, shown).map(s => schoolRow(s, same)).join("") + (a.length > shown ? `<button class="btn ghost sm block" id="moreS">Ver ${fmt(Math.min(PAGE, a.length - shown))} más</button>` : "") : empty)
+  // buscando sin país con países sin cargar: lo de arriba es de los cargados y, abajo, lo que el servidor encontró en el resto
+  const part = partialSearch(), oth = otherHtml(), othN = part && E.other?.q === E.q.trim() ? E.other.items?.length || 0 : 0;
+  const emptyNow = othN && !bl.length ? `<div class="empty compact">${icon("search")}<span>Ninguno en los países que tenés cargados. Abajo, los de los otros países.</span></div>` : empty;
+  L.innerHTML = noticeTab(brainWarn() + checkCallout(bl)) + `<div class="list-h"><span>${fmt(a.length)} colegio${a.length === 1 ? "" : "s"}${part ? " de los países cargados" : E.q && pdOn() ? " del mapa" : ""}${sameSt}</span>${sameCw}${E.q && pdOn() && a.length > 3 ? `<button class="btn ghost sm pd-jump" id="pdJump">${pdJumpLabel()} ${icon("chevDown", "sm")}</button>` : ""}</div>`
+    + (a.length ? a.slice(0, shown).map(s => schoolRow(s, same)).join("") + (a.length > shown ? `<button class="btn ghost sm block" id="moreS">Ver ${fmt(Math.min(PAGE, a.length - shown))} más</button>` : "") : emptyNow)
+    + oth
     + (E.q && !placeMode() && !isPdLink(E.q) ? `<div id="pdBox" class="pd-box">${pdSectionHtml(E.pd)}</div>` : "");
   if (E.q && !placeMode() && !isPdLink(E.q)) bindPd(L.querySelector("#pdBox"), E.pd, pdRetry, drawPd);
   // con muchos colegios, lo de Pipedrive queda abajo: este botón lleva hasta ahí
@@ -534,15 +600,20 @@ function drawList() {
   L.querySelector("#moreS")?.addEventListener("click", () => { shown += PAGE; drawList(); });
   // abrir un resultado de lo que escribiste también lo guarda en el historial de búsquedas
   L.querySelectorAll(".school-row[data-id]").forEach(b => b.onclick = () => { if (E.q.trim().length >= 2) rememberSearch(E.q); openSchool(b.dataset.id); });
+  L.querySelector("#othRetry")?.addEventListener("click", () => { E.other = null; otherQuery(); drawList(); });
   bindCheck();
 }
 function bindCheck() { host.querySelector("#check")?.addEventListener("click", checkScope); }
 function drawFoot() {
   const b = host.querySelector("#sess"), max = S.sessionMax || 300;
-  host.querySelector("#csv").disabled = !S.schools.length;
+  const waiting = !S.baseReady || needLoad().length;
+  // el CSV es de lo que ves: en la vista mundial, solo si están todos los países cargados (si no, sería una parte sin decirlo)
+  const csvB = host.querySelector("#csv"), csvOff = !!waiting || (worldView() && !allLoaded());
+  csvB.disabled = csvOff; csvB.title = csvOff && !waiting ? "Elegí un país o un lugar para descargar el CSV" : "Descargar CSV de lo que ves";
+  if (waiting) { b.innerHTML = `${icon("play")} <span class="sess-main">Cargando colegios…</span>`; b.disabled = true; b.title = ""; return; }
   // vista mundial (sin país, ciudad, lugar ni búsqueda): «Llamar a los primeros 300» de 22.000 no dice nada. Se pide elegir
   // dónde; con una selección, la sesión se arma como siempre.
-  if (S.schools.length && worldView()) {
+  if (worldView()) {
     b.innerHTML = `${icon("nav")} <span class="sess-main">Elegí un país o un lugar para llamar</span>`; b.disabled = true;
     b.title = "Elegí un país arriba, una ciudad de la lista o ubicá un lugar: la sesión de llamadas se arma con los colegios de esa selección";
     return;
@@ -550,17 +621,23 @@ function drawFoot() {
   // «Para llamar 106» y «Llamar a 65»: la diferencia son los que no tienen teléfono. El botón dice las dos cosas con el
   // mismo número del filtro: «Llamar a 65 con teléfono (de 106)»; si no entran todos en una sesión, «Llamar a los primeros
   // 300 (de 1.238 con teléfono)». Se cuenta sin ordenar (callStats).
-  const { tel: n, noTel } = S.schools.length ? callStats() : { tel: 0, noTel: 0 };
+  const { tel: n, noTel } = callStats();
   // una sesión lleva hasta S.sessionMax colegios: el botón no promete más de lo que entra
   b.innerHTML = `${icon("play")} <span class="sess-main">${!n ? (noTel ? `${fmt(noTel)} sin teléfono` : "Nadie para llamar") : n > max ? `Llamar a los primeros ${fmt(max)}` : `Llamar a ${fmt(n)}`}${n > max ? ` <small class="sess-sub">(de ${fmt(n)}${noTel ? " con teléfono" : ""})</small>` : n && noTel ? ` <small class="sess-sub">con teléfono (de ${fmt(n + noTel)})</small>` : ""}</span>`;
   b.disabled = !n;
+  // buscando sin país: la sesión (y el número) son de los países cargados; lo de los otros se abre de a uno
+  if (partialSearch() && n) b.querySelector(".sess-main").insertAdjacentHTML("beforeend", ` <small class="sess-sub">· países cargados</small>`);
   b.title = !n ? (noTel ? `Los ${fmt(noTel)} de esta selección no tienen teléfono: abrí uno y tocá «Enriquecer» para buscarlo` : "No hay colegios para llamar con teléfono en esta selección") : n > max ? `Hay ${fmt(n)} con teléfono en esta selección: la sesión toma los primeros ${fmt(max)}, en el orden de la lista` : `Sesión de llamadas con los ${fmt(n)} de esta selección que tienen teléfono${noTel ? ` (${fmt(noTel)} no tienen: abrilos y tocá «Enriquecer» para buscarlo)` : ""}`;
 }
 function openCity(country, city) {
   E.country = country; E.city = city; E.q = ""; E.place = null; locSeq++; shown = PAGE; host.querySelector("#q").value = "";
   drawAll(); toTop();
-  const unk = scope().filter(s => s.status === "unk");
-  if (unk.length && unk.length <= 40) checkScope();
+  // (de un país que no está cargado: primero se carga; «ob:schools» redibuja)
+  ensureCountry(country).then(() => {
+    if (!host?.isConnected || E.country !== country || E.city !== city) return;
+    const unk = scope().filter(s => s.status === "unk");
+    if (unk.length && unk.length <= 40) checkScope();
+  }).catch(() => {});
 }
 export function openCityFromOutside(country, city) { E.country = country; E.city = city; E.q = ""; E.place = null; E.filter = "prospect"; locSeq++; }
 // Desde la búsqueda rápida o el asistente: ir a Prospectar y ubicar un lugar en el mapa.
@@ -691,14 +768,15 @@ let lastView = "";
 function drawMap({ fit = true } = {}) {
   if (!map) return; layer.clearLayers(); const pts = [];
   const view = JSON.stringify([E.country, E.city, E.q, E.place?.osm || E.place?.label || ""]);
-  const refit = fit && view !== lastView; lastView = view;
+  // mientras se carga el país de lo que se mira no se fija el encuadre: al llegar los colegios, se encuadra
+  const refit = fit && view !== lastView; if (!needLoad().length) lastView = view;
   const grouped = placeGrouped();
   if ((!E.city && !E.q && !placeMode()) || grouped) {
     const cc = { pros: cssVar("--city-pros"), ink: cssVar("--city-pros-ink"), unk: cssVar("--city-unk"), none: cssVar("--city-none"), surface: cssVar("--surface") || "#fff", text: cssVar("--ink") || "#111", font: getComputedStyle(document.body).fontFamily || "sans-serif" };
     cityGroups().forEach(c => {
-      const lat = c.items.reduce((a, s) => a + s.lat, 0) / c.items.length, lng = c.items.reduce((a, s) => a + s.lng, 0) / c.items.length;
-      const pros = c.items.filter(s => ["new", "org", "stalled", "lost"].includes(s.status) && !othersOwn(s)).length, unk = c.items.filter(s => s.status === "unk").length;
-      const n = pros || unk || c.items.length, kind = pros ? "pros" : unk ? "unk" : "none", size = Math.min(56, 24 + Math.sqrt(n) * 3);
+      const { lat, lng } = c; if (lat == null || lng == null) return;
+      const pros = c.prosMap, unk = c.unk;
+      const n = pros || unk || c.n, kind = pros ? "pros" : unk ? "unk" : "none", size = Math.min(56, 24 + Math.sqrt(n) * 3);
       const label = n > 999 ? Math.round(n / 1000) + "k" : String(n);
       const st = kind === "pros" ? { fillColor: cc.pros, ink: cc.ink, color: "#fff", weight: 2 } : kind === "unk" ? { fillColor: cc.surface, ink: cc.text, color: cc.unk, weight: 3, ring: true } : { fillColor: cc.none, ink: "#fff", color: "#fff", weight: 2 };
       new Mark([lat, lng], { renderer: canvas, shape: "city", radius: size / 2, fillOpacity: 1, label, font: cc.font, ...st })
@@ -836,6 +914,8 @@ function csv() {
 // Refresca la lista si cambió un colegio desde la ficha.
 // fit:false = no mover el mapa (por ejemplo, mientras corre una búsqueda en segundo plano).
 export function refreshExplore({ fit = true } = {}) { if (host?.isConnected) drawAll({ fit }); }
+// llegó (o salió) un país de la base: se redibuja (el encuadre cambia solo si lo que se mira recién se cargó)
+addEventListener("ob:schools", e => { if (e.detail?.kind !== "items" && host?.isConnected && S.baseReady) drawAll(); });
 // Aviso de OrderBrain caído (sin datos de clientes): los clientes pueden aparecer para llamar.
 // Los avisos de arriba de la lista (World Dominion, sin revisar) en una solapa que se abre y se cierra; si la cerraste,
 // queda cerrada (en este navegador) y muestra cuántos hay. Un aviso de error la abre una vez si es nuevo.

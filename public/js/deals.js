@@ -225,7 +225,7 @@ const reset = () => { more = { list: 100, cols: new Set() }; };
 // la ficha: el colegio de la base si la organización está cruzada; si no, la de la organización de Pipedrive
 function openDeal(id) {
   const r = D?.data?.deals.find(x => x.id === id); if (!r) return;
-  if (r.school && S.byId.has(r.school.id)) return openSchool(r.school.id);
+  if (r.school) return openSchool(r.school.id);
   if (r.org) return openRecord(`org:${r.org.id}`);
   toast("Este trato no tiene organización: abrilo en Pipedrive.", { type: "info", href: pdUrl(r.id), action: "Abrir en Pipedrive" });
 }

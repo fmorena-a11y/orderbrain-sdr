@@ -155,7 +155,7 @@ function demoRow(it, late = false) {
   const sub = `${late ? `${cap(shortDay(it.date))}` : it.time || "sin hora"}${late && it.time ? ` ${it.time}` : ""}${who ? ` · ${who}` : ""}${!late && it.state !== "booked" ? ` · ${DEMO_STATE[it.state] || it.state}` : ""}`;
   const inner = `<b>${esc(it.name || "Demo")}</b><small class="${late ? "late" : ""}">${esc(sub)}</small>`;
   return `<div class="act"><span class="ty meeting" role="img" aria-label="Demo">${icon(TYPE_ICON.meeting)}</span>
-    ${it.schoolId && S.byId.has(it.schoolId) ? `<button class="t" data-school="${esc(it.schoolId)}">${inner}</button>` : it.record ? `<button class="t" data-record="${esc(it.record)}">${inner}</button>` : `<div class="t">${inner}</div>`}</div>`;
+    ${it.schoolId ? `<button class="t" data-school="${esc(it.schoolId)}">${inner}</button>` : it.record ? `<button class="t" data-record="${esc(it.record)}">${inner}</button>` : `<div class="t">${inner}</div>`}</div>`;
 }
 function demosCard() {
   const p = B.parts.demos, d = part("demos");

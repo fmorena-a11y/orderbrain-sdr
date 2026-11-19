@@ -2,6 +2,7 @@
 // cómo, cuándo y qué falta. Todo lo que se muestra sale de lo que se registró en la app (lib/sessions.js).
 // La vista entera (#/sesiones, public/js/sessionsview.js) usa de acá el detalle, terminar, reabrir y la barra de avance.
 import { S, api, esc, icon, toast, modal, ago, shortDay, openMenu, save, TYPE_ICON } from "./core.js";
+import { ensureSchools } from "./schoolbase.js";
 import { openSchool, openRecord, resumeSession } from "./school.js";
 
 const CH = { call: ["Llamada", "phone"], whatsapp: ["WhatsApp", "whatsapp"], mail: ["Mail", "mail"], visit: ["Visita", "user"] };
@@ -167,9 +168,9 @@ export async function sessionDetail(id, redraw, anchor) {
     const i = Number(b.dataset.it), it = v.items[i]; m.close();
     if (open && ["pending", "skipped"].includes(b.dataset.st)) return resumeSession(v.id, { at: i });
     if (/^(lead|org|bx):/.test(it.ref)) return openRecord(it.ref);
-    if (S.byId.has(it.ref)) return openSchool(it.ref);
+    // (un colegio de un país que no está cargado se trae solo: ensureSchools de schoolbase.js)
     const sid = (by.get(it.ref) || []).find(s => s.schoolId)?.schoolId;
-    return sid && S.byId.has(sid) ? openSchool(sid) : toast("No encontré ese colegio en la base.", { type: "err" });
+    return ensureSchools([it.ref, sid]).catch(() => {}).then(() => S.byId.has(it.ref) ? openSchool(it.ref) : sid && S.byId.has(sid) ? openSchool(sid) : toast("No encontré ese colegio en la base.", { type: "err" }));
   });
   bindItems();
 }

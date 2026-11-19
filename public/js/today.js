@@ -1,5 +1,5 @@
 // Hoy: meta del día, agenda propia y a quién contactar ahora.
-import { S, api, esc, icon, potTag, homeMode, homeSwitchHtml, bindHomeSwitch, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg, brainTokenCallout, matchZone, zoneOptions, ZONE_KIND, workOrder, norm, callPill, callQueue, hotRows, demoDue, archivedRef, archivedAct, cleanTitle, subjectSansName, titleTag, territoryChosen, setTerritory, emptyState } from "./core.js";
+import { S, api, esc, icon, potTag, homeMode, homeSwitchHtml, bindHomeSwitch, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg, brainTokenCallout, matchZone, zoneOptions, ZONE_KIND, workOrder, norm, callPill, callQueue, hotRows, demoDue, archivedRef, archivedAct, cleanTitle, subjectSansName, titleTag, territoryChosen, setTerritory, emptyState, rememberLoose } from "./core.js";
 import { openSchool, openRecord, startSession, resumeSession, prefetchFirst } from "./school.js";
 import { setBadge, baseErrorCallout } from "./app.js";
 import { loadSessions, sessionsCard, bindSessionsCard } from "./sessions.js";
@@ -26,6 +26,8 @@ export function loadToday() {
     const [r] = await Promise.all([api(url), loadSessions().catch(() => null)]);
     if (my !== todaySeq) return todayP || S.today; // se pidió de nuevo (otro territorio, o algo se escribió): vale ese
     S.today = r; todayAt = dirty ? 0 : Date.now(); todayFor = url; todaySess = sess;
+    // la cola puede traer colegios de países que no están cargados (base por país): quedan sueltos para abrir su ficha
+    rememberLoose(r?.queue);
     syncBadge();
     verifyQueue();
     return S.today;
@@ -202,6 +204,7 @@ export function zoneSession({ anchor = null } = {}) {
     prev.textContent = `${mine.length} ${mine.length === 1 ? "actividad tuya" : "actividades tuyas"}. Buscando colegios nuevos…`;
     const ex = [...new Set((S.today?.activities.items || []).map(a => a.orgId).filter(Boolean))].join(",");
     const r = key.startsWith("e:") ? { queue: [] } : await api(`/api/queue?zone=${encodeURIComponent(z)}&exclude=${ex}`).catch(() => null);
+    rememberLoose(r?.queue); // (de un país que no está cargado: la sesión tiene sus nombres y la ficha se abre)
     if (my !== seq) return;
     const taken = new Set(mine.map(a => a.schoolId).filter(Boolean)), fresh = (r?.queue || []).filter(q => !taken.has(q.id) && !["client", "open", "churn"].includes(q.status)).map(q => q.id);
     plan = { z, key, mine, fresh };
@@ -252,7 +255,7 @@ export function actRow(a, late) {
   const sub = [what, !s && a.who && a.kind ? a.kind.toLowerCase() : "", when, s ? s.city : a.city, !s && a.note ? `«${a.note}»` : ""].filter(Boolean).join(" · ");
   const small = `<small class="${late ? "late" : ""}">${esc(sub)}</small>`, logs = logsFirst(a);
   return `<div class="act"><span class="ty ${a.type}" role="img" aria-label="${esc(a.typeLabel)}" title="${esc(a.typeLabel)}">${icon(TYPE_ICON[a.type] || "check")}</span>
-    ${s ? `<button class="t" data-school="${esc(s.id)}" data-act="${a.id}">${titleB(ct)}${small}</button>`
+    ${s || a.schoolId ? `<button class="t" data-school="${esc(s?.id || a.schoolId)}" data-act="${a.id}">${titleB(ct)}${small}</button>`
       : a.record ? `<button class="t" data-record="${esc(a.record)}" data-act="${a.id}" title="Abrir la ficha">${titleB(ct)}${small}</button>`
       : a.url ? `<a class="t" href="${esc(a.url)}" target="_blank" rel="noopener" title="Abrir en Pipedrive">${titleB(ct, ` ${icon("external", "sm")}`)}${small}</a>`
       : `<div class="t">${titleB(ct)}${small}</div>`}
@@ -292,7 +295,8 @@ const focusDone = id => (id && document.querySelector(`#main [data-done="${id}"]
 // deshacer suma «¿Cómo te fue? Registrar».
 const LOG_TYPES = new Set(["call", "deadline", "task"]);
 const findAct = id => (S.today?.activities.items || []).find(a => a.id === id) || (S.agenda?.items || []).find(a => a.id === id) || null;
-const fichaOf = a => a?.schoolId && S.byId.has(a.schoolId) ? { school: a.schoolId } : a?.record ? { record: a.record } : null;
+// (un colegio de un país que no está cargado también: openSchool lo trae)
+const fichaOf = a => a?.schoolId ? { school: a.schoolId } : a?.record ? { record: a.record } : null;
 const openFicha = (f, opts) => f.school ? openSchool(f.school, opts) : openRecord(f.record, opts);
 // (un archivado no se registra: su ficha no deja; se cierra como siempre)
 export const logsFirst = a => !!a && LOG_TYPES.has(a.type) && !!fichaOf(a) && !archivedAct(a);

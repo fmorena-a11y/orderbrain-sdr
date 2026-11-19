@@ -3,6 +3,7 @@
 // esta base» (sesión con lo tuyo o libre, por prioridad). Servidor: lib/bases.js y lib/bases-api.js.
 // #/base: cargar y «Bases cargadas». #/base/<id>: una base.
 import { S, api, esc, icon, toast, modal, telLink, TZ, ago, fmtNum, emptyState } from "./core.js";
+import { ensureSchools } from "./schoolbase.js";
 import { openSchool, openRecord, startSession } from "./school.js";
 import { connectGoogle } from "./google.js";
 
@@ -286,7 +287,10 @@ function bindBase() {
     startSession(list.map(it => ({ ref: it.ref, name: it.name, city: it.city })), b.event, { origin: { kind: "base", key: `base:${b.id}`, filters: { evento: b.event } } });
   });
 }
-const openItem = it => /^(lead|org|bx):/.test(it.ref) ? openRecord(it.ref) : S.byId.has(it.ref) ? openSchool(it.ref) : openRecord(`bx:${String(it.sid || "").replace(/^bx-/, "")}`);
+// (un colegio de un país que no está cargado se trae solo, ensureSchools; si no es de la base, la ficha de la planilla)
+const openBx = it => openRecord(`bx:${String(it.sid || "").replace(/^bx-/, "")}`);
+const openItem = it => /^(lead|org|bx):/.test(it.ref) ? openRecord(it.ref) : S.byId.has(it.ref) ? openSchool(it.ref)
+  : ensureSchools([it.ref]).catch(() => {}).then(() => S.byId.has(it.ref) ? openSchool(it.ref) : openBx(it));
 async function runCheck() {
   const b = st.base; if (!b || st.checking) return;
   st.checking = true; st.pause = false; drawBase();

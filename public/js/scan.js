@@ -2,6 +2,8 @@
 // dentro del lugar (su contorno real), verifica cada uno (web, Google e IA si están configurados) y recién ahí
 // lo suma a la base y al mapa. Corre en segundo plano y se puede cancelar en el acto.
 import { S, api, esc, icon, modal, toast, patchSchool, fmtNum } from "./core.js";
+import { ensureCountries } from "./schoolbase.js";
+import { countOf } from "./schoolsum.js";
 
 const EXAMPLES = ["España", "Madrid", "Bogotá", "Provincia de Córdoba", "Monterrey", "Santa Cruz de la Sierra"];
 const BATCH = 8;
@@ -42,11 +44,12 @@ export function openScanDialog(prefill = "") {
   if (prefill) m.querySelector("#sxF").requestSubmit();
 }
 function summary(place, plan) {
-  const known = S.schools.filter(s => s.country === place.country).length;
+  // (de lo cargado o, si el país no está cargado, del resumen; sin ninguno de los dos, no se dice un número)
+  const known = S.loaded.has(place.country) ? S.schools.filter(s => s.country === place.country).length : countOf(S.summary, place.country);
   const steps = plan.steps.length;
   return `<div class="scan-sum">
     <b>${esc(place.label)}</b>
-    <span class="muted">${plan.whole ? "Todo el contorno del lugar" : `${fmt(steps)} ciudades de más de 40.000 habitantes`} · ${known ? `ya hay ${fmt(known)} colegios en ${esc(place.country)}` : "todavía sin colegios en la base"} · cada colegio nuevo se verifica antes de entrar</span>
+    <span class="muted">${plan.whole ? "Todo el contorno del lugar" : `${fmt(steps)} ciudades de más de 40.000 habitantes`} · ${known ? `ya hay ${fmt(known)} colegios en ${esc(place.country)}` : known === 0 || !S.countries.includes(place.country) ? "todavía sin colegios en la base" : `ya hay colegios en ${esc(place.country)}`} · cada colegio nuevo se verifica antes de entrar</span>
     <button class="btn primary" id="sxStart">${icon("play")} Buscar en ${plan.whole ? esc(place.name || place.label) : `las ${fmt(steps)} ciudades`}</button>
   </div>`;
 }
@@ -106,9 +109,11 @@ const aborted = e => e?.name === "AbortError" || /aborted/i.test(e?.message || "
 async function start(place, plan, j = null) {
   if (!j) j = job = { label: place.label, place, i: 0, added: 0, dropped: [], queue: [], verified: 0, total: 0, errors: 0, running: true, ctl: new AbortController() };
   j.steps = plan.steps; j.preparing = false;
-  for (const c of place.kind === "continent" ? place.countries || [] : [place.country]) if (c && !S.countries.includes(c)) { S.countries.push(c); S.countries.sort(); }
+  for (const c of place.kind === "continent" ? place.countries || [] : [place.country]) if (c && !S.countries.includes(c)) { S.countries.push(c); S.countries.sort(); S.loaded.add(c); } // país nuevo: no tiene nada que bajar
   const { signal } = j.ctl;
   drawJob();
+  // los colegios que ya hay en esos países tienen que estar cargados (para no proponer de nuevo los que ya están)
+  await ensureCountries(place.kind === "continent" ? place.countries || [] : [place.country]).catch(() => {});
   try {
     for (; j.i < j.steps.length && !signal.aborted; j.i++) {
       const st = j.steps[j.i];

@@ -272,7 +272,7 @@ app.get("/api/me", auth, wrap(async (req, res) => {
   const roles = v.leader ? { lider: ROLES.lider } : { sdr: ROLES.sdr, ae: ROLES.ae };
   res.json({
   user: req.session.user, profile: { complete: !!(pr?.name && (baseRole(pr) || v.leader || v.acc.stale)), suggested: req.session.user.pdName || "", roles, leader: v.leader, access: accessView(v.acc), scope: await scopeView(v) }, ai: ai.aiEnabled(), study: studyEnabled(), demo: pd.DEMO, goal: DAILY_GOAL, pdWeb: pd.PD_WEB, sessionMax: sessions.MAX_ITEMS,
-  countries: [...new Set(schools.map(s => s.country))].sort(), markets: MARKETS, outcomes: sales.OUTCOMES, lostReasons: LOST_REASONS, archiveReasons: ARCHIVE_REASONS, types: TYPE_LABEL,
+  countries: [...new Set(schools.map(s => s.country))].sort(), workCountries: sales.workCountries({ email: req.session.user.email, pdUserId: req.session.user.pdUserId, leader: v.leader }), markets: MARKETS, outcomes: sales.OUTCOMES, lostReasons: LOST_REASONS, archiveReasons: ARCHIVE_REASONS, types: TYPE_LABEL,
   });
 }));
 app.post("/api/me/profile", auth, wrap(async (req, res) => {
@@ -353,10 +353,11 @@ app.get("/api/pd-deal/:id", auth, wrap(async (req, res) => {
 }));
 // ficha de una persona de Pipedrive (sus datos, su organización, tratos, prospectos, actividades y notas)
 app.get("/api/pd-person/:id", auth, wrap(async (req, res) => res.json(await sales.personCard(req.params.id))));
-// La lista de colegios (≈5 MB): sales.schoolList la guarda armada mientras nada cambió, con su ETag. El navegador la guarda
+// La lista de colegios: sales.schoolList la guarda armada mientras nada cambió, con su ETag. El navegador la guarda
 // (Cache-Control: private, no-cache = siempre pregunta) y, si no cambió, recibe un 304 sin cuerpo. Comprimida una vez por versión.
-app.get("/api/schools", auth, wrap(async (req, res) => {
-  const L = sales.schoolList();
+// Por país (decisión del líder: «por país»): ?cc=México (o MX) trae solo ese país; con muchos colegios, en partes
+// (&part=0&parts=3, cuántas lo dice el resumen). Sin cc, toda la base como siempre (compatibilidad: el navegador ya no la pide).
+async function sendJsonMemo(req, res, L) {
   res.set({ ETag: L.etag, "Cache-Control": "private, no-cache" }); res.vary("Accept-Encoding");
   await flush();
   if (req.fresh) return res.status(304).end();
@@ -366,7 +367,29 @@ app.get("/api/schools", auth, wrap(async (req, res) => {
   let out = null; try { out = await (L.enc[enc] ||= encode(L.json, enc)); } catch { delete L.enc[enc]; } // si no se pudo comprimir, va sin comprimir
   if (!out) return res.send(L.json);
   res.set("Content-Encoding", enc).send(out);
+}
+app.get("/api/schools", auth, wrap(async (req, res) => {
+  if (req.query.cc === undefined) return sendJsonMemo(req, res, sales.schoolList());
+  const country = sales.countryParam(String(req.query.cc));
+  if (!country) return res.status(400).json({ error: "País inválido" });
+  const parts = Number(req.query.parts ?? 1), part = Number(req.query.part ?? 0);
+  if (!Number.isInteger(parts) || parts < 1 || parts > 16 || !Number.isInteger(part) || part < 0 || part >= parts) return res.status(400).json({ error: "Parte inválida" });
+  await sendJsonMemo(req, res, sales.schoolList(Date.now(), { country, part, parts }));
 }));
+// resumen por país y ciudad (vista mundial de Prospectar y chips de país): ≈40 KB, con su ETag
+app.get("/api/schools/summary", auth, wrap(async (req, res) => sendJsonMemo(req, res, sales.schoolsSummary())));
+// buscar en toda la base lo que el navegador no tiene cargado: ?q=&not=Argentina,Chile (países que ya tiene) o &only=… ; hasta 50
+const csvList = v => typeof v === "string" ? v.split(",").map(x => sales.countryParam(x)).filter(Boolean) : [];
+app.get("/api/schools/search", auth, wrap(async (req, res) => {
+  const q = typeof req.query.q === "string" ? req.query.q.slice(0, 120) : "";
+  if ((await bump(`ssearch:${req.session.user.email}`, 60)) > 240) return res.status(429).json({ error: "Muchas búsquedas seguidas: esperá un minuto." });
+  res.json(sales.searchSchools(q, { not: csvList(req.query.not), only: csvList(req.query.only), limit: Math.min(50, Math.max(1, Number(req.query.limit) || 50)) }));
+}));
+// colegios sueltos de países que el navegador no cargó (una ficha desde Hoy, la Agenda, una sesión): ?ids=a,b (hasta 100)
+app.get("/api/schools/items", auth, (req, res) => {
+  const ids = String(req.query.ids || "").split(",").map(x => x.trim()).filter(Boolean).slice(0, 100);
+  res.json(sales.schoolItems(ids));
+});
 // Equipo: accesos, equipos y «Demos» (lib/team-api.js); Métricas (lib/metrics-api.js); sincronización y World Dominion (lib/admin-api.js)
 mountTeam(app, { FOUNDERS, LEADERS, accessView, auth, fixedOf, httpErr, labelOf, mxTeam, otherViewer, personalCode, signName, teamUsers, viewerFor, wrap });
 mountMetrics(app, { auth, mxTeam, radarState, wrap });

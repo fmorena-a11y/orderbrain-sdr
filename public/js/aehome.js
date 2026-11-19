@@ -64,7 +64,7 @@ const subjectOf = (a, name) => name ? String(a.subject || "").replace(new RegExp
 const dealTxt = d => d ? [`Trato en ${[d.pipe, d.stage].filter(Boolean).join(" · ") || "?"}`, d.days != null && `${daysTxt(d.days)} en la etapa`].filter(Boolean).join(" · ") : "";
 // a dónde lleva una fila: el colegio de la base, la ficha del prospecto u organización, o Pipedrive
 function titleBtn(a, inner, { act = null } = {}) {
-  const at = a.schoolId && S.byId.has(a.schoolId) ? `data-school="${esc(a.schoolId)}"` : a.record ? `data-record="${esc(a.record)}"` : "";
+  const at = a.schoolId ? `data-school="${esc(a.schoolId)}"` : a.record ? `data-record="${esc(a.record)}"` : "";
   if (at) return `<button class="t" ${at} ${act ? `data-act="${act}"` : ""} ${a.deal ? `data-deals="1"` : ""} title="Abrir la ficha">${inner}</button>`;
   return a.url ? `<a class="t" href="${esc(a.url)}" target="_blank" rel="noopener" title="Abrir en Pipedrive">${inner}</a>` : `<div class="t">${inner}</div>`;
 }
@@ -255,7 +255,7 @@ function attHtml(d) {
 // la ficha: el colegio de la base si la organización está cruzada; si no, la de la organización de Pipedrive
 function openDeal(id) {
   const r = D?.attention.deals.find(x => x.id === id); if (!r) return;
-  if (r.school && S.byId.has(r.school.id)) return openSchool(r.school.id, { deals: true });
+  if (r.school) return openSchool(r.school.id, { deals: true });
   if (r.org) return openRecord(`org:${r.org.id}`, { deals: true });
   toast("Este trato no tiene organización: abrilo en Pipedrive.", { type: "info", href: `${D.pdWeb || S.pdWeb}/deal/${r.id}`, action: "Abrir en Pipedrive" });
 }
