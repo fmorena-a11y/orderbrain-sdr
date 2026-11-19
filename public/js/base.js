@@ -4,6 +4,7 @@
 // #/base: cargar y «Bases cargadas». #/base/<id>: una base.
 import { S, api, esc, icon, toast, modal, telLink, TZ, ago } from "./core.js";
 import { openSchool, openRecord, startSession } from "./school.js";
+import { connectGoogle } from "./google.js";
 
 let host = null;
 const st = { draft: null, tab: 0, header: null, map: null, event: "", country: "", city: "", prev: null, prevErr: "", loading: "", err: null, base: null, filter: "work", checking: false, pause: false, list: null, demoUrl: "", open: new Set() };
@@ -40,7 +41,7 @@ const drawList = () => { const l = host?.querySelector("#bxList"); if (l) { l.in
 // ---------- 1) cargar: link, archivo o pegar
 function errHtml(e) {
   if (!e) return "";
-  if (e.code === "sheet_private") return `<div class="callout warn bx-err" role="alert">${icon("lock")}<div><b>${esc(e.message)}</b><ol class="bx-ways"><li>Compartila como <b>«Cualquier persona con el enlace – Lector»</b> y cargala de nuevo.</li><li>O descargala (<b>Archivo › Descargar › CSV o Excel</b>) y <button class="linkbtn" data-up>subila acá</button>.</li></ol></div></div>`;
+  if (e.code === "sheet_private") return `<div class="callout warn bx-err" role="alert">${icon("lock")}<div><b>${esc(e.message)}</b><ol class="bx-ways">${S.gmail?.enabled && S.gmail.google && !S.gmail.google.perms?.sheets ? `<li><button class="linkbtn" data-goo>Conectá tu Google</button> (con el permiso de planillas) y cargala de nuevo: la leo con tu cuenta.</li>` : ""}<li>Compartila como <b>«Cualquier persona con el enlace – Lector»</b> y cargala de nuevo.</li><li>O descargala (<b>Archivo › Descargar › CSV o Excel</b>) y <button class="linkbtn" data-up>subila acá</button>.</li></ol></div></div>`;
   return `<div class="callout err bx-err" role="alert">${icon("alert")}<span>${esc(e.message)}</span></div>`;
 }
 function loadCard() {
@@ -73,9 +74,11 @@ function gotDraft(d) {
 }
 function bindLoad() {
   const f = host.querySelector("#bxForm");
-  f.onsubmit = e => { e.preventDefault(); const url = host.querySelector("#bxUrl").value.trim(); if (!url) return host.querySelector("#bxUrl").focus(); loadWith("link", () => api("/api/bases/load", { body: { url } })); };
+  f.onsubmit = e => { e.preventDefault(); const url = host.querySelector("#bxUrl").value.trim(); if (!url) return host.querySelector("#bxUrl").focus(); st.lastUrl = url; loadWith("link", () => api("/api/bases/load", { body: { url } })); };
   const file = host.querySelector("#bxFile");
   host.querySelectorAll("[data-up]").forEach(b => b.onclick = () => file.click());
+  // planilla privada: con tu Google conectado (permiso de planillas) se lee con tu cuenta
+  host.querySelectorAll("[data-goo]").forEach(b => b.onclick = async () => { b.disabled = true; const g = await connectGoogle(), url = st.lastUrl; if (g?.google?.perms?.sheets && url && host?.isConnected) loadWith("link", () => api("/api/bases/load", { body: { url } })); else if (b.isConnected) b.disabled = false; });
   file.onchange = () => {
     const x = file.files?.[0]; if (!x) return;
     if (x.size > 8e6) { st.err = { message: "El archivo es muy grande (hasta 8 MB): descargá solo la pestaña que vas a trabajar." }; return draw(); }

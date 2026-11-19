@@ -18,6 +18,7 @@ export const GMAIL_ERR = {
   mismatch: "Conectaste otra cuenta de Gmail. Usá la misma con la que entrás a la app.",
   denied: "No diste permiso: el mail no se puede enviar desde acá. Podés seguir con «Abrir en Gmail».",
   scope: "Para enviar desde acá tenés que aceptar «Enviar correo electrónico en tu nombre». Probá de nuevo.",
+  noperms: "No diste ningún permiso: tildá al menos uno (mail, calendario o planillas) y probá de nuevo.",
   config: "Para enviar desde acá falta configurar Gmail (lo hace el administrador).",
   session: "Iniciá sesión en la app y conectá Gmail de nuevo.",
   other: "No se pudo conectar Gmail. Probá de nuevo.",
@@ -26,8 +27,11 @@ const errText = code => GMAIL_ERR[code] || GMAIL_ERR.other;
 // listo para enviar desde este dispositivo (conectado y confirmado con Google en esta sesión)
 export const gmailReady = g => !!(g?.connected && g.verified);
 // quiet: sin avisos flotantes (el modal del mail muestra el estado y el error en su lugar). Devuelve el estado (y error, si hubo).
+// La misma ventana conecta todo tu Google (mail, calendario y planillas: public/js/google.js). Google deja destildar permisos:
+// si quedó conectado sin el de mail, acá es un error (no se puede enviar) y el estado dice qué falta (g.google.missing).
 export function connectGmail({ quiet = false } = {}) {
   waiting?.stop(null);
+  const before = S.gmail?.google?.at || "", wasReady = gmailReady(S.gmail);
   const w = open("/auth/gmail/start?popup=1", "ob-gmail", "popup,width=520,height=700");
   if (!w) { location.href = "/auth/gmail/start"; return new Promise(() => {}); }
   return new Promise(resolve => {
@@ -35,15 +39,16 @@ export function connectGmail({ quiet = false } = {}) {
     const stop = async r => {
       if (waiting?.stop !== stop) return; waiting = null;
       removeEventListener("message", onMsg); bc?.close(); clearInterval(t); clearTimeout(cap);
-      const g = await loadGmail(true), err = gmailReady(g) ? "" : r && r.ok === false ? errText(r.code) : "";
-      if (!quiet && gmailReady(g)) toast(`Gmail conectado como ${g.email}`);
+      const g = await loadGmail(true), err = gmailReady(g) ? "" : r && r.ok === false ? errText(r.code) : g?.google?.connected && g.verified && !g.connected ? errText("scope") : "";
+      if (!quiet && gmailReady(g)) toast(`Google conectado como ${g.email}`);
       else if (!quiet && err) toast(err, { type: "err" });
       resolve({ ...g, error: err });
     };
     const onMsg = e => { if (e.origin === location.origin && e.data?.type === "ob-gmail") stop(e.data); };
     addEventListener("message", onMsg);
     if (bc) bc.onmessage = e => e.data?.type === "ob-gmail" && stop(e.data);
-    const t = setInterval(async () => { const g = await api("/api/gmail").catch(() => null); if (gmailReady(g)) { S.gmail = g; stop({ ok: true }); } }, 2500);
+    // terminó si quedó listo (y antes no lo estaba) o si la conexión guardada es otra (reconectó o dio más permisos)
+    const t = setInterval(async () => { const g = await api("/api/gmail").catch(() => null); if (g?.verified && g.google?.connected && ((!wasReady && gmailReady(g)) || g.google.at !== before)) { S.gmail = g; stop({ ok: true }); } }, 2500);
     const cap = setTimeout(() => stop(null), 10 * 60e3);
     waiting = { stop };
   });
@@ -52,14 +57,14 @@ export const gmailWaiting = () => !!waiting;
 export const cancelGmailWait = () => waiting?.stop(null);
 export async function disconnectGmail() {
   S.gmail = await api("/api/gmail/disconnect", { body: {} });
-  toast("Gmail desconectado");
+  toast("Google desconectado");
   return S.gmail;
 }
 // Vuelta de Google sin ventana aparte (?gmail=ok|error&m=código): aviso con un texto fijo y se limpia la dirección.
 // «ok» solo se cree si el servidor dice que quedó conectado (un link con ?gmail=ok no muestra nada).
 export function gmailReturn() {
   const q = new URLSearchParams(location.search), st = q.get("gmail"); if (!st) return;
-  if (st === "ok") loadGmail(true).then(g => { if (gmailReady(g)) toast(`Gmail conectado como ${g.email}`); });
+  if (st === "ok") loadGmail(true).then(g => { if (g?.google?.connected && g.verified) toast(`Google conectado como ${g.google.email}`); });
   else if (st === "error") toast(errText(q.get("m")), { type: "err" });
   q.delete("gmail"); q.delete("m");
   history.replaceState(history.state, "", location.pathname + (q.toString() ? `?${q}` : "") + location.hash);
