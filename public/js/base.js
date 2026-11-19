@@ -264,7 +264,7 @@ function itemHtml(it, common = { city: "", tags: new Set() }) {
   </div>`;
 }
 const waHref = p => `https://wa.me/${String(p).replace(/\D/g, "")}`;
-export function contactHtml(c) {
+function contactHtml(c) {
   return `<div class="bx-c"><span class="t"><b>${esc(c.name || "Sin nombre")}</b>${c.role ? ` <span class="faint">${esc(c.role)}</span>` : ""}${c.decisor ? ` <span class="tag">decide</span>` : ""}</span>
     <span class="bx-cl">${c.phone ? `<a href="${esc(telLink(c.phone))}">${icon("phone", "sm")} ${esc(c.phone)}</a><a href="${esc(waHref(c.phone))}" target="_blank" rel="noopener">${icon("whatsapp", "sm")} WhatsApp</a>` : ""}${c.email ? `<a href="mailto:${esc(c.email)}">${icon("mail", "sm")} ${esc(c.email)}</a>` : ""}</span></div>`;
 }

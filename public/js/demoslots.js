@@ -157,7 +157,7 @@ function partsTz(ms, tz) {
 const DAYN = ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"];
 const daysTxt = days => { const s = [...days].sort((a, b) => ((a + 6) % 7) - ((b + 6) % 7)); return s.join() === "1,2,3,4,5" ? "lunes a viernes" : s.map(d => DAYN[d]).join(", "); };
 // ¿choca con algo del account? (o está fuera de su horario para demos). { kind: warn|info, text } o null
-export function clashOf(f, data, now = Date.now()) {
+function clashOf(f, data, now = Date.now()) {
   if (!f?.demo?.date || !f.demo.time || !data) return null;
   const t = new Date(`${f.demo.date}T${f.demo.time}:00`).getTime(); if (!Number.isFinite(t) || t < now - 60e3) return null;
   const e = t + (Number(f.demo.duration) || 30) * 60e3, who = data.account.first;

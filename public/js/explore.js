@@ -665,7 +665,7 @@ function drawMap({ fit = true } = {}) {
     return;
   }
   if (E.place) {
-    const p = E.place, accent = cssVar("--accent");
+    const p = E.place;
     // el contorno real del lugar (o el círculo, si es un punto)
     // la ciudad (o zona) como una capa del rojo de OrderEAT: relleno muy suave y semitransparente, contorno del mismo
     // rojo con un borde claro debajo, y afuera apenas más tenue para que se lea el límite con los vecinos
@@ -768,7 +768,7 @@ export function refreshExplore({ fit = true } = {}) { if (host?.isConnected) dra
 // Los avisos de arriba de la lista (World Dominion, sin revisar) en una solapa que se abre y se cierra; si la cerraste,
 // queda cerrada (en este navegador) y muestra cuántos hay. Un aviso de error la abre una vez si es nuevo.
 const NT_KEY = "ob.notices.closed";
-export function noticeTab(html) {
+function noticeTab(html) {
   const n = (html.match(/class="callout /g) || []).length; if (!n) return "";
   let closed = false; try { closed = localStorage.getItem(NT_KEY) === "1"; } catch { /* sin almacenamiento */ }
   const err = /class="callout err/.test(html);
@@ -800,4 +800,4 @@ document.addEventListener("toggle", e => {
   const d = e.target; if (!d?.classList?.contains("notice-tab")) return;
   const h = d.querySelector(".nt-hint"); if (h) h.textContent = d.open ? "Ocultar" : "Ver";
 }, true);
-export const brainWarn = () => brainTokenCallout("") + (S.brainDown || S.brain?.down ? `<div class="callout warn">${icon("alert")}<span>No pudimos leer los clientes de World Dominion (${esc(S.brain?.error || "OrderBrain no respondió")}). Hasta que vuelva, revisá en Pipedrive antes de llamar.</span></div>` : brainStaleMsg() ? `<div class="callout warn">${icon("alert")}<span>${esc(brainStaleMsg())}</span></div>` : "");
+const brainWarn = () => brainTokenCallout("") + (S.brainDown || S.brain?.down ? `<div class="callout warn">${icon("alert")}<span>No pudimos leer los clientes de World Dominion (${esc(S.brain?.error || "OrderBrain no respondió")}). Hasta que vuelva, revisá en Pipedrive antes de llamar.</span></div>` : brainStaleMsg() ? `<div class="callout warn">${icon("alert")}<span>${esc(brainStaleMsg())}</span></div>` : "");

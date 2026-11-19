@@ -3,7 +3,7 @@
 // token. Los mails salen de la casilla que la persona tiene conectada en Pipedrive, ligados al prospecto o al trato
 // (lib/pdtoken.js + lib/pdmcp.js).
 import { S, api, esc, icon, toast } from "./core.js";
-import { loadGmail, gmailReady, gmailProfileHtml, bindGmailProfile, sigPreview } from "./gmail.js";
+import { gmailReady, gmailProfileHtml, bindGmailProfile, sigPreview } from "./gmail.js";
 
 let loading = null;
 export function loadPdMail(force = false) {
@@ -56,7 +56,7 @@ export function bindTokenForm(box, { onDone, onCancel }) {
   inp.onkeydown = e => { if (e.key === "Enter") { e.preventDefault(); e.stopPropagation(); submit(); } };
   setTimeout(() => inp.focus(), 0);
 }
-export async function disconnectPipedrive() {
+async function disconnectPipedrive() {
   S.pdmail = await api("/api/pipedrive/disconnect", { body: {} });
   toast("Pipedrive desconectado");
   return S.pdmail;
@@ -112,5 +112,3 @@ export function bindMailProfile(box, redraw) {
   if (gbox) bindGmailProfile(gbox, redraw);
 }
 export const resetSigMode = () => { sigMode = null; formOpen = false; };
-// estado de las dos vías al día (el modal del mail y el perfil)
-export const loadMail = (force = false) => Promise.all([loadPdMail(force), loadGmail(force)]);

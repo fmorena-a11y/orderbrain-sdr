@@ -89,7 +89,6 @@ export function renderMd(src) {
 }
 
 // ---------- tablas: { title, columns: [{ label, type: text|date|time|number|url }], rows: [[...]], note? }
-const pad = n => String(n).padStart(2, "0");
 const isoDate = v => /^\d{4}-\d{2}-\d{2}$/.test(String(v || ""));
 export function cellText(v, type = "text", mode = "view") {
   if (v === null || v === undefined || v === "") return "";

@@ -1,5 +1,5 @@
 // OrderBrain SDR · arranque, navegación, cuenta, búsqueda rápida y atajos.
-import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, statusPill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo, modal, toast, brainTokenMsg, digits, recentSearches, rememberSearch, myRole, territoryFieldHtml, bindTerritoryField, schoolIdx, fmtNum } from "./core.js";
+import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, statusPill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo, modal, toast, brainTokenMsg, digits, recentSearches, rememberSearch, myRole, territoryFieldHtml, bindTerritoryField, schoolIdx, fmtNum } from "./core.js";
 import { renderToday } from "./today.js";
 import { renderExplore } from "./explore.js";
 import { renderAgenda } from "./agenda.js";

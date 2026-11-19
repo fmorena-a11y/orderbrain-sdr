@@ -8,9 +8,9 @@
 // Módulo puro (sin DOM ni core.js): pruebas en test/period.test.mjs.
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 export const REL = [[7, "7 días"], [30, "30 días"], [90, "90 días"], ["mes", "Este mes"], ["trim", "Este trimestre"]];
-export const isMonthKey = v => /^\d{4}-(0[1-9]|1[0-2])$/.test(String(v));
-export const isQuarterKey = v => /^\d{4}-Q[1-4]$/.test(String(v));
-export const curMonth = today => String(today).slice(0, 7);
+const isMonthKey = v => /^\d{4}-(0[1-9]|1[0-2])$/.test(String(v));
+const isQuarterKey = v => /^\d{4}-Q[1-4]$/.test(String(v));
+const curMonth = today => String(today).slice(0, 7);
 export const curQuarter = today => `${String(today).slice(0, 4)}-Q${Math.floor((+String(today).slice(5, 7) - 1) / 3) + 1}`;
 // «7» (de un data-*) → 7; el mes o el trimestre en curso → «mes» / «trim»; lo que no es un período → null
 export function normPeriod(v, today) {
@@ -60,4 +60,4 @@ export function bindPeriod(root, id, onPick, today = "") {
 }
 // preferencia compartida (mismo formato que save/loadPref de core.js: «ob.» + JSON)
 export function storedPeriod() { try { const v = localStorage.getItem("ob.period"); return v ? JSON.parse(v) : null; } catch { return null; } }
-export function savePeriod(v) { try { localStorage.setItem("ob.period", JSON.stringify(v)); } catch {} }
+function savePeriod(v) { try { localStorage.setItem("ob.period", JSON.stringify(v)); } catch {} }

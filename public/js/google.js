@@ -64,7 +64,7 @@ export async function googleNotice(back = "") {
 }
 
 // ---------- perfil: «Tu Google»
-export function googleProfileHtml(g) {
+function googleProfileHtml(g) {
   const st = googleState(g); if (st === "off") return "";
   if (st === "none") return `<div class="gm-st"><span class="muted">${g.expired ? "Tu conexión con Google venció. " : ""}Conectalo una vez: mandás mails desde la ficha, ves los horarios libres para las demos y leés o creás planillas.</span><button type="button" class="btn sm" id="goOn">${G_LOGO} Conectar Google</button></div>`;
   const go = g.google, miss = go.missing || [];

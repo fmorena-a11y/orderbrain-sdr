@@ -159,7 +159,7 @@ const pdLink = (p) => !S.pdWeb ? "" : p.rec === "lead" ? `${S.pdWeb}/leads/inbox
 function inboundCard() {
   const r = D.inbound, how = [], defs = [];
   const body = !r ? sk(5) : r.error ? err("los inbound", r.error) : (() => {
-    const d = r.data, P = d.partial || {}, x = d.kinds?.[inbKind], T = x?.totals, leader = !!S.profile?.leader, kn = d.known || {};
+    const d = r.data, P = d.partial || {}, x = d.kinds?.[inbKind], T = x?.totals, leader = !!S.profile?.leader;
     const fuente = { revival: d.fuente?.revival, meta: d.fuente?.meta, google: d.fuente?.google, organic: d.fuente?.organic, referral: d.fuente?.referral };
     const what = inbKind === "all" ? "con cualquier Fuente «Inbound - …»" : inbKind === "other" ? "con otra Fuente «Inbound - …» (referido de colegio o de cafetería, alianza, nota de prensa…)" : `con la Fuente «${fuente[inbKind] || "?"}»`;
     const cutTxt = [P.leads && "prospectos", P.deals && "tratos", P.acts && "actividades", P.demos && "demos"].filter(Boolean).join(", ");

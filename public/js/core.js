@@ -2,6 +2,8 @@
 export const $ = id => document.getElementById(id);
 export const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 export const norm = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim();
+// sin acentos y en minúsculas, sin tocar signos ni espacios
+export const fold = s => String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 export const TZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
 export const today = () => new Date().toLocaleDateString("sv");
 export const addDays = (d, n) => { const x = new Date(d + "T12:00:00"); x.setDate(x.getDate() + n); return x.toLocaleDateString("sv"); };
@@ -30,7 +32,7 @@ export function homeMode() {
   if (r === "lider") return pref === "sdr" || pref === "ae" ? pref : "lead";
   return r;
 }
-export const HOME_LABEL = { lead: "Mi equipo", sdr: "Prospección", ae: "Mis tratos" };
+const HOME_LABEL = { lead: "Mi equipo", sdr: "Prospección", ae: "Mis tratos" };
 // el selector de arriba de «Hoy» (solo líderes: su equipo, o su propio trabajo como SDR o como account)
 export function homeSwitchHtml() {
   if (myRole() !== "lider") return "";
@@ -61,7 +63,7 @@ export const leadsOver = (id = null, email = "") => { const l = S.profile?.scope
 export const leadsAll = () => S.profile?.scope?.lead === "all";
 // Equipo que se mira en Métricas y Equipo (dirección: uno o «Toda la cuenta»; un líder con varios: uno de los suyos). "" = el
 // de siempre. «Toda la cuenta» no es la suma de los equipos: incluye a la gente sin equipo y a las cuentas generales.
-export const teamChoices = () => { const sc = S.profile?.scope; return !S.profile?.leader || !sc?.on ? [] : sc.all ? [{ id: "all", name: "Toda la cuenta" }, ...sc.teams] : sc.teams; };
+const teamChoices = () => { const sc = S.profile?.scope; return !S.profile?.leader || !sc?.on ? [] : sc.all ? [{ id: "all", name: "Toda la cuenta" }, ...sc.teams] : sc.teams; };
 export function teamView() { const c = teamChoices(), v = load("team.view", ""); return c.some(t => t.id === v) ? v : ""; }
 export const teamQuery = () => { const v = teamView(); return v ? `team=${encodeURIComponent(v)}` : ""; };
 export const setTeamView = v => save("team.view", v || "");
@@ -261,14 +263,13 @@ export const archivedRef = id => !!id && S.byId.get(String(id).replace(/^(lead|o
 export const archivedAct = a => !!a?.archived || archivedRef(a?.schoolId || a?.record);
 // cómo se pinta un colegio en el mapa: la fase manda sobre el estado. Devuelve { k, l, c, sh } (k: clave para la leyenda)
 export const markOf = s => s?.phase && PH[s.phase] ? { k: "ph-" + s.phase, ...PH[s.phase] } : { k: ST[s?.status] ? s.status : "unk", ...(ST[s?.status] || ST.unk) };
-export const dotColor = (s, colors) => colors[markOf(s).k];
 
 // ---------- fechas
 const fmtDay = new Intl.DateTimeFormat("es", { weekday: "long", day: "numeric", month: "long" });
 const fmtShort = new Intl.DateTimeFormat("es", { weekday: "short", day: "numeric", month: "short" });
 // ---------- zona y evento de una actividad (el servidor manda city, region, country y event, solo si Pipedrive o la base los dicen)
-export const actZones = a => [a.event && ["e", a.event], a.city && ["c", a.city], a.region && ["r", a.region], a.country && ["p", a.country]].filter(Boolean);
-export const zoneKey = (k, v) => `${k}:${norm(v)}`;
+const actZones = a => [a.event && ["e", a.event], a.city && ["c", a.city], a.region && ["r", a.region], a.country && ["p", a.country]].filter(Boolean);
+const zoneKey = (k, v) => `${k}:${norm(v)}`;
 export const ZONE_KIND = { e: "Eventos", c: "Ciudades", r: "Estados y provincias", p: "Países" };
 // z: una clave de la lista («c:puebla») o texto libre. El texto se compara por palabras con el evento, la ciudad, el estado y el país
 // («Puebla» encuentra «Puebla de Zaragoza»). El nombre solo cuenta si la actividad no tiene zona, o con loose (el buscador).
@@ -426,9 +427,7 @@ export const initials = n => String(n || "?").split(/\s+/).filter(Boolean).slice
 
 // ---------- enlaces a herramientas
 export const digits = p => String(p || "").replace(/\D/g, "");
-const MOBILE = /^(519\d{8}|521\d{10}|52\d{10}|569\d{8}|549\d{10}|5989\d{7}|502[345]\d{7}|506[678]\d{7})$/;
-export const isMobile = p => MOBILE.test(digits(p));
-export function waNumber(phone, country) {
+function waNumber(phone, country) {
   let d = digits(phone); if (!d) return "";
   const pre = S.markets[country]?.prefix || "";
   if (pre && !d.startsWith(pre)) d = pre + d.replace(/^0+/, "");

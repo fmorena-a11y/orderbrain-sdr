@@ -5,7 +5,7 @@
 // Los de Meta Ads son SDR revival (etiqueta «SDR revival · Meta Ads»; el prospecto lleva la Fuente «Inbound - SDR Meta Ads Revival»).
 // Un líder ve lo de su gente (y lo crea a su nombre solo con «Crear a nombre de X»); dirección, todo. Servidor:
 // lib/inbound.js (reglas), lib/inbound-run.js y lib/inbound-api.js.
-import { S, api, esc, icon, toast, telLink, agoText, shortDay, modal, leadsOver, openMenu, emptyState } from "./core.js";
+import { S, api, esc, fold, icon, toast, telLink, agoText, shortDay, modal, leadsOver, openMenu, emptyState } from "./core.js";
 import { go } from "./app.js";
 import { openRecord } from "./school.js";
 
@@ -174,7 +174,6 @@ function pendHtml(x) {
 }
 // el buscador: nombre, colegio, ciudad, país, mail, título en Pipedrive, a quién le tocó o los dígitos del teléfono (los últimos
 // 7 alcanzan: «8841355» encuentra «+54 9 11 2884-1355»); sin acentos y por palabras
-const fold = v => String(v || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 function matchQ(x, q) {
   const t = fold(q).trim(); if (!t) return true;
   const dig = q.replace(/\D/g, "");

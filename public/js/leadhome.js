@@ -45,7 +45,6 @@ function load() {
 // ---------- formato
 const fmt = n => fmtNum(n, { none: "?", dec: n == null || Number.isInteger(Number(n)) ? 0 : 1 });
 const part = p => { const x = B?.parts?.[p]; return x && !x.error ? x : null; };
-const waiting = p => !B?.parts?.[p] && B?.loading?.has(p);
 const def = k => B?.meta?.defs?.[k] || "";
 const pname = id => B?.people?.find(x => x.id === Number(id))?.name || "";
 const first = n => String(n || "").trim().split(/\s+/)[0] || "";

@@ -13,7 +13,7 @@ export function loadGmail(force = false) {
 // el estado cada 2,5 s mientras se espera (hasta 10 minutos). Si el navegador bloquea la ventana, va en esta pestaña.
 let waiting = null;
 // Lo que puede salir mal al conectar: el servidor manda solo el código y acá va el texto (nunca texto de la dirección).
-export const GMAIL_ERR = {
+const GMAIL_ERR = {
   state: "No pude validar la conexión con Google. Probá de nuevo desde la app.",
   mismatch: "Conectaste otra cuenta de Gmail. Usá la misma con la que entrás a la app.",
   denied: "No diste permiso: el mail no se puede enviar desde acá. Podés seguir con «Abrir en Gmail».",
@@ -54,7 +54,6 @@ export function connectGmail({ quiet = false } = {}) {
   });
 }
 export const gmailWaiting = () => !!waiting;
-export const cancelGmailWait = () => waiting?.stop(null);
 export async function disconnectGmail() {
   S.gmail = await api("/api/gmail/disconnect", { body: {} });
   toast("Google desconectado");

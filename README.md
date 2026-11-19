@@ -298,14 +298,16 @@ También funciona en Render o Railway, o con el `Dockerfile` incluido.
 ## Cómo está armado
 
 ```
-server.js              Express: login, API y archivos estáticos
+server.js              Express: login, sesión, permisos y archivos estáticos; monta las rutas de lib/*-api.js
+lib/*-api.js           Rutas por tema (ficha, agenda, equipo, métricas, buscador de zonas, asistente, cuentas conectadas…)
 api/index.js           Entrada para Vercel (reexporta la app)
 lib/config.js          Mercados por país, embudos, campos personalizados y motivos de pérdida
 lib/playbook.js        Resultados de contacto, cadencia, guion, objeciones, plantillas y prioridad
 lib/pipedrive.js       Cliente de la API de Pipedrive (v1 y v2) y cruce colegio ↔ organización
 lib/existing.js        Antes de crear: reglas para saber si el colegio ya está (prospecto, trato u organización)
 lib/pipedrive-demo.js  Pipedrive de prueba en memoria (DEMO_MODE=1)
-lib/sales.js           Ficha, registro de contactos, cola de prioridad, agenda y métricas
+lib/sales.js           Fachada de lib/sales/: ficha, registro de contactos, cola de prioridad, agenda y métricas
+lib/text.js            Utilidades de texto del servidor (minúsculas, sin acentos, escapar HTML, errores con status)
 lib/ai.js              Claude: notas, brief de llamada, mensajes y asistente con herramientas
 lib/aitables.js        Tablas del asistente para exportar, armadas con lo que devolvieron las herramientas
 lib/sheets-export.js   Crear la hoja de Google Sheets directo (apagado hasta tener el cliente OAuth de Google)
@@ -318,7 +320,7 @@ lib/accounts.js        Accounts por país de cada SDR, calendario de cada accoun
 lib/calendar.js        .ics → ocupado (ical.js), huecos, sugerencias y zonas (puro; demo en lib/calendar-demo.js)
 lib/scan.js            Búsqueda en OpenStreetMap compartida por el radar y el buscador de zonas
 scripts/radar.mjs      Radar: busca colegios privados en todas las ciudades (GitHub Actions)
-public/                Frontend sin build: HTML, CSS y módulos JS (mapa con Leaflet)
+public/                Frontend sin build: HTML, CSS y módulos JS (mapa con Leaflet; la ficha en public/js/school/)
 ```
 
 Pipedrive es la fuente de verdad. El cruce colegio ↔ organización dura 7 días y se recalcula solo. El registro local de contactos (`touches.json`) alimenta la cadencia, la meta diaria y el ranking.

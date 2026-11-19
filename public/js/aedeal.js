@@ -11,7 +11,7 @@ export function money(v, cur) {
 }
 export const typeName = t => S.types?.[t] || t || "Actividad";
 export const daysTxt = n => n == null ? "? días" : n === 0 ? "desde hoy" : n === 1 ? "1 día" : `${fmtN(n)} días`;
-export const whenTxt = a => `${dayLabel(a.date)}${a.time ? " " + a.time : ""}`;
+const whenTxt = a => `${dayLabel(a.date)}${a.time ? " " + a.time : ""}`;
 // por qué pide atención (lib/aeview.js reasonsOf): el más grave primero
 export const WHY = { proposal: "Propuesta sin seguimiento", overdue: "Próxima vencida", noNext: "Sin próximo paso", stale: "Quieto en la etapa" };
 export const whyChips = r => (r.why || []).map((k, i) => `<span class="ae-why ${i ? "" : "main"} ${k}">${esc(WHY[k] || k)}</span>`).join("");

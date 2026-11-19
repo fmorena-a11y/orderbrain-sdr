@@ -8,7 +8,7 @@ export const PERM_WHAT = {
   calendar: "ver los horarios libres para proponer demos",
   sheets: "leer la planilla de un evento y crear hojas con las tablas del asistente",
 };
-export const listEs = a => a.length <= 1 ? a.join("") : `${a.slice(0, -1).join(", ")} y ${a.at(-1)}`;
+const listEs = a => a.length <= 1 ? a.join("") : `${a.slice(0, -1).join(", ")} y ${a.at(-1)}`;
 // «mail, calendario y planillas»
 export const permList = keys => listEs(PERM_ORDER.filter(k => (keys || []).includes(k)).map(k => PERM_LABEL[k].toLowerCase()));
 

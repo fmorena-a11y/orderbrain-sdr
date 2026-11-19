@@ -38,7 +38,7 @@ export const COUNTRIES = {
   CO: "Colombia", EC: "Ecuador", BO: "Bolivia", PY: "Paraguay", VE: "Venezuela", PA: "Panamá", DO: "República Dominicana",
   HN: "Honduras", SV: "El Salvador", NI: "Nicaragua", PR: "Puerto Rico", ES: "España",
 };
-import { notSchool, norm, slug, sleep, km, titleCase, overpass as overpassRaw, citiesFor as citiesForRaw, radiusKm, classify, fromOsm as fromOsmRaw, keyTokens, matchExisting, buildIndex, addTo } from "../lib/scan.js";
+import { notSchool, norm, slug, sleep, km, overpass as overpassRaw, citiesFor as citiesForRaw, radiusKm, classify, fromOsm as fromOsmRaw, keyTokens, matchExisting, buildIndex, addTo } from "../lib/scan.js";
 export { norm, slug, km, radiusKm, classify };
 import { webInfo } from "../lib/enrich.js";
 // En el radar, Overpass nunca pasa el tiempo de la corrida.
