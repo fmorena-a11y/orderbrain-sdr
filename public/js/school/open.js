@@ -65,8 +65,27 @@ const isRef = id => /^(lead|org|bx):/.test(id);
 // Un colegio que ya no está en la base (un extra que se sacó, un id viejo) se saltea anotado, como la tarea que no se pudo abrir;
 // si la base todavía no cargó (Retomar apenas entrás), se espera.
 // stay: se eligió a mano un colegio salteado (desde «Ver detalle»): se abre en la sesión y no se vuelve a saltear solo.
+// Datos de la ficha pedidos por adelantado (pedido del líder: «más rápido entre elección y selección»): la ficha espera a
+// /api/schools/:id, que revisa Pipedrive y tarda; se pide apenas el mouse se queda sobre un colegio (200 ms), al apretar
+// (antes de soltar) y, en una sesión, el siguiente. Vale 45 s, una vez, y cualquier escritura (ob:wrote) lo descarta.
+const PF = new Map(), PF_MS = 45000;
+export function prefetchSchool(id) {
+  if (!id || !S.byId.has(id) || D.id === id) return;
+  const hit = PF.get(id); if (hit && Date.now() - hit.at < PF_MS) return;
+  PF.set(id, { at: Date.now(), p: api(`/api/schools/${encodeURIComponent(id)}`).catch(() => null) });
+  if (PF.size > 12) PF.delete(PF.keys().next().value);
+}
+function takePrefetch(id) { const hit = PF.get(id); PF.delete(id); return hit && Date.now() - hit.at < PF_MS ? hit.p : null; }
+addEventListener("ob:wrote", () => PF.clear());
+const pfId = el => { const r = el?.closest?.("[data-school], [data-id]"); const id = r?.dataset.school || r?.dataset.id; return id && S.byId.has(id) ? id : null; };
+let pfT = 0;
+document.addEventListener("pointerover", e => { const id = pfId(e.target); clearTimeout(pfT); if (id) pfT = setTimeout(() => prefetchSchool(id), 200); }, { passive: true });
+document.addEventListener("pointerdown", e => prefetchSchool(pfId(e.target)), { passive: true, capture: true });
+document.addEventListener("focusin", e => { const id = pfId(e.target); if (id) prefetchSchool(id); });
 export function openAt(ss, i, { stay = false } = {}) {
   ss.i = i; savePos(ss); const r = ss.ids[i];
+  // el que sigue en la sesión ya se va pidiendo mientras trabajás este
+  for (let j = i + 1; j < ss.ids.length; j++) { const it = ss.items[j]; if (it && it.state !== "pending") continue; prefetchSchool(ss.ids[j]); break; }
   // sesión «Tus tratos»: un trato sin organización (ni su persona tiene) no tiene ficha: se saltea con el motivo
   if (/^deal:\d+$/.test(r)) { toast(`${ss.items[i]?.name || "Un trato"} no tiene organización en Pipedrive, lo salteé`, { type: "info", href: `${S.pdWeb}/deal/${r.slice(5)}`, action: "Abrir en Pipedrive" }); markSkip(ss, r, "missing", "el trato no tiene organización en Pipedrive"); return sessionGo(1); }
   if (isRef(r) || S.byId.has(r)) return (isRef(r) ? openRecord : openSchool)(r, { keepSession: true, sref: r, activityId: ss.acts[r] || null, tab: "prep", noSkip: stay });
@@ -190,7 +209,7 @@ export async function load(opts = {}) {
   try {
     let d;
     if (opts.match !== undefined) d = await api(`/api/schools/${id}/match`, { body: opts.match });
-    else d = await api(`/api/schools/${id}${opts.refresh ? "?refresh=1" : ""}`);
+    else d = (!opts.refresh && await takePrefetch(id)) || await api(`/api/schools/${id}${opts.refresh ? "?refresh=1" : ""}`);
     if (D.id !== id) return;
     D.data = d; D.err = null; patchSchool(d.school);
     // en la sesión no se trabaja un cliente, un trato abierto ajeno ni algo de otra persona: se saltea aunque ya figure
