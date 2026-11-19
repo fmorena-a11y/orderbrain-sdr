@@ -7468,7 +7468,10 @@
   "CL|Talagante": "2026-11-19T11:30:18.137Z",
   "MX|Puerto Peñasco": "2026-11-19T13:38:08.275Z",
   "MX|Acámbaro": "2026-11-19T13:45:44.497Z",
-  "ES|n306620052": "2026-11-19T13:48:10.037Z"
+  "ES|n306620052": "2026-11-19T13:48:10.037Z",
+  "MX|Valladolid": "2026-11-19T15:16:30.589Z",
+  "CO|n703168239": "2026-11-19T15:25:13.715Z",
+  "ES|n11092959754": "2026-11-19T15:32:48.168Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7603,6 +7606,41 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-19T15:16:21.506Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Valladolid",
+     "found": 13,
+     "updated": 0,
+     "osm": 56
+    },
+    {
+     "cc": "CO",
+     "city": "El Cerrito",
+     "found": 3,
+     "updated": 0,
+     "osm": 10
+    },
+    {
+     "cc": "ES",
+     "city": "Arroyo de la Miel-Benalmádena Costa",
+     "found": 4,
+     "updated": 0,
+     "osm": 32
+    }
+   ],
+   "added": 20,
+   "enriched": 0,
+   "photos": 2,
+   "contacts": 3,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 16.7,
+   "total": 22856
+  },
   {
    "at": "2026-11-19T13:37:37.202Z",
    "cities": [
@@ -9721,62 +9759,6 @@
    ],
    "minutes": 18.7,
    "total": 21524
-  },
-  {
-   "at": "2026-11-15T19:05:14.623Z",
-   "cities": [
-    {
-     "cc": "AR",
-     "city": "General Rodríguez",
-     "found": 7,
-     "updated": 0,
-     "osm": 38
-    },
-    {
-     "cc": "VE",
-     "city": "Rubio",
-     "found": 5,
-     "updated": 0,
-     "osm": 13
-    },
-    {
-     "cc": "ES",
-     "city": "Melilla",
-     "found": 10,
-     "updated": 0,
-     "osm": 33
-    },
-    {
-     "cc": "MX",
-     "city": "Zitácuaro",
-     "found": 3,
-     "updated": 0,
-     "osm": 27
-    },
-    {
-     "cc": "AR",
-     "city": "Campana",
-     "found": 4,
-     "updated": 0,
-     "osm": 15
-    },
-    {
-     "cc": "MX",
-     "city": "Atlixco",
-     "found": 0,
-     "updated": 0,
-     "osm": 5
-    }
-   ],
-   "added": 29,
-   "enriched": 0,
-   "photos": 1,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 17,
-   "total": 21449
   }
  ]
 }

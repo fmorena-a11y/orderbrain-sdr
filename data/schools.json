@@ -462235,5 +462235,437 @@
   "src": "osm",
   "osm": "w687162934",
   "found": "2026-11-19"
+ },
+ {
+  "id": "valladolid-instituto-educativo-barcelo",
+  "name": "Instituto Educativo Barceló",
+  "city": "Valladolid",
+  "country": "México",
+  "lat": 20.689723,
+  "lng": -88.188375,
+  "addr": "Calle 41 156 D",
+  "phone": "+52 1 985 856 3180",
+  "web": "http://www.institutobarcelo.org.mx/",
+  "email": "direccion@institutobarcelo.org.mx",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802983389",
+  "found": "2026-11-19",
+  "img": "",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "valladolid-instituto-sylvanas-place",
+  "name": "Instituto Sylvanas Place",
+  "city": "Valladolid",
+  "country": "México",
+  "lat": 20.693481,
+  "lng": -88.191538,
+  "addr": "Calle 33 D",
+  "phone": "",
+  "web": "https://www.sylvanasplace.com/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4310081899",
+  "found": "2026-11-19",
+  "imgTry": "2026-11-19"
+ },
+ {
+  "id": "valladolid-escuela-preparatoria-modelo-valladolid",
+  "name": "Escuela Preparatoria Modelo Valladolid",
+  "city": "Valladolid",
+  "country": "México",
+  "lat": 20.691287,
+  "lng": -88.174956,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12666110916",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "valladolid-universidad-pedagogica-nacional-subsede-valladolid",
+  "name": "Universidad Pedagógica Nacional Subsede Valladolid",
+  "city": "Valladolid",
+  "country": "México",
+  "lat": 20.699208,
+  "lng": -88.184261,
+  "addr": "Calle 14 S/N, Fraccionamiento Orquídeas",
+  "phone": "+52 1 985 856 0935",
+  "web": "https://www.upn.mx/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w365031384",
+  "found": "2026-11-19",
+  "img": "",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "valladolid-instituto-tecnologico-superior-de-valladolid",
+  "name": "Instituto Tecnológico Superior de Valladolid",
+  "city": "Valladolid",
+  "country": "México",
+  "lat": 20.722453,
+  "lng": -88.19679,
+  "addr": "",
+  "phone": "985 8566300",
+  "web": "https://itsva.edu.mx/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w369423838",
+  "found": "2026-11-19",
+  "img": "",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "valladolid-instituto-cultural-de-oriente-uvy",
+  "name": "Instituto Cultural de Oriente (UVY)",
+  "city": "Valladolid",
+  "country": "México",
+  "lat": 20.680745,
+  "lng": -88.185818,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w372290759",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "valladolid-universidad-modelo",
+  "name": "Universidad Modelo",
+  "city": "Valladolid",
+  "country": "México",
+  "lat": 20.690905,
+  "lng": -88.173985,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w372290766",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "valladolid-universidad-de-valladolid-yucatan-campus",
+  "name": "Universidad de Valladolid Yucatán (CAMPUS)",
+  "city": "Valladolid",
+  "country": "México",
+  "lat": 20.681238,
+  "lng": -88.184601,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.uvy.edu.mx/",
+  "email": "contacto@uvy.edu.mx",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w372290767",
+  "found": "2026-11-19",
+  "img": "",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "valladolid-escuela-bilingue-primaria-alfredo-barrera-vasquez",
+  "name": "Escuela Bilingue Primaria \"Alfredo Barrera Vasquez\"",
+  "city": "Valladolid",
+  "country": "México",
+  "lat": 20.694752,
+  "lng": -88.22382,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w372657965",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "valladolid-escuela-primaria-particular-valladolid",
+  "name": "Escuela Primaria Particular \"Valladolid\"",
+  "city": "Valladolid",
+  "country": "México",
+  "lat": 20.69945,
+  "lng": -88.20223,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w373550636",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "valladolid-escuela-secundaria-particular-zaci",
+  "name": "Escuela Secundaria Particular \"Zací\"",
+  "city": "Valladolid",
+  "country": "México",
+  "lat": 20.69965,
+  "lng": -88.201722,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w373550637",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "valladolid-colegio-hipano-mexicano-del-sureste",
+  "name": "Colegio Hipano Mexicano del Sureste",
+  "city": "Valladolid",
+  "country": "México",
+  "lat": 20.723795,
+  "lng": -88.192336,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w374329585",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "valladolid-universidad-de-oriente",
+  "name": "Universidad de Oriente",
+  "city": "Valladolid",
+  "country": "México",
+  "lat": 20.710911,
+  "lng": -88.187591,
+  "addr": "Av. Chanyokdzonot Tablaje Catastral 10344 - 10345",
+  "phone": "52 1 9858566140",
+  "web": "http://www.uno.edu.mx/",
+  "email": "contacto@uno.edu.mx",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w392800358",
+  "found": "2026-11-19",
+  "img": "https://uno.edu.mx/uploads/large_IMG_9235_4d114b2910.JPG",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "el-cerrito-colegio-sagrado-corazon",
+  "name": "Colegio Sagrado Corazón",
+  "city": "El Cerrito",
+  "country": "Colombia",
+  "lat": 3.685111,
+  "lng": -76.311568,
+  "addr": "Calle 8",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w552963283",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "el-cerrito-centro-docente-maria-montessori",
+  "name": "Centro Docente Maria Montessori",
+  "city": "El Cerrito",
+  "country": "Colombia",
+  "lat": 3.683043,
+  "lng": -76.312158,
+  "addr": "Calle 6 11-11",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1024021829",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "el-cerrito-colegio-jose-ignacio-rengifo",
+  "name": "Colegio Jose Ignacio Rengifo",
+  "city": "El Cerrito",
+  "country": "Colombia",
+  "lat": 3.686813,
+  "lng": -76.317404,
+  "addr": "Carrera 17",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1024376165",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "arroyo-de-la-miel-benalmadena-costa-colegio-internacional-torrequebrada",
+  "name": "Colegio Internacional Torrequebrada",
+  "city": "Arroyo de la Miel-Benalmádena Costa",
+  "country": "España",
+  "lat": 36.584581,
+  "lng": -4.541845,
+  "addr": "Ronda del Golf Este 7-11",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13965474956",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "arroyo-de-la-miel-benalmadena-costa-benalmadena-international-college",
+  "name": "Benalmádena International College",
+  "city": "Arroyo de la Miel-Benalmádena Costa",
+  "country": "España",
+  "lat": 36.584097,
+  "lng": -4.556156,
+  "addr": "",
+  "phone": "://+34952561666",
+  "web": "https://www.bic-benal.com/",
+  "email": "admissions@bic-benal.com",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w317438948",
+  "found": "2026-11-19",
+  "img": "https://www.benalmadenainternationalcollege.com/wp-content/uploads/2024/04/DSC03373-300x200-1.jpg",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "arroyo-de-la-miel-benalmadena-costa-colegio-privado-bilingue-novaschool-benalmadena",
+  "name": "Colegio Privado Bilingüe Novaschool Benalmádena",
+  "city": "Arroyo de la Miel-Benalmádena Costa",
+  "country": "España",
+  "lat": 36.59762,
+  "lng": -4.557037,
+  "addr": "Calle Eros",
+  "phone": "+34 951 770902",
+  "web": "https://benalmadena.novaschool.es",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w967345672",
+  "found": "2026-11-19",
+  "imgTry": "2026-11-19"
+ },
+ {
+  "id": "arroyo-de-la-miel-benalmadena-costa-the-british-college",
+  "name": "The British College",
+  "city": "Arroyo de la Miel-Benalmádena Costa",
+  "country": "España",
+  "lat": 36.580091,
+  "lng": -4.566472,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1580202511",
+  "found": "2026-11-19"
  }
 ]
