@@ -197,6 +197,9 @@ app.use("/api/activities", dropOnWrite(() => null));
 if (process.env.READ_ONLY === "1") app.use((req, res, next) => writesPipedrive(req.method, req.path) ? res.status(403).json({ error: "Modo solo lectura: no se escribe en Pipedrive." }) : next());
 const wrap = fn => (req, res) => fn(req, res).catch(e => {
   if (res.writableEnded || res.destroyed) return; // el navegador ya cortó (canceló): no hay a quién responder
+  // un error de la IA (Anthropic: 401 clave, 429 cupo, 5xx) nunca sale con su status: un 401 de ellos le cerraría la sesión
+  // a la persona. Va como 502 con code ai_down y un texto fijo (sin el detalle del proveedor).
+  if (ai.isAiError(e)) { console.error(`IA: ${e.status || ""} ${String(e.message || "").slice(0, 200)}`); return res.status(502).json({ error: "La IA no está disponible ahora. Probá de nuevo en un rato.", code: "ai_down" }); }
   const status = e.status && e.status < 600 ? (e instanceof pd.PipedriveError && e.status >= 500 ? 502 : e.status) : 500;
   if (status >= 500) console.error(e);
   // code: un identificador corto para que el navegador sepa qué hacer (gmail_reauth, gmail_unknown…); nunca datos

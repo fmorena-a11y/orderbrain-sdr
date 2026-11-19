@@ -675,7 +675,12 @@ async function studyAhead(id) {
     if (r.study) return;
     if (!r.enabled) { STQ.off = true; return; }
     await api(`/api/schools/${encodeURIComponent(id)}/study`, { body: {} });
-  } catch { STQ.asked.delete(id); } // si falló, la ficha lo vuelve a pedir al abrirla
+  } catch (e) {
+    // falló: NO se vuelve a pedir en esta sesión (la ficha lo pide al abrirla). Con la IA caída, sin permiso o con muchos
+    // pedidos seguidos, se deja de adelantar por 10 minutos: nunca un pedido tras otro sin parar.
+    STQ.fails = (STQ.fails || 0) + 1;
+    if (e?.code === "ai_down" || [401, 403, 429].includes(e?.status) || e?.status >= 500 || STQ.fails >= 3) { STQ.off = true; setTimeout(() => { STQ.off = false; STQ.fails = 0; }, 10 * 60e3); }
+  }
 }
 // Revisa en Pipedrive los próximos colegios de la sesión para no perder tiempo con clientes.
 function prefetch() {
@@ -1796,7 +1801,7 @@ async function loadBrief(id, { refresh = false } = {}) {
     if (D.id !== id || D.tl?.id !== id) return;
     D.tl.brief = r.summary?.mode === "ia" ? r.summary : null;
     if (r.summary?.aiNote) D.tl.summary = { ...D.tl.summary, aiNote: r.summary.aiNote };
-  } catch (e) { if (D.tl?.id === id) D.tl.summary = { ...D.tl.summary, aiNote: `La IA no respondió (${e.message}): va el resumen por reglas.` }; }
+  } catch (e) { if (D.tl?.id === id) D.tl.summary = { ...D.tl.summary, aiNote: "La IA no está disponible ahora: va el resumen por reglas." }; }
   if (D.tl?.id === id) D.tl.aiLoading = false;
   redrawTl(id);
 }
