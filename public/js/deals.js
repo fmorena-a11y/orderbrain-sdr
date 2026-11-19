@@ -4,7 +4,7 @@
 // en el celular pasan a lista) y «Lista» (ordenable por días en la etapa, próxima actividad o valor). El alcance lo decide el
 // servidor (GET /api/deals/open, lib/deals-api.js): «Míos» para todos; una persona o el equipo, para líderes y dirección.
 // Nunca se inventa: lo que no se sabe no se muestra o va «?».
-import { S, api, esc, icon, norm, save, loadPref, dayLabel, toast, TYPE_ICON, teamSelect, teamView, teamQuery, setTeamView, ago } from "./core.js";
+import { S, api, esc, icon, norm, save, loadPref, dayLabel, toast, TYPE_ICON, teamSelect, teamView, teamQuery, setTeamView, ago, fmtNum } from "./core.js";
 import { openSchool, openRecord } from "./school.js";
 
 let host = null, seq = 0;
@@ -40,10 +40,10 @@ async function load({ force = false } = {}) {
 }
 
 // ---------- formato
-const fmtN = n => Number(n).toLocaleString("es");
+const fmtN = n => fmtNum(n, { none: "?" });
 function money(v, cur) {
   if (v == null) return "";
-  try { return new Intl.NumberFormat("es", { style: "currency", currency: cur || "USD", maximumFractionDigits: 0 }).format(v); } catch { return `${fmtN(v)} ${cur || ""}`.trim(); }
+  try { return new Intl.NumberFormat("es-AR", { style: "currency", currency: cur || "USD", maximumFractionDigits: 0 }).format(v); } catch { return `${fmtN(v)} ${cur || ""}`.trim(); }
 }
 const typeName = t => S.types?.[t] || t || "Actividad";
 const when = a => `${dayLabel(a.date)}${a.time ? " " + a.time : ""}`;

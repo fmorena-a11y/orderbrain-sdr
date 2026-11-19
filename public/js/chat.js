@@ -121,7 +121,7 @@ function mdBubble(text, el = bubble("a", "")) {
 
 // ---------- tablas para exportar (las arma el servidor con lo que devolvieron las herramientas: lib/aitables.js)
 const PREVIEW = 5;
-function save(blob, name) {
+export function save(blob, name) {
   const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name;
   document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 5000);
 }

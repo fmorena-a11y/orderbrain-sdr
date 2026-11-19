@@ -1,5 +1,7 @@
 // Prospectar: lista por país y ciudad + mapa, con cruce contra Pipedrive y sesión de llamadas.
-import { S, api, esc, norm, icon, pill, statusPill, stageTag, potTag, markOf, PH, ST, cssVar, patchSchool, toast, ago, shortDay, scroller, brainStaleMsg, brainTokenCallout, callPill, digits, recentSearches, rememberSearch, forgetSearch, clearSearches } from "./core.js";
+import { S, api, esc, norm, icon, pill, statusPill, stageTag, potTag, markOf, PH, ST, cssVar, patchSchool, toast, ago, shortDay, scroller, brainStaleMsg, brainTokenCallout, callPill, digits, recentSearches, rememberSearch, forgetSearch, clearSearches, schoolIdx, fmtNum } from "./core.js";
+import { tableCsv } from "./chatfmt.js";
+import { save as saveFile } from "./chat.js";
 import { openSchool, startSession } from "./school.js";
 import { baseErrorCallout } from "./app.js";
 import { pdSearcher, pdSectionHtml, bindPd, pdNamed, isPhoneQ, isMailQ, PD_MIN, pdLinkOf, isPdLink, openPdLink } from "./pdsearch.js";
@@ -17,17 +19,33 @@ let host, map, layer, canvas, brainLayer, brainBtn, busy = false, shown = PAGE;
 // Capa de clientes de OrderEAT (World Dominion de OrderBrain): prendida por defecto, se recuerda por persona.
 let showBrain = (() => { try { return localStorage.getItem("ob.brain") !== "0"; } catch { return true; } })();
 
-const scope = () => S.schools.filter(s => (!E.country || s.country === E.country) && (!E.city || s.city === E.city));
-// por nombre, ciudad o dirección; un teléfono, por sus dígitos (los últimos 8: con o sin código de país, con o sin espacios)
-const searchList = () => {
-  const q = norm(E.q), ph = isPhoneQ(E.q) ? digits(E.q) : "", key = ph.slice(-Math.min(ph.length, 8));
-  return S.schools.filter(s => (!E.country || s.country === E.country) && (norm(`${s.name} ${s.city} ${s.addr || ""}`).includes(q) || (key && digits(s.phone).includes(key))));
-};
+// Lo que se calcula para dibujar (la selección, la búsqueda, el orden, cuántos se pueden llamar) se guarda mientras no cambie
+// de qué depende: antes cada tecla recorría los 22.000 colegios seis veces y normalizaba cada texto. key = lo que lo define;
+// S.rev sube con cada colegio que cambia (core.js) y ref es el lugar ubicado (se compara por identidad).
+const MEMO = new Map();
+function memo(slot, key, fn, ref = null) {
+  const m = MEMO.get(slot), k = `${S.rev}|${S.schools.length}|${key}`;
+  if (m && m.k === k && m.ref === ref) return m.v;
+  const v = fn(); MEMO.set(slot, { k, ref, v }); return v;
+}
+const scope = () => memo("scope", `${E.country}|${E.city}`, () => S.schools.filter(s => (!E.country || s.country === E.country) && (!E.city || s.city === E.city)));
+// por nombre, ciudad o dirección; un teléfono, por sus dígitos (los últimos 8: con o sin código de país, con o sin espacios).
+// El texto de cada colegio ya viene normalizado (schoolIdx de core.js): acá solo se compara.
+const searchList = () => memo("search", `${E.country}|${E.q}`, () => {
+  const q = norm(E.q), ph = isPhoneQ(E.q) ? digits(E.q) : "", key = ph.slice(-Math.min(ph.length, 8)), c = E.country;
+  return S.schools.filter(s => { if (c && s.country !== c) return false; const x = schoolIdx(s); return x.q.includes(q) || (!!key && x.d.includes(key)); });
+});
 // de otra persona: la organización en Pipedrive tiene otro dueño (cada uno trabaja lo suyo)
 export const othersOwn = s => !!(s.ownerId && S.me?.pdUserId && s.ownerId !== S.me.pdUserId);
 const canCall = s => CALLABLE.includes(s.status) && !othersOwn(s);
 const applyFilter = a => E.filter === "prospect" ? a.filter(canCall) : E.filter === "pot" ? a.filter(s => s.pot && canCall(s)) : E.filter === "all" ? a : a.filter(s => s.status === E.filter);
-const sortS = a => a.sort((x, y) => (canCall(y) && y.pot ? 1 : 0) - (canCall(x) && x.pot ? 1 : 0) || RANK[x.status] - RANK[y.status] || (x.attempts || 0) - (y.attempts || 0) || x.name.localeCompare(y.name));
+// orden de la lista: alto potencial para llamar, estado, intentos y nombre. Lo que se compara se calcula una vez por colegio
+// (no en cada comparación) y el nombre va con un Intl.Collator que se reutiliza (mismo orden que localeCompare, mucho más rápido).
+// Devuelve una lista nueva: nunca reordena la que le pasan (puede ser una guardada).
+const byName = new Intl.Collator().compare;
+// k junta potencial, estado e intentos en un número («Prospecto en Pipe» no está en RANK: va entre «Sin revisar» y «En proceso»).
+const sortS = a => a.map(s => ({ s, k: (canCall(s) && s.pot ? 0 : 1e9) + (RANK[s.status] ?? 4.5) * 1e7 + Math.min(s.attempts || 0, 9999999) }))
+  .sort((x, y) => x.k - y.k || byName(x.s.name, y.s.name)).map(x => x.s);
 // Lugar buscado (país, provincia, ciudad, barrio o dirección): la lista y el mapa muestran solo lo que está ADENTRO
 // de su contorno real (o de un círculo chico si el lugar es un punto), del más cercano al más lejano.
 const kmTo = (a, b) => { const R = 6371, r = x => x * Math.PI / 180; const h = Math.sin(r(b.lat - a.lat) / 2) ** 2 + Math.cos(r(a.lat)) * Math.cos(r(b.lat)) * Math.sin(r(b.lng - a.lng) / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(h)); };
@@ -65,15 +83,25 @@ function placeList() {
 // provincia o país con muchos colegios: se agrupan por ciudad (como la vista general)
 const placeGrouped = () => placeMode() && ["country", "region", "continent"].includes(E.place.kind) && placeList().length > 150;
 const base = () => placeMode() ? placeList() : E.q ? searchList() : scope();
-const visible = () => placeMode() ? applyFilter(placeList()) : sortS(applyFilter(E.q ? searchList() : scope()));
+const selKey = () => `${E.country}|${E.city}|${E.q}|${E.filter}`;
+// filtered: lo que pasa el filtro, sin ordenar (para contar y para el mapa); visible: lo mismo en el orden de la lista
+const filtered = () => memo("filtered", selKey(), () => applyFilter(base()), E.place);
+const visible = () => memo("visible", selKey(), () => placeMode() ? filtered() : sortS(filtered()), E.place);
 const callable = () => visible().filter(s => canCall(s) && s.phone);
+// cuántos se pueden llamar con y sin teléfono: se cuenta sin ordenar (ordenar 22.000 solo para contar trababa la entrada)
+const callStats = () => memo("stats", selKey(), () => { let tel = 0, noTel = 0; for (const s of filtered()) if (canCall(s)) s.phone ? tel++ : noTel++; return { tel, noTel }; }, E.place);
+// vista mundial: sin país, ciudad, lugar ni búsqueda (ahí no se arma una sesión: primero se elige dónde)
+const worldView = () => !E.country && !E.city && !E.place && !E.q.trim();
 const placeName = p => p.kind === "spot" && !p.geo ? p.label.split(",")[0] : p.name || p.label.split(",")[0];
 function citiesOf(list) {
   const m = new Map();
   list.forEach(s => { const k = s.country + "|" + s.city; if (!m.has(k)) m.set(k, { country: s.country, city: s.city, items: [] }); m.get(k).items.push(s); });
   return [...m.values()].sort((a, b) => a.country.localeCompare(b.country) || b.items.length - a.items.length);
 }
-const fmt = n => n.toLocaleString("es-MX");
+// la selección agrupada por ciudad (vista general, o un país o provincia ubicados): la usan la lista y el mapa
+const cityGroups = () => memo("cities", `${E.country}|${E.city}`, () => citiesOf(placeMode() ? placeList() : scope()), E.place);
+const fmt = n => fmtNum(n);
+const km = d => d < 1 ? `${Math.round(d * 1000)} m` : `${fmtNum(d, { dec: 1 })} km`;
 
 export function renderExplore(el) {
   host = el; map = null; shown = PAGE;
@@ -99,7 +127,9 @@ export function renderExplore(el) {
   el.querySelectorAll(".scroll-row").forEach(scroller);
   const q = el.querySelector("#q");
   q.oninput = () => {
-    E.q = q.value; E.place = null; locSeq++; shown = PAGE; pdQuery(); drawAll(); toTop(); histDraw(); clearTimeout(histT);
+    // lo escrito queda en el estado en el acto (ninguna tecla se pierde: Enter, la sesión y el CSV leen E.q); la lista y
+    // el mapa se redibujan una vez, ≈120 ms después de la última tecla (drawSoon)
+    E.q = q.value; E.place = null; locSeq++; shown = PAGE; pdQuery(); drawSoon(); histDraw(); clearTimeout(histT);
     // un link de Pipedrive pegado: se abre su ficha (una vez por link), no se busca como nombre ni como dirección
     if (isPdLink(q.value)) { const k = q.value.trim(); if (k !== lastLink) { lastLink = k; openPdLink(k); } return; }
     histT = setTimeout(() => { if (q.value.trim().length >= 3 && q.value === E.q) rememberSearch(q.value); }, 2500);
@@ -120,13 +150,23 @@ export function renderExplore(el) {
   // Photon, con su contorno) y colegios de la base. Flechas para elegir, Enter abre la marcada, Esc cierra.
   const SUG = { items: [], sel: -1, t: null, seq: 0, remote: { q: "", places: [], failed: false, loading: false } };
   function sugLocal(t) {
-    const f = norm(t), words = f.split(" ");
-    const starts = x => { const n = norm(x); return n.startsWith(f) || ` ${n}`.includes(` ${f}`); };
-    const cities = new Map();
-    for (const sc of S.schools) if (sc.city && starts(sc.city)) { const k = `${sc.country}|${sc.city}`; const c = cities.get(k) || cities.set(k, { city: sc.city, country: sc.country, n: 0 }).get(k); c.n++; }
-    const schools = S.schools.filter(sc => { const n = norm(sc.name); return words.every(w => ` ${n}`.includes(` ${w}`)) || n.includes(f); })
-      .sort((a, b) => (norm(b.name).startsWith(f) - norm(a.name).startsWith(f)) || ((b.country === E.country) - (a.country === E.country)) || a.name.length - b.name.length).slice(0, 8);
-    return { cities: [...cities.values()].sort((a, b) => (norm(b.city).startsWith(f) - norm(a.city).startsWith(f)) || b.n - a.n).slice(0, 4), schools };
+    // con el texto ya normalizado de cada colegio (schoolIdx): una pasada, sin normalizar nada en la comparación del orden
+    const f = norm(t), sf = ` ${f}`, words = f.split(" "), sw = words.map(w => ` ${w}`);
+    // Los 8 colegios que van (el nombre empieza con lo escrito, del país elegido, el nombre más corto) se eligen en la misma
+    // pasada, sin ordenar los miles que coinciden.
+    const cities = new Map(), top = [], before = (a, b) => (b.st - a.st) || (b.co - a.co) || (a.len - b.len);
+    for (const sc of S.schools) {
+      const x = schoolIdx(sc), n = x.n;
+      if (x.c && (x.c.startsWith(f) || x.c.includes(sf))) { const k = `${sc.country}|${sc.city}`; const c = cities.get(k) || cities.set(k, { city: sc.city, country: sc.country, n: 0, c: x.c }).get(k); c.n++; }
+      if (!(words.every((w, i) => n.startsWith(w) || n.includes(sw[i])) || n.includes(f))) continue;
+      const e = { sc, st: n.startsWith(f) ? 1 : 0, co: sc.country === E.country ? 1 : 0, len: sc.name.length };
+      if (top.length === 8 && before(e, top[7]) >= 0) continue;
+      let i = top.length; while (i > 0 && before(e, top[i - 1]) < 0) i--;
+      top.splice(i, 0, e); if (top.length > 8) top.pop();
+    }
+    const schools = top.map(e => e.sc);
+    // primero la ciudad que coincide con lo escrito («Puebla» = «Puebla de Zaragoza»): es la que queda marcada para Enter
+    return { cities: [...cities.values()].sort((a, b) => (cityHit(b.c, f) - cityHit(a.c, f)) || (b.c.startsWith(f) - a.c.startsWith(f)) || ((b.country === E.country) - (a.country === E.country)) || b.n - a.n).slice(0, 4), schools };
   }
   function sugFetch(t) {
     clearTimeout(SUG.t); const my = ++SUG.seq;
@@ -141,9 +181,13 @@ export function renderExplore(el) {
   function sugDraw() {
     const t = q.value.trim();
     if (t.length < 2 || isPhoneQ(t) || isMailQ(t) || isPdLink(t)) { hist.hidden = true; SUG.items = []; return; }
-    if (t !== SUG.lastT) { SUG.sel = -1; SUG.lastT = t; }
+    const fresh = t !== SUG.lastT;
+    if (fresh) { SUG.sel = -1; SUG.lastT = t; }
     sugFetch(t);
     const loc = sugLocal(t), rem = SUG.remote.q === t ? SUG.remote : { places: [], loading: true };
+    // la primera sugerencia es una ciudad de la base que coincide con lo escrito: queda marcada y Enter la usa (antes Enter
+    // salía a buscar «Puebla» a OpenStreetMap teniendo «Puebla de Zaragoza · 95 colegios» a la vista)
+    if (fresh && loc.cities[0] && cityHit(loc.cities[0].c, norm(t))) SUG.sel = 0;
     const items = [], seen = new Set(loc.cities.map(c => norm(`${c.city} ${S.markets[c.country]?.code || ""}`)));
     const row = (i, ic, title, sub) => `<div class="qh-row${i === SUG.sel ? " on" : ""}"><button type="button" class="qh-it" role="option" aria-selected="${i === SUG.sel}" data-s="${i}">${icon(ic, "sm")}<span class="qs-t"><b>${esc(title)}</b>${sub ? `<small>${esc(sub)}</small>` : ""}</span></button></div>`;
     let html = "";
@@ -163,11 +207,12 @@ export function renderExplore(el) {
   }
   function sugPick(i) {
     const x = SUG.items[i]; if (!x) return false;
-    hist.hidden = true; SUG.sel = -1;
+    hist.hidden = true; SUG.sel = -1; drawNow(); // la lista queda con lo escrito mientras se ubica el lugar
     if (x.kind === "school") { if (q.value.trim().length >= 2) rememberSearch(q.value); openSchool(x.s.id); return true; }
     const label = x.kind === "city" ? `${x.city}, ${x.country}` : x.label;
     q.value = label; E.q = label; rememberSearch(label, "place");
-    locate(label, x.kind === "osm" ? { osm: x.osm } : {});
+    // una ciudad de la base: si el contorno no llega, igual se muestran sus colegios (locate → openCity)
+    locate(label, x.kind === "osm" ? { osm: x.osm } : { city: x });
     return true;
   }
   q.addEventListener("keydown", e => {
@@ -199,29 +244,30 @@ export function renderExplore(el) {
   // Pipedrive hay algo que se llama así (pdNamed: el nombre empieza con lo escrito, o una persona); si no, se ubica
   // («Metepec» se ubica aunque en Pipedrive esté «Nook Junior School Metepec»). El botón de la flecha siempre ubica.
   el.querySelector("#qf").onsubmit = async e => {
-    e.preventDefault(); const t = q.value; hist.hidden = true;
+    e.preventDefault(); const t = q.value; hist.hidden = true; drawNow();
     if (!t.trim()) return locate(t);
     if (isPdLink(t)) return openPdLink(t);
     rememberSearch(t);
     if (isPhoneQ(t) || isMailQ(t)) return;
-    if (looksLikePlace(t)) return locate(t);
+    if (looksLikePlace(t)) return locate(t, { city: baseCity(t) });
     if (searchList().length) return;
     const st = await PDS.done; // lo que encontró Pipedrive con lo escrito (espera si todavía está buscando)
     if (E.q !== t || E.place || pdNamed(st?.data, t)) return;
     locate(t);
   };
-  el.querySelector("#locate").onclick = () => locate(q.value);
+  el.querySelector("#locate").onclick = () => locate(q.value, { city: baseCity(q.value) });
   // abrir un resultado de Pipedrive (o su enlace) con algo escrito también lo guarda en el historial
   el.addEventListener("click", e => { if (e.target.closest("[data-pdi], .pd-ext") && E.q.trim().length >= 2) rememberSearch(E.q); }, true);
   el.querySelector("#sess").onclick = () => {
+    drawNow(); if (worldView()) return;
     const ids = callable().map(s => s.id); // startSession toma los primeros S.sessionMax y lo avisa
     const where = E.city || (E.place && placeName(E.place)) || E.country || "selección", list = FILTERS.find(([k]) => k === E.filter)?.[1] || "";
     if (ids.length) startSession(ids, where, { origin: { kind: "explore", key: `explore:${norm(where)}:${E.filter}:${norm(E.q)}`, filters: { lugar: where, lista: list, buscar: E.q || "" } } });
   };
-  el.querySelector("#csv").onclick = csv;
+  el.querySelector("#csv").onclick = () => { drawNow(); csv(); };
   initMap();
   drawAll();
-  if (E.pendingLocate) { const t = E.pendingLocate; E.pendingLocate = null; q.value = t; locate(t); }
+  if (E.pendingLocate) { const t = E.pendingLocate; E.pendingLocate = null; q.value = t; locate(t, { city: baseCity(t) }); }
   else if (E.q) pdQuery(); // volviste a Prospectar con una búsqueda: lo de Pipedrive se trae de nuevo (o de la copia de 60 s)
 }
 
@@ -256,10 +302,24 @@ function toPd() {
 
 // Al cambiar de ciudad, país, filtro o búsqueda, la lista vuelve arriba (en celular scrollea .explore-list; si no, .explore-scroll).
 const toTop = () => { for (const sel of [".explore-scroll", ".explore-list"]) { const n = host.querySelector(sel); if (n) n.scrollTop = 0; } };
-function drawAll({ fit = true } = {}) {
+// lazyMap (al escribir): primero la lista; el mapa (miles de marcas con una búsqueda amplia) va un momento después y se
+// cancela si llega otra tecla
+let drawT = 0, mapT = 0;
+function drawAll({ fit = true, lazyMap = false } = {}) {
+  clearTimeout(drawT); clearTimeout(mapT); drawT = mapT = 0;
   host.querySelector(".explore")?.classList.toggle("focused", !!(E.city || E.q || E.place));
-  drawCountries(); drawPlace(); drawCrumb(); drawFilters(); drawList(); drawFoot(); drawMap({ fit });
+  drawCountries(); drawPlace(); drawCrumb(); drawFilters(); drawList(); drawFoot();
+  if (!lazyMap) return drawMap({ fit });
+  const n = filtered().length; // con miles de marcas el mapa tarda: se espera más a que termines de escribir
+  mapT = setTimeout(() => { mapT = 0; if (host?.isConnected) drawMap({ fit }); }, n > 5000 ? 450 : n > 1500 ? 220 : 40);
 }
+// Al escribir: se espera ≈120 ms desde la última tecla y se redibuja una vez (lo escrito ya está en E.q).
+function drawSoon() {
+  clearTimeout(drawT); clearTimeout(mapT); mapT = 0;
+  drawT = setTimeout(() => { drawT = 0; if (!host?.isConnected) return; drawAll({ lazyMap: true }); toTop(); }, 120);
+}
+// si quedó un redibujo esperando (recién se escribió), se hace ya: lo que se toca después tiene que ver lo último
+function drawNow() { if (drawT && host?.isConnected) { drawAll(); toTop(); } }
 
 // ---------- ubicar en el mapa
 // ¿lo escrito es un lugar? «Puebla», «México, Puebla», «Palermo, Buenos Aires»: con coma, o igual a una ciudad o un país
@@ -281,10 +341,26 @@ function splitCountry(text) {
   const c = S.countries.find(c => norm(c) === norm(parts[i]));
   return { q: parts.filter((_, j) => j !== i).join(", "), cc: S.markets[c]?.code || "" };
 }
+// ¿la ciudad (normalizada) es lo que se escribió? Igual, o «Puebla» por «Puebla de Zaragoza» (la misma regla que looksLikePlace)
+const cityHit = (c, f) => f.length >= 3 && (c === f || c.startsWith(f + " de "));
+// la ciudad de la base que coincide con lo escrito («Puebla», «Puebla, México»): primero la del país elegido, después la
+// que más colegios tiene. null si ninguna.
+function baseCity(text) {
+  const sc = splitCountry(text), f = norm(sc.q); if (f.length < 3) return null;
+  const m = new Map();
+  for (const s of S.schools) {
+    const c = schoolIdx(s).c; if (!cityHit(c, f) || (sc.cc && S.markets[s.country]?.code !== sc.cc)) continue;
+    const k = `${s.country}|${s.city}`, x = m.get(k) || m.set(k, { city: s.city, country: s.country, n: 0 }).get(k); x.n++;
+  }
+  return [...m.values()].sort((a, b) => ((b.country === E.country) - (a.country === E.country)) || b.n - a.n)[0] || null;
+}
 let locSeq = 0;
 let histT = null;
-async function locate(text, { osm } = {}) {
+// city: la ciudad de la base que se eligió o que coincide ({ city, country }): si el lugar no se puede ubicar (OpenStreetMap
+// no responde o no lo encuentra), se muestran igual sus colegios en vez de un error.
+async function locate(text, { osm, city } = {}) {
   text = String(text || "").trim(); if (!osm && text.length < 2) return;
+  drawNow(); // si recién se escribió, primero la lista al día (si no, el redibujo pendiente borraría el «Ubicando…»)
   const seq = ++locSeq, box = host.querySelector("#placeBox");
   box.innerHTML = `<p class="muted place-msg"><span class="spin"></span> Ubicando «${esc(text)}»…</p>`;
   try {
@@ -300,6 +376,12 @@ async function locate(text, { osm } = {}) {
     drawAll(); toTop();
   } catch (e) {
     if (seq !== locSeq) return;
+    if (city && S.schools.some(s => s.country === city.country && s.city === city.city)) {
+      const n = S.schools.filter(s => s.country === city.country && s.city === city.city).length;
+      box.innerHTML = ""; openCity(city.country, city.city);
+      toast(`No pude traer el contorno de ${city.city}: te muestro ${n === 1 ? "el colegio" : `los ${fmt(n)} colegios`} que la base tiene ahí.`, { type: "info" });
+      return;
+    }
     // no se encontró, pero el texto dice otro país que el chip («…, Pue.» con «Ecuador» elegido): la lista deja de decir «en Ecuador»
     const c = e.data?.country;
     if (c && E.country && c !== E.country) { E.country = S.countries.includes(c) ? c : null; drawCountries(); drawList(); drawMap(); }
@@ -310,7 +392,7 @@ function drawPlace() {
   const box = host.querySelector("#placeBox"), p = E.place;
   if (!p) { box.innerHTML = ""; return; }
   const n = placeList().length;
-  const where = p.kind === "continent" ? `en ${fmt((p.countries || []).length)} país${(p.countries || []).length === 1 ? "" : "es"}` : p.geo ? `en ${esc(placeName(p))}` : `a menos de ${String(p.radius || 3).replace(".", ",")} km`;
+  const where = p.kind === "continent" ? `en ${fmt((p.countries || []).length)} país${(p.countries || []).length === 1 ? "" : "es"}` : p.geo ? `en ${esc(placeName(p))}` : `a menos de ${fmtNum(p.radius || 3, { dec: Number.isInteger(p.radius || 3) ? 0 : 1 })} km`;
   // found: qué encontró la búsqueda de una dirección (el número, la calle, la colonia, el código postal o la ciudad)
   const col = p.cc === "MX" ? "Colonia" : "Barrio";
   const kind = { house: "Dirección", near: "Dirección aproximada", corner: "Cruce de calles", street: "Calle", colonia: col, postcode: "Código postal", city: "Ciudad", region: "Provincia o estado" }[p.found]
@@ -347,10 +429,31 @@ function drawFilters() {
   f.innerHTML = FILTERS.filter(([k]) => k === "prospect" || k === "all" || cnt[k]).map(([k, l]) => `<button class="chip" data-f="${k}" aria-pressed="${E.filter === k}">${ST[k] ? dots(k) : ""}${l} <b>${fmt(cnt[k] || 0)}</b></button>`).join("");
   f.querySelectorAll("button").forEach(b => b.onclick = () => { E.filter = b.dataset.f; shown = PAGE; drawAll(); toTop(); });
 }
-function schoolRow(s) {
+// Horario de oficina de un colegio para llamar (la pastilla del reloj). Depende solo del país y, donde hay varios husos, de
+// la ciudad: se arma una vez por lugar en cada dibujo, no una vez por fila.
+let cwMemo = new Map();
+function cwPill(s) {
+  if (!CALLABLE.includes(s.status) || othersOwn(s) || s.phase) return "";
+  const m = S.markets[s.country], k = !m ? "" : m.husos ? `${s.country}|${s.city}|${typeof s.lng === "number" && s.lng >= m.husoLng?.[0] && s.lng <= m.husoLng?.[1]}` : s.country;
+  let h = cwMemo.get(k); if (h === undefined) cwMemo.set(k, h = callPill(s));
+  return h;
+}
+// Lo que se repetía igual en todas las filas («oficina abre mañana 8:00», «Sin revisar») va una sola vez en el encabezado.
+// cw: el horario, si es el mismo en todas las filas que lo muestran; st: el estado, si todas tienen el mismo (y ninguna
+// lleva otra etiqueta: fase o «De X»).
+function sameFor(list) {
+  const out = { cw: "", st: "" }; if (list.length < 2) return out;
+  let cw = null, n = 0;
+  for (const s of list) { const p = cwPill(s); if (!p) continue; if (cw === null) cw = p; else if (p !== cw) { cw = ""; break; } n++; }
+  if (cw && n > 1) out.cw = cw;
+  const st = list[0].status, single = E.filter !== "prospect" && E.filter !== "all";
+  if (!single && ST[st] && list.every(s => s.status === st && !s.phase && !(othersOwn(s) && CALLABLE.includes(s.status)))) out.st = st;
+  return out;
+}
+function schoolRow(s, same = {}) {
   // el subtítulo dice lo que la pastilla no: ciudad, último contacto o motivo de pérdida, intentos, teléfono
   const bits = [];
-  if (placeMode() && s._d != null) bits.push(s._d < 1 ? `${Math.round(s._d * 1000)} m` : `${s._d.toFixed(1).replace(".", ",")} km`);
+  if (placeMode() && s._d != null) bits.push(km(s._d));
   if (!E.city) bits.push(s.city);
   if (s.lastTouch) bits.push(`${s.lastTouch.outcome} ${ago(s.lastTouch.at)}`);
   else if (s.ob?.churn) bits.push(/activo|^churn$/i.test(s.ob.label) ? "ex cliente OrderEAT" : "firmó y no arrancó");
@@ -358,8 +461,8 @@ function schoolRow(s) {
   else if (s.status === "stalled" && s.detail) bits.push(s.detail.replace(/^Contactado \d{4}-\d{2}-\d{2}, sin avance( · )?/, "") || "sin avance");
   if (s.attempts) bits.push(`${s.attempts} intento${s.attempts > 1 ? "s" : ""}`);
   if (!s.phone) bits.push("sin teléfono");
-  const single = E.filter !== "prospect" && E.filter !== "all";
-  return `<button class="school-row" data-id="${esc(s.id)}"><span class="t"><b>${esc(s.name)}${stageTag(s) ? ` ${stageTag(s)}` : ""}${canCall(s) && potTag(s) ? ` ${potTag(s)}` : ""}</b>${bits.length ? `<small>${esc(bits.join(" · "))}</small>` : ""}${CALLABLE.includes(s.status) && !othersOwn(s) && !s.phase ? callPill(s) : ""}</span>${othersOwn(s) && CALLABLE.includes(s.status) ? `<span class="pill owner" title="Su organización en Pipedrive es de ${esc(s.ownerName || "otra persona")}">De ${esc((s.ownerName || "otra persona").split(" ")[0])}</span>` : single && !s.phase ? `<span class="sdot sh-${ST[s.status].sh}" title="${ST[s.status].l}" style="--pd:var(${ST[s.status].c});background:var(--pd)"></span>` : statusPill(s)}</button>`;
+  const single = same.st || (E.filter !== "prospect" && E.filter !== "all");
+  return `<button class="school-row" data-id="${esc(s.id)}"><span class="t"><b>${esc(s.name)}${stageTag(s) ? ` ${stageTag(s)}` : ""}${canCall(s) && potTag(s) ? ` ${potTag(s)}` : ""}</b>${bits.length ? `<small>${esc(bits.join(" · "))}</small>` : ""}${same.cw ? "" : cwPill(s)}</span>${othersOwn(s) && CALLABLE.includes(s.status) ? `<span class="pill owner" title="Su organización en Pipedrive es de ${esc(s.ownerName || "otra persona")}">De ${esc((s.ownerName || "otra persona").split(" ")[0])}</span>` : single && !s.phase ? `<span class="sdot sh-${ST[s.status].sh}" title="${ST[s.status].l}" style="--pd:var(${ST[s.status].c});background:var(--pd)"></span>` : statusPill(s)}</button>`;
 }
 function checkCallout(list) {
   const unk = list.filter(s => s.status === "unk").length;
@@ -373,8 +476,8 @@ function drawList() {
     return;
   }
   if ((!E.city && !E.q && !placeMode()) || placeGrouped()) {
-    const list = placeMode() ? placeList() : scope(), cs = citiesOf(list);
-    L.innerHTML = noticeTab(brainWarn() + checkCallout(list)) + `<div class="list-h"><span>${fmt(cs.length)} ciudades · ${fmt(list.length)} colegios</span><span class="legend"><i class="pros"></i>para llamar <i class="unk"></i>sin revisar <i class="none"></i>nada para llamar</span></div>` + cs.map(c => {
+    const list = placeMode() ? placeList() : scope(), cs = cityGroups();
+    L.innerHTML = noticeTab(brainWarn() + checkCallout(list)) + `<div class="list-h"><span>${fmt(cs.length)} ciudad${cs.length === 1 ? "" : "es"} · ${fmt(list.length)} colegio${list.length === 1 ? "" : "s"}</span></div>` + cs.map(c => {
       // la barrita usa los mismos colores que el mapa (la fase manda sobre el estado), en el orden de las referencias
       const n = c.items.length, k = {}; c.items.forEach(s => { const m = markOf(s); (k[m.k] ||= { m, n: 0 }).n++; });
       const pros = c.items.filter(canCall).length;
@@ -384,7 +487,10 @@ function drawList() {
     L.querySelectorAll("[data-city]").forEach(b => b.onclick = () => openCity(b.dataset.country, b.dataset.city));
     bindCheck(); return;
   }
-  const a = visible(), bl = base();
+  cwMemo = new Map();
+  const a = visible(), bl = base(), same = sameFor(a);
+  // «106 colegios · todos [Sin revisar]» y, al lado, el horario de oficina (uno para toda la lista)
+  const sameSt = same.st ? ` · ${a.length === 2 ? "los dos" : "todos"} ${pill(same.st)}` : "", sameCw = same.cw ? `<span class="list-same">${same.cw}</span>` : "";
   // hay coincidencias pero el filtro las oculta: decir por qué (clientes, en proceso…) en vez de «no hay nada»
   const why = () => { const c = {}; bl.forEach(s => { c[s.status] = (c[s.status] || 0) + 1; }); return Object.entries(c).map(([k, v]) => `${fmt(v)} ${k === "client" ? `cliente${v > 1 ? "s" : ""} de OrderEAT` : ST[k].l.toLowerCase()}`).join(", "); };
   const empty = bl.length
@@ -398,8 +504,8 @@ function drawList() {
     // «del mapa»: son los colegios de la app; lo que hay en Pipedrive va abajo (no quiere decir que no exista)
     ? `<div class="empty${pdOn() ? " compact" : ""}">${icon("search")}<span>Ningún colegio del mapa coincide con «${esc(E.q)}»${E.country ? ` en ${esc(E.country)}` : ""}.${pdOn() ? " Abajo, lo que hay en Pipedrive." : ""}</span>${isPhoneQ(E.q) || isMailQ(E.q) ? "" : `<button class="btn ${pdOn() ? "" : "primary "}sm" id="loc">${icon("nav", "sm")} Ubicar «${esc(E.q)}» en el mapa</button>`}${E.country ? `<button class="btn sm" id="allC">Buscar en todos los países</button>` : ""}</div>`
     : `<div class="empty">${icon("list")}<span>Nada con este filtro.</span><button class="btn sm" id="fAll">Ver todos</button></div>`;
-  L.innerHTML = noticeTab(brainWarn() + checkCallout(bl)) + `<div class="list-h"><span>${fmt(a.length)} colegio${a.length === 1 ? "" : "s"}${E.q && pdOn() ? " del mapa" : ""}</span>${E.q && pdOn() && a.length > 3 ? `<button class="btn ghost sm pd-jump" id="pdJump">${pdJumpLabel()} ${icon("chevDown", "sm")}</button>` : ""}</div>`
-    + (a.length ? a.slice(0, shown).map(schoolRow).join("") + (a.length > shown ? `<button class="btn ghost sm block" id="moreS">Ver ${fmt(Math.min(PAGE, a.length - shown))} más</button>` : "") : empty)
+  L.innerHTML = noticeTab(brainWarn() + checkCallout(bl)) + `<div class="list-h"><span>${fmt(a.length)} colegio${a.length === 1 ? "" : "s"}${E.q && pdOn() ? " del mapa" : ""}${sameSt}</span>${sameCw}${E.q && pdOn() && a.length > 3 ? `<button class="btn ghost sm pd-jump" id="pdJump">${pdJumpLabel()} ${icon("chevDown", "sm")}</button>` : ""}</div>`
+    + (a.length ? a.slice(0, shown).map(s => schoolRow(s, same)).join("") + (a.length > shown ? `<button class="btn ghost sm block" id="moreS">Ver ${fmt(Math.min(PAGE, a.length - shown))} más</button>` : "") : empty)
     + (E.q && !placeMode() && !isPdLink(E.q) ? `<div id="pdBox" class="pd-box">${pdSectionHtml(E.pd)}</div>` : "");
   if (E.q && !placeMode() && !isPdLink(E.q)) bindPd(L.querySelector("#pdBox"), E.pd, pdRetry, drawPd);
   // con muchos colegios, lo de Pipedrive queda abajo: este botón lleva hasta ahí
@@ -417,15 +523,23 @@ function drawList() {
 }
 function bindCheck() { host.querySelector("#check")?.addEventListener("click", checkScope); }
 function drawFoot() {
-  const n = S.schools.length ? callable().length : 0, max = S.sessionMax || 300;
-  const b = host.querySelector("#sess");
+  const b = host.querySelector("#sess"), max = S.sessionMax || 300;
+  host.querySelector("#csv").disabled = !S.schools.length;
+  // vista mundial (sin país, ciudad, lugar ni búsqueda): «Llamar a los primeros 300» de 22.000 no dice nada. Se pide elegir
+  // dónde; con una selección, la sesión se arma como siempre.
+  if (S.schools.length && worldView()) {
+    b.innerHTML = `${icon("nav")} <span class="sess-main">Elegí un país o un lugar para llamar</span>`; b.disabled = true;
+    b.title = "Elegí un país arriba, una ciudad de la lista o ubicá un lugar: la sesión de llamadas se arma con los colegios de esa selección";
+    return;
+  }
+  // «Para llamar 106» y «Llamar a 65»: la diferencia son los que no tienen teléfono. El botón dice las dos cosas con el
+  // mismo número del filtro: «Llamar a 65 con teléfono (de 106)»; si no entran todos en una sesión, «Llamar a los primeros
+  // 300 (de 1.238 con teléfono)». Se cuenta sin ordenar (callStats).
+  const { tel: n, noTel } = S.schools.length ? callStats() : { tel: 0, noTel: 0 };
   // una sesión lleva hasta S.sessionMax colegios: el botón no promete más de lo que entra
-  // «Para llamar 23» y «Llamar a 6»: la diferencia son los que no tienen teléfono (se dice, para que no parezca un error)
-  const noTel = S.schools.length ? visible().filter(s => canCall(s) && !s.phone).length : 0;
-  b.innerHTML = `${icon("play")} ${!n ? (noTel ? `${fmt(noTel)} sin teléfono` : "Nadie para llamar") : n > max ? `Llamar a los primeros ${fmt(max)}` : `Llamar a ${fmt(n)}`}${n && noTel ? ` <small class="sess-sub">· ${fmt(noTel)} sin tel.</small>` : ""}`;
+  b.innerHTML = `${icon("play")} <span class="sess-main">${!n ? (noTel ? `${fmt(noTel)} sin teléfono` : "Nadie para llamar") : n > max ? `Llamar a los primeros ${fmt(max)}` : `Llamar a ${fmt(n)}`}${n > max ? ` <small class="sess-sub">(de ${fmt(n)}${noTel ? " con teléfono" : ""})</small>` : n && noTel ? ` <small class="sess-sub">con teléfono (de ${fmt(n + noTel)})</small>` : ""}</span>`;
   b.disabled = !n;
   b.title = !n ? (noTel ? `Los ${fmt(noTel)} de esta selección no tienen teléfono: abrí uno y tocá «Enriquecer» para buscarlo` : "No hay colegios para llamar con teléfono en esta selección") : n > max ? `Hay ${fmt(n)} con teléfono en esta selección: la sesión toma los primeros ${fmt(max)}, en el orden de la lista` : `Sesión de llamadas con los ${fmt(n)} de esta selección que tienen teléfono${noTel ? ` (${fmt(noTel)} no tienen: abrilos y tocá «Enriquecer» para buscarlo)` : ""}`;
-  host.querySelector("#csv").disabled = !S.schools.length;
 }
 function openCity(country, city) {
   E.country = country; E.city = city; E.q = ""; E.place = null; locSeq++; shown = PAGE; host.querySelector("#q").value = "";
@@ -518,7 +632,7 @@ function drawMap({ fit = true } = {}) {
   const refit = fit && view !== lastView; lastView = view;
   const grouped = placeGrouped();
   if ((!E.city && !E.q && !placeMode()) || grouped) {
-    citiesOf(grouped ? placeList() : scope()).forEach(c => {
+    cityGroups().forEach(c => {
       const lat = c.items.reduce((a, s) => a + s.lat, 0) / c.items.length, lng = c.items.reduce((a, s) => a + s.lng, 0) / c.items.length;
       const pros = c.items.filter(s => ["new", "org", "stalled", "lost"].includes(s.status) && !othersOwn(s)).length, unk = c.items.filter(s => s.status === "unk").length;
       const n = pros || unk || c.items.length, kind = pros ? "pros" : unk ? "unk" : "none", size = Math.min(56, 24 + Math.sqrt(n) * 3);
@@ -531,7 +645,7 @@ function drawMap({ fit = true } = {}) {
     const colors = Object.fromEntries([...Object.entries(ST).map(([k, v]) => [k, cssVar(v.c)]), ...Object.entries(PH).map(([k, v]) => ["ph-" + k, cssVar(v.c)])]);
     const hole = cssVar("--surface") || "#fff", seen = new Map();
     // «para llamar» arriba de todo; lo apagado (archivado, sin revisar) abajo
-    const list = (placeMode() ? visible() : applyFilter(E.q ? searchList() : scope())).map(s => [s, markOf(s)]).sort((a, b) => (Z[a[1].k] ?? 5) - (Z[b[1].k] ?? 5));
+    const list = filtered().map(s => [s, markOf(s)]).sort((a, b) => (Z[a[1].k] ?? 5) - (Z[b[1].k] ?? 5));
     for (const [s, m] of list) {
       seen.set(m.k, (seen.get(m.k) || 0) + 1);
       const base = { renderer: canvas, color: "#fff", weight: 2, fillColor: colors[m.k], fillOpacity: 1, shape: m.sh };
@@ -639,12 +753,12 @@ async function checkScope() {
 }
 
 function csv() {
-  const arr = E.city || E.country || E.q || E.place ? visible() : sortS(applyFilter([...S.schools]));
-  const rows = [["Colegio", "Ciudad", "País", "Dirección", "Teléfono", "Web", "Estado en Pipe", "Detalle", "Último contacto"], ...arr.map(s => [s.name, s.city, s.country, s.addr || "", s.phone || "", s.web || "", s.phase === "churn" && s.ob?.label ? s.ob.label : ST[s.status]?.l || s.status, s.detail || "", s.lastTouch ? `${s.lastTouch.outcome} (${shortDay(s.lastTouch.at.slice(0, 10))})` : ""])];
-  const data = "﻿" + rows.map(r => r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(",")).join("\n");
-  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([data], { type: "text/csv" }));
+  // el mismo CSV que las tablas del asistente (tableCsv de chatfmt.js): BOM, «;» (abre directo en Excel en español) y lo que
+  // empieza con = + - @ lleva «'» adelante (una planilla no lo toma como fórmula); la descarga, con el mismo helper (chat.js)
+  const table = { columns: ["Colegio", "Ciudad", "País", "Dirección", "Teléfono", "Web", "Estado en Pipe", "Detalle", "Último contacto"].map(label => ({ label, type: "text" })),
+    rows: visible().map(s => [s.name, s.city, s.country, s.addr || "", s.phone || "", s.web || "", s.phase === "churn" && s.ob?.label ? s.ob.label : ST[s.status]?.l || s.status, s.detail || "", s.lastTouch ? `${s.lastTouch.outcome} (${shortDay(s.lastTouch.at.slice(0, 10))})` : ""]) };
   const label = FILTERS.find(([k]) => k === E.filter)?.[1] || "";
-  a.download = `orderbrain-${norm([E.city || (E.place && placeName(E.place)) || E.country || "latam", E.filter !== "all" ? label : ""].filter(Boolean).join(" ")).replace(/ /g, "-")}.csv`; a.click();
+  saveFile(new Blob([tableCsv(table)], { type: "text/csv;charset=utf-8" }), `orderbrain-${norm([E.city || (E.place && placeName(E.place)) || E.country || "latam", E.filter !== "all" ? label : ""].filter(Boolean).join(" ")).replace(/ /g, "-")}.csv`);
 }
 
 // Refresca la lista si cambió un colegio desde la ficha.

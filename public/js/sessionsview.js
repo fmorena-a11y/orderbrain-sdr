@@ -5,7 +5,7 @@
 // Acciones: Retomar (cambiar de sesión = retomar otra), Ver detalle, Editar (nombre y sacar colegios que faltan:
 // PATCH { name, remove }), Terminar, Reabrir (con 12 abiertas el servidor termina la más quieta y se avisa) y Borrar
 // (lo registrado en Pipedrive no se borra). «Nueva sesión» ofrece solo los orígenes que el servidor conoce (ORIGINS).
-import { S, api, esc, icon, toast, modal, ago, openMenu, loadPref, save } from "./core.js";
+import { S, api, esc, icon, toast, modal, ago, openMenu, loadPref, save, fmtNum } from "./core.js";
 import { resumeSession, startSession } from "./school.js";
 import { loadSessions, cacheSession, forgetSession, sessionDetail, endSession, reopenSession, ORIGIN, END, bar, when, filtersText } from "./sessions.js";
 import { sessionGroups, idleDays, isIdle, INACTIVE_DAYS, TABS } from "./sessgroups.js";
@@ -25,7 +25,7 @@ const EMPTY = {
   terminadas: "No hay sesiones terminadas.",
 };
 const sid = id => encodeURIComponent(id);
-const plural = (n, one, many) => `${n.toLocaleString("es")} ${n === 1 ? one : many}`;
+const plural = (n, one, many) => `${fmtNum(n)} ${n === 1 ? one : many}`;
 
 export function renderSessionsView(el) {
   host = el; err = null;

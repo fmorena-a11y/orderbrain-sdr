@@ -2,7 +2,7 @@
 // cancelación, las filas de cada resultado («Ver más» por grupo, con el cursor de Pipedrive) y la ficha a la que lleva:
 // organización o prospecto → el colegio de la base si su organización está cruzada, si no la ficha de Pipedrive; persona →
 // su ficha (teléfonos, emails, tratos, actividades, notas y el botón a la de su organización). Todo lo de Pipedrive se escapa.
-import { S, api, esc, norm, icon, modal, toast, localAct, shortDay, telLink, waLink, digits, statusPill, copy, ago, today } from "./core.js";
+import { S, api, esc, norm, icon, modal, toast, localAct, shortDay, telLink, waLink, digits, statusPill, copy, ago, today, fmtNum } from "./core.js";
 import { openSchool, openRecord } from "./school.js";
 
 export const PD_MIN = 3;
@@ -105,7 +105,7 @@ export function pdRow(it, k) {
   return `<div class="pd-row"><button class="school-row" data-pdi="${k}" data-type="${esc(it.type)}" title="${esc(goesTo(it))}"><span class="pd-ic" aria-hidden="true">${icon(ICON[it.type] || "search", "sm")}</span><span class="t"><b>${esc(pdTitle(it))}</b>${pdLinesHtml(it)}${it.hint ? `<small class="pd-hint">Coincide en: ${esc(it.hint)}</small>` : ""}</span>${pdBadge(it)}</button>${extLink(it)}</div>`;
 }
 // cuántos: «56», o «50 o más» si Pipedrive tiene más de los que trajo
-export const pdCount = (n, more, short = false) => `${n.toLocaleString("es-MX")}${more ? short ? "+" : " o más" : ""}`;
+export const pdCount = (n, more, short = false) => `${fmtNum(n)}${more ? short ? "+" : " o más" : ""}`;
 export const PD_SHOW = 10, PD_STEP = 25;
 const shownOf = g => Math.min(g.items.length, g.shown || PD_SHOW);
 // La sección «En Pipedrive» de Prospectar. st: el estado del buscador (null: no se busca).

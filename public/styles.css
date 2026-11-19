@@ -337,7 +337,9 @@ textarea.inp { min-height: 88px; resize: vertical; line-height: 1.45; }
 }
 .explore-scroll { overflow: auto; flex: 1; padding: 6px 10px 20px; min-height: 0; }
 .explore-foot { display: flex; gap: 8px; padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: var(--surface); }
-.explore-foot #sess { flex: 1; }
+.explore-foot #sess { flex: 1 1 0; min-width: 0; }
+.explore-foot #csv { flex: none; }
+#sess .sess-main { min-width: 0; white-space: normal; line-height: 1.25; text-wrap: balance; }
 .mapwrap { position: relative; min-height: 0; isolation: isolate; z-index: 0; }
 #map { position: absolute; inset: 0; background: var(--surface-2); }
 .city-row, .school-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: center; width: 100%; min-height: 52px; padding: 10px; border: 0; border-radius: 10px; background: none; text-align: left; cursor: pointer; color: inherit; }
@@ -349,10 +351,11 @@ textarea.inp { min-height: 88px; resize: vertical; line-height: 1.45; }
 .bar span { height: 100%; }
 .bar span[data-st="unk"] { background: repeating-linear-gradient(45deg, var(--st-unk) 0 3px, var(--surface-3) 3px 6px) !important; }
 .list-h { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; padding: 10px 10px 4px; font-size: 12.5px; color: var(--muted); font-weight: 500; }
-.list-h .legend { display: inline-flex; align-items: center; gap: 6px; }
-.list-h .legend i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; box-shadow: 0 0 0 1.5px #fff, 0 0 0 2.5px rgb(0 0 0 / .2); }
-.list-h .legend i.pros { background: var(--city-pros); } .list-h .legend i.none { background: var(--city-none); }
-.list-h .legend i.unk { background: var(--surface); box-shadow: inset 0 0 0 2.5px var(--city-unk), 0 0 0 1.5px #fff, 0 0 0 2.5px rgb(0 0 0 / .2); }
+/* Prospectar: lo que es igual en todas las filas (horario de oficina, «Sin revisar») va una vez en el encabezado de la lista.
+   (La leyenda de las burbujas de ciudad está solo en «Referencias» del mapa.) */
+.list-h > span:first-child .pill { margin-left: 2px; vertical-align: 1px; }
+.list-same { display: inline-flex; align-items: center; min-width: 0; }
+.list-same .cw { margin: 0; }
 .callout.check { margin: 8px 4px; align-items: center; flex-wrap: wrap; }
 .callout.check span { flex: 1 1 180px; }
 .crumb { display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--muted); }
@@ -1514,6 +1517,15 @@ details.tl-body p { margin: 6px 0 0; padding: 10px 12px; border-radius: 10px; ba
   .shell.rail-mini .rail-foot { width: 100%; } .shell.rail-mini .me { justify-content: center; padding: 6px 0; } .shell.rail-mini .me .who { display: none; }
 }
 @media (max-width: 1080px), (max-height: 520px) and (orientation: landscape) { .rail-toggle { display: none; } }
+/* Marca del menú (escritorio, sin achicar): con la pastilla «Demo» no entraba todo en 240 px y el botón de achicar quedaba
+   afuera (y «Demo» cortado). El nombre se corta si hace falta, «Demo» va debajo del nombre y el botón siempre se ve. */
+@media (min-width: 1081px) and (min-height: 521px), (min-width: 1081px) and (orientation: portrait) {
+  .shell:not(.rail-mini) .rail-brand { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 8px; row-gap: 2px; align-items: center; padding-inline: 4px; font-size: 16px; }
+  .shell:not(.rail-mini) .rail-brand > .logo-mark { grid-area: 1 / 1; }
+  .shell:not(.rail-mini) .rail-brand > span:not(.demo-pill) { grid-area: 1 / 2; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  .shell:not(.rail-mini) .rail-brand > .rail-toggle { grid-area: 1 / 3; margin: 0; width: 28px; }
+  .shell:not(.rail-mini) .rail-brand > .demo-pill { grid-area: 2 / 2; justify-self: start; }
+}
 /* Accesos del equipo: buscador */
 .codes-find { display: flex; align-items: center; gap: 10px; margin: 4px 0 10px; }
 .codes-find .inp { flex: 1; min-width: 0; }
@@ -1639,11 +1651,26 @@ button.dl-kpi[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offs
   .dl-row { grid-template-columns: minmax(0, 1fr); gap: 4px; position: relative; padding: 12px 6px 34px; }
   .dl-row .dl-pd { position: absolute; right: 4px; bottom: 4px; }
 }
-/* celular: con muchas secciones la barra de abajo se desliza de costado (cada una con su ancho, sin cortar el nombre) */
+/* Celular: la barra de abajo lleva 4 secciones (las del rol: .in-bar, en el orden --o) y «Más», que abre el resto en una hoja
+   (renderNav y moreSheet en app.js). Antes eran 10 con scroll de costado sin barra: las últimas no se veían. La actual
+   siempre queda marcada (si está en la hoja, se marca «Más»). En escritorio y tablet «Más» no existe y el menú no cambia. */
+.nav-more { display: none; }
 @media (max-width: 599px) and (min-height: 521px), (max-width: 599px) and (orientation: portrait) {
-  .nav { overflow-x: auto; scrollbar-width: none; } .nav::-webkit-scrollbar { display: none; }
-  .nav-item { flex: 1 0 64px; }
+  .nav-item { order: var(--o, 9); }
+  .nav-item:not(.in-bar):not(.nav-more) { display: none; }
+  .nav-more { display: flex; }
+  .nav-item .badge.dot { min-width: 10px; width: 10px; height: 10px; padding: 0; top: 6px; left: calc(50% + 8px); }
 }
+.nav-sheet { position: fixed; inset: 0; z-index: 1050; background: rgb(10 10 14 / .4); display: flex; align-items: flex-end; animation: fade .12s; }
+.ns-box { width: 100%; background: var(--surface); border-radius: 18px 18px 0 0; border-top: 1px solid var(--line); box-shadow: var(--shadow-lg); padding: 10px 12px calc(14px + env(safe-area-inset-bottom)); max-height: 80dvh; overflow: auto; animation: sheet-up .16s ease-out; }
+@keyframes sheet-up { from { transform: translateY(24px); opacity: .6; } }
+.ns-h { display: flex; align-items: center; justify-content: space-between; padding: 2px 2px 8px 8px; font-size: 15px; }
+.ns-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.ns-it { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-height: 76px; padding: 10px 6px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); color: var(--ink-2); font-weight: 500; font-size: 13px; text-align: center; cursor: pointer; }
+.ns-it[aria-current="page"] { background: var(--accent-soft); color: var(--accent-ink); border-color: transparent; }
+.ns-it .badge { position: absolute; top: 6px; right: 8px; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 11px; font-weight: 600; display: grid; place-items: center; }
+/* Búsqueda rápida: «Tuyo» = el dueño en Pipedrive sos vos */
+.tag.mine { background: var(--accent-soft); color: var(--accent-ink); font-weight: 600; flex: none; }
 
 #sess .sess-sub { font-weight: 500; opacity: .8; font-size: .85em; }
 

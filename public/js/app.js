@@ -1,5 +1,5 @@
 // OrderBrain SDR · arranque, navegación, cuenta, búsqueda rápida y atajos.
-import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, statusPill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo, modal, toast, brainTokenMsg, digits, recentSearches, rememberSearch, myRole } from "./core.js";
+import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, statusPill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo, modal, toast, brainTokenMsg, digits, recentSearches, rememberSearch, myRole, schoolIdx, fmtNum } from "./core.js";
 import { renderToday } from "./today.js";
 import { renderExplore } from "./explore.js";
 import { renderAgenda } from "./agenda.js";
@@ -44,6 +44,10 @@ const MENU = {
 const views = () => { const order = MENU[myRole()] || MENU.sdr;
   return Object.entries(VIEWS).filter(([k]) => (!LEADER_ONLY.has(k) || S.profile?.leader) && (k !== "inbound" || S.me?.role !== "ae"))
     .sort((a, b) => (order.indexOf(a[0]) + 1 || 99) - (order.indexOf(b[0]) + 1 || 99)); };
+// Celular: la barra de abajo lleva 4 secciones y «Más» (el resto, en una hoja). Las 4 son las primeras del menú de cada rol;
+// para un SDR, las que usa todo el día (Hoy, Prospectar, Tus inbound y Agenda). En escritorio el menú no cambia.
+const BAR = { sdr: ["hoy", "prospectar", "inbound", "agenda"] }, BAR_N = 4;
+const barViews = () => { const all = views().map(([k]) => k), pick = (BAR[myRole()] || []).filter(k => all.includes(k)); return [...pick, ...all.filter(k => !pick.includes(k))].slice(0, BAR_N); };
 const show = id => { for (const x of ["boot", "login", "app"]) $(x).hidden = x !== id; };
 
 // ---------- login
@@ -208,27 +212,77 @@ function applyRail() {
 }
 $("railToggle")?.addEventListener("click", () => { save("rail.mini", !loadPref("rail.mini", false)); applyRail(); dispatchEvent(new Event("resize")); });
 applyRail();
+// El menú: en escritorio y tablet, todas las secciones en el orden del rol. En el celular (barra de abajo) se ven solo las 4
+// de barViews() (clase in-bar, en ese orden) y «Más» (#navMore, que en escritorio no se muestra), que abre el resto en una
+// hoja (moreSheet). La sección actual siempre queda marcada: si está en «Más», se marca «Más» (markNav).
 function renderNav() {
-  $("nav").innerHTML = views().map(([k, v], i) => `<button class="nav-item" data-v="${k}" title="${v.label} (${i + 1})" aria-keyshortcuts="${i + 1}" ${S.view === k ? 'aria-current="page"' : ""}>${icon(v.icon)}<span class="lbl">${v.label}</span>${v.short ? `<span class="lbl-s" aria-hidden="true">${v.short}</span>` : ""}</button>`).join("");
+  closeMore();
+  const bar = barViews(), list = views();
+  $("nav").innerHTML = list.map(([k, v], i) => `<button class="nav-item${bar.includes(k) ? " in-bar" : ""}" style="--o:${bar.includes(k) ? bar.indexOf(k) : BAR_N + 1}" data-v="${k}" title="${v.label} (${i + 1})" aria-keyshortcuts="${i + 1}" ${S.view === k ? 'aria-current="page"' : ""}>${icon(v.icon)}<span class="lbl">${v.label}</span>${v.short ? `<span class="lbl-s" aria-hidden="true">${v.short}</span>` : ""}</button>`).join("")
+    + (list.length > bar.length ? `<button class="nav-item nav-more" id="navMore" style="--o:${BAR_N}" aria-haspopup="dialog" aria-expanded="false" title="Más secciones">${icon("dots")}<span class="lbl">Más</span></button>` : "");
   $("nav").querySelectorAll("[data-v]").forEach(b => b.onclick = () => { go(b.dataset.v); $("main").focus({ preventScroll: true }); });
+  $("navMore")?.addEventListener("click", () => moreEl ? closeMore() : moreSheet());
+  markNav();
 }
+// marca la sección actual en el menú; en el celular, «Más» si la actual está en la hoja, y un punto si ahí hay algo pendiente
+function markNav() {
+  $("nav").querySelectorAll("[data-v]").forEach(b => { if (b.dataset.v === S.view) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
+  const more = $("navMore"); if (!more) return;
+  const rest = [...$("nav").querySelectorAll("[data-v]:not(.in-bar)")], cur = rest.find(b => b.dataset.v === S.view);
+  if (cur) more.setAttribute("aria-current", "page"); else more.removeAttribute("aria-current");
+  more.title = cur ? `Más secciones (estás en ${VIEWS[S.view].label})` : "Más secciones";
+  more.querySelector(".badge")?.remove();
+  if (rest.some(b => b.querySelector(".badge"))) more.insertAdjacentHTML("beforeend", `<span class="badge dot" aria-label="Hay pendientes en otras secciones"></span>`);
+}
+// «Más» (celular): hoja con las secciones que no entran en la barra. Se cierra al elegir, con Esc, tocando afuera o al
+// cambiar de sección; el foco vuelve a «Más».
+let moreEl = null;
+function closeMore({ focus = false } = {}) {
+  if (!moreEl) return;
+  moreEl.remove(); moreEl = null; $("navMore")?.setAttribute("aria-expanded", "false");
+  if (focus) $("navMore")?.focus();
+}
+function moreSheet() {
+  closeMenu();
+  const bar = barViews(), rest = views().filter(([k]) => !bar.includes(k)); if (!rest.length) return;
+  moreEl = document.createElement("div"); moreEl.className = "nav-sheet";
+  moreEl.innerHTML = `<div class="ns-box" role="dialog" aria-modal="true" aria-label="Más secciones"><div class="ns-h"><b>Más secciones</b><button class="icon-btn" data-x aria-label="Cerrar">${icon("x")}</button></div><div class="ns-grid">${rest.map(([k, v]) => {
+    const bd = $("nav").querySelector(`[data-v="${k}"] .badge`);
+    return `<button class="ns-it" data-v="${k}" ${S.view === k ? 'aria-current="page"' : ""}>${icon(v.icon)}<span>${v.label}</span>${bd ? `<span class="badge" title="${esc(bd.title || "")}">${esc(bd.textContent)}</span>` : ""}</button>`;
+  }).join("")}</div></div>`;
+  document.body.appendChild(moreEl);
+  $("navMore").setAttribute("aria-expanded", "true");
+  moreEl.addEventListener("pointerdown", e => { if (e.target === moreEl) closeMore(); });
+  moreEl.querySelector("[data-x]").onclick = () => closeMore({ focus: true });
+  moreEl.querySelectorAll("[data-v]").forEach(b => b.onclick = () => { const v = b.dataset.v; closeMore(); go(v); $("main").focus({ preventScroll: true }); });
+  moreEl.addEventListener("keydown", e => {
+    if (e.key === "Escape") { e.stopPropagation(); return closeMore({ focus: true }); }
+    if (e.key !== "Tab") return; // el foco no sale de la hoja
+    const bs = [...moreEl.querySelectorAll("button")], i = bs.indexOf(document.activeElement);
+    if (e.shiftKey && i <= 0) { e.preventDefault(); bs.at(-1).focus(); } else if (!e.shiftKey && i === bs.length - 1) { e.preventDefault(); bs[0].focus(); }
+  });
+  (moreEl.querySelector('[aria-current="page"]') || moreEl.querySelector(".ns-it")).focus();
+}
+// si la pantalla deja de ser la del celular (se gira o se agranda), la hoja no queda colgada
+addEventListener("resize", () => { if (moreEl && getComputedStyle($("navMore") || document.body).display === "none") closeMore(); });
 // n: cantidad pendiente, o "!" con label (un aviso)
 export function setBadge(view, n, label = "") {
   const b = $("nav").querySelector(`[data-v="${view}"]`); if (!b) return;
   b.querySelector(".badge")?.remove();
   if (n) b.insertAdjacentHTML("beforeend", `<span class="badge" aria-label="${esc(label || `${n} pendientes`)}" title="${esc(label)}">${n > 99 ? "99+" : n}</span>`);
+  markNav();
 }
 // a los líderes: un punto en Equipo si el token de World Dominion falta, vence o lo rechazaron
 export const brainBadge = () => setBadge("equipo", S.brain?.token ? "!" : 0, brainTokenMsg()?.[1] || "");
 export function go(view) { if (location.hash !== "#/" + view) location.hash = "#/" + view; else route(); }
 function route() {
-  closeMenu();
+  closeMenu(); closeMore();
   const v = (location.hash.match(/^#\/(\w+)/) || [])[1];
   S.view = VIEWS[v] && views().some(([k]) => k === v) ? v : "hoy";
   if (v && v !== S.view) history.replaceState(null, "", "#/" + S.view); // una vista que no te toca (Métricas para un SDR) vuelve a Hoy
   // a quien era líder antes de los equipos y quedó sin equipo, decirle por qué no ve Métricas
   if (v === "metricas" && S.view !== v && S.profile?.access?.stale) toast("Ahora hay equipos: pedile a dirección que te asigne el tuyo. Mientras, Métricas no se ve.");
-  $("nav").querySelectorAll("[data-v]").forEach(b => { if (b.dataset.v === S.view) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
+  markNav();
   document.title = `${VIEWS[S.view].label} · OrderBrain SDRs`;
   const main = $("main");
   main.innerHTML = "";
@@ -247,6 +301,9 @@ export function rerender() { route(); }
 // tarde Pipedrive. Con resultados de Pipedrive, arriba un atajo «En Pipedrive: N» para bajar hasta ahí.
 const PAL = { items: [], sel: 0, ret: null, pd: null }, PALS = pdSearcher(), PAL_PD = 8, PAL_SCH = 3;
 const PD_IC = { person: "user", organization: "building", lead: "lead", deal: "deal" };
+// «Tuyo»: el dueño en Pipedrive sos vos (un colegio de la base por su organización; lo de Pipedrive, por su dueño)
+const isMine = ownerId => !!ownerId && !!S.me?.pdUserId && Number(ownerId) === Number(S.me.pdUserId);
+const MINE_TAG = `<span class="tag mine" title="El dueño en Pipedrive sos vos">Tuyo</span>`;
 function palPd() {
   if (pdLinkOf($("palIn").value)) { PALS.cancel(); PAL.pd = null; return; }
   let sync = true;
@@ -295,7 +352,12 @@ function renderPalette({ keep = false } = {}) {
     const ph = isPhoneQ(raw) ? digits(raw) : "", key = ph.slice(-Math.min(ph.length, 8));
     // con la búsqueda en Pipedrive, hasta 3 colegios (lo de Pipedrive tiene que verse sin bajar); el tope no depende de
     // lo que responda Pipedrive, para que nada se mueva cuando llega
-    const pdOn = t.length >= PD_MIN, all = q.length >= 2 ? S.schools.filter(s => norm(`${s.name} ${s.city} ${s.country}`).includes(q) || (key && digits(s.phone).includes(key))) : [];
+    // el texto de cada colegio ya está normalizado (schoolIdx de core.js): acá solo se compara
+    const pdOn = t.length >= PD_MIN, all = q.length >= 2 ? S.schools.filter(s => { const x = schoolIdx(s); return x.p.includes(q) || (!!key && x.d.includes(key)); }) : [];
+    // primero lo tuyo, después lo de tu territorio (o el país elegido en Prospectar) y después el resto, sin cambiar el
+    // orden dentro de cada grupo: «Ceibos» + Enter abría un colegio de otro país antes que el de la persona
+    const pref = new Set([...(S.territory || []), ...(S.explore.country ? [S.explore.country] : [])]), rk = s => isMine(s.ownerId) ? 0 : pref.has(s.country) ? 1 : 2;
+    if (pref.size || S.me?.pdUserId) all.sort((a, b) => rk(a) - rk(b));
     const schools = all.slice(0, pdOn ? PAL_SCH : 8);
     const actions = [
       ...views().filter(([k]) => k !== S.view).map(([k, v]) => ({ label: `Ir a ${v.label}`, sub: "", ic: v.icon, fn: () => go(k) })),
@@ -304,7 +366,7 @@ function renderPalette({ keep = false } = {}) {
       ...(S.ai ? [{ label: "Abrir asistente", sub: "", ic: "sparkles", fn: () => openAssistant() }] : []),
     ].filter(a => norm(a.label + " " + a.sub).includes(q));
     if (schools.length) sections.push(["Colegios", [...schools.map(s => ({ s })),
-      ...(all.length > schools.length ? [{ a: { key: "a:schools", label: `Ver los ${all.length.toLocaleString("es-MX")} colegios en Prospectar`, sub: "Todos los de la base que coinciden", ic: "list", fn: () => toExplore(t) } }] : [])]]);
+      ...(all.length > schools.length ? [{ a: { key: "a:schools", label: `Ver los ${fmtNum(all.length)} colegios en Prospectar`, sub: "Todos los de la base que coinciden", ic: "list", fn: () => toExplore(t) } }] : [])]]);
     const place = t.length >= 3 && !isPhoneQ(raw) && !isMailQ(raw);
     if (place) sections.push(["En el mapa", [
       { a: { key: "a:locate", label: `Ubicar «${t}» en el mapa`, sub: "Ciudad, barrio o dirección, con los colegios de alrededor", ic: "nav", fn: () => import("./explore.js").then(m => { m.locateFromOutside(t); go("prospectar"); }) } },
@@ -314,7 +376,9 @@ function renderPalette({ keep = false } = {}) {
     const pd = PAL.pd;
     if (pd) {
       // primero lo que se llama así (una persona «Laura Gómez» al buscar «laura»), después en el orden de Pipedrive
-      const flat = pdFlat(pd.data), all = [...flat.filter(x => pdNameHit(x, t)), ...flat.filter(x => !pdNameHit(x, t))], more = all.length > PAL_PD || pd.data?.more;
+      // (dentro de cada grupo, primero lo tuyo)
+      const flat = pdFlat(pd.data), mineFirst = l => [...l.filter(x => isMine(x.ownerId)), ...l.filter(x => !isMine(x.ownerId))];
+      const all = [...mineFirst(flat.filter(x => pdNameHit(x, t))), ...mineFirst(flat.filter(x => !pdNameHit(x, t)))], more = all.length > PAL_PD || pd.data?.more;
       const msg = pd.state === "loading" ? `<div class="pal-msg muted"><span class="spin"></span> Buscando en Pipedrive…</div>`
         : pd.state === "err" ? `<div class="pal-msg callout warn">${icon("alert")}<span>No pude buscar en Pipedrive: ${esc(String(pd.err).replace(/^Pipedrive:\s*/, ""))}</span></div>`
         : !all.length ? `<div class="pal-msg muted">Nada en Pipedrive con «${esc(pd.q)}».</div>` : "";
@@ -332,10 +396,10 @@ function renderPalette({ keep = false } = {}) {
     for (const it of list) {
       const i = PAL.items.length;
       if (it.msg) { html += it.msg; continue; }
-      if (it.s) { PAL.items.push({ key: `s:${it.s.id}`, fn: () => openSchool(it.s.id) }); html += row(i, "building", it.s.name, `${it.s.city}, ${it.s.country}`, it.s.status ? statusPill(it.s) : ""); }
+      if (it.s) { PAL.items.push({ key: `s:${it.s.id}`, fn: () => openSchool(it.s.id) }); html += row(i, "building", it.s.name, `${it.s.city}, ${it.s.country}`, (isMine(it.s.ownerId) ? MINE_TAG : "") + (it.s.status ? statusPill(it.s) : "")); }
       else if (it.pd) {
         const x = it.pd; PAL.items.push({ key: `pd:${x.type}:${x.id}`, fn: () => openPd(x) });
-        html += `<div class="pal-row"><button class="pal-item" role="option" data-i="${i}" aria-selected="false">${icon(PD_IC[x.type] || "search")}<span class="t"><b>${esc(pdTitle(x))}</b>${pdLinesHtml(x)}</span>${pdBadge(x)}</button><a class="pal-ext" href="${esc(x.url)}" target="_blank" rel="noopener" title="Abrir en Pipedrive" aria-label="Abrir «${esc(pdTitle(x))}» en Pipedrive">${icon("external", "sm")}</a></div>`;
+        html += `<div class="pal-row"><button class="pal-item" role="option" data-i="${i}" aria-selected="false">${icon(PD_IC[x.type] || "search")}<span class="t"><b>${esc(pdTitle(x))}</b>${pdLinesHtml(x)}</span>${isMine(x.ownerId) ? MINE_TAG : ""}${pdBadge(x)}</button><a class="pal-ext" href="${esc(x.url)}" target="_blank" rel="noopener" title="Abrir en Pipedrive" aria-label="Abrir «${esc(pdTitle(x))}» en Pipedrive">${icon("external", "sm")}</a></div>`;
       }
       else { PAL.items.push({ key: it.a.key || `a:${it.a.label}`, ...it.a }); html += row(i, it.a.ic, it.a.label, it.a.sub); }
     }
@@ -363,7 +427,7 @@ addEventListener("keydown", e => {
   if ($("app").hidden) return;
   const el = document.activeElement;
   const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(el?.tagName) || el?.isContentEditable;
-  const overlay = document.querySelector(".modal, .menu");
+  const overlay = document.querySelector(".modal, .menu, .nav-sheet");
   // Deshacer lo último (por ejemplo, «marcar como hecha») mientras el aviso está visible
   if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z" && !typing && lastUndo) { e.preventDefault(); lastUndo.fn(); return; }
   if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); if (overlay) return; $("palette").hidden ? openPalette() : closePalette(); return; }
