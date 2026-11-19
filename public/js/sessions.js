@@ -151,7 +151,7 @@ export async function sessionDetail(id, redraw, anchor) {
     ${bar(v)}
     ${v.summary ? `<p style="margin:0">${esc(v.summary)}</p>` : ""}
     <div class="ss-items">${sec("Trabajados", worked)}${sec("Salteados", skipped)}<div id="sdPend">${sec("Faltan", pending, 20)}</div></div>
-    ${open && pending.length ? `<p class="faint" style="margin:0;font-size:12.5px">Tocá uno de los que faltan para seguir la sesión desde ahí.</p>` : ""}
+    ${open && (pending.length || skipped.length) ? `<p class="faint" style="margin:0;font-size:12.5px">Tocá uno de los que ${[pending.length && "faltan", skipped.length && "se saltearon"].filter(Boolean).join(" o ")} para seguir la sesión desde ahí.</p>` : ""}
     <div class="row">${open ? `<button class="btn ghost" id="sdEnd">Terminar</button>` : `<button class="btn ghost" id="sdOpen">Reabrir</button>`}${open && v.resume >= 0 ? `<button class="btn primary" id="sdGo">${icon("play", "sm")} Retomar</button>` : ""}</div>`, { onClose: () => anchor?.isConnected && anchor.focus() });
   m.querySelector(".modal-box").classList.add("ss-modal");
   m.querySelector("#sdX").onclick = () => m.close();
@@ -159,10 +159,11 @@ export async function sessionDetail(id, redraw, anchor) {
   m.querySelector("#sdGo")?.addEventListener("click", () => { m.close(); resumeSession(v.id); });
   m.querySelector("#sdEnd")?.addEventListener("click", () => { m.close(); endSession(v.id, redraw, anchor); });
   m.querySelector("#sdOpen")?.addEventListener("click", async () => { m.close(); await reopenSession(v.id, redraw); });
-  // lo que falta (en una sesión abierta) sigue la sesión desde ahí; lo demás abre la ficha sola
+  // lo que falta o se salteó (en una sesión abierta) sigue la sesión desde ahí (un salteado no se vuelve a saltear solo:
+  // resumeSession lo abre y queda en la sesión); lo ya trabajado, y todo en una terminada, abre la ficha sola
   const bindItems = () => m.querySelectorAll("[data-it]").forEach(b => b.onclick = () => {
     const i = Number(b.dataset.it), it = v.items[i]; m.close();
-    if (open && b.dataset.st === "pending") return resumeSession(v.id, { at: i });
+    if (open && ["pending", "skipped"].includes(b.dataset.st)) return resumeSession(v.id, { at: i });
     if (/^(lead|org|bx):/.test(it.ref)) return openRecord(it.ref);
     if (S.byId.has(it.ref)) return openSchool(it.ref);
     const sid = (by.get(it.ref) || []).find(s => s.schoolId)?.schoolId;

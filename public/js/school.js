@@ -1,5 +1,5 @@
 // Ficha del colegio: preparar el contacto, registrar el resultado e historial. Incluye el modo sesión.
-import { $, S, api, esc, icon, pill, statusPill, stageTag, potTag, toast, copy, openMenu, modal, patchSchool, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, workOrder, ago, TYPE_ICON, leadsOver, leadsAll,
+import { $, S, api, esc, icon, pill, statusPill, stageTag, potTag, toast, copy, openMenu, modal, patchSchool, save, loadPref, today, addDays, nextBusinessDay, shortDay, dayLabel, localAct, workOrder, ago, TYPE_ICON, leadsOver, leadsAll,
   telLink, waLink, gmailLink, gcalLink, mapsDir, mapsSearch, initials, satLink, satTile, callQueue, callGuess, demoDue, archivedRef, archivedAct, norm, cap } from "./core.js";
 import { loadGmail, connectGmail, gmailWaiting, sigPreview, sigLabel } from "./gmail.js";
 import { proposeDemo, regSlotsHtml, bindRegSlots } from "./demoslots.js";
@@ -40,6 +40,12 @@ const QUICK = {
   not_now: ["Renuevan la concesión el año que viene", "Ya tienen presupuesto cerrado"], not_interested: ["Ya usan otro sistema", "No quieren app para familias"], bad_data: ["Teléfono fuera de servicio", "El colegio cerró"],
 };
 const NIVELES = ["Preescolar", "Primaria", "Secundaria", "Prepa", "Universidad"];
+// Contacto por escrito (WhatsApp o mail): los MISMOS resultados se leen con otro texto (written, en OUTCOMES de
+// lib/playbook.js): «No atendió» = «Sin respuesta todavía». El id que se guarda no cambia.
+const WRITTEN = ["whatsapp", "mail"];
+const ocText = (x, ch) => (WRITTEN.includes(ch) && x?.written) || x;
+const QUICK_W = { no_answer: ["Lo leyó y no contestó", "Todavía no lo leyó", "Probar con una llamada"], gatekeeper: ["Pidió que mande mail", "Pasó el contacto de quien decide"], bad_data: ["El número no tiene WhatsApp", "El mail rebotó"] };
+const quickFor = f => (WRITTEN.includes(f.channel) && QUICK_W[f.outcome]) || QUICK[f.outcome] || [];
 
 export const drawerOpen = () => !$("drawer").hidden;
 // Borradores de Registrar por colegio: si cerrás la ficha a mitad de carga, al volver sigue ahí.
@@ -106,25 +112,27 @@ const isRef = id => /^(lead|org|bx):/.test(id);
 // sref: el colegio de la sesión que se está trabajando (lo que se registre en la ficha queda anotado ahí)
 // Un colegio que ya no está en la base (un extra que se sacó, un id viejo) se saltea anotado, como la tarea que no se pudo abrir;
 // si la base todavía no cargó (Retomar apenas entrás), se espera.
-function openAt(ss, i) {
+// stay: se eligió a mano un colegio salteado (desde «Ver detalle»): se abre en la sesión y no se vuelve a saltear solo.
+function openAt(ss, i, { stay = false } = {}) {
   ss.i = i; savePos(ss); const r = ss.ids[i];
-  if (isRef(r) || S.byId.has(r)) return (isRef(r) ? openRecord : openSchool)(r, { keepSession: true, sref: r, activityId: ss.acts[r] || null, tab: "prep" });
+  if (isRef(r) || S.byId.has(r)) return (isRef(r) ? openRecord : openSchool)(r, { keepSession: true, sref: r, activityId: ss.acts[r] || null, tab: "prep", noSkip: stay });
   if (!S.schools.length && !S.baseError && S.baseP) {
     toast("Cargando colegios…", { type: "info" });
-    return S.baseP.then(() => { if (S.session === ss && ss.i === i) openAt(ss, i); });
+    return S.baseP.then(() => { if (S.session === ss && ss.i === i) openAt(ss, i, { stay }); });
   }
   if (!S.schools.length) { if (!drawerOpen()) S.session = null; return toast(`No pude cargar los colegios${S.baseError ? `: ${S.baseError}` : ""}. Probá de nuevo en un rato.`, { type: "err" }); }
   toast(`${ss.items[i]?.name || "Un colegio de la sesión"} ya no está en la base, lo salteé`, { type: "info" });
   markSkip(ss, r, "missing", "ya no está en la base");
   return sessionGo(1);
 }
-export async function openSchool(id, { activityId = null, tab = null, keepSession = false, sref = null, cbOpen = false } = {}) {
+// cbOpen: «Ver historial» de Tus inbound: abre en Historial con el resumen compacto y lleva la vista a la línea de tiempo.
+export async function openSchool(id, { activityId = null, tab = null, keepSession = false, sref = null, cbOpen = false, noSkip = false } = {}) {
   if (!S.byId.has(id)) return toast("Colegio inexistente", { type: "err" });
   if (!keepSession) S.session = null;
   if ($("drawer").hidden) { D.opener = document.activeElement; history.pushState({ ...(history.state || {}), drawer: id }, ""); }
   import("./app.js").then(m => m.rememberSchool(id));
   const draft = drafts.get(id); drafts.delete(id);
-  Object.assign(D, { sref: keepSession ? sref || id : null, inCall: false, call: null, id, data: null, form: draft?.form || newForm(), activityId: activityId ?? draft?.activityId ?? null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null, tl: null, addr: null, addrEdit: false, cbOpen: !!cbOpen, tab: draft ? "log" : tab || (activityId ? "log" : "prep") });
+  Object.assign(D, { sref: keepSession ? sref || id : null, inCall: false, call: null, id, data: null, form: draft?.form || newForm(), activityId: activityId ?? draft?.activityId ?? null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null, tl: null, addr: null, addrEdit: false, toTl: !!cbOpen && !draft, noSkip: !!noSkip, cbLogOpen: false, tab: draft ? "log" : tab || (activityId ? "log" : "prep") });
   if (draft) toast("Recuperé lo que estabas cargando", { type: "info" });
   $("drawer").hidden = false; $("scrim").hidden = false;
   $("scrim").onclick = closeSchool;
@@ -291,11 +299,22 @@ export function sessionSummary(ss) {
 }
 // Al salir de la sesión (se cerró la ficha o se llegó al final): guarda por dónde iba, avisa lo hecho y qué falta, y si no
 // falta nada la deja en terminadas.
+// «Sesión en pausa» tapaba la pantalla 8 s cada vez que se cerraba una ficha: va solo la primera vez de cada sesión y más
+// corto (después se retoma desde Hoy o desde Sesiones). Una sesión sin guardar (sin id) avisa siempre: el aviso es la única
+// forma de retomarla.
+const PAUSE_KEY = "sess.pauseSeen";
+function pauseFirst(ss) {
+  if (!ss.id) return true;
+  const seen = loadPref(PAUSE_KEY, []) || [];
+  if (seen.includes(ss.id)) return false;
+  save(PAUSE_KEY, [...seen, ss.id].slice(-40));
+  return true;
+}
 function leaveSession(ss) {
   pauseToast?.remove(); pauseToast = null;
   let saved = flushPos(ss);
   const left = pendingOf(ss), sum = sessionSummary(ss);
-  if (left > 0) pauseToast = toast(`Sesión en pausa: ${[sum, `faltan ${left}`].filter(Boolean).join(" · ")}`, { action: { label: "Retomar", fn: () => resumeSession(ss.id ? ss.id : ss) } });
+  if (left > 0) { if (pauseFirst(ss)) pauseToast = toast(`Sesión en pausa: ${[sum, `faltan ${left}`].filter(Boolean).join(" · ")}`, { ms: ss.id ? 5000 : 8000, action: { label: "Retomar", fn: () => resumeSession(ss.id ? ss.id : ss) } }); }
   else {
     if (ss.id) saved = saved.then(() => api(`/api/sessions/${ss.id}`, { method: "PATCH", body: { status: "done", reason: "completa" } })).then(r => import("./sessions.js").then(m => m.cacheSession(r.session))).catch(() => {});
     toast(sum ? `Sesión terminada: ${sum}` : "Sesión terminada");
@@ -308,6 +327,7 @@ function leaveSession(ss) {
 export async function resumeSession(id, { at = null } = {}) {
   pauseToast?.remove(); pauseToast = null;
   if (id && typeof id === "object") { const ss = id; if (pendingOf(ss) || at != null) { S.session = ss; openAt(ss, at ?? firstPending(ss)); prefetch(); } return; }
+  // at: un colegio puntual (desde «Ver detalle»): uno que falta o uno salteado (ese se abre en la sesión sin volver a saltearlo)
   const open = S.sessions?.open || [];
   id = id || (open.find(v => v.resume >= 0) || open[0])?.id;
   if (!id) return toast("No tenés sesiones abiertas.", { type: "err" });
@@ -318,7 +338,7 @@ export async function resumeSession(id, { at = null } = {}) {
   const i = at ?? v.resume;
   if (i == null || i < 0) return toast("Ya trabajaste todos los colegios de esta sesión.");
   S.session = useSession(v);
-  openAt(S.session, i);
+  openAt(S.session, i, { stay: at != null && S.session.items[i]?.state === "skipped" });
   prefetch();
 }
 async function load(opts = {}) {
@@ -332,7 +352,7 @@ async function load(opts = {}) {
     // en la sesión no se trabaja un cliente, un trato abierto ajeno ni algo de otra persona: se saltea aunque ya figure
     // salteado (la revisión de adelante pudo anotarlo mientras la ficha se abría); lo ya trabajado no se toca
     const ss = S.session, cur = ss && D.sref && ss.items.find(x => x.ref === D.sref);
-    const why = cur && cur.state !== "worked" && !opts.refresh && opts.match === undefined && skipReason(d.school, !!D.activityId && myDeal(d.match));
+    const why = cur && cur.state !== "worked" && !D.noSkip && !opts.refresh && opts.match === undefined && skipReason(d.school, !!D.activityId && myDeal(d.match));
     if (why) { toast(`${d.school.name}: ${why.text}, lo salteé`); markSkip(ss, D.sref, why.code, why.text); return sessionGo(1); }
     loadSedes(id); loadEnrich(id); loadHistory(id, d);
     if (opts.refresh || opts.match !== undefined) loadTimeline(id, { refresh: !!opts.refresh });
@@ -466,15 +486,21 @@ async function enrich(s) {
     // campos del prospecto completados (solo los vacíos) y la nota: lo que pasó con cada uno, corto
     const fl = r.fields?.saved?.length ? `Completé en el prospecto: ${r.fields.saved.join(", ")}.` : "", fw = r.fields?.reason || "";
     const nn = `${n} dato${n === 1 ? "" : "s"} nuevo${n === 1 ? "" : "s"}`;
+    // todavía no está en Pipedrive: no es un error (se guarda al crear el prospecto) y se dice una sola vez: en «Datos del
+    // colegio» si está a la vista (Preparar); si no, en el aviso
+    const waits = !r.note.saved && notInPd(r.note.reason), shown = D.id === s.id && D.tab === "prep";
     const msg = r.note.saved ? [`Listo: ${nn} en una nota ${r.note.lead ? "del prospecto" : "de Pipedrive"}.`, fl, fw]
+      : waits ? [fl, n ? `Encontré ${nn}.` : "No encontré datos nuevos.", shown ? "" : "Los guardo en Pipedrive cuando crees el prospecto.", fw]
       : [fl, n ? `Encontré ${nn}.` : "", fl && !n ? "No había nada nuevo para una nota." : r.note.reason || "", fw];
-    toast(msg.filter(Boolean).join(" "), r.note.saved || fl ? { href: r.note.url || r.fields.url, action: "Abrir" } : { type: n ? "info" : "err", ...see });
+    toast(msg.filter(Boolean).join(" "), r.note.saved || fl ? { href: r.note.url || r.fields.url, action: "Abrir" } : { type: n || waits ? "info" : "err", ...see });
     loadSedes(s.id);
     if (S.study && !D.study && !D.studyWorking && S.byId.get(s.id)?.lat != null) loadStudy(s.id, { refresh: true }); // con IA, además el estudio (decisores)
   } catch (e) { toast(e.message, { type: "err" }); }
   enriching.delete(s.id); if (D.enriching === s.id) D.enriching = null;
   if (D.id === s.id) keepScroll(draw);
 }
+// el motivo «todavía no está en Pipedrive» de enrichSchool (lib/sales.js): dato pendiente, no error
+const notInPd = t => /^Todavía no está en Pipedrive/.test(String(t || ""));
 const KIND_E = { tel: ["phone", "Teléfonos"], wa: ["whatsapp", "WhatsApp"], mail: ["mail", "Mails"], web: ["external", "Web"], addr: ["map", "Dirección"] };
 function enrichSec(s) {
   const e = ENR.get(s.id); if (!e) return "";
@@ -491,7 +517,7 @@ function enrichSec(s) {
   const groups = Object.entries(KIND_E).map(([k, [ic, label]]) => [label, ic, e.items.filter(x => x.kind === k)]).filter(([, , l]) => l.length);
   const nt = e.note || {}, fecha = esc(new Intl.DateTimeFormat("es", { day: "numeric", month: "numeric" }).format(new Date(e.at)));
   return `<section class="sec" id="enrichSec"><h3><span class="l">${icon("building")} Datos del colegio</span><span class="faint" style="font-size:12.5px;font-weight:500">Enriquecido el ${fecha} por ${esc(e.by)}</span></h3>
-    <p class="faint" style="margin:0 0 10px;font-size:13px">${nt.saved ? `${icon("check", "sm")} Quedó en una nota ${nt.lead ? "del prospecto" : "de Pipedrive"} · <a href="${esc(nt.url)}" target="_blank" rel="noopener">abrir</a>` : nt.reason ? `${icon("alert", "sm")} ${esc(nt.reason)}` : ""}${e.fields?.saved?.length ? `<br>${icon("check", "sm")} Completé en el prospecto: ${esc(e.fields.saved.join(", "))}` : ""}</p>
+    <p class="faint" style="margin:0 0 10px;font-size:13px">${nt.saved ? `${icon("check", "sm")} Quedó en una nota ${nt.lead ? "del prospecto" : "de Pipedrive"} · <a href="${esc(nt.url)}" target="_blank" rel="noopener">abrir</a>` : notInPd(nt.reason) ? `${icon("clock", "sm")} ${esc(nt.reason)}${canProspect(s, D.data?.match) ? ` <button class="linkbtn" data-enr-prospect>Crear prospecto</button>` : ""}` : nt.reason ? `${icon("alert", "sm")} ${esc(nt.reason)}` : ""}${e.fields?.saved?.length ? `<br>${icon("check", "sm")} Completé en el prospecto: ${esc(e.fields.saved.join(", "))}` : ""}</p>
     ${groups.length ? `<div class="enr">${groups.map(([label, ic, l]) => `<div class="enr-g"><div class="sub-h">${icon(ic, "sm")} ${esc(label)}</div>${l.map(row).join("")}</div>`).join("")}</div>` : `<p class="muted" style="margin:0">No encontré teléfonos, mails ni web.</p>`}
     ${e.rating ? `<p class="muted" style="margin:8px 0 0">Google Maps: ${esc(String(e.rating.value))}★ · ${esc(String(e.rating.count))} reseñas</p>` : ""}
     ${e.decisores.length ? `<div class="sub-h" style="margin-top:10px">Decisores</div>${e.decisores.map(d => `<div class="sede-row"><b>${esc(d.nombre)}</b>${d.cargo ? `<span class="muted">${esc(d.cargo)}</span>` : ""}</div>`).join("")}` : ""}
@@ -850,9 +876,17 @@ function clientWarn(s, m) {
   if (s.ownerId && S.me.pdUserId && s.ownerId !== S.me.pdUserId && s.status !== "client") return `Esta organización es de ${s.ownerName || "otra persona"} en Pipedrive. No la contactes: si te interesa, hablalo con esa persona.`;
   if (s.status === "client") return s.ob && !s.ob.churn ? `Ya es cliente de OrderEAT en OrderBrain (${s.ob.label}${s.ob.client && s.ob.client !== s.name ? `, ${s.ob.client}` : ""}). No lo prospectes: si hay algo, avisale al equipo de cuentas.` : "Ya es cliente de OrderEAT. No lo prospectes: si hay algo, avisale al equipo de cuentas.";
   if (s.ob?.churn || s.phase === "churn") return s.ob?.label && s.ob.label !== "Churn" ? `${s.ob.label} en OrderEAT (firmó y no llegó a usarlo). Antes de contactar, hablá con el equipo de cuentas para saber qué pasó.` : "Ex cliente de OrderEAT (era activo y se dio de baja). Antes de contactar, hablá con el equipo de cuentas para saber por qué se fue.";
-  if (s.status === "open") return `Tiene un trato abierto${m?.openDealOwner ? ` de ${m.openDealOwner}` : ""}. Coordiná con esa persona antes de contactar.`;
+  if (s.status === "open") {
+    // el trato es tuyo: no hay con quién coordinar (va como dato, no como alerta: ownDeal)
+    if (myDeal(m)) { const st = openStage(m); return `Tenés un trato abierto${st ? ` (${st})` : ""}: lo que registres va al trato.`; }
+    return `Tiene un trato abierto${m?.openDealOwner ? ` de ${m.openDealOwner}` : ""}. Coordiná con esa persona antes de contactar.`;
+  }
   return "";
 }
+// la etapa del trato abierto (de los tratos que trae la ficha)
+const openStage = m => (D.data?.deals || []).find(x => x.status === "open" && (!m?.openDealId || x.id === m.openDealId))?.stage || "";
+// el aviso de arriba es por un trato abierto TUYO (dato) y no por algo de otra persona, un cliente o un ex cliente (alerta)
+const ownDeal = (s, m) => s.status === "open" && myDeal(m) && !(s.ownerId && S.me.pdUserId && s.ownerId !== S.me.pdUserId) && !(s.ob?.churn || s.phase === "churn");
 function draw() {
   const el = $("drawer"); if (!D.id) return;
   const fk = el.contains(document.activeElement) ? focusKey(document.activeElement) : null;
@@ -863,6 +897,10 @@ function draw() {
   const mk = d?.market || S.markets[s.country] || {};
   const nHist = D.tl?.id === s.id && D.tl.total != null ? D.tl.total : 0;
   const notReady = !d ? `disabled title="${D.err ? "No se pudo cargar la ficha" : "Cargando la ficha…"}"` : "";
+  // arriba quedan 4 acciones (Llamar, WhatsApp, Mail y Demo); el resto, con texto, en «Más» (moreItems). Lo que se está
+  // haciendo desde «Más» (crear el prospecto, enriquecer…) se ve en ese botón.
+  const demoOff = !d ? "" : s.status === "client" ? "Ya es cliente" : d.archive ? "Está archivado: desarchivalo para registrar" : "";
+  const topBusy = D.prospecting === s.id ? "Creando…" : D.converting === s.id ? "Convirtiendo…" : enriching.has(s.id) ? "Buscando…" : D.archiving === s.id && !d?.archive ? "Archivando…" : "";
   el.innerHTML = `
   ${ss ? `<div class="d-session"><span class="progress" aria-hidden="true"><span style="width:${(ss.i + 1) / ss.ids.length * 100}%"></span></span>
     <span class="lbl">${icon("play", "sm")} <span class="ell"><b>${ss.i + 1}</b>/${ss.ids.length}<span class="hide-sm"> · ${esc(ss.name || "sesión")}</span></span></span>
@@ -878,28 +916,23 @@ function draw() {
       ${(s.opp || []).filter(o => !/^Privado confirmado/.test(o)).map(o => `<span class="tag">${esc(o)}</span>`).join("")}
       ${d?.attempts ? `<span class="tag">${d.attempts} intento${d.attempts > 1 ? "s" : ""} sin respuesta</span>` : ""}
       ${s.lastTouch ? `<span class="tag">Último: ${esc(s.lastTouch.outcome.toLowerCase())} ${esc(ago(s.lastTouch.at))}</span>` : ""}
-      ${m?.openDealOwner ? `<span class="tag">${icon("deal", "sm")} Trato de ${esc(m.openDealOwner)}</span>` : ""}
+      ${m?.openDealOwner || (m?.openDealId && myDeal(m)) ? `<span class="tag">${icon("deal", "sm")} ${myDeal(m) ? "Trato tuyo" : `Trato de ${esc(m.openDealOwner)}`}</span>` : ""}
     </div>
     ${d?.archive ? archBox(d.archive, s, d) : ""}
     <div class="d-actions">
-      ${phone ? `<a class="btn primary" id="aCall" href="${esc(telLink(phone))}">${icon("phone")} Llamar <span class="num">${esc(phone)}</span></a>` : sedePhones ? `<button class="btn primary" id="aSedes">${icon("phone")} Teléfonos de ${sedePhones} sede${sedePhones > 1 ? "s" : ""}</button>` : `<span class="btn" aria-disabled="true" title="No hay teléfono publicado">${icon("phone")} Sin teléfono</span>`}
+      ${phone ? `<a class="btn primary" id="aCall" href="${esc(telLink(phone))}">${icon("phone")} Llamar <span class="num">${esc(phone)}</span></a>` : sedePhones ? `<button class="btn primary" id="aSedes">${icon("phone")} Teléfonos de ${sedePhones} sede${sedePhones > 1 ? "s" : ""}</button>` : ""}
       <button class="btn wa" id="aWa" ${notReady} aria-haspopup="menu">${icon("whatsapp")} WhatsApp</button>
       <button class="btn" id="aMail" ${notReady} aria-haspopup="menu">${icon("mail")} Mail</button>
-      <button class="btn" id="aDemo" ${notReady} ${s.status === "client" ? `disabled title="Ya es cliente"` : d?.archive ? `disabled title="Está archivado: desarchivalo para registrar"` : ""}>${icon("video")} Demo</button>
-      <button class="btn" id="aPropose" ${notReady} ${s.status === "client" ? `disabled title="Ya es cliente"` : d?.archive ? `disabled title="Está archivado: desarchivalo para escribirle"` : `title="Elegí con qué account, mirá cuándo está libre y mandale al colegio 2 o 3 horarios"`}>${icon("calendar")} Proponer demo</button>
-      ${!s.virtual && d?.leads?.length ? `<a class="btn" href="${esc(d.leads[0].url)}" target="_blank" rel="noopener" title="${esc(d.leads.length > 1 ? `Tiene ${d.leads.length} prospectos abiertos en Pipedrive` : `Ya tiene prospecto en Pipedrive${d.leads[0].owner ? ` (de ${d.leads[0].owner})` : ""}: no se crea otro`)}">${icon("lead")} Prospecto${d.leads.length > 1 ? `s (${d.leads.length})` : ""}${d.leads[0].ownerId && d.leads[0].ownerId !== S.me.pdUserId && d.leads[0].owner ? ` de ${esc(d.leads[0].owner.split(" ")[0])}` : ""}</a>` : ""}
-      ${canConvert(s, d) ? `<button class="btn" id="aConvert" title="Pasa el prospecto a trato en el embudo del país. Las notas y actividades pasan al trato.">${D.converting === s.id ? `<span class="spin"></span> Convirtiendo…` : `${icon("deal")} Convertir a trato`}</button>` : ""}
-      ${canProspect(s, m) ? `<button class="btn" id="aProspect" title="Crear el prospecto (y la organización si falta) a tu nombre en Pipedrive y buscar a quién contactar">${D.prospecting === s.id ? `<span class="spin"></span> Creando…` : `${icon("plus")} Crear prospecto`}</button>` : ""}
-      <button class="btn" id="aEnrich" ${notReady} title="Buscar todo lo que hay del colegio (Pipedrive, su web, Google Maps y sedes) y dejarlo en una nota en Pipedrive">${enriching.has(s.id) ? `<span class="spin"></span> Buscando…` : `${icon("sparkles")} Enriquecer`}</button>
-      ${canArchive(s, d) ? `<button class="btn" id="aArchive" title="No es un colegio, cerró, duplicado…: sale de la cola y de las sesiones">${D.archiving === s.id ? `<span class="spin"></span> Archivando…` : `${icon("archive")} Archivar`}</button>` : ""}
-      <button class="btn icon-only" id="aMore" aria-haspopup="menu" aria-label="Más: mapa, web y buscar al decisor" title="Mapa, web y buscar al decisor">${icon("nav")}</button>
+      <button class="btn" id="aDemo" ${notReady} ${demoOff ? `disabled title="${demoOff}"` : `title="Proponerle horarios al colegio o registrar la demo que ya agendaste"`} aria-haspopup="menu">${icon("video")} Demo ${icon("chevDown", "sm")}</button>
+      <button class="btn" id="aMore" aria-haspopup="menu" title="${esc(moreItems(s, d).filter(x => x.label).map(x => x.label).join(" · "))}">${topBusy ? `<span class="spin"></span> ${topBusy}` : `Más ${icon("chevDown", "sm")}`}</button>
+      ${phone || sedePhones ? "" : `<span class="no-phone">${icon("phone", "sm")} Sin teléfono publicado</span>`}
     </div>
     ${D.inCall && D.tab !== "log" && !d?.archive ? `<button class="call-banner" id="toLog">${icon("phone", "sm")} ¿Cortaste? Registrá cómo te fue ${icon("arrowRight", "sm")}</button>` : ""}
   </div>
   <div class="tabs" role="tablist" aria-label="Secciones de la ficha">
-    ${[["prep", "Preparar"], ["log", "Registrar"], ["hist", "Historial"]].filter(([k]) => k !== "log" || !d?.archive).map(([k, l]) => `<button class="tab" role="tab" id="tab-${k}" data-tab="${k}" aria-selected="${D.tab === k}" aria-controls="dBody" tabindex="${D.tab === k ? 0 : -1}">${l}${k === "hist" && nHist ? `<span class="n">${nHist}</span>` : ""}</button>`).join("")}
+    ${[["prep", "Preparar"], ["log", "Registrar"], ["hist", "Historial"]].filter(([k]) => k !== "log" || !d?.archive).map(([k, l]) => `<button class="tab" role="tab" id="tab-${k}" data-tab="${k}" aria-selected="${D.tab === k}" aria-controls="dBody" tabindex="${D.tab === k ? 0 : -1}"${k === "log" && !coarse() ? ` title="Atajo: con las teclas 1 a ${Math.min(9, S.outcomes.length)} elegís qué pasó desde cualquier pestaña"` : ""}>${l}${k === "hist" && nHist ? `<span class="n">${nHist}</span>` : ""}</button>`).join("")}
   </div>
-  <div class="d-body" id="dBody" role="tabpanel" aria-labelledby="tab-${D.tab}" aria-busy="${!d && !D.err}">${S.demo ? `<div class="callout warn demo-note">${icon("alert")}<span><b>Datos de prueba.</b> Pipedrive todavía no está conectado: los tratos, notas y personas de esta ficha son inventados y no son los de tu cuenta.</span></div>` : ""}${D.err ? `<div class="callout err">${icon("alert")}<span>No se pudo cargar la ficha: ${esc(D.err)}</span><button class="btn sm" id="retry">Reintentar</button></div>` : !d ? loadingBody() : D.tab === "prep" ? prepBody(s, d) : D.tab === "log" ? (D.result ? resultBody(s, d) : logBody(s, d)) : histBody(s, d)}</div>
+  <div class="d-body" id="dBody" role="tabpanel" aria-labelledby="tab-${D.tab}" aria-busy="${!d && !D.err}">${S.demo ? `<p class="demo-note" title="Pipedrive todavía no está conectado: los tratos, notas y personas de esta ficha son inventados y no son los de tu cuenta.">${icon("alert", "sm")}<span><b>Datos de prueba.</b> Pipedrive no está conectado: lo de esta ficha es inventado.</span></p>` : ""}${D.err ? `<div class="callout err">${icon("alert")}<span>No se pudo cargar la ficha: ${esc(D.err)}</span><button class="btn sm" id="retry">Reintentar</button></div>` : !d ? loadingBody() : D.tab === "prep" ? prepBody(s, d) : D.tab === "log" ? (D.result ? resultBody(s, d) : logBody(s, d)) : histBody(s, d)}</div>
   ${D.tab === "log" && d && !D.result ? `<div class="d-foot"><div class="sum" id="sum">${summary(s, d)}</div><button class="btn primary lg" id="save" ${saveDisabled(s) ? "disabled" : ""}>${D.saving ? `<span class="spin"></span> Guardando…` : saveLabel()}</button></div>` : ""}`;
   bindTop(s, d);
   el.querySelectorAll(".d-addr [data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy));
@@ -910,12 +943,22 @@ function draw() {
     if (D.tab === "hist") bindHist(s, d);
   }
   if (fk) el.querySelector(fk)?.focus();
+  // «Ver historial» (Tus inbound): con la línea de tiempo ya leída, la vista va ahí (una vez; el resumen compacto queda arriba)
+  if (D.toTl && D.tab === "hist" && d && D.tl?.id === s.id && D.tl.items) { D.toTl = false; const id = s.id; requestAnimationFrame(() => { if (D.id === id && D.tab === "hist") $("drawer").querySelector("#tlSec")?.scrollIntoView({ block: "start" }); }); }
 }
 const loadingBody = () => `<div class="stack">${[1, 2, 3].map(() => `<div class="sec"><div class="skel" style="width:40%"></div><div class="skel" style="margin-top:12px"></div><div class="skel" style="margin-top:8px;width:80%"></div></div>`).join("")}</div>`;
 function goTab(tab) {
-  D.tab = tab; draw();
+  D.tab = tab; D.toTl = false; draw();
   // en celular la ficha entera scrollea: se lleva a las pestañas; en escritorio, el cuerpo al inicio
   toTabs();
+  if (tab === "log") showOutcomes();
+}
+// Registrar: «¿Qué pasó?» tiene que quedar a la vista. En el celular (scrollea toda la ficha y el encabezado ocupa media
+// pantalla) se sube lo justo; si ya se ve entero, no se mueve nada.
+function showOutcomes() {
+  const el = $("drawer"), st = el.querySelector(".oc-step"), foot = el.querySelector(".d-foot"); if (!st || D.result) return;
+  const r = st.getBoundingClientRect(), bottom = foot ? foot.getBoundingClientRect().top : innerHeight;
+  if (r.bottom > bottom - 8) st.scrollIntoView({ block: "end" });
 }
 // Lleva el scroll a las pestañas (en celular scrollea toda la ficha; las pestañas son fijas y su offsetTop no sirve).
 function toTabs() {
@@ -956,25 +999,38 @@ function bindTop(s, d) {
   el.querySelector("#toLog")?.addEventListener("click", () => { D.result = null; goTab("log"); });
   el.querySelector("#aWa").onclick = e => templateMenu(e.currentTarget, s, d, "whatsapp");
   el.querySelector("#aMail").onclick = e => templateMenu(e.currentTarget, s, d, "mail");
-  el.querySelector("#aProspect")?.addEventListener("click", () => createProspect(s));
-  el.querySelector("#aConvert")?.addEventListener("click", () => convertDeal(s));
-  el.querySelector("#aEnrich")?.addEventListener("click", () => enrich(s));
-  el.querySelector("#aArchive")?.addEventListener("click", () => archiveSchool(s));
   el.querySelector("#aUnarch")?.addEventListener("click", () => unarchiveSchool(s));
-  el.querySelector("#aPropose")?.addEventListener("click", () => d && proposeDemo(s, d, { send: t => messageModal(s, d, t, { logAfter: true }) }));
-  el.querySelector("#aDemo").onclick = () => {
-    D.result = null; D.form.outcome = "demo"; suggest(s); goTab("log");
-    const date = $("drawer").querySelector('[data-f="demo.date"]');
-    date?.closest(".step")?.scrollIntoView({ block: "start" }); date?.focus();
-  };
-  el.querySelector("#aMore").onclick = e => openMenu(e.currentTarget, [
-    ...(s.lat == null ? [] : [{ label: "Cómo llegar", sub: "Google Maps con la ruta", fn: () => open(mapsDir(s)) }]),
-    { label: "Ver en Google Maps", sub: "Fotos, reseñas y horarios", fn: () => open(mapsSearch(s)) },
-    ...(s.web ? [{ label: "Sitio web", sub: s.web.replace(/^https?:\/\/(www\.)?/, ""), fn: () => open(s.web) }] : []),
-    { label: "Buscar al decisor en Google", sub: `Director o administración de ${s.name}`, fn: () => open(`https://www.google.com/search?q=${encodeURIComponent(`"${s.name}" ${s.city} director OR administración OR cafetería`)}`) },
+  // «Demo ▾»: proponerle horarios al colegio (lo que era «Proponer demo») o registrar la que ya se agendó (lo que era «Demo»)
+  el.querySelector("#aDemo").onclick = e => openMenu(e.currentTarget, [
+    { label: "Proponer horarios", sub: "Elegí con qué account, mirá cuándo está libre y mandale 2 o 3 horarios", fn: () => d && proposeDemo(s, d, { send: t => messageModal(s, d, t, { logAfter: true }) }) },
+    { label: "Ya la agendé", sub: "Registrar la demo con día y hora: se crea el trato", fn: () => {
+      D.result = null; D.form.outcome = "demo"; suggest(s); goTab("log");
+      const date = $("drawer").querySelector('[data-f="demo.date"]');
+      date?.closest(".step")?.scrollIntoView({ block: "start" }); date?.focus();
+    } },
   ]);
+  el.querySelector("#aMore").onclick = e => { if (!D.prospecting && !D.converting) openMenu(e.currentTarget, moreItems(s, d)); };
 }
 const open = url => window.open(url, "_blank", "noopener");
+// «Más ▾»: todo lo que no es contactar, con texto (antes eran 5 a 7 botones sueltos más un menú de íconos). No se pierde
+// ninguna acción: crear el prospecto o convertirlo, enriquecer, archivar, abrir en Pipedrive, mapa, web y buscar al decisor.
+function moreItems(s, d) {
+  const m = d?.match, l = !s.virtual && d?.leads?.length ? d.leads : [], it = [];
+  if (d) {
+    if (canProspect(s, m)) it.push({ label: "Crear prospecto", sub: "A tu nombre en Pipedrive, con su primera tarea", fn: () => createProspect(s) });
+    if (canConvert(s, d)) it.push({ label: "Convertir a trato", sub: "El prospecto pasa a trato en el embudo del país, con sus notas", fn: () => convertDeal(s) });
+    it.push({ label: "Enriquecer", sub: "Buscar teléfonos, mails, web y sedes y dejarlos en Pipedrive", fn: () => enrich(s) });
+    if (canArchive(s, d)) it.push({ label: "Archivar", sub: "No es un colegio, cerró, duplicado…: sale de la cola y de las sesiones", fn: () => archiveSchool(s) });
+  }
+  it.push({ head: "Abrir" });
+  if (l.length) it.push({ label: l.length > 1 ? `Prospectos en Pipedrive (${l.length})` : "Prospecto en Pipedrive", sub: l.length > 1 ? `Tiene ${l.length} prospectos abiertos: abre el primero` : `«${l[0].title || s.name}»${l[0].ownerId && l[0].ownerId !== S.me.pdUserId && l[0].owner ? ` · de ${l[0].owner}` : ""} · ya tiene, no se crea otro`, fn: () => open(l[0].url) });
+  if (d?.orgUrl) it.push({ label: s.leadOnly ? "Abrir en Pipedrive" : "Organización en Pipedrive", sub: m?.orgName || s.name, fn: () => open(d.orgUrl) });
+  if (s.lat != null) it.push({ label: "Cómo llegar", sub: "Google Maps con la ruta", fn: () => open(mapsDir(s)) });
+  it.push({ label: "Ver en Google Maps", sub: "Fotos, reseñas y horarios", fn: () => open(mapsSearch(s)) });
+  if (s.web) it.push({ label: "Sitio web", sub: s.web.replace(/^https?:\/\/(www\.)?/, ""), fn: () => open(s.web) });
+  it.push({ label: "Buscar al decisor en Google", sub: `Director o administración de ${s.name}`, fn: () => open(`https://www.google.com/search?q=${encodeURIComponent(`"${s.name}" ${s.city} director OR administración OR cafetería`)}`) });
+  return it;
+}
 
 // ---------- Preparar
 const FIT = { alto: ["new", "Encaje alto"], medio: ["lost", "Encaje medio"], bajo: ["client", "Encaje bajo"] };
@@ -1021,13 +1077,16 @@ function prepBody(s, d) {
   const cierre = p.cierre.replace(/el \[día\]|\[día\]/, dia).replace("[hora]", "10:00");
   const angulo = b?.angulo || s.pitch;
   const decisor = b?.decisores?.[0];
-  const warn = clientWarn(s, m);
+  const warn = clientWarn(s, m), own = ownDeal(s, m);
+  // trato abierto tuyo: la situación no manda a coordinar con nadie (propio, de lib/playbook.js)
+  const sit = own && p.propio ? p.propio : p;
   const cands = !m.confirmed ? (m.candidates || []) : [];
   // con historia, la apertura sale del resumen (arriba); en frío, la de siempre
   const tb = D.tl?.id === s.id ? D.tl.brief || D.tl.summary : null, fromHist = !!tb && !tb.cold;
+  const fromStudy = x => (x ? ` <span class="tag" title="Las armó el estudio para este colegio">de este colegio</span>` : "");
   return `<div class="stack">
-    ${warn ? `<div class="callout warn">${icon("alert")}<span>${esc(warn)}</span></div>` : ""}
-    ${pdChecked(s, m)}
+    ${warn ? `<div class="callout ${own ? "info" : "warn"}">${icon(own ? "deal" : "alert")}<span>${esc(warn)}</span></div>` : ""}
+    ${pdLine(s, m)}
     ${existingSec(s, m)}
     ${baseSec(s)}
     ${briefCard(s, "prep")}
@@ -1040,23 +1099,28 @@ function prepBody(s, d) {
       <p class="muted" style="margin:10px 0 0;font-size:13.5px">${d.askFor ? `Preguntá por <b>${esc(d.askFor.name)}</b>${d.askFor.role ? ` (${esc(d.askFor.role)})` : ""}. <span class="faint">Lo dijeron en recepción ${esc(ago(d.askFor.at))}.</span>` : decisor ? `Preguntá por <b>${esc(decisor.nombre)}</b>${decisor.cargo ? ` (${esc(decisor.cargo)})` : ""}.` : `Si atiende recepción, pedí el nombre de quien maneja ${esc(laEsp(d.market))} y su mejor horario.`}</p>
     </section>`}
     <section class="sec"><h3><span class="l">${icon("target")} Situación</span></h3>
-      <p style="margin:0">${esc(p.situacion)} <b>${esc(p.objetivo)}</b></p>
+      <p style="margin:0">${esc(sit.situacion)} <b>${esc(sit.objetivo)}</b></p>
       ${angulo ? `<div class="callout ok" style="margin-top:10px">${icon("bolt")}<span><b>Ángulo:</b> ${esc(angulo)}</span></div>` : ""}
     </section>
     ${cands.length ? `<section class="sec" id="candSec"><h3><span class="l">${icon("building")} ¿Es alguna de estas organizaciones de Pipedrive?</span></h3>${m.orgId ? `<p class="muted" style="margin:0 0 6px">Ahora está vinculado a <b>${esc(m.orgName)}</b>.</p>` : ""}${cands.map(c => candRow(c, d.cands?.[c.id])).join("")}${m.orgId ? `<div class="cand"><span class="muted">Ninguna de estas</span><button class="btn sm ghost" id="unlink">Desvincular</button></div>` : ""}</section>` : ""}
     ${!cands.length && !s.virtual && m.confirmed && !m.auto && m.dupeCount > 0 ? `<section class="sec"><div class="cand"><span class="cand-b"><b>${icon("merge", "sm")} Parece cargada ${m.dupeCount === 1 ? "1 vez más" : `${m.dupeCount} veces más`} en Pipedrive</b><small>Además de «${esc(m.orgName)}». Podés revisarlas y fusionarlas.</small></span><button class="btn sm" id="dupReview">Revisar</button></div></section>` : ""}
-    <section class="sec"><h3><span class="l">${icon("list")} Preguntas para calificar</span></h3>
-      <ol class="qnum">${preguntas.map(q => `<li>${esc(q)}</li>`).join("")}</ol>
-    </section>
-    <section class="sec"><h3><span class="l">${icon("alert")} Si te dice…</span></h3>${objeciones.map((o, i) => `<details class="obj" ${i === 0 ? "open" : ""}><summary>${esc(o.o)}</summary><p>${esc(o.r)}</p></details>`).join("")}</section>
-    <section class="sec"><h3><span class="l">${icon("video")} Cierre</span></h3><div class="say">${esc(cierre)}<button class="icon-btn" data-copy="${esc(cierre)}" aria-label="Copiar cierre">${icon("copy")}</button></div></section>
+    ${foldSec("preguntas", "list", `Preguntas para calificar${fromStudy(b?.preguntas?.length)}`, preguntas.length, `<ol class="qnum">${preguntas.map(q => `<li>${esc(q)}</li>`).join("")}</ol>`)}
+    ${foldSec("objeciones", "alert", `Si te dice…${fromStudy(b?.objeciones?.length)}`, objeciones.length, objeciones.map((o, i) => `<details class="obj" ${i === 0 ? "open" : ""}><summary>${esc(o.o)}</summary><p>${esc(o.r)}</p></details>`).join(""))}
+    ${foldSec("cierre", "video", "Cierre", "", `<div class="say">${esc(cierre)}<button class="icon-btn" data-copy="${esc(cierre)}" aria-label="Copiar cierre">${icon("copy")}</button></div>`)}
     ${s.lat == null ? "" : studyCard(s)}
   </div>`;
 }
+// Preguntas, «Si te dice…» y Cierre son casi iguales en todos los colegios: van plegados y cada uno se acuerda de cómo lo
+// dejaste (localStorage ob.prep.fold), para que arriba se vea lo que cambia: resumen, apertura y datos.
+const FOLD_KEY = "prep.fold";
+const foldOpen = k => !!(loadPref(FOLD_KEY, {}) || {})[k];
+const foldSec = (k, ic, title, n, body) => `<details class="sec fold" data-fold="${k}" ${foldOpen(k) ? "open" : ""}><summary><h3><span class="l">${icon(ic)} ${title}</span><span class="fold-n">${n ? `<span class="n">${n}</span>` : ""}${icon("chevDown", "sm")}</span></h3></summary><div class="fold-b">${body}</div></details>`;
 function bindPrep(s, d) {
   const el = $("drawer");
   bindGallery(s);
   bindTimeline(s);
+  el.querySelectorAll("details[data-fold]").forEach(x => x.addEventListener("toggle", () => { const v = loadPref(FOLD_KEY, {}) || {}; if (!!v[x.dataset.fold] !== x.open) save(FOLD_KEY, { ...v, [x.dataset.fold]: x.open }); }));
+  el.querySelector("[data-enr-prospect]")?.addEventListener("click", () => createProspect(s));
   el.querySelector("#stRefresh")?.addEventListener("click", () => loadStudy(s.id, { refresh: true }));
   el.querySelector("#stRetry")?.addEventListener("click", () => loadStudy(s.id));
   el.querySelector("#stNote")?.addEventListener("click", async e => {
@@ -1170,7 +1234,19 @@ function pdChecked(s, m) {
   const info = (x.info || []).map(c => `<a href="${esc(c.url)}" target="_blank" rel="noopener">«${esc(c.title)}»</a> (${esc(c.what)}, ${esc(exOwner(c))})`).join(", ");
   // con organizaciones parecidas sin elegir (las muestra la ficha aparte), no se dice que no hay organización
   const what = (m.candidates || []).length ? "prospecto ni trato" : "prospecto, organización ni trato";
-  return `<div class="callout ok pd-checked">${icon("checkCircle")}<span>Revisé en Pipedrive ${esc(ago(x.at))}: no hay ${what} con este nombre${x.phone ? " ni este teléfono" : ""}.${info ? ` Solo ${info}.` : ""}</span></div>`;
+  return `Revisé en Pipedrive ${esc(ago(x.at))}: no hay ${what} con este nombre${x.phone ? " ni este teléfono" : ""}.${info ? ` Solo ${info}.` : ""}`;
+}
+// El estado de Pipedrive de un colegio sin historia, en UNA línea (antes eran dos o tres avisos apilados: el verde «Revisé en
+// Pipedrive…», el azul «Todavía no está vinculado…» o «Primer contacto en frío»): qué se revisó, si falta elegir la
+// organización (con «Elegir») y si es un primer contacto en frío.
+function pdLine(s, m) {
+  const t = D.tl?.id === s.id ? D.tl : null, b = t ? t.brief || t.summary : null;
+  const chk = pdChecked(s, m), unlinked = !!(b?.cold && b.unlinked), cold = !!(b?.cold && !b.unlinked && !b.origin);
+  if (!chk && !unlinked && !cold) return "";
+  const n = (m?.candidates || []).length;
+  const rest = unlinked ? `<b>Todavía no está vinculado${n ? `: hay ${n} ${n === 1 ? "organización parecida" : "organizaciones parecidas"}` : " a Pipedrive"}.</b>`
+    : cold ? `<b>Primer contacto en frío:</b> ${chk ? "usá" : "no hay llamadas, mensajes ni notas en Pipedrive ni en la app. Usá"} la apertura de abajo.` : "";
+  return `<div class="pd-line${unlinked ? " ask" : ""}" role="status">${icon(unlinked ? "building" : chk ? "checkCircle" : "phone", "sm")}<span>${[chk, rest].filter(Boolean).join(" ")}</span>${unlinked ? `<button class="btn sm" data-cbcands title="Elegí cuál es para ver su historia antes de llamar">Elegir</button>` : ""}</div>`;
 }
 
 // ---------- «Es esta» → ¿Estás seguro? (comparar) → vincular → ¿Querés fusionar? (otras organizaciones del mismo colegio)
@@ -1399,21 +1475,28 @@ function logBody(s, d) {
   const connected = CONNECTED.includes(f.outcome), qualify = QUALIFY.includes(f.outcome);
   const lostish = ["not_now", "not_interested"].includes(f.outcome) || (f.outcome === "no_answer" && f.lostReason);
   const t = today();
-  const warn = clientWarn(s, d.match);
+  const warn = clientWarn(s, d.match), own = ownDeal(s, d.match);
   const pre = S.markets[s.country]?.prefix ? `+${S.markets[s.country].prefix} …` : "Teléfono";
+  // recién mandaste un WhatsApp o un mail desde la ficha: quedó elegido «Sin respuesta todavía» (se cambia si ya contestó)
+  const noAns = S.outcomes.find(x => x.id === "no_answer"), sentWhat = f.channel === "mail" ? "un mail" : f.channel === "whatsapp" ? "un WhatsApp" : "el mensaje";
+  const sentNote = !f.sent ? "" : f.sentPre && f.outcome === "no_answer" ? `Mandaste ${sentWhat}: queda «${ocText(noAns, f.channel).label}» con su próximo paso. Si ya te contestó, elegí qué pasó.` : !f.outcome ? "Elegí qué pasó con el mensaje que mandaste." : "";
   let n = 0;
+  // arriba, lo que se viene a hacer: por dónde fue y qué pasó. Lo demás (la apertura, el trato tuyo, la actividad de la
+  // agenda) va en una línea o debajo de los resultados. Solo queda arriba la alerta de «no contactar» (de otra persona, cliente).
   return `<div class="stack">
-    ${warn ? `<div class="callout warn">${icon("alert")}<span>${esc(warn)}${HIST.get(s.id) ? ` <button class="linkbtn" data-see-hist>Ver qué pasó</button>` : ""}</span></div>` : ""}
+    ${warn && !own ? `<div class="callout warn">${icon("alert")}<span>${esc(warn)}${HIST.get(s.id) ? ` <button class="linkbtn" data-see-hist>Ver qué pasó</button>` : ""}</span></div>` : ""}
     <div id="cbLog">${briefCard(s, "log")}</div>
-    ${act ? `<label class="callout info toggle"><input type="checkbox" data-f="completeAct" ${f.completeAct ? "checked" : ""}> Marcar como hecha: <b>${esc(act.subject)}</b></label>` : ""}
     <div class="sec step"><div class="step-h"><span class="n">${++n}</span>¿Por dónde fue el contacto?</div>
       <div class="seg" role="group">${CH.map(([k, l, ic]) => `<button data-ch="${k}" aria-pressed="${f.channel === k}">${icon(ic, "sm")} ${l}</button>`).join("")}</div></div>
-    <div class="sec step"><div class="step-h"><span class="n">${++n}</span>¿Qué pasó?</div>
+    <div class="sec step oc-step"><div class="step-h"><span class="n">${++n}</span>¿Qué pasó?</div>
       ${D.call ? `<p class="call-dur muted">${icon("clock", "sm")} ${esc(D.call.note)}</p>` : ""}
-      <div class="outcomes">${S.outcomes.map((x, i) => `<button class="oc ${GOOD.includes(x.id) ? "good" : ""}" data-oc="${x.id}" aria-pressed="${f.outcome === x.id}" ${x.id === "demo" && s.status === "client" ? `disabled title="Ya es cliente"` : ""}><b>${esc(x.label)}</b><small>${esc(x.hint)}</small>${i < 9 ? `<span class="kbd-hint oc-k" aria-hidden="true">${i + 1}</span>` : ""}</button>`).join("")}</div></div>
+      ${sentNote ? `<p class="call-dur muted">${icon("send", "sm")} <span>${esc(sentNote)}</span></p>` : ""}
+      <div class="outcomes">${S.outcomes.map((x, i) => { const tx = ocText(x, f.channel); return `<button class="oc ${GOOD.includes(x.id) ? "good" : ""}" data-oc="${x.id}" aria-pressed="${f.outcome === x.id}" ${x.id === "demo" && s.status === "client" ? `disabled title="Ya es cliente"` : ""}><b>${esc(tx.label)}</b><small>${esc(tx.hint)}</small>${i < 9 ? `<span class="kbd-hint oc-k" aria-hidden="true">${i + 1}</span>` : ""}</button>`; }).join("")}</div></div>
+    ${warn && own ? `<p class="reg-line">${icon("deal", "sm")}<span>${esc(warn)}${HIST.get(s.id) ? ` <button class="linkbtn" data-see-hist>Ver qué pasó</button>` : ""}</span></p>` : ""}
+    ${act ? `<label class="callout info toggle"><input type="checkbox" data-f="completeAct" ${f.completeAct ? "checked" : ""}> Marcar como hecha: <b>${esc(act.subject)}</b></label>` : ""}
     <div class="sec step"><div class="step-h"><span class="n">${++n}</span>Comentario <span class="faint" style="font-weight:400;font-size:13px">${f.outcome ? "lo que te dijeron, con tus palabras" : contactPending() ? "lo que pasó, con tus palabras" : "opcional · se puede guardar solo, sin registrar un contacto"}</span></div>
       <textarea class="inp" data-f="text" aria-label="Comentario" placeholder="Ej: atendió la secretaria, la cafetería la maneja un concesionario (Don Pedro), llamar después de las 11.">${esc(f.text)}</textarea>
-      ${(QUICK[f.outcome] || []).length ? `<div class="quick">${QUICK[f.outcome].map(q => `<button data-quick="${esc(q)}">+ ${esc(q)}</button>`).join("")}</div>` : ""}
+      ${quickFor(f).length ? `<div class="quick">${quickFor(f).map(q => `<button data-quick="${esc(q)}">+ ${esc(q)}</button>`).join("")}</div>` : ""}
       ${S.ai && f.outcome ? `<label class="toggle"><input type="checkbox" data-f="ai" ${f.ai ? "checked" : ""}> Ordenar la nota con IA (resumen, decisor, objeción e interés)</label>` : ""}</div>
     ${f.outcome === "demo" ? `<div class="sec step"><div class="step-h"><span class="n">${++n}</span>La demo</div>
       ${s.virtual && !s.country ? `<label class="field"><span>País del colegio <span class="faint">para crear el trato en su embudo</span></span><select class="inp" data-f="country"><option value="">Elegí el país</option>${Object.keys(S.markets).sort().map(c => `<option ${f.country === c ? "selected" : ""}>${esc(c)}</option>`).join("")}</select></label>` : ""}
@@ -1503,6 +1586,7 @@ function bindLog(s, d) {
   el.querySelectorAll("[data-ch]").forEach(b => b.onclick = () => { f.channel = b.dataset.ch; redrawLog(); suggest(s); });
   el.querySelectorAll("[data-oc]").forEach(b => b.onclick = () => {
     // tocar el que ya estaba elegido lo quita (por ejemplo, para guardar solo un comentario)
+    f.sentPre = false;
     if (f.outcome === b.dataset.oc) { if (D.call?.outcome) D.call = null; f.outcome = null; f.lostReason = ""; f.why = ""; if (!f.nextTouched) f.next = { type: "", date: "", time: "", ownerId: f.next.ownerId }; redrawLog(); return; }
     f.outcome = b.dataset.oc; f.lostReason = ""; if (D.call?.outcome) D.call = null; redrawLog(); suggest(s);
   });
@@ -1621,7 +1705,7 @@ function resultBody(s, d) {
     extra.push(`<button class="btn wa" data-tpl="confirm_demo">${icon("whatsapp")} Confirmar por WhatsApp</button>`);
   }
   if (f.outcome === "info") extra.push(`<button class="btn" data-tpl="mail_info">${icon("mail")} Mandar la info por mail</button>`, `<button class="btn wa" data-tpl="info">${icon("whatsapp")} Mandar por WhatsApp</button>`);
-  if (f.outcome === "no_answer" && tpl("after_call")) extra.push(`<button class="btn wa" data-tpl="after_call">${icon("whatsapp")} Mandar WhatsApp ahora</button>`);
+  if (f.outcome === "no_answer" && !WRITTEN.includes(f.channel) && tpl("after_call")) extra.push(`<button class="btn wa" data-tpl="after_call">${icon("whatsapp")} Mandar WhatsApp ahora</button>`);
   return `<div class="sec done-card">
     <div class="big">${icon("check")}</div>
     ${whereDone(r.where)}
@@ -1664,8 +1748,11 @@ function relDay(d) {
 }
 // fecha de una entrada en la zona de quien mira: «hoy 10:32», «ayer», «25/06/2026»
 const tlDay = it => it.day || new Date(it.at).toLocaleDateString("sv");
+// en los últimos 6 días va el día de la semana, como en el resumen («el lunes»): «lunes 17:07», no «16/11/2026 17:07»
+const tlFull = it => { const d = tlDay(it); return `${ddmm(d)}/${d.slice(0, 4)}`; };
 function tlWhen(it) {
-  const d = tlDay(it), t = today(), rel = d === t ? "hoy" : d === addDays(t, -1) ? "ayer" : `${ddmm(d)}/${d.slice(0, 4)}`;
+  const d = tlDay(it), t = today(), diff = Math.round((new Date(t + "T12:00:00") - new Date(d + "T12:00:00")) / 864e5);
+  const rel = diff === 0 ? "hoy" : diff === 1 ? "ayer" : diff > 1 && diff < 7 ? new Intl.DateTimeFormat("es", { weekday: "long" }).format(new Date(d + "T12:00:00")) : tlFull(it);
   return it.timed ? `${rel} ${new Date(it.at).toTimeString().slice(0, 5)}` : rel;
 }
 const dayTime = x => `${relDay(x.day)}${x.time ? ` ${x.time}` : ""}`;
@@ -1683,7 +1770,7 @@ function tlItem(it) {
   if (it.inbound) {
     const ib = it.inbound;
     return `<div class="tl tl-bolt tl-inb"><span class="ic">${icon("bolt")}</span><div>
-    <div class="h tl-top"><b>Entró como inbound</b><span class="tl-date">${esc(tlWhen(it))}</span></div>
+    <div class="h tl-top"><b>Entró como inbound</b><span class="tl-date" title="${esc(tlFull(it))}">${esc(tlWhen(it))}</span></div>
     <div class="faint tl-meta">${esc(["Nota de «Tus inbound»", it.who, it.where].filter(Boolean).join(" · "))}${ib.slack ? ` · <a href="${esc(ib.slack)}" target="_blank" rel="noopener">Mensaje en Slack</a>` : ""}</div>
     ${(it.rows || []).length ? `<div class="tl-rows">${it.rows.map(([k, v]) => `<span><b>${esc(k)}:</b> ${esc(v)}</span>`).join("")}</div>` : ""}
     ${ib.filter ? `<p class="faint tl-txt" style="font-size:13px">${esc(ib.filter)}</p>` : ""}
@@ -1697,7 +1784,7 @@ function tlItem(it) {
   const sub = (it.kind === "created" || it.kind === "deal") && it.title ? (it.url ? `<a href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.title)}</a>` : esc(it.title)) : "";
   const long = (it.text || "").length > LONG || (it.text || "").split("\n").length > 6;
   return `<div class="tl tl-${esc(it.icon)}${it.aside ? " tl-aside" : ""}"><span class="ic">${icon(it.icon)}</span><div>
-    <div class="h tl-top"><b>${esc(head)}</b><span class="tl-date">${esc(tlWhen(it))}</span></div>
+    <div class="h tl-top"><b>${esc(head)}</b><span class="tl-date" title="${esc(tlFull(it))}">${esc(tlWhen(it))}</span></div>
     ${sub ? `<div class="tl-sub">${sub}</div>` : ""}
     ${meta.length ? `<div class="faint tl-meta">${esc(meta.join(" · "))}</div>` : ""}
     ${it.text ? `<p class="tl-txt${long ? " clamp" : ""}">${esc(it.text)}</p>${long ? `<button class="linkbtn tl-more" data-tlfull aria-expanded="false">Ver todo</button>` : ""}` : ""}
@@ -1707,6 +1794,12 @@ function tlItem(it) {
 // dicen las actividades y notas; cada dato dice de qué entrada sale. Por reglas al toque; con IA (si hay clave) lo reemplaza
 // cuando llega. where: "prep" (entero), "hist" (compacto: lo de abajo es la lista) o "log" (solo la apertura).
 const cbList = (l, f) => `<ul class="cb-list">${l.map(f).join("")}</ul>`;
+// los datos que salen de la misma entrada van juntos, con UNA línea de fuente debajo (antes cada dato repetía la suya)
+function cbBySrc(l, f) {
+  const g = new Map();
+  for (const x of l) { const k = x.src || ""; if (!g.has(k)) g.set(k, []); g.get(k).push(x); }
+  return [...g].map(([k, xs]) => `<div class="cb-grp">${cbList(xs, f)}${k ? `<span class="faint cb-from">${esc(k)}</span>` : ""}</div>`).join("");
+}
 // un teléfono de las notas se puede tocar (sin WhatsApp si la nota lo dice)
 function factVal(f, s) {
   if (f.k !== "Teléfono") return esc(f.v);
@@ -1721,8 +1814,10 @@ function briefCard(s, where) {
     const b = t ? t.brief || t.summary : null;
     if (!b || b.cold) return "";
     const me = (S.me.name || "").split(/[\s.@_]/)[0], opening = String(b.opening || "").replace(/\[tu nombre\]/g, me || "[tu nombre]");
-    return `<section class="sec cb cb-log" aria-label="Apertura sugerida"><div class="say cb-say"><span class="cb-k">Apertura sugerida</span>${esc(opening)}<button class="icon-btn" data-copy="${esc(opening)}" aria-label="Copiar apertura">${icon("copy")}</button></div>
-      <p class="faint cb-src"><span>${esc(b.headline)}</span> <button class="linkbtn" data-cbprep>Ver resumen</button></p></section>`;
+    // una línea (los resultados van primero): «Apertura sugerida · Hola, ¿qué tal?… Ver»; abierta, entera con copiar
+    return `<details class="cb-line" ${D.cbLogOpen ? "open" : ""}><summary><span class="cb-k">Apertura sugerida</span><span class="cb-one">${esc(opening)}</span><span class="linkbtn cb-see" aria-hidden="true"></span></summary>
+      <div class="say cb-say">${esc(opening)}<button class="icon-btn" data-copy="${esc(opening)}" aria-label="Copiar apertura">${icon("copy")}</button></div>
+      <p class="faint cb-src"><span>${esc(b.headline)}</span> <button class="linkbtn" data-cbprep>Ver resumen</button></p></details>`;
   }
   if (!t || (!t.summary && !t.err)) return `<section class="sec cb" aria-busy="true">${title}</h3><div class="skel" style="width:70%"></div><div class="skel" style="margin-top:10px"></div><div class="skel" style="margin-top:8px;width:85%"></div><p class="faint" style="margin:10px 0 0;font-size:13px">Leyendo el historial de Pipedrive…</p></section>`;
   if (!t.summary) return `<div class="callout warn">${icon("alert")}<span>No pude leer el historial de Pipedrive: ${esc(t.err)}</span><button class="btn sm" data-tlretry>Reintentar</button></div>`;
@@ -1731,9 +1826,10 @@ function briefCard(s, where) {
   const tools = `<span class="cb-tools">${b.mode === "ia" ? `<span class="tag" title="Lo armó la IA citando las entradas del historial">con IA</span>` : ""}${t.aiLoading ? `<span class="faint cb-ai" aria-live="polite"><span class="spin"></span> IA</span>` : ""}<button class="btn sm ghost icon-only" data-tlrefresh aria-label="Actualizar el historial" title="Volver a leer Pipedrive">${t.loading ? `<span class="spin"></span>` : icon("refresh", "sm")}</button></span>`;
   const warns = b.warnings?.length ? `<div class="callout warn cb-warn">${icon("alert")}<span>${b.warnings.map(w => esc(w.text)).join("<br>")}</span></div>` : "";
   // sin vincular, con candidatas: no se sabe qué pasó en Pipedrive (no es «sin nada»)
-  if (b.cold && b.unlinked) return `<div class="callout info cb-cold">${icon("building")}<span><b>Todavía no está vinculado a Pipedrive.</b> Elegí la organización para ver su historia antes de llamar.</span><button class="btn sm" data-cbcands>Elegir</button></div>`;
+  // en Preparar eso va en la línea de estado de Pipedrive (pdLine), junto con lo que se revisó
+  if (b.cold && b.unlinked) return where === "prep" ? warns : `<div class="callout info cb-cold">${icon("building")}<span><b>Todavía no está vinculado a Pipedrive.</b> Elegí la organización para ver su historia antes de llamar.</span><button class="btn sm" data-cbcands>Elegir</button></div>`;
   if (b.cold) {
-    if (where === "prep" && !b.origin) return `<div class="callout info cb-cold">${icon("phone")}<span><b>Primer contacto en frío.</b> Todavía no hay llamadas, mensajes ni notas en Pipedrive ni en la app: usá la apertura de abajo.</span></div>${warns}`;
+    if (where === "prep" && !b.origin) return warns;
     return `<section class="sec cb">${title}${tools}</h3><p class="cb-head">${esc(b.headline)}</p>${originHtml(b)}
       <div class="say cb-say"><span class="cb-k">Apertura sugerida</span>${esc(opening)}<button class="icon-btn" data-copy="${esc(opening)}" aria-label="Copiar apertura">${icon("copy")}</button></div>
       <p class="faint cb-src">${esc(b.openingSrc)}</p>${b.facts?.length ? cbList(b.facts, f => `<li><b>${esc(f.k)}:</b> ${factVal(f, s)}</li>`) : ""}${warns}</section>`;
@@ -1749,10 +1845,10 @@ function briefCard(s, where) {
     ${b.noted ? `<p class="cb-noted">${esc(b.noted.text)}</p>` : ""}
     ${b.askFor?.length ? `<p class="cb-ask">Preguntá por ${b.askFor.map(a => `<b>${esc(a.text)}</b>`).join(" o ")}.</p>` : ""}
     ${warns}
-    <details class="cb-more" ${full || D.cbOpen ? "open" : ""}><summary>${full ? "Qué pasó, datos y pendientes" : "Qué pasó y datos"}</summary>
+    <details class="cb-more" ${full ? "open" : ""}><summary>${full ? "Qué pasó, datos y pendientes" : "Qué pasó y datos"}</summary>
       ${b.happened?.length ? `<div class="cb-h">Qué pasó</div>${cbList(b.happened, h => `<li>${h.lead ? `<b>${esc(h.lead)}</b>${h.text ? ": " : ""}` : ""}${h.text ? (h.quote ? `«${esc(h.text)}»` : esc(h.text)) : ""}${src(h)}</li>`)}` : ""}
-      ${b.facts?.length ? `<div class="cb-h">Datos de las notas</div>${cbList(b.facts, f => `<li><b>${esc(f.k)}:</b> ${factVal(f, s)}${src(f)}</li>`)}` : ""}
-      ${b.plan?.length ? `<div class="cb-h">Plan anotado</div>${cbList(b.plan, p => `<li>«${esc(p.text)}»${src(p)}</li>`)}` : ""}
+      ${b.facts?.length ? `<div class="cb-h">Datos de las notas</div>${cbBySrc(b.facts, f => `<li><b>${esc(f.k)}:</b> ${factVal(f, s)}</li>`)}` : ""}
+      ${b.plan?.length ? `<div class="cb-h">Plan anotado</div>${cbBySrc(b.plan, p => `<li>«${esc(p.text)}»</li>`)}` : ""}
       ${!full ? "" : b.pending?.length ? `<div class="cb-h">Pendiente</div>${cbList(b.pending, p => `<li class="${p.late ? "late" : ""}">${esc(p.text)}</li>`)}` : `<p class="faint" style="margin:8px 0 0;font-size:13px">No hay nada pendiente con este colegio.</p>`}
       ${b.thin ? `<p class="faint" style="margin:8px 0 0;font-size:13px">${esc(b.thin)}</p>` : ""}
       ${[b.aiNote, b.openingNote].filter(Boolean).map(x => `<p class="faint" style="margin:8px 0 0;font-size:13px">${esc(x)}</p>`).join("")}
@@ -1846,6 +1942,7 @@ function bindTimeline(s) {
   el.querySelectorAll("[data-tlretry]").forEach(b => b.onclick = () => loadTimeline(s.id));
   el.querySelectorAll(".cb [data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy));
   el.querySelectorAll("[data-cbprep]").forEach(b => b.onclick = () => { D.tab = "prep"; draw(); $("drawer").querySelector("#dBody")?.scrollTo?.({ top: 0 }); });
+  el.querySelectorAll("details.cb-line").forEach(x => x.addEventListener("toggle", () => { D.cbLogOpen = x.open; }));
   el.querySelectorAll("[data-cbcands]").forEach(b => b.onclick = () => { if (D.tab !== "prep") { D.tab = "prep"; draw(); } const c = $("drawer").querySelector("#candSec"); c?.scrollIntoView({ behavior: "smooth", block: "start" }); c?.querySelector("button")?.focus({ preventScroll: true }); });
   el.querySelector("#tlMore")?.addEventListener("click", () => moreTimeline(s.id));
   el.querySelectorAll("[data-tlfull]").forEach(b => b.onclick = () => { const p = b.previousElementSibling, closed = p.classList.toggle("clamp"); b.textContent = closed ? "Ver todo" : "Ver menos"; b.setAttribute("aria-expanded", String(!closed)); });
@@ -1927,21 +2024,28 @@ async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
   let phase = "edit", left = SEND_DELAY, timer = null, finished = false, again = false;
   // clave de un solo uso por envío: si el pedido se repite, el servidor no lo manda dos veces. «Mandar igual» usa otra.
   let key = newKey();
+  // primero el mensaje; «Armar con IA» es un enlace chico que despliega «¿Qué querés decirle?» (abierto si el mensaje va en blanco)
+  const aiOpen = !String(text0 || "").trim();
+  // «Conectar … para enviar desde acá» es el botón principal solo la primera vez que se ofrece; después va como enlace
+  // debajo y el principal es «Abrir en Gmail» (o «Enviar» si ya está conectado)
+  const offerSeen = !!loadPref("mail.offerSeen", false);
   const m = modal(`<div class="modal-h"><h3>${isMail ? icon("mail") : icon("whatsapp")} ${esc(t.label)}</h3><button class="icon-btn" id="mClose" aria-label="Cerrar">${icon("x")}</button></div>
     <p class="muted" style="margin:-8px 0 0">${esc(s.name)}</p>
     <label class="field"><span>Para</span><input class="inp" id="mTo" type="${isMail ? "email" : "tel"}" value="${esc(isMail ? defMail : defPhone)}" placeholder="${isMail ? "email@colegio.edu" : esc(pre)}"></label>
     ${isMail ? `<label class="field"><span>Asunto</span><input class="inp" id="mSub" value="${esc(t.subject || "")}" maxlength="200"></label>` : ""}
-    <div class="field" id="mCtxBox"><label for="mCtx"><span>¿Qué querés decirle?</span></label>
-      <textarea class="inp" id="mCtx" rows="2" placeholder="Ej: me pasó tu contacto el de sistemas; la concesionaria anterior dejó los planteles y quiero retomar"></textarea>
-      <div class="row" style="justify-content:flex-start;margin-top:6px"><button class="btn sm" id="mAi">${icon("sparkles", "sm")} Armar mensaje</button><span class="faint" id="mAiNote" style="font-size:12.5px">${S.ai ? "Usa lo que escribas y lo que dice Pipedrive (notas, tratos, contactos)." : "Arma el mensaje con tu contexto y la forma de escribir de la casa."}</span></div></div>
     <label class="field"><span>Mensaje</span><textarea class="inp" id="mText" rows="${isMail ? 12 : 8}">${esc(text0)}</textarea></label>
     ${/\[(día|hora|tu nombre)\]/.test(t.text) ? `<p class="callout warn" style="margin:0" id="mPh">${icon("alert")}<span>Completá lo que está entre corchetes antes de mandar.</span></p>` : ""}
+    <div class="m-ai" id="mCtxBox"><button type="button" class="linkbtn m-ai-t" id="mAiT" aria-expanded="${aiOpen}" aria-controls="mAiBox">${icon("sparkles", "sm")} ${S.ai ? "Armar con IA" : "Armar el mensaje por mí"}</button>
+      <div class="field" id="mAiBox" ${aiOpen ? "" : "hidden"}><label for="mCtx"><span>¿Qué querés decirle?</span></label>
+      <textarea class="inp" id="mCtx" rows="2" placeholder="Ej: me pasó tu contacto el de sistemas; la concesionaria anterior dejó los planteles y quiero retomar"></textarea>
+      <div class="row" style="justify-content:flex-start;margin-top:6px"><button class="btn sm" id="mAi">${icon("sparkles", "sm")} Armar mensaje</button><span class="faint" id="mAiNote" style="font-size:12.5px">${S.ai ? "Usa lo que escribas y lo que dice Pipedrive (notas, tratos, contactos)." : "Arma el mensaje con tu contexto y la forma de escribir de la casa."}</span></div></div></div>
     <p class="callout err" id="mErr" role="alert" style="margin:0" hidden></p>
     <div class="stack mact" id="mAct"></div>`, { onClose: () => { if (timer) { clearInterval(timer); timer = null; if (!finished) toast("No se envió: cerraste antes de que salga", { type: "info" }); } } });
   const q = sel => m.querySelector(sel);
   const showErr = msg => { const e = q("#mErr"); e.innerHTML = `${icon("alert")}<span>${esc(msg)}</span>`; e.hidden = !msg; };
   const editable = on => { ["#mTo", "#mSub", "#mText", "#mCtx"].forEach(x => { const el = q(x); if (el) el.readOnly = !on; }); const ai = q("#mAi"); if (ai) ai.disabled = !on; };
   q("#mClose").onclick = () => m.close();
+  q("#mAiT").onclick = e => { const box = q("#mAiBox"); box.hidden = !box.hidden; e.currentTarget.setAttribute("aria-expanded", String(!box.hidden)); if (!box.hidden) q("#mCtx").focus(); };
   // Armar el mensaje: con IA, con tu contexto + lo que sabe Pipedrive; sin IA, tu contexto en la plantilla de la casa
   q("#mAi").addEventListener("click", async e => {
     const b = e.currentTarget, ctx = q("#mCtx").value.trim(), cur = q("#mText").value.trim();
@@ -1954,8 +2058,17 @@ async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
     } catch (err) { toast(err.message, { type: "err" }); }
     b.disabled = false; b.innerHTML = `${icon("sparkles", "sm")} Armar mensaje`;
   });
+  // Después de abrir WhatsApp o Gmail: Registrar con el canal puesto y «Sin respuesta todavía» ya elegido con su próximo paso
+  // (recién mandaste: lo normal es que todavía no haya respuesta), para guardar con un clic. Si ya contestó, se cambia.
   const afterOpen = () => {
-    if (logAfter) { D.form.channel = isMail ? "mail" : "whatsapp"; D.tab = "log"; D.result = null; D.form.sent = true; if (!D.form.text) D.form.text = `Mandé ${isMail ? "mail" : "WhatsApp"}: ${t.label.toLowerCase()}.`; draw(); toast("Cuando tengas respuesta (o no), registralo acá"); }
+    if (!logAfter || D.id !== s.id) return;
+    const f = D.form;
+    f.channel = isMail ? "mail" : "whatsapp"; D.tab = "log"; D.result = null; f.sent = true;
+    if (!f.text) f.text = `Mandé ${isMail ? "mail" : "WhatsApp"}: ${t.label.toLowerCase()}.`;
+    const pre = !f.outcome && !f.mail && !d.archive && S.outcomes.some(o => o.id === "no_answer");
+    if (pre) { f.outcome = "no_answer"; f.lostReason = ""; f.sentPre = true; }
+    draw(); toTabs(); showOutcomes();
+    if (pre) suggest(s).then(() => { if (D.id === s.id && D.tab === "log" && !document.querySelector(".modal")) $("drawer").querySelector("#save")?.focus({ preventScroll: true }); });
   };
   const openGmail = () => { open(gmailLink({ to: q("#mTo").value.trim(), subject: q("#mSub").value, body: q("#mText").value })); finished = true; m.close(); afterOpen(); };
   // ¿se puede mandar desde acá? Lo que ya trae la ficha y, al abrir, el servidor (el mismo control que el envío, sin
@@ -2006,7 +2119,7 @@ async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
   function drawAct() {
     const a = q("#mAct"), g = S.gmail;
     if (!isMail) {
-      a.innerHTML = `<div class="row"><button class="btn" id="mCopy">${icon("copy")} Copiar</button><button class="btn wa" id="mGo">${icon("whatsapp")} Abrir WhatsApp</button></div>
+      a.innerHTML = `<div class="row"><button class="btn" id="mCopy">${icon("copy")} Copiar</button><button class="btn wa main" id="mGo">${icon("whatsapp")} Abrir WhatsApp</button></div>
         <p class="faint" style="margin:0;font-size:12.5px">Se abre WhatsApp Web o la app. Si usás Volt, la conversación queda en el CRM automáticamente.</p>`;
       q("#mCopy").onclick = () => copy(q("#mText").value);
       q("#mGo").onclick = () => { const to = q("#mTo").value.trim(); if (!to) return toast("Poné el número", { type: "err" }); open(waLink(to, q("#mText").value, s.country)); finished = true; m.close(); afterOpen(); };
@@ -2046,11 +2159,16 @@ async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
     }
     const wait = !pdOffer && gmailWaiting();
     const sigHtml = viaSig(via), sigSrc = via === "pipedrive" ? p.signatureSource : g?.signatureSource;
+    // conectar por primera vez (no confirmar lo ya conectado): ya se ofreció antes → enlace debajo, no el botón principal
+    const firstTime = (pdOffer && !pdConfirm) || gConnect, soft = !blocked && firstTime && offerSeen && !wait;
+    if (!blocked && firstTime && !offerSeen) save("mail.offerSeen", true);
+    const connectText = pdOffer ? "Conectar Pipedrive para enviar desde acá" : "Conectar Gmail para enviar desde acá";
     a.innerHTML = `<div class="row"><button class="btn" id="mCopy">${icon("copy")} Copiar</button>
       ${send && !blocked ? `<button class="btn ghost" id="mGo">Abrir en Gmail</button><button class="btn primary" id="mSend">${icon("send")} Enviar</button>`
-        : !blocked && (pdOffer || gConfirm || gConnect) ? `<button class="btn" id="mGo">Abrir en Gmail</button><button class="btn primary" id="mConnect">${wait ? `<span class="spin"></span> Esperando a Google…`
-          : pdConfirm ? `${icon("lock")} Confirmá que sos vos` : pdOffer ? `${icon("mail")} Conectar Pipedrive para enviar desde acá` : gConfirm ? `${icon("mail")} Confirmar tu Gmail en este dispositivo` : `${icon("mail")} Conectar Gmail para enviar desde acá`}</button>`
+        : !blocked && !soft && (pdOffer || gConfirm || gConnect) ? `<button class="btn" id="mGo">Abrir en Gmail</button><button class="btn primary" id="mConnect">${wait ? `<span class="spin"></span> Esperando a Google…`
+          : pdConfirm ? `${icon("lock")} Confirmá que sos vos` : gConfirm ? `${icon("mail")} Confirmar tu Gmail en este dispositivo` : `${icon("mail")} ${connectText}`}</button>`
         : `<button class="btn primary" id="mGo">${icon("mail")} Abrir en Gmail</button>`}</div>
+      ${soft ? `<p class="faint mail-note"><button type="button" class="linkbtn" id="mConnect">${connectText}</button>: una vez, y después mandás con un clic, con tu firma.</p>` : ""}
       ${note ? `<p class="mail-note" role="status" style="color:var(--info)">${esc(note)}</p>` : ""}
       ${blocked && chk.code === "pd_maybe" ? `<p class="mail-block" role="status">${icon("alert", "sm")}<span><b>Antes de mandar:</b> ${esc(chk.error)}</span><button class="btn sm" id="mEx">Ver cuáles</button></p>`
         : blocked ? `<p class="mail-block" role="status">${icon("alert", "sm")}<span><b>Desde acá no se envía.</b> ${esc(chk.error)}</span></p>`
@@ -2061,10 +2179,12 @@ async function messageModal(s, d, t, { phone, email, name = "", logAfter }) {
           ${pdCanConnect(p) && !p.connected ? `<p class="faint mail-note">Mejor desde Pipedrive (queda en su correo, ligado al prospecto): <button type="button" class="linkbtn" id="mPdLink">Conectar Pipedrive</button></p>` : ""}`
         : p?.readOnly || g?.readOnly ? `<p class="faint mail-note">Modo solo lectura: desde acá no se envía. Usá «Abrir en Gmail».</p>`
         : pdConfirm ? `<p class="faint mail-note">Tu Pipedrive ya está conectado. En este dispositivo pegá de nuevo tu token una vez y después mandás con un clic.</p>`
+        : pdOffer && soft ? (p.mismatch ? `<p class="faint mail-note">La conexión guardada no es de tu usuario de Pipedrive.</p>` : "")
         : pdOffer ? `<p class="faint mail-note">${p.mismatch ? "La conexión guardada no es de tu usuario de Pipedrive. " : ""}Pegás tu token de Pipedrive una vez y mandás con un clic desde tu casilla de Pipedrive, con tu firma. Queda ligado al prospecto y en el historial.</p>`
         : p?.noUser ? `<p class="faint mail-note">Tu email no es usuario de Pipedrive: pedí que te den de alta. Mientras, usá «Abrir en Gmail».</p>`
         : g?.config ? `<p class="faint mail-note">Gmail está mal configurado en el servidor (avisale al administrador). Mientras, usá «Abrir en Gmail».</p>`
         : gConfirm ? `<p class="faint mail-note">Tu Gmail (${esc(g.email)}) ya está conectado. En este dispositivo confirmalo una vez con Google y después mandás con un clic.</p>`
+        : gConnect && soft ? (g.expired ? `<p class="faint mail-note">Tu conexión con Gmail venció: conectalo de nuevo.</p>` : "")
         : gConnect ? `<p class="faint mail-note">${g.expired ? "Tu conexión con Gmail venció: conectalo de nuevo. " : ""}Lo conectás una vez y después mandás con un clic, con tu firma. Sale de tu Gmail y queda en Pipedrive y en el historial.</p>`
         : `<p class="faint mail-note">Para enviar desde acá falta configurar el servidor (avisale al administrador).</p>`}`;
     q("#mCopy").onclick = () => copy(q("#mText").value);
@@ -2119,13 +2239,21 @@ function afterMailSent(s, r, { logAfter, completed }) {
   api(`/api/schools/${s.id}`).then(nd => { if (D.id === s.id) { D.data = nd; keepScroll(draw); } }).catch(() => {});
 }
 
-// Ctrl + Enter guarda; en la pantalla de resultado, Enter pasa al siguiente de la sesión. En escritorio, 1 a 8 eligen qué pasó (fuera de los campos de texto).
+// Ctrl + Enter guarda; en la pantalla de resultado, Enter pasa al siguiente de la sesión. En escritorio, 1 a 8 eligen qué pasó
+// desde cualquier pestaña de la ficha (fuera de los campos de texto, sin un menú ni una ventana abiertos).
 const typing = t => t?.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t?.tagName || "");
 addEventListener("keydown", e => {
   if (!drawerOpen() || document.querySelector(".modal")) return;
   if ((e.ctrlKey || e.metaKey) && e.key === "Enter" && D.tab === "log" && !D.result) { e.preventDefault(); $("drawer").querySelector("#save")?.click(); }
-  else if (/^[1-9]$/.test(e.key) && !e.ctrlKey && !e.metaKey && !e.altKey && D.tab === "log" && !D.result && !D.saving && !coarse() && !typing(e.target)) {
-    const b = $("drawer").querySelectorAll("[data-oc]")[+e.key - 1]; if (b && !b.disabled) { e.preventDefault(); b.click(); $("drawer").querySelector(`[data-oc="${b.dataset.oc}"]`)?.focus(); }
+  else if (/^[1-9]$/.test(e.key) && !e.ctrlKey && !e.metaKey && !e.altKey && !e.repeat && !D.result && !D.saving && !coarse() && !typing(e.target) && !document.querySelector(".menu")) {
+    if (D.tab === "log") { const b = $("drawer").querySelectorAll("[data-oc]")[+e.key - 1]; if (b && !b.disabled) { e.preventDefault(); b.click(); $("drawer").querySelector(`[data-oc="${b.dataset.oc}"]`)?.focus(); } return; }
+    // desde Preparar o Historial: pasa a Registrar con ese resultado elegido (acá no lo quita si ya estaba)
+    const s = S.byId.get(D.id), x = S.outcomes[+e.key - 1];
+    if (!s || !x || !D.data || D.data.archive || D.form.mail || (x.id === "demo" && s.status === "client")) return;
+    e.preventDefault();
+    D.form.outcome = x.id; D.form.lostReason = ""; D.form.sentPre = false; if (D.call?.outcome) D.call = null;
+    goTab("log"); suggest(s);
+    $("drawer").querySelector(`[data-oc="${x.id}"]`)?.focus();
   }
 });
 

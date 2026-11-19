@@ -407,7 +407,8 @@ export function openMenu(anchor, items) {
     const bs = [...menuEl.querySelectorAll("button")], i = bs.indexOf(document.activeElement);
     if (e.key === "ArrowDown") { e.preventDefault(); bs[(i + 1) % bs.length].focus(); }
     if (e.key === "ArrowUp") { e.preventDefault(); bs[(i - 1 + bs.length) % bs.length].focus(); }
-    if (e.key === "Escape") { closeMenu(); anchor.focus(); }
+    // Esc cierra solo el menú (sin stopPropagation seguía hasta la ventana y cerraba también la ficha de atrás)
+    if (e.key === "Escape") { e.stopPropagation(); closeMenu(); anchor.focus(); }
   });
   setTimeout(() => document.addEventListener("pointerdown", outside, true));
 }
