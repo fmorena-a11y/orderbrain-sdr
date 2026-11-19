@@ -765,7 +765,9 @@ function paintLegend(seen) {
 }
 // fit: encuadrar solo cuando cambia lo que se mira (país, ciudad, búsqueda o lugar), no en cada refresco.
 let lastView = "";
-function drawMap({ fit = true } = {}) {
+// los clientes (mismo canvas) siempre arriba de los colegios: «no llamar» no puede quedar tapado
+function drawMap(o) { drawMapIn(o); if (brainLayer && map?.hasLayer(brainLayer)) brainLayer.eachLayer(l => l.bringToFront?.()); }
+function drawMapIn({ fit = true } = {}) {
   if (!map) return; layer.clearLayers(); const pts = [];
   const view = JSON.stringify([E.country, E.city, E.q, E.place?.osm || E.place?.label || ""]);
   // mientras se carga el país de lo que se mira no se fija el encuadre: al llegar los colegios, se encuadra
@@ -859,19 +861,15 @@ function toggleBrain() {
   showBrain = !showBrain; try { localStorage.setItem("ob.brain", showBrain ? "1" : "0"); } catch {}
   showBrain ? brainLayer.addTo(map) : brainLayer.remove(); paintBrainBtn();
 }
-// en su propio canvas (un panel arriba de los colegios): eran 700 elementos sueltos que trababan el mapa al moverlo
-let brainCanvas = null;
+// en el MISMO canvas que los colegios (eran 700 elementos sueltos que trababan el mapa al moverlo). Un segundo canvas
+// encima tapaba los clics de los colegios: van en el mismo y se traen al frente después de dibujar los colegios (brainTop).
 function drawBrain() {
   if (!brainLayer) return; brainLayer.clearLayers();
-  if (!brainCanvas || brainCanvas._map !== map) {
-    if (!map.getPane("brainPane")) { map.createPane("brainPane"); map.getPane("brainPane").style.zIndex = 450; }
-    brainCanvas = L.canvas({ padding: 0.3, pane: "brainPane" });
-  }
   const surface = cssVar("--surface") || "#fff";
   for (const x of S.brain?.sites || []) {
     const ph = x.churn ? "churn" : { Active: "activo", Onboarding: "onboarding", Closed: "cerrado" }[x.status] || "activo", col = cssVar(PH[ph].c);
     const o = ph === "churn" ? { shape: "dr", radius: 8, color: col, weight: 3, fillColor: surface } : { shape: "d", radius: 9, color: "#fff", weight: 2, fillColor: col };
-    new Mark([x.lat, x.lng], { renderer: brainCanvas, pane: "brainPane", fillOpacity: 1, ...o })
+    new Mark([x.lat, x.lng], { renderer: canvas, fillOpacity: 1, ...o })
       .bindTooltip(esc(`${x.name}${x.client && x.client !== x.name ? ` (${x.client})` : ""} · ${x.churn ? (x.label === "Churn" ? "Churn: era cliente activo" : `${x.label}`) : `${x.label}: cliente de OrderEAT, no contactar`}`))
       .on("click", () => { if (x.schoolId && S.byId.has(x.schoolId)) openSchool(x.schoolId); })
       .addTo(brainLayer);
