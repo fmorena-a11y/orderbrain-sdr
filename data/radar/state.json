@@ -7440,7 +7440,9 @@
   "ES|n1470837704": "2026-11-18T19:24:54.616Z",
   "ES|n688986898": "2026-11-18T19:26:16.131Z",
   "CL|Los Andes": "2026-11-18T21:15:32.690Z",
-  "GT|Concepción Tutuapa": "2026-11-18T21:17:03.302Z"
+  "GT|Concepción Tutuapa": "2026-11-18T21:17:03.302Z",
+  "AR|El Palomar": "2026-11-19T01:35:49.439Z",
+  "DO|n3631921604": "2026-11-19T01:44:27.088Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7575,6 +7577,36 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-19T01:35:15.187Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "El Palomar",
+     "found": 0,
+     "updated": 0,
+     "osm": 149
+    },
+    {
+     "cc": "DO",
+     "city": "Bayaguana",
+     "found": 0,
+     "updated": 0,
+     "osm": 10
+    }
+   ],
+   "added": 0,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "MX|Huauchinango: sin tiempo en esta corrida"
+   ],
+   "minutes": 19.1,
+   "total": 22645
+  },
   {
    "at": "2026-11-18T21:10:22.428Z",
    "cities": [
@@ -9688,97 +9720,6 @@
    ],
    "minutes": 19.1,
    "total": 21285
-  },
-  {
-   "at": "2026-11-15T07:27:27.759Z",
-   "cities": [
-    {
-     "cc": "DO",
-     "city": "Moca",
-     "found": 9,
-     "updated": 0,
-     "osm": 38
-    },
-    {
-     "cc": "PE",
-     "city": "Tumbes",
-     "found": 19,
-     "updated": 0,
-     "osm": 96
-    },
-    {
-     "cc": "MX",
-     "city": "Ciudad Lerdo",
-     "found": 2,
-     "updated": 0,
-     "osm": 20
-    },
-    {
-     "cc": "VE",
-     "city": "Valle de La Pascua",
-     "found": 1,
-     "updated": 0,
-     "osm": 1
-    },
-    {
-     "cc": "ES",
-     "city": "Cáceres",
-     "found": 27,
-     "updated": 0,
-     "osm": 45
-    },
-    {
-     "cc": "EC",
-     "city": "Esmeraldas",
-     "found": 22,
-     "updated": 0,
-     "osm": 53
-    },
-    {
-     "cc": "AR",
-     "city": "Grand Bourg",
-     "found": 1,
-     "updated": 0,
-     "osm": 67
-    },
-    {
-     "cc": "MX",
-     "city": "Ocotlán",
-     "found": 9,
-     "updated": 0,
-     "osm": 76
-    },
-    {
-     "cc": "HN",
-     "city": "Danlí",
-     "found": 8,
-     "updated": 0,
-     "osm": 22
-    },
-    {
-     "cc": "ES",
-     "city": "San Fernando",
-     "found": 12,
-     "updated": 0,
-     "osm": 39
-    },
-    {
-     "cc": "CO",
-     "city": "Sabanalarga",
-     "found": 3,
-     "updated": 0,
-     "osm": 7
-    }
-   ],
-   "added": 113,
-   "enriched": 0,
-   "photos": 2,
-   "contacts": 1,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 13.9,
-   "total": 21267
   }
  ]
 }
