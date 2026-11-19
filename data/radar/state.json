@@ -7432,7 +7432,15 @@
   "ES|n1679058496": "2026-11-18T15:24:41.220Z",
   "AR|Alta Gracia": "2026-11-18T15:25:17.924Z",
   "AR|Hurlingham": "2026-11-18T15:25:48.759Z",
-  "AR|Palpalá": "2026-11-18T15:33:33.649Z"
+  "AR|Palpalá": "2026-11-18T15:33:33.649Z",
+  "VE|n1834063872": "2026-11-18T15:53:05.577Z",
+  "MX|Martínez de la Torre": "2026-11-18T15:53:33.388Z",
+  "MX|Huamantla": "2026-11-18T19:17:43.891Z",
+  "AR|San Vicente": "2026-11-18T19:18:37.198Z",
+  "ES|n1470837704": "2026-11-18T19:24:54.616Z",
+  "ES|n688986898": "2026-11-18T19:26:16.131Z",
+  "CL|Los Andes": "2026-11-18T21:15:32.690Z",
+  "GT|Concepción Tutuapa": "2026-11-18T21:17:03.302Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7559,9 +7567,118 @@
    "n": 1,
    "at": "2026-11-18T13:47:16.031Z",
    "error": "Overpass 504"
+  },
+  "MX|Heroica Caborca": {
+   "n": 1,
+   "at": "2026-11-18T16:08:08.457Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-18T21:10:22.428Z",
+   "cities": [
+    {
+     "cc": "CL",
+     "city": "Los Andes",
+     "found": 28,
+     "updated": 0,
+     "osm": 59
+    },
+    {
+     "cc": "GT",
+     "city": "Concepción Tutuapa",
+     "found": 0,
+     "updated": 0,
+     "osm": 0
+    }
+   ],
+   "added": 28,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "AR|El Palomar: sin tiempo en esta corrida"
+   ],
+   "minutes": 19.2,
+   "total": 22645
+  },
+  {
+   "at": "2026-11-18T19:17:04.966Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Huamantla",
+     "found": 2,
+     "updated": 0,
+     "osm": 20
+    },
+    {
+     "cc": "AR",
+     "city": "San Vicente",
+     "found": 1,
+     "updated": 0,
+     "osm": 10
+    },
+    {
+     "cc": "ES",
+     "city": "Alcoy",
+     "found": 9,
+     "updated": 0,
+     "osm": 23
+    },
+    {
+     "cc": "ES",
+     "city": "Zamora",
+     "found": 21,
+     "updated": 0,
+     "osm": 42
+    }
+   ],
+   "added": 33,
+   "enriched": 0,
+   "photos": 6,
+   "contacts": 3,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "CL|Los Andes: sin tiempo en esta corrida"
+   ],
+   "minutes": 19,
+   "total": 22617
+  },
+  {
+   "at": "2026-11-18T15:52:30.745Z",
+   "cities": [
+    {
+     "cc": "VE",
+     "city": "San Mateo",
+     "found": 0,
+     "updated": 0,
+     "osm": 2
+    },
+    {
+     "cc": "MX",
+     "city": "Martínez de la Torre",
+     "found": 1,
+     "updated": 0,
+     "osm": 13
+    }
+   ],
+   "added": 1,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "MX|Heroica Caborca: The operation was aborted due to timeout"
+   ],
+   "minutes": 15.7,
+   "total": 22584
+  },
   {
    "at": "2026-11-18T15:15:38.282Z",
    "cities": [
@@ -9662,286 +9779,6 @@
    "errors": [],
    "minutes": 13.9,
    "total": 21267
-  },
-  {
-   "at": "2026-11-15T05:12:24.764Z",
-   "cities": [
-    {
-     "cc": "VE",
-     "city": "San Juan de Los Morros",
-     "found": 12,
-     "updated": 0,
-     "osm": 38
-    },
-    {
-     "cc": "PY",
-     "city": "Itauguá",
-     "found": 2,
-     "updated": 0,
-     "osm": 4
-    },
-    {
-     "cc": "CO",
-     "city": "Magangué",
-     "found": 30,
-     "updated": 0,
-     "osm": 71
-    },
-    {
-     "cc": "ES",
-     "city": "Orense",
-     "found": 5,
-     "updated": 0,
-     "osm": 68
-    },
-    {
-     "cc": "AR",
-     "city": "Burzaco",
-     "found": 1,
-     "updated": 1,
-     "osm": 99
-    },
-    {
-     "cc": "MX",
-     "city": "Tepatitlán",
-     "found": 11,
-     "updated": 0,
-     "osm": 100
-    },
-    {
-     "cc": "AR",
-     "city": "Zárate",
-     "found": 11,
-     "updated": 0,
-     "osm": 40
-    },
-    {
-     "cc": "DO",
-     "city": "San Ignacio de Sabaneta",
-     "found": 4,
-     "updated": 0,
-     "osm": 8
-    },
-    {
-     "cc": "AR",
-     "city": "Río Grande",
-     "found": 7,
-     "updated": 0,
-     "osm": 39
-    },
-    {
-     "cc": "CO",
-     "city": "Chía",
-     "found": 0,
-     "updated": 0,
-     "osm": 34
-    }
-   ],
-   "added": 83,
-   "enriched": 0,
-   "photos": 1,
-   "contacts": 1,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 15.7,
-   "total": 21154
-  },
-  {
-   "at": "2026-11-15T03:05:38.627Z",
-   "cities": [
-    {
-     "cc": "DO",
-     "city": "Villa Hermosa",
-     "found": 0,
-     "updated": 0,
-     "osm": 17
-    },
-    {
-     "cc": "UY",
-     "city": "Maldonado",
-     "found": 19,
-     "updated": 0,
-     "osm": 59
-    },
-    {
-     "cc": "BO",
-     "city": "Trinidad",
-     "found": 9,
-     "updated": 0,
-     "osm": 34
-    },
-    {
-     "cc": "AR",
-     "city": "Junín",
-     "found": 0,
-     "updated": 0,
-     "osm": 11
-    },
-    {
-     "cc": "AR",
-     "city": "Rafaela",
-     "found": 5,
-     "updated": 0,
-     "osm": 43
-    },
-    {
-     "cc": "MX",
-     "city": "Minatitlán",
-     "found": 5,
-     "updated": 0,
-     "osm": 55
-    },
-    {
-     "cc": "AR",
-     "city": "Berisso",
-     "found": 0,
-     "updated": 0,
-     "osm": 40
-    },
-    {
-     "cc": "AR",
-     "city": "Presidencia Roque Sáenz Peña",
-     "found": 15,
-     "updated": 0,
-     "osm": 65
-    },
-    {
-     "cc": "ES",
-     "city": "Dos Hermanas",
-     "found": 21,
-     "updated": 0,
-     "osm": 50
-    },
-    {
-     "cc": "MX",
-     "city": "Rosarito",
-     "found": 3,
-     "updated": 0,
-     "osm": 77
-    },
-    {
-     "cc": "AR",
-     "city": "Libertad",
-     "found": 2,
-     "updated": 0,
-     "osm": 188
-    }
-   ],
-   "added": 79,
-   "enriched": 0,
-   "photos": 1,
-   "contacts": 3,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 13.4,
-   "total": 21071
-  },
-  {
-   "at": "2026-11-15T01:29:09.754Z",
-   "cities": [
-    {
-     "cc": "ES",
-     "city": "Gerona",
-     "found": 4,
-     "updated": 0,
-     "osm": 85
-    },
-    {
-     "cc": "AR",
-     "city": "Pergamino",
-     "found": 7,
-     "updated": 0,
-     "osm": 41
-    },
-    {
-     "cc": "AR",
-     "city": "Ituzaingó",
-     "found": 2,
-     "updated": 0,
-     "osm": 151
-    },
-    {
-     "cc": "DO",
-     "city": "San Fernando de Monte Cristi",
-     "found": 2,
-     "updated": 0,
-     "osm": 3
-    },
-    {
-     "cc": "MX",
-     "city": "Tuxtepec",
-     "found": 0,
-     "updated": 0,
-     "osm": 8
-    },
-    {
-     "cc": "CO",
-     "city": "Zipaquirá",
-     "found": 6,
-     "updated": 0,
-     "osm": 34
-    },
-    {
-     "cc": "VE",
-     "city": "Porlamar",
-     "found": 8,
-     "updated": 0,
-     "osm": 25
-    },
-    {
-     "cc": "AR",
-     "city": "Olavarría",
-     "found": 8,
-     "updated": 2,
-     "osm": 62
-    },
-    {
-     "cc": "NI",
-     "city": "Granada",
-     "found": 14,
-     "updated": 0,
-     "osm": 43
-    },
-    {
-     "cc": "MX",
-     "city": "Tepexpan",
-     "found": 0,
-     "updated": 0,
-     "osm": 28
-    },
-    {
-     "cc": "MX",
-     "city": "Apatzingán",
-     "found": 3,
-     "updated": 0,
-     "osm": 20
-    },
-    {
-     "cc": "MX",
-     "city": "Cholula",
-     "found": 0,
-     "updated": 0,
-     "osm": 53
-    },
-    {
-     "cc": "AR",
-     "city": "Puerto Madryn",
-     "found": 1,
-     "updated": 0,
-     "osm": 37
-    }
-   ],
-   "added": 55,
-   "enriched": 0,
-   "photos": 2,
-   "contacts": 2,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 13.8,
-   "total": 20992
   }
  ]
 }
