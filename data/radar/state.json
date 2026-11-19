@@ -7473,7 +7473,12 @@
   "CO|n703168239": "2026-11-19T15:25:13.715Z",
   "ES|n11092959754": "2026-11-19T15:32:48.168Z",
   "AR|Rafael Calzada": "2026-11-19T17:30:02.340Z",
-  "MX|Umán": "2026-11-19T17:32:54.378Z"
+  "MX|Umán": "2026-11-19T17:32:54.378Z",
+  "CO|n703166711": "2026-11-19T23:06:33.406Z",
+  "AR|Caleta Olivia": "2026-11-19T23:07:10.138Z",
+  "MX|Huajuapan": "2026-11-19T23:07:45.020Z",
+  "AR|Mercedes": "2026-11-19T23:17:38.520Z",
+  "CO|n268142709": "2026-11-19T23:22:16.036Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7608,6 +7613,55 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-19T23:05:58.912Z",
+   "cities": [
+    {
+     "cc": "CO",
+     "city": "Mocoa",
+     "found": 4,
+     "updated": 3,
+     "osm": 35
+    },
+    {
+     "cc": "AR",
+     "city": "Caleta Olivia",
+     "found": 6,
+     "updated": 0,
+     "osm": 41
+    },
+    {
+     "cc": "MX",
+     "city": "Huajuapan",
+     "found": 2,
+     "updated": 0,
+     "osm": 24
+    },
+    {
+     "cc": "AR",
+     "city": "Mercedes",
+     "found": 6,
+     "updated": 0,
+     "osm": 42
+    },
+    {
+     "cc": "CO",
+     "city": "San Gil",
+     "found": 24,
+     "updated": 8,
+     "osm": 73
+    }
+   ],
+   "added": 42,
+   "enriched": 0,
+   "photos": 11,
+   "contacts": 18,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 17.9,
+   "total": 61842
+  },
   {
    "at": "2026-11-19T17:19:04.118Z",
    "cities": [
@@ -9626,104 +9680,6 @@
    "errors": [],
    "minutes": 13.5,
    "total": 21724
-  },
-  {
-   "at": "2026-11-15T22:54:36.449Z",
-   "cities": [
-    {
-     "cc": "CL",
-     "city": "Chiguayante",
-     "found": 20,
-     "updated": 0,
-     "osm": 35
-    },
-    {
-     "cc": "ES",
-     "city": "Sant Boi de Llobregat",
-     "found": 0,
-     "updated": 0,
-     "osm": 144
-    },
-    {
-     "cc": "VE",
-     "city": "San José de Guanipa",
-     "found": 4,
-     "updated": 0,
-     "osm": 22
-    },
-    {
-     "cc": "HN",
-     "city": "Yojoa",
-     "found": 2,
-     "updated": 0,
-     "osm": 3
-    },
-    {
-     "cc": "AR",
-     "city": "Reconquista",
-     "found": 8,
-     "updated": 0,
-     "osm": 47
-    },
-    {
-     "cc": "MX",
-     "city": "San Miguel de Cozumel",
-     "found": 2,
-     "updated": 0,
-     "osm": 12
-    },
-    {
-     "cc": "ES",
-     "city": "Fuengirola",
-     "found": 17,
-     "updated": 0,
-     "osm": 34
-    },
-    {
-     "cc": "UY",
-     "city": "Rivera",
-     "found": 2,
-     "updated": 0,
-     "osm": 59
-    },
-    {
-     "cc": "MX",
-     "city": "Linares",
-     "found": 6,
-     "updated": 0,
-     "osm": 30
-    },
-    {
-     "cc": "DO",
-     "city": "La Caleta",
-     "found": 1,
-     "updated": 0,
-     "osm": 8
-    },
-    {
-     "cc": "VE",
-     "city": "Chivacoa",
-     "found": 3,
-     "updated": 0,
-     "osm": 7
-    },
-    {
-     "cc": "MX",
-     "city": "Los Reyes Acaquilpan",
-     "found": 0,
-     "updated": 0,
-     "osm": 70
-    }
-   ],
-   "added": 65,
-   "enriched": 0,
-   "photos": 4,
-   "contacts": 2,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 16.6,
-   "total": 21589
   }
  ]
 }

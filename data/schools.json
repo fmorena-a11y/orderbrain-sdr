@@ -2327,7 +2327,9 @@
    "0314575",
    "0303107",
    "0316737"
-  ]
+  ],
+  "img": "",
+  "webAt": "2026-11-19"
  },
  {
   "id": "lima-colegio-santa-felicia",
@@ -79362,7 +79364,9 @@
   "found": "2026-11-10",
   "code": "325175000590",
   "padron": "MEN datos.gov.co",
-  "students": 174
+  "students": 174,
+  "img": "",
+  "webAt": "2026-11-19"
  },
  {
   "id": "bogota-gimnasio-pedagogico-celestin-freinet",
@@ -81884,7 +81888,8 @@
   "found": "2026-11-10",
   "code": "411769000895",
   "padron": "MEN datos.gov.co",
-  "students": 609
+  "students": 609,
+  "imgTry": "2026-11-19"
  },
  {
   "id": "bogota-universidad-de-san-buenaventura",
@@ -81932,7 +81937,8 @@
   "found": "2026-11-10",
   "code": "311848000812",
   "padron": "MEN datos.gov.co",
-  "students": 546
+  "students": 546,
+  "imgTry": "2026-11-19"
  },
  {
   "id": "bogota-colegio-carmen-teresiano",
@@ -84640,7 +84646,9 @@
   "found": "2026-11-10",
   "code": "425799000602",
   "padron": "MEN datos.gov.co",
-  "students": 532
+  "students": 532,
+  "img": "",
+  "webAt": "2026-11-19"
  },
  {
   "id": "bogota-colegio-lisa-meitner",
@@ -84668,7 +84676,7 @@
   "lat": 4.664164,
   "lng": -73.976402,
   "addr": "Via La Calera Km 3 Vda El Salitre, Vereda El Salitre.",
-  "phone": "",
+  "phone": "+573102287007",
   "web": "https://www.alcaparros.edu.co",
   "email": "secretariaacademica@alcaparros.edu.co",
   "levels": [
@@ -84683,7 +84691,10 @@
   "found": "2026-11-10",
   "code": "425377800011",
   "padron": "MEN datos.gov.co",
-  "students": 756
+  "students": 756,
+  "img": "https://alcaparros.edu.co/wp-content/uploads/2024/07/Alcaparros-FB.jpg",
+  "whatsapp": "+573102287007",
+  "webAt": "2026-11-19"
  },
  {
   "id": "bogota-colegio-tilata",
@@ -87015,7 +87026,8 @@
   "found": "2026-11-10",
   "code": "425214000262",
   "padron": "MEN datos.gov.co",
-  "students": 153
+  "students": 153,
+  "imgTry": "2026-11-19"
  },
  {
   "id": "bogota-colegio-casablanca",
@@ -87847,7 +87859,7 @@
   "lat": 4.574329,
   "lng": -74.21762,
   "addr": "Carrera 1 E # 10-32, San Marcos",
-  "phone": "",
+  "phone": "+3142399546",
   "web": "https://www.itlandes.edu.co",
   "email": "itla@itlandes.edu.co",
   "levels": [
@@ -87860,7 +87872,10 @@
   "found": "2026-11-10",
   "code": "425754001551",
   "padron": "MEN datos.gov.co",
-  "students": 149
+  "students": 149,
+  "img": "",
+  "whatsapp": "+573142399546",
+  "webAt": "2026-11-19"
  },
  {
   "id": "bogota-colegio-militar-almirante-padilla",
@@ -90619,7 +90634,9 @@
   "found": "2026-11-10",
   "code": "425214000203",
   "padron": "MEN datos.gov.co",
-  "students": 397
+  "students": 397,
+  "img": "https://ngc.edu.co/wp-content/uploads/2020/06/IMG_2361-scaled-e1593057376822.jpg",
+  "webAt": "2026-11-19"
  },
  {
   "id": "bogota-colegio-bilingue-campestre-pio-xii",
@@ -92415,7 +92432,7 @@
   "lat": 4.883761,
   "lng": -74.010838,
   "addr": "Km 25 Autopista Norte Vereda Yerbabuena, Rural Sin Informacio",
-  "phone": "",
+  "phone": "+573177833879",
   "web": "https://colegiolainmaculada.edu.co",
   "email": "cli@colegiolainmaculada.edu.co",
   "levels": [
@@ -92432,7 +92449,10 @@
   "found": "2026-11-10",
   "code": "425175000519",
   "padron": "MEN datos.gov.co",
-  "students": 122
+  "students": 122,
+  "img": "https://colegiolainmaculada.edu.co/wp-content/uploads/2026/08/DSC_0919-768x512.jpg",
+  "whatsapp": "+573177833879",
+  "webAt": "2026-11-19"
  },
  {
   "id": "bogota-sek-colombia-international-school",
@@ -92749,7 +92769,7 @@
   "lat": 4.785788,
   "lng": -74.12653,
   "addr": "Vda Rozo Cota, Rural Sin Informacio",
-  "phone": "",
+  "phone": "+573102000700",
   "web": "https://www.colegiorefous.edu.co",
   "email": "academica@colegiorefous.edu.co",
   "levels": [
@@ -92764,7 +92784,10 @@
   "found": "2026-11-10",
   "code": "425214000149",
   "padron": "MEN datos.gov.co",
-  "students": 1565
+  "students": 1565,
+  "img": "https://colegiorefous.edu.co/wp-content/uploads/2026/11/colegio-refous-inicio-compartir.jpg",
+  "whatsapp": "+573165303654",
+  "webAt": "2026-11-19"
  },
  {
   "id": "bogota-liceo-los-andes",
@@ -123291,7 +123314,8 @@
   "found": "2026-11-10",
   "code": "305001004633",
   "padron": "MEN datos.gov.co",
-  "students": 974
+  "students": 974,
+  "imgTry": "2026-11-19"
  },
  {
   "id": "medellin-colegio-antares",
@@ -123738,7 +123762,8 @@
   "found": "2026-11-10",
   "code": "305001011516",
   "padron": "MEN datos.gov.co",
-  "students": 716
+  "students": 716,
+  "imgTry": "2026-11-19"
  },
  {
   "id": "medellin-colegio-la-presentacion-2",
@@ -135016,7 +135041,7 @@
   "lat": 3.580381,
   "lng": -76.487359,
   "addr": "Carrera 6 # 14-116, Portales de Comfandi",
-  "phone": "",
+  "phone": "+573156552124",
   "web": "https://www.comfandi.com.co",
   "email": "secrecolegioyumbo@comfandi.edu.co",
   "levels": [
@@ -135031,7 +135056,10 @@
   "found": "2026-11-10",
   "code": "376892000034",
   "padron": "MEN datos.gov.co",
-  "students": 892
+  "students": 892,
+  "img": "",
+  "whatsapp": "+573156552124",
+  "webAt": "2026-11-19"
  },
  {
   "id": "cali-instituto-educativo-manuel-maria-sanchez",
@@ -158203,7 +158231,8 @@
   "found": "2026-11-10",
   "code": "308001002052",
   "padron": "MEN datos.gov.co",
-  "students": 535
+  "students": 535,
+  "imgTry": "2026-11-19"
  },
  {
   "id": "barranquilla-colegio-americano",
@@ -158287,7 +158316,9 @@
   "found": "2026-11-10",
   "code": "408573012835",
   "padron": "MEN datos.gov.co",
-  "students": 691
+  "students": 691,
+  "img": "",
+  "webAt": "2026-11-19"
  },
  {
   "id": "barranquilla-colegio-eucaristico",
@@ -159060,7 +159091,8 @@
   "found": "2026-11-10",
   "code": "308758000081",
   "padron": "MEN datos.gov.co",
-  "students": 675
+  "students": 675,
+  "imgTry": "2026-11-19"
  },
  {
   "id": "barranquilla-centro-educativo-san-pablo-apostol",
@@ -271437,7 +271469,8 @@
   "found": "2026-11-10",
   "code": "350001007590",
   "padron": "MEN datos.gov.co",
-  "students": 220
+  "students": 220,
+  "imgTry": "2026-11-19"
  },
  {
   "id": "villavicencio-colegio-nuestra-senora-de-fatima",
@@ -281641,7 +281674,8 @@
    "0453134",
    "0451856",
    "0344739"
-  ]
+  ],
+  "imgTry": "2026-11-19"
  },
  {
   "id": "chiclayo-institucion-educativa-fe-y-alegria-28",
@@ -314518,7 +314552,8 @@
   "found": "2026-11-10",
   "code": "376520007151",
   "padron": "MEN datos.gov.co",
-  "students": 364
+  "students": 364,
+  "imgTry": "2026-11-19"
  },
  {
   "id": "palmira-liceo-la-ensenanza",
@@ -327828,7 +327863,8 @@
   "found": "2026-11-11",
   "code": "319001003212",
   "padron": "MEN datos.gov.co",
-  "students": 349
+  "students": 349,
+  "imgTry": "2026-11-19"
  },
  {
   "id": "popayan-colegio-comercial-del-norte",
@@ -423458,7 +423494,7 @@
   "lat": 3.88038,
   "lng": -76.297282,
   "addr": "Carrera 12 Salida Sur VI 14 60, Lomas del Albergue",
-  "phone": "",
+  "phone": "3168335463",
   "web": "https://www.liceodelosandes.funed.org.co",
   "email": "registro.academico@funed.org.co",
   "levels": [
@@ -423472,7 +423508,9 @@
   "found": "2026-11-13",
   "code": "376111000280",
   "padron": "MEN datos.gov.co",
-  "students": 436
+  "students": 436,
+  "img": "https://www.liceodelosandes.funed.org.co/wp-content/uploads/2025/05/Logo-Oficial-2-960x1024-560x560-1.png",
+  "webAt": "2026-11-19"
  },
  {
   "id": "cartago-universidad-remington",
@@ -425562,7 +425600,7 @@
   "lat": 6.171015,
   "lng": -75.354194,
   "addr": "Vda. Belen",
-  "phone": "",
+  "phone": "3185478971",
   "web": "https://www.csc.edu.co",
   "email": "rectoria@csc.edu.co",
   "levels": [
@@ -425577,7 +425615,9 @@
   "found": "2026-11-13",
   "code": "405440000789",
   "padron": "MEN datos.gov.co",
-  "students": 377
+  "students": 377,
+  "img": "",
+  "webAt": "2026-11-19"
  },
  {
   "id": "rionegro-colegio-campestre-horizontes",
@@ -430352,7 +430392,8 @@
   "found": "2026-11-14",
   "code": "325269000313",
   "padron": "MEN datos.gov.co",
-  "students": 465
+  "students": 465,
+  "imgTry": "2026-11-19"
  },
  {
   "id": "facatativa-instituto-tecnico-industrial-de-facatativa-itif-sede-talleres",
@@ -438349,7 +438390,8 @@
   "found": "2026-11-14",
   "code": "325307000055",
   "padron": "MEN datos.gov.co",
-  "students": 422
+  "students": 422,
+  "imgTry": "2026-11-19"
  },
  {
   "id": "girardot-colegio-cristiano-mi-primer-amor",
@@ -513543,7 +513585,9 @@
   "code": "311769001781",
   "found": "2026-11-19",
   "students": 1110,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://i0.wp.com/abrahamlincoln.edu.co/wp-content/uploads/2023/03/LOGO-HORIZONTAL.png",
+  "webAt": "2026-11-19"
  },
  {
   "id": "ibague-liceo-ibague",
@@ -524776,7 +524820,8 @@
   "code": "405001016946",
   "found": "2026-11-19",
   "students": 2149,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-19"
  },
  {
   "id": "cali-instituto-tecnico-comercial-santo-tomas",
@@ -528756,7 +528801,8 @@
   "code": "311769001552",
   "found": "2026-11-19",
   "students": 914,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-19"
  },
  {
   "id": "zipaquira-gimnasio-pedagogico-nuestra-senora-de-lourdes",
@@ -529241,7 +529287,9 @@
   "code": "370001001355",
   "found": "2026-11-19",
   "students": 1182,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-19"
  },
  {
   "id": "ibague-instituto-educativo-central",
@@ -529345,7 +529393,8 @@
   "code": "308001000297",
   "found": "2026-11-19",
   "students": 875,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-19"
  },
  {
   "id": "cucuta-centro-educativo-arco-iris-del-saber",
@@ -531814,7 +531863,8 @@
   "code": "350001005317",
   "found": "2026-11-19",
   "students": 654,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-19"
  },
  {
   "id": "bogota-colegio-nuestra-senora-del-carmen",
@@ -532590,7 +532640,9 @@
   "code": "350001002598",
   "found": "2026-11-19",
   "students": 613,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-19"
  },
  {
   "id": "barranquilla-instituto-la-nueva-era",
@@ -534025,7 +534077,7 @@
   "lat": 4.15,
   "lng": -73.64,
   "addr": "Calle 35 # 40-66, Barzal Alto",
-  "phone": "",
+  "phone": "+573103443277",
   "web": "https://coldonboscovillavicencio.edu.co",
   "email": "secretariacademica.cdb@gmail.com",
   "levels": [
@@ -534041,7 +534093,10 @@
   "code": "350001001648",
   "found": "2026-11-19",
   "students": 548,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573103443277",
+  "webAt": "2026-11-19"
  },
  {
   "id": "ibague-liceo-juan-c-rocha",
@@ -534169,7 +534224,8 @@
   "code": "323001001136",
   "found": "2026-11-19",
   "students": 853,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-19"
  },
  {
   "id": "ibague-colegio-ingles-suramericano",
@@ -535629,7 +535685,9 @@
   "code": "373001000650",
   "found": "2026-11-19",
   "students": 1961,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://colegiocomfenalcoibague.edu.co/wp-content/uploads/2024/08/montaje_colegio_comfenalco-marcha.jpg",
+  "webAt": "2026-11-19"
  },
  {
   "id": "bogota-centro-educativo-de-la-a-c-f-julia-roncancio",
@@ -537262,7 +537320,8 @@
   "code": "370001000600",
   "found": "2026-11-19",
   "students": 518,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-19"
  },
  {
   "id": "barranquilla-jardin-infantil-campanitas",
@@ -537388,7 +537447,8 @@
   "code": "313001006639",
   "found": "2026-11-19",
   "students": 373,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-19"
  },
  {
   "id": "bogota-gimnasio-nueva-andalucia",
@@ -538722,7 +538782,7 @@
   "lat": 4.59,
   "lng": -74.14,
   "addr": "Diagonal 47 A Sur # 53A-95, Venecia",
-  "phone": "",
+  "phone": "3135768840",
   "web": "https://www.cocove.edu.co",
   "email": "rectoria@cocove.edu.co",
   "levels": [
@@ -538738,7 +538798,10 @@
   "code": "311001008213",
   "found": "2026-11-19",
   "students": 329,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+3135768840",
+  "webAt": "2026-11-19"
  },
  {
   "id": "bogota-jardin-infantil-tia-cecy",
@@ -539285,7 +539348,8 @@
   "code": "350001000854",
   "found": "2026-11-19",
   "students": 310,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-19"
  },
  {
   "id": "cali-liceo-educativo-aposento-alto",
@@ -540199,7 +540263,7 @@
   "lat": 3.42,
   "lng": -76.56,
   "addr": "Carrera 126 # 5-100, Parcelaciones Pance",
-  "phone": "",
+  "phone": "+576012177590",
   "web": "https://www.juanambu.edu.co",
   "email": "nestor.acevedo@aspaen.edu.co",
   "levels": [
@@ -540215,7 +540279,10 @@
   "code": "376001013157",
   "found": "2026-11-19",
   "students": 275,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573206905809",
+  "webAt": "2026-11-19"
  },
  {
   "id": "cali-institucion-educativa-colegio-aozora-ltda",
@@ -540265,7 +540332,8 @@
   "code": "305001004161",
   "found": "2026-11-19",
   "students": 273,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-19"
  },
  {
   "id": "buenaventura-instituto-silvia-zaynab",
@@ -540916,7 +540984,9 @@
   "code": "313001009328",
   "found": "2026-11-19",
   "students": 261,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-19"
  },
  {
   "id": "buenaventura-gabriela-mistral",
@@ -541370,7 +541440,8 @@
   "code": "366001000742",
   "found": "2026-11-19",
   "students": 679,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-19"
  },
  {
   "id": "medellin-preescolar-gimnasio-infantil-pepe-grillo",
@@ -542283,7 +542354,9 @@
   "code": "318001002805",
   "found": "2026-11-19",
   "students": 633,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-19"
  },
  {
   "id": "pitalito-colegio-valle-de-laboyos-sas",
@@ -542669,7 +542742,7 @@
   "lat": 11.24,
   "lng": -74.21,
   "addr": "Carrera 5 A # 25-83, Rodadero",
-  "phone": "",
+  "phone": "6054395040",
   "web": "https://zoeschool.edu.co",
   "email": "direcciongeneral@zoeschool.edu.co",
   "levels": [
@@ -542685,7 +542758,10 @@
   "code": "347001007688",
   "found": "2026-11-19",
   "students": 284,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573103905541",
+  "webAt": "2026-11-19"
  },
  {
   "id": "bogota-colegio-urapanes",
@@ -543062,7 +543138,8 @@
   "code": "311001047863",
   "found": "2026-11-19",
   "students": 686,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-19"
  },
  {
   "id": "palmira-colegio-forjadores-de-sabiduria",
@@ -544332,7 +544409,8 @@
   "code": "308001001838",
   "found": "2026-11-19",
   "students": 179,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-19"
  },
  {
   "id": "florida-colegio-ricardo-nieto",
@@ -545261,7 +545339,7 @@
   "lat": 8.76,
   "lng": -75.89,
   "addr": "Carrera 20 # 7-23, Seis de Marzo",
-  "phone": "",
+  "phone": "+573217156040",
   "web": "https://gimnasiocristianobelen.edu.co/",
   "email": "contacto@gimnasiocristianobelen.edu.co",
   "levels": [
@@ -545277,7 +545355,9 @@
   "code": "323001009251",
   "found": "2026-11-19",
   "students": 256,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://gimnasiocristianobelen.edu.co/wp-content/uploads/2026/06/banner-pagina-1920x1080-1.jpg",
+  "webAt": "2026-11-19"
  },
  {
   "id": "neiva-colegio-mi-segundo-hogar",
@@ -545829,7 +545909,8 @@
   "code": "366001002800",
   "found": "2026-11-19",
   "students": 411,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-19"
  },
  {
   "id": "tunja-liceo-san-francisco-tunja",
@@ -547750,7 +547831,7 @@
   "lat": 4.93,
   "lng": -74.06,
   "addr": "Vda Canelon Finca Los Cerezoz Cajica, Rural Sin Informacio",
-  "phone": "",
+  "phone": "+573505913634",
   "web": "https://www.gimnasioloscerezos.edu.co/",
   "email": "secretariacademica@gimnasioloscerezos.edu.co",
   "levels": [
@@ -547767,7 +547848,10 @@
   "code": "425126047887",
   "found": "2026-11-19",
   "students": 419,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://www.gimnasioloscerezos.edu.co/wp-content/uploads/2025/07/label.jpg",
+  "whatsapp": "+573505913634",
+  "webAt": "2026-11-19"
  },
  {
   "id": "neiva-gimnasio-espiritu-santo",
@@ -547919,7 +548003,8 @@
   "code": "473001012997",
   "found": "2026-11-19",
   "students": 361,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-19"
  },
  {
   "id": "bucaramanga-jardin-infantil-minimundo",
@@ -547994,7 +548079,9 @@
   "code": "405615001180",
   "found": "2026-11-19",
   "students": 727,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://colegiohorizontes.edu.co/wp-content/uploads/2026/09/Logo-Horizontes-1024x896.png",
+  "webAt": "2026-11-19"
  },
  {
   "id": "maicao-colegio-el-jordan",
@@ -550038,7 +550125,7 @@
   "lat": 4.08,
   "lng": -73.7,
   "addr": "Carrera 67 # 10-80 Sur, Araguaney",
-  "phone": "",
+  "phone": "5866914149",
   "web": "https://www.cristoreyvillavicencio.edu.co",
   "email": "secretariaacademica@cristoreyvillavicencio.edu.co",
   "levels": [
@@ -550054,7 +550141,9 @@
   "code": "350001004116",
   "found": "2026-11-19",
   "students": 554,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://cristoreyvillavicencio.edu.co/wp-content/uploads/2018/07/4.jpg",
+  "webAt": "2026-11-19"
  },
  {
   "id": "bogota-jardin-infantil-manitas-felices",
@@ -553483,7 +553572,8 @@
   "code": "315238000964",
   "found": "2026-11-19",
   "students": 322,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-19"
  },
  {
   "id": "tunja-colegio-pedagogico-jairo-anibal-nino",
@@ -555909,7 +555999,9 @@
   "code": "323466000951",
   "found": "2026-11-19",
   "students": 945,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-19"
  },
  {
   "id": "barranquilla-instituto-nuestra-senora-de-fatima",
@@ -556462,7 +556554,7 @@
   "lat": 6.99,
   "lng": -73.05,
   "addr": "Km 12 Vía a Pta Vered La Mata, Vereda La Mata",
-  "phone": "",
+  "phone": "573185852787",
   "web": "https://www.saucara.edu.co",
   "email": "gerardo.grateron@aspaen.edu.co",
   "levels": [
@@ -556478,7 +556570,10 @@
   "code": "368001004937",
   "found": "2026-11-19",
   "students": 306,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573187117925",
+  "webAt": "2026-11-19"
  },
  {
   "id": "cali-jardin-infantil-retonitos",
@@ -556634,7 +556729,7 @@
   "lat": 3.52,
   "lng": -76.3,
   "addr": "Carrera 30 # 27-19, Nuevo",
-  "phone": "",
+  "phone": "+576022870303",
   "web": "https://www.bethlemitaspalmira.edu.co",
   "email": "secretaria@bethlemitaspalmira.edu.co",
   "levels": [
@@ -556651,7 +556746,10 @@
   "code": "376520000208",
   "found": "2026-11-19",
   "students": 330,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573206927961",
+  "webAt": "2026-11-19"
  },
  {
   "id": "cucuta-colegio-pedagogico-nuevo-montessori",
@@ -558172,7 +558270,8 @@
   "code": "376111002673",
   "found": "2026-11-19",
   "students": 164,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-19"
  },
  {
   "id": "medellin-centro-infantil-mi-edad-feliz",
@@ -558352,7 +558451,7 @@
   "lat": 6.21,
   "lng": -75.41,
   "addr": "Calle 40 # 63-03, El Porvenir",
-  "phone": "",
+  "phone": "+573146948057",
   "web": "https://www.coldivinonino.com",
   "email": "codinino@gmail.com",
   "levels": [
@@ -558368,7 +558467,10 @@
   "code": "305615000987",
   "found": "2026-11-19",
   "students": 255,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573146948057",
+  "webAt": "2026-11-19"
  },
  {
   "id": "buenaventura-centro-docente-emerita-salas",
@@ -558480,7 +558582,7 @@
   "lat": 4.74,
   "lng": -75.67,
   "addr": "Km 6 Via Armenia, Tribunas",
-  "phone": "",
+  "phone": "3226239627",
   "web": "https://abrahamlincolnpereira.edu.co/",
   "email": "info@abrahamlincolnpereira.edu.co",
   "levels": [
@@ -558496,7 +558598,10 @@
   "code": "366001004900",
   "found": "2026-11-19",
   "students": 121,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573226239627",
+  "webAt": "2026-11-19"
  },
  {
   "id": "manizales-jardin-infantil-saltarines",
@@ -593831,7 +593936,8 @@
   "code": "368679000478",
   "found": "2026-11-19",
   "students": 582,
-  "approx": "1km"
+  "approx": "1km",
+  "osm": "w1354743041"
  },
  {
   "id": "chia-gp-creative-bilingual-school-gimnasio-psicopedagogico",
@@ -594340,7 +594446,8 @@
   "code": "368679000036",
   "found": "2026-11-19",
   "students": 537,
-  "approx": "1km"
+  "approx": "1km",
+  "osm": "n4444033830"
  },
  {
   "id": "san-marcos-jardin-infantil-los-pequenos-ositos",
@@ -603625,7 +603732,8 @@
   "code": "368679000922",
   "found": "2026-11-19",
   "students": 121,
-  "approx": "1km"
+  "approx": "1km",
+  "osm": "n5040023031"
  },
  {
   "id": "riohacha-jardin-infantill-alegria-de-aprender",
@@ -610126,7 +610234,8 @@
   "code": "386001003848",
   "found": "2026-11-19",
   "students": 133,
-  "approx": "1km"
+  "approx": "1km",
+  "osm": "n12480717175"
  },
  {
   "id": "villa-de-san-diego-de-ubate-colegio-cooperativo-san-francisco-de-asis",
@@ -612802,7 +612911,8 @@
   "code": "368679000882",
   "found": "2026-11-19",
   "students": 87,
-  "approx": "1km"
+  "approx": "1km",
+  "osm": "n12480804658"
  },
  {
   "id": "dosquebradas-liceo-colombia",
@@ -624309,7 +624419,8 @@
   "code": "368679800016",
   "found": "2026-11-19",
   "students": 171,
-  "approx": "1km"
+  "approx": "1km",
+  "osm": "n12480805168"
  },
  {
   "id": "cogua-escuela-experiencial-la-semilla",
@@ -626303,7 +626414,7 @@
   "lat": 6.56,
   "lng": -73.13,
   "addr": "Carrera 2 con Cl 9, Los Almendros",
-  "phone": "",
+  "phone": "+57 607 7245656",
   "web": "",
   "email": "santacruzdelanuevabaeza@yahoo.es",
   "levels": [
@@ -626320,7 +626431,8 @@
   "code": "368679000729",
   "found": "2026-11-19",
   "students": 207,
-  "approx": "1km"
+  "approx": "1km",
+  "osm": "n4304718342"
  },
  {
   "id": "libano-fundacion-colegio-san-antonio-maria-claret-col",
@@ -628606,7 +628718,8 @@
   "code": "486001800027",
   "found": "2026-11-19",
   "students": 77,
-  "approx": "1km"
+  "approx": "1km",
+  "osm": "n12480717833"
  },
  {
   "id": "sabanalarga-fundacion-educativa-del-norte",
@@ -644186,7 +644299,8 @@
   "code": "368679800024",
   "found": "2026-11-19",
   "students": 47,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "osm": "n12480805165"
  },
  {
   "id": "soledad-centro-educativo-kinder-de-jesus",
@@ -648624,7 +648738,8 @@
   "code": "386001800031",
   "found": "2026-11-19",
   "students": 10,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "osm": "n12480717091"
  },
  {
   "id": "ramiriqui-centro-de-recreacion-estimulacion-y-aprendizaje-c-r-e-a",
@@ -1452987,6 +1453102,851 @@
   "private": "seguro",
   "src": "ESCALE MINEDU",
   "code": "3066230",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "mocoa-jardin-infantil-pequenos-genios",
+  "name": "Jardín Infantil Pequeños Genios",
+  "city": "Mocoa",
+  "country": "Colombia",
+  "lat": 1.153124,
+  "lng": -76.648566,
+  "addr": "",
+  "phone": "984204145",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480716896",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "mocoa-colegio-para-la-formacion-integ-tucanes-tucanitos",
+  "name": "Colegio Para La Formación Integ Tucanes Tucanitos",
+  "city": "Mocoa",
+  "country": "Colombia",
+  "lat": 1.154084,
+  "lng": -76.647178,
+  "addr": "",
+  "phone": "+57 608 4206356",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717626",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "mocoa-otra-sigla-nvo-inst-de-aprendizaje-surcolombiano",
+  "name": "Otra-Sigla Nvo Inst De Aprendizaje Surcolombiano",
+  "city": "Mocoa",
+  "country": "Colombia",
+  "lat": 1.145308,
+  "lng": -76.653568,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717800",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "mocoa-jardin-infantil-el-rincon-de-la-ternura",
+  "name": "Jardín Infantil El Rincon de la Ternura",
+  "city": "Mocoa",
+  "country": "Colombia",
+  "lat": 1.153367,
+  "lng": -76.654945,
+  "addr": "",
+  "phone": "+57 608 4206007",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480718251",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "caleta-olivia-instituto-aonikenk",
+  "name": "Instituto Aonikenk",
+  "city": "Caleta Olivia",
+  "country": "Argentina",
+  "lat": -46.455095,
+  "lng": -67.53264,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2156023670",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "caleta-olivia-colegio-adventista",
+  "name": "Colegio Adventista",
+  "city": "Caleta Olivia",
+  "country": "Argentina",
+  "lat": -46.453604,
+  "lng": -67.527179,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2156076930",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "caleta-olivia-universidad-blas-pascal",
+  "name": "Universidad Blas Pascal",
+  "city": "Caleta Olivia",
+  "country": "Argentina",
+  "lat": -46.442062,
+  "lng": -67.519102,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3379899898",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "caleta-olivia-universidad-siglo-xxi",
+  "name": "Universidad Siglo XXI",
+  "city": "Caleta Olivia",
+  "country": "Argentina",
+  "lat": -46.443837,
+  "lng": -67.531939,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3379899899",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "caleta-olivia-instituto-marcelo-spinola",
+  "name": "Instituto Marcelo Spinola",
+  "city": "Caleta Olivia",
+  "country": "Argentina",
+  "lat": -46.446293,
+  "lng": -67.516181,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3892847372",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "caleta-olivia-colegio-san-jose-obrero",
+  "name": "Colegio San José Obrero",
+  "city": "Caleta Olivia",
+  "country": "Argentina",
+  "lat": -46.448164,
+  "lng": -67.521377,
+  "addr": "Jordán",
+  "phone": "+54 297 485 6246",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w205704496",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "huajuapan-instituto-universitario-abraham-castellanos",
+  "name": "Instituto Universitario Abraham Castellanos",
+  "city": "Huajuapan",
+  "country": "México",
+  "lat": 17.800009,
+  "lng": -97.784072,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11751818055",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "huajuapan-instituto-cultural-bilingue",
+  "name": "Instituto cultural bilingüe",
+  "city": "Huajuapan",
+  "country": "México",
+  "lat": 17.812763,
+  "lng": -97.793933,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1264690534",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "mercedes-colegio-de-educacion-integrada-santa-maria",
+  "name": "Colegio De Educación Integrada Santa María",
+  "city": "Mercedes",
+  "country": "Argentina",
+  "lat": -34.647662,
+  "lng": -59.417739,
+  "addr": "Calle 3",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5960497227",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "mercedes-escuela-san-antonio-de-padua",
+  "name": "Escuela San Antonio De Padua",
+  "city": "Mercedes",
+  "country": "Argentina",
+  "lat": -34.651065,
+  "lng": -59.424396,
+  "addr": "Calle 28 333",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria",
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5960497497",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "mercedes-instituto-nuestra-senora-de-la-misericordia",
+  "name": "Instituto Nuestra Señora De La Misericordia",
+  "city": "Mercedes",
+  "country": "Argentina",
+  "lat": -34.649355,
+  "lng": -59.431722,
+  "addr": "Calle 29 665 entre 28 y 30",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5961551521",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "mercedes-instituto-madre-camila-rolon",
+  "name": "Instituto Madre Camila Rolón",
+  "city": "Mercedes",
+  "country": "Argentina",
+  "lat": -34.666535,
+  "lng": -59.432748,
+  "addr": "Calle 19",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w606731951",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "mercedes-colegio-san-benito-de-nursia",
+  "name": "Colegio San Benito de Nursia",
+  "city": "Mercedes",
+  "country": "Argentina",
+  "lat": -34.664804,
+  "lng": -59.438215,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w607955255",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "mercedes-colegio-pio-x",
+  "name": "Colegio Pio X",
+  "city": "Mercedes",
+  "country": "Argentina",
+  "lat": -34.655653,
+  "lng": -59.431018,
+  "addr": "Calle 25 292 entre 12 y 14",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1501271131",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-sede-colegio-guanenta",
+  "name": "Sede Colegio Guanenta",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.540725,
+  "lng": -73.131739,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4304693109",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-colegio-la-presentacion",
+  "name": "Colegio la Presentación",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.555821,
+  "lng": -73.127492,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4304700166",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-colegio-cooperativo-san-gil",
+  "name": "Colegio Cooperativo San Gil",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.557597,
+  "lng": -73.130923,
+  "addr": "Carrera 5",
+  "phone": "+57 607 7243545",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n4304750849",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-colegio-san-vicente-de-paul",
+  "name": "Colegio San Vicente de Paul",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.565954,
+  "lng": -73.148821,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4304779352",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-colegio-colombianitos",
+  "name": "Colegio Colombianitos",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.555381,
+  "lng": -73.149342,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4309158991",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-colegio-san-carlos",
+  "name": "Colegio San Carlos",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.555234,
+  "lng": -73.145496,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4309158992",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-connect4-espanol-y-ingles",
+  "name": "Connect4: Español y Ingles",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.55579,
+  "lng": -73.1327,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5150788222",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-colegio-camilo-torres",
+  "name": "Colegio Camilo Torres",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.556356,
+  "lng": -73.133735,
+  "addr": "Carrera 8",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11916973842",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-colegio-inf-semillitas-del-futuro",
+  "name": "Colegio Inf Semillitas del Futuro",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.564432,
+  "lng": -73.146738,
+  "addr": "",
+  "phone": "+57 607 7246104",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480804650",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-gimnasio-pedag-comfenalco-san-gil",
+  "name": "Gimnasio Pedag Comfenalco San Gil",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.550747,
+  "lng": -73.130781,
+  "addr": "",
+  "phone": "+57 607 7241667",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480804651",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-corporacion-educ-tec-y-emp-de-colom-corpotec",
+  "name": "Corporación Educ Tec y Emp de Colom Corpotec",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.552778,
+  "lng": -73.131944,
+  "addr": "",
+  "phone": "+57 607 7236769",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480804652",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-corporacion-educ-para-jovenes-y-adultos-general-sant",
+  "name": "Corporación Educ Para Jovenes y Adultos General Sant",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.552768,
+  "lng": -73.131808,
+  "addr": "",
+  "phone": "+57 607 7244982",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480804653",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-corporacion-tec-cedefoc",
+  "name": "Corporación Tec Cedefoc",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.556937,
+  "lng": -73.135511,
+  "addr": "",
+  "phone": "+57 607 7246797",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480804654",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-colegio-inf-colina-de-suenos",
+  "name": "Colegio Inf Colina de Sueños",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.556712,
+  "lng": -73.135955,
+  "addr": "",
+  "phone": "+57 607 7242858",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480804655",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-institucion-tec-para-el-desarrollo-rural-idear",
+  "name": "Institución Tec Para El Desarrollo Rural Idear",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.555858,
+  "lng": -73.132916,
+  "addr": "",
+  "phone": "+57 607 7242543",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480804656",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-colegio-lic-americano",
+  "name": "Colegio Lic Americano",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.556343,
+  "lng": -73.132345,
+  "addr": "",
+  "phone": "+57 607 7244463",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480804657",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-colegio-inf-nuevo-milenio",
+  "name": "Colegio Inf Nuevo Milenio",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.554572,
+  "lng": -73.130077,
+  "addr": "",
+  "phone": "+57 607 7242642",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480804659",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-colegio-inf-colombianitos",
+  "name": "Colegio Inf Colombianitos",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.555469,
+  "lng": -73.149205,
+  "addr": "",
+  "phone": "248002",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480804661",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-liceo-los-angeles",
+  "name": "Liceo Los Angeles",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.556462,
+  "lng": -73.134209,
+  "addr": "",
+  "phone": "+57 607 7242756",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480804664",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-instituto-marco-fidel-reyes-afanador",
+  "name": "Instituto Marco Fidel Reyes Afanador",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.55747,
+  "lng": -73.13072,
+  "addr": "Carrera 5 11-81",
+  "phone": "+57 607 7240789",
+  "web": "https://institutocoomuldesa.edu.co/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480804665",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-colegio-pedagogico-castillo-encantado",
+  "name": "Colegio Pedagógico Castillo Encantado",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.554192,
+  "lng": -73.129047,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480805166",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-escuela-las-acacias-sede-e-colegio-eduardo-camacho",
+  "name": "Escuela las Acacias Sede E Colegio Eduardo Camacho",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.573126,
+  "lng": -73.105502,
+  "addr": "San Gil - Tabor - Curiti - Paloblanca",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w682460734",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-instituto-coomuldesa-iac",
+  "name": "Instituto Coomuldesa IAC",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.55734,
+  "lng": -73.130964,
+  "addr": "Carrera 5",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1354777174",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "san-gil-colegio-nuestra-senora-de-la-presentacion",
+  "name": "Colegio Nuestra Señora de la Presentación",
+  "city": "San Gil",
+  "country": "Colombia",
+  "lat": 6.556293,
+  "lng": -73.127203,
+  "addr": "Carrera 5",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1354783748",
   "found": "2026-11-19"
  }
 ]
