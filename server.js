@@ -32,6 +32,7 @@ import { mountAdmin } from "./lib/admin-api.js";
 import { mountSchools } from "./lib/schools-api.js";
 import { mountAgenda } from "./lib/agenda-api.js";
 import { mountScan } from "./lib/scan-api.js";
+import { mountMap } from "./lib/map-api.js";
 import { mountAssistant } from "./lib/assistant-api.js";
 import { compressJson, pickEncoding, encode, ENABLED as COMPRESS } from "./lib/compress.js";
 import { lc } from "./lib/text.js";
@@ -374,6 +375,8 @@ mountAdmin(app, { allOnly, auth, same, wrap });
 mountSchools(app, { MAIL_PER_HOUR, auth, gmailName, gmailPick, gmailProven, leadScopeFor, mailSig, meName, ownActivity, ownDeal, pdProof, pdProven, schoolParam, signName, wrap });
 // Hoy, sesiones, cola y actividades de la agenda (lib/agenda-api.js); buscador de zonas y Radar (lib/scan-api.js)
 mountAgenda(app, { auth, leadScopeFor, ownActivity, signName, wrap });
+// mapa de Google en Prospectar (solo con GOOGLE_MAPS_BROWSER_KEY; si no, Esri)
+mountMap(app, { auth, wrap });
 mountScan(app, { SCAN_SECRET, auth, radarState, wrap });
 // OrderBrain general: sitios de World Dominion (clientes de OrderEAT) para el mapa.
 // a los líderes, además, si el token de World Dominion falta, venció, vence pronto o lo rechazaron (sin el token)

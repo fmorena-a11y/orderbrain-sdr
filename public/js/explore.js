@@ -567,17 +567,53 @@ export function openCityFromOutside(country, city) { E.country = country; E.city
 export function locateFromOutside(text) { E.pendingLocate = text; }
 
 // ---------- mapa
+// Fondo del mapa: el de Google (Map Tiles API, GET /api/map/tiles de lib/map-api.js) si está prendido; si no, si tarda más de
+// 2,5 s o si sus imágenes fallan, el de Esri de siempre. La sesión de Google se pide una vez por tema y por carga de la app.
+const TILES = {};
+function googleTiles(dark) {
+  const k = dark ? "d" : "l";
+  if (!TILES[k]) TILES[k] = Promise.race([api(`/api/map/tiles${dark ? "?dark=1" : ""}`).catch(() => null), new Promise(r => setTimeout(() => r(null), 2500))])
+    .then(t => t?.session && t.key ? t : null);
+  return TILES[k];
+}
+function esriTiles(m, dark) {
+  const B = "https://server.arcgisonline.com/ArcGIS/rest/services/";
+  if (dark) {
+    L.tileLayer(B + "Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16, attribution: "© Esri, HERE, OpenStreetMap" }).addTo(m);
+    L.tileLayer(B + "Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16 }).addTo(m);
+  } else L.tileLayer(B + "World_Street_Map/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, attribution: "© Esri, HERE, OpenStreetMap" }).addTo(m);
+}
+function baseTiles(m, dark) {
+  googleTiles(dark).then(t => {
+    if (m !== map) return; // se volvió a armar la pantalla
+    if (!t) return esriTiles(m, dark);
+    const q = `session=${encodeURIComponent(t.session)}&key=${encodeURIComponent(t.key)}`;
+    const g = L.tileLayer(`https://tile.googleapis.com/v1/2dtiles/{z}/{x}/{y}?${q}`, { maxZoom: 21, attribution: "Google" });
+    let errs = 0, ok = 0;
+    g.on("tileload", () => { ok++; });
+    // si Google no da las imágenes (clave sin la API, cuota), vuelve el de Esri
+    g.on("tileerror", () => { if (++errs === 4 && ok === 0) { TILES[dark ? "d" : "l"] = Promise.resolve(null); m.removeLayer(g); esriTiles(m, dark); } });
+    g.addTo(m);
+    // los derechos de lo que se ve (Google los pide por zona): «Google · Datos del mapa ©2026 INEGI…»
+    let cur = "Google", tm = 0;
+    const credit = () => { clearTimeout(tm); tm = setTimeout(async () => {
+      if (!m.hasLayer(g)) return;
+      const b = m.getBounds(), u = `https://tile.googleapis.com/tile/v1/viewport?${q}&zoom=${m.getZoom()}&north=${b.getNorth()}&south=${b.getSouth()}&east=${b.getEast()}&west=${b.getWest()}`;
+      const j = await fetch(u).then(r => r.ok ? r.json() : null).catch(() => null);
+      const next = j?.copyright ? `Google · ${j.copyright}` : "Google";
+      if (next !== cur && m.attributionControl) { m.attributionControl.removeAttribution(cur); m.attributionControl.addAttribution(esc(next)); cur = next; }
+    }, 400); };
+    g.getAttribution = () => null; // la pone credit()
+    m.attributionControl?.addAttribution(cur); m.on("moveend", credit); credit();
+  });
+}
 function initMap() {
   if (!window.L) return;
   const touch = matchMedia("(pointer: coarse)").matches;
   map = L.map(host.querySelector("#map"), { zoomControl: !touch, attributionControl: true }).setView([-10, -70], 3);
   lastView = ""; // mapa nuevo: hay que volver a encuadrar
   const dark = document.documentElement.dataset.theme === "dark" || (!document.documentElement.dataset.theme && matchMedia("(prefers-color-scheme: dark)").matches);
-  const B = "https://server.arcgisonline.com/ArcGIS/rest/services/";
-  if (dark) {
-    L.tileLayer(B + "Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16, attribution: "© Esri, HERE, OpenStreetMap" }).addTo(map);
-    L.tileLayer(B + "Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16 }).addTo(map);
-  } else L.tileLayer(B + "World_Street_Map/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, attribution: "© Esri, HERE, OpenStreetMap" }).addTo(map);
+  baseTiles(map, dark);
   layer = L.layerGroup().addTo(map);
   canvas = L.canvas({ padding: 0.3 });
   markClass();
