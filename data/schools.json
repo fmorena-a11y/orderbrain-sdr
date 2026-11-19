@@ -458401,5 +458401,191 @@
   "src": "osm",
   "osm": "w1225545675",
   "found": "2026-11-18"
+ },
+ {
+  "id": "merida-colegio-salesiano-maria-auxiliadora",
+  "name": "Colegio Salesiano \"María Auxiliadora\"",
+  "city": "Mérida",
+  "country": "España",
+  "lat": 38.917284,
+  "lng": -6.328906,
+  "addr": "Avenida Reina Sofía 40",
+  "phone": "+34 924 31 94 11",
+  "web": "http://www.salesianos-merida.com/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1033125379",
+  "found": "2026-11-19",
+  "img": "",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "merida-colegio-de-educacion-infantil-y-primaria-maximiliano-macias",
+  "name": "Colegio de Educación Infantil y Primaria Maximiliano Macías",
+  "city": "Mérida",
+  "country": "España",
+  "lat": 38.910877,
+  "lng": -6.357545,
+  "addr": "C. Antonio Rodríguez Moñino, S/N, 06800 Mérida, Badajoz",
+  "phone": "+34 924009911",
+  "web": "https://cpmmacias.educarex.es/",
+  "email": "ceip.maximilianomacias@edu.juntaex.es",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11117746007",
+  "found": "2026-11-19",
+  "img": "",
+  "webAt": "2026-11-19"
+ },
+ {
+  "id": "merida-academia-guardia-civil-trafico",
+  "name": "Academia Guardia Civil Tráfico",
+  "city": "Mérida",
+  "country": "España",
+  "lat": 38.917713,
+  "lng": -6.368398,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w38288436",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "merida-universidad-de-extremadura-centro-universitario-de-merida",
+  "name": "Universidad de Extremadura - Centro Universitario de Mérida",
+  "city": "Mérida",
+  "country": "España",
+  "lat": 38.9067,
+  "lng": -6.339149,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w171661738",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "merida-colegio-santa-eulalia-escolapias",
+  "name": "Colegio \"Santa Eulalia\" - Escolapias",
+  "city": "Mérida",
+  "country": "España",
+  "lat": 38.909413,
+  "lng": -6.342203,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w311039680",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "merida-colegio-de-educacion-infantil-y-primaria-ciudad-de-merida",
+  "name": "Colegio de Educación Infantil y Primaria Ciudad de Mérida",
+  "city": "Mérida",
+  "country": "España",
+  "lat": 38.929196,
+  "lng": -6.349252,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w597330289",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "merida-colegio-de-educacion-infantil-y-primaria-san-jose",
+  "name": "Colegio de Educación Infantil y Primaria San José",
+  "city": "Mérida",
+  "country": "España",
+  "lat": 38.88409,
+  "lng": -6.382946,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w600835266",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "merida-colegio-de-educacion-infantil-y-primaria-francisco-giner-de-los-rios",
+  "name": "Colegio de Educación Infantil y Primaria Francisco Giner de los Ríos",
+  "city": "Mérida",
+  "country": "España",
+  "lat": 38.915152,
+  "lng": -6.33703,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w757075930",
+  "found": "2026-11-19"
+ },
+ {
+  "id": "merida-colegio-de-educacion-infantil-y-primaria-federico-garcia-lorca",
+  "name": "Colegio de Educación Infantil y Primaria Federico García Lorca",
+  "city": "Mérida",
+  "country": "España",
+  "lat": 38.92093,
+  "lng": -6.348986,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w758720822",
+  "found": "2026-11-19"
  }
 ]

@@ -7442,7 +7442,9 @@
   "CL|Los Andes": "2026-11-18T21:15:32.690Z",
   "GT|Concepción Tutuapa": "2026-11-18T21:17:03.302Z",
   "AR|El Palomar": "2026-11-19T01:35:49.439Z",
-  "DO|n3631921604": "2026-11-19T01:44:27.088Z"
+  "DO|n3631921604": "2026-11-19T01:44:27.088Z",
+  "MX|Huauchinango": "2026-11-19T05:24:20.006Z",
+  "ES|n252217933": "2026-11-19T05:37:13.971Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7577,6 +7579,34 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-19T05:23:42.755Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Huauchinango",
+     "found": 0,
+     "updated": 0,
+     "osm": 14
+    },
+    {
+     "cc": "ES",
+     "city": "Mérida",
+     "found": 9,
+     "updated": 0,
+     "osm": 21
+    }
+   ],
+   "added": 9,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 13.6,
+   "total": 22654
+  },
   {
    "at": "2026-11-19T01:35:15.187Z",
    "cities": [
@@ -9676,50 +9706,6 @@
    "errors": [],
    "minutes": 14.3,
    "total": 21342
-  },
-  {
-   "at": "2026-11-15T09:05:10.594Z",
-   "cities": [
-    {
-     "cc": "ES",
-     "city": "Lugo",
-     "found": 2,
-     "updated": 0,
-     "osm": 46
-    },
-    {
-     "cc": "CO",
-     "city": "Tierralta",
-     "found": 11,
-     "updated": 0,
-     "osm": 37
-    },
-    {
-     "cc": "CO",
-     "city": "Candelaria",
-     "found": 2,
-     "updated": 0,
-     "osm": 10
-    },
-    {
-     "cc": "MX",
-     "city": "Tesistán",
-     "found": 3,
-     "updated": 0,
-     "osm": 62
-    }
-   ],
-   "added": 18,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "PE|Talara: sin tiempo en esta corrida"
-   ],
-   "minutes": 19.1,
-   "total": 21285
   }
  ]
 }
