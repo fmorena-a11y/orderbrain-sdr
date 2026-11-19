@@ -1806,3 +1806,52 @@ button.lh-row:hover { background: var(--surface-2); }
   .lh-alert .btn { grid-column: 2; justify-self: start; }
   .lh .team-head .btn { flex: 1 1 auto; }
 }
+/* Hoy del account (public/js/aehome.js): resumen, botón «Trabajar mis tratos», demos, tareas por trato y tratos que piden atención */
+.ae-kpis { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 1180px) { .ae-kpis { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); } }
+@media (max-width: 599px) { .ae-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ae-kpis .dl-money { font-size: 17px; } }
+@media (hover: hover) { .ae-kpis button.dl-kpi:hover { border-color: var(--line-2); background: var(--surface-2); } }
+.ae-cta { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 24px; align-items: center; padding: 20px 24px; margin-bottom: 20px; }
+.ae-cta h2 { font-size: 18px; font-weight: 600; line-height: 1.35; }
+.ae-cta p { margin: 6px 0 0; font-size: 14px; max-width: 70ch; }
+.ae-cta .hero-cta { min-width: 240px; }
+.ae-cta .hero-cta .btn { justify-content: center; }
+.ae-cta #aeResume { min-width: 0; max-width: 100%; overflow: hidden; } .ae-cta #aeResume .nw { flex: none; white-space: nowrap; }
+@media (max-width: 860px) { .ae-cta { grid-template-columns: minmax(0, 1fr); padding: 16px; } .ae-cta .hero-cta { min-width: 0; } }
+.ae-grid { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); margin-bottom: 20px; }
+@media (max-width: 1080px) { .ae-grid { grid-template-columns: minmax(0, 1fr); } }
+.ae .card:focus { outline: none; } .ae .card:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.ae-act .ops { align-items: center; }
+.ae-act .t small { display: block; white-space: normal; overflow-wrap: anywhere; }
+.ae-act a.t { color: inherit; text-decoration: none; }
+.ae-filter { margin: 4px 0 10px; }
+.ae-group { border-top: 1px solid var(--line); padding: 8px 0 2px; }
+.ae-group:first-of-type { border-top: 0; }
+.ae-gh .t { display: block; width: 100%; border: 0; background: none; text-align: left; padding: 4px 6px; cursor: pointer; color: inherit; font: inherit; min-width: 0; text-decoration: none; }
+.ae-gh .t b { display: block; font-weight: 600; overflow-wrap: anywhere; }
+.ae-gh .t small { color: var(--muted); font-size: 12.5px; }
+@media (hover: hover) { .ae-gh button.t:hover b { color: var(--accent-ink); } }
+.ae-task { border-top: 0; padding: 6px 6px 6px 14px; }
+.ae-task .ty { width: 30px; height: 30px; border-radius: 8px; }
+.ae-whys { display: flex; flex-wrap: wrap; gap: 4px; }
+.ae-why { display: inline-flex; align-items: center; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; background: var(--surface-2); color: var(--ink-2); }
+.ae-why.main { background: var(--warn-soft); color: var(--warn); }
+.ae-why.main.proposal, .ae-why.main.overdue { background: var(--err-soft); color: var(--err); }
+.dl-val.none { font-weight: 500; color: var(--muted); }
+@media (max-width: 599px) {
+  .ae-act { grid-template-columns: auto minmax(0, 1fr); }
+  .ae-act .ops { grid-column: 2; justify-content: flex-start; }
+  .ae-act .ops:empty { display: none; }
+  .ae-task { grid-template-columns: auto minmax(0, 1fr) auto; } .ae-task .ops { grid-column: auto; }
+}
+/* La ficha en una sesión «Tus tratos»: tu trato arriba (etapa, días en la etapa, valor y próxima actividad) */
+.d-deal { flex: none; display: grid; gap: 8px; padding: 10px 20px; background: var(--st-open-bg); color: var(--ink); border-bottom: 1px solid var(--line); font-size: 13.5px; }
+.d-deal-row { display: grid; gap: 4px; min-width: 0; }
+.d-deal-row + .d-deal-row { border-top: 1px solid var(--line-2); padding-top: 8px; }
+.d-deal-t { display: flex; align-items: center; gap: 6px; min-width: 0; color: var(--st-open-ink); }
+.d-deal-t b { color: var(--ink); font-weight: 600; overflow-wrap: anywhere; }
+.d-deal-t a { display: inline-flex; color: var(--accent-ink); padding: 2px; border-radius: 6px; }
+.d-deal-n { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.d-deal-n small, .d-deal > small { color: var(--muted); font-size: 12.5px; display: inline-flex; align-items: center; gap: 5px; }
+.d-deal + .d-top { padding-top: 10px; }
+@media (max-width: 560px) { .d-deal { padding: 10px 16px; } }

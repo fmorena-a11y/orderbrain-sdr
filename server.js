@@ -34,6 +34,7 @@ import { mountBases } from "./lib/bases-api.js";
 import { mountInbound } from "./lib/inbound-api.js";
 import { mountDeals } from "./lib/deals-api.js";
 import { mountLead } from "./lib/lead-api.js";
+import { mountAe } from "./lib/ae-api.js";
 import { sheetsDirect, createSheet } from "./lib/sheets-export.js";
 
 const app = express();
@@ -414,6 +415,8 @@ mountInbound(app, { auth, wrap, leadScopeFor });
 mountDeals(app, { auth, wrap, viewerFor, leadScopeFor });
 // «Hoy» del líder (panel del día de su gente): solo lectura, solo líderes y dirección, por equipo (lib/lead-api.js, lib/leadview.js)
 mountLead(app, { auth, wrap, viewerFor, leadScopeFor, teamUsers: m => teamUsers(m) });
+// «Hoy» del account: sus demos, sus tareas y sus tratos que piden atención (lib/ae-api.js, lib/aeview.js). Solo lectura, solo lo suyo.
+mountAe(app, { auth, wrap });
 
 // ficha de un prospecto (lead) o de una organización de Pipedrive que no está en la base
 app.get("/api/records/:kind/:rid", auth, wrap(async (req, res) => {

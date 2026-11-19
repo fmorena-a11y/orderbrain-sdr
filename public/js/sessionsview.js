@@ -5,7 +5,7 @@
 // Acciones: Retomar (cambiar de sesión = retomar otra), Ver detalle, Editar (nombre y sacar colegios que faltan:
 // PATCH { name, remove }), Terminar, Reabrir (con 12 abiertas el servidor termina la más quieta y se avisa) y Borrar
 // (lo registrado en Pipedrive no se borra). «Nueva sesión» ofrece solo los orígenes que el servidor conoce (ORIGINS).
-import { S, api, esc, icon, toast, modal, ago, openMenu, loadPref, save } from "./core.js";
+import { S, api, esc, icon, toast, modal, ago, openMenu, loadPref, save, homeMode } from "./core.js";
 import { resumeSession, startSession } from "./school.js";
 import { loadSessions, cacheSession, forgetSession, sessionDetail, endSession, reopenSession, ORIGIN, END, bar, when, filtersText } from "./sessions.js";
 import { sessionGroups, idleDays, isIdle, INACTIVE_DAYS, TABS } from "./sessgroups.js";
@@ -103,7 +103,9 @@ const find = id => [...(S.sessions?.open || []), ...(S.sessions?.done || [])].fi
 // agenda, radar, base) se arman allá, con sus filtros: se va a esa vista.
 function newMenu(anchor) {
   const to = view => () => { location.hash = "#/" + view; };
-  openMenu(anchor, [
+  // un account (o un líder que eligió «Mis tratos» en Hoy): primero la sesión de sus tratos que piden atención (aehome.js)
+  const deals = homeMode() === "ae" ? [{ label: "Tus tratos", sub: "Los tratos que piden atención: sin próximo paso, con algo vencido o quietos, del más urgente al menos", fn: () => import("./aehome.js").then(m => m.startDealsSession()).catch(e => toast(e.message, { type: "err" })) }] : [];
+  openMenu(anchor, [...deals,
     { label: "Tu día", sub: "Tu agenda de hoy, lo vencido y los mejores colegios de tu cola", fn: () => startSession() },
     { label: "Una zona o evento", sub: "Puebla, Pachuca, EduExperience…: lo tuyo de ahí y los colegios nuevos", fn: () => zone(anchor) },
     { label: "Desde tu agenda", sub: "Filtrá la agenda y tocá «Trabajar estos colegios»", fn: to("agenda") },
