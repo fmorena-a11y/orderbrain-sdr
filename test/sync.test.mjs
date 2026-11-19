@@ -150,10 +150,10 @@ test("de punta a punta en el demo: se pausa y se sigue, y da lo mismo que checkS
   // las siguientes son incrementales: si nada cambió en Pipedrive, no se reescribe nada (los confirmados solos ya
   // nacen sin otras candidatas) y no se cuenta ningún cambio
   r = await sync.step({ budgetMs: 30e3 });
-  assert.equal(r.running, false); assert.equal(r.last.mode, "inc"); assert.equal(r.last.orgs, 0);
+  assert.equal(r.running, false); assert.equal(r.last.mode, "inc"); assert.equal(r.last.orgs, 0); assert.equal(r.last.deals, 0);
   assert.ok(r.last.written <= 2, `reescritos ${r.last.written}`); assert.equal(r.last.changed, 0); assert.equal(r.last.first, 0);
   r = await sync.step({ budgetMs: 30e3 });
-  assert.equal(r.last.mode, "inc"); assert.equal(r.last.written, 0); assert.ok(r.last.same + r.last.skipped >= list.length - 5); assert.ok(r.last.skip.recent >= 250, "lo que se revisó recién por ficha no se toca");
+  assert.equal(r.last.mode, "inc"); assert.equal(r.last.deals, 0); assert.equal(r.last.written, 0); assert.ok(r.last.same + r.last.skipped >= list.length - 5); assert.ok(r.last.skip.recent >= 250, "lo que se revisó recién por ficha no se toca");
   // un trato nuevo en Pipedrive: la incremental lo trae y cambia el estado de ese colegio
   const target = list.find(s => store.getMatch(s.id)?.status === "org" && store.getMatch(s.id)?.via === "sync");
   const tm = store.getMatch(target.id);
