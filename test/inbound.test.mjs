@@ -331,6 +331,38 @@ test("inboundStage: un estado por lead, en orden de prioridad, solo con lo que d
   assert.equal(I.inboundStage(S(), info({ pending: [demo] })).mine, undefined);
 });
 
+// Pipedrive guarda en UTC la fecha y la hora de una actividad con hora: 20:00 del 18/11 en México es 19/11 02:00
+test("inboundStage: una pendiente con hora se ve y se marca vencida en la zona de quien mira", () => {
+  const tz = "America/Mexico_City", S = { state: { status: "done", ref: { kind: "lead", id: "L" } } };
+  const st = (pending, today, zone = tz) => I.inboundStage(S, { items: [], pending, deals: [], lead: { archived: false }, ownerId: 1, today, tz: zone, users: { 7: "Joaquín Márquez" }, stages: {} });
+  const call = { id: 1, type: "call", owner_id: 1, subject: "Llamar", done: false, due_date: "2026-11-19", due_time: "02:00:00" };
+  // mirando el 19/11 desde México: era de ayer a las 20:00 → vencida y primera
+  const late = st([call], "2026-11-19");
+  assert.deepEqual([late.mine.date, late.mine.time, late.mine.late, late.rank], ["2026-11-18", "20:00", true, 0]);
+  // mirando el 18/11 desde México: es de hoy, no está vencida
+  const now = st([call], "2026-11-18");
+  assert.deepEqual([now.mine.date, now.mine.time, now.mine.late], ["2026-11-18", "20:00", false]); assert.notEqual(now.rank, 0);
+  // la misma, mirando el 19/11 desde Madrid (03:00 del 19/11): tampoco
+  assert.deepEqual([st([call], "2026-11-19", "Europe/Madrid").mine.date, st([call], "2026-11-19", "Europe/Madrid").mine.time, st([call], "2026-11-19", "Europe/Madrid").mine.late], ["2026-11-19", "03:00", false]);
+  // sin hora, la fecha queda como está: del 19/11 es de hoy el 19/11 y vencida el 20/11
+  const day = { ...call, due_time: null };
+  assert.deepEqual([st([day], "2026-11-19").mine.date, st([day], "2026-11-19").mine.time, st([day], "2026-11-19").mine.late], ["2026-11-19", "", false]);
+  assert.equal(st([day], "2026-11-20").mine.late, true);
+  // la más cercana se elige por la hora local: la de las 20:00 del 18/11 va antes que una sin hora del 19/11
+  assert.equal(st([{ ...day, id: 2, subject: "Sin hora" }, call], "2026-11-18").mine.subject, "Llamar");
+  // demo «de hoy en adelante»: la de las 20:00 del 18/11 (19/11 02:00 UTC) ya no es «agendada» el 19/11; el 18/11 sí, con su día y hora
+  const demo = { id: 3, type: "meeting", owner_id: 7, done: false, due_date: "2026-11-19", due_time: "02:00" };
+  assert.equal(st([demo], "2026-11-19").key, "new");
+  const d = st([demo], "2026-11-18");
+  assert.deepEqual([d.key, d.date, d.time, d.detail], ["demo", "2026-11-18", "20:00", "2026-11-18 · con Joaquín Márquez"]);
+  // y una demo de las 23:00 UTC del 18/11 vista desde Madrid (00:00 del 19/11) sigue agendada el 19/11
+  assert.equal(st([{ ...demo, due_date: "2026-11-18", due_time: "23:00" }], "2026-11-19", "Europe/Madrid").key, "demo");
+  // demo realizada: el día también es el de quien mira
+  assert.equal(st([], "2026-11-19").key, "new");
+  const held = I.inboundStage(S, { items: [], acts: [{ ...demo, done: true }], pending: [], deals: [], ownerId: 1, today: "2026-11-19", tz, users: { 7: "Joaquín Márquez" }, stages: {} });
+  assert.deepEqual([held.key, held.date], ["held", "2026-11-18"]);
+});
+
 test("«Es este» usa el que estaba (y no duplica la llamada); «Es otro» crea uno nuevo", async () => {
   const l = await IR.listFor(me, false), jorge = byName(l, "Jorge Ejemplo");
   const r = await IR.answerExisting(me, false, jorge.key, { pick: jorge.state.candidates[0].key });
