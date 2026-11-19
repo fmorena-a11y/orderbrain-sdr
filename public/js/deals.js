@@ -4,7 +4,7 @@
 // en el celular pasan a lista) y «Lista» (ordenable por días en la etapa, próxima actividad o valor). El alcance lo decide el
 // servidor (GET /api/deals/open, lib/deals-api.js): «Míos» para todos; una persona o el equipo, para líderes y dirección.
 // Nunca se inventa: lo que no se sabe no se muestra o va «?».
-import { S, api, esc, icon, norm, save, loadPref, dayLabel, toast, TYPE_ICON, teamSelect, teamView, teamQuery, setTeamView, ago } from "./core.js";
+import { S, api, esc, icon, norm, save, loadPref, dayLabel, toast, TYPE_ICON, teamSelect, teamView, teamQuery, setTeamView, ago, fmtNum, emptyState } from "./core.js";
 import { openSchool, openRecord } from "./school.js";
 
 let host = null, seq = 0;
@@ -17,6 +17,15 @@ const F = {
 let D = null, more = { list: 100, cols: new Set() };
 const keyOf = () => `${F.owner}|${F.owner === "team" ? teamView() : ""}`;
 
+// Abrir la vista ya filtrada (desde el «Hoy» del líder, leadhome.js): owner = "team" (el equipo que se mira) o el id de Pipedrive
+// de una persona; attention: con el chip que corresponda ("noNext", "stale" u "overdue"). El servidor vuelve a controlar el alcance.
+export function showDeals({ owner = "team", attention = "" } = {}) {
+  F.owner = String(owner || "me"); save("deals.owner", F.owner);
+  F.pipe = 0; F.stage = 0; F.q = ""; F.noNext = attention === "noNext"; F.stale = attention === "stale"; F.overdue = attention === "overdue";
+  if (attention) { F.mode = "list"; F.sort = attention === "stale" ? "days" : "next"; }
+  more = { list: 100, cols: new Set() };
+  if (location.hash !== "#/tratos") location.hash = "#/tratos"; else if (host?.isConnected) renderDeals(host);
+}
 export function renderDeals(el) {
   host = el;
   if (!S.profile?.leader && F.owner !== "me") F.owner = "me";
@@ -40,10 +49,10 @@ async function load({ force = false } = {}) {
 }
 
 // ---------- formato
-const fmtN = n => Number(n).toLocaleString("es");
+const fmtN = n => fmtNum(n, { none: "?" });
 function money(v, cur) {
   if (v == null) return "";
-  try { return new Intl.NumberFormat("es", { style: "currency", currency: cur || "USD", maximumFractionDigits: 0 }).format(v); } catch { return `${fmtN(v)} ${cur || ""}`.trim(); }
+  try { return new Intl.NumberFormat("es-AR", { style: "currency", currency: cur || "USD", maximumFractionDigits: 0 }).format(v); } catch { return `${fmtN(v)} ${cur || ""}`.trim(); }
 }
 const typeName = t => S.types?.[t] || t || "Actividad";
 const when = a => `${dayLabel(a.date)}${a.time ? " " + a.time : ""}`;
@@ -109,8 +118,8 @@ function draw() {
     <p class="mx-src" style="margin:0 0 12px">${esc(scopeTxt(d))} · Pipedrive, leído ${esc(ago(d.at))}</p>
     ${d.truncated ? `<div class="callout warn" style="margin:0 0 12px">${icon("alert")}<span>Pipedrive devolvió la lista cortada: puede haber más tratos que no se ven acá.</span></div>` : ""}
     ${kpis(k)}
-    ${!d.deals.length ? `<div class="empty">${icon("deal")}<b>${d.scope.self ? "No tenés tratos abiertos." : "No hay tratos abiertos acá."}</b><span>Solo cuentan los embudos de venta (no los de clientes).</span></div>`
-      : !rows.length ? `<div class="empty">${icon("search")}<b>Ningún trato con estos filtros.</b><button class="linkbtn" id="dlClear">Sacar filtros</button></div>`
+    ${!d.deals.length ? emptyState({ icon: "deal", title: d.scope.self ? "No tenés tratos abiertos" : "No hay tratos abiertos acá", text: "Solo cuentan los embudos de venta (no los de clientes)." })
+      : !rows.length ? emptyState({ icon: "search", title: "Ningún trato con estos filtros", action: { label: "Sacar filtros", id: "dlClear" } })
       : F.mode === "board" ? board(rows) : list(rows)}
   </div>`;
   bind();

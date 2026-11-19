@@ -5,7 +5,7 @@
 // Acciones: Retomar (cambiar de sesión = retomar otra), Ver detalle, Editar (nombre y sacar colegios que faltan:
 // PATCH { name, remove }), Terminar, Reabrir (con 12 abiertas el servidor termina la más quieta y se avisa) y Borrar
 // (lo registrado en Pipedrive no se borra). «Nueva sesión» ofrece solo los orígenes que el servidor conoce (ORIGINS).
-import { S, api, esc, icon, toast, modal, ago, openMenu, loadPref, save } from "./core.js";
+import { S, api, esc, icon, toast, modal, ago, openMenu, loadPref, save, homeMode, fmtNum, emptyState } from "./core.js";
 import { resumeSession, startSession } from "./school.js";
 import { loadSessions, cacheSession, forgetSession, sessionDetail, endSession, reopenSession, ORIGIN, END, bar, when, filtersText } from "./sessions.js";
 import { sessionGroups, idleDays, isIdle, INACTIVE_DAYS, TABS } from "./sessgroups.js";
@@ -25,7 +25,7 @@ const EMPTY = {
   terminadas: "No hay sesiones terminadas.",
 };
 const sid = id => encodeURIComponent(id);
-const plural = (n, one, many) => `${n.toLocaleString("es")} ${n === 1 ? one : many}`;
+const plural = (n, one, many) => `${fmtNum(n)} ${n === 1 ? one : many}`;
 
 export function renderSessionsView(el) {
   host = el; err = null;
@@ -47,18 +47,18 @@ function draw() {
     <div class="sv-head"><button class="btn sm" id="svRefresh" data-focus-key="svRefresh" title="Volver a leer tus sesiones">${icon("refresh", "sm")} Actualizar</button>
       <button class="btn primary" id="svNew" data-focus-key="svNew" aria-haspopup="menu">${icon("plus", "sm")} Nueva sesión</button></div></div>`;
   if (!L) {
-    host.innerHTML = `<div class="page sv">${head}${err ? `<div class="callout err">${icon("alert")}<span>No pudimos leer tus sesiones: ${esc(err)}</span><button class="btn sm" id="svRetry">Reintentar</button></div>` : '<div class="skel" style="margin:12px 0"></div>'.repeat(4)}</div>`;
+    host.innerHTML = `<div class="page read sv">${head}${err ? `<div class="callout err">${icon("alert")}<span>No pudimos leer tus sesiones: ${esc(err)}</span><button class="btn sm" id="svRetry">Reintentar</button></div>` : '<div class="skel" style="margin:12px 0"></div>'.repeat(4)}</div>`;
     bindHead();
     host.querySelector("#svRetry")?.addEventListener("click", () => { err = null; draw(); load(); });
     return;
   }
   const G = sessionGroups(L), list = G[tab], max = L.max || 12;
-  host.innerHTML = `<div class="page sv">${head}
+  host.innerHTML = `<div class="page read sv">${head}
     ${err ? `<div class="callout warn" style="margin-bottom:12px">${icon("alert")}<span>No pude actualizar la lista (${esc(err)}): ves lo último que leí.</span></div>` : ""}
     <div class="chips sv-tabs" role="group" aria-label="Qué sesiones ver">${TABS.map(([k, l]) => `<button class="chip" data-tab="${k}" data-focus-key="tab-${k}" aria-pressed="${k === tab}">${l} <b>${G[k].length}</b></button>`).join("")}</div>
     <p class="muted sv-help">${esc(HELP[tab])}${tab === "activas" || tab === "hoy" ? ` Podés tener hasta ${max} abiertas.` : ""}</p>
     ${list.length ? `<div class="sv-list">${list.map(row).join("")}</div>`
-      : `<div class="empty">${icon("play")}<b>${esc(EMPTY[tab])}</b>${tab === "terminadas" || tab === "inactivas" ? "" : `<button class="btn primary sm" id="svNew2" aria-haspopup="menu">${icon("plus", "sm")} Nueva sesión</button>`}</div>`}
+      : emptyState({ icon: "play", title: EMPTY[tab], action: tab === "terminadas" || tab === "inactivas" ? null : { label: "Nueva sesión", id: "svNew2", icon: "plus", cls: "btn primary sm", attrs: 'aria-haspopup="menu"' } })}
   </div>`;
   bindHead();
   host.querySelectorAll("[data-tab]").forEach(b => b.onclick = () => { save("sessions.tab", b.dataset.tab); draw(); host.querySelector(`[data-tab="${b.dataset.tab}"]`)?.focus(); });
@@ -103,7 +103,9 @@ const find = id => [...(S.sessions?.open || []), ...(S.sessions?.done || [])].fi
 // agenda, radar, base) se arman allá, con sus filtros: se va a esa vista.
 function newMenu(anchor) {
   const to = view => () => { location.hash = "#/" + view; };
-  openMenu(anchor, [
+  // un account (o un líder que eligió «Mis tratos» en Hoy): primero la sesión de sus tratos que piden atención (aehome.js)
+  const deals = homeMode() === "ae" ? [{ label: "Tus tratos", sub: "Los tratos que piden atención: sin próximo paso, con algo vencido o quietos, del más urgente al menos", fn: () => import("./aehome.js").then(m => m.startDealsSession()).catch(e => toast(e.message, { type: "err" })) }] : [];
+  openMenu(anchor, [...deals,
     { label: "Tu día", sub: "Tu agenda de hoy, lo vencido y los mejores colegios de tu cola", fn: () => startSession() },
     { label: "Una zona o evento", sub: "Puebla, Pachuca, EduExperience…: lo tuyo de ahí y los colegios nuevos", fn: () => zone(anchor) },
     { label: "Desde tu agenda", sub: "Filtrá la agenda y tocá «Trabajar estos colegios»", fn: to("agenda") },

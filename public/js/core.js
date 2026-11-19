@@ -2,6 +2,8 @@
 export const $ = id => document.getElementById(id);
 export const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 export const norm = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim();
+// sin acentos y en minúsculas, sin tocar signos ni espacios
+export const fold = s => String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 export const TZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
 export const today = () => new Date().toLocaleDateString("sv");
 export const addDays = (d, n) => { const x = new Date(d + "T12:00:00"); x.setDate(x.getDate() + n); return x.toLocaleDateString("sv"); };
@@ -20,6 +22,26 @@ export const S = {
 function load(k, d) { try { const v = localStorage.getItem("ob." + k); return v ? JSON.parse(v) : d; } catch { return d; } }
 export function save(k, v) { try { localStorage.setItem("ob." + k, JSON.stringify(v)); } catch {} }
 export const loadPref = load;
+// ---------- cada rol entra a lo suyo (pedido del líder de SDR: «a los accounts, sus propias sesiones y enfocarte en los
+// tratos… separando lo que es un SDR o un account, y a los líderes su propia interfaz»). homeMode(): qué «Hoy» ve quien entró:
+// "lead" (panel de su equipo), "ae" (sus tratos y tareas) o "sdr" (prospección, como siempre). Un líder puede pasar a su
+// propio trabajo («Mi trabajo») y volver; se recuerda en este navegador (home.mode).
+export const myRole = () => S.profile?.leader ? "lider" : S.me?.role === "ae" ? "ae" : "sdr";
+export function homeMode() {
+  const r = myRole(), pref = load("home.mode", null);
+  if (r === "lider") return pref === "sdr" || pref === "ae" ? pref : "lead";
+  return r;
+}
+const HOME_LABEL = { lead: "Mi equipo", sdr: "Prospección", ae: "Mis tratos" };
+// el selector de arriba de «Hoy» (solo líderes: su equipo, o su propio trabajo como SDR o como account)
+export function homeSwitchHtml() {
+  if (myRole() !== "lider") return "";
+  const m = homeMode();
+  return `<div class="seg home-switch" role="radiogroup" aria-label="Qué ver en Hoy">${Object.entries(HOME_LABEL).map(([k, l]) => `<button type="button" role="radio" data-home="${k}" aria-checked="${m === k}" aria-pressed="${m === k}">${l}</button>`).join("")}</div>`;
+}
+export function bindHomeSwitch(root, rerender) {
+  root.querySelectorAll("[data-home]").forEach(b => b.onclick = () => { if (homeMode() === b.dataset.home) return; save("home.mode", b.dataset.home); rerender(); });
+}
 
 // ---------- historial de búsquedas (Prospectar y Ctrl K), en este navegador: las 10 últimas, sin repetir.
 // kind: "q" (texto: colegio, teléfono, email, persona) o "place" (un lugar que se ubicó en el mapa)
@@ -41,7 +63,7 @@ export const leadsOver = (id = null, email = "") => { const l = S.profile?.scope
 export const leadsAll = () => S.profile?.scope?.lead === "all";
 // Equipo que se mira en Métricas y Equipo (dirección: uno o «Toda la cuenta»; un líder con varios: uno de los suyos). "" = el
 // de siempre. «Toda la cuenta» no es la suma de los equipos: incluye a la gente sin equipo y a las cuentas generales.
-export const teamChoices = () => { const sc = S.profile?.scope; return !S.profile?.leader || !sc?.on ? [] : sc.all ? [{ id: "all", name: "Toda la cuenta" }, ...sc.teams] : sc.teams; };
+const teamChoices = () => { const sc = S.profile?.scope; return !S.profile?.leader || !sc?.on ? [] : sc.all ? [{ id: "all", name: "Toda la cuenta" }, ...sc.teams] : sc.teams; };
 export function teamView() { const c = teamChoices(), v = load("team.view", ""); return c.some(t => t.id === v) ? v : ""; }
 export const teamQuery = () => { const v = teamView(); return v ? `team=${encodeURIComponent(v)}` : ""; };
 export const setTeamView = v => save("team.view", v || "");
@@ -58,7 +80,47 @@ export function applyTheme(t) {
   document.querySelectorAll('meta[name="theme-color"]').forEach(m => m.setAttribute("content", isDark() ? "#111214" : "#FAFAFA"));
 }
 applyTheme(load("theme", ""));
-export function setSchools(list) { S.schools = list; S.byId = new Map(list.map(s => [s.id, s])); }
+// ---------- colegios de la base e índice de búsqueda (Prospectar y Ctrl K)
+// El texto normalizado y los dígitos del teléfono se calculan UNA vez por colegio (antes, en cada tecla se normalizaban los
+// 22.000). schoolIdx(s) = { n: nombre, c: ciudad, q: «nombre ciudad dirección» (Prospectar), p: «nombre ciudad país» (Ctrl K),
+// d: dígitos del teléfono }. Va en una propiedad que no se enumera (_sx): no viaja al servidor, no entra en JSON ni en
+// Object.assign / {...s}. patchSchool la borra (se rearma sola al buscar). S.rev sube con cada cambio en los colegios: lo
+// usan las listas para saber si lo que tenían calculado sigue valiendo.
+const NORM_MEMO = new Map(); // ciudades y países se repiten miles de veces
+const normMemo = v => { if (!v) return ""; let r = NORM_MEMO.get(v); if (r === undefined) { if (NORM_MEMO.size > 20000) NORM_MEMO.clear(); NORM_MEMO.set(v, r = norm(v)); } return r; };
+export function schoolIdx(s) {
+  if (s._sx) return s._sx;
+  const n = norm(s.name), c = normMemo(s.city), a = s.addr ? norm(s.addr) : "", k = normMemo(s.country);
+  const x = { n, c, q: [n, c, a].filter(Boolean).join(" "), p: [n, c, k].filter(Boolean).join(" "), d: String(s.phone || "").replace(/\D/g, "") };
+  Object.defineProperty(s, "_sx", { value: x, writable: true, configurable: true, enumerable: false });
+  return x;
+}
+// se adelanta de a tandas cuando el navegador está libre (sin trabar la carga); lo que falte se calcula al buscar
+function warmIdx(list, i = 0) {
+  if (list !== S.schools) return;
+  for (const end = Math.min(list.length, i + 1500); i < end; i++) schoolIdx(list[i]);
+  if (i < list.length) (globalThis.requestIdleCallback || setTimeout)(() => warmIdx(list, i));
+}
+export function setSchools(list) { S.schools = list; S.byId = new Map(list.map(s => [s.id, s])); S.rev = (S.rev || 0) + 1; if (list.length) setTimeout(() => warmIdx(list)); }
+// ---------- números con una sola regla en toda la app: es-AR («1.234», decimales con coma). dec = decimales fijos
+// («1,5 km»); none = qué va si no hay número (null, vacío o NaN): por defecto «0», en Métricas «?».
+const NUM_FMT = new Map();
+export function fmtNum(n, { dec = 0, none = "0" } = {}) {
+  const v = typeof n === "number" ? n : n == null || n === "" ? NaN : Number(n);
+  if (!Number.isFinite(v)) return none;
+  let f = NUM_FMT.get(dec); if (!f) NUM_FMT.set(dec, f = new Intl.NumberFormat("es-AR", { minimumFractionDigits: dec, maximumFractionDigits: dec }));
+  return f.format(v);
+}
+// ---------- estado vacío (una sola pieza en todas las vistas): ícono, título, texto y una acción opcional.
+// action: { label, href } (enlace), { label, id } o { label, attrs } (botón; attrs: atributos ya escritos, p. ej. «data-clearq»),
+// con cls para la clase del botón («btn sm» por defecto, «linkbtn» para un enlace en el texto). compact: la versión chica (sin ícono).
+// title y text van escapados.
+export function emptyState({ icon: ic = "", title = "", text = "", action = null, compact = false, cls = "" } = {}) {
+  const a = !action ? "" : typeof action === "string" ? action
+    : action.href ? `<a class="${esc(action.cls || "btn sm")}" href="${esc(action.href)}">${esc(action.label)}</a>`
+    : `<button type="button" class="${esc(action.cls || "btn sm")}"${action.id ? ` id="${esc(action.id)}"` : ""}${action.attrs ? ` ${action.attrs}` : ""}>${action.icon ? icon(action.icon, "sm") + " " : ""}${esc(action.label)}</button>`;
+  return `<div class="empty${compact ? " compact" : ""}${cls ? ` ${esc(cls)}` : ""}">${ic ? icon(ic) : ""}${title ? `<b>${esc(title)}</b>` : ""}${text ? `<span>${esc(text)}</span>` : ""}${a}</div>`;
+}
 // Fila que se corre de costado (países, filtros): flechas con mouse, rueda vertical → horizontal,
 // bordes difuminados que avisan que hay más, y la opción elegida siempre a la vista.
 export function scroller(el) {
@@ -90,7 +152,7 @@ export function scroller(el) {
 }
 // las fichas de Pipedrive que no son colegios de la base (pd-lead-…, pd-org-…) y las de una base cargada (bx-…) van solo al
 // índice, no a listas ni al mapa
-export function patchSchool(s) { if (!s?.id) return; const cur = S.byId.get(s.id); if (cur) Object.assign(cur, s); else { if (!/^(pd-(org|lead)|bx)-/.test(s.id)) S.schools.push(s); S.byId.set(s.id, s); } }
+export function patchSchool(s) { if (!s?.id) return; S.rev = (S.rev || 0) + 1; const cur = S.byId.get(s.id); if (cur) { Object.assign(cur, s); if (cur._sx) cur._sx = null; } else { if (!/^(pd-(org|lead)|bx)-/.test(s.id)) S.schools.push(s); S.byId.set(s.id, s); } }
 
 // ---------- API
 let onUnauthorized = () => {};
@@ -167,7 +229,7 @@ export const icon = (n, cls = "") => `<svg class="ico ${cls}" viewBox="0 0 24 24
 export function hydrateIcons(root = document) { root.querySelectorAll("[data-icon]").forEach(e => { if (!e.firstChild) e.innerHTML = icon(e.dataset.icon); }); }
 // Demos: una ya vencida (fecha y hora locales) pregunta «¿Se hizo la demo?»; el resultado sale de Pipedrive (sin marca: «?»)
 export const demoDue = (l, now = new Date()) => { const t = today(); return l.date < t || (l.date === t && (!l.time || l.time <= now.toTimeString().slice(0, 5))); };
-export const DEMO_RES = { done: "Se hizo", noshow: "No-show", moved: "Reprogramada", canceled: "Cancelada" };
+export const DEMO_RES = { done: "Se hizo", noshow: "No show", moved: "Reprogramada", canceled: "Cancelada" };
 export const TYPE_ICON = { call: "phone", meeting: "video", deadline: "whatsapp", task: "mail", contacto_decisor: "user" };
 
 // ---------- estados de colegio
@@ -201,14 +263,13 @@ export const archivedRef = id => !!id && S.byId.get(String(id).replace(/^(lead|o
 export const archivedAct = a => !!a?.archived || archivedRef(a?.schoolId || a?.record);
 // cómo se pinta un colegio en el mapa: la fase manda sobre el estado. Devuelve { k, l, c, sh } (k: clave para la leyenda)
 export const markOf = s => s?.phase && PH[s.phase] ? { k: "ph-" + s.phase, ...PH[s.phase] } : { k: ST[s?.status] ? s.status : "unk", ...(ST[s?.status] || ST.unk) };
-export const dotColor = (s, colors) => colors[markOf(s).k];
 
 // ---------- fechas
 const fmtDay = new Intl.DateTimeFormat("es", { weekday: "long", day: "numeric", month: "long" });
 const fmtShort = new Intl.DateTimeFormat("es", { weekday: "short", day: "numeric", month: "short" });
 // ---------- zona y evento de una actividad (el servidor manda city, region, country y event, solo si Pipedrive o la base los dicen)
-export const actZones = a => [a.event && ["e", a.event], a.city && ["c", a.city], a.region && ["r", a.region], a.country && ["p", a.country]].filter(Boolean);
-export const zoneKey = (k, v) => `${k}:${norm(v)}`;
+const actZones = a => [a.event && ["e", a.event], a.city && ["c", a.city], a.region && ["r", a.region], a.country && ["p", a.country]].filter(Boolean);
+const zoneKey = (k, v) => `${k}:${norm(v)}`;
 export const ZONE_KIND = { e: "Eventos", c: "Ciudades", r: "Estados y provincias", p: "Países" };
 // z: una clave de la lista («c:puebla») o texto libre. El texto se compara por palabras con el evento, la ciudad, el estado y el país
 // («Puebla» encuentra «Puebla de Zaragoza»). El nombre solo cuenta si la actividad no tiene zona, o con loose (el buscador).
@@ -244,6 +305,59 @@ export function localAct(a) {
   if (isNaN(d)) return { date: a.date, time: a.time.slice(0, 5) };
   return { date: d.toLocaleDateString("sv"), time: d.toTimeString().slice(0, 5) };
 }
+// ---------- títulos de Pipedrive sin etiquetas internas (Hoy, Agenda, Bandeja caliente; puro, pruebas en test/cleantitle.test.mjs)
+// Las mismas reglas que msgSchoolName de lib/playbook.js: afuera «(Inbound …)», «(SDR Meta Ads Revival)», «(EduExperience …)»,
+// «[…]», «· OE-MX-…» y «– Inbound …» del final. cleanTitle(título) → { name, tag, tags }: el nombre limpio y lo que se sacó como
+// etiqueta corta para un chip al lado («SDR revival», «Inbound Google», el evento). Nada se pierde: lo que sale del título va al chip.
+const TITLE_TAGS = [/\s*\(([^()]*)\)\s*$/, /\s*\[([^\]]*)\]\s*$/, /\s+[·|]\s*(OE-[A-Z]{2}-\d+.*)$/i, /\s+[–—-]\s*((?:inbound|sdr|referido|eduexperience|evento|revival)\b.*)$/i];
+const tagLabel = t => { const n = norm(t); return /\brevival\b/.test(n) ? "SDR revival" : /^inbound google( ads)?$/.test(n) ? "Inbound Google" : /^inbound meta( ads)?$/.test(n) ? "Inbound Meta" : t.replace(/\s+/g, " ").trim(); };
+export function cleanTitle(title) {
+  const full = String(title ?? "").replace(/\s+/g, " ").trim(), tags = [];
+  let n = full, prev;
+  do {
+    prev = n;
+    for (const re of TITLE_TAGS) { const m = n.match(re); if (!m) continue; if (m[1].trim()) tags.unshift(tagLabel(m[1])); n = n.slice(0, m.index).trim(); break; }
+  } while (n !== prev && n);
+  // el título era solo la etiqueta («(Inbound)»): se deja como está
+  return n ? { name: n, tag: tags.join(" · "), tags } : { name: full, tag: "", tags: [] };
+}
+// El asunto de una actividad sin el nombre del colegio o prospecto (ya va en el título), esté donde esté:
+// «Volver a llamar · Colegio Olivos de Prueba · prospecto» → «Volver a llamar · prospecto». names: el título y sus variantes.
+export function subjectSansName(subject, ...names) {
+  const keys = new Set(names.flatMap(n => [norm(n), norm(cleanTitle(n).name)]).filter(Boolean));
+  return String(subject ?? "").split(/\s+·\s+/).map(p => p.trim()).filter(p => { const k = norm(p); return k && !keys.has(k) && !keys.has(norm(cleanTitle(p).name)); }).join(" · ");
+}
+// el chip chico de la etiqueta, para poner al lado del título
+export const titleTag = tag => tag ? `<span class="row-tag" title="${esc(tag)}">${esc(tag)}</span>` : "";
+// ---------- territorio: los países que trabajás (la cola de Hoy). Se guarda en este navegador («ob.territory»), como siempre.
+// Sin elegir, la cola trae todos los países: se pide en el perfil y, mientras no se eligió, Hoy lo avisa («Elegir»).
+let terrSet = false;
+export const territoryChosen = () => { if (terrSet) return true; try { return localStorage.getItem("ob.territory") != null; } catch { return true; } };
+export function setTerritory(list) { S.territory = [...new Set(list || [])].filter(c => S.countries.includes(c)); terrSet = true; save("territory", S.territory); }
+// el campo del perfil («Contanos quién sos» y «Tu perfil»): chips por país y «Todos», en una caja que se abre sola mientras no se
+// eligió (después queda plegada con lo elegido). bindTerritoryField → { save() }: guarda solo si la persona eligió algo (países o
+// «Todos»); para un Account Executive no se muestra (su Hoy son sus tratos).
+const terrLabel = (sel, all) => sel.length ? sel.join(", ") : all ? "todos" : "sin elegir: ves todos";
+export function territoryFieldHtml(role = "") {
+  if (!S.countries?.length) return "";
+  const chosen = territoryChosen(), all = chosen && !S.territory.length;
+  return `<details class="cal-box terr-field" id="pfTerr"${chosen ? "" : " open"}${role === "ae" ? " hidden" : ""}><summary><b>Países que trabajás</b> <span class="faint" id="pfTerrSum">· ${esc(terrLabel(S.territory, all))}</span></summary>
+    <div class="cal-in"><div class="chips" role="group" aria-label="Países que trabajás">${S.countries.map(c => `<button type="button" class="chip" data-terr="${esc(c)}" aria-pressed="${S.territory.includes(c)}">${esc(c)}</button>`).join("")}<button type="button" class="chip" data-terr="" aria-pressed="${all}">Todos</button></div>
+      <small class="faint">Es tu cola de «A quién llamar ahora» en Hoy. Queda guardado en este dispositivo.</small></div></details>`;
+}
+export function bindTerritoryField(root) {
+  const box = root?.querySelector("#pfTerr"); if (!box) return { save: () => false };
+  let sel = [...S.territory], all = territoryChosen() && !sel.length, touched = false;
+  const paint = () => { box.querySelectorAll("[data-terr]").forEach(b => b.setAttribute("aria-pressed", b.dataset.terr ? sel.includes(b.dataset.terr) : all)); box.querySelector("#pfTerrSum").textContent = `· ${terrLabel(sel, all)}`; };
+  box.querySelectorAll("[data-terr]").forEach(b => b.onclick = () => {
+    const c = b.dataset.terr; touched = true;
+    if (!c) { all = true; sel = []; } else { all = false; sel = sel.includes(c) ? sel.filter(x => x !== c) : [...sel, c]; }
+    paint();
+  });
+  // el rol se elige en el mismo diálogo: con «Account Executive» el campo se esconde
+  root.addEventListener("click", e => { const r = e.target.closest?.("[data-role]"); if (r) box.hidden = r.dataset.role === "ae"; });
+  return { save() { if (!touched || box.hidden || (!all && !sel.length)) return false; setTerritory(sel); return true; } };
+}
 // Bandeja caliente de Hoy: tus demos de hoy y mañana sin hacer (de tu agenda) y los prospectos nuevos para vos (/api/hot).
 // Cada fila dice por qué está. Si una demo y un prospecto son de la misma ficha, queda la demo.
 export const agoText = (iso, now = Date.now()) => { const m = Math.max(1, Math.round((now - Date.parse(iso)) / 60e3)), h = Math.round(m / 60), d = Math.round(m / 1440); return m < 60 ? `${m} min` : m < 1440 ? `${h} h` : `${d} ${d === 1 ? "día" : "días"}`; };
@@ -257,7 +371,21 @@ export function hotRows(acts = [], leads = [], t = today(), now = Date.now()) {
 // local del colegio, lunes a viernes) dice si ahora es horario de oficina o cuándo abre. local: la hora allá, solo si es otro huso que el tuyo.
 // s: { country, city, lng }. En un país con varios husos (husos/husoLng) sin saber el de la ciudad, null: no se afirma nada.
 const WD = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"], hh = t => t.replace(/^0/, "");
-const clock = (tz, now) => Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: tz, weekday: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).formatToParts(now).map(x => [x.type, x.value]));
+// un formateador por zona (crearlo es lo caro: antes se armaba uno por colegio y por comparación del orden) y la hora de cada
+// zona una vez por minuto
+const CLOCK_FMT = new Map(), CLOCK_AT = new Map();
+let clockMin = -1;
+function clock(tz, now) {
+  const min = Math.floor(now / 60e3);
+  if (min !== clockMin) { CLOCK_AT.clear(); clockMin = min; }
+  let c = CLOCK_AT.get(tz);
+  if (!c) {
+    let f = CLOCK_FMT.get(tz);
+    if (!f) CLOCK_FMT.set(tz, f = new Intl.DateTimeFormat("en-US", { timeZone: tz, weekday: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23" })); // zona inválida: tira (callWindow lo ataja)
+    CLOCK_AT.set(tz, c = Object.fromEntries(f.formatToParts(now).map(x => [x.type, x.value])));
+  }
+  return c;
+}
 export function tzOf(s) {
   const m = S.markets[s?.country]; if (!m?.tz) return null; if (!m.husos) return m.tz;
   const c = norm(s.city), hit = c && Object.entries(m.husos).find(([, l]) => l.some(x => norm(x) === c));
@@ -276,7 +404,11 @@ export function callWindow(s, now = new Date()) {
 }
 export const callPill = s => { const w = callWindow(s); return w ? `<span class="cw ${w.ok ? "ok" : ""}" title="Horario habitual de oficina escolar en ${esc(s.country)} (no es un dato del colegio), hora local: ${esc(w.span)}">${icon("clock", "sm")}${esc([w.label, w.local].filter(Boolean).join(" · "))}</span>` : ""; };
 // La cola de Hoy en el orden en que se muestra y se llama: los nuevos (primero los que están en horario de oficina, orden estable) y después los de reactivar
-export const callQueue = (queue, now = new Date()) => { const rv = q => q.status === "lost" || q.status === "stalled", off = q => callWindow(q, now)?.ok ? 0 : 1; return [...queue.filter(q => !rv(q)).sort((a, b) => off(a) - off(b)), ...queue.filter(rv)]; };
+// («en horario» se calcula una vez por colegio antes de ordenar, no en cada comparación)
+export const callQueue = (queue, now = new Date()) => {
+  const rv = q => q.status === "lost" || q.status === "stalled", fresh = queue.filter(q => !rv(q)), off = new Map(fresh.map(q => [q, callWindow(q, now)?.ok ? 0 : 1]));
+  return [...fresh.sort((a, b) => off.get(a) - off.get(b)), ...queue.filter(rv)];
+};
 // «Registrar en 10 segundos»: cuánto tardó en volver a la app después de tocar Llamar (no es la duración exacta de la llamada). Menos de 25 s casi siempre es que no atendieron:
 // se preselecciona «No atendió» (el SDR confirma). Más de una hora no se muestra: es tiempo fuera de la app, no la llamada.
 export const SHORT_CALL_S = 25;
@@ -295,9 +427,7 @@ export const initials = n => String(n || "?").split(/\s+/).filter(Boolean).slice
 
 // ---------- enlaces a herramientas
 export const digits = p => String(p || "").replace(/\D/g, "");
-const MOBILE = /^(519\d{8}|521\d{10}|52\d{10}|569\d{8}|549\d{10}|5989\d{7}|502[345]\d{7}|506[678]\d{7})$/;
-export const isMobile = p => MOBILE.test(digits(p));
-export function waNumber(phone, country) {
+function waNumber(phone, country) {
   let d = digits(phone); if (!d) return "";
   const pre = S.markets[country]?.prefix || "";
   if (pre && !d.startsWith(pre)) d = pre + d.replace(/^0+/, "");
@@ -343,7 +473,7 @@ export function brainTokenMsg() {
 }
 export const brainTokenCallout = (style = "margin-bottom:16px") => {
   const m = brainTokenMsg(); if (!m) return "";
-  return `<div class="callout ${m[0]}" style="${style}">${icon("alert")}<span>${esc(m[1])} <a href="#/equipo">Ir a Equipo</a></span></div>`;
+  return `<div class="callout ${m[0]}" style="${style}">${icon("alert")}<span>${esc(m[1])} <a href="#/equipo/cuenta">Ir a Equipo</a></span></div>`;
 };
 export const mapsSearch = s => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + " " + s.city)}`;
 
@@ -387,7 +517,8 @@ export function openMenu(anchor, items) {
     const bs = [...menuEl.querySelectorAll("button")], i = bs.indexOf(document.activeElement);
     if (e.key === "ArrowDown") { e.preventDefault(); bs[(i + 1) % bs.length].focus(); }
     if (e.key === "ArrowUp") { e.preventDefault(); bs[(i - 1 + bs.length) % bs.length].focus(); }
-    if (e.key === "Escape") { closeMenu(); anchor.focus(); }
+    // Esc cierra solo el menú (sin stopPropagation seguía hasta la ventana y cerraba también la ficha de atrás)
+    if (e.key === "Escape") { e.stopPropagation(); closeMenu(); anchor.focus(); }
   });
   setTimeout(() => document.addEventListener("pointerdown", outside, true));
 }

@@ -1,6 +1,6 @@
 // Agenda: actividades pendientes propias en Pipedrive, con filtros de fecha, zona o evento y tipo.
-import { S, api, esc, icon, today, addDays, localAct, dayLabel, shortDay, norm, save, matchZone, zoneOptions, ZONE_KIND, workOrder } from "./core.js";
-import { actRow, markDone, moveMenu, demoResultMenu } from "./today.js";
+import { S, api, esc, icon, today, addDays, localAct, dayLabel, shortDay, norm, save, matchZone, zoneOptions, ZONE_KIND, workOrder, emptyState } from "./core.js";
+import { actRow, checkAct, logsFirst, moveMenu, demoResultMenu, syncBadge } from "./today.js";
 import { openSchool, openRecord, startSession } from "./school.js";
 
 let host, error = null, loading = false;
@@ -15,12 +15,24 @@ export function renderAgenda(el) {
   draw();
   refresh(); // si ya había datos se muestran al instante y se actualizan atrás
 }
+// Lo que se muestra: la agenda leída o, mientras llega, las actividades que ya trajo Hoy (son las mismas: sales.myActivities).
+// Así la Agenda se dibuja al instante y se actualiza cuando llega /api/my-activities.
+const data = () => S.agenda || (S.today?.activities?.items?.length ? S.today.activities : null);
+// algo se escribió mientras llegaba la agenda (un ✓, una reprogramación): lo leído puede ser de antes, se pide de nuevo
+let writes = 0;
+addEventListener("ob:wrote", () => { writes++; });
 async function refresh() {
   loading = true; drawHead();
-  try { S.agenda = await api("/api/my-activities"); error = null; }
+  const w = writes;
+  try {
+    S.agenda = await api("/api/my-activities"); error = null;
+    // Hoy queda con lo mismo (otra lista: cada una se toca por su lado)
+    if (S.today?.activities) { S.today.activities = { ...S.agenda, items: [...(S.agenda.items || [])] }; syncBadge(); }
+  }
   catch (e) { error = e.message; }
   loading = false;
   if (host?.isConnected) draw();
+  if (w !== writes && !error && host?.isConnected && S.view === "agenda") refresh();
 }
 function drawHead() {
   const b = host?.querySelector("#reload"); if (!b) return;
@@ -42,7 +54,7 @@ const whenLabel = t => F.when === "range" ? (F.from && F.to ? `entre ${shortDay(
 function draw() {
   if (!host) return;
   const focusKey = document.activeElement?.dataset?.focusKey, t = today();
-  const all = (S.agenda?.items || []).map(a => ({ ...a, ...localAct(a) }));
+  const D = data(), all = (D?.items || []).map(a => ({ ...a, ...localAct(a) }));
   const zonesAll = zoneOptions(all);
   // los filtros guardados solo se corrigen con los datos ya cargados (si no, se perderían al recargar)
   if (S.agenda && !loading && F.zone && /^[ecrp]:/.test(F.zone) && !zonesAll.some(z => z.key === F.zone)) { F.zone = ""; keep(); }
@@ -67,7 +79,7 @@ function draw() {
   // lo vencido, de lo más reciente a lo más viejo: lo de ayer está arriba
   if (byDay.has("late")) byDay.get("late").sort((a, b) => (b.date + b.time).localeCompare(a.date + a.time));
   const late = all.filter(a => a.date < t).length, now = all.filter(a => a.date === t).length;
-  const summary = S.agenda ? [late && `${late} vencida${late > 1 ? "s" : ""}`, `${now} para hoy`, `${all.length} en total`].filter(Boolean).join(" · ") : "";
+  const summary = D ? [late && `${late} vencida${late > 1 ? "s" : ""}`, `${now} para hoy`, `${all.length} en total`].filter(Boolean).join(" · ") : "";
   const filtered = F.when !== "all" || F.zone || F.q || F.type !== "all";
   const workable = items.filter(a => a.schoolId || a.record), fichas = new Set(workable.map(a => a.schoolId || a.record)).size;
   const zoneName = F.zone ? zones.find(z => z.key === F.zone)?.label : F.q;
@@ -78,7 +90,7 @@ function draw() {
       <button class="icon-btn" id="reload" aria-label="Actualizar desde Pipedrive" title="Actualizar desde Pipedrive">${icon("refresh")}</button></div>
     ${error ? `<div class="callout err" style="margin-bottom:16px">${icon("alert")}<span>No pudimos traer tu agenda de Pipedrive: ${esc(error)}</span><button class="btn sm" id="retry">Reintentar</button></div>` : ""}
     ${S.agenda?.warning ? `<div class="callout warn" style="margin-bottom:16px">${icon("alert")}<span>${esc(S.agenda.warning)}</span></div>` : ""}
-    ${!S.agenda && !error ? skeleton() : S.agenda ? `
+    ${!D && !error ? skeleton() : D ? `
       <div class="ag-filters">
         <div class="chips" role="group" aria-label="Cuándo">${WHEN.map(([k, l]) => `<button class="chip" data-w="${k}" data-focus-key="w-${k}" aria-pressed="${F.when === k}">${esc(l)}${k !== "range" ? ` <b>${wc[k]}</b>` : ""}</button>`).join("")}</div>
         ${F.when === "range" ? `<div class="ag-range"><label class="field"><span>Desde</span><input class="inp" type="date" id="agFrom" value="${esc(F.from)}"></label><label class="field"><span>Hasta</span><input class="inp" type="date" id="agTo" value="${esc(F.to)}"></label></div>` : ""}
@@ -94,8 +106,8 @@ function draw() {
       ${filtered ? `<div class="ag-bar"><span><b>${items.length}</b> ${items.length === 1 ? "actividad" : "actividades"} ${esc([whenLabel(t), zoneName && `· ${zoneName}`].filter(Boolean).join(" "))}</span>
         <span class="ag-bar-act"><button class="btn ghost sm" id="agClear">Limpiar filtros</button>${fichas ? `<button class="btn primary sm" id="agWork">${icon("play", "sm")} ${fichas === 1 ? "Trabajar este colegio" : `Trabajar estos ${fichas} colegios`}</button>` : ""}</span></div>` : ""}
       ${keys.length ? keys.map(k => `<section class="card agenda-day" aria-label="${k === "late" ? "Vencidas" : esc(dayLabel(k))}"><h3 style="${k === "late" ? "color:var(--err)" : ""}">${k === "late" ? "Vencidas" : esc(dayLabel(k))} <small>${byDay.get(k).length}</small></h3>${byDay.get(k).map(a => actRow(a, k === "late")).join("")}</section>`).join("")
-        : filtered ? `<div class="card"><div class="empty">${icon("search")}<b>Nada con estos filtros</b><span>Probá con otra fecha, zona o tipo.</span></div></div>`
-        : `<div class="card"><div class="empty">${icon("checkCircle")}<b>Nada pendiente</b><span>Cuando registres un contacto con próximo paso, aparece acá.</span></div></div>`}` : ""}
+        : filtered ? `<div class="card">${emptyState({ icon: "search", title: "Nada con estos filtros", text: "Probá con otra fecha, zona o tipo." })}</div>`
+        : `<div class="card">${emptyState({ icon: "checkCircle", title: "Nada pendiente", text: "Cuando registres un contacto con próximo paso, aparece acá." })}</div>`}` : ""}
   </div>`;
   drawHead();
   const q = s => host.querySelector(s);
@@ -116,7 +128,12 @@ function draw() {
   });
   host.querySelectorAll("[data-school]").forEach(b => b.onclick = () => openSchool(b.dataset.school, { activityId: Number(b.dataset.act) }));
   host.querySelectorAll("[data-record]").forEach(b => b.onclick = () => openRecord(b.dataset.record, { activityId: Number(b.dataset.act) || null }));
-  host.querySelectorAll("[data-done]").forEach(b => b.onclick = () => { b.disabled = true; b.closest(".act")?.setAttribute("aria-busy", "true"); markDone(Number(b.dataset.done), draw); });
+  // el ✓: una llamada, un WhatsApp o un mail con ficha abren Registrar con esa actividad (checkAct de today.js); el resto se cierra acá
+  host.querySelectorAll("[data-done]").forEach(b => b.onclick = () => {
+    const id = Number(b.dataset.done);
+    if (!logsFirst(all.find(a => a.id === id))) { b.disabled = true; b.closest(".act")?.setAttribute("aria-busy", "true"); }
+    checkAct(id, draw);
+  });
   // al reprogramar se actualiza en el momento y se revalida atrás, sin vaciar la lista
   host.querySelectorAll("[data-move]").forEach(b => b.onclick = () => moveMenu(b, Number(b.dataset.move), () => { draw(); refresh(); }));
   host.querySelectorAll("[data-demo]").forEach(b => b.onclick = () => demoResultMenu(b, { id: Number(b.dataset.demo), time: b.dataset.time }, () => { draw(); refresh(); }));

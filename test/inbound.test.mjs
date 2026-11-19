@@ -444,3 +444,15 @@ test("inboundStage: demo realizada, no show y trato perdido después de la demo"
   assert.equal(s({ acts: [meet()], pending: [{ type: "meeting", done: false, due_date: "2026-11-20", owner_id: 2 }] }).key, "demo");
   assert.equal(s({ acts: [] }).key, "new");
 });
+
+// una pendiente con hora llega en UTC: «vencida» se decide en la zona de quien mira
+test("pendiente con hora: vencida según la zona de quien mira", async () => {
+  const { inboundStage } = await import("../lib/inbound.js");
+  const { fromUtc } = await import("../lib/time.js");
+  // 19/11 01:30 UTC = 18/11 19:30 en México: mirando el 19/11 de México, es de ayer
+  const a = { type: "call", done: false, owner_id: 1, due_date: "2026-11-19", due_time: "01:30" };
+  const l = fromUtc(a.due_date, a.due_time, "America/Mexico_City");
+  assert.equal(l.date, "2026-11-18");
+  const g = inboundStage({ state: { status: "done" } }, { items: [], pending: [{ ...a, due_date: l.date, due_time: l.time }], deals: [], ownerId: 1, today: "2026-11-19", users: {}, stages: {} });
+  assert.equal(g.mine.late, true); assert.equal(g.mine.time, "19:30");
+});

@@ -88,10 +88,10 @@ En la ficha, **Mail** arma el mensaje con las plantillas (o con IA) y lo mandás
 
 **Qué configura el administrador: nada.** La app usa el servidor MCP oficial de Pipedrive (`https://mcp.pipedrive.ai/mcp`), que es el que permite mandar mails (la API REST pública no), con el token personal de cada uno (el OAuth de Pipedrive no acepta la vuelta de una app web propia). Solo hace falta `SESSION_SECRET` (ya está). Los tokens de cada persona se guardan cifrados (AES-256-GCM con una clave derivada de `SESSION_SECRET`) y nunca llegan al navegador: si cambia `SESSION_SECRET`, cada uno vuelve a pegar el suyo. En `npm run demo` Pipedrive es simulado: cualquier texto sirve de token y «enviar» guarda el mail en memoria (`GET /api/demo/mail/:id` muestra el mail y lo que quedó en el Pipedrive de prueba).
 
-**Gmail (segunda opción).** Si alguien conectó su Gmail y no su Pipedrive, el mail sale de su Gmail como antes (con `PIPEDRIVE_SMART_BCC`, en copia oculta a Pipedrive). Para ofrecerlo, el administrador configura una vez:
+**Gmail (segunda opción) y «Entrar con Google».** Si alguien conectó su Google y no su Pipedrive, el mail sale de su Gmail como antes (con `PIPEDRIVE_SMART_BCC`, en copia oculta a Pipedrive). Con la misma configuración, la pantalla de entrada muestra **Entrar con Google**: un solo paso que entra a la app y deja conectados el mail, el calendario (libre/ocupado para proponer demos) y las planillas (leer la de un evento en «Cargar base» y crear hojas con las tablas del asistente). Quien entra con su código ve una vez por día el aviso «Conectá tu Google», y en **Tu perfil › Tu Google** está con qué cuenta quedó, qué permisos tiene, y reconectar o desconectar. Para ofrecerlo, el administrador configura una vez:
 
 1. Google Cloud (el mismo proyecto del login): APIs y servicios → Biblioteca → habilitar **Gmail API**.
-2. Pantalla de consentimiento OAuth: tipo **Interno** (solo cuentas @ordereat.com) con los scopes `https://www.googleapis.com/auth/gmail.send`, `https://www.googleapis.com/auth/gmail.settings.basic` (leer la firma y el email principal) y `https://www.googleapis.com/auth/calendar.freebusy` (libre/ocupado del account en «Proponer demo») y `https://www.googleapis.com/auth/spreadsheets.readonly` (leer la planilla privada de un evento en «Cargar base»); habilitar también **Google Calendar API** y **Google Sheets API**.
+2. Pantalla de consentimiento OAuth: tipo **Interno** (solo cuentas @ordereat.com) con los scopes `https://www.googleapis.com/auth/gmail.send`, `https://www.googleapis.com/auth/gmail.settings.basic` (leer la firma y el email principal) y `https://www.googleapis.com/auth/calendar.freebusy` (libre/ocupado del account en «Proponer demo») `https://www.googleapis.com/auth/spreadsheets.readonly` (leer la planilla privada de un evento en «Cargar base») y `https://www.googleapis.com/auth/drive.file` (crear una hoja con una tabla del asistente; la app solo ve los archivos que crea ella); habilitar también **Google Calendar API** y **Google Sheets API**. «Entrar con Google» pide además la identidad (`openid`, `email`, `profile`), que no hay que agregar.
 3. Credenciales → el cliente OAuth **web** que ya usa el login → URIs de redireccionamiento autorizados: `https://orderbrain-sdr.vercel.app/auth/gmail/callback` (y `http://localhost:3000/auth/gmail/callback` para probar).
 4. Vercel → Settings → Environment Variables: `GOOGLE_CLIENT_SECRET` (el secreto de ese cliente). La copia a Pipedrive (Smart BCC) ya va a `ordereat@pipedrivemail.com`; `PIPEDRIVE_SMART_BCC` solo para usar otra dirección (o `off` para no mandarla). Redeploy.
 
@@ -218,7 +218,7 @@ Para probar sin configurar Google, poné `DEV_LOGIN_EMAIL=tu-email@ordereat.com`
 
 ## Acceso del equipo
 
-Cada persona entra con su **código personal** (o con Google si está configurado). Los líderes ven los códigos en Equipo → «Accesos del equipo» y los copian como invitación. El código del equipo (`TEAM_ACCESS_CODE`) sirve solo para líderes. Son líderes el dueño del token de Pipedrive y los emails de `LEADER_EMAILS`. La primera vez la app pide nombre completo y rol (SDR o Account Executive; el rol de líder lo decide el servidor). Los intentos fallidos se frenan por IP y por email.
+Cada persona entra con su **código personal** o, si el servidor tiene `GOOGLE_CLIENT_ID` y `GOOGLE_CLIENT_SECRET`, con **Entrar con Google** (solo cuentas verificadas del dominio; de paso queda conectado su Google: ver «Mail desde la ficha»). Los líderes ven los códigos en Equipo → «Accesos del equipo» y los copian como invitación. El código del equipo (`TEAM_ACCESS_CODE`) sirve solo para líderes. Son líderes el dueño del token de Pipedrive y los emails de `LEADER_EMAILS`. La primera vez la app pide nombre completo y rol (SDR o Account Executive; el rol de líder lo decide el servidor). Los intentos fallidos se frenan por IP y por email.
 
 Para probar contra la cuenta real sin escribir nada, usá `READ_ONLY=1`: todas las escrituras a Pipedrive se bloquean.
 
@@ -245,7 +245,7 @@ Con `CRON_SECRET` en Vercel, el cron diario (`vercel.json`, 08:17 UTC) sigue una
 | `ANTHROPIC_API_KEY` | Clave para el asistente, los briefs, los mensajes y el ordenado de notas | console.anthropic.com → API Keys |
 | `ANTHROPIC_MODEL` | Modelo de Claude (por defecto `claude-sonnet-5-5`) | |
 | `GOOGLE_CLIENT_ID` | ID de cliente OAuth tipo «Aplicación web» | Google Cloud Console → APIs y servicios → Credenciales. Agregar como orígenes autorizados `http://localhost:3000` y la URL de producción |
-| `GOOGLE_CLIENT_SECRET` | Opcional: secreto del mismo cliente OAuth; activa «Enviar» con el Gmail de cada persona como segunda opción (ver «Mail desde la ficha») | Google Cloud Console → Credenciales → el cliente web |
+| `GOOGLE_CLIENT_SECRET` | Opcional: secreto del mismo cliente OAuth; activa «Entrar con Google» en un solo paso (entra y conecta mail, calendario y planillas) y «Enviar» con el Gmail de cada persona como segunda opción (ver «Mail desde la ficha») | Google Cloud Console → Credenciales → el cliente web |
 | `PIPEDRIVE_SMART_BCC` | Opcional: dirección Smart BCC de Pipedrive (por defecto `ordereat@pipedrivemail.com`, la de la cuenta; `off` la apaga); cada mail enviado va en copia oculta y queda en la pestaña de correo | Pipedrive → Configuración personal → Correo |
 | `GMAIL_REDIRECT_URI` | Opcional: fija la URI de vuelta de Gmail si no es `https://<host>/auth/gmail/callback` | |
 | `MAIL_PER_HOUR` | Opcional: tope de mails por persona por hora desde la ficha (por defecto 60) | |
@@ -298,14 +298,16 @@ También funciona en Render o Railway, o con el `Dockerfile` incluido.
 ## Cómo está armado
 
 ```
-server.js              Express: login, API y archivos estáticos
+server.js              Express: login, sesión, permisos y archivos estáticos; monta las rutas de lib/*-api.js
+lib/*-api.js           Rutas por tema (ficha, agenda, equipo, métricas, buscador de zonas, asistente, cuentas conectadas…)
 api/index.js           Entrada para Vercel (reexporta la app)
 lib/config.js          Mercados por país, embudos, campos personalizados y motivos de pérdida
 lib/playbook.js        Resultados de contacto, cadencia, guion, objeciones, plantillas y prioridad
 lib/pipedrive.js       Cliente de la API de Pipedrive (v1 y v2) y cruce colegio ↔ organización
 lib/existing.js        Antes de crear: reglas para saber si el colegio ya está (prospecto, trato u organización)
 lib/pipedrive-demo.js  Pipedrive de prueba en memoria (DEMO_MODE=1)
-lib/sales.js           Ficha, registro de contactos, cola de prioridad, agenda y métricas
+lib/sales.js           Fachada de lib/sales/: ficha, registro de contactos, cola de prioridad, agenda y métricas
+lib/text.js            Utilidades de texto del servidor (minúsculas, sin acentos, escapar HTML, errores con status)
 lib/ai.js              Claude: notas, brief de llamada, mensajes y asistente con herramientas
 lib/aitables.js        Tablas del asistente para exportar, armadas con lo que devolvieron las herramientas
 lib/sheets-export.js   Crear la hoja de Google Sheets directo (apagado hasta tener el cliente OAuth de Google)
@@ -318,7 +320,7 @@ lib/accounts.js        Accounts por país de cada SDR, calendario de cada accoun
 lib/calendar.js        .ics → ocupado (ical.js), huecos, sugerencias y zonas (puro; demo en lib/calendar-demo.js)
 lib/scan.js            Búsqueda en OpenStreetMap compartida por el radar y el buscador de zonas
 scripts/radar.mjs      Radar: busca colegios privados en todas las ciudades (GitHub Actions)
-public/                Frontend sin build: HTML, CSS y módulos JS (mapa con Leaflet)
+public/                Frontend sin build: HTML, CSS y módulos JS (mapa con Leaflet; la ficha en public/js/school/)
 ```
 
 Pipedrive es la fuente de verdad. El cruce colegio ↔ organización dura 7 días y se recalcula solo. El registro local de contactos (`touches.json`) alimenta la cadencia, la meta diaria y el ranking.

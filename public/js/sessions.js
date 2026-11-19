@@ -6,7 +6,7 @@ import { openSchool, openRecord, resumeSession } from "./school.js";
 
 const CH = { call: ["Llamada", "phone"], whatsapp: ["WhatsApp", "whatsapp"], mail: ["Mail", "mail"], visit: ["Visita", "user"] };
 const SKIP = { client: "ya es cliente", churn: "es ex cliente", archived: "está archivado", open: "tiene un trato abierto", owner: "es de otra persona", manual: "lo salteaste", missing: "no se pudo abrir" };
-export const ORIGIN = { today: "Tu agenda y tu cola", zone: "Zona o evento", agenda: "Agenda con filtros", explore: "Prospectar", radar: "Radar", base: "Base cargada", list: "Lista" };
+export const ORIGIN = { today: "Tu agenda y tu cola", zone: "Zona o evento", agenda: "Agenda con filtros", explore: "Prospectar", radar: "Radar", base: "Base cargada", deals: "Tratos que piden atención", list: "Lista" };
 export const END = { terminada: "la terminaste", completa: "se trabajó toda", "reemplazada": "empezaste otra igual", "límite": "había 12 abiertas", inactiva: "30 días sin movimiento", "otro día": "era de otro día" };
 // en la tarjeta de Hoy van las más recientes; el resto, en «Ver las N abiertas»
 const SHOWN = 2;
@@ -47,16 +47,18 @@ export const bar = (v, cls = "") => `<div class="ss-bar ${cls}"><span class="pro
 
 // ---------- tarjeta de Hoy: las 2 más recientes en filas cortas; Ver detalle y Terminar van en el menú «⋯»
 const left = st => (st.pending ? `faltan ${st.pending}` : "no falta nada");
-export function sessionsCard() {
+// skip: la sesión que ya ofrece el botón grande de Hoy («Retomar tu día · faltan 34»): no se repite acá (la tarjeta muestra
+// las otras; si no hay otras ni terminadas, no va)
+export function sessionsCard({ skip = null } = {}) {
   const L = S.sessions; if (!L) return "";
-  const open = L.open || [], done = L.done || [];
+  const all = L.open || [], done = L.done || [], top = skip ? all.find(v => v.id === skip) : null, open = top ? all.filter(v => v !== top) : all;
   if (!open.length && !done.length) return "";
   // la lista entera, las terminadas, editar y borrar: en la vista Sesiones (#/sesiones)
-  const links = [`<a class="linkbtn" href="#/sesiones" data-ss-tab="activas" data-focus-key="ssAll">${open.length > SHOWN ? `Ver las ${open.length} abiertas` : "Ver todas"}</a>`,
+  const links = [`<a class="linkbtn" href="#/sesiones" data-ss-tab="activas" data-focus-key="ssAll">${all.length > SHOWN ? `Ver las ${all.length} abiertas` : "Ver todas"}</a>`,
     done.length && `<a class="linkbtn" href="#/sesiones" data-ss-tab="terminadas" data-focus-key="ssDone">Terminadas (${done.length})</a>`].filter(Boolean);
   return `<section class="card ss-card" aria-labelledby="hSs">
-    <div class="card-h"><h2 id="hSs">${icon("play")} Sesiones activas</h2><span class="sub">${open.length ? `${open.length} abierta${open.length > 1 ? "s" : ""}` : "ninguna abierta"}</span></div>
-    <div class="card-b">${open.length ? open.slice(0, SHOWN).map(mini).join("") : `<p class="muted ss-empty">No tenés sesiones abiertas.</p>`}
+    <div class="card-h"><h2 id="hSs">${icon("play")} ${top ? "Otras sesiones" : "Sesiones activas"}</h2><span class="sub">${open.length ? `${open.length} ${top ? "más " : ""}abierta${open.length > 1 ? "s" : ""}` : top ? "la de arriba es la única abierta" : "ninguna abierta"}</span></div>
+    <div class="card-b">${open.length ? open.slice(0, SHOWN).map(mini).join("") : top ? "" : `<p class="muted ss-empty">No tenés sesiones abiertas.</p>`}
       <div class="ss-links">${links.join("")}</div></div>
   </section>`;
 }
@@ -151,7 +153,7 @@ export async function sessionDetail(id, redraw, anchor) {
     ${bar(v)}
     ${v.summary ? `<p style="margin:0">${esc(v.summary)}</p>` : ""}
     <div class="ss-items">${sec("Trabajados", worked)}${sec("Salteados", skipped)}<div id="sdPend">${sec("Faltan", pending, 20)}</div></div>
-    ${open && pending.length ? `<p class="faint" style="margin:0;font-size:12.5px">Tocá uno de los que faltan para seguir la sesión desde ahí.</p>` : ""}
+    ${open && (pending.length || skipped.length) ? `<p class="faint" style="margin:0;font-size:var(--fs-sm)">Tocá uno de los que ${[pending.length && "faltan", skipped.length && "se saltearon"].filter(Boolean).join(" o ")} para seguir la sesión desde ahí.</p>` : ""}
     <div class="row">${open ? `<button class="btn ghost" id="sdEnd">Terminar</button>` : `<button class="btn ghost" id="sdOpen">Reabrir</button>`}${open && v.resume >= 0 ? `<button class="btn primary" id="sdGo">${icon("play", "sm")} Retomar</button>` : ""}</div>`, { onClose: () => anchor?.isConnected && anchor.focus() });
   m.querySelector(".modal-box").classList.add("ss-modal");
   m.querySelector("#sdX").onclick = () => m.close();
@@ -159,10 +161,11 @@ export async function sessionDetail(id, redraw, anchor) {
   m.querySelector("#sdGo")?.addEventListener("click", () => { m.close(); resumeSession(v.id); });
   m.querySelector("#sdEnd")?.addEventListener("click", () => { m.close(); endSession(v.id, redraw, anchor); });
   m.querySelector("#sdOpen")?.addEventListener("click", async () => { m.close(); await reopenSession(v.id, redraw); });
-  // lo que falta (en una sesión abierta) sigue la sesión desde ahí; lo demás abre la ficha sola
+  // lo que falta o se salteó (en una sesión abierta) sigue la sesión desde ahí (un salteado no se vuelve a saltear solo:
+  // resumeSession lo abre y queda en la sesión); lo ya trabajado, y todo en una terminada, abre la ficha sola
   const bindItems = () => m.querySelectorAll("[data-it]").forEach(b => b.onclick = () => {
     const i = Number(b.dataset.it), it = v.items[i]; m.close();
-    if (open && b.dataset.st === "pending") return resumeSession(v.id, { at: i });
+    if (open && ["pending", "skipped"].includes(b.dataset.st)) return resumeSession(v.id, { at: i });
     if (/^(lead|org|bx):/.test(it.ref)) return openRecord(it.ref);
     if (S.byId.has(it.ref)) return openSchool(it.ref);
     const sid = (by.get(it.ref) || []).find(s => s.schoolId)?.schoolId;
