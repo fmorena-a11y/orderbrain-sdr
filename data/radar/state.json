@@ -7465,7 +7465,10 @@
   "ES|n1470838440": "2026-11-19T09:39:54.354Z",
   "EC|n249429504": "2026-11-19T11:17:45.906Z",
   "CO|n703208388": "2026-11-19T11:23:36.636Z",
-  "CL|Talagante": "2026-11-19T11:30:18.137Z"
+  "CL|Talagante": "2026-11-19T11:30:18.137Z",
+  "MX|Puerto Peñasco": "2026-11-19T13:38:08.275Z",
+  "MX|Acámbaro": "2026-11-19T13:45:44.497Z",
+  "ES|n306620052": "2026-11-19T13:48:10.037Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7600,6 +7603,43 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-19T13:37:37.202Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Puerto Peñasco",
+     "found": 1,
+     "updated": 0,
+     "osm": 5
+    },
+    {
+     "cc": "MX",
+     "city": "Acámbaro",
+     "found": 0,
+     "updated": 0,
+     "osm": 0
+    },
+    {
+     "cc": "ES",
+     "city": "Pinto",
+     "found": 0,
+     "updated": 0,
+     "osm": 26
+    }
+   ],
+   "added": 1,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "MX|Valladolid: sin tiempo en esta corrida"
+   ],
+   "minutes": 19.1,
+   "total": 22836
+  },
   {
    "at": "2026-11-19T11:17:13.612Z",
    "cities": [
@@ -9737,41 +9777,6 @@
    "errors": [],
    "minutes": 17,
    "total": 21449
-  },
-  {
-   "at": "2026-11-15T16:57:13.565Z",
-   "cities": [
-    {
-     "cc": "PE",
-     "city": "Andahuaylas",
-     "found": 7,
-     "updated": 0,
-     "osm": 69
-    },
-    {
-     "cc": "PA",
-     "city": "Penonomé",
-     "found": 9,
-     "updated": 0,
-     "osm": 20
-    },
-    {
-     "cc": "CO",
-     "city": "Acacías",
-     "found": 25,
-     "updated": 0,
-     "osm": 58
-    }
-   ],
-   "added": 41,
-   "enriched": 0,
-   "photos": 1,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 15.9,
-   "total": 21420
   }
  ]
 }

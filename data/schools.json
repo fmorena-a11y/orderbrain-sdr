@@ -462213,5 +462213,27 @@
   "src": "osm",
   "osm": "w1468810070",
   "found": "2026-11-19"
+ },
+ {
+  "id": "puerto-penasco-universidad-tecnologica-de-puerto-penasco-utpp",
+  "name": "Universidad Tecnologica de Puerto Peñasco UTPP",
+  "city": "Puerto Peñasco",
+  "country": "México",
+  "lat": 31.349318,
+  "lng": -113.504259,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w687162934",
+  "found": "2026-11-19"
  }
 ]
