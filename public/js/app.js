@@ -1,5 +1,5 @@
 // OrderBrain SDR · arranque, navegación, cuenta, búsqueda rápida y atajos.
-import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, statusPill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo, modal, toast, brainTokenMsg, digits, recentSearches, rememberSearch } from "./core.js";
+import { $, S, api, esc, norm, icon, hydrateIcons, setSchools, setUnauthorized, initials, pill, statusPill, closeMenu, openMenu, isDark, applyTheme, save, loadPref, lastUndo, modal, toast, brainTokenMsg, digits, recentSearches, rememberSearch, myRole } from "./core.js";
 import { renderToday } from "./today.js";
 import { renderExplore } from "./explore.js";
 import { renderAgenda } from "./agenda.js";
@@ -34,7 +34,16 @@ const VIEWS = {
 // Métricas: solo líderes y dirección (S.profile.leader; el servidor también corta con 403)
 const LEADER_ONLY = new Set(["metricas"]);
 // Tus inbound: todos menos los Account Executive
-const views = () => Object.entries(VIEWS).filter(([k]) => (!LEADER_ONLY.has(k) || S.profile?.leader) && (k !== "inbound" || S.me?.role !== "ae"));
+// El menú en el orden de cada rol (myRole de core.js): un account, sus tratos primero; un líder, su equipo y las métricas.
+// Nadie pierde una vista: solo cambia el orden (Métricas sigue siendo de líderes y Tus inbound no va para un account).
+const MENU = {
+  sdr: ["hoy", "sesiones", "prospectar", "tratos", "agenda", "radar", "base", "equipo", "metricas", "inbound"],
+  ae: ["hoy", "tratos", "sesiones", "agenda", "equipo", "prospectar", "radar", "base", "metricas", "inbound"],
+  lider: ["hoy", "equipo", "metricas", "tratos", "sesiones", "prospectar", "agenda", "inbound", "radar", "base"],
+};
+const views = () => { const order = MENU[myRole()] || MENU.sdr;
+  return Object.entries(VIEWS).filter(([k]) => (!LEADER_ONLY.has(k) || S.profile?.leader) && (k !== "inbound" || S.me?.role !== "ae"))
+    .sort((a, b) => (order.indexOf(a[0]) + 1 || 99) - (order.indexOf(b[0]) + 1 || 99)); };
 const show = id => { for (const x of ["boot", "login", "app"]) $(x).hidden = x !== id; };
 
 // ---------- login

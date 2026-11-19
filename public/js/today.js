@@ -1,5 +1,5 @@
 // Hoy: meta del día, agenda propia y a quién contactar ahora.
-import { S, api, esc, icon, potTag, save, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg, brainTokenCallout, matchZone, zoneOptions, ZONE_KIND, workOrder, norm, callPill, callQueue, hotRows, demoDue, archivedRef, archivedAct } from "./core.js";
+import { S, api, esc, icon, potTag, save, homeMode, homeSwitchHtml, bindHomeSwitch, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg, brainTokenCallout, matchZone, zoneOptions, ZONE_KIND, workOrder, norm, callPill, callQueue, hotRows, demoDue, archivedRef, archivedAct } from "./core.js";
 import { openSchool, openRecord, startSession, resumeSession } from "./school.js";
 import { setBadge, baseErrorCallout } from "./app.js";
 import { loadSessions, sessionsCard, bindSessionsCard } from "./sessions.js";
@@ -35,7 +35,20 @@ let hotSeq = 0;
 function loadHot() { const my = ++hotSeq; api("/api/hot").then(r => { if (my === hotSeq) { hotLeads = r.items || []; if (host?.isConnected) draw(); } }).catch(() => { if (my === hotSeq) { hotLeads = hotLeads || []; if (host?.isConnected) draw(); } }); }
 function syncBadge() { const t = today(); setBadge("hoy", (S.today?.activities.items || []).filter(a => localAct(a).date <= t).length); }
 
+// «Hoy» según quién entra (homeMode de core.js): un líder ve el panel de su equipo (leadhome.js), un account sus tratos y
+// tareas (aehome.js) y un SDR la prospección de siempre. Si el módulo del rol no carga, queda el Hoy de siempre.
 export function renderToday(el) {
+  const mode = homeMode();
+  if (mode === "lead" || mode === "ae") {
+    host = el; const mod = mode === "lead" ? "./leadhome.js" : "./aehome.js";
+    el.innerHTML = skeleton();
+    import(mod).then(m => { if (host === el && homeMode() === mode) m.renderHome(el, () => renderToday(el)); })
+      .catch(() => { if (host === el) renderSdrToday(el); });
+    return;
+  }
+  renderSdrToday(el);
+}
+function renderSdrToday(el) {
   host = el; showAll = false; hotAll = false; loadHot();
   if (!S.today) { el.innerHTML = skeleton(); loadToday().then(() => host === el && draw()).catch(e => host === el && drawError(e)); }
   else { draw(); loadToday().then(() => host === el && draw()).catch(e => toast(`No pudimos actualizar tu día: ${e.message}`, { type: "err", action: { label: "Reintentar", fn: () => renderToday(el) } })); }
@@ -73,6 +86,7 @@ function draw() {
   const hot = hotRows((activities.items || []).filter(a => !archivedAct(a)), (hotLeads || []).filter(l => !archivedRef(l.schoolId || l.record)), t), hotList = hotAll ? hot : hot.slice(0, 6);
 
   host.innerHTML = `<div class="page">
+    ${homeSwitchHtml()}
     ${baseErrorCallout()}
     <div id="inbNote"></div>
     ${S.demo ? `<div class="callout warn" style="margin-bottom:16px">${icon("alert")}<span><b>Modo demo.</b> Pipedrive todavía no está conectado: la agenda, los tratos y las notas que ves son de prueba. Los colegios y los clientes de World Dominion sí son reales.</span></div>` : ""}
@@ -116,6 +130,7 @@ function draw() {
 
   host.querySelector("#go")?.addEventListener("click", () => startSession());
   host.querySelector("#resume")?.addEventListener("click", () => resumeSession(last.id));
+  bindHomeSwitch(host, () => renderToday(host));
   bindSessionsCard(host, () => host?.isConnected && draw());
   inboundNotice(host.querySelector("#inbNote")); // «Tenés N inbound nuevos · Ver»
   host.querySelector("#terr").onclick = territoryPicker;

@@ -20,6 +20,26 @@ export const S = {
 function load(k, d) { try { const v = localStorage.getItem("ob." + k); return v ? JSON.parse(v) : d; } catch { return d; } }
 export function save(k, v) { try { localStorage.setItem("ob." + k, JSON.stringify(v)); } catch {} }
 export const loadPref = load;
+// ---------- cada rol entra a lo suyo (pedido del líder de SDR: «a los accounts, sus propias sesiones y enfocarte en los
+// tratos… separando lo que es un SDR o un account, y a los líderes su propia interfaz»). homeMode(): qué «Hoy» ve quien entró:
+// "lead" (panel de su equipo), "ae" (sus tratos y tareas) o "sdr" (prospección, como siempre). Un líder puede pasar a su
+// propio trabajo («Mi trabajo») y volver; se recuerda en este navegador (home.mode).
+export const myRole = () => S.profile?.leader ? "lider" : S.me?.role === "ae" ? "ae" : "sdr";
+export function homeMode() {
+  const r = myRole(), pref = load("home.mode", null);
+  if (r === "lider") return pref === "sdr" || pref === "ae" ? pref : "lead";
+  return r;
+}
+export const HOME_LABEL = { lead: "Mi equipo", sdr: "Prospección", ae: "Mis tratos" };
+// el selector de arriba de «Hoy» (solo líderes: su equipo, o su propio trabajo como SDR o como account)
+export function homeSwitchHtml() {
+  if (myRole() !== "lider") return "";
+  const m = homeMode();
+  return `<div class="seg home-switch" role="radiogroup" aria-label="Qué ver en Hoy">${Object.entries(HOME_LABEL).map(([k, l]) => `<button type="button" role="radio" data-home="${k}" aria-checked="${m === k}" aria-pressed="${m === k}">${l}</button>`).join("")}</div>`;
+}
+export function bindHomeSwitch(root, rerender) {
+  root.querySelectorAll("[data-home]").forEach(b => b.onclick = () => { if (homeMode() === b.dataset.home) return; save("home.mode", b.dataset.home); rerender(); });
+}
 
 // ---------- historial de búsquedas (Prospectar y Ctrl K), en este navegador: las 10 últimas, sin repetir.
 // kind: "q" (texto: colegio, teléfono, email, persona) o "place" (un lugar que se ubicó en el mapa)

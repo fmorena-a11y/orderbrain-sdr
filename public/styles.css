@@ -1729,3 +1729,6 @@ button.dl-kpi[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offs
 
 .d-addr.edit { gap: 8px; }
 .d-addr.edit .inp { flex: 1 1 240px; min-width: 0; height: 32px; }
+
+/* Hoy según el rol: el selector del líder (su equipo o su propio trabajo) */
+.home-switch { margin: 0 0 16px; }
