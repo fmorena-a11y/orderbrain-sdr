@@ -635,6 +635,17 @@ function markClass() {
   Mark = L.CircleMarker.extend({
     _updatePath() {
       const sh = this.options.shape, r = this._renderer;
+      if (sh === "city" && r._ctx) {
+        // ciudad: círculo con el número adentro, en el canvas (antes era un elemento por ciudad y trababa el mapa al moverlo)
+        if (!r._drawing || this._empty()) return;
+        const p = this._point, ctx = r._ctx, k = this._radius, o = this.options;
+        ctx.save(); ctx.shadowColor = "rgba(0,0,0,.3)"; ctx.shadowBlur = 6; ctx.shadowOffsetY = 2;
+        ctx.beginPath(); ctx.arc(p.x, p.y, k, 0, Math.PI * 2); ctx.fillStyle = o.fillColor; ctx.fill(); ctx.restore();
+        if (o.ring) { ctx.beginPath(); ctx.arc(p.x, p.y, k + 1.5, 0, Math.PI * 2); ctx.lineWidth = 1.5; ctx.strokeStyle = "#fff"; ctx.stroke(); }
+        ctx.beginPath(); ctx.arc(p.x, p.y, k - o.weight / 2, 0, Math.PI * 2); ctx.lineWidth = o.weight; ctx.strokeStyle = o.color; ctx.stroke();
+        ctx.fillStyle = o.ink; ctx.font = `700 11px ${o.font}`; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(o.label, p.x, p.y + 0.5);
+        return;
+      }
       if ((sh !== "d" && sh !== "dr" && sh !== "q" && sh !== "x") || !r._ctx) return L.CircleMarker.prototype._updatePath.call(this);
       if (!r._drawing || this._empty()) return;
       const p = this._point, ctx = r._ctx, k = this._radius;
@@ -683,11 +694,14 @@ function drawMap({ fit = true } = {}) {
   const refit = fit && view !== lastView; lastView = view;
   const grouped = placeGrouped();
   if ((!E.city && !E.q && !placeMode()) || grouped) {
+    const cc = { pros: cssVar("--city-pros"), ink: cssVar("--city-pros-ink"), unk: cssVar("--city-unk"), none: cssVar("--city-none"), surface: cssVar("--surface") || "#fff", text: cssVar("--ink") || "#111", font: getComputedStyle(document.body).fontFamily || "sans-serif" };
     cityGroups().forEach(c => {
       const lat = c.items.reduce((a, s) => a + s.lat, 0) / c.items.length, lng = c.items.reduce((a, s) => a + s.lng, 0) / c.items.length;
       const pros = c.items.filter(s => ["new", "org", "stalled", "lost"].includes(s.status) && !othersOwn(s)).length, unk = c.items.filter(s => s.status === "unk").length;
       const n = pros || unk || c.items.length, kind = pros ? "pros" : unk ? "unk" : "none", size = Math.min(56, 24 + Math.sqrt(n) * 3);
-      L.marker([lat, lng], { icon: L.divIcon({ className: "", iconSize: [size, size], html: `<div class="citydot ${kind}" style="width:${size}px;height:${size}px">${n > 999 ? Math.round(n / 1000) + "k" : n}</div>` }), title: c.city, keyboard: true })
+      const label = n > 999 ? Math.round(n / 1000) + "k" : String(n);
+      const st = kind === "pros" ? { fillColor: cc.pros, ink: cc.ink, color: "#fff", weight: 2 } : kind === "unk" ? { fillColor: cc.surface, ink: cc.text, color: cc.unk, weight: 3, ring: true } : { fillColor: cc.none, ink: "#fff", color: "#fff", weight: 2 };
+      new Mark([lat, lng], { renderer: canvas, shape: "city", radius: size / 2, fillOpacity: 1, label, font: cc.font, ...st })
         .on("click", () => openCity(c.country, c.city)).bindTooltip(esc(`${c.city}: ${pros ? `${pros} para llamar` : unk ? `${unk} sin revisar` : "sin colegios para llamar"}`)).addTo(layer);
       pts.push([lat, lng]);
     });
@@ -767,12 +781,19 @@ function toggleBrain() {
   showBrain = !showBrain; try { localStorage.setItem("ob.brain", showBrain ? "1" : "0"); } catch {}
   showBrain ? brainLayer.addTo(map) : brainLayer.remove(); paintBrainBtn();
 }
+// en su propio canvas (un panel arriba de los colegios): eran 700 elementos sueltos que trababan el mapa al moverlo
+let brainCanvas = null;
 function drawBrain() {
   if (!brainLayer) return; brainLayer.clearLayers();
+  if (!brainCanvas || brainCanvas._map !== map) {
+    if (!map.getPane("brainPane")) { map.createPane("brainPane"); map.getPane("brainPane").style.zIndex = 450; }
+    brainCanvas = L.canvas({ padding: 0.3, pane: "brainPane" });
+  }
+  const surface = cssVar("--surface") || "#fff";
   for (const x of S.brain?.sites || []) {
-    const ph = x.churn ? "churn" : { Active: "activo", Onboarding: "onboarding", Closed: "cerrado" }[x.status] || "activo";
-    const html = ph === "churn" ? `<div class="ob-site churn" aria-hidden="true"></div>` : `<div class="ob-site" style="background:var(${PH[ph].c})" aria-hidden="true"></div>`;
-    L.marker([x.lat, x.lng], { icon: L.divIcon({ className: "", iconSize: [16, 16], html }), zIndexOffset: 500, keyboard: false })
+    const ph = x.churn ? "churn" : { Active: "activo", Onboarding: "onboarding", Closed: "cerrado" }[x.status] || "activo", col = cssVar(PH[ph].c);
+    const o = ph === "churn" ? { shape: "dr", radius: 8, color: col, weight: 3, fillColor: surface } : { shape: "d", radius: 9, color: "#fff", weight: 2, fillColor: col };
+    new Mark([x.lat, x.lng], { renderer: brainCanvas, pane: "brainPane", fillOpacity: 1, ...o })
       .bindTooltip(esc(`${x.name}${x.client && x.client !== x.name ? ` (${x.client})` : ""} · ${x.churn ? (x.label === "Churn" ? "Churn: era cliente activo" : `${x.label}`) : `${x.label}: cliente de OrderEAT, no contactar`}`))
       .on("click", () => { if (x.schoolId && S.byId.has(x.schoolId)) openSchool(x.schoolId); })
       .addTo(brainLayer);

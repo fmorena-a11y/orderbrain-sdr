@@ -51,7 +51,7 @@ export function bindAddr(s) {
 export async function openRecord(ref, opts = {}) {
   const [kind, rid] = String(ref).split(/:(.*)/s), ss = S.session;
   try {
-    const r = await api(`/api/records/${kind}/${encodeURIComponent(rid)}`); patchSchool(r);
+    const r = (await takeRecord(ref)) || await api(`/api/records/${kind}/${encodeURIComponent(rid)}`); patchSchool(r);
     if (opts.keepSession && (S.session !== ss || ss?.ids[ss.i] !== ref)) return; // la sesión siguió mientras cargaba
     return openSchool(r.id, opts);
   } catch (e) {
@@ -75,13 +75,29 @@ export function prefetchSchool(id) {
   PF.set(id, { at: Date.now(), p: api(`/api/schools/${encodeURIComponent(id)}`).catch(() => null) });
   if (PF.size > 12) PF.delete(PF.keys().next().value);
 }
+// un prospecto u organización de Pipedrive (lead:… / org:…, filas de Hoy y Agenda): primero su ficha y, encadenado, sus datos
+const PFR = new Map();
+export function prefetchRecord(ref) {
+  if (!/^(lead|org):./.test(ref || "")) return;
+  const hit = PFR.get(ref); if (hit && Date.now() - hit.at < PF_MS) return;
+  const [kind, rid] = String(ref).split(/:(.*)/s);
+  const p = api(`/api/records/${kind}/${encodeURIComponent(rid)}`).then(r => { if (r?.id) { patchSchool(r); prefetchSchool(r.id); } return r; }).catch(() => null);
+  PFR.set(ref, { at: Date.now(), p }); if (PFR.size > 12) PFR.delete(PFR.keys().next().value);
+}
+function takeRecord(ref) { const hit = PFR.get(ref); PFR.delete(ref); return hit && Date.now() - hit.at < PF_MS ? hit.p : null; }
+// las primeras filas de una lista (Hoy): se adelantan solas, de a una, sin apurar al servidor
+export function prefetchFirst(root, n = 3) {
+  const els = [...(root?.querySelectorAll?.("[data-school], [data-record]") || [])].slice(0, n);
+  els.forEach((el, i) => setTimeout(() => { if (el.isConnected) el.dataset.school ? prefetchSchool(el.dataset.school) : prefetchRecord(el.dataset.record); }, 600 + i * 700));
+}
 function takePrefetch(id) { const hit = PF.get(id); PF.delete(id); return hit && Date.now() - hit.at < PF_MS ? hit.p : null; }
-addEventListener("ob:wrote", () => PF.clear());
-const pfId = el => { const r = el?.closest?.("[data-school], [data-id]"); const id = r?.dataset.school || r?.dataset.id; return id && S.byId.has(id) ? id : null; };
+addEventListener("ob:wrote", () => { PF.clear(); PFR.clear(); });
+const pfId = el => { const r = el?.closest?.("[data-school], [data-id], [data-record]"); if (!r) return null; if (r.dataset.record) return r.dataset.record; const id = r.dataset.school || r.dataset.id; return id && S.byId.has(id) ? id : null; };
+const pfGo = id => id && (/^(lead|org):/.test(id) ? prefetchRecord(id) : prefetchSchool(id));
 let pfT = 0;
-document.addEventListener("pointerover", e => { const id = pfId(e.target); clearTimeout(pfT); if (id) pfT = setTimeout(() => prefetchSchool(id), 200); }, { passive: true });
-document.addEventListener("pointerdown", e => prefetchSchool(pfId(e.target)), { passive: true, capture: true });
-document.addEventListener("focusin", e => { const id = pfId(e.target); if (id) prefetchSchool(id); });
+document.addEventListener("pointerover", e => { const id = pfId(e.target); clearTimeout(pfT); if (id) pfT = setTimeout(() => pfGo(id), 200); }, { passive: true });
+document.addEventListener("pointerdown", e => pfGo(pfId(e.target)), { passive: true, capture: true });
+document.addEventListener("focusin", e => pfGo(pfId(e.target)));
 export function openAt(ss, i, { stay = false } = {}) {
   ss.i = i; savePos(ss); const r = ss.ids[i];
   // el que sigue en la sesión ya se va pidiendo mientras trabajás este

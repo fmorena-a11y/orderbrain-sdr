@@ -7,5 +7,5 @@
 //  · prep: Preparar, «Ya hay algo parecido en Pipedrive», «Es esta» y fusionar · register: Registrar y atajos de teclado
 //  · history: Historial, resumen para la próxima llamada, tu trato · messages: WhatsApp y mail con plantillas
 export { drawerOpen, currentSchoolId } from "./school/state.js";
-export { openRecord, openSchool, closeSchool, resumeSession } from "./school/open.js";
+export { openRecord, openSchool, closeSchool, resumeSession, prefetchFirst } from "./school/open.js";
 export { useSession, startSession } from "./school/session.js";

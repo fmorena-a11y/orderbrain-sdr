@@ -1,6 +1,6 @@
 // Hoy: meta del día, agenda propia y a quién contactar ahora.
 import { S, api, esc, icon, potTag, homeMode, homeSwitchHtml, bindHomeSwitch, patchSchool, today, addDays, nextBusinessDay, localAct, shortDay, TYPE_ICON, toast, openMenu, modal, cap, brainStaleMsg, brainTokenCallout, matchZone, zoneOptions, ZONE_KIND, workOrder, norm, callPill, callQueue, hotRows, demoDue, archivedRef, archivedAct, cleanTitle, subjectSansName, titleTag, territoryChosen, setTerritory, emptyState } from "./core.js";
-import { openSchool, openRecord, startSession, resumeSession } from "./school.js";
+import { openSchool, openRecord, startSession, resumeSession, prefetchFirst } from "./school.js";
 import { setBadge, baseErrorCallout } from "./app.js";
 import { loadSessions, sessionsCard, bindSessionsCard } from "./sessions.js";
 import { inboundNotice } from "./inbound.js";
@@ -172,6 +172,7 @@ function draw() {
   host.querySelector("#hotMore")?.addEventListener("click", () => { hotAll = !hotAll; draw(); });
   host.querySelectorAll("[data-school]").forEach(b => b.onclick = () => openSchool(b.dataset.school, { activityId: b.dataset.act ? Number(b.dataset.act) : null }));
   host.querySelectorAll("[data-record]").forEach(b => b.onclick = () => openRecord(b.dataset.record, { activityId: Number(b.dataset.act) || null }));
+  prefetchFirst(host); // las primeras filas se adelantan solas: abrirlas es casi instantáneo (school/open.js)
   host.querySelectorAll("[data-done]").forEach(b => b.onclick = () => checkAct(Number(b.dataset.done)));
   host.querySelectorAll("[data-move]").forEach(b => b.onclick = () => moveMenu(b, Number(b.dataset.move)));
   host.querySelectorAll("[data-demo]").forEach(b => b.onclick = () => demoResultMenu(b, { id: Number(b.dataset.demo), time: b.dataset.time }));
