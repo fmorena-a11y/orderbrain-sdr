@@ -411,6 +411,52 @@ textarea.inp { min-height: 88px; resize: vertical; line-height: 1.45; }
 .d-foot { flex: none; background: var(--surface); border-top: 1px solid var(--line); padding: 12px 20px calc(12px + env(safe-area-inset-bottom)); display: flex; gap: 12px; align-items: center; z-index: 3; }
 .d-foot .sum { flex: 1; font-size: 13px; color: var(--muted); min-width: 0; }
 .d-foot #save { flex: none; }
+/* ---- Ficha más simple (pedido del líder: «más simple y más linda de usar para un SDR, sin perder nada»): arriba Llamar,
+   WhatsApp, Mail, «Demo ▾» y «Más ▾»; una sola línea de estado de Pipedrive; en Registrar los resultados primero y la
+   apertura en una línea; Preguntas, «Si te dice…» y Cierre plegables; en las ventanas de mensaje, el mensaje primero */
+.d-actions .btn > .ico.sm:last-child { opacity: .7; margin-left: -2px; }
+.no-phone { display: inline-flex; align-items: center; gap: 5px; align-self: center; font-size: 12.5px; color: var(--faint); }
+.d-body > p.demo-note { display: flex; gap: 6px; align-items: center; margin: 0 0 12px; font-size: 12.5px; color: var(--warn); }
+.d-body > p.demo-note .ico { flex: none; }
+.pd-line { display: flex; gap: 8px; align-items: center; padding: 9px 12px; border-radius: 10px; background: var(--surface-2); font-size: 13.5px; color: var(--ink-2); }
+.pd-line > .ico { flex: none; color: var(--ok); }
+.pd-line.ask > .ico { color: var(--info); }
+.pd-line > span { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.pd-line .btn { flex: none; }
+.reg-line { display: flex; gap: 6px; align-items: flex-start; margin: 0; padding: 0 4px; font-size: 13.5px; color: var(--info); }
+.reg-line .ico { flex: none; margin-top: 3px; }
+.call-dur > span { min-width: 0; }
+.cb-line { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); padding: 0 12px; }
+.cb-line > summary { display: flex; align-items: baseline; gap: 8px; padding: 9px 2px; cursor: pointer; list-style: none; font-size: 13.5px; min-width: 0; }
+.cb-line > summary::-webkit-details-marker { display: none; }
+.cb-line > summary .cb-k { display: inline; margin: 0; flex: none; }
+.cb-line .cb-one { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--ink-2); }
+.cb-line .cb-see { flex: none; font-size: 13px; }
+.cb-line .cb-see::after { content: "Ver"; }
+.cb-line[open] .cb-see::after { content: "Ocultar"; }
+.cb-line[open] .cb-one { visibility: hidden; }
+.cb-line[open] { padding-bottom: 10px; }
+.cb-line .cb-src { display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; }
+.cb-grp + .cb-grp { margin-top: 8px; }
+.cb-grp .cb-from { padding-left: 18px; margin-top: 2px; }
+details.sec.fold > summary { cursor: pointer; list-style: none; }
+details.sec.fold > summary::-webkit-details-marker { display: none; }
+details.sec.fold > summary h3 { margin: 0; }
+details.sec.fold[open] > summary h3 { margin-bottom: 10px; }
+.fold-n { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-weight: 500; font-size: 12.5px; flex: none; }
+.fold-n .n { background: var(--surface-2); border-radius: 999px; padding: 0 7px; }
+.fold-n .ico { transition: transform .15s; }
+details.sec.fold[open] .fold-n .ico { transform: rotate(180deg); }
+.btn.wa.main, :root[data-theme="dark"] .btn.wa.main { background: #0E7A3B; border-color: #0E7A3B; color: #fff; }
+.btn.wa.main:hover, :root[data-theme="dark"] .btn.wa.main:hover { background: #0B6631; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn.wa.main { background: #0E7A3B; border-color: #0E7A3B; color: #fff; } }
+.m-ai { display: grid; gap: 8px; }
+.m-ai-t { justify-self: start; display: inline-flex; gap: 5px; align-items: center; font-size: 13px; }
+#tlSec { scroll-margin-top: 10px; }
+.oc-step { scroll-margin-bottom: 12px; }
+@media (max-width: 899px), (max-height: 699px) { #tlSec { scroll-margin-top: 104px; } .oc-step { scroll-margin-bottom: 110px; } }
+@media (max-width: 560px) { .pd-line { align-items: flex-start; } .pd-line > .ico { margin-top: 3px; } .no-phone { flex: 1 1 100%; } }
+/* ---- fin de «Ficha más simple» */
 @media (max-width: 899px) { .drawer { width: 100vw; box-shadow: none; } .scrim { display: none; } }
 @media (max-width: 899px), (max-height: 699px) {
   .drawer { overflow-y: auto; overscroll-behavior: contain; }
@@ -1262,7 +1308,6 @@ details.tl-body p { margin: 6px 0 0; padding: 10px 12px; border-radius: 10px; ba
 .cb-origin .ico { flex: none; margin-top: 2px; color: var(--accent-ink); }
 .cb-origin blockquote, .tl-msg { margin: 6px 0 0; padding: 4px 10px; border-left: 3px solid var(--line-2); white-space: pre-wrap; overflow-wrap: anywhere; color: var(--ink-2); font-size: 13.5px; }
 .cb-noted { margin: 10px 0 0; font-size: 14px; color: var(--ink-2); overflow-wrap: anywhere; }
-.cb-log .cb-src { display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; }
 .cb-cold .btn { flex: none; margin-left: auto; }
 /* lo de una organización con el mismo nombre y sin ciudad: está, pero no entra en el resumen */
 .tl-aside { opacity: .78; }
