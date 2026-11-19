@@ -114,7 +114,7 @@ async function soda(id, params) {
   for (let off = 0; ; off += 50000) {
     const q = new URLSearchParams({ ...params, $limit: "50000", $offset: String(off), $order: ":id" });
     const page = JSON.parse((await get(`${SODA}/${id}.json?${q}`, { headers: env.SOCRATA_APP_TOKEN ? { "X-App-Token": env.SOCRATA_APP_TOKEN } : {} })).toString("utf8"));
-    out.push(...page);
+    for (const x of page) out.push(x);
     if (page.length < 50000) return out;
   }
 }
@@ -161,7 +161,7 @@ async function mxRows() {
   const pick = nat.length ? [nat[0]] : res;
   log(`SEP: ${pick.length} archivo(s) del catálogo`);
   const rows = [];
-  for (const r of pick) rows.push(...parse(await cached("mx-" + path.basename(new URL(r.url).pathname), () => get(r.url)), r.url));
+  for (const r of pick) for (const x of parse(await cached("mx-" + path.basename(new URL(r.url).pathname), () => get(r.url)), r.url)) rows.push(x);
   return rows;
 }
 
