@@ -11,7 +11,7 @@ import { openAssistant, closeAssistant } from "./chat.js";
 import { loadGmail, gmailReturn } from "./gmail.js";
 import { googleLoginHtml, googleBack, googleNotice, hideGoogleNote, drawGoogleProfile } from "./google.js";
 import { loadPdMail, mailProfileHtml, bindMailProfile, resetSigMode } from "./pdmail.js";
-import { pdSearcher, pdFlat, pdTitle, pdLinesHtml, pdBadge, pdCount, pdNameHit, openPd, isPhoneQ, isMailQ, PD_MIN, pdLinkOf, openPdLink } from "./pdsearch.js";
+import { pdSearcher, pdFlat, pdTitle, pdLinesHtml, pdBadge, pdCount, pdNameHit, mineBest, openPd, isPhoneQ, isMailQ, PD_MIN, pdLinkOf, openPdLink } from "./pdsearch.js";
 import { profileExtrasHtml, bindProfileExtras } from "./accounts.js";
 import { renderBase } from "./base.js";
 import { renderInbound, slackDialog } from "./inbound.js";
@@ -311,7 +311,7 @@ export function rerender() { route(); }
 // y con espera de ≈350 ms; primero lo que se llama así) y acciones. Lo de Pipedrive va después de lo que ya estaba: cuando
 // llega no corre nada de lugar, y la selección se guarda por ítem (no por posición), así Enter hace lo mismo tarde lo que
 // tarde Pipedrive. Con resultados de Pipedrive, arriba un atajo «En Pipedrive: N» para bajar hasta ahí.
-const PAL = { items: [], sel: 0, ret: null, pd: null }, PALS = pdSearcher(), PAL_PD = 8, PAL_SCH = 3;
+const PAL = { items: [], sel: 0, ret: null, pd: null, moved: false }, PALS = pdSearcher(), PAL_PD = 8, PAL_SCH = 3;
 const PD_IC = { person: "user", organization: "building", lead: "lead", deal: "deal" };
 // «Tuyo»: el dueño en Pipedrive sos vos (un colegio de la base por su organización; lo de Pipedrive, por su dueño)
 const isMine = ownerId => !!ownerId && !!S.me?.pdUserId && Number(ownerId) === Number(S.me.pdUserId);
@@ -327,7 +327,7 @@ function openPalette() {
   closeMenu();
   PAL.ret = document.activeElement;
   $("app").inert = true; document.querySelector(".skip").inert = true;
-  $("palette").hidden = false; $("palIn").value = ""; PALS.cancel(); PAL.pd = null; renderPalette(); $("palIn").focus();
+  $("palette").hidden = false; $("palIn").value = ""; PALS.cancel(); PAL.pd = null; PAL.moved = false; renderPalette(); $("palIn").focus();
 }
 function closePalette(picked = false) {
   $("palette").hidden = true; PALS.cancel();
@@ -402,36 +402,58 @@ function renderPalette({ keep = false } = {}) {
     }
     if (actions.length) sections.push(["Acciones", actions.map(a => ({ a }))]);
   }
+  PAL.mineBest = PAL.pd?.state === "ok" ? mineBest(PAL.pd.data, t, isMine) : null;
   PAL.items = []; let html = "";
   sections.forEach(([h, list, id], si) => {
     html += `<div class="pal-h"${id ? ` id="${id}"` : ""}><span>${esc(h)}</span>${si === 0 ? jump : ""}</div>`;
     for (const it of list) {
       const i = PAL.items.length;
       if (it.msg) { html += it.msg; continue; }
-      if (it.s) { PAL.items.push({ key: `s:${it.s.id}`, fn: () => openSchool(it.s.id) }); html += row(i, "building", it.s.name, `${it.s.city}, ${it.s.country}`, (isMine(it.s.ownerId) ? MINE_TAG : "") + (it.s.status ? statusPill(it.s) : "")); }
+      if (it.s) { PAL.items.push({ key: `s:${it.s.id}`, mine: isMine(it.s.ownerId), fn: () => openSchool(it.s.id) }); html += row(i, "building", it.s.name, `${it.s.city}, ${it.s.country}`, (isMine(it.s.ownerId) ? MINE_TAG : "") + (it.s.status ? statusPill(it.s) : "")); }
       else if (it.pd) {
-        const x = it.pd; PAL.items.push({ key: `pd:${x.type}:${x.id}`, fn: () => openPd(x) });
+        const x = it.pd; PAL.items.push({ key: `pd:${x.type}:${x.id}`, pdMine: x === PAL.mineBest, fn: () => openPd(x) });
         html += `<div class="pal-row"><button class="pal-item" role="option" data-i="${i}" aria-selected="false">${icon(PD_IC[x.type] || "search")}<span class="t"><b>${esc(pdTitle(x))}</b>${pdLinesHtml(x)}</span>${isMine(x.ownerId) ? MINE_TAG : ""}${pdBadge(x)}</button><a class="pal-ext" href="${esc(x.url)}" target="_blank" rel="noopener" title="Abrir en Pipedrive" aria-label="Abrir «${esc(pdTitle(x))}» en Pipedrive">${icon("external", "sm")}</a></div>`;
       }
       else { PAL.items.push({ key: it.a.key || `a:${it.a.label}`, ...it.a }); html += row(i, it.a.ic, it.a.label, it.a.sub); }
     }
   });
-  // la selección sigue en el mismo ítem (si ya no está, vuelve al primero); nunca se mueve sola cuando llega Pipedrive
-  const at = prevKey ? PAL.items.findIndex(x => x.key === prevKey) : 0;
+  // la selección sigue en el mismo ítem (si ya no está, vuelve al primero). Excepción (pedido del líder: «que Enter vaya a
+  // lo mío de Pipedrive»): mientras no elegiste con las flechas, si ningún colegio de la lista es tuyo y en Pipedrive hay
+  // algo TUYO que se llama así, la selección va ahí (lo de Pipedrive se dibuja abajo: nada se corre de lugar)
+  const mine = PAL.moved ? -1 : palMineAt();
+  const at = mine >= 0 ? mine : prevKey ? PAL.items.findIndex(x => x.key === prevKey) : 0;
   PAL.sel = Math.max(0, at);
   $("palList").innerHTML = html || `<div class="empty">Nada coincide con «${esc(raw)}».</div>`;
   $("palList").querySelectorAll("[data-i]").forEach(b => { b.setAttribute("aria-selected", +b.dataset.i === PAL.sel); b.onclick = () => pick(+b.dataset.i); b.onmousemove = () => setSel(+b.dataset.i); });
   const j = $("palList").querySelector("[data-pal-jump]");
   if (j) { j.onmousedown = e => e.preventDefault(); j.onclick = () => { const h = $("palPdH"), L = $("palList"); if (h) L.scrollTo({ top: L.scrollTop + h.getBoundingClientRect().top - L.getBoundingClientRect().top - 4, behavior: "smooth" }); }; }
 }
+// el primer resultado TUYO de Pipedrive que se llama así, si ningún colegio de la lista es tuyo (si no, -1)
+function palMineAt() {
+  if (PAL.items.some(x => x.mine)) return -1;
+  return PAL.items.findIndex(x => x.pdMine);
+}
 function setSel(i) { PAL.sel = i; $("palList").querySelectorAll("[data-i]").forEach(b => b.setAttribute("aria-selected", +b.dataset.i === i)); $("palList").querySelector(`[data-i="${i}"]`)?.scrollIntoView({ block: "nearest" }); }
 function pick(i) { const it = PAL.items[i]; if (!it) return; const typed = $("palIn").value.trim(); if (typed.length >= 2) rememberSearch(typed); closePalette(true); it.fn(); }
-$("palIn").addEventListener("input", () => { palPd(); renderPalette(); });
+$("palIn").addEventListener("input", () => { PAL.moved = false; palPd(); renderPalette(); });
 $("palIn").addEventListener("keydown", e => {
-  if (e.key === "ArrowDown") { e.preventDefault(); setSel(Math.min(PAL.sel + 1, PAL.items.length - 1)); }
-  if (e.key === "ArrowUp") { e.preventDefault(); setSel(Math.max(PAL.sel - 1, 0)); }
-  if (e.key === "Enter") { e.preventDefault(); pick(PAL.sel); }
+  if (e.key === "ArrowDown") { e.preventDefault(); PAL.moved = true; setSel(Math.min(PAL.sel + 1, PAL.items.length - 1)); }
+  if (e.key === "ArrowUp") { e.preventDefault(); PAL.moved = true; setSel(Math.max(PAL.sel - 1, 0)); }
+  if (e.key === "Enter") { e.preventDefault(); palEnter(); }
 });
+// Enter: si Pipedrive todavía está buscando y ningún colegio de la lista es tuyo, espera (hasta 2,5 s) a ver si hay algo
+// tuyo que se llama así; mientras tanto, otra tecla o cerrar cancela
+async function palEnter() {
+  const t = $("palIn").value;
+  if (!PAL.moved && PAL.pd?.state === "loading" && !PAL.items.some(x => x.mine)) {
+    $("palIn").setAttribute("aria-busy", "true");
+    await Promise.race([PALS.done, new Promise(r => setTimeout(r, 2500))]);
+    $("palIn").removeAttribute("aria-busy");
+    if ($("palette").hidden || $("palIn").value !== t || PAL.moved) return;
+    renderPalette({ keep: true });
+  }
+  pick(PAL.sel);
+}
 $("palette").addEventListener("pointerdown", e => { if (e.target === $("palette")) closePalette(); });
 
 // ---------- atajos de teclado

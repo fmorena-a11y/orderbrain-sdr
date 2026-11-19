@@ -6,7 +6,7 @@ globalThis.document = { documentElement: { dataset: {} }, querySelectorAll: () =
 globalThis.matchMedia = () => ({ matches: false });
 globalThis.addEventListener = () => {};
 const { S } = await import("../public/js/core.js");
-const { pdNamed, pdNameHit, pdLines, pdSectionHtml, pdCount } = await import("../public/js/pdsearch.js");
+const { pdNamed, pdNameHit, mineBest, pdLines, pdSectionHtml, pdCount } = await import("../public/js/pdsearch.js");
 S.byId = new Map();
 
 const data = items => ({ groups: [{ type: "x", label: "X", items }], total: items.length });
@@ -60,4 +60,22 @@ test("pdLinkOf: prospecto, trato, organización y persona", async () => {
   assert.equal(isPdLink("mar del plata"), false);
   assert.equal(isPdLink("Calle 100 # 15-20, Bogotá"), false);
   assert.equal(isPdLink("https://www.colegio.edu.ar/deal/3"), false);
+});
+
+test("mineBest: Enter va a lo tuyo de Pipedrive (el prospecto primero; nada si hay muchos tuyos o es de otro)", () => {
+  const mine = id => id === 1;
+  const items = [
+    { type: "organization", id: 10, name: "Colegio Los Ceibos", ownerId: 1 },
+    { type: "lead", id: "a", title: "Colegio Ceibos de Prueba (SDR Meta Ads Revival)", ownerId: 1 },
+    { type: "deal", id: 20, title: "Colegio Los Ceibos - Trato", ownerId: 1 },
+    { type: "person", id: 30, name: "Patricia Ejemplo", ownerId: 1 },
+    { type: "lead", id: "b", title: "Ceibos del Norte", ownerId: 2 },
+  ];
+  assert.equal(mineBest(data(items), "Ceibos", mine)?.id, "a", "el prospecto tuyo");
+  assert.equal(mineBest(data(items.filter(x => x.type !== "lead")), "ceibos", mine)?.id, 10, "sin prospecto, la organización");
+  assert.equal(mineBest(data(items), "Norte", mine), null, "lo de otra persona no");
+  assert.equal(mineBest(data(items), "eibos", mine), null, "una palabra a medias no");
+  const many = Array.from({ length: 5 }, (_, i) => ({ type: "lead", id: `m${i}`, title: `Colegio ${i}`, ownerId: 1 }));
+  assert.equal(mineBest(data(many), "colegio", mine), null, "con muchos tuyos («colegio») Enter sigue como siempre");
+  assert.equal(mineBest(data(items), "Patricia", mine)?.id, 30, "una persona tuya por su nombre");
 });

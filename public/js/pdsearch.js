@@ -96,6 +96,17 @@ export function pdBadge(it) {
 // «Metepec» un nombre: Enter lo ubica en el mapa) ni en la dirección o las notas.
 export function pdNameHit(it, q) { const t = norm(q), n = norm(pdTitle(it)); return !!t && (it.type === "person" ? ` ${n}`.includes(` ${t}`) : n.startsWith(t)); }
 export const pdNamed = (data, q) => pdFlat(data).some(it => pdNameHit(it, q));
+// Lo TUYO de Pipedrive para Enter (pedido del líder: «que Enter vaya a lo mío de Pipedrive»): lo que es tuyo (isMine del
+// dueño) y se llama como lo escrito (contiene las palabras; una persona, por su nombre). Primero el prospecto (los SDR
+// trabajan el prospecto), después la organización, el trato y la persona. Con más de MINE_MAX tuyos («colegio») no es una
+// búsqueda de algo puntual: null (Enter sigue como siempre).
+const MINE_MAX = 4, MINE_RANK = { lead: 0, organization: 1, deal: 2, person: 3 };
+export function mineBest(data, q, isMine) {
+  const t = norm(q).trim(); if (t.length < 3) return null;
+  const hits = pdFlat(data).filter(it => isMine(it.ownerId) && (it.type === "person" ? pdNameHit(it, q) : ` ${norm(pdTitle(it))} `.includes(` ${t}`)));
+  if (!hits.length || hits.length > MINE_MAX) return null;
+  return hits.sort((a, b) => (MINE_RANK[a.type] ?? 9) - (MINE_RANK[b.type] ?? 9))[0];
+}
 // adónde lleva, dicho corto (para el título del botón)
 const goesTo = it => { const t = it.to; if (!t) return "Solo está en Pipedrive"; if (t.kind === "school") return `Abre la ficha de ${schoolOf(t)?.name || "su colegio"}`; if (t.kind === "person") return "Abre la ficha de la persona"; return t.ref.startsWith("lead:") ? "Abre la ficha del prospecto" : "Abre la ficha de la organización"; };
 const extLink = (it, cls = "pd-ext") => `<a class="${cls}" href="${esc(it.url)}" target="_blank" rel="noopener" title="Abrir en Pipedrive" aria-label="Abrir «${esc(pdTitle(it))}» en Pipedrive">${icon("external", "sm")}<span class="lbl">Pipedrive</span></a>`;

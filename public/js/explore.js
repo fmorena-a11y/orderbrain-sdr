@@ -4,7 +4,7 @@ import { tableCsv } from "./chatfmt.js";
 import { save as saveFile } from "./chat.js";
 import { openSchool, startSession } from "./school.js";
 import { baseErrorCallout } from "./app.js";
-import { pdSearcher, pdSectionHtml, bindPd, pdNamed, isPhoneQ, isMailQ, PD_MIN, pdLinkOf, isPdLink, openPdLink } from "./pdsearch.js";
+import { pdSearcher, pdSectionHtml, bindPd, pdNamed, mineBest, openPd, isPhoneQ, isMailQ, PD_MIN, pdLinkOf, isPdLink, openPdLink } from "./pdsearch.js";
 
 const E = S.explore;
 // «Para llamar»: todo lo que no es cliente ni está en proceso (incluye los que todavía no se cruzaron con Pipe).
@@ -37,6 +37,7 @@ const searchList = () => memo("search", `${E.country}|${E.q}`, () => {
 });
 // de otra persona: la organización en Pipedrive tiene otro dueño (cada uno trabaja lo suyo)
 export const othersOwn = s => !!(s.ownerId && S.me?.pdUserId && s.ownerId !== S.me.pdUserId);
+const mineId = id => !!id && !!S.me?.pdUserId && Number(id) === Number(S.me.pdUserId);
 const canCall = s => CALLABLE.includes(s.status) && !othersOwn(s);
 const applyFilter = a => E.filter === "prospect" ? a.filter(canCall) : E.filter === "pot" ? a.filter(s => s.pot && canCall(s)) : E.filter === "all" ? a : a.filter(s => s.status === E.filter);
 // orden de la lista: alto potencial para llamar, estado, intentos y nombre. Lo que se compara se calcula una vez por colegio
@@ -250,9 +251,13 @@ export function renderExplore(el) {
     rememberSearch(t);
     if (isPhoneQ(t) || isMailQ(t)) return;
     if (looksLikePlace(t)) return locate(t, { city: baseCity(t) });
-    if (searchList().length) return;
-    const st = await PDS.done; // lo que encontró Pipedrive con lo escrito (espera si todavía está buscando)
-    if (E.q !== t || E.place || pdNamed(st?.data, t)) return;
+    const list = searchList(), st = await PDS.done; // lo que encontró Pipedrive con lo escrito (espera si todavía está buscando)
+    if (E.q !== t || E.place) return;
+    // lo TUYO de Pipedrive primero (pedido del líder: «que Enter vaya a lo mío de Pipedrive»): si ningún colegio de la lista
+    // es tuyo y en Pipedrive hay algo tuyo que se llama así (mineBest: el prospecto primero), Enter lo abre
+    const mine = !list.some(s => mineId(s.ownerId)) && mineBest(st?.data, t, mineId);
+    if (mine) return openPd(mine);
+    if (list.length || pdNamed(st?.data, t)) return;
     locate(t);
   };
   el.querySelector("#locate").onclick = () => locate(q.value, { city: baseCity(q.value) });
