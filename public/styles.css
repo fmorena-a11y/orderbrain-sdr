@@ -1855,3 +1855,29 @@ button.lh-row:hover { background: var(--surface-2); }
 .d-deal-n small, .d-deal > small { color: var(--muted); font-size: 12.5px; display: inline-flex; align-items: center; gap: 5px; }
 .d-deal + .d-top { padding-top: 10px; }
 @media (max-width: 560px) { .d-deal { padding: 10px 16px; } }
+/* Tu Google: «Entrar con Google» en la pantalla de entrada, el aviso «Conectá tu Google» y los permisos en el perfil */
+.g-logo { flex: none; }
+.g-login { width: 100%; text-decoration: none; font-weight: 600; }
+.g-login-sub { display: block; margin-top: 8px; color: var(--muted); font-size: 12.5px; }
+#gbtn:has(.g-login) { width: 100%; }
+.login-or { display: flex; align-items: center; gap: 10px; margin-top: 16px; color: var(--faint, var(--muted)); font-size: 12.5px; }
+.login-or::before, .login-or::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.gnote { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px; padding: 10px; background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 12px; font-size: 13px; line-height: 1.35; text-align: left; animation: rise .2s ease-out; }
+.gnote .g-logo { margin-top: 1px; }
+.gnote-t { flex: 1 1 0; min-width: 0; }
+.gnote .icon-btn { flex: none; width: 24px; height: 24px; margin: -3px -4px 0 0; color: var(--muted); }
+.gnote .icon-btn .ico { width: 16px; height: 16px; }
+.gnote .btn { flex: 1 0 100%; }
+.gnote.in-rail { background: var(--surface-2); margin-bottom: 4px; }
+.gnote:not(.in-rail) { position: fixed; z-index: 890; left: 16px; bottom: 16px; width: min(300px, calc(100vw - 32px)); box-shadow: var(--shadow-lg); }
+@media (min-width: 600px) { .gnote:not(.in-rail) { left: 88px; } }
+@media (max-width: 599px) { .gnote:not(.in-rail) { bottom: calc(76px + env(safe-area-inset-bottom)); } body:has(.explore-foot) .gnote:not(.in-rail) { bottom: calc(140px + env(safe-area-inset-bottom)); } }
+.gperms { display: flex; flex-wrap: wrap; gap: 6px; }
+.gperm { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface-2); font-size: 13px; font-weight: 500; }
+.gperm small { font-weight: 400; color: var(--muted); font-size: 12px; }
+.gperm.on .ico { color: var(--ok); }
+.gperm.off { border-style: dashed; color: var(--muted); background: transparent; }
+.gperm.off small { color: var(--warn, var(--err)); font-weight: 500; }
+.g-miss { margin: 0; font-size: 12.5px; }
+.g-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.g-acts:empty { display: none; }

@@ -86,7 +86,10 @@ async function attachPipedriveUser(email) {
   try { const m = await pd.meta(); const u = m.users.find(x => x.email === email.toLowerCase()); return u ? { pdUserId: u.id, pdName: u.name } : {}; }
   catch { return {}; }
 }
-app.get("/auth/config", (req, res) => res.json({ googleClientId: GOOGLE_CLIENT_ID, devLogin: DEV_OK, codeLogin: !!TEAM_CODE, domain: DOMAIN, demo: pd.DEMO }));
+// googleLogin: «Entrar con Google» en un solo paso (entra y conecta mail, calendario y planillas): solo con el cliente OAuth
+// completo (GOOGLE_CLIENT_ID + GOOGLE_CLIENT_SECRET) o, en el demo, con el Google simulado. Sin eso, la pantalla queda como hoy.
+const googleLoginOn = () => gmail.gmailEnabled() && (!gmail.simulated() || DEV_OK);
+app.get("/auth/config", (req, res) => res.json({ googleClientId: GOOGLE_CLIENT_ID, googleLogin: googleLoginOn(), devLogin: DEV_OK, codeLogin: !!TEAM_CODE, domain: DOMAIN, demo: pd.DEMO }));
 // Acceso de líder (lib/access.js) y equipos (lib/teams.js). Fijo (no se saca desde la app): quien conectó Pipedrive (dueño
 // del token) y LEADER_EMAILS son líderes, FOUNDER_EMAILS dirección; los dos ven todos los equipos y los arman. Lo demás lo
 // asigna dirección en Equipo (getAccessMap, getTeams). Con equipos, un líder de equipo ve y toca solo lo de su gente.
@@ -299,13 +302,14 @@ app.get("/api/gmail", auth, wrap(async (req, res) => res.json(await gmailView(re
 // cierra. Si no se abrió en otra ventana (el navegador la bloqueó), vuelve a la app con ?gmail=…
 // En la dirección de vuelta va solo un código (state|mismatch|denied|scope|config|session|other): el navegador lo traduce
 // a un texto fijo, así nadie arma un link que muestre su propio texto dentro de la app.
-const GMAIL_CODES = { gmail_state: "state", gmail_mismatch: "mismatch", gmail_scope: "scope" };
+const GMAIL_CODES = { gmail_state: "state", gmail_mismatch: "mismatch", gmail_scope: "scope", gmail_noperms: "noperms" };
 const gmailCode = e => GMAIL_CODES[e?.code] || (e?.status === 404 ? "config" : "other");
 function gmailDone(res, r, popup = false) {
-  const data = JSON.stringify({ type: "ob-gmail", ok: !!r.ok, ...(r.ok ? { email: r.email } : { code: r.code || "other", error: r.error || "" }) }).replace(/</g, "\\u003c");
+  const miss = (r.missing || []).map(k => gmail.PERMS.find(x => x.key === k)?.label.toLowerCase()).filter(Boolean);
+  const data = JSON.stringify({ type: "ob-gmail", ok: !!r.ok, ...(r.ok ? { email: r.email, missing: r.missing || [] } : { code: r.code || "other", error: r.error || "" }) }).replace(/</g, "\\u003c");
   const back = `/?gmail=${r.ok ? "ok" : "error"}${r.ok ? "" : `&m=${encodeURIComponent(r.code || "other")}`}`;
-  const msg = r.ok ? `Gmail conectado como ${r.email}.${popup ? " Ya podés cerrar esta ventana." : ""}` : r.error || "No se pudo conectar Gmail.";
-  res.set("cache-control", "no-store").type("html").send(`<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gmail · OrderBrain SDR</title>
+  const msg = r.ok ? `Google conectado como ${r.email}${miss.length ? ` (sin permiso de ${miss.join(" ni ")})` : ""}.${popup ? " Ya podés cerrar esta ventana." : ""}` : r.error || "No se pudo conectar Google.";
+  res.set("cache-control", "no-store").type("html").send(`<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Google · OrderBrain SDR</title>
 <style>body{font:15px/1.5 system-ui,sans-serif;margin:0;min-height:100vh;display:grid;place-items:center;background:#FAFAFA;color:#18181b;padding:16px;box-sizing:border-box;text-align:center}@media (prefers-color-scheme:dark){body{background:#111214;color:#ececec}}a{color:inherit}</style></head>
 <body><p>${escHtml(msg)}<br><a href="${escHtml(back)}">Volver a la app</a></p>
 <script>(function(){var r=${data};try{var c=new BroadcastChannel("ob-gmail");c.postMessage(r);c.close()}catch(e){}try{if(window.opener&&!window.opener.closed)window.opener.postMessage(r,location.origin)}catch(e){}
@@ -321,12 +325,16 @@ app.get("/auth/gmail/start", async (req, res) => {
     const demoAs = pd.DEMO ? String(req.query.as || "").slice(0, 120) : "";
     const r = await gmail.startConnect({ email: user.email, nonce: req.session.gmailNonce, redirectUri: gmailRedirect(req), demoAs });
     if (r.url) return res.redirect(r.url);
-    const fin = await gmail.finishConnect({ email: user.email, nonce: req.session.gmailNonce, demoAs: r.gmailEmail });
+    // demo: ?perms=mail,calendar simula que destildó permisos en la pantalla de Google
+    const demoPerms = pd.DEMO && req.query.perms !== undefined ? String(req.query.perms).split(",").map(x => x.trim()).filter(Boolean).slice(0, 5) : null;
+    const fin = await gmail.finishConnect({ email: user.email, nonce: req.session.gmailNonce, demoAs: r.gmailEmail, demoPerms });
     req.session.gmailNonce = null; req.session.gmailOk = String(user.email).toLowerCase();
-    gmailDone(res, { ok: true, email: fin.email }, popup);
+    gmailDone(res, { ok: true, email: fin.email, missing: fin.missing }, popup);
   } catch (e) { req.session.gmailNonce = null; gmailDone(res, { ok: false, error: e.message, code: gmailCode(e) }, popup); }
 });
 app.get("/auth/gmail/callback", async (req, res) => {
+  // la misma vuelta sirve para «Entrar con Google» (sin sesión todavía): lo dice el state firmado, no un parámetro
+  if (gmail.stateKind(String(req.query.state || "")) === "login" || (!req.session?.user && req.session?.glogin)) return googleLoginBack(req, res);
   const user = req.session?.user, popup = !!req.session?.gmailPopup;
   if (!user || req.session.mode !== MODE) return gmailDone(res, { ok: false, error: "Iniciá sesión en la app y conectá Gmail de nuevo.", code: "session" });
   const nonce = req.session.gmailNonce; req.session.gmailNonce = null; req.session.gmailPopup = null;
@@ -334,8 +342,84 @@ app.get("/auth/gmail/callback", async (req, res) => {
   try {
     const fin = await gmail.finishConnect({ email: user.email, nonce, state: String(req.query.state || ""), code: String(req.query.code || ""), redirectUri: gmailRedirect(req) });
     req.session.gmailOk = String(user.email).toLowerCase(); // probó ante Google que la cuenta es suya: esta sesión puede enviar
-    gmailDone(res, { ok: true, email: fin.email }, popup);
+    gmailDone(res, { ok: true, email: fin.email, missing: fin.missing }, popup);
   } catch (e) { if ((e.status || 500) >= 500) console.warn("Gmail:", e.message); gmailDone(res, { ok: false, error: e.message, code: gmailCode(e) }, popup); }
+});
+// ---------- «Entrar con Google» en un solo paso (pedido del líder de SDR: «que automáticamente se conecte con el Calendar y
+// el Drive cuando entre en su cuenta de Google»). GET /auth/google/start manda a Google con el mismo OAuth con código de
+// «Conectar Gmail» y vuelve a /auth/gmail/callback (la única dirección de vuelta cargada en el cliente OAuth): ahí entra
+// (misma sesión que /auth/google, con gmailOk) y queda guardada la conexión para mail, calendario y planillas.
+// Todavía no hay sesión: el state va firmado (HMAC) y atado a un valor de un solo uso que queda en la cookie (glogin) y se
+// gasta en la vuelta (once). Quién entra lo dice el id_token de Google, nunca un parámetro. La vuelta termina siempre en
+// «/?google=ok|error&m=código» (dirección fija: no hay a dónde redirigir a pedido) y el navegador pone el texto.
+const GOOGLE_CODES = { google_state: "state", google_domain: "domain", google_unverified: "unverified", google_identity: "identity", google_config: "config" };
+const clientIp = req => String(req.headers["x-forwarded-for"] || req.ip || "").split(",")[0].trim();
+const GLOGIN_MAX = 150; // una oficina entera sale por la misma IP
+app.get("/auth/google/start", (req, res) => {
+  res.set("cache-control", "no-store");
+  if (!googleLoginOn()) return res.redirect("/");
+  try {
+    const nonce = gmail.newNonce();
+    req.session.glogin = { n: nonce, t: Date.now() };
+    const r = gmail.startLogin({ nonce, redirectUri: gmailRedirect(req) });
+    res.redirect(r.url || `/auth/google/demo?state=${encodeURIComponent(r.state)}`);
+  } catch { res.redirect("/?google=error&m=config"); }
+});
+async function googleLoginBack(req, res) {
+  res.set("cache-control", "no-store");
+  const back = (ok, m = "") => res.redirect(`/?google=${ok ? "ok" : "error"}${m ? `&m=${m}` : ""}`);
+  const nonce = String(req.session?.glogin?.n || ""); if (req.session) req.session.glogin = null; // de un solo uso
+  const had = !!req.session?.user && req.session.mode === MODE;
+  if (!googleLoginOn()) return back(false, "config");
+  // dijo que no en la pantalla de Google. En la segunda vuelta (la que pide el permiso de nuevo) ya entró: sigue adentro.
+  if (req.query.error) return had ? back(true) : back(false, req.query.error === "access_denied" ? "denied" : "other");
+  try {
+    if ((await bump(`glogin:${clientIp(req)}`, 600)) > GLOGIN_MAX) return back(false, "many"); // tope de vueltas por IP cada 10 minutos
+    // el mismo state no pasa dos veces, aunque alguien se haya guardado la cookie
+    if (!nonce || !(await once(`glogin:${nonce}`, 900))) throw Object.assign(new Error("state repetido"), { status: 400, code: "google_state" });
+    const fin = await gmail.finishLogin({ nonce, state: String(req.query.state || ""), code: String(req.query.code || ""), redirectUri: gmailRedirect(req), domain: DOMAIN });
+    const pdu = await attachPipedriveUser(fin.email);
+    req.session.user = { email: fin.email, name: fin.name || pdu.pdName || fin.email.split("@")[0], picture: fin.picture || "", ...pdu };
+    req.session.mode = MODE;
+    req.session.gmailOk = fin.email; // Google probó que es su cuenta
+    req.session.pdOk = null;
+    if (fin.again) { // no quedó con qué seguir conectado: una vuelta más, pidiendo el permiso (prompt=consent), ya con su cuenta elegida
+      const n2 = gmail.newNonce(), r = gmail.startLogin({ nonce: n2, redirectUri: gmailRedirect(req), consent: true, email: fin.email });
+      if (r.url) { req.session.glogin = { n: n2, t: Date.now() }; return res.redirect(r.url); }
+    }
+    back(true);
+  } catch (e) {
+    if ((e.status || 500) >= 500) console.warn("Google:", e.message);
+    back(false, GOOGLE_CODES[e.code] || "other");
+  }
+}
+// Demo: la pantalla del Google simulado (elegís con qué cuenta entrar y qué permisos tildás). Solo con el Pipedrive de prueba
+// y el ingreso de desarrollo habilitado; con Google real estas rutas no existen.
+const demoGoogle = (req, res, next) => gmail.simulated() && DEV_OK ? next() : res.status(404).end();
+app.get("/auth/google/demo", demoGoogle, (req, res) => {
+  const state = String(req.query.state || "");
+  if (gmail.stateKind(state) !== "login") return res.redirect("/");
+  res.set("cache-control", "no-store").type("html").send(`<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Google simulado · OrderBrain SDR</title>
+<style>body{font:15px/1.5 system-ui,sans-serif;margin:0;min-height:100vh;display:grid;place-items:center;background:#FAFAFA;color:#18181b;padding:16px;box-sizing:border-box}
+form{width:100%;max-width:380px;background:#fff;border:1px solid #e4e4e7;border-radius:16px;padding:22px;box-sizing:border-box;display:grid;gap:14px}
+h1{font-size:18px;margin:0}p{margin:0;color:#52525b;font-size:13.5px}label{display:flex;gap:8px;align-items:flex-start}label.f{display:grid;gap:4px;font-size:13px;color:#52525b}
+input[type=email]{font:inherit;padding:9px 11px;border:1px solid #d4d4d8;border-radius:10px;background:transparent;color:inherit;width:100%;box-sizing:border-box}
+small{color:#71717a;display:block}.row{display:flex;flex-direction:row-reverse;gap:8px;justify-content:flex-start}button{font:inherit;font-weight:600;padding:9px 16px;border-radius:999px;border:1px solid #d4d4d8;background:transparent;color:inherit;cursor:pointer}
+button.p{background:#18181b;color:#fff;border-color:#18181b}
+@media (prefers-color-scheme:dark){body{background:#111214;color:#ececec}form{background:#1a1b1e;border-color:#2e3035}p,label.f{color:#a1a1aa}input[type=email],button{border-color:#3f3f46}button.p{background:#ececec;color:#111214;border-color:#ececec}}</style></head>
+<body><form method="post" action="/auth/google/demo"><input type="hidden" name="state" value="${escHtml(state)}">
+<h1>Google simulado (demo)</h1><p>OrderBrain SDR quiere entrar con tu cuenta y usar estos permisos. Nada sale a Google.</p>
+<label class="f">Cuenta<input type="email" name="email" required value="${escHtml(DEV_EMAIL.toLowerCase())}" autocomplete="off"></label>
+${gmail.PERMS.map(x => `<label><input type="checkbox" name="perms" value="${escHtml(x.key)}" checked><span><b>${escHtml(x.label)}</b><small>${escHtml(x.what)}</small></span></label>`).join("\n")}
+<div class="row"><button class="p" id="demoGoogleGo">Continuar</button><button name="deny" value="1" formnovalidate>Cancelar</button></div></form></body></html>`);
+});
+app.post("/auth/google/demo", demoGoogle, express.urlencoded({ extended: false, limit: "10kb" }), (req, res) => {
+  const b = req.body || {}, state = String(b.state || "");
+  if (gmail.stateKind(state) !== "login") return res.redirect("/");
+  const q = new URLSearchParams({ state });
+  if (b.deny) q.set("error", "access_denied");
+  else q.set("code", gmail.demoCode({ email: String(b.email || "").slice(0, 120), perms: [].concat(b.perms || []).map(String).slice(0, 5) }));
+  res.redirect(`/auth/gmail/callback?${q}`);
 });
 app.post("/api/gmail/disconnect", auth, gmailProof, wrap(async (req, res) => { await gmail.disconnect(req.session.user.email); res.json(await gmailView(req)); }));
 // Firma propia (la misma que usás en Pipedrive): texto o HTML, se guarda saneada y manda sobre la de Gmail. Vacía = la de Gmail.

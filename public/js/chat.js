@@ -5,7 +5,7 @@ import { currentSchoolId } from "./school.js";
 import { renderMd, cellText, tableCsv, tableTsv, tableXlsx, fileName, exportIntent, speechLang, speechError, NO_SPEECH } from "./chatfmt.js";
 
 // lastTable: la última tabla que mostró el panel («exportá» la usa sin ir al servidor); sheetsDirect: crear la hoja con la API
-// de Google (apagado sin el cliente OAuth: lib/sheets-export.js), undefined = sin preguntar todavía
+// de Google (solo con su Google conectado con el permiso de planillas: lib/sheets-export.js), undefined = sin preguntar todavía
 const C = { turns: [], busy: false, started: false, sugs: [], lastTable: null, sheetsDirect: undefined };
 const focusId = () => currentSchoolId();
 
@@ -144,6 +144,8 @@ async function toSheets(t, say) {
   if (!ok) return say("No pude copiarla. Descargá el Excel y abrilo en Google Sheets (Archivo › Importar).", true);
   say(w ? "Copiada: pegala con Ctrl+V (⌘V en Mac) en la hoja nueva." : "Copiada. Abrí sheets.new en otra pestaña y pegala con Ctrl+V.");
 }
+// conectó o desconectó su Google (public/js/google.js): se vuelve a preguntar si la hoja se crea directo
+addEventListener("ob:google", () => { C.sheetsDirect = undefined; });
 function tableCard(t, { focus = "" } = {}) {
   if (C.sheetsDirect === undefined) { C.sheetsDirect = false; api("/api/sheets/status").then(r => { C.sheetsDirect = !!r.direct; }).catch(() => {}); }
   C.lastTable = t;

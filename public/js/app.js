@@ -9,6 +9,7 @@ import { renderMetrics } from "./metrics.js";
 import { openSchool, closeSchool, drawerOpen, startSession } from "./school.js";
 import { openAssistant, closeAssistant } from "./chat.js";
 import { loadGmail, gmailReturn } from "./gmail.js";
+import { googleLoginHtml, googleBack, googleNotice, hideGoogleNote, drawGoogleProfile } from "./google.js";
 import { loadPdMail, mailProfileHtml, bindMailProfile, resetSigMode } from "./pdmail.js";
 import { pdSearcher, pdFlat, pdTitle, pdLinesHtml, pdBadge, pdCount, pdNameHit, openPd, isPhoneQ, isMailQ, PD_MIN, pdLinkOf, openPdLink } from "./pdsearch.js";
 import { profileExtrasHtml, bindProfileExtras } from "./accounts.js";
@@ -56,13 +57,17 @@ async function start() {
     if (!me.profile?.complete) profileDialog({ required: true });
     gmailReturn(); // volviste de conectar Gmail (sin ventana aparte)
     loadGmail(); loadPdMail();
+    // Tu Google: si recién entraste con Google, cómo quedó conectado; si entraste con tu código y no lo conectaste, el aviso
+    googleNotice(googleBack().st).catch(() => {});
   } catch { showLogin(); }
 }
 async function showLogin() {
   document.querySelectorAll(".modal").forEach(m => m.remove()); // si la sesión vence con un diálogo abierto
-  show("login"); $("assistant").hidden = true;
+  show("login"); $("assistant").hidden = true; hideGoogleNote();
   const cfg = await api("/auth/config").catch(() => null);
   const err = $("loginErr");
+  // volviste de «Entrar con Google» y no se pudo: el motivo (el servidor manda solo un código)
+  { const gb = googleBack(cfg?.domain); if (gb.error) err.textContent = gb.error; }
   if (!cfg) { $("gbtn").innerHTML = ""; err.innerHTML = `No pudimos conectar con el servidor. <button class="linkbtn" id="loginRetry">Reintentar</button>`; $("loginRetry").onclick = () => { err.textContent = ""; showLogin(); }; return; }
   if (cfg.devLogin) {
     const b = $("devLogin"); b.hidden = false;
@@ -81,6 +86,8 @@ async function showLogin() {
       catch (x) { err.textContent = x.message; go.disabled = false; go.textContent = "Entrar"; }
     };
   }
+  // «Entrar con Google» en un solo paso (entra y conecta mail, calendario y planillas): solo si el servidor tiene el cliente OAuth
+  if (cfg.googleLogin) { $("gbtn").innerHTML = googleLoginHtml({ withCode: !!cfg.codeLogin }); return; }
   if (!cfg.googleClientId) { $("gbtn").innerHTML = ""; if (!cfg.devLogin && !cfg.codeLogin) err.textContent = "El login con Google todavía no está configurado en el servidor."; return; }
   const init = () => {
     if (!window.google?.accounts?.id) return setTimeout(init, 200);
@@ -168,6 +175,7 @@ function profileDialog({ required = false } = {}) {
       <label class="field"><span>Nombre y apellido</span><input class="inp" id="pfName" value="${esc(name)}" autocomplete="name" placeholder="Ej: Javiera Tejos" required></label>
       <div class="field"><span>Rol en el equipo</span>${leader ? `<p class="muted" style="margin:0"><b>${esc(S.me.roleLabel || acc.label || "Líder")}</b> · ${esc(accWhy)}</p>` : `<div class="seg" role="radiogroup" aria-label="Rol en el equipo">${Object.entries(roles).map(([k, l]) => `<button type="button" role="radio" data-role="${k}" aria-checked="${cur === k}" aria-pressed="${cur === k}">${esc(l)}</button>`).join("")}</div>`}${teamTxt ? `<small class="faint">${esc(teamTxt)}</small>` : ""}</div>
       ${profileExtrasHtml()}
+      ${required ? "" : `<div class="field" hidden><span>Tu Google</span><div class="gm-box" id="pfGoogle"></div></div>`}
       ${required ? "" : `<div class="field"><span>Mail desde la app</span><div class="gm-box" id="pfMail">${mailProfileHtml(S.pdmail, S.gmail)}</div></div>`}
       <p class="err" id="pfErr" role="alert" style="margin:0;color:var(--err)"></p>
       <button class="btn primary block" id="pfGo">Guardar</button>
@@ -180,7 +188,7 @@ function profileDialog({ required = false } = {}) {
   m.querySelector("#pfX")?.addEventListener("click", () => m.close());
   // Mail: Pipedrive conectado como…, «Tu firma» (armada con el perfil o la de Pipedrive pegada) y Gmail como otra opción
   const gbox = m.querySelector("#pfMail");
-  const gdraw = () => { if (!gbox?.isConnected) return; const open = gbox.querySelector("#pfSig")?.open; gbox.innerHTML = mailProfileHtml(S.pdmail, S.gmail); if (open) gbox.querySelector("#pfSig")?.setAttribute("open", ""); bindMailProfile(gbox, gdraw); };
+  const gdraw = () => { if (!gbox?.isConnected) return; const open = gbox.querySelector("#pfSig")?.open; gbox.innerHTML = mailProfileHtml(S.pdmail, S.gmail); if (open) gbox.querySelector("#pfSig")?.setAttribute("open", ""); bindMailProfile(gbox, gdraw); drawGoogleProfile(m.querySelector("#pfGoogle"), gdraw); };
   if (gbox) { resetSigMode(); gdraw(); Promise.all([loadPdMail(true), loadGmail(true)]).then(gdraw); }
   m.querySelector("#pfOut")?.addEventListener("click", async () => { await api("/auth/logout", { body: {} }).catch(() => {}); location.reload(); });
   m.querySelector("#pfF").onsubmit = async e => {
