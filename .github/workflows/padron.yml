@@ -1,0 +1,89 @@
+# Padrones oficiales: suma a data/schools.json los colegios privados del padrón de un país (scripts/padron.mjs).
+# Solo a mano (Actions › Padrones oficiales › Run workflow). Baja el padrón una vez, después lo aplica sobre la versión
+# más nueva de main (como el radar: sin pisar ediciones hechas mientras corría) y hace commit solo si hubo cambios.
+# Comparte el grupo «radar»: nunca corre a la vez que el radar.
+name: Padrones oficiales
+
+on:
+  workflow_dispatch:
+    inputs:
+      country:
+        description: "País: PE (ESCALE MINEDU), CO (MEN datos.gov.co) o MX (SEP CCT)"
+        type: choice
+        options: [PE, CO, MX]
+        default: PE
+      max:
+        description: "Cuántos colegios nuevos sumar como mucho (los de más prioridad). Vacío = hasta 35.000 colegios en la base"
+        default: ""
+      url:
+        description: "Opcional: link directo al archivo del padrón (zip, dbf o csv) si la fuente no deja bajarlo desde acá"
+        default: ""
+      dry:
+        description: "Solo medir (no escribe nada)"
+        type: boolean
+        default: false
+
+concurrency:
+  group: radar
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  padron:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --omit=dev
+      - name: Bajar el padrón
+        env:
+          COUNTRY: ${{ inputs.country }}
+          URL: ${{ inputs.url }}
+        run: |
+          set -e
+          ARGS=(--country "$COUNTRY" --cache /tmp/padron --download-only)
+          if [ -n "$URL" ]; then ARGS+=(--url "$URL"); fi
+          node scripts/padron.mjs "${ARGS[@]}"
+      - name: Medir
+        if: ${{ inputs.dry }}
+        env:
+          COUNTRY: ${{ inputs.country }}
+          MAX: ${{ inputs.max }}
+          URL: ${{ inputs.url }}
+        run: |
+          ARGS=(--country "$COUNTRY" --cache /tmp/padron --dry)
+          if [ -n "$MAX" ]; then ARGS+=(--max "$MAX"); fi
+          if [ -n "$URL" ]; then ARGS+=(--url "$URL"); fi
+          node scripts/padron.mjs "${ARGS[@]}"
+      - name: Sumar y guardar
+        if: ${{ !inputs.dry }}
+        env:
+          COUNTRY: ${{ inputs.country }}
+          MAX: ${{ inputs.max }}
+          URL: ${{ inputs.url }}
+        run: |
+          set -e
+          git config user.name "OrderBrain Radar"
+          git config user.email "radar@users.noreply.github.com"
+          ARGS=(--country "$COUNTRY" --cache /tmp/padron --summary /tmp/padron-summary.json)
+          if [ -n "$MAX" ]; then ARGS+=(--max "$MAX"); fi
+          if [ -n "$URL" ]; then ARGS+=(--url "$URL"); fi
+          for i in 1 2 3 4; do
+            git fetch -q origin main
+            git reset -q --hard origin/main
+            node scripts/padron.mjs "${ARGS[@]}"
+            node -e 'JSON.parse(require("fs").readFileSync("data/schools.json","utf8"))'
+            git add data/schools.json
+            if git diff --cached --quiet; then echo "Sin cambios"; exit 0; fi
+            SUMMARY=$(node -e 'const s=require("/tmp/padron-summary.json");console.log(`${s.added} colegios nuevos de ${s.country} (${s.src}), ${s.filled} completados${s.left?`, quedan ${s.left}`:""}`)')
+            git commit -q -m "Padrón: $SUMMARY"
+            if git push -q origin HEAD:main; then exit 0; fi
+            sleep $((i * 5))
+          done
+          exit 1
