@@ -772,13 +772,23 @@ export function refreshExplore({ fit = true } = {}) { if (host?.isConnected) dra
 // Aviso de OrderBrain caído (sin datos de clientes): los clientes pueden aparecer para llamar.
 // Los avisos de arriba de la lista (World Dominion, sin revisar) en una solapa que se abre y se cierra; si la cerraste,
 // queda cerrada (en este navegador) y muestra cuántos hay. Un aviso de error la abre una vez si es nuevo.
-const NT_KEY = "ob.notices.closed";
+const NT_KEY = "ob.notices.closed", NT_GONE = "ob.notices.gone";
+// la ✕ la saca del todo (pedido del líder: «que se cierre si yo quiero, para que me deje más vista al mapa») hasta que cambie
+// lo que dicen los avisos: se guarda la firma del texto (sin fechas ni números, que cambian solos)
+const ntSig = html => html.replace(/<[^>]+>/g, " ").replace(/[\d/.:]+/g, "").replace(/\s+/g, " ").trim();
 function noticeTab(html) {
   const n = (html.match(/class="callout /g) || []).length; if (!n) return "";
-  let closed = false; try { closed = localStorage.getItem(NT_KEY) === "1"; } catch { /* sin almacenamiento */ }
+  let closed = false, gone = ""; try { closed = localStorage.getItem(NT_KEY) === "1"; gone = localStorage.getItem(NT_GONE) || ""; } catch { /* sin almacenamiento */ }
+  const sig = ntSig(html); if (gone && gone === sig) return "";
   const err = /class="callout err/.test(html);
-  return `<details class="notice-tab"${closed ? "" : " open"}><summary>${icon("alert", "sm")}<b>Avisos</b><span class="nt-n${err ? " err" : ""}">${n}</span><span class="nt-hint">${closed ? "Ver" : "Ocultar"}</span>${icon("chevDown", "sm")}</summary><div class="nt-body">${html}</div></details>`;
+  return `<details class="notice-tab" data-sig="${esc(sig)}"${closed ? "" : " open"}><summary>${icon("alert", "sm")}<b>Avisos</b><span class="nt-n${err ? " err" : ""}">${n}</span><span class="nt-hint">${closed ? "Ver" : "Ocultar"}</span>${icon("chevDown", "sm")}<button type="button" class="nt-x" aria-label="Cerrar los avisos" title="Cerrar: vuelven si aparece un aviso nuevo">×</button></summary><div class="nt-body">${html}</div></details>`;
 }
+// la ✕: se resuelve al apretar, como la solapa (la lista se redibuja seguido)
+const ntGone = d => {
+  try { localStorage.setItem(NT_GONE, d.dataset.sig || ""); } catch { /* sin almacenamiento */ }
+  document.querySelectorAll("details.notice-tab").forEach(x => x.remove());
+  toast("Avisos cerrados: vuelven si aparece uno nuevo.", { type: "info" });
+};
 // se guarda al instante del clic: si la lista se redibuja enseguida (revisando la zona, cargando Pipedrive), el «toggle» llega a
 // un elemento que ya no está y la solapa volvía a aparecer abierta
 // Con el mouse se resuelve al apretar (pointerdown): si la lista se redibuja entre apretar y soltar, el «click» no llega nunca.
@@ -792,12 +802,15 @@ const ntSet = (d, open) => {
 document.addEventListener("pointerdown", e => {
   if (e.button !== 0) return;
   const sm = e.target.closest?.(".notice-tab > summary"); if (!sm) return;
-  ntPress = Date.now(); ntSet(sm.parentElement, !sm.parentElement.open);
+  ntPress = Date.now();
+  if (e.target.closest(".nt-x")) { e.preventDefault(); return ntGone(sm.parentElement); }
+  ntSet(sm.parentElement, !sm.parentElement.open);
 }, true);
 document.addEventListener("click", e => {
   const sm = e.target.closest?.(".notice-tab > summary"); if (!sm) return;
   e.preventDefault(); // la solapa la abre o cierra ntSet, no el navegador
   if (Date.now() - ntPress < 1500) return; // ya lo resolvió el pointerdown
+  if (e.target.closest(".nt-x")) return ntGone(sm.parentElement); // teclado
   ntSet(sm.parentElement, !sm.parentElement.open); // teclado (Enter o espacio)
 }, true);
 document.addEventListener("toggle", e => {

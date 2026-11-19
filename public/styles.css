@@ -1523,6 +1523,8 @@ details.tl-body p { margin: 6px 0 0; padding: 10px 12px; border-radius: 10px; ba
 .notice-tab[open] > summary > svg:last-child { transform: rotate(180deg); }
 .notice-tab .nt-body { padding: 0 8px 8px; display: grid; gap: 8px; }
 .notice-tab .nt-body .callout { margin: 0; }
+.notice-tab .nt-x { margin-left: 2px; width: 28px; height: 28px; border: 0; border-radius: 8px; background: none; color: var(--muted); font-size: var(--fs-xl); line-height: 1; cursor: pointer; display: grid; place-items: center; }
+.notice-tab .nt-x:hover, .notice-tab .nt-x:focus-visible { background: var(--surface-2); color: var(--ink); }
 
 /* Historial de búsquedas de Prospectar */
 .q-wrap { position: relative; flex: 1; min-width: 0; }
@@ -1966,7 +1968,7 @@ button.lh-row:hover { background: var(--surface-2); }
 .gnote .btn { flex: 1 0 100%; }
 .gnote.in-rail { background: var(--surface-2); margin-bottom: 4px; }
 .gnote:not(.in-rail) { position: fixed; z-index: 890; left: 16px; bottom: 16px; width: min(300px, calc(100vw - 32px)); box-shadow: var(--shadow-lg); }
-@media (min-width: 600px) { .gnote:not(.in-rail) { left: 88px; } }
+@media (min-width: 600px) { .gnote:not(.in-rail) { left: 88px; } body:has(.explore-foot) .gnote:not(.in-rail) { bottom: 96px; } } /* arriba del botón «Llamar a…» de Prospectar, nunca encima */
 @media (max-width: 599px) { .gnote:not(.in-rail) { bottom: calc(76px + env(safe-area-inset-bottom)); } body:has(.explore-foot) .gnote:not(.in-rail) { bottom: calc(140px + env(safe-area-inset-bottom)); } }
 .gperms { display: flex; flex-wrap: wrap; gap: 6px; }
 .gperm { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface-2); font-size: var(--fs-sm); font-weight: 500; }
