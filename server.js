@@ -36,6 +36,7 @@ import { mountDeals } from "./lib/deals-api.js";
 import { mountLead } from "./lib/lead-api.js";
 import { mountAe } from "./lib/ae-api.js";
 import { sheetsDirect, createSheet } from "./lib/sheets-export.js";
+import { compressJson, pickEncoding, encode, ENABLED as COMPRESS } from "./lib/compress.js";
 
 const app = express();
 const escHtml = v => String(v).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -59,6 +60,8 @@ else if (!process.env.PIPEDRIVE_API_TOKEN) console.warn("⚠ Falta PIPEDRIVE_API
 if (!ai.aiEnabled()) console.warn("⚠ Falta ANTHROPIC_API_KEY: el asistente, los briefs y el ordenado de notas quedan apagados.");
 
 app.set("trust proxy", 1);
+// JSON grande comprimido (gzip o brotli según el accept-encoding del pedido). En Vercel ya comprime la plataforma: apagado ahí.
+app.use(compressJson());
 // JSON de 200 kb; la tabla que el asistente lleva a Google Sheets puede ser más grande (lib/sheets-export.js topa filas)
 { const json = express.json({ limit: "200kb" }), big = express.json({ limit: "4mb" }); app.use((req, res, next) => (req.path === "/api/sheets/export" ? big : json)(req, res, next)); }
 // lo que no pasa del lector de JSON también se contesta en JSON (no con la página de error de Express)
@@ -525,7 +528,20 @@ app.get("/api/pd-deal/:id", auth, wrap(async (req, res) => {
 }));
 // ficha de una persona de Pipedrive (sus datos, su organización, tratos, prospectos, actividades y notas)
 app.get("/api/pd-person/:id", auth, wrap(async (req, res) => res.json(await sales.personCard(req.params.id))));
-app.get("/api/schools", auth, (req, res) => res.json(schools.map(sales.schoolListItem)));
+// La lista de colegios (≈5 MB): sales.schoolList la guarda armada mientras nada cambió, con su ETag. El navegador la guarda
+// (Cache-Control: private, no-cache = siempre pregunta) y, si no cambió, recibe un 304 sin cuerpo. Comprimida una vez por versión.
+app.get("/api/schools", auth, wrap(async (req, res) => {
+  const L = sales.schoolList();
+  res.set({ ETag: L.etag, "Cache-Control": "private, no-cache" }); res.vary("Accept-Encoding");
+  await flush();
+  if (req.fresh) return res.status(304).end();
+  res.type("application/json");
+  const enc = COMPRESS ? pickEncoding(req.headers["accept-encoding"]) : null;
+  if (!enc) return res.send(L.json);
+  let out = null; try { out = await (L.enc[enc] ||= encode(L.json, enc)); } catch { delete L.enc[enc]; } // si no se pudo comprimir, va sin comprimir
+  if (!out) return res.send(L.json);
+  res.set("Content-Encoding", enc).send(out);
+}));
 // Accesos del equipo (líderes y dirección): el código personal de cada persona, para pasárselo, su acceso (Miembro · Líder ·
 // Dirección con cargo) y su equipo. Dirección y los fijos ven a todos y cambian accesos y equipos; un líder de equipo ve a su
 // gente (con código) y a la gente sin equipo (free, sin código: para sumarla). Lo fijo (dueño del token, LEADER_EMAILS,
