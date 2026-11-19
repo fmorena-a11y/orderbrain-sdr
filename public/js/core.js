@@ -78,7 +78,37 @@ export function applyTheme(t) {
   document.querySelectorAll('meta[name="theme-color"]').forEach(m => m.setAttribute("content", isDark() ? "#111214" : "#FAFAFA"));
 }
 applyTheme(load("theme", ""));
-export function setSchools(list) { S.schools = list; S.byId = new Map(list.map(s => [s.id, s])); }
+// ---------- colegios de la base e índice de búsqueda (Prospectar y Ctrl K)
+// El texto normalizado y los dígitos del teléfono se calculan UNA vez por colegio (antes, en cada tecla se normalizaban los
+// 22.000). schoolIdx(s) = { n: nombre, c: ciudad, q: «nombre ciudad dirección» (Prospectar), p: «nombre ciudad país» (Ctrl K),
+// d: dígitos del teléfono }. Va en una propiedad que no se enumera (_sx): no viaja al servidor, no entra en JSON ni en
+// Object.assign / {...s}. patchSchool la borra (se rearma sola al buscar). S.rev sube con cada cambio en los colegios: lo
+// usan las listas para saber si lo que tenían calculado sigue valiendo.
+const NORM_MEMO = new Map(); // ciudades y países se repiten miles de veces
+const normMemo = v => { if (!v) return ""; let r = NORM_MEMO.get(v); if (r === undefined) { if (NORM_MEMO.size > 20000) NORM_MEMO.clear(); NORM_MEMO.set(v, r = norm(v)); } return r; };
+export function schoolIdx(s) {
+  if (s._sx) return s._sx;
+  const n = norm(s.name), c = normMemo(s.city), a = s.addr ? norm(s.addr) : "", k = normMemo(s.country);
+  const x = { n, c, q: [n, c, a].filter(Boolean).join(" "), p: [n, c, k].filter(Boolean).join(" "), d: String(s.phone || "").replace(/\D/g, "") };
+  Object.defineProperty(s, "_sx", { value: x, writable: true, configurable: true, enumerable: false });
+  return x;
+}
+// se adelanta de a tandas cuando el navegador está libre (sin trabar la carga); lo que falte se calcula al buscar
+function warmIdx(list, i = 0) {
+  if (list !== S.schools) return;
+  for (const end = Math.min(list.length, i + 1500); i < end; i++) schoolIdx(list[i]);
+  if (i < list.length) (globalThis.requestIdleCallback || setTimeout)(() => warmIdx(list, i));
+}
+export function setSchools(list) { S.schools = list; S.byId = new Map(list.map(s => [s.id, s])); S.rev = (S.rev || 0) + 1; if (list.length) setTimeout(() => warmIdx(list)); }
+// ---------- números con una sola regla en toda la app: es-AR («1.234», decimales con coma). dec = decimales fijos
+// («1,5 km»); none = qué va si no hay número (null, vacío o NaN): por defecto «0», en Métricas «?».
+const NUM_FMT = new Map();
+export function fmtNum(n, { dec = 0, none = "0" } = {}) {
+  const v = typeof n === "number" ? n : n == null || n === "" ? NaN : Number(n);
+  if (!Number.isFinite(v)) return none;
+  let f = NUM_FMT.get(dec); if (!f) NUM_FMT.set(dec, f = new Intl.NumberFormat("es-AR", { minimumFractionDigits: dec, maximumFractionDigits: dec }));
+  return f.format(v);
+}
 // Fila que se corre de costado (países, filtros): flechas con mouse, rueda vertical → horizontal,
 // bordes difuminados que avisan que hay más, y la opción elegida siempre a la vista.
 export function scroller(el) {
@@ -110,7 +140,7 @@ export function scroller(el) {
 }
 // las fichas de Pipedrive que no son colegios de la base (pd-lead-…, pd-org-…) y las de una base cargada (bx-…) van solo al
 // índice, no a listas ni al mapa
-export function patchSchool(s) { if (!s?.id) return; const cur = S.byId.get(s.id); if (cur) Object.assign(cur, s); else { if (!/^(pd-(org|lead)|bx)-/.test(s.id)) S.schools.push(s); S.byId.set(s.id, s); } }
+export function patchSchool(s) { if (!s?.id) return; S.rev = (S.rev || 0) + 1; const cur = S.byId.get(s.id); if (cur) { Object.assign(cur, s); if (cur._sx) cur._sx = null; } else { if (!/^(pd-(org|lead)|bx)-/.test(s.id)) S.schools.push(s); S.byId.set(s.id, s); } }
 
 // ---------- API
 let onUnauthorized = () => {};

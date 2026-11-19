@@ -1,12 +1,12 @@
 // Buscador de zonas: «España», «Madrid», «Provincia de Córdoba», «Pocitos»… Busca colegios privados en OpenStreetMap
 // dentro del lugar (su contorno real), verifica cada uno (web, Google e IA si están configurados) y recién ahí
 // lo suma a la base y al mapa. Corre en segundo plano y se puede cancelar en el acto.
-import { S, api, esc, icon, modal, toast, patchSchool, norm } from "./core.js";
+import { S, api, esc, icon, modal, toast, patchSchool, norm, fmtNum } from "./core.js";
 
 const EXAMPLES = ["España", "Madrid", "Bogotá", "Provincia de Córdoba", "Monterrey", "Santa Cruz de la Sierra"];
 const BATCH = 8;
 let job = null;
-const fmt = n => Number(n || 0).toLocaleString("es-MX");
+const fmt = n => fmtNum(n);
 
 export const scanRunning = () => !!job?.running;
 const busyMsg = () => toast(`Ya estoy buscando en ${job.label}. Esperá a que termine o cancelalo.`, { type: "info" });

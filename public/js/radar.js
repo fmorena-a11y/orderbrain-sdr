@@ -1,11 +1,11 @@
 // Radar: colegios nuevos que encuentra el agente que recorre todas las ciudades cada 2 horas.
-import { api, esc, icon, ago } from "./core.js";
+import { api, esc, icon, ago, fmtNum } from "./core.js";
 import { openSchool, startSession } from "./school.js";
 import { go } from "./app.js";
 import { openCityFromOutside } from "./explore.js";
 
 let host, all = false;
-const fmt = n => Number(n || 0).toLocaleString("es-MX");
+const fmt = n => fmtNum(n);
 
 export async function renderRadar(el) {
   host = el; all = false;

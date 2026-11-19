@@ -43,7 +43,7 @@ test("pdSectionHtml: «o más» si Pipedrive tiene más, «Ver más» por grupo 
   assert.equal((html.match(/data-pdi=/g) || []).length, 10);
   const all = pdSectionHtml({ q: "x", state: "ok", data: { groups: [{ type: "organization", label: "Organizaciones", items: items.slice(0, 3), shown: 10, more: true, next: "abc" }], total: 3, more: true } });
   assert.match(all, /Ver más organizaciones de Pipedrive/, "después, la página siguiente de Pipedrive");
-  assert.equal(pdCount(50, true), "50 o más"); assert.equal(pdCount(4, false), "4"); assert.equal(pdCount(1200, true, true), "1,200+");
+  assert.equal(pdCount(50, true), "50 o más"); assert.equal(pdCount(4, false), "4"); assert.equal(pdCount(1200, true, true), "1.200+");
   assert.match(pdSectionHtml({ q: bad, state: "ok", data: { groups: [], total: 0 } }), /Tampoco hay .* con «&lt;img/);
   assert.match(pdSectionHtml({ q: "x", state: "err", err: bad }), /No pude buscar en Pipedrive \(&lt;img/);
 });

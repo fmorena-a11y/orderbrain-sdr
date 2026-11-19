@@ -99,8 +99,8 @@ test("groupResults: agrupa por tipo, ordena los grupos por su mejor resultado y 
   assert.deepEqual(r.groups.map(g => g.label), ["Tratos", "Organizaciones", "Prospectos", "Personas"]);
   assert.equal(r.total, 4); assert.equal(r.more, false);
   const [deal] = r.groups[0].items, [org] = r.groups[1].items, [lead] = r.groups[2].items, [p] = r.groups[3].items;
-  assert.deepEqual(p, { type: "person", id: 747, owner: "Cuenta general", url: "https://x.pipedrive.com/person/747", to: { kind: "person", id: 747 }, name: "Eduardo Miranda", phones: ["+52 222 429 2676"], emails: [], org: null });
-  assert.deepEqual(org, { type: "organization", id: 45363, owner: "Juan Diego", url: "https://x.pipedrive.com/organization/45363", to: { kind: "school", id: "monterrey-prepa-tec-cumbres", orgId: 45363 }, name: "Prepa Tec campus Cumbres", addr: "", place: "Monterrey, México" });
+  assert.deepEqual(p, { type: "person", id: 747, owner: "Cuenta general", ownerId: 13493598, url: "https://x.pipedrive.com/person/747", to: { kind: "person", id: 747 }, name: "Eduardo Miranda", phones: ["+52 222 429 2676"], emails: [], org: null });
+  assert.deepEqual(org, { type: "organization", id: 45363, owner: "Juan Diego", ownerId: 22144333, url: "https://x.pipedrive.com/organization/45363", to: { kind: "school", id: "monterrey-prepa-tec-cumbres", orgId: 45363 }, name: "Prepa Tec campus Cumbres", addr: "", place: "Monterrey, México" });
   assert.equal(deal.status, "Abierto"); assert.equal(deal.pipeline, "ONBOARDING"); assert.equal(deal.stage, "PENDING TO KICK OFF");
   assert.deepEqual(deal.org, { id: 45363, name: "Prepa Tec campus Cumbres" }); assert.equal(deal.to.kind, "school");
   assert.equal(lead.archived, true); assert.equal(lead.owner, "", "usuario que no está (inactivo): sin nombre");
