@@ -559583,7 +559583,7 @@
   "lat": 2.93,
   "lng": -75.28,
   "addr": "Carrera 15 # 3-107, Altico",
-  "phone": "",
+  "phone": "3145463978",
   "web": "https://www.salesianoneiva.edu.co",
   "email": "secretarianeiva@sdbcob.org",
   "levels": [
@@ -559600,7 +559600,10 @@
   "code": "341001000227",
   "found": "2026-11-19",
   "students": 305,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573236057010",
+  "webAt": "2026-11-20"
  },
  {
   "id": "villavicencio-gimnasio-campestre-ocarrillo",
@@ -559864,7 +559867,8 @@
   "code": "323001009528",
   "found": "2026-11-19",
   "students": 60,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "candelaria-liceo-cristiano-carrusel",
@@ -560185,7 +560189,9 @@
   "code": "325126000762",
   "found": "2026-11-19",
   "students": 496,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-20"
  },
  {
   "id": "medellin-jardin-infantil-super-amigos",
@@ -560428,7 +560434,8 @@
   "code": "376111002827",
   "found": "2026-11-19",
   "students": 544,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "tunja-jardin-infantil-picardias",
@@ -561627,7 +561634,9 @@
   "code": "325269001328",
   "found": "2026-11-19",
   "students": 805,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://colegiomayordeoccidente.edu.co/wp-content/uploads/2026/02/logo-wms3.png",
+  "webAt": "2026-11-20"
  },
  {
   "id": "el-cerrito-colegio-mixto-santo-tomas-de-aquino",
@@ -1453948,5 +1453957,188 @@
   "src": "osm",
   "osm": "w1354783748",
   "found": "2026-11-19"
+ },
+ {
+  "id": "santa-rosa-de-copan-universidad-catolica-de-honduras-campus-santa-rosa-de-lima",
+  "name": "Universidad Católica de Honduras - Campus Santa Rosa de Lima",
+  "city": "Santa Rosa de Copán",
+  "country": "Honduras",
+  "lat": 14.774191,
+  "lng": -88.783375,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w313717191",
+  "found": "2026-11-20"
+ },
+ {
+  "id": "santa-rosa-de-copan-universidad-pedagogica-nacional-francisco-morazan-upnfm",
+  "name": "Universidad Pedagógica Nacional Francisco Morazán (UPNFM)",
+  "city": "Santa Rosa de Copán",
+  "country": "Honduras",
+  "lat": 14.786177,
+  "lng": -88.765613,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w406981550",
+  "found": "2026-11-20"
+ },
+ {
+  "id": "santa-rosa-de-copan-instituto-santo-domingo-savio",
+  "name": "Instituto Santo Domingo Savio",
+  "city": "Santa Rosa de Copán",
+  "country": "Honduras",
+  "lat": 14.75915,
+  "lng": -88.771492,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1197779515",
+  "found": "2026-11-20"
+ },
+ {
+  "id": "santa-rosa-de-copan-instituto-oficial-alvaro-contreras",
+  "name": "Instituto Oficial Álvaro Contreras",
+  "city": "Santa Rosa de Copán",
+  "country": "Honduras",
+  "lat": 14.773929,
+  "lng": -88.785598,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1197813443",
+  "found": "2026-11-20"
+ },
+ {
+  "id": "santa-rosa-de-copan-escuela-bilingue-hem",
+  "name": "Escuela Bilingüe HEM",
+  "city": "Santa Rosa de Copán",
+  "country": "Honduras",
+  "lat": 14.797348,
+  "lng": -88.768073,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1198069677",
+  "found": "2026-11-20"
+ },
+ {
+  "id": "santa-rosa-de-copan-instituto-maria-auxiliadora",
+  "name": "Instituto María Auxiliadora",
+  "city": "Santa Rosa de Copán",
+  "country": "Honduras",
+  "lat": 14.770555,
+  "lng": -88.780668,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1198077372",
+  "found": "2026-11-20"
+ },
+ {
+  "id": "santa-rosa-de-copan-western-international-school",
+  "name": "Western International School",
+  "city": "Santa Rosa de Copán",
+  "country": "Honduras",
+  "lat": 14.773099,
+  "lng": -88.7882,
+  "addr": "11 Avenida NO",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1356050821",
+  "found": "2026-11-20"
+ },
+ {
+  "id": "melo-colegio-y-liceo-maria-auxiliadora",
+  "name": "Colegio y Liceo María Auxiliadora",
+  "city": "Melo",
+  "country": "Uruguay",
+  "lat": -32.371406,
+  "lng": -54.171485,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13857342201",
+  "found": "2026-11-20"
+ },
+ {
+  "id": "melo-colegio-salesiano",
+  "name": "Colegio Salesiano",
+  "city": "Melo",
+  "country": "Uruguay",
+  "lat": -32.369174,
+  "lng": -54.160883,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w545891371",
+  "found": "2026-11-20"
  }
 ]
