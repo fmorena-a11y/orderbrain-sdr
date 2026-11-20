@@ -562278,7 +562278,8 @@
   "code": "325307000110",
   "found": "2026-11-19",
   "students": 383,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "aguachica-centro-educativo-mundo-infantil",
@@ -565461,7 +565462,8 @@
   "code": "350001005830",
   "found": "2026-11-19",
   "students": 89,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "manizales-jardin-infantil-burbujitas",
@@ -565829,7 +565831,8 @@
   "code": "373001012836",
   "found": "2026-11-19",
   "students": 239,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "cali-liceo-infantil-mentes-creativas-en-accion",
@@ -566545,7 +566548,8 @@
   "code": "323001009544",
   "found": "2026-11-19",
   "students": 655,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "candelaria-instituto-comercial-gran-colombia",
@@ -567759,7 +567763,9 @@
   "code": "376364001266",
   "found": "2026-11-19",
   "students": 193,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-20"
  },
  {
   "id": "pereira-jardin-infantil-pinceladas-de-amor",
@@ -568546,7 +568552,9 @@
   "code": "405615001732",
   "found": "2026-11-19",
   "students": 274,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://www.colegiomonteluna.com/images/colegio-monteluna.jpg",
+  "webAt": "2026-11-20"
  },
  {
   "id": "girardot-jardin-infantil-chiquitos",
@@ -569003,7 +569011,9 @@
   "code": "476130000571",
   "found": "2026-11-19",
   "students": 576,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-20"
  },
  {
   "id": "neiva-colegio-travesuras-con-amor",
@@ -571352,7 +571362,8 @@
   "code": "476130001208",
   "found": "2026-11-19",
   "students": 372,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "barranquilla-centro-educativo-construyendo-saberes",
@@ -571803,7 +571814,7 @@
   "lat": 3.21,
   "lng": -76.65,
   "addr": "Km 1 Via Potrerito, Vda El Rosalito.",
-  "phone": "",
+  "phone": "+576013819262",
   "web": "http://alejandria.edu.co",
   "email": "registroacademico@alejandria.edu.co",
   "levels": [
@@ -571819,7 +571830,10 @@
   "code": "476364002569",
   "found": "2026-11-19",
   "students": 82,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://conexcol.net.co/wp-content/uploads/2026/11/social-card-v2-1200x630-1.png",
+  "whatsapp": "+573246791407",
+  "webAt": "2026-11-20"
  },
  {
   "id": "fundacion-centro-educ-los-angeles",
@@ -571890,7 +571904,8 @@
   "code": "111001002895",
   "found": "2026-11-19",
   "students": 714,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "ibague-colegio-creativo-nueva-generacion",
@@ -572164,7 +572179,8 @@
   "code": "350001005929",
   "found": "2026-11-19",
   "students": 116,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "valledupar-instituto-de-formacion-temprana-la-academia-del-saber",
@@ -574337,7 +574353,8 @@
   "code": "341001060868",
   "found": "2026-11-19",
   "students": 99,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "barrancabermeja-centro-educativo-adventista-la-libertad",
@@ -575614,7 +575631,8 @@
   "code": "323001006391",
   "found": "2026-11-19",
   "students": 195,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "sincelejo-centro-docente-san-antonio",
@@ -576068,7 +576086,8 @@
   "code": "123001007372",
   "found": "2026-11-19",
   "students": 393,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "valledupar-colegio-smart",
@@ -578225,7 +578244,8 @@
   "code": "376364002556",
   "found": "2026-11-19",
   "students": 85,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "fusagasuga-colegio-humanos-competentes-sas",
@@ -580241,7 +580261,9 @@
   "code": "425126800011",
   "found": "2026-11-19",
   "students": 290,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://colegiocambridge.edu.co/wp-content/uploads/2026/05/Logo-Colegio-Cambridge-2026-05-1.png",
+  "webAt": "2026-11-20"
  },
  {
   "id": "bogota-gimnasio-psicopedagogico-integral-gimsipei",
@@ -580876,7 +580898,7 @@
   "lat": 7.12,
   "lng": -73.11,
   "addr": "Carrera 35 # 44-59, San Pio",
-  "phone": "",
+  "phone": "+573016941449",
   "web": "https://www.jardinmontessori.edu.co",
   "email": "directora@jardinmontessori.edu.co",
   "levels": [
@@ -580890,7 +580912,10 @@
   "code": "368001004660",
   "found": "2026-11-19",
   "students": 12,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573016941449",
+  "webAt": "2026-11-20"
  },
  {
   "id": "medellin-centro-infantil-nubecitas",
@@ -584233,7 +584258,8 @@
   "code": "405615800015",
   "found": "2026-11-19",
   "students": 222,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "villavicencio-jardin-infantil-caritas-felices-de-maryu",
@@ -585156,7 +585182,7 @@
   "lat": 4.91,
   "lng": -74.04,
   "addr": "Vda Chuntame Finca San José IV Entrada por la Transversal 8 No. 9 - 55, Sin Barrio",
-  "phone": "",
+  "phone": "+573143721854",
   "web": "https://www.gimnasioaleman.edu.co",
   "email": "info@gimnasioaleman.edu.co",
   "levels": [],
@@ -585169,7 +585195,10 @@
   "code": "425126800038",
   "found": "2026-11-19",
   "students": 108,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://gimnasioaleman.edu.co/wp-content/uploads/2026/07/los-mejores-colegios-de-cajica-Gimnasio-Aleman-Multilingue.jpg",
+  "whatsapp": "+573143721854",
+  "webAt": "2026-11-20"
  },
  {
   "id": "soacha-liceo-pedagogico-cundinamarca",
@@ -588256,7 +588285,9 @@
   "code": "425126800003",
   "found": "2026-11-19",
   "students": 211,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://static.wixstatic.com/media/2a1f48_61cc752e61dc40d29f0a1d94afc3dd76%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/2a1f48_61cc752e61dc40d29f0a1d94afc3dd76%7Emv2.jpg",
+  "webAt": "2026-11-20"
  },
  {
   "id": "turbaco-colegio-integral-bonanza",
@@ -590188,7 +590219,7 @@
   "lat": 4.813353,
   "lng": -74.350085,
   "addr": "Finca El Remanso - Vereda Tierra Grata, Autopista Medellín Km 22",
-  "phone": "",
+  "phone": "3102059755",
   "web": "https://www.gimnasioelrenuevo.edu.co",
   "email": "rectoria@gimnasioelrenuevo.edu.co",
   "levels": [
@@ -590204,7 +590235,10 @@
   "code": "425269004372",
   "found": "2026-11-19",
   "students": 121,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "img": "",
+  "whatsapp": "+573102059755",
+  "webAt": "2026-11-20"
  },
  {
   "id": "candelaria-jardin-infantil-milagritos",
@@ -591002,7 +591036,7 @@
   "lat": 11.204679,
   "lng": -74.199829,
   "addr": "Avenida Libertador 21 48, Jardin",
-  "phone": "",
+  "phone": "3002842020",
   "web": "https://www.kinderlandia.edu.co",
   "email": "secretaria@kinderlandia.edu.co",
   "levels": [
@@ -591016,7 +591050,10 @@
   "code": "347001051377",
   "found": "2026-11-19",
   "students": 113,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "img": "",
+  "whatsapp": "+573044145879",
+  "webAt": "2026-11-20"
  },
  {
   "id": "maicao-corporacion-regional-tecnologica-de-la-guajira",
@@ -591704,7 +591741,8 @@
   "code": "325307800001",
   "found": "2026-11-19",
   "students": 104,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "pereira-liceo-infantil-montessori",
@@ -592158,7 +592196,7 @@
   "lat": 2.459641,
   "lng": -76.599377,
   "addr": "Calle 3 # 8-83, Centro",
-  "phone": "",
+  "phone": "6028231868",
   "web": "https://www.comfacauca.com",
   "email": "rectorbachilleratociclico@comfacauca.edu.co",
   "levels": [],
@@ -592170,7 +592208,9 @@
   "code": "319001004436",
   "found": "2026-11-19",
   "students": 498,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "img": "",
+  "webAt": "2026-11-20"
  },
  {
   "id": "tunja-jardin-infantil-natural-school",
@@ -592590,7 +592630,8 @@
   "code": "568001009000",
   "found": "2026-11-19",
   "students": 78,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "soacha-instituto-pedagogico-nueva-generacion",
@@ -594177,7 +594218,7 @@
   "lat": 6.246631,
   "lng": -75.581775,
   "addr": "Calle 11 Sur # 29E-197, Poblado",
-  "phone": "",
+  "phone": "+573023304933",
   "web": "https://www.vermontmedellin.edu.co",
   "email": "secretariaacademica@vermontmedellin.ed.co",
   "levels": [
@@ -594191,7 +594232,9 @@
   "code": "305001026611",
   "found": "2026-11-19",
   "students": 55,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "img": "https://vermontmedellin.edu.co/wp-content/uploads/sites/35/2026/08/WhatsApp_Image_2026-07-29_at_9.47.19_AM-removebg-preview.png?w=407",
+  "webAt": "2026-11-20"
  },
  {
   "id": "bogota-colegio-kuepa",
@@ -598135,7 +598178,9 @@
   "code": "376248800003",
   "found": "2026-11-19",
   "students": 128,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-20"
  },
  {
   "id": "tocancipa-colegio-divino-nino",
@@ -603331,7 +603376,9 @@
   "code": "305615001339",
   "found": "2026-11-19",
   "students": 352,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "img": "https://montessori.edu.co/hubfs/Imported_Blog_Media/64337ffeaae67237594d79a8ceda7ce6-Nov-30-2023-01-13-31-9611-PM.jpg",
+  "webAt": "2026-11-20"
  },
  {
   "id": "tenjo-colegio-cardenal-luque",
@@ -604912,7 +604959,7 @@
   "lat": 4.58,
   "lng": -74.21,
   "addr": "Carrera 3 A Este # 26-109, San Mateo",
-  "phone": "",
+  "phone": "573102366633",
   "web": "https://www.liceoamerican.school",
   "email": "secretaria@liceoamerican.school",
   "levels": [
@@ -604929,7 +604976,9 @@
   "code": "325754003878",
   "found": "2026-11-19",
   "students": 1195,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://liceoamerican.school/wp-content/uploads/2024/07/nina-juego-llanta-evento-escolar-liceo-moderno-american-school-1.webp",
+  "webAt": "2026-11-20"
  },
  {
   "id": "soledad-instituto-educativo-sol-y-lunita-e-u-antiguo-centro-educativo-sol-y-lu",
@@ -605055,7 +605104,9 @@
   "code": "325430000736",
   "found": "2026-11-19",
   "students": 1165,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-20"
  },
  {
   "id": "el-bagre-colegio-san-jose",
@@ -606910,7 +606961,7 @@
   "lat": 4.81,
   "lng": -74.14,
   "addr": "Km 7 Via Siberia Tenjo Vda El Chacal, Rural Sin Informacio",
-  "phone": "",
+  "phone": "+573007090242",
   "web": "https://www.gcrb.edu.co",
   "email": "secretaria@gcrb.edu.co",
   "levels": [
@@ -606927,7 +606978,10 @@
   "code": "425799000599",
   "found": "2026-11-19",
   "students": 716,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573007090242",
+  "webAt": "2026-11-20"
  },
  {
   "id": "hatonuevo-colegio-cristiana-interamericano",
@@ -607558,7 +607612,9 @@
   "code": "405615800083",
   "found": "2026-11-19",
   "students": 123,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "img": "",
+  "webAt": "2026-11-20"
  },
  {
   "id": "malambo-centro-educativo-el-mundo-de-los-ninos",
@@ -608595,7 +608651,9 @@
   "code": "425377076576",
   "found": "2026-11-19",
   "students": 540,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://colegiocambridge.edu.co/wp-content/uploads/2026/05/Logo-Colegio-Cambridge-2026-05-1.png",
+  "webAt": "2026-11-20"
  },
  {
   "id": "soledad-escuela-mixta-san-miguel-arcangel",
@@ -609033,7 +609091,7 @@
   "lat": 4.88,
   "lng": -74.06,
   "addr": "Carrera 11 # 25-00, Rural Sin Informacio",
-  "phone": "",
+  "phone": "+573217532493",
   "web": "https://www.gimnasio-britanico.edu.co",
   "email": "secretariaacademica@gimnasio-britanico.edu.co",
   "levels": [
@@ -609050,7 +609108,10 @@
   "code": "325175000549",
   "found": "2026-11-19",
   "students": 498,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573217532493",
+  "webAt": "2026-11-20"
  },
  {
   "id": "puerto-tejada-colegio-luz-de-america",
@@ -609547,7 +609608,8 @@
   "code": "315001003444",
   "found": "2026-11-19",
   "students": 469,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "fonseca-jardin-infantil-divino-nino",
@@ -612023,7 +612085,9 @@
   "code": "325175001154",
   "found": "2026-11-19",
   "students": 1378,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://bosquesdesherwood.edu.co/wp-content/uploads/2026/04/BANNER-INICIAL-FINAL.webp",
+  "webAt": "2026-11-20"
  },
  {
   "id": "cogua-colegio-divino-nino",
@@ -612162,7 +612226,7 @@
   "lat": 4.58,
   "lng": -74.21,
   "addr": "Carrera 3 # 19A-47 / Kr 3 B 18 42, El Dorado",
-  "phone": "",
+  "phone": "+573125262341",
   "web": "https://www.vidanueva.edu.co",
   "email": "info@vidanueva.edu.co",
   "levels": [
@@ -612178,7 +612242,10 @@
   "code": "325754004238",
   "found": "2026-11-19",
   "students": 1820,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573125262341",
+  "webAt": "2026-11-20"
  },
  {
   "id": "malambo-centro-educativo-el-divino-nino",
@@ -613893,7 +613960,7 @@
   "lat": 4.88,
   "lng": -74.19,
   "addr": "Vda. El Santuario Km. 10 Via Puente Piedra",
-  "phone": "",
+  "phone": "900654815",
   "web": "https://www.lcthomasdeiriarte.edu.co",
   "email": "colegio@lcthomasdeiriarte.edu.co",
   "levels": [
@@ -613909,7 +613976,10 @@
   "code": "425769060643",
   "found": "2026-11-19",
   "students": 961,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://www.lcthomasdeiriarte.edu.co/wp-content/uploads/2025/02/02.png",
+  "whatsapp": "+573192058789",
+  "webAt": "2026-11-20"
  },
  {
   "id": "paipa-centro-educativo-carrusel",
@@ -613961,7 +614031,8 @@
   "code": "308758076363",
   "found": "2026-11-19",
   "students": 222,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "acevedo-colegio-andaki",
@@ -614012,7 +614083,8 @@
   "code": "305088002615",
   "found": "2026-11-19",
   "students": 932,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "san-gil-colegio-infantil-colina-de-suenos",
@@ -614235,7 +614307,9 @@
   "code": "325754004521",
   "found": "2026-11-19",
   "students": 929,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-20"
  },
  {
   "id": "isnos-liceo-montessori",
@@ -614361,7 +614435,9 @@
   "code": "325754005099",
   "found": "2026-11-19",
   "students": 881,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-20"
  },
  {
   "id": "palmira-liceo-gotitas-de-amor",
@@ -614435,7 +614511,9 @@
   "code": "325754002901",
   "found": "2026-11-19",
   "students": 870,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://image.jimcdn.com/app/cms/image/transf/dimension=4096x4096:format=jpg/path/s9822ebe894d05ae1/image/i4a8da1d1fc2334db/version/1792699201/image.jpg",
+  "webAt": "2026-11-20"
  },
  {
   "id": "paipa-gimnasio-moderno-maria-montesory",
@@ -614634,7 +614712,8 @@
   "code": "325754004076",
   "found": "2026-11-19",
   "students": 820,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "santo-tomas-centro-educativo-gimnasio-campestre",
@@ -614856,7 +614935,9 @@
   "code": "325754003461",
   "found": "2026-11-19",
   "students": 766,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-20"
  },
  {
   "id": "el-paso-colegio-divino-nino",
@@ -615181,7 +615262,8 @@
   "code": "305088000850",
   "found": "2026-11-19",
   "students": 711,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "mesetas-colegio-libertad-maranata",
@@ -615267,7 +615349,7 @@
   "lat": 4.58,
   "lng": -74.2,
   "addr": "Calle 32 B # 6D-08 Este / Tv 11 C 5 02 Sur, Sumapaz- San Mateo",
-  "phone": "",
+  "phone": "3243083296",
   "web": "https://www.colmilap.edu.co",
   "email": "info@colmilap.edu.co",
   "levels": [
@@ -615283,7 +615365,10 @@
   "code": "325754003312",
   "found": "2026-11-19",
   "students": 683,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://colmilap.edu.co/assets/img/bannersocial.jpg",
+  "whatsapp": "+573243083296",
+  "webAt": "2026-11-20"
  },
  {
   "id": "palermo-instituto-doc-gusanito-medidor",
@@ -615507,7 +615592,8 @@
   "code": "425175001043",
   "found": "2026-11-19",
   "students": 650,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "barichara-instituto-pedagogico-geo-von-lenguerke",
@@ -615660,7 +615746,8 @@
   "code": "308758002351",
   "found": "2026-11-19",
   "students": 614,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "dosquebradas-colegio-catolico-baltasar-alvarez-r",
@@ -615686,7 +615773,8 @@
   "code": "366170001944",
   "found": "2026-11-19",
   "students": 608,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "la-victoria-centro-educativo-talentos",
@@ -616104,7 +616192,8 @@
   "code": "325873000321",
   "found": "2026-11-19",
   "students": 509,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "soledad-centro-educativo-integral-nueva-esperanza",
@@ -616181,7 +616270,9 @@
   "code": "325758000075",
   "found": "2026-11-19",
   "students": 514,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://lh7-us.googleusercontent.com/sitesv-images-rt/APXyLQcRvpdpWJvY7Uc3dySyLA9Oj9i8NXFc8lu2wwtO65g--ylU3RWmcGotdV53OF9_kIk5UwM1XBMJNcO8kbT1_z-Qs2qDIPbwS-2GkQMGLYmtzB2aWj3oGPVhogBJqQ76C0b7QdRrTBgwD9FB3wMFM52icm6zogCqHvDptB9Y6v0fOZHcXqDKbAqnwA=w16383",
+  "webAt": "2026-11-20"
  },
  {
   "id": "san-onofre-centro-educativo-costa-caribe",
@@ -616641,7 +616732,9 @@
   "code": "325754004441",
   "found": "2026-11-19",
   "students": 479,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://www.liceomariainmaculada.edu.co/wp-content/uploads/IMG_20250918_092434_078-scaled-e1764948518450.jpg",
+  "webAt": "2026-11-20"
  },
  {
   "id": "la-calera-colegio-bilingue-ekiraya-educacion-montessori",
@@ -616775,7 +616868,7 @@
   "lat": 6.19,
   "lng": -75.62,
   "addr": "Calle 75 S # 54A-10, Santa Catalina",
-  "phone": "",
+  "phone": "+3243415748",
   "web": "https://www.ieelcarpinelo.edu.co",
   "email": "colegiocarpinelo@hotmail.com",
   "levels": [
@@ -616791,7 +616884,10 @@
   "code": "305360001071",
   "found": "2026-11-19",
   "students": 441,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+3243415748",
+  "webAt": "2026-11-20"
  },
  {
   "id": "santa-rosa-de-cabal-liceo-maria-montessori",
@@ -616864,7 +616960,8 @@
   "code": "325769000379",
   "found": "2026-11-19",
   "students": 429,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "cajica-san-marco-club-de-desarrollo-infantil",
@@ -617035,7 +617132,8 @@
   "code": "308758076151",
   "found": "2026-11-19",
   "students": 405,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "fomeque-liceo-pegagogico-vigostky",
@@ -617181,7 +617279,8 @@
   "code": "325377000494",
   "found": "2026-11-19",
   "students": 381,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-20"
  },
  {
   "id": "yumbo-colegio-bautista-de-yumbo",
@@ -617191,7 +617290,7 @@
   "lat": 3.58,
   "lng": -76.49,
   "addr": "Carrera 3 # 8-14, Belalcazar",
-  "phone": "",
+  "phone": "+3206657966",
   "web": "https://www.colegiobautistadeyumbo.com",
   "email": "colegio-bautistayumbo@hotmail.com",
   "levels": [
@@ -617208,7 +617307,10 @@
   "code": "376892000522",
   "found": "2026-11-19",
   "students": 387,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+3206657966",
+  "webAt": "2026-11-20"
  },
  {
   "id": "facatativa-colegio-fundacion-san-juan-bautista",
@@ -617218,7 +617320,7 @@
   "lat": 4.813353,
   "lng": -74.350085,
   "addr": "Calle 6 # 6-19, Daniel Ortega",
-  "phone": "",
+  "phone": "+573208518522",
   "web": "https://www.sanjuanbautista.edu.co",
   "email": "administrador@sanjuanbautista.edu.co",
   "levels": [],
@@ -617231,7 +617333,10 @@
   "code": "325269800093",
   "found": "2026-11-19",
   "students": 79,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "img": "",
+  "whatsapp": "+573208518522",
+  "webAt": "2026-11-20"
  },
  {
   "id": "florida-instituto-tecnico-industrial-y-comercial-antonio-narino",
@@ -617362,7 +617467,7 @@
   "lat": 4.85,
   "lng": -74.06,
   "addr": "Carrera 8 # 5-24, Urbano Sin Informaci",
-  "phone": "",
+  "phone": "3158932947",
   "web": "https://www.colegiocelestinfreinetchia.edu.co",
   "email": "celfrelimitada@yahoo.com",
   "levels": [
@@ -617378,7 +617483,9 @@
   "code": "325175000581",
   "found": "2026-11-19",
   "students": 366,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://colegiocelestinfreinetchia.edu.co/wp-content/uploads/elementor/thumbs/CONVENIO-2-pssaz238n58eqgqrzdm4keyw90pv9pr6tod7qe29s8.png",
+  "webAt": "2026-11-20"
  },
  {
   "id": "moniquira-liceo-campestre-mundo-magico",
