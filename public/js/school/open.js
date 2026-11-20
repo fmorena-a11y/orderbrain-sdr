@@ -2,7 +2,7 @@
 import { $, S, api, esc, fold, icon, loadPref, patchSchool, save, toast } from "../core.js";
 import { D, drafts, drawerOpen, newForm } from "./state.js";
 import { keepScroll, loadBaseInfo, loadPhotos, loadStudy } from "./media.js";
-import { loadEnrich, loadHistory, loadSedes } from "./sections.js";
+import { ENR, loadEnrich, loadHistory, loadSedes } from "./sections.js";
 import { dealsSession, firstPending, flushPos, markSkip, myDeal, pendingOf, prefetch, savePos, sessionGo, skipReason, useSession } from "./session.js";
 import { draw } from "./render.js";
 import { liveBase } from "./register.js";
@@ -13,7 +13,15 @@ import { ensureSchools } from "../schoolbase.js";
 // Abre la ficha de un prospecto (lead) o de una organización de Pipedrive que no está en la base ("lead:…" / "org:…").
 // La dirección para mostrar y copiar (pedido del líder: «un título que diga Dirección y que se pueda copiar con un clic»):
 // la de la base, si no la que encontró el estudio, y si no la ciudad y el país.
-export const phoneOnly = v => (String(v || "").match(/\+?\d[\d\s().\/-]{5,}\d/) || [""])[0].trim();
+// el número con su paréntesis de apertura («(341) 388-0558»: antes quedaba «341) 388-0558»)
+export const phoneOnly = v => { const m = (String(v || "").match(/\+?\(?\d[\d\s().\/-]{5,}\d/) || [""])[0].trim(); return m.includes(")") && !m.includes("(") ? m.replace(/^(\d+)\)/, "($1)") : m; };
+// la web del colegio: la de la base, la del estudio o la que encontró Enriquecer (pedido del líder: «tiene que aparecer el link»)
+export function webOf(s) {
+  const raw = s.web || (D.id === s.id ? D.study?.contacto?.web : "") || (ENR.get(s.id)?.items || []).find(x => x.kind === "web")?.value || "";
+  if (!raw) return "";
+  return /^https?:\/\//i.test(raw) ? raw : "https://" + raw;
+}
+const webLabel = u => u.replace(/^https?:\/\/(www\.)?/i, "").replace(/\/$/, "");
 export function fullAddr(street, s) {
   const out = [];
   for (const p of [street, s.city, s.country].map(x => String(x || "").trim()).filter(Boolean)) if (!out.some(o => fold(o).includes(fold(p)))) out.push(p);
@@ -26,7 +34,8 @@ export function addrRow(s) {
   const street = (A?.src === "manual" && A.addr) || s.addr || (A?.src === "mapa" && A.addr) || (D.id === s.id ? D.study?.contacto?.direccion : "") || "";
   const line = fullAddr(street, s);
   const tag = A?.src === "manual" ? ` <span class="faint" title="${esc([A.by && `Cargada a mano por ${A.by}`, A.at && new Date(A.at).toLocaleDateString()].filter(Boolean).join(" · "))}">(a mano)</span>` : A?.src === "mapa" && !s.addr ? ` <span class="faint" title="Sale del punto del colegio en el mapa (OpenStreetMap): revisala">(del mapa)</span>` : !street ? " (solo ciudad)" : "";
-  return `<div class="sub d-addr"><span class="k">Dirección${tag}</span> <span class="v">${esc(line || "sin dirección")}</span>${line ? `<button class="icon-btn sm" data-copy="${esc(line)}" aria-label="Copiar la dirección" title="Copiar la dirección">${icon("copy", "sm")}</button>` : ""}<button class="icon-btn sm" id="addrEd" aria-label="Escribir la dirección a mano" title="Escribir la dirección a mano">${icon("edit", "sm")}</button></div>`;
+  const web = webOf(s);
+  return (web ? `<div class="sub d-addr d-web"><span class="k">Web</span> <a class="v" href="${esc(web)}" target="_blank" rel="noopener">${esc(webLabel(web))}</a><button class="icon-btn sm" data-copy="${esc(web)}" aria-label="Copiar la web" title="Copiar la web">${icon("copy", "sm")}</button></div>` : "") + `<div class="sub d-addr"><span class="k">Dirección${tag}</span> <span class="v">${esc(line || "sin dirección")}</span>${line ? `<button class="icon-btn sm" data-copy="${esc(line)}" aria-label="Copiar la dirección" title="Copiar la dirección">${icon("copy", "sm")}</button>` : ""}<button class="icon-btn sm" id="addrEd" aria-label="Escribir la dirección a mano" title="Escribir la dirección a mano">${icon("edit", "sm")}</button></div>`;
 }
 async function loadAddr(id) {
   try { const r = await api(`/api/schools/${encodeURIComponent(id)}/address`); if (D.id !== id) return; D.addr = r; keepScroll(draw); } catch { /* sin dirección del servidor: queda la de la base */ }

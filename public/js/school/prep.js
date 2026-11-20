@@ -1,7 +1,7 @@
 // Ficha del colegio: Preparar, «Ya hay algo parecido en Pipedrive» y «Es esta» → vincular → fusionar.
 import { $, S, addDays, ago, api, cap, copy, esc, icon, loadPref, modal, nextBusinessDay, patchSchool, save, telLink, toast, today } from "../core.js";
 import { D, laEsp } from "./state.js";
-import { fullAddr, load, openSchool, phoneOnly, plural } from "./open.js";
+import { fullAddr, load, openSchool, phoneOnly, plural, webOf } from "./open.js";
 import { BASEINFO, baseSec, bindGallery, gallery, keepScroll, loadStudy } from "./media.js";
 import { HIST, SEDES, enrichSec, historySec, loadHistory, loadSedes, sedesSec, writesList } from "./sections.js";
 import { clientWarn, createProspect, draw, ownDeal } from "./render.js";
@@ -27,12 +27,13 @@ function studyCard(s) {
     <p class="lead">${esc(st.resumen)}</p>
     ${facts.length ? `<dl class="facts">${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>` : ""}
     ${st.decisores?.length ? `<div class="sub-h">Decisores</div>${st.decisores.map(x => `<div class="person"><div class="t"><b>${esc(x.nombre)}</b><small>${esc(x.cargo)}${x.fuente ? ` · ${/^https?:/.test(x.fuente) ? `<a href="${esc(x.fuente)}" target="_blank" rel="noopener">fuente</a>` : esc(x.fuente)}` : ""}</small></div></div>`).join("")}` : ""}
-    ${(c.telefonos?.length || c.emails?.length || c.redes?.length || c.whatsapp || c.direccion) ? `<div class="sub-h">Contacto</div>
+    ${(c.telefonos?.length || c.emails?.length || c.redes?.length || c.whatsapp || c.direccion || c.web) ? `<div class="sub-h">Contacto</div>
       ${c.direccion ? `<div class="copy-row"><span class="k">Dirección</span><span class="v">${esc(c.direccion)}</span><button class="btn sm" data-copy="${esc(fullAddr(c.direccion, s))}" aria-label="Copiar la dirección">${icon("copy", "sm")} Copiar</button></div>` : ""}
       <div class="chips">
+      ${(w => w ? `<a class="chip" href="${esc(w)}" target="_blank" rel="noopener" title="${esc(w)}">${icon("globe", "sm")} <span>${esc(w.replace(/^https?:\/\/(www\.)?/i, "").replace(/\/$/, ""))}</span></a>` : "")(c.web ? (/^https?:\/\//i.test(c.web) ? c.web : "https://" + c.web) : webOf(s))}
       ${(c.telefonos || []).map(t => { const n = phoneOnly(t), note = n ? String(t).replace(n, "").replace(/^[\s,;·-]*\(?|\)?\s*$/g, "").trim() : ""; return `<a class="chip${note ? " has-note" : ""}" href="${esc(telLink(n || t))}" title="${esc(t)}">${icon("phone", "sm")} <span>${esc(n || t)}${note ? `<small>${esc(note)}</small>` : ""}</span></a>`; }).join("")}
       ${[c.whatsapp, ...(c.telefonos || [])].filter(Boolean).slice(0, 1).map(t => `<button class="chip" data-stwa="${esc(t)}">${icon("whatsapp", "sm")} WhatsApp</button>`).join("")}
-      ${(c.emails || []).map(m => `<button class="chip" data-stmail="${esc(m)}">${icon("mail", "sm")} ${esc(m)}</button>`).join("")}
+      ${(c.emails || []).map(m => { const e = (String(m).match(/[\w.+-]+@[\w-]+(\.[\w-]+)+/) || [""])[0], note = e ? String(m).replace(e, "").replace(/^[\s,;·-]*\(?|\)?\s*$/g, "").trim() : ""; return `<button class="chip${note ? " has-note" : ""}" data-stmail="${esc(e || m)}" title="${esc(m)}">${icon("mail", "sm")} <span>${esc(e || m)}${note ? `<small>${esc(note)}</small>` : ""}</span></button>`; }).join("")}
       ${(c.redes || []).filter(u => /^https?:\/\//.test(u)).map(u => `<a class="chip" href="${esc(u)}" target="_blank" rel="noopener">${icon("external", "sm")} ${esc(u.replace(/^https?:\/\/(www\.)?/, "").split("/")[0])}</a>`).join("")}</div>` : ""}
     ${(st.senales?.length || st.riesgos?.length) ? `<div class="two-col">
       ${st.senales?.length ? `<div><div class="sub-h">Señales de oportunidad</div><ul class="ticks ok">${st.senales.map(x => `<li>${icon("check", "sm")}<span>${esc(x)}</span></li>`).join("")}</ul></div>` : ""}

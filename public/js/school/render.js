@@ -3,7 +3,7 @@ import { $, S, ago, api, callGuess, copy, dayLabel, esc, icon, leadsAll, leadsOv
 import { proposeDemo } from "../demoslots.js";
 import { dealBarHtml } from "../aedeal.js";
 import { D, NEXT_TYPES, coarse, miniCal } from "./state.js";
-import { addrRow, bindAddr, closeSchool, load } from "./open.js";
+import { addrRow, bindAddr, closeSchool, load, webOf } from "./open.js";
 import { ENR, enrich, enriching, loadEnrich, sedeCallable, sedesOf } from "./sections.js";
 import { myDeal, sessionGo, skipCurrent } from "./session.js";
 import { apiEx, bindPrep, prepBody } from "./prep.js";
@@ -308,7 +308,8 @@ function moreItems(s, d) {
   if (d?.orgUrl) it.push({ label: s.leadOnly ? "Abrir en Pipedrive" : "Organización en Pipedrive", sub: m?.orgName || s.name, fn: () => open(d.orgUrl) });
   if (s.lat != null) it.push({ label: "Cómo llegar", sub: "Google Maps con la ruta", fn: () => open(mapsDir(s)) });
   it.push({ label: "Ver en Google Maps", sub: "Fotos, reseñas y horarios", fn: () => open(mapsSearch(s)) });
-  if (s.web) it.push({ label: "Sitio web", sub: s.web.replace(/^https?:\/\/(www\.)?/, ""), fn: () => open(s.web) });
+  const web = webOf(s);
+  if (web) it.push({ label: "Sitio web", sub: web.replace(/^https?:\/\/(www\.)?/, ""), fn: () => open(web) });
   it.push({ label: "Buscar al decisor en Google", sub: `Director o administración de ${s.name}`, fn: () => open(`https://www.google.com/search?q=${encodeURIComponent(`"${s.name}" ${s.city} director OR administración OR cafetería`)}`) });
   return it;
 }
