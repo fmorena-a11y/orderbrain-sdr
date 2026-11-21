@@ -84201,7 +84201,8 @@
   "found": "2026-11-10",
   "code": "311848002823",
   "padron": "MEN datos.gov.co",
-  "students": 711
+  "students": 711,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-universidad-cooperativa",
@@ -84273,7 +84274,9 @@
   "found": "2026-11-10",
   "code": "311001042667",
   "padron": "MEN datos.gov.co",
-  "students": 685
+  "students": 685,
+  "img": "https://gimnasiofontana.edu.co/wp-content/uploads/2025/01/background-gimnasio-fontana.webp",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-universidad-jorge-tadeo-lozano",
@@ -84322,7 +84325,8 @@
   "found": "2026-11-10",
   "code": "311848003811",
   "padron": "MEN datos.gov.co",
-  "students": 181
+  "students": 181,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-universidad-catolica-sede-administrativa",
@@ -84499,7 +84503,8 @@
   "found": "2026-11-10",
   "code": "311769000921",
   "padron": "MEN datos.gov.co",
-  "students": 698
+  "students": 698,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-isabel-ii",
@@ -84605,7 +84610,8 @@
   "found": "2026-11-10",
   "code": "325754002073",
   "padron": "MEN datos.gov.co",
-  "students": 247
+  "students": 247,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-universidad-sergio-arboleda",
@@ -85028,7 +85034,8 @@
   "found": "2026-11-10",
   "code": "311001002461",
   "padron": "MEN datos.gov.co",
-  "students": 478
+  "students": 478,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-universidad-colegio-mayor-de-cundinamarca",
@@ -85118,7 +85125,9 @@
   "found": "2026-11-10",
   "code": "411769001981",
   "padron": "MEN datos.gov.co",
-  "students": 593
+  "students": 593,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-san-felipe-neri",
@@ -85145,7 +85154,9 @@
   "found": "2026-11-10",
   "code": "311001001111",
   "padron": "MEN datos.gov.co",
-  "students": 374
+  "students": 374,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-2",
@@ -85206,7 +85217,8 @@
   "found": "2026-11-10",
   "code": "311001109257",
   "padron": "MEN datos.gov.co",
-  "students": 384
+  "students": 384,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-gimnasio-mixto-manuel-del-socorro-rodriguez",
@@ -85345,7 +85357,8 @@
   "found": "2026-11-10",
   "code": "411769000119",
   "padron": "MEN datos.gov.co",
-  "students": 125
+  "students": 125,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-instituto-diversificado-albert-einstein",
@@ -85456,7 +85469,9 @@
   "found": "2026-11-10",
   "code": "311848001118",
   "padron": "MEN datos.gov.co",
-  "students": 927
+  "students": 927,
+  "img": "https://gimandes.edu.co/wp-content/uploads/2022/01/grande-3-scaled-1.jpg",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-integrada-la-candelaria-sede-a",
@@ -85648,7 +85663,9 @@
   "found": "2026-11-10",
   "code": "311001107289",
   "padron": "MEN datos.gov.co",
-  "students": 385
+  "students": 385,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-universidad-incca-de-colombia",
@@ -85724,7 +85741,9 @@
   "found": "2026-11-10",
   "code": "311848000308",
   "padron": "MEN datos.gov.co",
-  "students": 2604
+  "students": 2604,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-universidad-cooperativa-de-colombia-sede-norte",
@@ -85924,7 +85943,9 @@
   "found": "2026-11-10",
   "code": "311001105481",
   "padron": "MEN datos.gov.co",
-  "students": 427
+  "students": 427,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-agustiniano-de-suba",
@@ -85974,7 +85995,9 @@
   "found": "2026-11-10",
   "code": "311001102783",
   "padron": "MEN datos.gov.co",
-  "students": 1705
+  "students": 1705,
+  "img": "https://cms.colsubsidio.com/sites/default/files/2026-01/hero-video-en-2025-entregamos-colsubsidio.jpg",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-divino-salvador",
@@ -86001,7 +86024,9 @@
   "found": "2026-11-10",
   "code": "311769000076",
   "padron": "MEN datos.gov.co",
-  "students": 309
+  "students": 309,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-miguel-antonio-caro-mac",
@@ -86062,7 +86087,10 @@
   "found": "2026-11-10",
   "code": "311848002874",
   "padron": "MEN datos.gov.co",
-  "students": 429
+  "students": 429,
+  "img": "",
+  "whatsapp": "+573165414034",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-universidad-catolica-facultad-de-psicologia",
@@ -86181,7 +86209,8 @@
   "found": "2026-11-10",
   "code": "311848002343",
   "padron": "MEN datos.gov.co",
-  "students": 337
+  "students": 337,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-gimnasio-cristiano-luz-y-vida",
@@ -86206,7 +86235,9 @@
   "found": "2026-11-10",
   "code": "311001094420",
   "padron": "MEN datos.gov.co",
-  "students": 379
+  "students": 379,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-instituto-san-francisco",
@@ -86296,7 +86327,10 @@
   "found": "2026-11-10",
   "code": "311001109265",
   "padron": "MEN datos.gov.co",
-  "students": 736
+  "students": 736,
+  "img": "https://www.agustinianotagaste.edu.co/wp-content/uploads/2023/05/Agustiniano-Tagaste.jpg",
+  "whatsapp": "+573133475611",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-general-gustavo-rojas-pinilla",
@@ -86457,7 +86491,10 @@
   "found": "2026-11-10",
   "code": "311001047294",
   "padron": "MEN datos.gov.co",
-  "students": 978
+  "students": 978,
+  "img": "",
+  "whatsapp": "+573142855989",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-kabalia-academia-ecuestre",
@@ -86520,7 +86557,8 @@
   "found": "2026-11-10",
   "code": "311001011800",
   "padron": "MEN datos.gov.co",
-  "students": 186
+  "students": 186,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-psicopedagogico",
@@ -86583,7 +86621,8 @@
   "found": "2026-11-10",
   "code": "311001009007",
   "padron": "MEN datos.gov.co",
-  "students": 306
+  "students": 306,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-manuel-elkin-patarroyo",
@@ -86608,7 +86647,8 @@
   "found": "2026-11-10",
   "code": "311001093792",
   "padron": "MEN datos.gov.co",
-  "students": 293
+  "students": 293,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-san-angelo",
@@ -86635,7 +86675,10 @@
   "found": "2026-11-10",
   "code": "311001105383",
   "padron": "MEN datos.gov.co",
-  "students": 782
+  "students": 782,
+  "img": "",
+  "whatsapp": "+573187356105",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-liceo-catolico-campestre",
@@ -86660,7 +86703,10 @@
   "found": "2026-11-10",
   "code": "311001000590",
   "padron": "MEN datos.gov.co",
-  "students": 154
+  "students": 154,
+  "img": "https://www.lcc.edu.co/images/admisiones-lcc.webp",
+  "whatsapp": "+573176445351",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-sur-oriental-panamericano-a",
@@ -86923,7 +86969,9 @@
   "found": "2026-11-10",
   "code": "311769003342",
   "padron": "MEN datos.gov.co",
-  "students": 1001
+  "students": 1001,
+  "img": "https://www.nogales.edu.co/wp-content/uploads/cropped-Favicon-01.png",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-tecnico-benjamin-herrera-sede-a",
@@ -87038,7 +87086,8 @@
   "found": "2026-11-10",
   "code": "425214000289",
   "padron": "MEN datos.gov.co",
-  "students": 2955
+  "students": 2955,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-gimnasio-san-francisco-de-sales",
@@ -87155,7 +87204,8 @@
   "found": "2026-11-10",
   "code": "311848000456",
   "padron": "MEN datos.gov.co",
-  "students": 784
+  "students": 784,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-gimnasio-karpore",
@@ -87320,7 +87370,9 @@
   "found": "2026-11-10",
   "code": "311001011460",
   "padron": "MEN datos.gov.co",
-  "students": 929
+  "students": 929,
+  "img": "https://static.wixstatic.com/media/46d565_69a8acc474374fa9ab922a37b889cb4d~mv2_d_9920_2240_s_2.jpg/v1/fill/w_2500,h_564,al_c/46d565_69a8acc474374fa9ab922a37b889cb4d~mv2_d_9920_2240_s_2.jpg",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-liceo-comercial-las-americas-inscripciones-abiertas",
@@ -87666,7 +87718,10 @@
   "found": "2026-11-10",
   "code": "311001008990",
   "padron": "MEN datos.gov.co",
-  "students": 1338
+  "students": 1338,
+  "img": "https://superioramericano.edu.co/wp-content/uploads/2025/07/CSA_Transporte.jpeg",
+  "whatsapp": "+573024398231",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-gimnasio-my-huellitas",
@@ -87709,7 +87764,9 @@
   "found": "2026-11-10",
   "code": "311001046263",
   "padron": "MEN datos.gov.co",
-  "students": 324
+  "students": 324,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-liceo-moderno-leon-baez",
@@ -87807,7 +87864,9 @@
   "found": "2026-11-10",
   "code": "311001036900",
   "padron": "MEN datos.gov.co",
-  "students": 187
+  "students": 187,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-santiago-alberione",
@@ -87852,7 +87911,10 @@
   "found": "2026-11-10",
   "code": "311001016658",
   "padron": "MEN datos.gov.co",
-  "students": 305
+  "students": 305,
+  "img": "",
+  "whatsapp": "+573012001578",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-universidad-del-rosario",
@@ -87952,7 +88014,9 @@
   "found": "2026-11-10",
   "code": "325754005480",
   "padron": "MEN datos.gov.co",
-  "students": 458
+  "students": 458,
+  "img": "https://cms.colsubsidio.com/sites/default/files/2026-01/hero-video-en-2025-entregamos-colsubsidio.jpg",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-instituto-tecnologico-los-andes",
@@ -88064,7 +88128,10 @@
   "found": "2026-11-10",
   "code": "311102000086",
   "padron": "MEN datos.gov.co",
-  "students": 113
+  "students": 113,
+  "img": "https://colegioellibertador.edu.co/wp-content/uploads/2020/01/logo02-scaled.jpg",
+  "whatsapp": "+573212253863",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-nuestra-senora-de-nazareth",
@@ -88089,7 +88156,9 @@
   "found": "2026-11-10",
   "code": "311102000124",
   "padron": "MEN datos.gov.co",
-  "students": 732
+  "students": 732,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-liceo-nobel",
@@ -88269,7 +88338,10 @@
   "found": "2026-11-10",
   "code": "311102001074",
   "padron": "MEN datos.gov.co",
-  "students": 593
+  "students": 593,
+  "img": "https://colfarina.com/wp-content/uploads/2026/05/davibank-1.jpg",
+  "whatsapp": "+573124604577",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-santa-isabel",
@@ -88376,7 +88448,9 @@
   "found": "2026-11-10",
   "code": "311001006423",
   "padron": "MEN datos.gov.co",
-  "students": 1894
+  "students": 1894,
+  "img": "https://colegiosantaluisa.edu.co/wp-content/uploads/2024/10/cropped-nuestro-escudo-1.png",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-maria-auxiliadora",
@@ -88476,7 +88550,8 @@
   "found": "2026-11-10",
   "code": "311001017522",
   "padron": "MEN datos.gov.co",
-  "students": 329
+  "students": 329,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-jose-felix-restrepo-sede-b",
@@ -88537,7 +88612,8 @@
   "found": "2026-11-10",
   "code": "311001040401",
   "padron": "MEN datos.gov.co",
-  "students": 272
+  "students": 272,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-george-washington",
@@ -88700,7 +88776,9 @@
   "found": "2026-11-10",
   "code": "311001036527",
   "padron": "MEN datos.gov.co",
-  "students": 263
+  "students": 263,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-fervan-bachiderato",
@@ -88998,7 +89076,10 @@
   "found": "2026-11-10",
   "code": "425377800037",
   "padron": "MEN datos.gov.co",
-  "students": 739
+  "students": 739,
+  "img": "https://www.colegiolacolinaclc.edu.co/SA%20-%20La%20Colina/logo/favicon.png",
+  "whatsapp": "+573017299076",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-instituto-campestre",
@@ -89043,7 +89124,9 @@
   "found": "2026-11-10",
   "code": "311001000328",
   "padron": "MEN datos.gov.co",
-  "students": 287
+  "students": 287,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-san-simon",
@@ -89070,7 +89153,8 @@
   "found": "2026-11-10",
   "code": "311001095191",
   "padron": "MEN datos.gov.co",
-  "students": 251
+  "students": 251,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-dios-es-amor-2",
@@ -89131,7 +89215,9 @@
   "found": "2026-11-10",
   "code": "311001000018",
   "padron": "MEN datos.gov.co",
-  "students": 202
+  "students": 202,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-emilio-valenzuela",
@@ -89232,7 +89318,9 @@
   "found": "2026-11-10",
   "code": "311769000734",
   "padron": "MEN datos.gov.co",
-  "students": 117
+  "students": 117,
+  "img": "https://stellamatutina.edu.co/wp-content/plugins/cmp-coming-soon-maintenance/themes/countdown/img/countdown_banner_large.jpg",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-inglaterra-real",
@@ -89257,7 +89345,10 @@
   "found": "2026-11-10",
   "code": "311001041351",
   "padron": "MEN datos.gov.co",
-  "students": 122
+  "students": 122,
+  "img": "https://www.colegioinglaterrareal.edu.co/og-image.jpg",
+  "whatsapp": "+573027854676",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-centro-educativo-distrital-ciudad-roma",
@@ -89338,7 +89429,9 @@
   "found": "2026-11-10",
   "code": "311001041806",
   "padron": "MEN datos.gov.co",
-  "students": 849
+  "students": 849,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-gimnasio-jose-joaquin-casas",
@@ -89381,7 +89474,8 @@
   "found": "2026-11-10",
   "code": "311769002214",
   "padron": "MEN datos.gov.co",
-  "students": 329
+  "students": 329,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-salesiano-juan-del-rizzo",
@@ -89494,7 +89588,9 @@
   "found": "2026-11-10",
   "code": "311001087148",
   "padron": "MEN datos.gov.co",
-  "students": 502
+  "students": 502,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-cean-centro-educativo-amigos-de-la-naturaleza",
@@ -89555,7 +89651,9 @@
   "found": "2026-11-10",
   "code": "311001020213",
   "padron": "MEN datos.gov.co",
-  "students": 808
+  "students": 808,
+  "img": "https://www.portalliceo.com/image.png",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-parroquial-santo-cura-de-ars",
@@ -89609,7 +89707,8 @@
   "found": "2026-11-10",
   "code": "311001012598",
   "padron": "MEN datos.gov.co",
-  "students": 461
+  "students": 461,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-parroquial-san-carlos",
@@ -89721,7 +89820,8 @@
   "found": "2026-11-10",
   "code": "311001001839",
   "padron": "MEN datos.gov.co",
-  "students": 991
+  "students": 991,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-liceo-parroquial-san-jose",
@@ -89878,7 +89978,8 @@
   "found": "2026-11-10",
   "code": "311001046077",
   "padron": "MEN datos.gov.co",
-  "students": 379
+  "students": 379,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-la-salle-juan-luis-londono",
@@ -90115,7 +90216,10 @@
   "found": "2026-11-10",
   "code": "311279000281",
   "padron": "MEN datos.gov.co",
-  "students": 1429
+  "students": 1429,
+  "img": "https://colegiosantaana.edu.co/wp-content/uploads/2026/08/og-colegio-santa-ana-1.jpg",
+  "whatsapp": "+573108661330",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-uniminuto-san-camilo",
@@ -90356,7 +90460,10 @@
   "found": "2026-11-10",
   "code": "311769000823",
   "padron": "MEN datos.gov.co",
-  "students": 628
+  "students": 628,
+  "img": "https://hispanoamericano.edu.co/wp-content/themes/hispano/assets/img/hero-preescolar.webp",
+  "whatsapp": "+573187318009",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-liceo-la-sabana",
@@ -90581,7 +90688,9 @@
   "found": "2026-11-10",
   "code": "311848000995",
   "padron": "MEN datos.gov.co",
-  "students": 789
+  "students": 789,
+  "img": "https://colegiocardenalsancha.edu.co/wp-content/uploads/2024/08/LOGO-WEB-2.webp",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-clara-casas-morales",
@@ -90624,7 +90733,8 @@
   "found": "2026-11-10",
   "code": "311001094993",
   "padron": "MEN datos.gov.co",
-  "students": 308
+  "students": 308,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-gimnasio-los-portales",
@@ -90649,7 +90759,10 @@
   "found": "2026-11-10",
   "code": "311001045160",
   "padron": "MEN datos.gov.co",
-  "students": 172
+  "students": 172,
+  "img": "",
+  "whatsapp": "+573184293021",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-gimnasio-bilingue-marie-curie",
