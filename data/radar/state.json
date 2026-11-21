@@ -7491,7 +7491,16 @@
   "CO|n306358928": "2026-11-21T00:13:32.481Z",
   "CO|n703177578": "2026-11-21T00:13:58.196Z",
   "PE|Moyobamba": "2026-11-21T00:14:30.236Z",
-  "ES|n1470839444": "2026-11-21T00:15:01.339Z"
+  "ES|n1470839444": "2026-11-21T00:15:01.339Z",
+  "MX|Sabinas": "2026-11-21T07:21:55.979Z",
+  "ES|n252751393": "2026-11-21T07:22:24.316Z",
+  "ES|n3080250817": "2026-11-21T07:23:03.278Z",
+  "AR|Barranqueras": "2026-11-21T07:23:35.842Z",
+  "AR|Belén de Escobar": "2026-11-21T07:24:14.389Z",
+  "PE|Barranca": "2026-11-21T07:24:43.870Z",
+  "DO|n3690709257": "2026-11-21T07:25:16.724Z",
+  "NI|n2773628551": "2026-11-21T07:33:49.282Z",
+  "AR|9 de Abril": "2026-11-21T07:37:46.229Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7636,6 +7645,83 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-21T07:21:15.320Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Sabinas",
+     "found": 0,
+     "updated": 0,
+     "osm": 7
+    },
+    {
+     "cc": "ES",
+     "city": "Aranjuez",
+     "found": 6,
+     "updated": 0,
+     "osm": 24
+    },
+    {
+     "cc": "ES",
+     "city": "San Vicente del Raspeig",
+     "found": 1,
+     "updated": 0,
+     "osm": 97
+    },
+    {
+     "cc": "AR",
+     "city": "Barranqueras",
+     "found": 0,
+     "updated": 0,
+     "osm": 60
+    },
+    {
+     "cc": "AR",
+     "city": "Belén de Escobar",
+     "found": 4,
+     "updated": 0,
+     "osm": 14
+    },
+    {
+     "cc": "PE",
+     "city": "Barranca",
+     "found": 1,
+     "updated": 0,
+     "osm": 43
+    },
+    {
+     "cc": "DO",
+     "city": "San Antonio de Guerra",
+     "found": 1,
+     "updated": 0,
+     "osm": 2
+    },
+    {
+     "cc": "NI",
+     "city": "Bluefields",
+     "found": 6,
+     "updated": 1,
+     "osm": 35
+    },
+    {
+     "cc": "AR",
+     "city": "9 de Abril",
+     "found": 0,
+     "updated": 0,
+     "osm": 49
+    }
+   ],
+   "added": 19,
+   "enriched": 0,
+   "photos": 5,
+   "contacts": 12,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 17.7,
+   "total": 61921
+  },
   {
    "at": "2026-11-21T00:01:55.937Z",
    "cities": [
@@ -9564,48 +9650,6 @@
    "errors": [],
    "minutes": 16.9,
    "total": 21840
-  },
-  {
-   "at": "2026-11-16T11:38:53.334Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Altamira",
-     "found": 1,
-     "updated": 0,
-     "osm": 25
-    },
-    {
-     "cc": "MX",
-     "city": "San Francisco del Rincón",
-     "found": 10,
-     "updated": 0,
-     "osm": 35
-    },
-    {
-     "cc": "PY",
-     "city": "Hernandarias",
-     "found": 12,
-     "updated": 0,
-     "osm": 61
-    },
-    {
-     "cc": "AR",
-     "city": "Ushuaia",
-     "found": 3,
-     "updated": 0,
-     "osm": 34
-    }
-   ],
-   "added": 26,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 17.1,
-   "total": 21818
   }
  ]
 }

@@ -143,7 +143,9 @@
    "0310060",
    "0307462",
    "1030261"
-  ]
+  ],
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "name": "Colegio Vancouver",
@@ -298,7 +300,10 @@
    "1181858",
    "0855528",
    "1224963"
-  ]
+  ],
+  "img": "",
+  "whatsapp": "+51979343138",
+  "webAt": "2026-11-21"
  },
  {
   "name": "Colegio Juan Mejía Baca",
@@ -322,7 +327,8 @@
   "codes": [
    "1463132",
    "1463124"
-  ]
+  ],
+  "imgTry": "2026-11-21"
  },
  {
   "name": "Colegio Particular San Gabriel",
@@ -348,7 +354,8 @@
    "1181940",
    "0855494",
    "1130624"
-  ]
+  ],
+  "imgTry": "2026-11-21"
  },
  {
   "name": "Colegio Peruano Canadiense",
@@ -637681,7 +637688,8 @@
   "code": "325001000451",
   "found": "2026-11-19",
   "students": 71,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "malambo-centro-educativo-jorge-washigton",
@@ -638209,7 +638217,7 @@
   "lat": 6.32,
   "lng": -75.56,
   "addr": "Calle 27 B # 55-42, Brr. Cabañas",
-  "phone": "",
+  "phone": "3128811793",
   "web": "https://www.vivirycrear.edu.co",
   "email": "centroinfantilvivirycrear@gmail.com",
   "levels": [
@@ -638223,7 +638231,9 @@
   "code": "305088002836",
   "found": "2026-11-19",
   "students": 53,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "carepa-colegio-diocesano-santa-maria",
@@ -638650,7 +638660,8 @@
   "code": "373443800001",
   "found": "2026-11-19",
   "students": 235,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "soacha-cencosistemas-soacha",
@@ -639738,7 +639749,8 @@
   "code": "308758077277",
   "found": "2026-11-19",
   "students": 350,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "dolores-instituto-de-educacion-formal-cecontec-dolores",
@@ -640647,7 +640659,7 @@
   "lat": 4.92,
   "lng": -74.1,
   "addr": "Calle 5 # 4-28",
-  "phone": "",
+  "phone": "3016152979",
   "web": "https://www.centroestudios.edu.co",
   "email": "info@centroestudios.edu.co",
   "levels": [],
@@ -640659,7 +640671,9 @@
   "code": "325785800016",
   "found": "2026-11-19",
   "students": 116,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "baranoa-children-s-world",
@@ -641470,7 +641484,9 @@
   "code": "425175032551",
   "found": "2026-11-19",
   "students": 39,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "nueva-granada-jardin-infantil-manitos-creativas",
@@ -643681,7 +643697,8 @@
   "code": "325785000354",
   "found": "2026-11-19",
   "students": 53,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "el-copey-institucion-educativa-cima-del-norte",
@@ -646058,7 +646075,8 @@
   "code": "325214800001",
   "found": "2026-11-19",
   "students": 5,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "guacari-instituto-comercial-juan-pablo-ii",
@@ -647928,7 +647946,8 @@
   "code": "368755800021",
   "found": "2026-11-19",
   "students": 2672,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "san-antonio-jardin-psicopedagogico-starkids",
@@ -648133,7 +648152,8 @@
   "code": "325754800301",
   "found": "2026-11-19",
   "students": 286,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "san-martin-colegio-cervantes-saavedra",
@@ -648796,7 +648816,8 @@
   "code": "366170002339",
   "found": "2026-11-19",
   "students": 27,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "la-primavera-centro-educativo-juan-sebastian",
@@ -649020,7 +649041,9 @@
   "code": "463190000443",
   "found": "2026-11-19",
   "students": 742,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "soledad-centro-educativo-de-formacion-integral-talento-creativo",
@@ -649747,7 +649770,8 @@
   "code": "325386000731",
   "found": "2026-11-19",
   "students": 69,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "soledad-instituto-educativo-y-pedagogico-del-atlantico-antiguo-centro-educativ",
@@ -650023,7 +650047,8 @@
   "code": "325754800123",
   "found": "2026-11-19",
   "students": 55,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "la-calera-jardin-infantil-platero-y-yo",
@@ -650363,7 +650388,9 @@
   "code": "325754800093",
   "found": "2026-11-19",
   "students": 183,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "img": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1440,h=756,fit=crop,f=jpeg/8VjzVezW4tLVIuEA/logo-2-OCcGYEvuJFWTba1H.png",
+  "webAt": "2026-11-21"
  },
  {
   "id": "cota-fun-descubriendo-el-universo",
@@ -650430,7 +650457,8 @@
   "code": "325754800271",
   "found": "2026-11-19",
   "students": 152,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "dosquebradas-jardin-infantil-suenos-de-colores",
@@ -650564,7 +650592,9 @@
   "code": "325214800078",
   "found": "2026-11-19",
   "students": 137,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "la-paz-fuentes-international-school",
@@ -650742,7 +650772,8 @@
   "code": "397001800024",
   "found": "2026-11-19",
   "students": 105,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "espinal-instituto-ana-ruth-salazar",
@@ -651185,7 +651216,7 @@
   "lat": 10.909921,
   "lng": -74.786054,
   "addr": "Calle 23 # 26-128, Centenario",
-  "phone": "",
+  "phone": "3107386050",
   "web": "https://ceco.edu.co/colegio/",
   "email": "gerencia@sidong.com.co",
   "levels": [],
@@ -651197,7 +651228,9 @@
   "code": "308758801174",
   "found": "2026-11-19",
   "students": 28,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "galapa-centro-educativo-la-sabiduria",
@@ -1203458,7 +1203491,8 @@
    "1448935",
    "1174275",
    "1172204"
-  ]
+  ],
+  "imgTry": "2026-11-21"
  },
  {
   "id": "trujillo-iep-teresa-de-los-angeles",
@@ -1216998,7 +1217032,8 @@
    "1484377",
    "1225101",
    "1225069"
-  ]
+  ],
+  "imgTry": "2026-11-21"
  },
  {
   "id": "chimbote-iep-san-pablo",
@@ -1259032,7 +1259067,8 @@
    "1119072",
    "0844977",
    "0893628"
-  ]
+  ],
+  "imgTry": "2026-11-21"
  },
  {
   "id": "tacna-iep-pulgarcito",
@@ -1259216,7 +1259252,8 @@
    "3023926",
    "3023918",
    "3023900"
-  ]
+  ],
+  "imgTry": "2026-11-21"
  },
  {
   "id": "chimbote-iep-santa-ursula",
@@ -1267685,7 +1267722,8 @@
   "codes": [
    "0324566",
    "1057298"
-  ]
+  ],
+  "imgTry": "2026-11-21"
  },
  {
   "id": "nuevo-chimbote-iep-jesus-maestro",
@@ -1302018,7 +1302056,7 @@
   "lat": -12.04986,
   "lng": -77.07887,
   "addr": "Avenida Colonial 2798",
-  "phone": "",
+  "phone": "014800303",
   "web": "https://www.cbb.edu.pe",
   "email": "",
   "levels": [
@@ -1302037,7 +1302075,10 @@
    "0437426",
    "0435263",
    "1490598"
-  ]
+  ],
+  "img": "https://cbb.edu.pe/wp-content/uploads/2024/08/compartir.cbb_.jpg",
+  "whatsapp": "+51981581364",
+  "webAt": "2026-11-21"
  },
  {
   "id": "lima-iep-ymca-colegios-3",
@@ -1302066,7 +1302107,8 @@
    "1243716",
    "1099092",
    "0466193"
-  ]
+  ],
+  "imgTry": "2026-11-21"
  },
  {
   "id": "lima-iep-mater-admirabilis",
@@ -1302078,7 +1302120,7 @@
   "addr": "Jiron Arica 898, San Miguel",
   "phone": "",
   "web": "https://www.maternet.edu.pe",
-  "email": "",
+  "email": "admision@maternet.edu.pe",
   "levels": [
    "Preescolar",
    "Primaria",
@@ -1302095,7 +1302137,9 @@
    "0337113",
    "0328625",
    "0335893"
-  ]
+  ],
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "lima-iep-buenas-nuevas",
@@ -1302105,9 +1302149,9 @@
   "lat": -12.08727,
   "lng": -77.07551,
   "addr": "Avenida Prolongacion Cuzco 165, San Miguel",
-  "phone": "",
+  "phone": "+5112630891",
   "web": "https://www.buenasnuevas.edu.pe",
-  "email": "",
+  "email": "informes@buenasnuevas.edu.pe",
   "levels": [
    "Preescolar",
    "Primaria",
@@ -1302124,7 +1302168,9 @@
    "1020866",
    "0689745",
    "0689729"
-  ]
+  ],
+  "img": "https://buenasnuevas.edu.pe/wp-content/uploads/2026/08/buenasnuevas.pe_.png",
+  "webAt": "2026-11-21"
  },
  {
   "id": "lima-iep-el-americano-de-san-gabriel",
@@ -1302185,7 +1302231,8 @@
    "1082999",
    "1082957",
    "1667310"
-  ]
+  ],
+  "imgTry": "2026-11-21"
  },
  {
   "id": "tarapoto-iep-crecer",
@@ -1302266,7 +1302313,8 @@
    "1541911",
    "1541903",
    "1541895"
-  ]
+  ],
+  "imgTry": "2026-11-21"
  },
  {
   "id": "lima-america-international-school",
@@ -1309237,7 +1309285,8 @@
   "codes": [
    "1323856",
    "1062314"
-  ]
+  ],
+  "imgTry": "2026-11-21"
  },
  {
   "id": "trujillo-iep-la-asuncion",
@@ -1309266,7 +1309315,8 @@
    "0394437",
    "0396507",
    "1171727"
-  ]
+  ],
+  "imgTry": "2026-11-21"
  },
  {
   "id": "trujillo-iep-marcelino-champagnat",
@@ -1309278,7 +1309328,7 @@
   "addr": "Avenida Manuel Vera Enriquez 659",
   "phone": "",
   "web": "https://www.champagnat-trujillo.edu.pe",
-  "email": "",
+  "email": "contacto@champagnat-trujillo.edu.pe",
   "levels": [
    "Preescolar",
    "Primaria",
@@ -1309295,7 +1309345,9 @@
    "1174614",
    "1173681",
    "1170703"
-  ]
+  ],
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "trujillo-international-college-canada-peru",
@@ -1309354,7 +1309406,8 @@
    "1423318",
    "1423177",
    "1734490"
-  ]
+  ],
+  "imgTry": "2026-11-21"
  },
  {
   "id": "nuevo-chimbote-iep-mi-mundo-feliz",
@@ -1314451,7 +1314504,7 @@
   "lat": -5.17287,
   "lng": -80.66549,
   "addr": "Parque Ex Fundo El Chipe S/N Mz a Lote 2-1, Veintiseis de Octubre",
-  "phone": "",
+  "phone": "+51912502780",
   "web": "https://www.futuraschools.edu.pe",
   "email": "",
   "levels": [
@@ -1314470,7 +1314523,10 @@
    "1732817",
    "1728054",
    "1728047"
-  ]
+  ],
+  "img": "https://futuraschools.edu.pe/img/og-image.jpg",
+  "whatsapp": "+51912502780",
+  "webAt": "2026-11-21"
  },
  {
   "id": "tumbes-integral-school",
@@ -1314502,7 +1314558,7 @@
   "lat": -13.635471,
   "lng": -72.874353,
   "addr": "Avenida Elias S/N",
-  "phone": "",
+  "phone": "00123456789",
   "web": "https://www.dominicas.edu.pe",
   "email": "iepsantodomingog@gmail.com",
   "levels": [
@@ -1314522,7 +1314578,9 @@
    "3008711",
    "3008703",
    "3008695"
-  ]
+  ],
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "chiclayo-iep-santo-toribio-de-mogrovejo",
@@ -1314532,9 +1314590,9 @@
   "lat": -6.757673,
   "lng": -79.861549,
   "addr": "Avenida Augusto B. Leguia 2598, José Leonardo Ortiz",
-  "phone": "",
+  "phone": "+51979357972",
   "web": "https://www.stm.edu.pe",
-  "email": "",
+  "email": "admision@stm.edu.pe",
   "levels": [
    "Preescolar",
    "Primaria",
@@ -1314552,7 +1314610,10 @@
    "0753111",
    "0753038",
    "1130772"
-  ]
+  ],
+  "img": "",
+  "whatsapp": "+51979357972",
+  "webAt": "2026-11-21"
  },
  {
   "id": "chiclayo-bilingual-school-raymond-shreve-s-a-c",
@@ -1324108,7 +1324169,8 @@
   "codes": [
    "0883033",
    "0880492"
-  ]
+  ],
+  "imgTry": "2026-11-21"
  },
  {
   "id": "lima-bilingue-america-school",
@@ -1327607,7 +1327669,9 @@
   "codes": [
    "1751536",
    "1168707"
-  ]
+  ],
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "trujillo-iep-hispano-americano",
@@ -1342743,7 +1342807,9 @@
   "private": "seguro",
   "src": "ESCALE MINEDU",
   "code": "1487610",
-  "found": "2026-11-19"
+  "found": "2026-11-19",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "lima-british-college",
@@ -1342801,7 +1342867,7 @@
   "addr": "Calle Santa Sofia 190, La Molina",
   "phone": "",
   "web": "https://www.unife.edu.pe",
-  "email": "",
+  "email": "admision@unife.edu.pe",
   "levels": [
    "Preescolar"
   ],
@@ -1342811,7 +1342877,9 @@
   "private": "seguro",
   "src": "ESCALE MINEDU",
   "code": "1505668",
-  "found": "2026-11-19"
+  "found": "2026-11-19",
+  "img": "https://unife.edu.pe/wp-content/uploads/logo_unife_verde-1.png",
+  "webAt": "2026-11-21"
  },
  {
   "id": "lima-iep-time-for-kids",
@@ -1342833,7 +1342901,9 @@
   "private": "seguro",
   "src": "ESCALE MINEDU",
   "code": "0604355",
-  "found": "2026-11-19"
+  "found": "2026-11-19",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "tumbes-iep-alfred-nobel",
@@ -1342936,7 +1343006,8 @@
   "private": "seguro",
   "src": "ESCALE MINEDU",
   "code": "1639699",
-  "found": "2026-11-19"
+  "found": "2026-11-19",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "tumbes-iep-cristo-rey",
@@ -1342988,7 +1343059,8 @@
   "private": "seguro",
   "src": "ESCALE MINEDU",
   "code": "1661453",
-  "found": "2026-11-19"
+  "found": "2026-11-19",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "tumbes-iep-jesus-es-mi-rey",
@@ -1343062,7 +1343134,8 @@
   "private": "seguro",
   "src": "ESCALE MINEDU",
   "code": "1057298",
-  "found": "2026-11-19"
+  "found": "2026-11-19",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "ayacucho-iep-caritas-felices",
@@ -1347063,7 +1347136,9 @@
   "private": "seguro",
   "src": "ESCALE MINEDU",
   "code": "1445741",
-  "found": "2026-11-19"
+  "found": "2026-11-19",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "pucallpa-iep-cristobal-de-losada-y-puga",
@@ -1407401,7 +1407476,8 @@
    "3026986",
    "3026978",
    "3050374"
-  ]
+  ],
+  "imgTry": "2026-11-21"
  },
  {
   "id": "caraz-iep-nuestra-senora-de-guadalupe",
@@ -1414028,7 +1414104,9 @@
   "codes": [
    "1777630",
    "1568054"
-  ]
+  ],
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "carhuaz-iep-mi-pequeno-mundo",
@@ -1417507,7 +1417585,8 @@
    "1748144",
    "1673169",
    "1673151"
-  ]
+  ],
+  "imgTry": "2026-11-21"
  },
  {
   "id": "huancayo-iep-union-internacional",
@@ -1441470,7 +1441549,8 @@
   "private": "seguro",
   "src": "ESCALE MINEDU",
   "code": "0550814",
-  "found": "2026-11-19"
+  "found": "2026-11-19",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "santiago-iep-peruano-americano",
@@ -1441515,7 +1441595,8 @@
   "private": "seguro",
   "src": "ESCALE MINEDU",
   "code": "1465483",
-  "found": "2026-11-19"
+  "found": "2026-11-19",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "desaguadero-iep-internacional-desaguadero",
@@ -1441629,7 +1441710,9 @@
   "private": "seguro",
   "src": "ESCALE MINEDU",
   "code": "1691450",
-  "found": "2026-11-19"
+  "found": "2026-11-19",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "espinar-international-school-de-espinar",
@@ -1454519,7 +1454602,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "r15960232",
-  "found": "2026-11-21"
+  "found": "2026-11-21",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "azul-campo-frutal-universidad-de-agronomia-de-azul",
@@ -1455047,7 +1455132,8 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w184699025",
-  "found": "2026-11-21"
+  "found": "2026-11-21",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "patzcuaro-instituto-de-ecologia-a-c-centro-regional-del-bajio",
@@ -1455069,7 +1455155,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w358726678",
-  "found": "2026-11-21"
+  "found": "2026-11-21",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "patzcuaro-instituto-tecnologico-superior-de-patzcuaro",
@@ -1455129,7 +1455216,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "r2617042",
-  "found": "2026-11-21"
+  "found": "2026-11-21",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "el-jaguel-colegio-san-ignacio",
@@ -1455328,6 +1455416,391 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1020087978",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "aranjuez-colegio-de-educacion-infantil-y-primaria-san-pascual",
+  "name": "Colegio de Educación Infantil y Primaria San Pascual",
+  "city": "Aranjuez",
+  "country": "España",
+  "lat": 40.029524,
+  "lng": -3.599834,
+  "addr": "",
+  "phone": "+34 918 91 19 17",
+  "web": "https://colegiosanpascual.es/",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w235634997",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "aranjuez-centro-privado-de-educacion-infantil-primaria-y-secundaria-loyola",
+  "name": "Centro Privado de Educación Infantil, Primaria y Secundaria Loyola",
+  "city": "Aranjuez",
+  "country": "España",
+  "lat": 40.027139,
+  "lng": -3.610563,
+  "addr": "Calle de Valeras 24",
+  "phone": "+34918910505",
+  "web": "https://www.salesianosloyola.es/",
+  "email": "cc.loyola.aranjuez@educa.madrid.org",
+  "levels": [
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w331950008",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "aranjuez-centro-privado-de-educacion-infantil-primaria-y-secundaria-apostol-san",
+  "name": "Centro Privado de Educación Infantil, Primaria y Secundaria Apóstol Santiago",
+  "city": "Aranjuez",
+  "country": "España",
+  "lat": 40.036555,
+  "lng": -3.589546,
+  "addr": "Calle de las Moreras 217",
+  "phone": "+34918921200",
+  "web": "https://www.educa.madrid.org/cc.apostolsantiago.aranjuez",
+  "email": "cc.apostolsantiago.aranjuez@educa.madrid.org",
+  "levels": [
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w387917830",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "aranjuez-centro-privado-de-educacion-infantil-primaria-y-secundaria-colegio-lit",
+  "name": "Centro Privado de Educación Infantil, Primaria y Secundaria Colegio Litterator",
+  "city": "Aranjuez",
+  "country": "España",
+  "lat": 40.061109,
+  "lng": -3.607332,
+  "addr": "Calle del Patrimonio Mundial 5",
+  "phone": "+34918927139",
+  "web": "https://www.colegiolitterator.com/",
+  "email": "cc.litterator.aranjuez@educa.madrid.org",
+  "levels": [
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w397698555",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "aranjuez-centro-privado-de-educacion-infantil-primaria-y-secundaria-sagrada-fam",
+  "name": "Centro Privado de Educación Infantil, Primaria y Secundaria Sagrada Familia",
+  "city": "Aranjuez",
+  "country": "España",
+  "lat": 40.036414,
+  "lng": -3.602759,
+  "addr": "Calle del Príncipe",
+  "phone": "+34918910419",
+  "web": "https://aranjuez.fesd.es/",
+  "email": "cc.sagradafamilia.aranjuez@educa.madrid.org",
+  "levels": [
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w400516773",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "aranjuez-colegio-de-educacion-infantil-y-primaria-virgen-del-rosario",
+  "name": "Colegio de Educación Infantil y Primaria Virgen del Rosario",
+  "city": "Aranjuez",
+  "country": "España",
+  "lat": 39.997947,
+  "lng": -3.567804,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1157770580",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "san-vicente-del-raspeig-colegio-penafort",
+  "name": "Colegio Peñafort",
+  "city": "San Vicente del Raspeig",
+  "country": "España",
+  "lat": 38.419633,
+  "lng": -0.530499,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1342439057",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "belen-de-escobar-colegio-san-vicente-de-paul",
+  "name": "Colegio San Vicente de Paul",
+  "city": "Belén de Escobar",
+  "country": "Argentina",
+  "lat": -34.346823,
+  "lng": -58.800455,
+  "addr": "Rivadavia 896",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n529157283",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "belen-de-escobar-colegio-santa-maria",
+  "name": "Colegio Santa María",
+  "city": "Belén de Escobar",
+  "country": "Argentina",
+  "lat": -34.345669,
+  "lng": -58.793528,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w231164512",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "belen-de-escobar-northfield-school",
+  "name": "Northfield School",
+  "city": "Belén de Escobar",
+  "country": "Argentina",
+  "lat": -34.366125,
+  "lng": -58.779401,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w317316660",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "belen-de-escobar-colegio-san-luis",
+  "name": "Colegio San Luis",
+  "city": "Belén de Escobar",
+  "country": "Argentina",
+  "lat": -34.345885,
+  "lng": -58.799618,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1394879319",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "barranca-colegio-las-palmas",
+  "name": "Colegio Las Palmas",
+  "city": "Barranca",
+  "country": "Perú",
+  "lat": -10.75701,
+  "lng": -77.761392,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w234065463",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "san-antonio-de-guerra-liceo-secundario-mario-amador-alvarez",
+  "name": "Liceo Secundario Mario Amador Álvarez",
+  "city": "San Antonio de Guerra",
+  "country": "República Dominicana",
+  "lat": 18.558891,
+  "lng": -69.702899,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1170357047",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "bluefields-instituto-politecnico-cristobal-colon",
+  "name": "Instituto Politécnico Cristóbal Colón",
+  "city": "Bluefields",
+  "country": "Nicaragua",
+  "lat": 12.004924,
+  "lng": -83.771199,
+  "addr": "Calle Colón",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3407300250",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "bluefields-colegio-cristiano-verbo",
+  "name": "Colegio Cristiano Verbo.",
+  "city": "Bluefields",
+  "country": "Nicaragua",
+  "lat": 12.020895,
+  "lng": -83.774145,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3407318333",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "bluefields-colegio-san-jose",
+  "name": "Colegio San José",
+  "city": "Bluefields",
+  "country": "Nicaragua",
+  "lat": 12.013388,
+  "lng": -83.762506,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w268204662",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "bluefields-universidad-india-y-caribena-de-bluefields",
+  "name": "Universidad India y Caribeña de Bluefields",
+  "city": "Bluefields",
+  "country": "Nicaragua",
+  "lat": 12.006364,
+  "lng": -83.7709,
+  "addr": "Calle Universitaria",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w309445283",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "bluefields-instituto-30-de-octubre",
+  "name": "Instituto 30 de Octubre.",
+  "city": "Bluefields",
+  "country": "Nicaragua",
+  "lat": 12.0242,
+  "lng": -83.763508,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w333614074",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "bluefields-colegio-bethel",
+  "name": "Colegio Bethel",
+  "city": "Bluefields",
+  "country": "Nicaragua",
+  "lat": 12.005418,
+  "lng": -83.777378,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w398404346",
   "found": "2026-11-21"
  }
 ]
