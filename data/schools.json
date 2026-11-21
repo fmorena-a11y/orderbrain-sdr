@@ -612441,7 +612441,8 @@
   "code": "381736800032",
   "found": "2026-11-19",
   "students": 734,
-  "approx": "1km"
+  "approx": "1km",
+  "osm": "n12468141142"
  },
  {
   "id": "bello-c-e-santa-maria-de-la-esperanza",
@@ -617658,7 +617659,9 @@
   "code": "308758001525",
   "found": "2026-11-19",
   "students": 349,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "la-ceja-instituto-corferrini",
@@ -617841,7 +617844,9 @@
   "code": "325430000833",
   "found": "2026-11-19",
   "students": 344,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "villeta-colegio-madre-del-divino-pastor",
@@ -617867,7 +617872,8 @@
   "code": "325875000451",
   "found": "2026-11-19",
   "students": 340,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "la-dorada-colegio-cervantes",
@@ -617941,7 +617947,8 @@
   "code": "425175000365",
   "found": "2026-11-19",
   "students": 328,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "maicao-centro-educativo-mundo-magico-miss-rosita",
@@ -618066,7 +618073,8 @@
   "code": "373268000152",
   "found": "2026-11-19",
   "students": 315,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "san-pedro-liceo-campestre",
@@ -618092,7 +618100,8 @@
   "code": "376670000583",
   "found": "2026-11-19",
   "students": 317,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "san-pedro-colegio-lekgs",
@@ -618140,7 +618149,9 @@
   "code": "305088000035",
   "found": "2026-11-19",
   "students": 308,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://www.asop.org.co/wp-content/uploads/2023/03/favicon.png",
+  "webAt": "2026-11-21"
  },
  {
   "id": "envigado-centro-educativo-manantiales",
@@ -618625,7 +618636,7 @@
   "lat": 4.84,
   "lng": -74.03,
   "addr": "Km 26 Autopista Norte Vereda Yerbabuena, Rural Sin Informacio",
-  "phone": "",
+  "phone": "6018629292",
   "web": "https://www.cumbresbogota.edu.co",
   "email": "info@cumbresbogota.edu.co",
   "levels": [
@@ -618641,7 +618652,10 @@
   "code": "425175032351",
   "found": "2026-11-19",
   "students": 270,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573156973456",
+  "webAt": "2026-11-21"
  },
  {
   "id": "envigado-mananitas-maternal-preescolar",
@@ -618691,7 +618705,8 @@
   "code": "325899001784",
   "found": "2026-11-19",
   "students": 271,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "envigado-genesis-centro-infantil-de-educacion-integral",
@@ -618767,7 +618782,9 @@
   "code": "325175032467",
   "found": "2026-11-19",
   "students": 270,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://liceolunita.edu.co/wp-content/uploads/2025/08/LOGO2025FF.webp",
+  "webAt": "2026-11-21"
  },
  {
   "id": "guaduas-colegio-parroquial-la-consolata",
@@ -618794,7 +618811,8 @@
   "code": "325320000561",
   "found": "2026-11-19",
   "students": 264,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "anolaima-colegio-campestre-santo-domingo-savio",
@@ -618847,7 +618865,9 @@
   "code": "325843000645",
   "found": "2026-11-19",
   "students": 265,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://gimnasiodelosandes.edu.co/wp-content/uploads/2022/02/Logo-GA-GPTS.png",
+  "webAt": "2026-11-21"
  },
  {
   "id": "san-andres-sotavento-liceo-bartolome-de-las-casas",
@@ -619123,7 +619143,7 @@
   "lat": 4.26,
   "lng": -73.56,
   "addr": "Km 7 Via Palmarito, Vereda Choapal",
-  "phone": "",
+  "phone": "+573164498316",
   "web": "https://www.losportales.org",
   "email": "nubia@losportales.org",
   "levels": [
@@ -619139,7 +619159,10 @@
   "code": "450606000419",
   "found": "2026-11-19",
   "students": 245,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573164498316",
+  "webAt": "2026-11-21"
  },
  {
   "id": "chinchina-colegio-los-andes",
@@ -619165,7 +619188,8 @@
   "code": "317174000526",
   "found": "2026-11-19",
   "students": 237,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "villamaria-jardin-inf-geniecitos",
@@ -619358,7 +619382,9 @@
   "code": "425175001213",
   "found": "2026-11-19",
   "students": 220,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "soledad-institucion-educativa-carime-antiguo-centro-educativo-carime",
@@ -619597,7 +619623,8 @@
   "code": "325799000284",
   "found": "2026-11-19",
   "students": 206,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "soledad-institucion-educativa-monteblanco",
@@ -619892,7 +619919,9 @@
   "code": "425175000756",
   "found": "2026-11-19",
   "students": 187,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://irp.cdn-website.com/e773236d/dms3rep/multi/opt/favicogicei-1920w.png",
+  "webAt": "2026-11-21"
  },
  {
   "id": "soacha-colegio-jorge-isaacs",
@@ -620204,7 +620233,8 @@
   "code": "325430001309",
   "found": "2026-11-19",
   "students": 176,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "soledad-centro-educativo-y-tecnologico-bill-gates",
@@ -620695,7 +620725,9 @@
   "code": "325430001368",
   "found": "2026-11-19",
   "students": 896,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "madrid-colegio-gauss-moderno",
@@ -620859,7 +620891,8 @@
   "code": "325175000531",
   "found": "2026-11-19",
   "students": 153,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "barranquilla-centro-educativo-ciudad-de-ninos",
@@ -621294,7 +621327,9 @@
   "code": "425797000184",
   "found": "2026-11-19",
   "students": 140,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bojaca-colegio-san-nicolas-de-tolentino",
@@ -621321,7 +621356,8 @@
   "code": "425099000202",
   "found": "2026-11-19",
   "students": 140,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "funza-colegio-pedagogico-san-jose-de-calasanz",
@@ -621543,7 +621579,8 @@
   "code": "425175032402",
   "found": "2026-11-19",
   "students": 134,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "suesca-liceo-moderno",
@@ -621619,7 +621656,9 @@
   "code": "425214047498",
   "found": "2026-11-19",
   "students": 127,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "dosquebradas-centro-educativo-lumbreritas-del-futuro",
@@ -621786,7 +621825,8 @@
   "code": "325377000516",
   "found": "2026-11-19",
   "students": 126,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "oicata-institucion-educativa-nueva-granada",
@@ -622121,7 +622161,8 @@
   "code": "325001000205",
   "found": "2026-11-19",
   "students": 147,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "flandes-institucion-educativa-caldas",
@@ -622311,7 +622352,9 @@
   "code": "325269003854",
   "found": "2026-11-19",
   "students": 21,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "img": "https://mibachilleratovirtual.com/wp-content/uploads/2024/03/BANNER-HOME-01.jpg",
+  "webAt": "2026-11-21"
  },
  {
   "id": "palocabildo-liceo-moderno-maria-montessori",
@@ -622747,7 +622790,7 @@
   "lat": 3.990413,
   "lng": -73.766034,
   "addr": "Calle 11 # 36B-11, La Independencia",
-  "phone": "",
+  "phone": "+573105949059",
   "web": "https://www.educentec.edu.co",
   "email": "colegio@centec.edu.co",
   "levels": [],
@@ -622759,7 +622802,10 @@
   "code": "350006800159",
   "found": "2026-11-19",
   "students": 3,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "img": "",
+  "whatsapp": "+573105949059",
+  "webAt": "2026-11-21"
  },
  {
   "id": "since-instituto-francisco-de-paula-santander",
@@ -624512,7 +624558,8 @@
   "code": "425843000631",
   "found": "2026-11-19",
   "students": 411,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "san-gil-colegio-adventista-libertad",
@@ -625736,7 +625783,7 @@
   "lat": 4.99,
   "lng": -73.87,
   "addr": "Calle 2 B # 2A-42 Y Cra 2 7 98",
-  "phone": "",
+  "phone": "30461697043053321409",
   "web": "https://www.liceofrancesjeanduplessis.com",
   "email": "liceofrancesjeanduplessis@gmail.com",
   "levels": [
@@ -625751,7 +625798,9 @@
   "code": "325295000224",
   "found": "2026-11-19",
   "students": 433,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://i.vimeocdn.com/video/1627639423-672d379b67d03117828eab16252ed582ce051f1924040643ad63cbb92e8cc3a7-d_1920x1080?r=pad",
+  "webAt": "2026-11-21"
  },
  {
   "id": "santa-rosa-de-cabal-liceo-infantil-timoteos",
@@ -625922,7 +625971,8 @@
   "code": "325377076630",
   "found": "2026-11-19",
   "students": 56,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "san-jose-del-guaviare-colegio-los-lagos",
@@ -626293,7 +626343,7 @@
   "lat": 4.812564,
   "lng": -74.102569,
   "addr": "2 7 Km Via Siberia Cota, Rural Sin Informacio",
-  "phone": "",
+  "phone": "6015956526",
   "web": "https://www.josemaxleon.edu.co",
   "email": "principal@josemaxleon.edu.co",
   "levels": [
@@ -626310,7 +626360,9 @@
   "code": "311001002347",
   "found": "2026-11-19",
   "students": 910,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "itagui-centro-educativo-tren-de-la-alegria",
@@ -626623,7 +626675,8 @@
   "code": "325430001287",
   "found": "2026-11-19",
   "students": 64,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "agustin-codazzi-colegio-la-santisima-trinidad",
@@ -627374,7 +627427,8 @@
   "code": "305088020176",
   "found": "2026-11-19",
   "students": 1338,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "ventaquemada-institucion-educativa-pedro-pascasio-martinez",
@@ -627748,7 +627802,7 @@
   "lat": 4.58,
   "lng": -74.22,
   "addr": "Carrera 13 B # 15-41 Sur, Villa Sofia",
-  "phone": "",
+  "phone": "+573124695989",
   "web": "https://www.gimnasiomodernosanangel.edu.co",
   "email": "gimnasiomoderno@outlook.es",
   "levels": [
@@ -627764,7 +627818,10 @@
   "code": "325754001433",
   "found": "2026-11-19",
   "students": 226,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573124695989",
+  "webAt": "2026-11-21"
  },
  {
   "id": "choconta-liceo-psicopedagogico-montessori",
@@ -627840,7 +627897,8 @@
   "code": "325430001350",
   "found": "2026-11-19",
   "students": 223,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "villa-rica-liceo-el-bosque-alegre",
@@ -629023,7 +629081,9 @@
   "code": "373411002081",
   "found": "2026-11-19",
   "students": 172,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "malambo-jardin-infantil-dragoncitos",
@@ -629451,7 +629511,8 @@
   "code": "308758002793",
   "found": "2026-11-19",
   "students": 505,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "santa-rosa-de-cabal-taller-experimental-monserrate",
@@ -630096,7 +630157,9 @@
   "code": "325430001236",
   "found": "2026-11-19",
   "students": 139,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "sabanalarga-centro-educativo-avancemos",
@@ -630879,7 +630942,9 @@
   "code": "305088000019",
   "found": "2026-11-19",
   "students": 106,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://static.wixstatic.com/media/6bcaeb_8a2907ec42aa42bd9a28d9f671efeaad~mv2_d_2550_3300_s_4_2.png/v1/fill/w_2500,h_3235,al_c/6bcaeb_8a2907ec42aa42bd9a28d9f671efeaad~mv2_d_2550_3300_s_4_2.png",
+  "webAt": "2026-11-21"
  },
  {
   "id": "envigado-cen-edu-pres-despertar",
@@ -631046,7 +631111,8 @@
   "code": "325754003932",
   "found": "2026-11-19",
   "students": 101,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "envigado-gimnasio-campestre-el-tesoro",
@@ -631525,7 +631591,8 @@
   "code": "305266020088",
   "found": "2026-11-19",
   "students": 88,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "nueva-granada-escuela-plaza-sesamo",
@@ -631629,7 +631696,7 @@
   "lat": 4.58,
   "lng": -74.21,
   "addr": "Calle 16 # 1-21, Las Villas",
-  "phone": "",
+  "phone": "+3142399546",
   "web": "https://www.itlandes.edu.co",
   "email": "lpla2006@yahoo.es",
   "levels": [
@@ -631644,7 +631711,10 @@
   "code": "325754001522",
   "found": "2026-11-19",
   "students": 84,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573142399546",
+  "webAt": "2026-11-21"
  },
  {
   "id": "calarca-colegio-san-francisco-solano",
@@ -631696,7 +631766,8 @@
   "code": "425175032411",
   "found": "2026-11-19",
   "students": 83,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "hatonuevo-jardin-infantil-mis-pequenos-genios",
@@ -632685,7 +632756,7 @@
   "lat": 4.872014,
   "lng": -74.143724,
   "addr": "Km 8 Via Siberia Tenjo Vereda El Chacal, Urbano Sin Informaci",
-  "phone": "",
+  "phone": "+573176586027",
   "web": "https://www.colegiomilitarcaldas.edu.co",
   "email": "secretaria@colegiomilitarcaldas.edu.co",
   "levels": [
@@ -632702,7 +632773,10 @@
   "code": "311848000651",
   "found": "2026-11-19",
   "students": 203,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "img": "",
+  "whatsapp": "+573176586027",
+  "webAt": "2026-11-21"
  },
  {
   "id": "guacari-colegio-cristo-rey",
@@ -632923,7 +632997,8 @@
   "code": "325035000506",
   "found": "2026-11-19",
   "students": 61,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "tena-jardin-infantil-edificando-suenos",
@@ -633114,7 +633189,9 @@
   "code": "425758002935",
   "found": "2026-11-19",
   "students": 56,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "soledad-instituto-baden-powell",
@@ -633782,7 +633859,8 @@
   "code": "425799000629",
   "found": "2026-11-19",
   "students": 7,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "puerto-colombia-colegio-la-sabiduria",
@@ -634812,7 +634890,8 @@
   "code": "305088020664",
   "found": "2026-11-19",
   "students": 170,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "baranoa-centro-educativo-salesiano-de-baranoa",
@@ -634963,7 +635042,8 @@
   "code": "325320001150",
   "found": "2026-11-19",
   "students": 394,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "santa-rosa-de-cabal-liceo-campestre-san-jose",
@@ -635121,7 +635201,7 @@
   "lat": 4.964641,
   "lng": -73.91207,
   "addr": "Calle 8 # 3B-02, Centro",
-  "phone": "",
+  "phone": "+573103085547",
   "web": "https://www.esn.edu.co",
   "email": "solnaciente.es@gmail.com",
   "levels": [
@@ -635137,7 +635217,9 @@
   "code": "325817000289",
   "found": "2026-11-19",
   "students": 383,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "soledad-centro-educativo-gentecitas",
@@ -635713,7 +635795,8 @@
   "code": "325875000507",
   "found": "2026-11-19",
   "students": 331,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "tona-colegio-adventista-los-andes",
@@ -635788,7 +635871,8 @@
   "code": "425430000706",
   "found": "2026-11-19",
   "students": 135,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "simijaca-instituto-rafael-pombo",
@@ -635983,7 +636067,8 @@
   "code": "325430000795",
   "found": "2026-11-19",
   "students": 303,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "nobsa-colegio-nuestra-senora-de-belencito",
@@ -636370,7 +636455,9 @@
   "code": "125754001833",
   "found": "2026-11-19",
   "students": 651,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "la-cumbre-liceo-semillitas-del-manana",
@@ -636469,7 +636556,8 @@
   "code": "305088002429",
   "found": "2026-11-19",
   "students": 111,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "pamplona-jardin-infantil-mis-primeros-pasitos",
@@ -636786,7 +636874,9 @@
   "code": "325260000591",
   "found": "2026-11-19",
   "students": 239,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "la-virginia-la-real-academia",
@@ -636950,7 +637040,7 @@
   "lat": 4.91,
   "lng": -73.99,
   "addr": "Hatogrande Sopo, Urbano Sin Informaci",
-  "phone": "",
+  "phone": "+576018713721",
   "web": "https://www.campoalegre.edu.co",
   "email": "secretariacademica@campoalegre.edu.co",
   "levels": [],
@@ -636962,7 +637052,10 @@
   "code": "425758800009",
   "found": "2026-11-19",
   "students": 532,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://campoalegre.edu.co/wp-content/uploads/2026/06/Campoalegre-Snippet.jpg",
+  "whatsapp": "+573143819495",
+  "webAt": "2026-11-21"
  },
  {
   "id": "mocoa-centro-educativo-sagrada-familia",
@@ -637109,7 +637202,7 @@
   "lat": 4.87,
   "lng": -74.06,
   "addr": "Carrera 15 # 18-09",
-  "phone": "",
+  "phone": "573102924375",
   "web": "https://www.crayolaylapiz.edu.co",
   "email": "rectoria@crayolaylapiz.edu.co",
   "levels": [
@@ -637123,7 +637216,9 @@
   "code": "325175032718",
   "found": "2026-11-19",
   "students": 85,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "juan-de-acosta-centro-educativo-maria-estrella-de-mar",
@@ -637514,7 +637609,8 @@
   "code": "366170002819",
   "found": "2026-11-19",
   "students": 180,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "imgTry": "2026-11-21"
  },
  {
   "id": "soledad-colegio-beato-mariano-de-jesus-eusse",
@@ -1454247,5 +1454343,991 @@
   "src": "osm",
   "osm": "w545891371",
   "found": "2026-11-20"
+ },
+ {
+  "id": "azul-colegio-sagrada-familia",
+  "name": "Colegio Sagrada Familia",
+  "city": "Azul",
+  "country": "Argentina",
+  "lat": -36.780021,
+  "lng": -59.853106,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4313112847",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "azul-instituto-superior-santo-tomas-de-aquino",
+  "name": "Instituto Superior Santo Tomás de Aquino",
+  "city": "Azul",
+  "country": "Argentina",
+  "lat": -36.781591,
+  "lng": -59.858695,
+  "addr": "San Martín 726",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4313114132",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "azul-colegio-mariano-moreno",
+  "name": "Colegio Mariano Moreno",
+  "city": "Azul",
+  "country": "Argentina",
+  "lat": -36.777517,
+  "lng": -59.85879,
+  "addr": "Avenida Bartolomé Mitre 570",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n4313506482",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "azul-colegio-sagrado-corazon",
+  "name": "Colegio Sagrado Corazón",
+  "city": "Azul",
+  "country": "Argentina",
+  "lat": -36.779231,
+  "lng": -59.868332,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7015795745",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "azul-instituto-superior-de-formacion-docente-156-palmiro-bogliano",
+  "name": "Instituto Superior de Formación Docente 156 Palmiro Bogliano",
+  "city": "Azul",
+  "country": "Argentina",
+  "lat": -36.78187,
+  "lng": -59.862258,
+  "addr": "Avenida 25 de Mayo 777",
+  "phone": "+54 2281 434636",
+  "web": "https://isfd156-bue.infd.edu.ar/sitio/",
+  "email": "instituto156azul@abc.gob.ar",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n14175990672",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "azul-instituto-superior-de-formacion-docente-157-bernardino-rivadavia",
+  "name": "Instituto Superior de Formación Docente 157 Bernardino Rivadavia",
+  "city": "Azul",
+  "country": "Argentina",
+  "lat": -36.782046,
+  "lng": -59.862792,
+  "addr": "Avenida 25 de Mayo 777",
+  "phone": "(2281) 424436/424119",
+  "web": "https://isfd157-bue.infd.edu.ar/sitio/",
+  "email": "escuelanormalazul@yahoo.com.ar",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n14176020929",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "azul-colegio-san-cayetano",
+  "name": "Colegio San Cayetano",
+  "city": "Azul",
+  "country": "Argentina",
+  "lat": -36.777508,
+  "lng": -59.866489,
+  "addr": "Rivadavia 724",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w432219950",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "azul-colegio-san-francisco-de-asis",
+  "name": "Colegio San Francisco de Asís",
+  "city": "Azul",
+  "country": "Argentina",
+  "lat": -36.776364,
+  "lng": -59.882667,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1548094364",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "azul-colegio-inmaculada-concepcion",
+  "name": "Colegio Inmaculada Concepción",
+  "city": "Azul",
+  "country": "Argentina",
+  "lat": -36.778227,
+  "lng": -59.865682,
+  "addr": "Colón 718",
+  "phone": "",
+  "web": "http://cicazul.com.ar",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r15960232",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "azul-campo-frutal-universidad-de-agronomia-de-azul",
+  "name": "Campo Frutal Universidad de Agronomía de Azul",
+  "city": "Azul",
+  "country": "Argentina",
+  "lat": -36.74357,
+  "lng": -59.841975,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r17331328",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "barbacoas-bachillerato-acad-departamental-noct-liceo-barbacoas",
+  "name": "Bachillerato Acad Departamental Noct Liceo Barbacoas",
+  "city": "Barbacoas",
+  "country": "Colombia",
+  "lat": 1.670221,
+  "lng": -78.139547,
+  "addr": "",
+  "phone": "+57 602 7468213",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246519",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-colegio-cristiano-gerizim-sas",
+  "name": "Colegio Cristiano Gerizim Sas",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.9512,
+  "lng": -71.884483,
+  "addr": "",
+  "phone": "+57 311 6633484",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468141143",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-colegio-adventista-bethel",
+  "name": "Colegio Adventista Bethel",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.954271,
+  "lng": -71.875376,
+  "addr": "",
+  "phone": "+57 607 8892285",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468141145",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-centro-educativo-el-jardin",
+  "name": "Centro Educativo El Jardín",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.973333,
+  "lng": -71.855833,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198074",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-centro-educativo-cano-cascarron",
+  "name": "Centro Educativo Caño Cascarron",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.966944,
+  "lng": -71.8525,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198077",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-centro-educativo-miramar",
+  "name": "Centro Educativo Miramar",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.954167,
+  "lng": -71.864167,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198081",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-centro-educativo-la-aurora",
+  "name": "Centro Educativo La Aurora",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.973056,
+  "lng": -71.834722,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198082",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-centro-educativo-el-remolino",
+  "name": "Centro Educativo El Remolino",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.971944,
+  "lng": -71.859444,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198083",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-centro-educativo-pablo-neruda",
+  "name": "Centro Educativo Pablo Neruda",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.976944,
+  "lng": -71.835278,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198087",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-centro-educativo-marco-antonio-mancera",
+  "name": "Centro Educativo Marco Antonio Mancera",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.974444,
+  "lng": -71.842222,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198094",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-centro-educativo-marco-fidel-suarez",
+  "name": "Centro Educativo Marco Fidel Suarez",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.964054,
+  "lng": -71.916943,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198103",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-centro-educativo-el-porvenir",
+  "name": "Centro Educativo El Porvenir",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.970556,
+  "lng": -71.841944,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198110",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-centro-educativo-la-palma",
+  "name": "Centro Educativo La Palma",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.970833,
+  "lng": -71.862778,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198112",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-centro-educativo-la-florida",
+  "name": "Centro Educativo La Florida",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.969444,
+  "lng": -71.845556,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198123",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-centro-educativo-manuela-beltran",
+  "name": "Centro Educativo Manuela Beltran",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.964209,
+  "lng": -71.867223,
+  "addr": "",
+  "phone": "+57 607 8891532",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198183",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-centro-educativo-las-vllas",
+  "name": "Centro Educativo Las Vllas",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.953726,
+  "lng": -71.86948,
+  "addr": "",
+  "phone": "+57 607 8892236",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198185",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-centro-educativo-san-juan-bosco",
+  "name": "Centro Educativo San Juan Bosco",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.949393,
+  "lng": -71.867413,
+  "addr": "",
+  "phone": "+57 607 8820622",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198187",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-centro-educativo-maria-inmaculada",
+  "name": "Centro Educativo María Inmaculada",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.96638,
+  "lng": -71.868778,
+  "addr": "",
+  "phone": "+57 607 8891532",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198189",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-centro-educativo-jardin-cofavi",
+  "name": "Centro Educativo Jardín Cofavi",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.963148,
+  "lng": -71.882513,
+  "addr": "",
+  "phone": "+57 607 8822457",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198191",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-centro-educativo-la-esperanza",
+  "name": "Centro Educativo La Esperanza",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.965497,
+  "lng": -71.879475,
+  "addr": "",
+  "phone": "+57 607 8821583",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198195",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-centro-educativo-general-santander",
+  "name": "Centro Educativo General Santander",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.962183,
+  "lng": -71.872063,
+  "addr": "",
+  "phone": "+57 607 8891686",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198196",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-centro-educativo-alfonso-lopez",
+  "name": "Centro Educativo Alfonso Lopez",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.956509,
+  "lng": -71.870966,
+  "addr": "",
+  "phone": "+57 607 8891200",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198197",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-colegio-rafael-pombo",
+  "name": "Colegio Rafael Pombo",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.947348,
+  "lng": -71.883229,
+  "addr": "",
+  "phone": "+57 607 8892333",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12468198199",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-colegio-tecnico-industrial-rafael-pombo",
+  "name": "Colegio Técnico Industrial Rafael Pombo",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.965199,
+  "lng": -71.878082,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w176260365",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "saravena-colegio-jose-eustacion-rivera",
+  "name": "Colegio Jose Eustacion Rivera",
+  "city": "Saravena",
+  "country": "Colombia",
+  "lat": 6.94577,
+  "lng": -71.87418,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w180969174",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "nuevo-casas-grandes-universidad-pedagogica-nacional",
+  "name": "Universidad Pedagógica Nacional",
+  "city": "Nuevo Casas Grandes",
+  "country": "México",
+  "lat": 30.40295,
+  "lng": -107.885062,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w252514974",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "patzcuaro-centro-educativo-patzcuaro",
+  "name": "Centro Educativo Patzcuaro",
+  "city": "Pátzcuaro",
+  "country": "México",
+  "lat": 19.526263,
+  "lng": -101.604477,
+  "addr": "Quinta la Troje s/n",
+  "phone": "",
+  "web": "http://www.mapas.gob.mx",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w184699025",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "patzcuaro-instituto-de-ecologia-a-c-centro-regional-del-bajio",
+  "name": "Instituto de Ecología, A.C. - Centro Regional del Bajío",
+  "city": "Pátzcuaro",
+  "country": "México",
+  "lat": 19.526963,
+  "lng": -101.608155,
+  "addr": "Av. Lázaro Cárdrnas 253",
+  "phone": "",
+  "web": "http://www.inecol.edu.mx/inecol/index.php/es/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w358726678",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "patzcuaro-instituto-tecnologico-superior-de-patzcuaro",
+  "name": "Instituto Tecnológico Superior de Pátzcuaro",
+  "city": "Pátzcuaro",
+  "country": "México",
+  "lat": 19.540834,
+  "lng": -101.583235,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w465003663",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "patzcuaro-preparatoria",
+  "name": "Preparatoria",
+  "city": "Pátzcuaro",
+  "country": "México",
+  "lat": 19.526972,
+  "lng": -101.611958,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w819953641",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "patzcuaro-iep-3-melchor-ocampo",
+  "name": "Iep 3 Melchor Ocampo",
+  "city": "Pátzcuaro",
+  "country": "México",
+  "lat": 19.542043,
+  "lng": -101.610929,
+  "addr": "Calzada las Garzas s/n",
+  "phone": "",
+  "web": "http://www.mapas.gob.mx",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r2617042",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "el-jaguel-colegio-san-ignacio",
+  "name": "Colegio San Ignacio",
+  "city": "El Jagüel",
+  "country": "Argentina",
+  "lat": -34.853484,
+  "lng": -58.51723,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3782683120",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "el-jaguel-colegio-senora-de-la-salud",
+  "name": "Colegio Señora De La Salud",
+  "city": "El Jagüel",
+  "country": "Argentina",
+  "lat": -34.856696,
+  "lng": -58.520073,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3782683122",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "el-jaguel-instituto-amanecer",
+  "name": "Instituto Amanecer",
+  "city": "El Jagüel",
+  "country": "Argentina",
+  "lat": -34.865848,
+  "lng": -58.523615,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3782683143",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "el-jaguel-colegio-grilli-canning",
+  "name": "Colegio Grilli Canning",
+  "city": "El Jagüel",
+  "country": "Argentina",
+  "lat": -34.881216,
+  "lng": -58.498778,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w443112824",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "el-jaguel-colegio-st-mary-s-international-college",
+  "name": "Colegio St Mary's International College",
+  "city": "El Jagüel",
+  "country": "Argentina",
+  "lat": -34.862075,
+  "lng": -58.50704,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w523505652",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "zacapu-preparatoria-emiliano-zapata",
+  "name": "Preparatoría Emiliano Zapata",
+  "city": "Zacapu",
+  "country": "México",
+  "lat": 19.809231,
+  "lng": -101.795506,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w311422962",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "puerto-boyaca-universidad-uptc",
+  "name": "Universidad UPTC",
+  "city": "Puerto Boyacá",
+  "country": "Colombia",
+  "lat": 5.973086,
+  "lng": -74.578956,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1468735233",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "moyobamba-universidad-privada-cesar-vallejo",
+  "name": "Universidad Privada César Vallejo",
+  "city": "Moyobamba",
+  "country": "Perú",
+  "lat": -6.03038,
+  "lng": -76.976023,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w842874330",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "moyobamba-universidad-cesar-vallejo",
+  "name": "Universidad César Vallejo",
+  "city": "Moyobamba",
+  "country": "Perú",
+  "lat": -6.057037,
+  "lng": -76.971523,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1020087977",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "moyobamba-colegio-amae",
+  "name": "Colegio Amae",
+  "city": "Moyobamba",
+  "country": "Perú",
+  "lat": -6.064841,
+  "lng": -76.972918,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1020087978",
+  "found": "2026-11-21"
  }
 ]

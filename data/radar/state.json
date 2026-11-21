@@ -7480,7 +7480,18 @@
   "AR|Mercedes": "2026-11-19T23:17:38.520Z",
   "CO|n268142709": "2026-11-19T23:22:16.036Z",
   "HN|n11934571268": "2026-11-20T07:33:57.286Z",
-  "UY|Melo": "2026-11-20T07:34:31.223Z"
+  "UY|Melo": "2026-11-20T07:34:31.223Z",
+  "AR|Azul": "2026-11-21T00:02:29.300Z",
+  "CO|n703167902": "2026-11-21T00:03:02.250Z",
+  "CO|n1914215419": "2026-11-21T00:03:40.136Z",
+  "MX|Nuevo Casas Grandes": "2026-11-21T00:04:23.626Z",
+  "MX|Pátzcuaro": "2026-11-21T00:04:58.918Z",
+  "AR|El Jagüel": "2026-11-21T00:05:44.864Z",
+  "MX|Zacapu": "2026-11-21T00:13:08.618Z",
+  "CO|n306358928": "2026-11-21T00:13:32.481Z",
+  "CO|n703177578": "2026-11-21T00:13:58.196Z",
+  "PE|Moyobamba": "2026-11-21T00:14:30.236Z",
+  "ES|n1470839444": "2026-11-21T00:15:01.339Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7625,6 +7636,97 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-21T00:01:55.937Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Azul",
+     "found": 10,
+     "updated": 0,
+     "osm": 44
+    },
+    {
+     "cc": "CO",
+     "city": "Barbacoas",
+     "found": 1,
+     "updated": 0,
+     "osm": 20
+    },
+    {
+     "cc": "CO",
+     "city": "Saravena",
+     "found": 24,
+     "updated": 1,
+     "osm": 46
+    },
+    {
+     "cc": "MX",
+     "city": "Nuevo Casas Grandes",
+     "found": 1,
+     "updated": 0,
+     "osm": 6
+    },
+    {
+     "cc": "MX",
+     "city": "Pátzcuaro",
+     "found": 5,
+     "updated": 0,
+     "osm": 40
+    },
+    {
+     "cc": "AR",
+     "city": "El Jagüel",
+     "found": 5,
+     "updated": 0,
+     "osm": 107
+    },
+    {
+     "cc": "MX",
+     "city": "Zacapu",
+     "found": 1,
+     "updated": 0,
+     "osm": 9
+    },
+    {
+     "cc": "CO",
+     "city": "Puerto Boyacá",
+     "found": 1,
+     "updated": 0,
+     "osm": 16
+    },
+    {
+     "cc": "CO",
+     "city": "Guarne",
+     "found": 0,
+     "updated": 0,
+     "osm": 23
+    },
+    {
+     "cc": "PE",
+     "city": "Moyobamba",
+     "found": 3,
+     "updated": 0,
+     "osm": 38
+    },
+    {
+     "cc": "ES",
+     "city": "Cerdanyola del Vallès",
+     "found": 0,
+     "updated": 0,
+     "osm": 107
+    }
+   ],
+   "added": 51,
+   "enriched": 0,
+   "photos": 8,
+   "contacts": 11,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 14.1,
+   "total": 61902
+  },
   {
    "at": "2026-11-20T17:00:18.385Z",
    "cities": [],
@@ -9504,43 +9606,6 @@
    "errors": [],
    "minutes": 17.1,
    "total": 21818
-  },
-  {
-   "at": "2026-11-16T05:43:46.324Z",
-   "cities": [
-    {
-     "cc": "AR",
-     "city": "Villa María",
-     "found": 12,
-     "updated": 0,
-     "osm": 72
-    },
-    {
-     "cc": "AR",
-     "city": "Glew",
-     "found": 6,
-     "updated": 0,
-     "osm": 59
-    },
-    {
-     "cc": "AR",
-     "city": "Tartagal",
-     "found": 3,
-     "updated": 0,
-     "osm": 10
-    }
-   ],
-   "added": 21,
-   "enriched": 0,
-   "photos": 1,
-   "contacts": 1,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "AR|Guernica: The operation was aborted due to timeout"
-   ],
-   "minutes": 17.7,
-   "total": 21792
   }
  ]
 }
