@@ -7500,7 +7500,18 @@
   "PE|Barranca": "2026-11-21T07:24:43.870Z",
   "DO|n3690709257": "2026-11-21T07:25:16.724Z",
   "NI|n2773628551": "2026-11-21T07:33:49.282Z",
-  "AR|9 de Abril": "2026-11-21T07:37:46.229Z"
+  "AR|9 de Abril": "2026-11-21T07:37:46.229Z",
+  "ES|n308207026": "2026-11-21T16:13:22.518Z",
+  "VE|n1194799496": "2026-11-21T16:14:03.005Z",
+  "MX|San Miguel Zinacantepec": "2026-11-21T16:14:40.820Z",
+  "ES|n2469923579": "2026-11-21T16:15:09.195Z",
+  "CO|n317348776": "2026-11-21T16:15:48.156Z",
+  "CO|n703177304": "2026-11-21T16:16:18.358Z",
+  "CO|n703168129": "2026-11-21T16:16:50.442Z",
+  "ES|n1440347944": "2026-11-21T16:17:16.094Z",
+  "MX|Coatepec": "2026-11-21T16:18:02.343Z",
+  "DO|n252990357": "2026-11-21T16:18:36.311Z",
+  "CO|n6033536727": "2026-11-21T16:26:18.905Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7645,6 +7656,97 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-21T16:12:36.617Z",
+   "cities": [
+    {
+     "cc": "ES",
+     "city": "Ibiza",
+     "found": 2,
+     "updated": 0,
+     "osm": 23
+    },
+    {
+     "cc": "VE",
+     "city": "Trujillo",
+     "found": 4,
+     "updated": 0,
+     "osm": 28
+    },
+    {
+     "cc": "MX",
+     "city": "San Miguel Zinacantepec",
+     "found": 3,
+     "updated": 0,
+     "osm": 162
+    },
+    {
+     "cc": "ES",
+     "city": "Huesca",
+     "found": 10,
+     "updated": 0,
+     "osm": 23
+    },
+    {
+     "cc": "CO",
+     "city": "Riosucio",
+     "found": 0,
+     "updated": 0,
+     "osm": 1
+    },
+    {
+     "cc": "CO",
+     "city": "La Ceja",
+     "found": 7,
+     "updated": 2,
+     "osm": 25
+    },
+    {
+     "cc": "CO",
+     "city": "El Tambo",
+     "found": 3,
+     "updated": 1,
+     "osm": 31
+    },
+    {
+     "cc": "ES",
+     "city": "Elda",
+     "found": 6,
+     "updated": 0,
+     "osm": 28
+    },
+    {
+     "cc": "MX",
+     "city": "Coatepec",
+     "found": 0,
+     "updated": 0,
+     "osm": 56
+    },
+    {
+     "cc": "DO",
+     "city": "Neiba",
+     "found": 2,
+     "updated": 0,
+     "osm": 9
+    },
+    {
+     "cc": "CO",
+     "city": "Tibú",
+     "found": 1,
+     "updated": 1,
+     "osm": 23
+    }
+   ],
+   "added": 38,
+   "enriched": 0,
+   "photos": 12,
+   "contacts": 9,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 15,
+   "total": 61959
+  },
   {
    "at": "2026-11-21T07:21:15.320Z",
    "cities": [
@@ -9608,48 +9710,6 @@
    "errors": [],
    "minutes": 17.5,
    "total": 21863
-  },
-  {
-   "at": "2026-11-16T17:30:28.951Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Ciudad Mante",
-     "found": 1,
-     "updated": 0,
-     "osm": 8
-    },
-    {
-     "cc": "DO",
-     "city": "Nagua",
-     "found": 3,
-     "updated": 0,
-     "osm": 17
-    },
-    {
-     "cc": "DO",
-     "city": "Bávaro",
-     "found": 3,
-     "updated": 0,
-     "osm": 3
-    },
-    {
-     "cc": "ES",
-     "city": "Talavera de la Reina",
-     "found": 15,
-     "updated": 0,
-     "osm": 49
-    }
-   ],
-   "added": 22,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 16.9,
-   "total": 21840
   }
  ]
 }

@@ -928,7 +928,9 @@
    "0337238",
    "0332098",
    "1242221"
-  ]
+  ],
+  "img": "https://sanandres.edu.pe/wp-content/uploads/2025/12/0_DSC_0180-scaled.jpeg",
+  "webAt": "2026-11-21"
  },
  {
   "name": "Colegio San Antonio de Padua",
@@ -955,7 +957,8 @@
    "0760413",
    "0825802",
    "1170240"
-  ]
+  ],
+  "imgTry": "2026-11-21"
  },
  {
   "name": "Colegio San José y El Redentor",
@@ -980,7 +983,8 @@
    "1007723",
    "0779538",
    "0779884"
-  ]
+  ],
+  "imgTry": "2026-11-21"
  },
  {
   "name": "Colegio Lamas",
@@ -3397,7 +3401,8 @@
    "0826040",
    "0319830",
    "1791367"
-  ]
+  ],
+  "imgTry": "2026-11-21"
  },
  {
   "id": "lima-colegio-saco-oliveros-de-jesus-maria",
@@ -3643,7 +3648,9 @@
    "1086735",
    "0324301",
    "0331009"
-  ]
+  ],
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "lima-colegio-santa-maria-de-miraflores",
@@ -5215,7 +5222,9 @@
    "0305722",
    "0324418",
    "1510874"
-  ]
+  ],
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "lima-institucion-educativa-inicial-fe-y-alegria-13",
@@ -7564,7 +7573,9 @@
    "0314419",
    "0320416",
    "0316497"
-  ]
+  ],
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "lima-liceo-naval-capitan-de-corbeta-manuel-clavero-muga",
@@ -78182,7 +78193,10 @@
   "found": "2026-11-10",
   "code": "311001017344",
   "padron": "MEN datos.gov.co",
-  "students": 148
+  "students": 148,
+  "img": "https://www.liceocatolico.edu.co/images/admisiones2027.webp",
+  "whatsapp": "+573188029388",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-anibal-fernandez-de-soto",
@@ -78390,7 +78404,9 @@
   "found": "2026-11-10",
   "code": "311001037094",
   "padron": "MEN datos.gov.co",
-  "students": 800
+  "students": 800,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-el-triunfo",
@@ -78553,7 +78569,10 @@
   "found": "2026-11-10",
   "code": "311001009121",
   "padron": "MEN datos.gov.co",
-  "students": 420
+  "students": 420,
+  "img": "https://colegiosalesianodeleonxiii.edu.co/wp-content/uploads/elementor/thumbs/banner-vertical-admisiones-copia-rrf8xeblswzw4q8rl2xtzf23ovqu47m8jbzdjneqws.webp",
+  "whatsapp": "+573212092993",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-instituto-marsella",
@@ -78648,7 +78667,8 @@
   "found": "2026-11-10",
   "code": "311001017557",
   "padron": "MEN datos.gov.co",
-  "students": 739
+  "students": 739,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-instituto-tecnico-distrital-francisco-jose-de-caldas-sede-b",
@@ -78945,7 +78965,9 @@
   "found": "2026-11-10",
   "code": "311001019061",
   "padron": "MEN datos.gov.co",
-  "students": 553
+  "students": 553,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-colsubsidio-las-mercedes",
@@ -78988,7 +79010,8 @@
   "found": "2026-11-10",
   "code": "311001027803",
   "padron": "MEN datos.gov.co",
-  "students": 424
+  "students": 424,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-liceo-semillas-del-saber",
@@ -79086,7 +79109,9 @@
   "found": "2026-11-10",
   "code": "311001101116",
   "padron": "MEN datos.gov.co",
-  "students": 148
+  "students": 148,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-english-school",
@@ -79538,7 +79563,9 @@
   "found": "2026-11-10",
   "code": "411001800752",
   "padron": "MEN datos.gov.co",
-  "students": 1144
+  "students": 1144,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-michigan-school",
@@ -79982,7 +80009,8 @@
   "found": "2026-11-10",
   "code": "425769060660",
   "padron": "MEN datos.gov.co",
-  "students": 224
+  "students": 224,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-gimnasio-los-alamos",
@@ -80180,7 +80208,9 @@
   "found": "2026-11-10",
   "code": "311001026009",
   "padron": "MEN datos.gov.co",
-  "students": 141
+  "students": 141,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-gimnasio-granadino",
@@ -80782,7 +80812,9 @@
   "found": "2026-11-10",
   "code": "311001007403",
   "padron": "MEN datos.gov.co",
-  "students": 378
+  "students": 378,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-gimnasio-el-lago",
@@ -80853,7 +80885,9 @@
   "found": "2026-11-10",
   "code": "311001051275",
   "padron": "MEN datos.gov.co",
-  "students": 146
+  "students": 146,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-instituto-san-ignacio-de-loyola",
@@ -80880,7 +80914,8 @@
   "found": "2026-11-10",
   "code": "311001002380",
   "padron": "MEN datos.gov.co",
-  "students": 731
+  "students": 731,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-universitaria-de-colombia-sede-2",
@@ -81002,7 +81037,8 @@
   "found": "2026-11-10",
   "code": "311001005931",
   "padron": "MEN datos.gov.co",
-  "students": 858
+  "students": 858,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-universidad-ecci",
@@ -81095,7 +81131,8 @@
   "found": "2026-11-10",
   "code": "311769000751",
   "padron": "MEN datos.gov.co",
-  "students": 1211
+  "students": 1211,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-nuevo-gimnasio",
@@ -81120,7 +81157,8 @@
   "found": "2026-11-10",
   "code": "311001002428",
   "padron": "MEN datos.gov.co",
-  "students": 308
+  "students": 308,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-lycee-francais-louis-pasteur",
@@ -81168,7 +81206,9 @@
   "found": "2026-11-10",
   "code": "311001002070",
   "padron": "MEN datos.gov.co",
-  "students": 1420
+  "students": 1420,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-liceo-de-cervantes",
@@ -81312,7 +81352,9 @@
   "found": "2026-11-10",
   "code": "311001087989",
   "padron": "MEN datos.gov.co",
-  "students": 3387
+  "students": 3387,
+  "img": "https://cms.colsubsidio.com/sites/default/files/2026-01/hero-video-en-2025-entregamos-colsubsidio.jpg",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-san-viator",
@@ -81339,7 +81381,8 @@
   "found": "2026-11-10",
   "code": "411769000101",
   "padron": "MEN datos.gov.co",
-  "students": 875
+  "students": 875,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-fe-y-alegria",
@@ -81545,7 +81588,8 @@
   "found": "2026-11-10",
   "code": "311848002459",
   "padron": "MEN datos.gov.co",
-  "students": 416
+  "students": 416,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-cafam",
@@ -81615,7 +81659,9 @@
   "found": "2026-11-10",
   "code": "311848000588",
   "padron": "MEN datos.gov.co",
-  "students": 376
+  "students": 376,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-sans-facon",
@@ -81741,7 +81787,10 @@
   "found": "2026-11-10",
   "code": "311848000618",
   "padron": "MEN datos.gov.co",
-  "students": 682
+  "students": 682,
+  "img": "https://santotomas.edu.co/wp-content/uploads/2026/08/logowebsantoto2-1024x135.webp",
+  "whatsapp": "+573164215834",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-campestre-san-jose",
@@ -82084,7 +82133,9 @@
   "found": "2026-11-10",
   "code": "311001008680",
   "padron": "MEN datos.gov.co",
-  "students": 907
+  "students": 907,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-maximino-poitiers",
@@ -82160,7 +82211,10 @@
   "found": "2026-11-10",
   "code": "311001089221",
   "padron": "MEN datos.gov.co",
-  "students": 846
+  "students": 846,
+  "img": "",
+  "whatsapp": "+573227157052",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-champagnat",
@@ -82185,7 +82239,10 @@
   "found": "2026-11-10",
   "code": "311001009023",
   "padron": "MEN datos.gov.co",
-  "students": 797
+  "students": 797,
+  "img": "",
+  "whatsapp": "+573176688325",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-gimnasio-william-mckinley",
@@ -82228,7 +82285,9 @@
   "found": "2026-11-10",
   "code": "311001000875",
   "padron": "MEN datos.gov.co",
-  "students": 239
+  "students": 239,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-las-esclavas-del-sagrado-corazon-de-jesus",
@@ -82255,7 +82314,9 @@
   "found": "2026-11-10",
   "code": "311848003463",
   "padron": "MEN datos.gov.co",
-  "students": 468
+  "students": 468,
+  "img": "https://colegioesclavas.edu.co/wp/wp-content/uploads/2023/07/logo-encabezado-90-anos.jpg",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-parroquial-san-jose",
@@ -82282,7 +82343,8 @@
   "found": "2026-11-10",
   "code": "311279000396",
   "padron": "MEN datos.gov.co",
-  "students": 900
+  "students": 900,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-agustiniano-ciudad-salitre",
@@ -82307,7 +82369,9 @@
   "found": "2026-11-10",
   "code": "311001093652",
   "padron": "MEN datos.gov.co",
-  "students": 1705
+  "students": 1705,
+  "img": "https://agustinianosalitre.edu.co/wp-content/uploads/2023/07/cover-agustiniano-2023-02_Mesa-de-trabajo-1-copia-8-959x718.png",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-cosmos",
@@ -82377,7 +82441,10 @@
   "found": "2026-11-10",
   "code": "311001008949",
   "padron": "MEN datos.gov.co",
-  "students": 452
+  "students": 452,
+  "img": "https://www.isblasalle.edu.co/wp-content/uploads/elementor/thumbs/plei-icono-qq57s6q7umfa7w3rchgenmhp06lzp4z8cxnv5j0ku0.jpg",
+  "whatsapp": "+573134188465",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-campus-deportivo-universidad-santo-tomas-de-aquino",
@@ -82521,7 +82588,8 @@
   "found": "2026-11-10",
   "code": "311001010820",
   "padron": "MEN datos.gov.co",
-  "students": 1631
+  "students": 1631,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-sagrado-corazon-de-jesus-bethlemitas",
@@ -82568,7 +82636,9 @@
   "found": "2026-11-10",
   "code": "311848000481",
   "padron": "MEN datos.gov.co",
-  "students": 485
+  "students": 485,
+  "img": "https://static.wixstatic.com/media/a9ccec_b3242c7354d342ef9ba755232f17ee49~mv2.jpg/v1/fill/w_1280,h_720,al_c/a9ccec_b3242c7354d342ef9ba755232f17ee49~mv2.jpg",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-abraham-lincoln-bachillerato",
@@ -82615,7 +82685,9 @@
   "found": "2026-11-10",
   "code": "311769001846",
   "padron": "MEN datos.gov.co",
-  "students": 363
+  "students": 363,
+  "img": "https://santarsicio.edu.co/wp-content/uploads/2024/05/Recurso-1-8.png",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-universidad-distrital-sede-tecnologica",
@@ -82664,7 +82736,8 @@
   "found": "2026-11-10",
   "code": "311769000483",
   "padron": "MEN datos.gov.co",
-  "students": 1043
+  "students": 1043,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-liceo-cambridge",
@@ -82822,7 +82895,8 @@
   "found": "2026-11-10",
   "code": "311001001057",
   "padron": "MEN datos.gov.co",
-  "students": 1492
+  "students": 1492,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-villa-amalia",
@@ -82885,7 +82959,8 @@
   "found": "2026-11-10",
   "code": "311001028427",
   "padron": "MEN datos.gov.co",
-  "students": 291
+  "students": 291,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-nuestra-senora-de-fatima",
@@ -82930,7 +83005,8 @@
   "found": "2026-11-10",
   "code": "311001006466",
   "padron": "MEN datos.gov.co",
-  "students": 769
+  "students": 769,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-universidad-pedagogica-nacional",
@@ -82977,7 +83053,9 @@
   "found": "2026-11-10",
   "code": "311001019941",
   "padron": "MEN datos.gov.co",
-  "students": 1685
+  "students": 1685,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-leonardo-da-vinci",
@@ -83190,7 +83268,10 @@
   "found": "2026-11-10",
   "code": "311001101850",
   "padron": "MEN datos.gov.co",
-  "students": 1322
+  "students": 1322,
+  "img": "",
+  "whatsapp": "+573183538445",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-liceo-nacional-antonia-santos",
@@ -83233,7 +83314,9 @@
   "found": "2026-11-10",
   "code": "311001004986",
   "padron": "MEN datos.gov.co",
-  "students": 481
+  "students": 481,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-parroquial-nuestra-senora-de-la-valvanera",
@@ -83260,7 +83343,8 @@
   "found": "2026-11-10",
   "code": "311001001162",
   "padron": "MEN datos.gov.co",
-  "students": 496
+  "students": 496,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-gimnasio-lapiz-magico",
@@ -83506,7 +83590,8 @@
   "found": "2026-11-10",
   "code": "311279001236",
   "padron": "MEN datos.gov.co",
-  "students": 377
+  "students": 377,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-de-los-andes",
@@ -83531,7 +83616,9 @@
   "found": "2026-11-10",
   "code": "311279000353",
   "padron": "MEN datos.gov.co",
-  "students": 638
+  "students": 638,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-nuestra-senora-del-rosario",
@@ -83600,7 +83687,9 @@
   "found": "2026-11-10",
   "code": "311001004846",
   "padron": "MEN datos.gov.co",
-  "students": 1551
+  "students": 1551,
+  "img": "https://colegioallamano.edu.co/wp-content/uploads/2025/08/cropped-Escudo-Colegio-Bilingue-Jose-allamano-Bogota-1.png",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-colegio-del-santisimo-sacramento",
@@ -83625,7 +83714,8 @@
   "found": "2026-11-10",
   "code": "311001087792",
   "padron": "MEN datos.gov.co",
-  "students": 646
+  "students": 646,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-nuestra-senora-del-rosario-2",
@@ -83650,7 +83740,8 @@
   "found": "2026-11-10",
   "code": "311001003483",
   "padron": "MEN datos.gov.co",
-  "students": 2580
+  "students": 2580,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-el-erogreso",
@@ -83842,7 +83933,9 @@
   "found": "2026-11-10",
   "code": "311848001011",
   "padron": "MEN datos.gov.co",
-  "students": 1832
+  "students": 1832,
+  "img": "",
+  "webAt": "2026-11-21"
  },
  {
   "id": "bogota-centro-educativo-los-andres-aures-ii",
@@ -83905,7 +83998,8 @@
   "found": "2026-11-10",
   "code": "311001016976",
   "padron": "MEN datos.gov.co",
-  "students": 208
+  "students": 208,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-facultad-medicina-universidad-nueva-granada",
@@ -83978,7 +84072,8 @@
   "found": "2026-11-10",
   "code": "311848000286",
   "padron": "MEN datos.gov.co",
-  "students": 639
+  "students": 639,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-gimnasio-nuevo-sidauto",
@@ -84080,7 +84175,8 @@
   "found": "2026-11-10",
   "code": "311001090921",
   "padron": "MEN datos.gov.co",
-  "students": 1238
+  "students": 1238,
+  "imgTry": "2026-11-21"
  },
  {
   "id": "bogota-colegio-gimnasio-del-norte",
@@ -600655,7 +600751,8 @@
   "code": "405376000648",
   "found": "2026-11-19",
   "students": 287,
-  "approx": "1km"
+  "approx": "1km",
+  "osm": "n12487353347"
  },
  {
   "id": "ventaquemada-institucion-educativa-manuel-antonio-florez",
@@ -604055,7 +604152,8 @@
   "code": "419256002711",
   "found": "2026-11-19",
   "students": 88,
-  "approx": "1km"
+  "approx": "1km",
+  "osm": "n12485246304"
  },
  {
   "id": "yondo-colegio-el-oasis",
@@ -626749,7 +626847,8 @@
   "code": "305376800003",
   "found": "2026-11-19",
   "students": 114,
-  "approx": "1km"
+  "approx": "1km",
+  "osm": "n12487369626"
  },
  {
   "id": "soledad-liceo-adriano-leon",
@@ -642434,7 +642533,9 @@
   "phone": "+57 317 300 9300",
   "web": "",
   "email": "maria.montenegro@comfanorte.com.co",
-  "levels": [],
+  "levels": [
+   "Prepa"
+  ],
   "opp": [
    "Privado según el padrón oficial"
   ],
@@ -642443,7 +642544,8 @@
   "code": "354810800043",
   "found": "2026-11-19",
   "students": 71,
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "osm": "n12480805379"
  },
  {
   "id": "soledad-little-champions-kids-school",
@@ -1455801,6 +1455903,753 @@
   "private": "probable",
   "src": "osm",
   "osm": "w398404346",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "ibiza-lycee-francais-d-ibiza",
+  "name": "Lycée Français d'Ibiza",
+  "city": "Ibiza",
+  "country": "España",
+  "lat": 38.895442,
+  "lng": 1.381737,
+  "addr": "",
+  "phone": "34971395250",
+  "web": "https://www.lfi-ibiza.com/",
+  "email": "admin@lfi-ibiza.com",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1322982268",
+  "found": "2026-11-21",
+  "img": "",
+  "webAt": "2026-11-21"
+ },
+ {
+  "id": "ibiza-col-legi-mestral",
+  "name": "Col·legi Mestral",
+  "city": "Ibiza",
+  "country": "España",
+  "lat": 38.911255,
+  "lng": 1.419249,
+  "addr": "Carrer d'Albarca 14",
+  "phone": "+34 971 194 576",
+  "web": "https://www.colegio-mestral.es/",
+  "email": "secretaria@colegio-mestral.com",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1434677236",
+  "found": "2026-11-21",
+  "img": "https://www.colegio-mestral.es/sites/school53/files/logo.png",
+  "webAt": "2026-11-21"
+ },
+ {
+  "id": "trujillo-colegio-mario-briceno-iragorri",
+  "name": "Colegio Mario Briceño Iragorri",
+  "city": "Trujillo",
+  "country": "Venezuela",
+  "lat": 9.352453,
+  "lng": -70.435817,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3345276724",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "trujillo-colegio-monsenor-vicente-valera-marquez",
+  "name": "Colegio Monseñor Vicente Valera Marquez",
+  "city": "Trujillo",
+  "country": "Venezuela",
+  "lat": 9.380842,
+  "lng": -70.430487,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3345276725",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "trujillo-colegio-nuestra-senora-de-la-paz",
+  "name": "Colegio Nuestra Señora de la Paz",
+  "city": "Trujillo",
+  "country": "Venezuela",
+  "lat": 9.348682,
+  "lng": -70.434988,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3345276726",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "trujillo-colegio-nuestra-sra-de-coromoto",
+  "name": "Colegio Nuestra Sra de Coromoto",
+  "city": "Trujillo",
+  "country": "Venezuela",
+  "lat": 9.357722,
+  "lng": -70.447758,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3346731820",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "san-miguel-zinacantepec-el-colegio-mexiquense-a-c",
+  "name": "El Colegio Mexiquense, A.C.",
+  "city": "San Miguel Zinacantepec",
+  "country": "México",
+  "lat": 19.282847,
+  "lng": -99.763201,
+  "addr": "Ex-Hacienda Santa Cruz de los Patos",
+  "phone": "",
+  "web": "http://www.cmq.edu.mx",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6568792712",
+  "found": "2026-11-21",
+  "imgTry": "2026-11-21"
+ },
+ {
+  "id": "san-miguel-zinacantepec-escuela-preparatoria-oficial-104clave-15ebh0321y-turno-vespertino",
+  "name": "Escuela Preparatoria Oficial 104clave 15ebh0321y Turno Vespertino",
+  "city": "San Miguel Zinacantepec",
+  "country": "México",
+  "lat": 19.264487,
+  "lng": -99.740576,
+  "addr": "Avenida La Huerta",
+  "phone": "",
+  "web": "",
+  "email": "epo104@edugem.gob.mx",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12512428751",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "san-miguel-zinacantepec-escuela-miguel-aleman-valdes",
+  "name": "Escuela Miguel Aleman Valdes",
+  "city": "San Miguel Zinacantepec",
+  "country": "México",
+  "lat": 19.27208,
+  "lng": -99.744957,
+  "addr": "Calle Independencia",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12544868125",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "huesca-colegio-juan-xxiii",
+  "name": "Colegio Juan XXIII",
+  "city": "Huesca",
+  "country": "España",
+  "lat": 42.141215,
+  "lng": -0.420135,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w216970521",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "huesca-colegio-san-viator",
+  "name": "Colegio San Viator",
+  "city": "Huesca",
+  "country": "España",
+  "lat": 42.139977,
+  "lng": -0.414716,
+  "addr": "Calle de Ricardo del Arco 2",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w217166600",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "huesca-colegio-santa-ana",
+  "name": "Colegio Santa Ana",
+  "city": "Huesca",
+  "country": "España",
+  "lat": 42.141236,
+  "lng": -0.414251,
+  "addr": "Calle de Pedro Sopena 5",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w217166601",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "huesca-colegio-de-educacion-infantil-y-primaria-alcoraz",
+  "name": "Colegio de Educación Infantil y Primaria Alcoraz",
+  "city": "Huesca",
+  "country": "España",
+  "lat": 42.130493,
+  "lng": -0.41791,
+  "addr": "Calle de Binéfar 5",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w217167542",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "huesca-colegio-de-educacion-infantil-y-primaria-sancho-ramirez",
+  "name": "Colegio de Educación Infantil y Primaria Sancho Ramírez",
+  "city": "Huesca",
+  "country": "España",
+  "lat": 42.136125,
+  "lng": -0.404185,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w217167544",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "huesca-colegio-salesiano-san-bernardo",
+  "name": "Colegio Salesiano San Bernardo",
+  "city": "Huesca",
+  "country": "España",
+  "lat": 42.142272,
+  "lng": -0.41189,
+  "addr": "",
+  "phone": "+34 974221800",
+  "web": "http://www.salesianoshuesca.org/",
+  "email": "salesianos@huescasalesians.info",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w246831987",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "huesca-colegio-de-educacion-infantil-y-primaria-pirineos-pyrenees",
+  "name": "Colegio de Educación Infantil y Primaria Pirineos-Pyrénées",
+  "city": "Huesca",
+  "country": "España",
+  "lat": 42.130218,
+  "lng": -0.401167,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w330838518",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "huesca-colegio-santa-rosa-altoaragon",
+  "name": "Colegio Santa Rosa - Altoaragón",
+  "city": "Huesca",
+  "country": "España",
+  "lat": 42.142991,
+  "lng": -0.414659,
+  "addr": "Pasaje Pico del Águila 7",
+  "phone": "+34 974 238 625",
+  "web": "https://www.santarosaaltoaragonhuesca.com/es",
+  "email": "santarosa.altoaragon@colegiosfec.com",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w356088612",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "huesca-academia-lyceo",
+  "name": "Academia Lyceo",
+  "city": "Huesca",
+  "country": "España",
+  "lat": 42.135482,
+  "lng": -0.405335,
+  "addr": "Calle del Jazmín 1",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w365843726",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "huesca-colegio-mayor-universitario-ramon-acin",
+  "name": "Colegio Mayor Universitario Ramón Acín",
+  "city": "Huesca",
+  "country": "España",
+  "lat": 42.141663,
+  "lng": -0.408347,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r5501100",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "la-ceja-colegio-de-adultos-cultural",
+  "name": "Colegio De Adultos Cultural",
+  "city": "La Ceja",
+  "country": "Colombia",
+  "lat": 6.032691,
+  "lng": -75.432532,
+  "addr": "",
+  "phone": "+57 310 6705316",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369598",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "la-ceja-institucion-educativa-para-vivir-un-mundo-mejor",
+  "name": "Institución Educativa Para Vivir Un Mundo Mejor",
+  "city": "La Ceja",
+  "country": "Colombia",
+  "lat": 6.031544,
+  "lng": -75.431624,
+  "addr": "",
+  "phone": "+57 604 4441343",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369599",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "la-ceja-institucion-educativa-previa",
+  "name": "Institución Educativa Previa",
+  "city": "La Ceja",
+  "country": "Colombia",
+  "lat": 6.030276,
+  "lng": -75.426435,
+  "addr": "",
+  "phone": "+57 604 4481678",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369625",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "la-ceja-otra-sigla-politec-interamericano",
+  "name": "Otra sigla Politec Interamericano",
+  "city": "La Ceja",
+  "country": "Colombia",
+  "lat": 6.030314,
+  "lng": -75.433812,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369627",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "la-ceja-centro-educativo-inf-el-gato-sin-botas",
+  "name": "Centro Educativo Inf El Gato Sin Botas",
+  "city": "La Ceja",
+  "country": "Colombia",
+  "lat": 6.026389,
+  "lng": -75.433611,
+  "addr": "",
+  "phone": "+57 604 5531729",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369629",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "la-ceja-colegio-santo-domingo-savio",
+  "name": "Colegio Santo Domingo Savio",
+  "city": "La Ceja",
+  "country": "Colombia",
+  "lat": 6.018622,
+  "lng": -75.435654,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w169014349",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "la-ceja-colegio",
+  "name": "Colegio",
+  "city": "La Ceja",
+  "country": "Colombia",
+  "lat": 6.015737,
+  "lng": -75.43271,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w547468810",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "el-tambo-colegio",
+  "name": "Colegio",
+  "city": "El Tambo",
+  "country": "Colombia",
+  "lat": 2.436762,
+  "lng": -76.850765,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6272404664",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "el-tambo-centro-educativo-cedcat",
+  "name": "Centro Educativo Cedcat",
+  "city": "El Tambo",
+  "country": "Colombia",
+  "lat": 2.449538,
+  "lng": -76.806248,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12485246758",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "el-tambo-colegio-francisco-de-paula-santander",
+  "name": "Colegio Francisco de Paula Santander",
+  "city": "El Tambo",
+  "country": "Colombia",
+  "lat": 2.452799,
+  "lng": -76.812826,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w127216655",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "elda-brighton-school",
+  "name": "Brighton School",
+  "city": "Elda",
+  "country": "España",
+  "lat": 38.473205,
+  "lng": -0.798957,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4692417230",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "elda-centro-santo-domingo-savio",
+  "name": "Centro Santo Domingo Savio",
+  "city": "Elda",
+  "country": "España",
+  "lat": 38.478409,
+  "lng": -0.781648,
+  "addr": "Avinguda Reina Sofia",
+  "phone": "+34 965 370 895",
+  "web": "https://www.colegiosantodomingosaviopetrer.com/",
+  "email": "administracion@sdspetrer.com",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w168913503",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "elda-colegio-sagrada-familia",
+  "name": "Colegio Sagrada Familia",
+  "city": "Elda",
+  "country": "España",
+  "lat": 38.462431,
+  "lng": -0.783497,
+  "addr": "Avenida del Mediterráneo",
+  "phone": "+34 965 38 12 42",
+  "web": "https://sagradafamiliaelda.com/",
+  "email": "info@sagradafamiliaelda.com",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w171549349",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "elda-colegio-padre-manjon",
+  "name": "Colegio Padre Manjón",
+  "city": "Elda",
+  "country": "España",
+  "lat": 38.475108,
+  "lng": -0.793006,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w305791357",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "elda-centro-educativo-santa-maria-del-carmen",
+  "name": "Centro Educativo Santa María Del Carmen",
+  "city": "Elda",
+  "country": "España",
+  "lat": 38.472517,
+  "lng": -0.788157,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w356214051",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "elda-colegio-de-educacion-infantil-y-primaria-antonio-machado",
+  "name": "Colegio de Educación Infantil y Primaria Antonio Machado",
+  "city": "Elda",
+  "country": "España",
+  "lat": 38.467952,
+  "lng": -0.800332,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w357244481",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "neiba-liceo-secundario-manuel-de-jesus-galvan",
+  "name": "Liceo Secundario Manuel de Jesús Galván",
+  "city": "Neiba",
+  "country": "República Dominicana",
+  "lat": 18.483847,
+  "lng": -71.417674,
+  "addr": "Avenida Capotillo",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1183011525",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "neiba-centro-educativo-nivel-basico-estanila-florian",
+  "name": "Centro Educativo Nivel Básico Estanila Florián",
+  "city": "Neiba",
+  "country": "República Dominicana",
+  "lat": 18.499199,
+  "lng": -71.423333,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1183011548",
+  "found": "2026-11-21"
+ },
+ {
+  "id": "tibu-colegio-diversificado-domingo-savio",
+  "name": "Colegio Diversificado Domingo Savio",
+  "city": "Tibú",
+  "country": "Colombia",
+  "lat": 8.646406,
+  "lng": -72.739233,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3750960870",
   "found": "2026-11-21"
  }
 ]
