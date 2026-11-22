@@ -91087,7 +91087,10 @@
   "found": "2026-11-10",
   "code": "311001098701",
   "padron": "MEN datos.gov.co",
-  "students": 335
+  "students": 335,
+  "img": "",
+  "whatsapp": "+573197141111",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bogota-gimnasio-los-caobos",
@@ -91274,7 +91277,9 @@
   "found": "2026-11-10",
   "code": "311848002271",
   "padron": "MEN datos.gov.co",
-  "students": 548
+  "students": 548,
+  "img": "https://colsalle.edu.co/wp-content/uploads/2025/10/4-sobre-nosotros.webp",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bogota-universidad-manuela-beltran",
@@ -91590,7 +91595,8 @@
   "found": "2026-11-10",
   "code": "325754001859",
   "padron": "MEN datos.gov.co",
-  "students": 692
+  "students": 692,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bogota-colegio-colombo-hebreo",
@@ -91617,7 +91623,9 @@
   "found": "2026-11-10",
   "code": "311769000998",
   "padron": "MEN datos.gov.co",
-  "students": 213
+  "students": 213,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bogota-gimnasio-el-portillo",
@@ -91805,7 +91813,9 @@
   "found": "2026-11-10",
   "code": "325377000362",
   "padron": "MEN datos.gov.co",
-  "students": 281
+  "students": 281,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bogota-colegio-jose-de-san-martin-sede-lourdes",
@@ -92057,7 +92067,9 @@
   "found": "2026-11-10",
   "code": "311848000278",
   "padron": "MEN datos.gov.co",
-  "students": 1592
+  "students": 1592,
+  "img": "https://www.gimnasiovermont.edu.co/wp-content/uploads/2021/12/2.png",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bogota-colegio-franciscano-del-virrey-solis",
@@ -92082,7 +92094,9 @@
   "found": "2026-11-10",
   "code": "311001002576",
   "padron": "MEN datos.gov.co",
-  "students": 342
+  "students": 342,
+  "img": "https://virreysolis.edu.co/wp-admin/admin-ajax.php?action=rank_math_overlay_thumb&id=5812&type=play&hash=ec5fd170462ac0d25e894dfc02d8bece",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bogota-gimnasio-cultural-libertad",
@@ -92107,7 +92121,9 @@
   "found": "2026-11-10",
   "code": "311848000626",
   "padron": "MEN datos.gov.co",
-  "students": 236
+  "students": 236,
+  "img": "https://static.wixstatic.com/media/cd3b87_5cd03a9f69b841ba963b3ad0a08b6d98%7Emv2.png/v1/fit/w_2500,h_1330,al_c/cd3b87_5cd03a9f69b841ba963b3ad0a08b6d98%7Emv2.png",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bogota-colegio-hacienda-casa-blanca",
@@ -92188,7 +92204,9 @@
   "found": "2026-11-10",
   "code": "425175800290",
   "padron": "MEN datos.gov.co",
-  "students": 807
+  "students": 807,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bogota-gimnasio-campestre-stephen-hawking",
@@ -92213,7 +92231,8 @@
   "found": "2026-11-10",
   "code": "311001032165",
   "padron": "MEN datos.gov.co",
-  "students": 103
+  "students": 103,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bogota-liceo-rocely",
@@ -92237,7 +92256,9 @@
   "found": "2026-11-10",
   "code": "311001005222",
   "padron": "MEN datos.gov.co",
-  "students": 99
+  "students": 99,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bogota-colegio-miguel-antonio-caro",
@@ -92262,7 +92283,10 @@
   "found": "2026-11-10",
   "code": "311848000847",
   "padron": "MEN datos.gov.co",
-  "students": 287
+  "students": 287,
+  "img": "https://colmac.edu.co/wp-content/uploads/slide2.webp",
+  "whatsapp": "+573192982381",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bogota-colegio-del-nino-jesus-bachillerato",
@@ -92338,7 +92362,8 @@
   "found": "2026-11-10",
   "code": "311001087750",
   "padron": "MEN datos.gov.co",
-  "students": 196
+  "students": 196,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bogota-instituto-militar-aquileo-parra",
@@ -92408,7 +92433,8 @@
   "found": "2026-11-10",
   "code": "311001092907",
   "padron": "MEN datos.gov.co",
-  "students": 1225
+  "students": 1225,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bogota-colegio-nazaret",
@@ -92489,7 +92515,8 @@
   "found": "2026-11-10",
   "code": "311001107513",
   "padron": "MEN datos.gov.co",
-  "students": 298
+  "students": 298,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bogota-colegio-gran-bretana",
@@ -92514,7 +92541,10 @@
   "found": "2026-11-10",
   "code": "311001102384",
   "padron": "MEN datos.gov.co",
-  "students": 404
+  "students": 404,
+  "img": "https://www.cgb.edu.co/wp-content/uploads/2025/09/dsc-0518-1024x683.jpg",
+  "whatsapp": "+573015223170",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bogota-colegio-buckingham",
@@ -92573,7 +92603,10 @@
   "found": "2026-11-10",
   "code": "311001800723",
   "padron": "MEN datos.gov.co",
-  "students": 247
+  "students": 247,
+  "img": "",
+  "whatsapp": "+573153989980",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bogota-colegio-dulce-maria",
@@ -92620,7 +92653,8 @@
   "found": "2026-11-10",
   "code": "311265000954",
   "padron": "MEN datos.gov.co",
-  "students": 338
+  "students": 338,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bogota-colegio-jorge-gaitan-cortes-sede-c",
@@ -92792,7 +92826,8 @@
   "found": "2026-11-10",
   "code": "311001001626",
   "padron": "MEN datos.gov.co",
-  "students": 2429
+  "students": 2429,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bogota-colegio-friederich-naumann-sede-b",
@@ -92855,7 +92890,9 @@
   "found": "2026-11-10",
   "code": "311848000821",
   "padron": "MEN datos.gov.co",
-  "students": 353
+  "students": 353,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bogota-colegio-bilingue-campestre-principado-de-monaco",
@@ -92882,7 +92919,8 @@
   "found": "2026-11-10",
   "code": "425799000637",
   "padron": "MEN datos.gov.co",
-  "students": 863
+  "students": 863,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bogota-ied-instituto-parcelas-sede-rozo",
@@ -92950,7 +92988,8 @@
   "found": "2026-11-10",
   "code": "311001046816",
   "padron": "MEN datos.gov.co",
-  "students": 364
+  "students": 364,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bogota-gimnasio-campestre-los-sauces",
@@ -93028,7 +93067,9 @@
   "found": "2026-11-10",
   "code": "325214000179",
   "padron": "MEN datos.gov.co",
-  "students": 381
+  "students": 381,
+  "img": "https://liceodelosandes.edu.co/wp-content/uploads/2026/10/02-Liceo-de-los-andes-Academics-Plataforma-Escolar-1.png",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bogota-universidad-central",
@@ -93151,7 +93192,8 @@
   "found": "2026-11-10",
   "code": "311001098671",
   "padron": "MEN datos.gov.co",
-  "students": 642
+  "students": 642,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bogota-gimnasio-el-hontanar",
@@ -93176,7 +93218,10 @@
   "found": "2026-11-10",
   "code": "425175032666",
   "padron": "MEN datos.gov.co",
-  "students": 1598
+  "students": 1598,
+  "img": "",
+  "whatsapp": "+573164701496",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bogota-centro-educativo-los-andes-sede-b",
@@ -93278,7 +93323,9 @@
   "found": "2026-11-10",
   "code": "325754005412",
   "padron": "MEN datos.gov.co",
-  "students": 2267
+  "students": 2267,
+  "img": "https://colegiosminutodedios.edu.co/hubfs/Minuto%20de%20Dios%20-%20Main%20Theme/Fotos/DESTACADAS%20CEMID/logo-destacada-colegios-minuto-de-dios.jpg",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bogota-colegio-mixto-ciudadanos-del-futuro",
@@ -93480,7 +93527,8 @@
   "found": "2026-11-10",
   "code": "311001036217",
   "padron": "MEN datos.gov.co",
-  "students": 652
+  "students": 652,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bogota-liceo-romulo-gallegos",
@@ -93505,7 +93553,8 @@
   "found": "2026-11-10",
   "code": "311001102619",
   "padron": "MEN datos.gov.co",
-  "students": 789
+  "students": 789,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bogota-universidad-america",
@@ -111277,7 +111326,10 @@
   "found": "2026-11-10",
   "code": "305001017590",
   "padron": "MEN datos.gov.co",
-  "students": 1188
+  "students": 1188,
+  "img": "",
+  "whatsapp": "+573104822300",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-colegio-san-jose-del",
@@ -111434,7 +111486,8 @@
   "found": "2026-11-10",
   "code": "405380000377",
   "padron": "MEN datos.gov.co",
-  "students": 239
+  "students": 239,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-colegio-divino-salvador",
@@ -111504,7 +111557,9 @@
   "found": "2026-11-10",
   "code": "305001004820",
   "padron": "MEN datos.gov.co",
-  "students": 709
+  "students": 709,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-universidad-cooperativa-de-colombia",
@@ -111681,7 +111736,9 @@
   "found": "2026-11-10",
   "code": "305266002128",
   "padron": "MEN datos.gov.co",
-  "students": 90
+  "students": 90,
+  "img": "https://colegioalcaravanes.edu.co/wp-content/uploads/2026/01/FOTOS-SITIO-WEB-2047-x-1080-px-1-1024x1024.png",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-colegio-parroquial-emaus",
@@ -111708,7 +111765,9 @@
   "found": "2026-11-10",
   "code": "305001020094",
   "padron": "MEN datos.gov.co",
-  "students": 55
+  "students": 55,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-instituto-cultural-alexander-von-humboldt",
@@ -111961,7 +112020,9 @@
   "found": "2026-11-10",
   "code": "305001005541",
   "padron": "MEN datos.gov.co",
-  "students": 338
+  "students": 338,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-unac-centro-de-entrenamiento-internacional",
@@ -112006,7 +112067,9 @@
   "found": "2026-11-10",
   "code": "305001005567",
   "padron": "MEN datos.gov.co",
-  "students": 1523
+  "students": 1523,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-elefun-spanish-school-2",
@@ -112111,7 +112174,9 @@
   "found": "2026-11-10",
   "code": "405631800140",
   "padron": "MEN datos.gov.co",
-  "students": 74
+  "students": 74,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-centro-educativo-de-estimulacion-mi-canguro-f",
@@ -112157,7 +112222,8 @@
   "found": "2026-11-10",
   "code": "405631017169",
   "padron": "MEN datos.gov.co",
-  "students": 71
+  "students": 71,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-colegio-campestre-el-remanso",
@@ -112184,7 +112250,10 @@
   "found": "2026-11-10",
   "code": "405631000401",
   "padron": "MEN datos.gov.co",
-  "students": 313
+  "students": 313,
+  "img": "https://www.campestreelremanso.edu.co/og-image.png",
+  "whatsapp": "+573008938106",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-centro-educativo-jardin-de-los-ninos",
@@ -112209,7 +112278,10 @@
   "found": "2026-11-10",
   "code": "405631000339",
   "padron": "MEN datos.gov.co",
-  "students": 28
+  "students": 28,
+  "img": "",
+  "whatsapp": "+573215971822",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-jardin-infantil-la-gacela",
@@ -112299,7 +112371,10 @@
   "found": "2026-11-10",
   "code": "405266800061",
   "padron": "MEN datos.gov.co",
-  "students": 269
+  "students": 269,
+  "img": "",
+  "whatsapp": "+573205254034",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-colegio-manuel-mejia-vallejo",
@@ -112834,7 +112909,8 @@
   "found": "2026-11-10",
   "code": "305001025142",
   "padron": "MEN datos.gov.co",
-  "students": 289
+  "students": 289,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-centro-educativo-cent-precoz-la-alegria-del-saber",
@@ -112947,7 +113023,9 @@
   "found": "2026-11-10",
   "code": "305631800153",
   "padron": "MEN datos.gov.co",
-  "students": 81
+  "students": 81,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-jardin-infantil-carpalines",
@@ -113712,7 +113790,8 @@
   "found": "2026-11-10",
   "code": "305001024609",
   "padron": "MEN datos.gov.co",
-  "students": 488
+  "students": 488,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-centro-educativo-jugando-y-aprendiendo",
@@ -113823,7 +113902,8 @@
   "found": "2026-11-10",
   "code": "305001024386",
   "padron": "MEN datos.gov.co",
-  "students": 94
+  "students": 94,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-institucion-de-las-tnas-de-jesus-redentor-hogar-jr",
@@ -113890,7 +113970,8 @@
   "found": "2026-11-10",
   "code": "305631000091",
   "padron": "MEN datos.gov.co",
-  "students": 818
+  "students": 818,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-centro-educativo-nacional",
@@ -114314,7 +114395,9 @@
   "found": "2026-11-10",
   "code": "305380019545",
   "padron": "MEN datos.gov.co",
-  "students": 270
+  "students": 270,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-centro-educativo-manantial",
@@ -114418,7 +114501,8 @@
   "found": "2026-11-10",
   "code": "305380019472",
   "padron": "MEN datos.gov.co",
-  "students": 1233
+  "students": 1233,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-colegio-luis-amigo",
@@ -114518,7 +114602,9 @@
   "found": "2026-11-10",
   "code": "305380000542",
   "padron": "MEN datos.gov.co",
-  "students": 1035
+  "students": 1035,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-centro-educativo-villa-campestre",
@@ -114625,7 +114711,8 @@
   "found": "2026-11-10",
   "code": "305001022178",
   "padron": "MEN datos.gov.co",
-  "students": 176
+  "students": 176,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-centro-educativo-luceros-y-estrellas",
@@ -115234,7 +115321,9 @@
   "found": "2026-11-10",
   "code": "305360800011",
   "padron": "MEN datos.gov.co",
-  "students": 413
+  "students": 413,
+  "img": "https://jscensa.edu.co/wp-content/uploads/2026/03/Disenos-01-1024x238.jpg",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-escode",
@@ -115257,7 +115346,8 @@
   "found": "2026-11-10",
   "code": "305360800003",
   "padron": "MEN datos.gov.co",
-  "students": 250
+  "students": 250,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-centro-educativo-nubes-de-colores",
@@ -115426,7 +115516,8 @@
   "found": "2026-11-10",
   "code": "305360002573",
   "padron": "MEN datos.gov.co",
-  "students": 44
+  "students": 44,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-jardin-infantil-macelino-y-sus-amigos",
@@ -115574,7 +115665,8 @@
   "found": "2026-11-10",
   "code": "305360002476",
   "padron": "MEN datos.gov.co",
-  "students": 831
+  "students": 831,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-academia-politecnica-interactiva",
@@ -116124,7 +116216,8 @@
   "found": "2026-11-10",
   "code": "305360002107",
   "padron": "MEN datos.gov.co",
-  "students": 383
+  "students": 383,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-colegio-nueva-generacion",
@@ -116150,7 +116243,8 @@
   "found": "2026-11-10",
   "code": "305360002069",
   "padron": "MEN datos.gov.co",
-  "students": 204
+  "students": 204,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-centro-educativo-san-miguel",
@@ -116266,7 +116360,8 @@
   "found": "2026-11-10",
   "code": "305360001704",
   "padron": "MEN datos.gov.co",
-  "students": 181
+  "students": 181,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-preescolar-payasitos",
@@ -116428,7 +116523,8 @@
   "found": "2026-11-10",
   "code": "305360001500",
   "padron": "MEN datos.gov.co",
-  "students": 117
+  "students": 117,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-bachillerato-tecn-nuestra-senora-del-carpinelo",
@@ -116475,7 +116571,8 @@
   "found": "2026-11-10",
   "code": "305360000376",
   "padron": "MEN datos.gov.co",
-  "students": 112
+  "students": 112,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-escuela-malta-cervunion",
@@ -116500,7 +116597,8 @@
   "found": "2026-11-10",
   "code": "305360000341",
   "padron": "MEN datos.gov.co",
-  "students": 115
+  "students": 115,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-colegio-paula-montal",
@@ -116548,7 +116646,9 @@
   "found": "2026-11-10",
   "code": "305360000066",
   "padron": "MEN datos.gov.co",
-  "students": 232
+  "students": 232,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-colegio-el-rosario",
@@ -1012486,7 +1012586,8 @@
    "14PES0036M",
    "14PPR1402F",
    "14PJN0098P"
-  ]
+  ],
+  "osm": "n3802570164"
  },
  {
   "id": "san-agustin-centro-escolar-mexico",
@@ -1456764,5 +1456865,49 @@
   "src": "osm",
   "osm": "n3750960870",
   "found": "2026-11-21"
+ },
+ {
+  "id": "san-juan-de-los-lagos-escuela-preparatoria-regional-de-san-juan-de-los-lagos",
+  "name": "Escuela Preparatoria Regional De San Juan De Los Lagos",
+  "city": "San Juan de los Lagos",
+  "country": "México",
+  "lat": 21.247076,
+  "lng": -102.3287,
+  "addr": "Fray Antonio De Segovia",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802572812",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "san-juan-de-los-lagos-unir-universidad-regional",
+  "name": "UNIR Universidad Regional",
+  "city": "San Juan de los Lagos",
+  "country": "México",
+  "lat": 21.240949,
+  "lng": -102.331503,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w489130229",
+  "found": "2026-11-22"
  }
 ]
