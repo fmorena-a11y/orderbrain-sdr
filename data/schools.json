@@ -136680,7 +136680,8 @@
   "found": "2026-11-10",
   "code": "376001001337",
   "padron": "MEN datos.gov.co",
-  "students": 545
+  "students": 545,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "cali-colegio-villa-mercedes",
@@ -137013,7 +137014,8 @@
   "found": "2026-11-10",
   "code": "376001001388",
   "padron": "MEN datos.gov.co",
-  "students": 924
+  "students": 924,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "cali-colegio-americano",
@@ -137040,7 +137042,10 @@
   "found": "2026-11-10",
   "code": "376001001116",
   "padron": "MEN datos.gov.co",
-  "students": 1480
+  "students": 1480,
+  "img": "",
+  "whatsapp": "+573156695351",
+  "webAt": "2026-11-22"
  },
  {
   "id": "cali-colegio-encuentros",
@@ -137103,7 +137108,10 @@
   "found": "2026-11-10",
   "code": "376001035843",
   "padron": "MEN datos.gov.co",
-  "students": 1619
+  "students": 1619,
+  "img": "https://cmsa.edu.co/wp-content/uploads/2017/04/logo-cmsa-e1492187484224.png",
+  "whatsapp": "+573017665382",
+  "webAt": "2026-11-22"
  },
  {
   "id": "cali-colegio-maria-auxiliadora-cali",
@@ -158494,7 +158502,8 @@
   "found": "2026-11-10",
   "code": "308001000122",
   "padron": "MEN datos.gov.co",
-  "students": 322
+  "students": 322,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "barranquilla-colegio-militar-acoolsure",
@@ -158852,7 +158861,10 @@
   "found": "2026-11-10",
   "code": "308001000521",
   "padron": "MEN datos.gov.co",
-  "students": 938
+  "students": 938,
+  "img": "https://liceodecervantes.edu.co/img/logocervantesbarranquillabco.png",
+  "whatsapp": "+573102445797",
+  "webAt": "2026-11-22"
  },
  {
   "id": "barranquilla-colegio-nuevo-colegio-del-prado",
@@ -159039,7 +159051,9 @@
   "found": "2026-11-10",
   "code": "308001101153",
   "padron": "MEN datos.gov.co",
-  "students": 1048
+  "students": 1048,
+  "img": "https://www.britishschool.edu.co/sites/school53/files/logo.png",
+  "webAt": "2026-11-22"
  },
  {
   "id": "barranquilla-international-berckley-school",
@@ -159680,7 +159694,10 @@
   "found": "2026-11-10",
   "code": "308001078071",
   "padron": "MEN datos.gov.co",
-  "students": 221
+  "students": 221,
+  "img": "",
+  "whatsapp": "+3175005286",
+  "webAt": "2026-11-22"
  },
  {
   "id": "barranquilla-universidad-simon-bolivar-sede-6",
@@ -159767,7 +159784,9 @@
   "found": "2026-11-10",
   "code": "308573800031",
   "padron": "MEN datos.gov.co",
-  "students": 931
+  "students": 931,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "barranquilla-aspaen-corales",
@@ -160219,7 +160238,8 @@
   "found": "2026-11-10",
   "code": "308001007577",
   "padron": "MEN datos.gov.co",
-  "students": 1090
+  "students": 1090,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "barranquilla-colegio-moderno-soledad",
@@ -160540,7 +160560,8 @@
   "found": "2026-11-10",
   "code": "308001001935",
   "padron": "MEN datos.gov.co",
-  "students": 293
+  "students": 293,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "barranquilla-colegio-nuestra-senora-de-nazareth",
@@ -160739,7 +160760,9 @@
   "found": "2026-11-10",
   "code": "408573012827",
   "padron": "MEN datos.gov.co",
-  "students": 1589
+  "students": 1589,
+  "img": "https://www.sagradocorazon.edu.co/wp-content/uploads/2025/10/Banner-corazonista-virtual.jpg",
+  "webAt": "2026-11-22"
  },
  {
   "id": "montevideo-colegio-clemente-preescolar",
@@ -165264,7 +165287,9 @@
   "found": "2026-11-10",
   "code": "413001800402",
   "padron": "MEN datos.gov.co",
-  "students": 132
+  "students": 132,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "cartagena-de-indias-gimnasio-cristiano-de-bocachica",
@@ -167332,7 +167357,8 @@
   "found": "2026-11-10",
   "code": "313001001068",
   "padron": "MEN datos.gov.co",
-  "students": 202
+  "students": 202,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "cartagena-de-indias-gimnasio-latinoamericano",
@@ -180994,7 +181020,8 @@
    "1325695",
    "1280635",
    "1449149"
-  ]
+  ],
+  "imgTry": "2026-11-22"
  },
  {
   "id": "trujillo-institucion-educativa-privada-salesiano-san-carlos",
@@ -181311,7 +181338,8 @@
    "1174333",
    "1173202",
    "1171818"
-  ]
+  ],
+  "imgTry": "2026-11-22"
  },
  {
   "id": "trujillo-universidad-privada-antenor-orrego",
@@ -181472,7 +181500,8 @@
    "1169507",
    "0631150",
    "1639129"
-  ]
+  ],
+  "imgTry": "2026-11-22"
  },
  {
   "id": "trujillo-academia-pre-militar-prepol-sinchis",
@@ -181637,7 +181666,9 @@
   "codes": [
    "1281351",
    "1281310"
-  ]
+  ],
+  "img": "https://www.trilce.edu.pe/static/images/colegios-academias-trilce.png",
+  "webAt": "2026-11-22"
  },
  {
   "id": "trujillo-colegio-franklin-roosevelt",
@@ -203638,7 +203669,8 @@
   "found": "2026-11-10",
   "code": "354001000515",
   "padron": "MEN datos.gov.co",
-  "students": 645
+  "students": 645,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "cucuta-colegio-sagrado-corazon-de-jesus-de-la-salle",
@@ -203916,7 +203948,9 @@
   "found": "2026-11-10",
   "code": "354001005738",
   "padron": "MEN datos.gov.co",
-  "students": 330
+  "students": 330,
+  "img": "https://www.andinobilingue.edu.co/wp-content/uploads/2022/09/Andino-Bilingue-School-LandingPage.png",
+  "webAt": "2026-11-22"
  },
  {
   "id": "cucuta-colegio-santisima-trinidad",
@@ -204573,7 +204607,10 @@
   "found": "2026-11-10",
   "code": "354874001348",
   "padron": "MEN datos.gov.co",
-  "students": 170
+  "students": 170,
+  "img": "https://gimnasiolosalmendros.edu.co/wp-content/uploads/2021/09/cropped-Logo-GLA-con-Transparencia-2.png",
+  "whatsapp": "+573175051492",
+  "webAt": "2026-11-22"
  },
  {
   "id": "cucuta-jardin-infantil-santa-catalina",
@@ -207455,7 +207492,9 @@
   "found": "2026-11-10",
   "code": "354001009130",
   "padron": "MEN datos.gov.co",
-  "students": 419
+  "students": 419,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "cucuta-jardin-infantil-tribilin-y-sus-amiguitos",
@@ -207524,7 +207563,8 @@
   "found": "2026-11-10",
   "code": "354001008656",
   "padron": "MEN datos.gov.co",
-  "students": 82
+  "students": 82,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "cucuta-colegio-bolivariano-del-norte",
@@ -208825,7 +208865,8 @@
   "found": "2026-11-10",
   "code": "354001003077",
   "padron": "MEN datos.gov.co",
-  "students": 735
+  "students": 735,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "cucuta-institucion-adventista-de-cucuta",
@@ -208853,7 +208894,10 @@
   "found": "2026-11-10",
   "code": "354001003042",
   "padron": "MEN datos.gov.co",
-  "students": 378
+  "students": 378,
+  "img": "",
+  "whatsapp": "+573202759273",
+  "webAt": "2026-11-22"
  },
  {
   "id": "cucuta-colegio-maria-goretti",
@@ -208925,7 +208969,8 @@
   "found": "2026-11-10",
   "code": "354001001732",
   "padron": "MEN datos.gov.co",
-  "students": 157
+  "students": 157,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "cucuta-sem-menor-diocesano-san-jose-de-cucuta",
@@ -209096,7 +209141,10 @@
   "found": "2026-11-10",
   "code": "354001000400",
   "padron": "MEN datos.gov.co",
-  "students": 531
+  "students": 531,
+  "img": "",
+  "whatsapp": "+3125926277",
+  "webAt": "2026-11-22"
  },
  {
   "id": "cucuta-institucion-moderno-cristo-redentor",
@@ -257066,7 +257114,8 @@
   "found": "2026-11-10",
   "code": "468276800037",
   "padron": "MEN datos.gov.co",
-  "students": 51
+  "students": 51,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-sem-conciliar-san-pio-x",
@@ -257283,7 +257332,8 @@
   "found": "2026-11-10",
   "code": "368001005062",
   "padron": "MEN datos.gov.co",
-  "students": 301
+  "students": 301,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-colegio-integd-popular",
@@ -257383,7 +257433,8 @@
   "found": "2026-11-10",
   "code": "368001004651",
   "padron": "MEN datos.gov.co",
-  "students": 138
+  "students": 138,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-jardin-infantil-la-ronda",
@@ -257408,7 +257459,8 @@
   "found": "2026-11-10",
   "code": "368001004431",
   "padron": "MEN datos.gov.co",
-  "students": 86
+  "students": 86,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-colegio-preescolar-personitas",
@@ -257457,7 +257509,8 @@
   "found": "2026-11-10",
   "code": "368001004198",
   "padron": "MEN datos.gov.co",
-  "students": 1072
+  "students": 1072,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-colegio-san-bartolome",
@@ -257580,7 +257633,8 @@
   "found": "2026-11-10",
   "code": "368001002462",
   "padron": "MEN datos.gov.co",
-  "students": 298
+  "students": 298,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-colegio-san-agustin",
@@ -257723,7 +257777,10 @@
   "found": "2026-11-10",
   "code": "368001000699",
   "padron": "MEN datos.gov.co",
-  "students": 332
+  "students": 332,
+  "img": "",
+  "whatsapp": "+573185929738",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bucaramanga-colegio-americano",
@@ -257751,7 +257808,8 @@
   "found": "2026-11-10",
   "code": "368001000681",
   "padron": "MEN datos.gov.co",
-  "students": 397
+  "students": 397,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-colegio-milit-general-santander",
@@ -257882,7 +257940,8 @@
   "found": "2026-11-10",
   "code": "368406800005",
   "padron": "MEN datos.gov.co",
-  "students": 142
+  "students": 142,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-fundacion-colombiana-de-aprendizaje-fucap",
@@ -258342,7 +258401,10 @@
   "found": "2026-11-10",
   "code": "368307001206",
   "padron": "MEN datos.gov.co",
-  "students": 160
+  "students": 160,
+  "img": "https://cajasan.com/images/logos/open-graph/cajasan-global.jpg",
+  "whatsapp": "+5776434444",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bucaramanga-colegio-jose-eustasio-rivera",
@@ -258469,7 +258531,8 @@
   "found": "2026-11-10",
   "code": "368307000749",
   "padron": "MEN datos.gov.co",
-  "students": 336
+  "students": 336,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-unidad-psicopedag-inf",
@@ -258542,7 +258605,8 @@
   "found": "2026-11-10",
   "code": "368307000307",
   "padron": "MEN datos.gov.co",
-  "students": 289
+  "students": 289,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-corporacion-educativa-ars",
@@ -258588,7 +258652,8 @@
   "found": "2026-11-10",
   "code": "368276800106",
   "padron": "MEN datos.gov.co",
-  "students": 128
+  "students": 128,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-colegio-psicopedagogico-los-olmos-sas",
@@ -258654,7 +258719,9 @@
   "found": "2026-11-10",
   "code": "368276800083",
   "padron": "MEN datos.gov.co",
-  "students": 34
+  "students": 34,
+  "img": "https://jardininfantilkidstown.com/wp-content/uploads/2026/05/LUKI.png",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bucaramanga-centro-educativo-centro-de-estudios-formar",
@@ -258915,7 +258982,8 @@
   "found": "2026-11-10",
   "code": "368276003167",
   "padron": "MEN datos.gov.co",
-  "students": 15
+  "students": 15,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-institucion-monte-carlo",
@@ -259722,7 +259790,10 @@
   "found": "2026-11-10",
   "code": "368276002217",
   "padron": "MEN datos.gov.co",
-  "students": 385
+  "students": 385,
+  "img": "https://colegiogoyavier.edu.co/_astro/campus-estudiante.CJd7IfC7_Z2wK1d6.jpg",
+  "whatsapp": "+573174321704",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bucaramanga-gimnasio-psicopedag-vygotski",
@@ -260604,7 +260675,9 @@
   "found": "2026-11-10",
   "code": "368276001296",
   "padron": "MEN datos.gov.co",
-  "students": 1700
+  "students": 1700,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bucaramanga-colegio-pedag-alejandro-obregon",
@@ -260730,7 +260803,8 @@
   "found": "2026-11-10",
   "code": "368276000028",
   "padron": "MEN datos.gov.co",
-  "students": 1199
+  "students": 1199,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-institucion-pedag-sto-domingo",
@@ -260773,7 +260847,9 @@
   "found": "2026-11-10",
   "code": "368001800319",
   "padron": "MEN datos.gov.co",
-  "students": 36
+  "students": 36,
+  "img": "https://sites.google.com/sitesv-images-rt/APXyLQeUbtnzkbTVVqEHSvyEtbqmQCQC-eGFHbx5c9BJwvljEk4t9JFIgIu5ze3vhP0O9LNo3UCvZWdIi9Kr1ijaz_GpYCzfSIthy8SuatmY6q_-ZCGpWqkp9_xFmgiWqQD6pJDVJRFEpt3wGeKvIZo2hNC9ls3XkmavvPKDwKfvzEfFRpSNyywM5M5Z2dIJ6HWETzsR4ReLs5oeJGvSwu2ypZwl9F1VMjDY_JEipt5x_dI=w1280",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bucaramanga-colegio-de-la-santisima-trinidad-sede-b",
@@ -260800,7 +260876,8 @@
   "found": "2026-11-10",
   "code": "368001000567",
   "padron": "MEN datos.gov.co",
-  "students": 314
+  "students": 314,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-jardin-infantil-mi-mundo-creativo",
@@ -260987,7 +261064,9 @@
   "found": "2026-11-10",
   "code": "368001800164",
   "padron": "MEN datos.gov.co",
-  "students": 109
+  "students": 109,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bucaramanga-global-school",
@@ -261210,7 +261289,8 @@
   "found": "2026-11-10",
   "code": "368001800024",
   "padron": "MEN datos.gov.co",
-  "students": 69
+  "students": 69,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-colegio-el-nino-investigador-no2",
@@ -261306,7 +261386,8 @@
   "found": "2026-11-10",
   "code": "368001007995",
   "padron": "MEN datos.gov.co",
-  "students": 95
+  "students": 95,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-colegio-adventista-libertad-norte",
@@ -261434,7 +261515,8 @@
   "found": "2026-11-10",
   "code": "368001007928",
   "padron": "MEN datos.gov.co",
-  "students": 110
+  "students": 110,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-fundacion-educ-y-tec-hacia-el-progreso-industrial",
@@ -261562,7 +261644,8 @@
   "found": "2026-11-10",
   "code": "368001007839",
   "padron": "MEN datos.gov.co",
-  "students": 54
+  "students": 54,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-colegio-integl-san-paulo",
@@ -261869,7 +261952,9 @@
   "found": "2026-11-10",
   "code": "368001007430",
   "padron": "MEN datos.gov.co",
-  "students": 125
+  "students": 125,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bucaramanga-gimnasio-inf-mundo-de-ingenieritos",
@@ -262382,7 +262467,8 @@
   "found": "2026-11-10",
   "code": "368001006352",
   "padron": "MEN datos.gov.co",
-  "students": 280
+  "students": 280,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-institucion-educativa-eskolatec",
@@ -262429,7 +262515,8 @@
   "found": "2026-11-10",
   "code": "368001006280",
   "padron": "MEN datos.gov.co",
-  "students": 103
+  "students": 103,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-colegio-integ-san-juan-bosco",
@@ -262478,7 +262565,10 @@
   "found": "2026-11-10",
   "code": "368001006247",
   "padron": "MEN datos.gov.co",
-  "students": 327
+  "students": 327,
+  "img": "",
+  "whatsapp": "+573245200990",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bucaramanga-institucion-escalemos-jugando",
@@ -262529,7 +262619,9 @@
   "found": "2026-11-10",
   "code": "368001006158",
   "padron": "MEN datos.gov.co",
-  "students": 91
+  "students": 91,
+  "img": "https://colegioboston.edu.co/wp-content/uploads/2020/06/Logo-Colegio-Boston.png",
+  "webAt": "2026-11-22"
  },
  {
   "id": "bucaramanga-centro-educativo-cent-pedag-paul-valery",
@@ -262643,7 +262735,8 @@
   "found": "2026-11-10",
   "code": "368001006051",
   "padron": "MEN datos.gov.co",
-  "students": 333
+  "students": 333,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "bucaramanga-colegio-camp-nuevo-francis",
@@ -619312,7 +619405,8 @@
   "code": "323670001222",
   "found": "2026-11-19",
   "students": 110,
-  "approx": "1km"
+  "approx": "1km",
+  "osm": "n12487369374"
  },
  {
   "id": "melgar-gimnasio-moderno-americano",
@@ -1457961,6 +1458055,439 @@
   "private": "seguro",
   "src": "osm",
   "osm": "n12480718416",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "viedma-instituto-adventista-francisco-ramos-mejia",
+  "name": "Instituto Adventista \"Francisco Ramos Mejía\"",
+  "city": "Viedma",
+  "country": "Argentina",
+  "lat": -40.810954,
+  "lng": -63.002899,
+  "addr": "25 de Mayo 1167",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3830231491",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "viedma-instituto-rosario-vera-penaloza",
+  "name": "Instituto Rosario Vera Peñaloza",
+  "city": "Viedma",
+  "country": "Argentina",
+  "lat": -40.797506,
+  "lng": -63.035342,
+  "addr": "",
+  "phone": "",
+  "web": "https://irvp2016.wixsite.com/granjadelainfancia",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5345936307",
+  "found": "2026-11-22",
+  "img": "",
+  "webAt": "2026-11-22"
+ },
+ {
+  "id": "viedma-instituto-buenos-aires",
+  "name": "Instituto Buenos Aires",
+  "city": "Viedma",
+  "country": "Argentina",
+  "lat": -40.799296,
+  "lng": -62.985377,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6682244868",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "viedma-universidad-fasta",
+  "name": "Universidad FASTA",
+  "city": "Viedma",
+  "country": "Argentina",
+  "lat": -40.807049,
+  "lng": -62.991973,
+  "addr": "Maestro Aguiar 269",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n7376742625",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "viedma-colegio-paulo-vi",
+  "name": "Colegio Paulo VI",
+  "city": "Viedma",
+  "country": "Argentina",
+  "lat": -40.804069,
+  "lng": -63.008858,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w147067991",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "viedma-instituto-de-formacion-docente-continua-en-educacion-fisica",
+  "name": "Instituto de Formación Docente Continua en Educación Física",
+  "city": "Viedma",
+  "country": "Argentina",
+  "lat": -40.803817,
+  "lng": -63.007439,
+  "addr": "Ayacucho 1093",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w147068026",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "viedma-instituto-maria-auxiliadora",
+  "name": "Instituto María Auxiliadora",
+  "city": "Viedma",
+  "country": "Argentina",
+  "lat": -40.813229,
+  "lng": -62.997597,
+  "addr": "Güemes 89",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w179347478",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "viedma-instituto-artemides-zatti",
+  "name": "Instituto Artémides Zatti",
+  "city": "Viedma",
+  "country": "Argentina",
+  "lat": -40.817672,
+  "lng": -62.98188,
+  "addr": "Boulevard Ituzaingó 140",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w355867384",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "viedma-universidad-provincial-del-sudoeste",
+  "name": "Universidad Provincial del Sudoeste",
+  "city": "Viedma",
+  "country": "Argentina",
+  "lat": -40.794661,
+  "lng": -62.977523,
+  "addr": "Lavalle 40",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w468253308",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "viedma-colegio-san-jose",
+  "name": "Colegio San José",
+  "city": "Viedma",
+  "country": "Argentina",
+  "lat": -40.801953,
+  "lng": -62.984565,
+  "addr": "7 de Marzo 85",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w852176540",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "viedma-instituto-modelo-viedma",
+  "name": "Instituto Modelo Viedma",
+  "city": "Viedma",
+  "country": "Argentina",
+  "lat": -40.802578,
+  "lng": -63.003697,
+  "addr": "Maestro Chirinos 795",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "r16086495",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "san-andres-instituto-tecnico-industrial",
+  "name": "Instituto Tecnico Industrial",
+  "city": "San Andrés",
+  "country": "Colombia",
+  "lat": 12.574885,
+  "lng": -81.704454,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w375636322",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "cuenca-universidad-de-castilla-la-mancha-campus-de-cuenca",
+  "name": "Universidad de Castilla La Mancha - Campus de Cuenca",
+  "city": "Cuenca",
+  "country": "España",
+  "lat": 40.078095,
+  "lng": -2.147878,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.uclm.es/",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1203829915",
+  "found": "2026-11-22",
+  "imgTry": "2026-11-22"
+ },
+ {
+  "id": "cuenca-colegio-de-la-expectacion-de-las-madres-benedictinas",
+  "name": "Colegio de la Expectación de las Madres Benedictinas",
+  "city": "Cuenca",
+  "country": "España",
+  "lat": 40.074873,
+  "lng": -2.133762,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n13125037476",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "cuenca-colegio-de-educacion-infantil-y-primaria-isaac-albeniz",
+  "name": "Colegio de Educación Infantil y Primaria Isaac Albéniz",
+  "city": "Cuenca",
+  "country": "España",
+  "lat": 40.061212,
+  "lng": -2.124899,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w103455007",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "cuenca-colegio-la-milagrosa",
+  "name": "Colegio La Milagrosa",
+  "city": "Cuenca",
+  "country": "España",
+  "lat": 40.076116,
+  "lng": -2.13763,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w103722760",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "cuenca-colegio-de-educacion-infantil-y-primaria-san-fernando",
+  "name": "Colegio de Educación Infantil y Primaria San Fernando",
+  "city": "Cuenca",
+  "country": "España",
+  "lat": 40.062788,
+  "lng": -2.131115,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w213191122",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "cuenca-colegio-de-educacion-infantil-y-primaria-hermanos-valdes",
+  "name": "Colegio de Educación Infantil y Primaria Hermanos Valdés",
+  "city": "Cuenca",
+  "country": "España",
+  "lat": 40.055669,
+  "lng": -2.125448,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w484129668",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "cuenca-colegio-de-educacion-infantil-y-primaria-casablanca",
+  "name": "Colegio de Educación Infantil y Primaria Casablanca",
+  "city": "Cuenca",
+  "country": "España",
+  "lat": 40.066572,
+  "lng": -2.137997,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w826298266",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "cuenca-colegio-de-educacion-infantil-y-primaria-la-paz",
+  "name": "Colegio de Educación Infantil y Primaria La Paz",
+  "city": "Cuenca",
+  "country": "España",
+  "lat": 40.067023,
+  "lng": -2.133137,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w827503527",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "cuenca-colegio-de-educacion-infantil-y-primaria-ramon-y-cajal",
+  "name": "Colegio de Educación Infantil y Primaria Ramón y Cajal",
+  "city": "Cuenca",
+  "country": "España",
+  "lat": 40.073479,
+  "lng": -2.133356,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w849751377",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "cuenca-instituto-educacion-secundaria-alfonso-viii",
+  "name": "Instituto Educación Secundaria Alfonso VIII",
+  "city": "Cuenca",
+  "country": "España",
+  "lat": 40.071448,
+  "lng": -2.139017,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1369756911",
   "found": "2026-11-22"
  }
 ]

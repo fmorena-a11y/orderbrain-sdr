@@ -7521,7 +7521,11 @@
   "AR|Río Tercero": "2026-11-22T12:48:24.069Z",
   "MX|Rioverde": "2026-11-22T12:52:24.902Z",
   "PY|n1462293857": "2026-11-22T12:53:23.058Z",
-  "CO|n554374965": "2026-11-22T12:53:56.280Z"
+  "CO|n554374965": "2026-11-22T12:53:56.280Z",
+  "AR|Viedma": "2026-11-22T20:48:49.481Z",
+  "CO|n306381625": "2026-11-22T20:52:57.013Z",
+  "ES|n240422991": "2026-11-22T20:53:35.435Z",
+  "CO|n703319439": "2026-11-22T21:00:17.633Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7676,6 +7680,48 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-22T20:45:14.915Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Viedma",
+     "found": 11,
+     "updated": 1,
+     "osm": 70
+    },
+    {
+     "cc": "CO",
+     "city": "San Andrés",
+     "found": 1,
+     "updated": 0,
+     "osm": 4
+    },
+    {
+     "cc": "ES",
+     "city": "Cuenca",
+     "found": 10,
+     "updated": 1,
+     "osm": 27
+    },
+    {
+     "cc": "CO",
+     "city": "Tuchín",
+     "found": 0,
+     "updated": 1,
+     "osm": 4
+    }
+   ],
+   "added": 22,
+   "enriched": 0,
+   "photos": 12,
+   "contacts": 11,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 16.6,
+   "total": 62032
+  },
   {
    "at": "2026-11-22T12:40:28.898Z",
    "cities": [
@@ -9701,48 +9747,6 @@
    "errors": [],
    "minutes": 18.4,
    "total": 21953
-  },
-  {
-   "at": "2026-11-16T23:02:17.232Z",
-   "cities": [
-    {
-     "cc": "AR",
-     "city": "Goya",
-     "found": 6,
-     "updated": 0,
-     "osm": 36
-    },
-    {
-     "cc": "MX",
-     "city": "Amozoc de Mota",
-     "found": 0,
-     "updated": 0,
-     "osm": 4
-    },
-    {
-     "cc": "MX",
-     "city": "Salina Cruz",
-     "found": 18,
-     "updated": 0,
-     "osm": 89
-    },
-    {
-     "cc": "CO",
-     "city": "La Dorada",
-     "found": 2,
-     "updated": 0,
-     "osm": 5
-    }
-   ],
-   "added": 26,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 1,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 14.5,
-   "total": 21899
   }
  ]
 }
