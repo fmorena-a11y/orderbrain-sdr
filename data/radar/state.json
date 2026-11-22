@@ -7512,7 +7512,16 @@
   "MX|Coatepec": "2026-11-21T16:18:02.343Z",
   "DO|n252990357": "2026-11-21T16:18:36.311Z",
   "CO|n6033536727": "2026-11-21T16:26:18.905Z",
-  "MX|San Juan de los Lagos": "2026-11-22T02:19:19.514Z"
+  "MX|San Juan de los Lagos": "2026-11-22T02:19:19.514Z",
+  "AR|Mariano Acosta": "2026-11-22T12:41:12.668Z",
+  "CO|n703169009": "2026-11-22T12:41:46.725Z",
+  "AR|Los Polvorines": "2026-11-22T12:42:20.536Z",
+  "DO|n3700447390": "2026-11-22T12:43:12.019Z",
+  "ES|n1470838212": "2026-11-22T12:46:47.187Z",
+  "AR|Río Tercero": "2026-11-22T12:48:24.069Z",
+  "MX|Rioverde": "2026-11-22T12:52:24.902Z",
+  "PY|n1462293857": "2026-11-22T12:53:23.058Z",
+  "CO|n554374965": "2026-11-22T12:53:56.280Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7667,6 +7676,83 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-22T12:40:28.898Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Mariano Acosta",
+     "found": 3,
+     "updated": 0,
+     "osm": 72
+    },
+    {
+     "cc": "CO",
+     "city": "Riosucio",
+     "found": 0,
+     "updated": 0,
+     "osm": 5
+    },
+    {
+     "cc": "AR",
+     "city": "Los Polvorines",
+     "found": 0,
+     "updated": 0,
+     "osm": 75
+    },
+    {
+     "cc": "DO",
+     "city": "Yaguate",
+     "found": 0,
+     "updated": 0,
+     "osm": 2
+    },
+    {
+     "cc": "ES",
+     "city": "Chiclana de la Frontera",
+     "found": 22,
+     "updated": 0,
+     "osm": 30
+    },
+    {
+     "cc": "AR",
+     "city": "Río Tercero",
+     "found": 4,
+     "updated": 0,
+     "osm": 17
+    },
+    {
+     "cc": "MX",
+     "city": "Rioverde",
+     "found": 3,
+     "updated": 2,
+     "osm": 22
+    },
+    {
+     "cc": "PY",
+     "city": "San Estanislao",
+     "found": 9,
+     "updated": 0,
+     "osm": 13
+    },
+    {
+     "cc": "CO",
+     "city": "San José del Guaviare",
+     "found": 8,
+     "updated": 0,
+     "osm": 44
+    }
+   ],
+   "added": 49,
+   "enriched": 0,
+   "photos": 12,
+   "contacts": 9,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 15.1,
+   "total": 62010
+  },
   {
    "at": "2026-11-22T02:18:32.745Z",
    "cities": [
@@ -9657,43 +9743,6 @@
    "errors": [],
    "minutes": 14.5,
    "total": 21899
-  },
-  {
-   "at": "2026-11-16T21:05:45.168Z",
-   "cities": [
-    {
-     "cc": "NI",
-     "city": "Bilwi",
-     "found": 10,
-     "updated": 1,
-     "osm": 26
-    },
-    {
-     "cc": "CO",
-     "city": "Madrid",
-     "found": 0,
-     "updated": 0,
-     "osm": 23
-    },
-    {
-     "cc": "VE",
-     "city": "Nirgua",
-     "found": 0,
-     "updated": 0,
-     "osm": 0
-    }
-   ],
-   "added": 10,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "AR|Goya: sin tiempo en esta corrida"
-   ],
-   "minutes": 19,
-   "total": 21873
   }
  ]
 }

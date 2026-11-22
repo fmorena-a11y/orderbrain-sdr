@@ -116675,7 +116675,8 @@
   "found": "2026-11-10",
   "code": "305360000031",
   "padron": "MEN datos.gov.co",
-  "students": 201
+  "students": 201,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-institucion-corferrini-2",
@@ -117170,7 +117171,9 @@
   "found": "2026-11-10",
   "code": "305001017298",
   "padron": "MEN datos.gov.co",
-  "students": 456
+  "students": 456,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-colegio-waldorf-el-maestro",
@@ -117487,7 +117490,9 @@
   "found": "2026-11-10",
   "code": "305266019985",
   "padron": "MEN datos.gov.co",
-  "students": 66
+  "students": 66,
+  "img": "https://melodias.edu.co/wp-content/uploads/2024/05/Banner-melodias-4-1-2.jpg",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-institucion-educativa-compuedu",
@@ -117534,7 +117539,9 @@
   "found": "2026-11-10",
   "code": "305266019969",
   "padron": "MEN datos.gov.co",
-  "students": 127
+  "students": 127,
+  "img": "https://static.wixstatic.com/media/9ad2dc_9aa4f85967ca4f0297a8b2a8409f4010%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/9ad2dc_9aa4f85967ca4f0297a8b2a8409f4010%7Emv2.jpg",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-centro-educativo-y-artistico-imaginarte",
@@ -117608,7 +117615,8 @@
   "found": "2026-11-10",
   "code": "305001017107",
   "padron": "MEN datos.gov.co",
-  "students": 193
+  "students": 193,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-gimnasio-educ-el-tesoro",
@@ -117846,7 +117854,9 @@
   "found": "2026-11-10",
   "code": "305001016089",
   "padron": "MEN datos.gov.co",
-  "students": 386
+  "students": 386,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-centro-educativo-cent-inf-nubecitas",
@@ -118092,7 +118102,8 @@
   "found": "2026-11-10",
   "code": "305266001741",
   "padron": "MEN datos.gov.co",
-  "students": 59
+  "students": 59,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-centro-educativo-cent-de-estimulacion-y-preesc-despertar",
@@ -118159,7 +118170,10 @@
   "found": "2026-11-10",
   "code": "305266001709",
   "padron": "MEN datos.gov.co",
-  "students": 188
+  "students": 188,
+  "img": "https://colegiorudolfsteiner.edu.co/wp-content/uploads/2016/02/colegio-waldorf-rudolf-steiner-facebook.jpg",
+  "whatsapp": "+573008684442",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-jardin-infantil-pequenos-constructores",
@@ -118411,7 +118425,9 @@
   "found": "2026-11-10",
   "code": "305266000591",
   "padron": "MEN datos.gov.co",
-  "students": 724
+  "students": 724,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-colegio-benedictino-de-santa-maria",
@@ -118439,7 +118455,10 @@
   "found": "2026-11-10",
   "code": "305266000583",
   "padron": "MEN datos.gov.co",
-  "students": 1313
+  "students": 1313,
+  "img": "https://bsm.edu.co/wp-content/uploads/2025/11/educacion_inicial_bilingue-2.jpg",
+  "whatsapp": "+573215922593",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-institucion-educativa-maestro-arenas",
@@ -118512,7 +118531,9 @@
   "found": "2026-11-10",
   "code": "305001015546",
   "padron": "MEN datos.gov.co",
-  "students": 292
+  "students": 292,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-colegio-leonardo-da-vinci",
@@ -118539,7 +118560,8 @@
   "found": "2026-11-10",
   "code": "305001015503",
   "padron": "MEN datos.gov.co",
-  "students": 172
+  "students": 172,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-preescolar-colorines-ltda",
@@ -118956,7 +118978,9 @@
   "found": "2026-11-10",
   "code": "305001012601",
   "padron": "MEN datos.gov.co",
-  "students": 683
+  "students": 683,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-centro-educativo-mundo-de-juegos",
@@ -119353,7 +119377,9 @@
   "found": "2026-11-10",
   "code": "305001010781",
   "padron": "MEN datos.gov.co",
-  "students": 1058
+  "students": 1058,
+  "img": "https://montessori.edu.co/hubfs/Imported_Blog_Media/64337ffeaae67237594d79a8ceda7ce6-Nov-30-2023-01-13-31-9611-PM.jpg",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-colegio-adventista-simon-bolivar",
@@ -119381,7 +119407,9 @@
   "found": "2026-11-10",
   "code": "305001010358",
   "padron": "MEN datos.gov.co",
-  "students": 368
+  "students": 368,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-centro-educativo-mundo-feliz",
@@ -119427,7 +119455,8 @@
   "found": "2026-11-10",
   "code": "305001008141",
   "padron": "MEN datos.gov.co",
-  "students": 48
+  "students": 48,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-colegio-nuestra-senora-de-la-providencia",
@@ -119454,7 +119483,9 @@
   "found": "2026-11-10",
   "code": "305001007969",
   "padron": "MEN datos.gov.co",
-  "students": 111
+  "students": 111,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-colegio-campestre-la-colina",
@@ -119481,7 +119512,8 @@
   "found": "2026-11-10",
   "code": "305001007586",
   "padron": "MEN datos.gov.co",
-  "students": 522
+  "students": 522,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-escuela-pop-eucaristica-zoraida-trujillo",
@@ -119528,7 +119560,10 @@
   "found": "2026-11-10",
   "code": "305001005991",
   "padron": "MEN datos.gov.co",
-  "students": 127
+  "students": 127,
+  "img": "",
+  "whatsapp": "+3146819582",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-colegio-el-hog-de-su-nino",
@@ -119575,7 +119610,8 @@
   "found": "2026-11-10",
   "code": "305001005265",
   "padron": "MEN datos.gov.co",
-  "students": 1319
+  "students": 1319,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-colegio-bethlemitas",
@@ -119602,7 +119638,8 @@
   "found": "2026-11-10",
   "code": "305001005176",
   "padron": "MEN datos.gov.co",
-  "students": 436
+  "students": 436,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-colegio-madre-antonia-cerini",
@@ -119629,7 +119666,8 @@
   "found": "2026-11-10",
   "code": "305001005125",
   "padron": "MEN datos.gov.co",
-  "students": 50
+  "students": 50,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-institucion-sn-fdo-ferrini-sede-calasanz",
@@ -119677,7 +119715,8 @@
   "found": "2026-11-10",
   "code": "305001004994",
   "padron": "MEN datos.gov.co",
-  "students": 304
+  "students": 304,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-colegio-gimn-los-pinares",
@@ -120080,7 +120119,10 @@
   "found": "2026-11-10",
   "code": "305088800201",
   "padron": "MEN datos.gov.co",
-  "students": 70
+  "students": 70,
+  "img": "https://www.micasitadelsaber.com.co/images/LOGO%20MANCHESTER.png",
+  "whatsapp": "+573113975344",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-preescolar-construyendo-talentos-para-el-mundo",
@@ -120156,7 +120198,8 @@
   "found": "2026-11-10",
   "code": "305001004528",
   "padron": "MEN datos.gov.co",
-  "students": 839
+  "students": 839,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-colegio-sagrados-corazones",
@@ -120183,7 +120226,8 @@
   "found": "2026-11-10",
   "code": "305001004501",
   "padron": "MEN datos.gov.co",
-  "students": 409
+  "students": 409,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-colegio-salesiano-el-sufragio",
@@ -120210,7 +120254,8 @@
   "found": "2026-11-10",
   "code": "305001004455",
   "padron": "MEN datos.gov.co",
-  "students": 541
+  "students": 541,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-jardin-infantil-la-visitacion",
@@ -120342,7 +120387,8 @@
   "found": "2026-11-10",
   "code": "305001003696",
   "padron": "MEN datos.gov.co",
-  "students": 297
+  "students": 297,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-institucion-pedag-claret",
@@ -120412,7 +120458,8 @@
   "found": "2026-11-10",
   "code": "305088800155",
   "padron": "MEN datos.gov.co",
-  "students": 34
+  "students": 34,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-preescolar-el-payaso-pin-pin",
@@ -120625,7 +120672,9 @@
   "found": "2026-11-10",
   "code": "305088800023",
   "padron": "MEN datos.gov.co",
-  "students": 291
+  "students": 291,
+  "img": "https://jscensa.edu.co/wp-content/uploads/2026/03/Disenos-01-1024x238.jpg",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-preescolar-armonia-del-saber",
@@ -120820,7 +120869,8 @@
   "found": "2026-11-10",
   "code": "305088020702",
   "padron": "MEN datos.gov.co",
-  "students": 61
+  "students": 61,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-preescolar-pequenos-alfareros",
@@ -120912,7 +120962,8 @@
   "found": "2026-11-10",
   "code": "305088020605",
   "padron": "MEN datos.gov.co",
-  "students": 913
+  "students": 913,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-institucion-educativa-san-judas-tadeo",
@@ -120940,7 +120991,9 @@
   "found": "2026-11-10",
   "code": "305088020551",
   "padron": "MEN datos.gov.co",
-  "students": 2152
+  "students": 2152,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-preescolar-jose-miel",
@@ -121464,7 +121517,8 @@
   "found": "2026-11-10",
   "code": "305088001848",
   "padron": "MEN datos.gov.co",
-  "students": 579
+  "students": 579,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-centro-educativo-angelitos-sonadores-2",
@@ -121623,7 +121677,8 @@
   "found": "2026-11-10",
   "code": "305001800376",
   "padron": "MEN datos.gov.co",
-  "students": 743
+  "students": 743,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-colegio-destino-destiny-school",
@@ -121646,7 +121701,10 @@
   "found": "2026-11-10",
   "code": "305001800368",
   "padron": "MEN datos.gov.co",
-  "students": 285
+  "students": 285,
+  "img": "",
+  "whatsapp": "+573172999249",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-centro-educativo-centro-infantil-alegrias-y-crayolas",
@@ -122306,7 +122364,8 @@
   "found": "2026-11-10",
   "code": "305001026327",
   "padron": "MEN datos.gov.co",
-  "students": 46
+  "students": 46,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-centro-educativo-pequenos-formadores",
@@ -122907,7 +122966,10 @@
   "found": "2026-11-10",
   "code": "305088000256",
   "padron": "MEN datos.gov.co",
-  "students": 1464
+  "students": 1464,
+  "img": "",
+  "whatsapp": "+573182097054",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-colegio-waldorf-isolda-echavarria",
@@ -123106,7 +123168,9 @@
   "found": "2026-11-10",
   "code": "305266000036",
   "padron": "MEN datos.gov.co",
-  "students": 1691
+  "students": 1691,
+  "img": "https://cbe.edu.co/wp-content/uploads/2024/12/favicon_cbe.png",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-centro-educativo-travesias-el-morro",
@@ -123211,7 +123275,9 @@
   "found": "2026-11-10",
   "code": "305001025886",
   "padron": "MEN datos.gov.co",
-  "students": 773
+  "students": 773,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-universidad-de-medellin",
@@ -123464,7 +123530,10 @@
   "found": "2026-11-10",
   "code": "305266001466",
   "padron": "MEN datos.gov.co",
-  "students": 364
+  "students": 364,
+  "img": "https://www.colegiofontan.edu.co/wp-content/uploads/2024/10/profesora-estudiante-educacion-disruptiva.webp",
+  "whatsapp": "+573206823283",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-colegio-aleman-medellin",
@@ -123532,7 +123601,10 @@
   "found": "2026-11-10",
   "code": "305001004901",
   "padron": "MEN datos.gov.co",
-  "students": 369
+  "students": 369,
+  "img": "",
+  "whatsapp": "+573136522404",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-colegio-nazaret-de-bello",
@@ -124051,7 +124123,8 @@
   "found": "2026-11-10",
   "code": "305001005621",
   "padron": "MEN datos.gov.co",
-  "students": 249
+  "students": 249,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-colegio-santa-bertilla-boscardin",
@@ -124124,7 +124197,9 @@
   "found": "2026-11-10",
   "code": "305088001716",
   "padron": "MEN datos.gov.co",
-  "students": 957
+  "students": 957,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-colegio-parroquial-nuestra-senora-de-chiquinquira",
@@ -124151,7 +124226,9 @@
   "found": "2026-11-10",
   "code": "305088000639",
   "padron": "MEN datos.gov.co",
-  "students": 993
+  "students": 993,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-colegio-empresarial",
@@ -124176,7 +124253,8 @@
   "found": "2026-11-10",
   "code": "305001025592",
   "padron": "MEN datos.gov.co",
-  "students": 1919
+  "students": 1919,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-colegio-compartir",
@@ -124281,7 +124359,9 @@
   "found": "2026-11-10",
   "code": "305088000868",
   "padron": "MEN datos.gov.co",
-  "students": 1037
+  "students": 1037,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-fe-y-alegria-la-cima",
@@ -124394,7 +124474,10 @@
   "found": "2026-11-10",
   "code": "305088000647",
   "padron": "MEN datos.gov.co",
-  "students": 819
+  "students": 819,
+  "img": "",
+  "whatsapp": "+573165223907",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-vermont-school-medellin",
@@ -125152,7 +125235,9 @@
   "found": "2026-11-10",
   "code": "305088000698",
   "padron": "MEN datos.gov.co",
-  "students": 622
+  "students": 622,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-colegio-maestro-la-sierra",
@@ -125297,7 +125382,9 @@
   "found": "2026-11-10",
   "code": "305266000095",
   "padron": "MEN datos.gov.co",
-  "students": 458
+  "students": 458,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "medellin-colegio-maria-auxiliadora",
@@ -125369,7 +125456,8 @@
   "found": "2026-11-10",
   "code": "305266000052",
   "padron": "MEN datos.gov.co",
-  "students": 916
+  "students": 916,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "medellin-universidad-de-antioquia",
@@ -134694,7 +134782,8 @@
   "found": "2026-11-10",
   "code": "376892001332",
   "padron": "MEN datos.gov.co",
-  "students": 204
+  "students": 204,
+  "imgTry": "2026-11-22"
  },
  {
   "id": "cali-colegio-bautista",
@@ -135298,7 +135387,9 @@
   "found": "2026-11-10",
   "code": "376892000042",
   "padron": "MEN datos.gov.co",
-  "students": 815
+  "students": 815,
+  "img": "https://jefferson.edu.co/wp-content/uploads/2021/11/ESCUDO-COLEGIO-JEFFERSON-HORIZONTAL-Rojo-01-e1649195541491.webp",
+  "webAt": "2026-11-22"
  },
  {
   "id": "cali-colegio-bolivar",
@@ -135418,7 +135509,9 @@
   "found": "2026-11-10",
   "code": "476892800043",
   "padron": "MEN datos.gov.co",
-  "students": 990
+  "students": 990,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "cali-universidad-cooperativa-de-colombia",
@@ -135785,7 +135878,9 @@
   "found": "2026-11-10",
   "code": "376001026968",
   "padron": "MEN datos.gov.co",
-  "students": 908
+  "students": 908,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "cali-universidad-antonio-narino-sede-norte",
@@ -135833,7 +135928,9 @@
   "found": "2026-11-10",
   "code": "376001006231",
   "padron": "MEN datos.gov.co",
-  "students": 446
+  "students": 446,
+  "img": "https://static.wixstatic.com/media/552a71_ab28c415fe2a4db58be12a78edf4100b%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/552a71_ab28c415fe2a4db58be12a78edf4100b%7Emv2.jpg",
+  "webAt": "2026-11-22"
  },
  {
   "id": "cali-instituto-comercial-insdustrial-y-tecnologico-i-c-i-t",
@@ -135924,7 +136021,9 @@
   "found": "2026-11-10",
   "code": "376001000586",
   "padron": "MEN datos.gov.co",
-  "students": 606
+  "students": 606,
+  "img": "https://static.wixstatic.com/media/29610e_72a45b4f53ae47a896ac80611bfc0c5d%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/29610e_72a45b4f53ae47a896ac80611bfc0c5d%7Emv2.jpg",
+  "webAt": "2026-11-22"
  },
  {
   "id": "cali-colegio-parroquial-nuestra-senora-de-los-andes",
@@ -136204,7 +136303,9 @@
   "found": "2026-11-10",
   "code": "376001024264",
   "padron": "MEN datos.gov.co",
-  "students": 272
+  "students": 272,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "cali-colegio-miguel-camacho-perea",
@@ -136467,7 +136568,9 @@
   "found": "2026-11-10",
   "code": "376001031341",
   "padron": "MEN datos.gov.co",
-  "students": 134
+  "students": 134,
+  "img": "",
+  "webAt": "2026-11-22"
  },
  {
   "id": "cali-colegio-coomeva",
@@ -1121172,7 +1121275,8 @@
   "private": "seguro",
   "src": "SEP CCT",
   "code": "24PBH0136P",
-  "found": "2026-11-19"
+  "found": "2026-11-19",
+  "osm": "w779985544"
  },
  {
   "id": "rioverde-bachillerato-mexico",
@@ -1140244,7 +1140348,8 @@
   "src": "SEP CCT",
   "code": "24PBH0082B",
   "found": "2026-11-19",
-  "approx": "ciudad"
+  "approx": "ciudad",
+  "osm": "w782477737"
  },
  {
   "id": "rioverde-escuela-potosina-de-mecanica-automotriz",
@@ -1456908,6 +1457013,954 @@
   "private": "probable",
   "src": "osm",
   "osm": "w489130229",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "mariano-acosta-escuela-nuestra-senora-de-lourdes",
+  "name": "Escuela Nuestra Señora de Lourdes",
+  "city": "Mariano Acosta",
+  "country": "Argentina",
+  "lat": -34.717778,
+  "lng": -58.79504,
+  "addr": "Constituyentes 830",
+  "phone": "+54 220 499-8301",
+  "web": "",
+  "email": "institutoparroquialourdes@gmail.com",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5933157371",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "mariano-acosta-instituto-privado-francisco-de-asis",
+  "name": "Instituto Privado Francisco de Asis",
+  "city": "Mariano Acosta",
+  "country": "Argentina",
+  "lat": -34.723257,
+  "lng": -58.790753,
+  "addr": "Tres Sargentos 551",
+  "phone": "+54 220 499-4500",
+  "web": "",
+  "email": "ifa@amc.com.ar",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10252372617",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "mariano-acosta-instituto-privado-alfonsina-storni",
+  "name": "Instituto Privado Alfonsina Storni",
+  "city": "Mariano Acosta",
+  "country": "Argentina",
+  "lat": -34.717602,
+  "lng": -58.789261,
+  "addr": "Dinamarca 479",
+  "phone": "+54 220 499-4020",
+  "web": "",
+  "email": "alfonsina@amc.com.ar",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n10252372629",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-colegio-giner-de-los-rios",
+  "name": "Colegio Giner de los Ríos",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.41969,
+  "lng": -6.131852,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142802786",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-colegio-carmen-sedofeito",
+  "name": "Colegio Carmen Sedofeito",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.424277,
+  "lng": -6.136827,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142802803",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-colegio-federico-garcia-lorca",
+  "name": "Colegio Federico García Lorca",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.418833,
+  "lng": -6.131736,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142802808",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-colegio-el-trovador",
+  "name": "Colegio El Trovador",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.424211,
+  "lng": -6.150897,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142802809",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-colegio-jose-de-la-vega",
+  "name": "Colegio José de la Vega",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.424965,
+  "lng": -6.137285,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142802816",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-colegio-de-educacion-infantil-y-primaria-la-barrosa",
+  "name": "Colegio de Educación Infantil y Primaria La Barrosa",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.380254,
+  "lng": -6.171056,
+  "addr": "Camino del Sotillo",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w146378397",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-colegio-sancti-petri",
+  "name": "Colegio \"Sancti Petri\"",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.418224,
+  "lng": -6.162383,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w148091929",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-colegio-al-andalus",
+  "name": "Colegio \"Al Andalus\"",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.419045,
+  "lng": -6.16218,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w148091930",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-colegio-san-agustin",
+  "name": "Colegio San Agustín",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.421307,
+  "lng": -6.148561,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w148602268",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-colegio-isabel-la-catolica",
+  "name": "Colegio Isabel La Católica",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.418078,
+  "lng": -6.142104,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w149762001",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-colegio-nino-jesus",
+  "name": "Colegio Niño Jesús",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.419259,
+  "lng": -6.147165,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w150228124",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-colegio-la-salle",
+  "name": "Colegio La Salle",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.416839,
+  "lng": -6.150261,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w150930521",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-colegio-el-castillo",
+  "name": "Colegio El Castillo",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.418069,
+  "lng": -6.144549,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w153204002",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-colegio-las-albinas",
+  "name": "Colegio Las Albinas",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.421832,
+  "lng": -6.153273,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w154899558",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-instituto-la-pedrera-blanca",
+  "name": "Instituto La Pedrera Blanca",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.407391,
+  "lng": -6.148543,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w155833517",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-colegio-la-atlantida",
+  "name": "Colegio La Atlántida",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.409577,
+  "lng": -6.145556,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w183505449",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-colegio-alameda",
+  "name": "Colegio Alameda",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.419899,
+  "lng": -6.146175,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w184605083",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-colegio-el-olivo",
+  "name": "Colegio El Olivo",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.421669,
+  "lng": -6.141634,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w186515239",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-instituto-poeta-garcia-gutierrez",
+  "name": "Instituto Poeta García Gutiérrez",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.41445,
+  "lng": -6.14957,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w186528322",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-colegio-nuestra-senora-de-los-remedios",
+  "name": "Colegio Nuestra Señora de los Remedios",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.414918,
+  "lng": -6.15039,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w186530836",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-colegio-tierno-galvan",
+  "name": "Colegio Tierno Galván",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.408806,
+  "lng": -6.148799,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w198216895",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "chiclana-de-la-frontera-escuela-infantil-el-campito-school",
+  "name": "Escuela Infantil El Campito School",
+  "city": "Chiclana de la Frontera",
+  "country": "España",
+  "lat": 36.40349,
+  "lng": -6.162275,
+  "addr": "Camino de Las Palomas",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w444788605",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "rio-tercero-instituto-jesus-maria-y-jose",
+  "name": "Instituto Jesús, María y José",
+  "city": "Río Tercero",
+  "country": "Argentina",
+  "lat": -32.167513,
+  "lng": -64.109717,
+  "addr": "San Agustín 318",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3819315957",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "rio-tercero-instituto-marcelino-champagnat",
+  "name": "Instituto Marcelino Champagnat",
+  "city": "Río Tercero",
+  "country": "Argentina",
+  "lat": -32.165267,
+  "lng": -64.108795,
+  "addr": "San Pedro",
+  "phone": "+543571502020",
+  "web": "https://www.marcelinochampagnat.com.ar/",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6680372915",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "rio-tercero-instituto-provincial-de-educacion-media-394-juan-manso",
+  "name": "Instituto Provincial de Educación Media 394 Juan Manso",
+  "city": "Río Tercero",
+  "country": "Argentina",
+  "lat": -32.167133,
+  "lng": -64.126391,
+  "addr": "Diego de Rojas 761",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11503934772",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "rio-tercero-instituto-doctor-alexis-carrel",
+  "name": "Instituto Doctor Alexis Carrel",
+  "city": "Río Tercero",
+  "country": "Argentina",
+  "lat": -32.186596,
+  "lng": -64.117781,
+  "addr": "Presbítero Alfredo Martina",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w337694447",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "rioverde-instituto-de-educacion-superior-liceo",
+  "name": "Instituto de Educación Superior Liceo",
+  "city": "Rioverde",
+  "country": "México",
+  "lat": 21.945153,
+  "lng": -100.024382,
+  "addr": "Molino del Alto",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w557852335",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "rioverde-primaria-heroico-colegio-militar",
+  "name": "Primaria Heroico Colegio Militar",
+  "city": "Rioverde",
+  "country": "México",
+  "lat": 21.92422,
+  "lng": -99.9877,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w558898074",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "rioverde-preparatoria-celestino-sanchez-cervantes",
+  "name": "Preparatoria Celestino Sanchez Cervantes",
+  "city": "Rioverde",
+  "country": "México",
+  "lat": 21.938436,
+  "lng": -99.999299,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w778370861",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "san-estanislao-universidad-san-carlos",
+  "name": "Universidad San Carlos",
+  "city": "San Estanislao",
+  "country": "Paraguay",
+  "lat": -24.665793,
+  "lng": -56.445257,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n8942107858",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "san-estanislao-utcd-eco-colegio",
+  "name": "UTCD Eco Colegio",
+  "city": "San Estanislao",
+  "country": "Paraguay",
+  "lat": -24.666528,
+  "lng": -56.444275,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n8942115427",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "san-estanislao-universidad-privada-del-guaira",
+  "name": "Universidad Privada del Guaira",
+  "city": "San Estanislao",
+  "country": "Paraguay",
+  "lat": -24.665121,
+  "lng": -56.445094,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n8957037351",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "san-estanislao-san-patricio-de-irlanda-del-norte",
+  "name": "San Patricio de Irlanda del Norte",
+  "city": "San Estanislao",
+  "country": "Paraguay",
+  "lat": -24.675414,
+  "lng": -56.456851,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n8992702299",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "san-estanislao-instuto-de-formacion-docente-privado-san-jose-obrero",
+  "name": "Instuto de Formacion Docente Privado - San José Obrero",
+  "city": "San Estanislao",
+  "country": "Paraguay",
+  "lat": -24.667703,
+  "lng": -56.440521,
+  "addr": "",
+  "phone": "",
+  "web": "https://www.facebook.com/people/Instituto-de-Formaci%C3%B3n-Docente-Privado-San-Jose-Obrero-de-San-Estanislao/100063897790227/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n11088479531",
+  "found": "2026-11-22",
+  "img": "",
+  "webAt": "2026-11-22"
+ },
+ {
+  "id": "san-estanislao-instituto-de-formacion-docentes",
+  "name": "Instituto de Formación Docentes",
+  "city": "San Estanislao",
+  "country": "Paraguay",
+  "lat": -24.661744,
+  "lng": -56.460041,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n14085817361",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "san-estanislao-colegio-gutenberg-san-estanislao",
+  "name": "Colegio Gutenberg San Estanislao",
+  "city": "San Estanislao",
+  "country": "Paraguay",
+  "lat": -24.671347,
+  "lng": -56.458277,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w162694214",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "san-estanislao-colegio-tecnico",
+  "name": "Colegio tecnico",
+  "city": "San Estanislao",
+  "country": "Paraguay",
+  "lat": -24.664424,
+  "lng": -56.457727,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1103196644",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "san-estanislao-colegio-san-francisco-de-asis",
+  "name": "Colegio San Francisco de Asís",
+  "city": "San Estanislao",
+  "country": "Paraguay",
+  "lat": -24.673971,
+  "lng": -56.446098,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1193945849",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "san-jose-del-guaviare-colegio-adventista-matanatha",
+  "name": "Colegio Adventista Matanatha",
+  "city": "San José del Guaviare",
+  "country": "Colombia",
+  "lat": 2.56584,
+  "lng": -72.645273,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5315638722",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "san-jose-del-guaviare-otra-sigla-jorge-isaac",
+  "name": "Otra-Sigla Jorge Isaac",
+  "city": "San José del Guaviare",
+  "country": "Colombia",
+  "lat": 2.559071,
+  "lng": -72.638302,
+  "addr": "",
+  "phone": "+57 321 4412608",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717059",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "san-jose-del-guaviare-jardin-infantil-kids-place",
+  "name": "Jardín Infantil Kids Place",
+  "city": "San José del Guaviare",
+  "country": "Colombia",
+  "lat": 2.568736,
+  "lng": -72.642929,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717511",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "san-jose-del-guaviare-otra-sigla-colombia-sin-banderas",
+  "name": "Otra-Sigla Colombia Sin Banderas",
+  "city": "San José del Guaviare",
+  "country": "Colombia",
+  "lat": 2.556995,
+  "lng": -72.641306,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717767",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "san-jose-del-guaviare-liceo-infantil-kabod",
+  "name": "Liceo Infantil Kabod",
+  "city": "San José del Guaviare",
+  "country": "Colombia",
+  "lat": 2.568476,
+  "lng": -72.642147,
+  "addr": "",
+  "phone": "+57 603 2166356",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717964",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "san-jose-del-guaviare-colegio-adventsta-maranatha-coam",
+  "name": "Colegio Adventsta Maranatha Coam",
+  "city": "San José del Guaviare",
+  "country": "Colombia",
+  "lat": 2.566204,
+  "lng": -72.645352,
+  "addr": "",
+  "phone": "+57 608 5840914",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480718020",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "san-jose-del-guaviare-institucion-educativa-los-lagos",
+  "name": "Institución Educativa Los Lagos",
+  "city": "San José del Guaviare",
+  "country": "Colombia",
+  "lat": 2.574291,
+  "lng": -72.643529,
+  "addr": "",
+  "phone": "+57 312 3464149",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480718218",
+  "found": "2026-11-22"
+ },
+ {
+  "id": "san-jose-del-guaviare-jardin-infantil-mis-pininos",
+  "name": "Jardín Infantil Mis Pininos",
+  "city": "San José del Guaviare",
+  "country": "Colombia",
+  "lat": 2.554961,
+  "lng": -72.642184,
+  "addr": "",
+  "phone": "+57 312 4466707",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480718416",
   "found": "2026-11-22"
  }
 ]
