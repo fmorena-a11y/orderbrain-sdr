@@ -428493,7 +428493,9 @@
   "found": "2026-11-14",
   "code": "315238000794",
   "padron": "MEN datos.gov.co",
-  "students": 300
+  "students": 300,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "duitama-colegio-la-presentacion",
@@ -428518,7 +428520,9 @@
   "found": "2026-11-14",
   "code": "315238000158",
   "padron": "MEN datos.gov.co",
-  "students": 748
+  "students": 748,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "duitama-colegio-san-jose-de-calazans",
@@ -429168,7 +429172,8 @@
   "found": "2026-11-14",
   "code": "305837006849",
   "padron": "MEN datos.gov.co",
-  "students": 215
+  "students": 215,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "turbo-colegio-diocesano-nuestra-senora-del-carmen",
@@ -429195,7 +429200,8 @@
   "found": "2026-11-14",
   "code": "305837005871",
   "padron": "MEN datos.gov.co",
-  "students": 536
+  "students": 536,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "turbo-escuela-san-francisco-de-asis",
@@ -429266,7 +429272,8 @@
   "found": "2026-11-14",
   "code": "305837002201",
   "padron": "MEN datos.gov.co",
-  "students": 396
+  "students": 396,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "turbo-universidad-de-antioquia",
@@ -429313,7 +429320,8 @@
   "found": "2026-11-14",
   "code": "305837004565",
   "padron": "MEN datos.gov.co",
-  "students": 154
+  "students": 154,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "turbo-colegio-sagrado-corazon",
@@ -437789,7 +437797,8 @@
   "found": "2026-11-14",
   "code": "368547000568",
   "padron": "MEN datos.gov.co",
-  "students": 1487
+  "students": 1487,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "piedecuesta-colegio-balbino-garcia",
@@ -438902,7 +438911,10 @@
   "found": "2026-11-14",
   "code": "325307000861",
   "padron": "MEN datos.gov.co",
-  "students": 922
+  "students": 922,
+  "img": "https://colegioliceomoderno.edu.co/img/og-colegio-liceo-moderno.jpg",
+  "whatsapp": "+573138274996",
+  "webAt": "2026-11-23"
  },
  {
   "id": "girardot-corporacion-universitaria-minuto-de-dios-uniminuto",
@@ -440779,7 +440791,9 @@
   "found": "2026-11-14",
   "code": "319698001735",
   "padron": "MEN datos.gov.co",
-  "students": 378
+  "students": 378,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "santander-de-quilichao-centro-educativo-cent-doc-jose-vicente-mina",
@@ -454647,7 +454661,8 @@
   "found": "2026-11-15",
   "code": "305154002036",
   "padron": "MEN datos.gov.co",
-  "students": 725
+  "students": 725,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "andahuaylas-colegio-militar-el-anccohuayllo",
@@ -471113,7 +471128,10 @@
   "found": "2026-11-17",
   "code": "305440000954",
   "padron": "MEN datos.gov.co",
-  "students": 364
+  "students": 364,
+  "img": "",
+  "whatsapp": "+573136035630",
+  "webAt": "2026-11-23"
  },
  {
   "id": "marinilla-centro-educativo-integ",
@@ -1459790,6 +1459808,196 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1556642801",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "chinchina-colegio-san-miguel",
+  "name": "Colegio San Miguel",
+  "city": "Chinchiná",
+  "country": "Colombia",
+  "lat": 4.985913,
+  "lng": -75.616898,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w652455585",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "san-pelayo-institucion-de-educacion-formal-para-jovenes-y",
+  "name": "Institucion De Educacion Formal Para Jovenes Y",
+  "city": "San Pelayo",
+  "country": "Colombia",
+  "lat": 8.957645,
+  "lng": -75.837848,
+  "addr": "",
+  "phone": "+57 311 4530031",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369369",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "esperanza-centro-educativo-profesor-genaro-antonio-osoria",
+  "name": "Centro Educativo Profesor Genaro Antonio Osoria",
+  "city": "Esperanza",
+  "country": "República Dominicana",
+  "lat": 19.599983,
+  "lng": -70.984485,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1186323763",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "esperanza-centro-educativo-profesora-maria-luisa-abreu-guzman",
+  "name": "Centro Educativo Profesora María Luisa Abreu Guzmán",
+  "city": "Esperanza",
+  "country": "República Dominicana",
+  "lat": 19.592624,
+  "lng": -70.996032,
+  "addr": "Carretera Boca de Mao Abajo",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1186323814",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "esperanza-centro-educativo-de-batey-1",
+  "name": "Centro Educativo de Batey 1",
+  "city": "Esperanza",
+  "country": "República Dominicana",
+  "lat": 19.594878,
+  "lng": -70.987344,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1186323823",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "esperanza-centro-educativo-profesora-elba-antonia-baez-castro",
+  "name": "Centro Educativo Profesora Elba Antonia Báez Castro",
+  "city": "Esperanza",
+  "country": "República Dominicana",
+  "lat": 19.586763,
+  "lng": -70.990111,
+  "addr": "Calle Ana María Álvarez",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1186995123",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "esperanza-centro-educativo-pedro-henriquez-urena",
+  "name": "Centro Educativo Pedro Henríquez Ureña",
+  "city": "Esperanza",
+  "country": "República Dominicana",
+  "lat": 19.578196,
+  "lng": -70.990048,
+  "addr": "Calle Francisco del Rosario Sánchez",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1186995175",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "esperanza-liceo-maria-leaquina-rodriguez",
+  "name": "Liceo María Leaquina Rodríguez",
+  "city": "Esperanza",
+  "country": "República Dominicana",
+  "lat": 19.575816,
+  "lng": -70.976405,
+  "addr": "Calle María Leaquina Rodríguez",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1186995178",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "esperanza-liceo-maria-bernardina-pascual-y-ventura-dona-buby",
+  "name": "Liceo María Bernardina Pascual y Ventura \"Doña Buby\"",
+  "city": "Esperanza",
+  "country": "República Dominicana",
+  "lat": 19.592488,
+  "lng": -70.974499,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1187432040",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "esperanza-centro-educativo-hermanas-mirabal-pantoja",
+  "name": "Centro Educativo Hermanas Mirabal Pantoja",
+  "city": "Esperanza",
+  "country": "República Dominicana",
+  "lat": 19.591638,
+  "lng": -70.974498,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1187432044",
   "found": "2026-11-23"
  }
 ]
