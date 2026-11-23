@@ -27,20 +27,23 @@ export function baseSec(s) {
     ${x.notes ? `<p class="bx-note" style="padding-left:0;margin-top:8px"><b>Notas:</b> ${esc(x.notes)}</p>` : ""}${x.next ? `<p class="bx-note" style="padding-left:0"><b>Próximo paso:</b> ${esc(x.next)}</p>` : ""}
   </section>`).join("");
 }
-// Estudio: si no existe, se pide solo (tarda 1 o 2 minutos) y aparece cuando está listo.
-export async function loadStudy(id, { refresh = false } = {}) {
+// Estudio: al abrir la ficha solo se lee el que ya existe. Hacerlo (o rehacerlo) usa IA paga: solo con make, después de que
+// la persona confirmó el costo (botón «Hacer estudio con IA»).
+export const STUDY_COST = "entre US$0,50 y US$1";
+export async function loadStudy(id, { refresh = false, make = false } = {}) {
   const redraw = () => { if (D.id === id && D.tab === "prep" && D.data) keepScroll(draw); };
   try {
-    if (!refresh) {
+    if (!make) {
       const r = await api(`/api/schools/${id}/study`);
       if (D.id !== id) return;
-      if (r.study) { D.study = r.study; return redraw(); }
-      if (!r.enabled) { D.study = null; return redraw(); }
+      D.studyOn = !!r.enabled;
+      D.study = r.study || null; return redraw();
     }
     D.studyWorking = true; D.studyErr = null; redraw();
     let st = null;
-    try { st = (await api(`/api/schools/${id}/study`, { body: { refresh } })).study; }
+    try { st = (await api(`/api/schools/${id}/study`, { body: { refresh, confirm: true } })).study; }
     catch (e) {
+      if (e?.code === "ai_budget" || e?.code === "ai_confirm") throw e;
       // si otra persona lo está generando, esperar a que aparezca
       for (let i = 0; i < 24 && !st && D.id === id; i++) { await new Promise(r => setTimeout(r, 8000)); st = (await api(`/api/schools/${id}/study`).catch(() => ({}))).study; }
       if (!st) throw e;

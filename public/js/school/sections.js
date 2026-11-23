@@ -140,7 +140,6 @@ export async function enrich(s) {
       : [fl, n ? `Encontré ${nn}.` : "", fl && !n ? "No había nada nuevo para una nota." : r.note.reason || "", fw];
     toast(msg.filter(Boolean).join(" "), r.note.saved || fl ? { href: r.note.url || r.fields.url, action: "Abrir" } : { type: n || waits ? "info" : "err", ...see });
     loadSedes(s.id);
-    if (S.study && !D.study && !D.studyWorking && S.byId.get(s.id)?.lat != null) loadStudy(s.id, { refresh: true }); // con IA, además el estudio (decisores)
   } catch (e) { toast(e.message, { type: "err" }); }
   enriching.delete(s.id); if (D.enriching === s.id) D.enriching = null;
   if (D.id === s.id) keepScroll(draw);

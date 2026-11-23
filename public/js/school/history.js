@@ -98,7 +98,7 @@ export function briefCard(s, where) {
   if (!t.summary) return `<div class="callout warn">${icon("alert")}<span>No pude leer el historial de Pipedrive: ${esc(t.err)}</span><button class="btn sm" data-tlretry>Reintentar</button></div>`;
   const b = t.brief || t.summary, me = (S.me.name || "").split(/[\s.@_]/)[0];
   const opening = String(b.opening || "").replace(/\[tu nombre\]/g, me || "[tu nombre]");
-  const tools = `<span class="cb-tools">${b.mode === "ia" ? `<span class="tag" title="Lo armó la IA citando las entradas del historial">con IA</span>` : ""}${t.aiLoading ? `<span class="faint cb-ai" aria-live="polite"><span class="spin"></span> IA</span>` : ""}<button class="btn sm ghost icon-only" data-tlrefresh aria-label="Actualizar el historial" title="Volver a leer Pipedrive">${t.loading ? `<span class="spin"></span>` : icon("refresh", "sm")}</button></span>`;
+  const tools = `<span class="cb-tools">${b.mode === "ia" ? `<span class="tag" title="Lo armó la IA citando las entradas del historial">con IA</span>` : ""}${t.aiLoading ? `<span class="faint cb-ai" aria-live="polite"><span class="spin"></span> IA</span>` : t.ai && !t.brief && !b.cold && b.mode !== "ia" ? `<button class="btn sm ghost" data-cbai title="Usa IA paga (≈ US$0,02)">${icon("sparkles", "sm")} Resumir con IA</button>` : ""}<button class="btn sm ghost icon-only" data-tlrefresh aria-label="Actualizar el historial" title="Volver a leer Pipedrive">${t.loading ? `<span class="spin"></span>` : icon("refresh", "sm")}</button></span>`;
   const warns = b.warnings?.length ? `<div class="callout warn cb-warn">${icon("alert")}<span>${b.warnings.map(w => esc(w.text)).join("<br>")}</span></div>` : "";
   // sin vincular, con candidatas: no se sabe qué pasó en Pipedrive (no es «sin nada»)
   // en Preparar eso va en la línea de estado de Pipedrive (pdLine), junto con lo que se revisó
@@ -175,7 +175,7 @@ export async function loadTimeline(id, { refresh = false, fresh = false } = {}) 
     if (D.id !== id) return;
     // el resumen con IA de antes sirve solo si la línea de tiempo no cambió
     D.tl = { id, items: r.items, total: r.total, more: r.more, warnings: r.warnings || [], cut: r.cut || [], summary: r.summary, ai: !!r.ai, loading: false, err: null, brief: !refresh && cur?.total === r.total ? cur?.brief || null : null };
-    if (r.ai && !r.summary.cold) loadBrief(id, { refresh });
+    // el resumen con IA ya no se pide solo (usa IA paga): va con el botón «Resumir con IA»
   } catch (e) { if (D.id !== id) return; D.tl = { ...(D.tl || {}), id, loading: false, err: e.message }; }
   redrawTl(id);
 }
@@ -229,6 +229,7 @@ export function histBody(s, d) {
 export function bindTimeline(s) {
   const el = $("drawer");
   el.querySelectorAll("[data-tlrefresh]").forEach(b => b.onclick = () => loadTimeline(s.id, { refresh: true }));
+  el.querySelectorAll("[data-cbai]").forEach(b => b.onclick = () => { if (D.tl?.id === s.id && !D.tl.aiLoading) { loadBrief(s.id); redrawTl(s.id); } });
   el.querySelectorAll("[data-tlretry]").forEach(b => b.onclick = () => loadTimeline(s.id));
   el.querySelectorAll(".cb [data-copy]").forEach(b => b.onclick = () => copy(b.dataset.copy));
   el.querySelectorAll("[data-cbprep]").forEach(b => b.onclick = () => { D.tab = "prep"; draw(); $("drawer").querySelector("#dBody")?.scrollTo?.({ top: 0 }); });

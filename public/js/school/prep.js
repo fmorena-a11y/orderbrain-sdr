@@ -2,7 +2,7 @@
 import { $, S, addDays, ago, api, cap, copy, esc, icon, loadPref, modal, nextBusinessDay, patchSchool, save, telLink, toast, today } from "../core.js";
 import { D, laEsp } from "./state.js";
 import { fullAddr, load, openSchool, phoneOnly, plural, webOf } from "./open.js";
-import { BASEINFO, baseSec, bindGallery, gallery, keepScroll, loadStudy } from "./media.js";
+import { BASEINFO, STUDY_COST, baseSec, bindGallery, gallery, keepScroll, loadStudy } from "./media.js";
 import { HIST, SEDES, enrichSec, historySec, loadHistory, loadSedes, sedesSec, writesList } from "./sections.js";
 import { clientWarn, createProspect, draw, ownDeal } from "./render.js";
 import { bindTimeline, briefCard, loadTimeline } from "./history.js";
@@ -15,7 +15,8 @@ function studyCard(s) {
   if (D.studyWorking) return `<section class="sec study working" aria-live="polite"><h3><span class="l">${icon("sparkles")} Estudio del colegio</span></h3>
     <div class="study-progress"><span class="spin"></span><div><b>Investigando el colegio en la web…</b><p class="muted">Leo su sitio, redes y noticias para armar el perfil y los decisores. Tarda 1 o 2 minutos; podés ir llamando mientras.</p></div></div></section>`;
   if (D.studyErr) return `<div class="callout warn">${icon("alert")}<span>No se pudo hacer el estudio: ${esc(D.studyErr)}</span><button class="btn sm" id="stRetry">Reintentar</button></div>`;
-  const st = D.study; if (!st) return "";
+  const st = D.study;
+  if (!st) return D.studyOn && D.study === null ? `<div class="callout">${icon("sparkles")}<span>Estudio del colegio con IA: perfil, decisores y ángulo de venta. Cuesta ${STUDY_COST} y tarda 1 o 2 minutos.</span><button class="btn sm" id="stMake">Hacer estudio</button></div>` : "";
   const pf = st.perfil || {};
   const caf = [st.cafeteria?.modelo !== "desconocido" && st.cafeteria?.modelo, st.cafeteria?.detalle].filter(Boolean).join(" · ");
   const facts = [["Niveles", (pf.niveles || []).join(", ")], ["Alumnos", pf.alumnos], ["Cuota", pf.cuota], ["Segmento", pf.segmento], ["Cafetería", caf], ["Red o congregación", pf.red], ["Idiomas", pf.idiomas], ["Sedes", pf.sedes], ["Antigüedad", pf.antiguedad]].filter(([, v]) => known(v));
@@ -98,8 +99,11 @@ export function bindPrep(s, d) {
   bindTimeline(s);
   el.querySelectorAll("details[data-fold]").forEach(x => x.addEventListener("toggle", () => { const v = loadPref(FOLD_KEY, {}) || {}; if (!!v[x.dataset.fold] !== x.open) save(FOLD_KEY, { ...v, [x.dataset.fold]: x.open }); }));
   el.querySelector("[data-enr-prospect]")?.addEventListener("click", () => createProspect(s));
-  el.querySelector("#stRefresh")?.addEventListener("click", () => loadStudy(s.id, { refresh: true }));
-  el.querySelector("#stRetry")?.addEventListener("click", () => loadStudy(s.id));
+  // el estudio usa IA paga: siempre se confirma el costo antes
+  const makeStudy = async refresh => { if (await confirmCost(refresh)) loadStudy(s.id, { refresh, make: true }); };
+  el.querySelector("#stMake")?.addEventListener("click", () => makeStudy(false));
+  el.querySelector("#stRefresh")?.addEventListener("click", () => makeStudy(true));
+  el.querySelector("#stRetry")?.addEventListener("click", () => makeStudy(false));
   el.querySelector("#stNote")?.addEventListener("click", async e => {
     const b = e.currentTarget; b.disabled = true;
     try { const r = await apiEx(s, `/api/schools/${s.id}/study/note`, { body: {} }); toast("Estudio guardado como nota en Pipedrive", { href: r.orgUrl, action: "Abrir" }); }
@@ -138,6 +142,17 @@ function exRow(c) {
 }
 const theirsLead = c => c.kind === "lead" && c.ownerId && c.ownerId !== S.me.pdUserId;
 const firstName = n => String(n || "esa persona").replace(/\s*\(.*\)$/, "").split(" ")[0] || "esa persona";
+// Antes de gastar IA: confirma el costo
+function confirmCost(again) {
+  return new Promise(resolve => {
+    let ok = false;
+    const m = modal(`<h3>${again ? "¿Volver a investigar?" : "¿Hacer el estudio?"}</h3>
+      <p style="margin:0">Usa IA paga: cuesta ${STUDY_COST} por colegio. Hay un tope de gasto por día para todo el equipo.</p>
+      <div class="row"><button class="btn ghost" id="ccNo">Cancelar</button><button class="btn primary" id="ccGo">Sí, hacerlo</button></div>`, { onClose: () => resolve(ok) });
+    m.querySelector("#ccNo").onclick = () => m.close();
+    m.querySelector("#ccGo").onclick = () => { ok = true; m.close(); };
+  });
+}
 // «Ya hablé con X: pasámelo»: confirma y pasa el prospecto de otra persona a tu nombre (con una nota en Pipedrive)
 function confirmTake(owner, msg = "") {
   return new Promise(resolve => {

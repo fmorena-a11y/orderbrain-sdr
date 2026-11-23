@@ -30,6 +30,7 @@ export async function fakeUpstash() {
       case "HINCRBY": { const h = H(a[0]), n = Number(h.get(String(a[1])) || 0) + Number(a[2]); h.set(String(a[1]), String(n)); return n; }
       case "HMGET": return a.slice(1).map(f => hash.get(a[0])?.get(String(f)) ?? null);
       case "HDEL": { let n = 0; for (const f of a.slice(1)) if (hash.get(a[0])?.delete(String(f))) n++; return n; }
+      case "HINCRBYFLOAT": { const h = hash.get(a[0]) || new Map(); hash.set(a[0], h); const v = (Number(h.get(String(a[1]))) || 0) + Number(a[2]); h.set(String(a[1]), String(v)); return String(v); }
       case "HGETALL": return [...(hash.get(a[0]) || new Map())].flat();
       case "HSCAN": {
         const all = [...(hash.get(a[0]) || new Map())], at = Number(a[1]) || 0, count = Number(a[a.findIndex(x => String(x).toUpperCase() === "COUNT") + 1]) || 10;

@@ -125,38 +125,10 @@ export function skipCurrent() { const ss = S.session; if (ss) markSkip(ss, ss.id
 // apenas empieza o se retoma una sesión, se piden los estudios de todos los colegios que faltan, de a 2 a la vez, en el
 // orden de la sesión. El servidor no repite uno que ya existe ni uno que se está haciendo (studying + withLock), así que
 // cuando abrís la ficha el estudio ya está o ya va por la mitad. Sin IA en el servidor (enabled: false) no se pide nada.
-const STQ = { ss: null, running: 0, asked: new Set(), off: false }, STUDY_PAR = 2;
-function prefetchStudies() {
-  const ss = S.session; if (!ss || STQ.off) return;
-  STQ.ss = ss;
-  while (STQ.running < STUDY_PAR) {
-    let id = null;
-    for (let k = ss.i + 1; k < ss.ids.length && !id; k++) {
-      const x = ss.ids[k];
-      if (ss.items[k]?.state === "pending" && !STQ.asked.has(x) && !String(x).includes(":") && S.byId.has(x)) id = x;
-    }
-    if (!id) return;
-    STQ.asked.add(id); STQ.running++;
-    studyAhead(id).finally(() => { STQ.running--; if (S.session && S.session === STQ.ss) prefetchStudies(); });
-  }
-}
-async function studyAhead(id) {
-  try {
-    const r = await api(`/api/schools/${encodeURIComponent(id)}/study`);
-    if (r.study) return;
-    if (!r.enabled) { STQ.off = true; return; }
-    await api(`/api/schools/${encodeURIComponent(id)}/study`, { body: {} });
-  } catch (e) {
-    // falló: NO se vuelve a pedir en esta sesión (la ficha lo pide al abrirla). Con la IA caída, sin permiso o con muchos
-    // pedidos seguidos, se deja de adelantar por 10 minutos: nunca un pedido tras otro sin parar.
-    STQ.fails = (STQ.fails || 0) + 1;
-    if (e?.code === "ai_down" || [401, 403, 429].includes(e?.status) || e?.status >= 500 || STQ.fails >= 3) { STQ.off = true; setTimeout(() => { STQ.off = false; STQ.fails = 0; }, 10 * 60e3); }
-  }
-}
 // Revisa en Pipedrive los próximos colegios de la sesión para no perder tiempo con clientes.
 export function prefetch() {
   const ss = S.session; if (!ss) return;
-  prefetchStudies();
+  // los estudios ya NO se adelantan: usan IA paga y solo se hacen con el botón de la ficha (prefetchStudies queda sin usar)
   const ids = ss.ids.slice(ss.i + 1, ss.i + 5).filter(id => ["unk", "new"].includes(S.byId.get(id)?.status));
   if (!ids.length) return;
   api("/api/check", { body: { ids } }).then(r => {

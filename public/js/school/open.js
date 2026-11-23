@@ -144,7 +144,7 @@ function openLoaded(id, { activityId = null, tab = null, keepSession = false, sr
   if ($("drawer").hidden) { D.opener = document.activeElement; history.pushState({ ...(history.state || {}), drawer: id }, ""); }
   import("../app.js").then(m => m.rememberSchool(id));
   const draft = drafts.get(id); drafts.delete(id);
-  Object.assign(D, { sref: keepSession ? sref || id : null, inCall: false, call: null, id, data: null, form: draft?.form || newForm(), activityId: activityId ?? draft?.activityId ?? null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyWorking: false, studyErr: null, tl: null, addr: null, addrEdit: false, toTl: !!cbOpen && !draft, noSkip: !!noSkip, cbLogOpen: false, tab: draft ? "log" : tab || (activityId ? "log" : "prep"),
+  Object.assign(D, { sref: keepSession ? sref || id : null, inCall: false, call: null, id, data: null, form: draft?.form || newForm(), activityId: activityId ?? draft?.activityId ?? null, saving: false, result: null, brief: null, briefLoading: false, err: null, photos: null, study: undefined, studyOn: false, studyWorking: false, studyErr: null, tl: null, addr: null, addrEdit: false, toTl: !!cbOpen && !draft, noSkip: !!noSkip, cbLogOpen: false, tab: draft ? "log" : tab || (activityId ? "log" : "prep"),
     // tu trato arriba de la ficha: en una sesión «Tus tratos» o si se abrió desde el Hoy del account (deals)
     dealsOn: !!deals || (keepSession && dealsSession(S.session)), myDeals: null });
   if (draft) toast("Recuperé lo que estabas cargando", { type: "info" });
