@@ -29,7 +29,7 @@ export function baseSec(s) {
 }
 // Estudio: al abrir la ficha solo se lee el que ya existe. Hacerlo (o rehacerlo) usa IA paga: solo con make, después de que
 // la persona confirmó el costo (botón «Hacer estudio con IA»).
-export const STUDY_COST = "entre US$0,25 y US$0,50";
+export const STUDY_COST = "unos US$0,10";
 export async function loadStudy(id, { refresh = false, make = false } = {}) {
   const redraw = () => { if (D.id === id && D.tab === "prep" && D.data) keepScroll(draw); };
   try {
