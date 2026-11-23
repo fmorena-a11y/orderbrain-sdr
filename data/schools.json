@@ -471198,7 +471198,8 @@
    "0680785",
    "0307314",
    "0226365"
-  ]
+  ],
+  "imgTry": "2026-11-23"
  },
  {
   "id": "moquegua-colegio-fernando-belaunde-terry",
@@ -474967,7 +474968,8 @@
   "found": "2026-11-17",
   "code": "391001000844",
   "padron": "MEN datos.gov.co",
-  "students": 152
+  "students": 152,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "leticia-liceo-los-angeles",
@@ -482804,7 +482806,8 @@
   "found": "2026-11-19",
   "code": "370708000801",
   "padron": "MEN datos.gov.co",
-  "students": 417
+  "students": 417,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "san-marcos-colegio-maria-auxiliadora",
@@ -484911,7 +484914,9 @@
   "code": "311001026513",
   "found": "2026-11-19",
   "students": 1971,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bogota-liceo-frances-louis-pasteur",
@@ -484938,7 +484943,9 @@
   "code": "311001019568",
   "found": "2026-11-19",
   "students": 1771,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bogota-gimnasio-colombo-britanico-bilingue-internacional",
@@ -484965,7 +484972,8 @@
   "code": "311001086320",
   "found": "2026-11-19",
   "students": 1335,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "bogota-colegio-americano-de-bogota",
@@ -484992,7 +485000,10 @@
   "code": "311001001901",
   "found": "2026-11-19",
   "students": 1849,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://colamericano.edu.co/wp-content/uploads/2026/09/cropped-image.png",
+  "whatsapp": "+573183596176",
+  "webAt": "2026-11-23"
  },
  {
   "id": "cali-colegio-philadelphia-internacional",
@@ -485019,7 +485030,9 @@
   "code": "376001043617",
   "found": "2026-11-19",
   "students": 1425,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://philadelphiainternacional.edu.co/wp-content/uploads/img-izq-01.png",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bogota-colegio-nueva-inglaterra-bilingue-internacional",
@@ -485046,7 +485059,9 @@
   "code": "311001031088",
   "found": "2026-11-19",
   "students": 1278,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bogota-colegio-de-inglaterra-the-english-school",
@@ -485073,7 +485088,9 @@
   "code": "311848000693",
   "found": "2026-11-19",
   "students": 1265,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bogota-colegio-italiano-leonardo-da-vinci",
@@ -485100,7 +485117,9 @@
   "code": "311848002262",
   "found": "2026-11-19",
   "students": 1201,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "cali-colegio-colombo-britanico",
@@ -485127,7 +485146,9 @@
   "code": "376001002279",
   "found": "2026-11-19",
   "students": 1130,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://www.colombobritanico.edu.co/wp-content/uploads/revslider/o/41/e8c7fd2bc74b82534ed5b62794d0f295.webp",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bucaramanga-colegio-gimnasio-superior-empresarial-bilingue",
@@ -485154,7 +485175,8 @@
   "code": "368001000672",
   "found": "2026-11-19",
   "students": 1021,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "bogota-liceo-tecnico-bilingue-paulo-freire",
@@ -485181,7 +485203,9 @@
   "code": "311001033838",
   "found": "2026-11-19",
   "students": 1022,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bogota-colegio-bilingue-cedam",
@@ -485208,7 +485232,8 @@
   "code": "311001041423",
   "found": "2026-11-19",
   "students": 939,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "cali-colegio-bilingue-diana-oese",
@@ -485235,7 +485260,9 @@
   "code": "376001013441",
   "found": "2026-11-19",
   "students": 919,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "cali-colegio-bilingue-lancaster",
@@ -485262,7 +485289,10 @@
   "code": "376001037650",
   "found": "2026-11-19",
   "students": 860,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573504230799",
+  "webAt": "2026-11-23"
  },
  {
   "id": "cartagena-de-indias-redcol-colegio-britanico-de-cartagena",
@@ -485289,7 +485319,9 @@
   "code": "313001004768",
   "found": "2026-11-19",
   "students": 841,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://colbritanico.edu.co/wp-content/uploads/sites/27/2025/07/Rectora_73f4df.png?w=1536",
+  "webAt": "2026-11-23"
  },
  {
   "id": "cali-colegio-anglo-americano",
@@ -485316,7 +485348,9 @@
   "code": "376001030302",
   "found": "2026-11-19",
   "students": 667,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "cali-corporacion-cultural-colegio-aleman",
@@ -485343,7 +485377,9 @@
   "code": "376001000951",
   "found": "2026-11-19",
   "students": 673,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bogota-colegio-alvernia-bilingue",
@@ -485370,7 +485406,10 @@
   "code": "311001010048",
   "found": "2026-11-19",
   "students": 648,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://www.alverniabilingue.edu.co/imagen/datos_basicos/logo_1.png",
+  "whatsapp": "+573507639273",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bogota-liceo-americano-mi-gran-casa-azul",
@@ -485397,7 +485436,8 @@
   "code": "311001106428",
   "found": "2026-11-19",
   "students": 649,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "bogota-colegio-san-mateo-apostol-bilingue-internacional",
@@ -485425,7 +485465,8 @@
   "code": "311769004292",
   "found": "2026-11-19",
   "students": 629,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "bogota-colegio-bilingue-san-juan-de-avila",
@@ -485453,7 +485494,9 @@
   "code": "311001107645",
   "found": "2026-11-19",
   "students": 627,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://static.wixstatic.com/media/dde0d0_ff3b73708fe342afb977c6127cc7d549~mv2.jpg/v1/fill/w_1920,h_1080,al_c/dde0d0_ff3b73708fe342afb977c6127cc7d549~mv2.jpg",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bucaramanga-colegio-bilingue-la-consolata",
@@ -485480,7 +485523,9 @@
   "code": "368001002365",
   "found": "2026-11-19",
   "students": 562,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "cali-redcol-colegio-nuevo-cambridge-cali",
@@ -485507,7 +485552,9 @@
   "code": "376001043901",
   "found": "2026-11-19",
   "students": 543,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://cambridgecali.edu.co/wp-content/uploads/sites/32/2024/12/logo-ncsc-the-place-to-be_4f72d6.png?w=2048",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bogota-colegio-internacional-de-educacion-integral-ciedi-bilingue-internacion",
@@ -485534,7 +485581,8 @@
   "code": "311769002818",
   "found": "2026-11-19",
   "students": 478,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "bogota-colegio-bilingue-reino-unido",
@@ -485561,7 +485609,8 @@
   "code": "311001035300",
   "found": "2026-11-19",
   "students": 458,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "sincelejo-institucion-educativa-colegio-altair-bilingue",
@@ -485588,7 +485637,8 @@
   "code": "370001038577",
   "found": "2026-11-19",
   "students": 589,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "bogota-colegio-bilingue-integral",
@@ -485615,7 +485665,9 @@
   "code": "311001030073",
   "found": "2026-11-19",
   "students": 346,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "cali-colegio-bilingue-montessori",
@@ -485642,7 +485694,10 @@
   "code": "376001029932",
   "found": "2026-11-19",
   "students": 339,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573182529072",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bogota-fundacion-colegio-mayor-de-san-bartolome",
@@ -485669,7 +485724,9 @@
   "code": "311001003084",
   "found": "2026-11-19",
   "students": 1652,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://www.sanbartolome.edu.co/img/cmsb.jpg",
+  "webAt": "2026-11-23"
  },
  {
   "id": "villavicencio-colegio-cofrem-antes-col-acad-de-bto-cofrem",
@@ -485695,7 +485752,9 @@
   "code": "350001001087",
   "found": "2026-11-19",
   "students": 3051,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bogota-fundacion-instituto-tecnologico-del-sur",
@@ -485721,7 +485780,9 @@
   "code": "311001004820",
   "found": "2026-11-19",
   "students": 1942,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bogota-colegio-andino",
@@ -485747,7 +485808,9 @@
   "code": "311769003474",
   "found": "2026-11-19",
   "students": 1608,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bogota-colegio-bilingue-buckingham",
@@ -485774,7 +485837,8 @@
   "code": "311769003938",
   "found": "2026-11-19",
   "students": 318,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "bogota-liceo-de-colombia-bilingue",
@@ -485827,7 +485891,9 @@
   "code": "311001041873",
   "found": "2026-11-19",
   "students": 1446,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://static.wixstatic.com/media/b1e945_1e8bd339f6094d719ee53d2cbb1acc13%7Emv2.png/v1/fit/w_2500,h_1330,al_c/b1e945_1e8bd339f6094d719ee53d2cbb1acc13%7Emv2.png",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bogota-colegio-de-educacion-tecnica-y-academica-celestin-freinet",
@@ -485853,7 +485919,10 @@
   "code": "311001050023",
   "found": "2026-11-19",
   "students": 2055,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://celestinfreinet.edu.co/og-default.jpg",
+  "whatsapp": "+573224457251",
+  "webAt": "2026-11-23"
  },
  {
   "id": "medellin-institucion-educativa-pequena-maria",
@@ -485880,7 +485949,8 @@
   "code": "305001022496",
   "found": "2026-11-19",
   "students": 1619,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "medellin-colegio-san-jose-de-las-vegas-3",
@@ -485907,7 +485977,8 @@
   "code": "305001005036",
   "found": "2026-11-19",
   "students": 1577,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "cali-colegio-ciudad-cordoba",
@@ -485933,7 +486004,9 @@
   "code": "376001025015",
   "found": "2026-11-19",
   "students": 1323,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://res.cloudinary.com/dx5zamphx/image/upload/f_auto,q_auto,w_1200,c_fit/v1786815658/ppf_cl",
+  "webAt": "2026-11-23"
  },
  {
   "id": "cali-colegio-leon-de-greiff",
@@ -485959,7 +486032,9 @@
   "code": "376001007670",
   "found": "2026-11-19",
   "students": 1655,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "cartagena-de-indias-colegio-comfamiliar-c-gena",
@@ -485985,7 +486060,9 @@
   "code": "313001005276",
   "found": "2026-11-19",
   "students": 1987,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "medellin-instituto-ferrini-sede-robledo",
@@ -486011,7 +486088,10 @@
   "code": "305001011761",
   "found": "2026-11-19",
   "students": 3543,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573107192630",
+  "webAt": "2026-11-23"
  },
  {
   "id": "medellin-colegio-gente-unida-jovenes-por-la-paz-luz-de-oriente",
@@ -486037,7 +486117,10 @@
   "code": "305001022461",
   "found": "2026-11-19",
   "students": 1415,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573017634428",
+  "webAt": "2026-11-23"
  },
  {
   "id": "medellin-corporacion-escuela-empresarial-de-educacion",
@@ -486063,7 +486146,8 @@
   "code": "305001022631",
   "found": "2026-11-19",
   "students": 2153,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "medellin-instituto-salesiano-pedro-justo-berrio",
@@ -486089,7 +486173,8 @@
   "code": "305001003793",
   "found": "2026-11-19",
   "students": 1277,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "barranquilla-colegio-boston-internacional-ltda",
@@ -486142,7 +486227,9 @@
   "code": "376001000276",
   "found": "2026-11-19",
   "students": 1242,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bogota-instituto-infantil-y-juvenil",
@@ -486168,7 +486255,9 @@
   "code": "311001006130",
   "found": "2026-11-19",
   "students": 1275,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "medellin-colegio-san-jose-de-la-salle-2",
@@ -486195,7 +486284,8 @@
   "code": "305001003599",
   "found": "2026-11-19",
   "students": 1251,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "pereira-colegio-fundacion-lic-ingles",
@@ -486222,7 +486312,9 @@
   "code": "366001003814",
   "found": "2026-11-19",
   "students": 798,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bogota-colegio-nueva-york-2",
@@ -486248,7 +486340,10 @@
   "code": "311769000769",
   "found": "2026-11-19",
   "students": 1186,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "",
+  "whatsapp": "+573155324684",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bogota-colegio-bilingue-ciudad-montes",
@@ -486275,7 +486370,8 @@
   "code": "311001039003",
   "found": "2026-11-19",
   "students": 274,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "cali-colegio-san-antonio-maria-claret",
@@ -486302,7 +486398,9 @@
   "code": "376001003461",
   "found": "2026-11-19",
   "students": 1156,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://colegioclaret.edu.co/wp-content/uploads/2024/04/30.png",
+  "webAt": "2026-11-23"
  },
  {
   "id": "cali-colegio-bilingue-ingles-de-los-andes",
@@ -486329,7 +486427,8 @@
   "code": "376001016334",
   "found": "2026-11-19",
   "students": 272,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "bogota-colegio-colsubsidio-norte-2",
@@ -486355,7 +486454,8 @@
   "code": "311001000735",
   "found": "2026-11-19",
   "students": 1121,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "bogota-centro-educativo-sagrada-familia-de-nazareth",
@@ -486381,7 +486481,8 @@
   "code": "311769002010",
   "found": "2026-11-19",
   "students": 1089,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "barranquilla-colegio-aleman-de-barranquilla",
@@ -486435,7 +486536,10 @@
   "code": "311001001022",
   "found": "2026-11-19",
   "students": 1070,
-  "approx": "1km"
+  "approx": "1km",
+  "img": "https://www.rosariosantodomingo.edu.co/wp-content/uploads/2023/09/escudo-qcpixnaxsrnm4grmfkuqukyyqlfgnulho5ld0jhnag-1.png",
+  "whatsapp": "+573142982430",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bogota-colegio-claretiano",
@@ -486461,7 +486565,8 @@
   "code": "311102000141",
   "found": "2026-11-19",
   "students": 1016,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "cartagena-de-indias-corp-educativa-maddox",
@@ -486487,7 +486592,8 @@
   "code": "313001008518",
   "found": "2026-11-19",
   "students": 1029,
-  "approx": "1km"
+  "approx": "1km",
+  "imgTry": "2026-11-23"
  },
  {
   "id": "bogota-externado-porfirio-barba-jacob",
@@ -600674,7 +600780,8 @@
   "code": "305308000007",
   "found": "2026-11-19",
   "students": 235,
-  "approx": "1km"
+  "approx": "1km",
+  "osm": "n12487369722"
  },
  {
   "id": "puerto-tejada-colegio-evangelico-ebenezer",
@@ -1459998,6 +1460105,110 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1187432044",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "bosques-escuela-de-educacion-secundaria-carlos-pellegrini",
+  "name": "Escuela De Educación Secundaria Carlos Pellegrini",
+  "city": "Bosques",
+  "country": "Argentina",
+  "lat": -34.831315,
+  "lng": -58.181238,
+  "addr": "Calle 415 851",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5864648252",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "bosques-escuela-primaria-roberto-j-payro",
+  "name": "Escuela Primaria Roberto J. Payro",
+  "city": "Bosques",
+  "country": "Argentina",
+  "lat": -34.831927,
+  "lng": -58.181266,
+  "addr": "Calle 458",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5864648940",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "girardota-colegio-cenforma",
+  "name": "Colegio Cenforma",
+  "city": "Girardota",
+  "country": "Colombia",
+  "lat": 6.377872,
+  "lng": -75.448107,
+  "addr": "",
+  "phone": "2898900",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369719",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "girardota-colegio-primavera-del-futuro",
+  "name": "Colegio Primavera Del Futuro",
+  "city": "Girardota",
+  "country": "Colombia",
+  "lat": 6.377778,
+  "lng": -75.448056,
+  "addr": "",
+  "phone": "2896269",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369720",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "girardota-institucion-parroq-ntra-sra-de-la-present",
+  "name": "Institucion Parroq Ntra Sra De La Present",
+  "city": "Girardota",
+  "country": "Colombia",
+  "lat": 6.380119,
+  "lng": -75.448386,
+  "addr": "",
+  "phone": "2890862",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369721",
   "found": "2026-11-23"
  }
 ]
