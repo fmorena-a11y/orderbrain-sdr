@@ -423680,7 +423680,8 @@
   "found": "2026-11-13",
   "code": "441551002728",
   "padron": "MEN datos.gov.co",
-  "students": 365
+  "students": 365,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "pitalito-colegio-gimnasio-colina-campestre",
@@ -423849,7 +423850,9 @@
   "found": "2026-11-13",
   "code": "341551000259",
   "padron": "MEN datos.gov.co",
-  "students": 465
+  "students": 465,
+  "img": "https://lapresentacionpitalito.edu.co/wp-content/uploads/2023/02/LogoNew1.png",
+  "webAt": "2026-11-23"
  },
  {
   "id": "pitalito-colegio-san-juan-de-laboyos",
@@ -423876,7 +423879,8 @@
   "found": "2026-11-13",
   "code": "341551002260",
   "padron": "MEN datos.gov.co",
-  "students": 212
+  "students": 212,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "pitalito-colegio-hogar-infantil",
@@ -424039,7 +424043,9 @@
   "found": "2026-11-13",
   "code": "376111000263",
   "padron": "MEN datos.gov.co",
-  "students": 467
+  "students": 467,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "buga-universidad-i-t-a",
@@ -426293,7 +426299,8 @@
   "found": "2026-11-13",
   "code": "305615000294",
   "padron": "MEN datos.gov.co",
-  "students": 656
+  "students": 656,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "rionegro-colegio-holss-sas",
@@ -426380,7 +426387,8 @@
   "found": "2026-11-13",
   "code": "305615800045",
   "padron": "MEN datos.gov.co",
-  "students": 15
+  "students": 15,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "rionegro-centro-educativo-casita-alegre-sede-alterna",
@@ -426425,7 +426433,8 @@
   "found": "2026-11-13",
   "code": "305615001690",
   "padron": "MEN datos.gov.co",
-  "students": 76
+  "students": 76,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "rionegro-centro-educativo-maria-montessori",
@@ -426558,7 +426567,9 @@
   "found": "2026-11-13",
   "code": "305615000961",
   "padron": "MEN datos.gov.co",
-  "students": 42
+  "students": 42,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "rionegro-preescolar-camp-peter-pan",
@@ -426607,7 +426618,9 @@
   "found": "2026-11-13",
   "code": "305440000994",
   "padron": "MEN datos.gov.co",
-  "students": 494
+  "students": 494,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "rionegro-centro-educativo-disneylandia",
@@ -1459208,6 +1459221,575 @@
   "private": "probable",
   "src": "osm",
   "osm": "n3802572801",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "arrecife-colegio-de-educacion-infantil-y-primaria-nieves-toledo",
+  "name": "Colegio de Educación Infantil y Primaria Nieves Toledo",
+  "city": "Arrecife",
+  "country": "España",
+  "lat": 28.964786,
+  "lng": -13.547342,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w194623021",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "arrecife-colegio-de-educacion-infantil-y-primaria-adolfo-topham",
+  "name": "Colegio de Educación Infantil y Primaria Adolfo Topham",
+  "city": "Arrecife",
+  "country": "España",
+  "lat": 28.966574,
+  "lng": -13.549062,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w194829385",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "arrecife-colegio-de-educacion-infantil-y-primaria-antonio-zerolo",
+  "name": "Colegio de Educación Infantil y Primaria Antonio Zerolo",
+  "city": "Arrecife",
+  "country": "España",
+  "lat": 28.960096,
+  "lng": -13.558169,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w194829386",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "arrecife-colegio-de-educacion-infantil-y-primaria-argana-alta",
+  "name": "Colegio de Educación Infantil y Primaria Argana Alta",
+  "city": "Arrecife",
+  "country": "España",
+  "lat": 28.979741,
+  "lng": -13.570581,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w194829387",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "arrecife-colegio-de-educacion-infantil-y-primaria-titerroy",
+  "name": "Colegio de Educación Infantil y Primaria Titerroy",
+  "city": "Arrecife",
+  "country": "España",
+  "lat": 28.970675,
+  "lng": -13.556793,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w194829389",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "arrecife-colegio-de-educacion-infantil-y-primaria-benito-mendez-tarajano",
+  "name": "Colegio de Educación Infantil y Primaria Benito Mendez Tarajano",
+  "city": "Arrecife",
+  "country": "España",
+  "lat": 28.968424,
+  "lng": -13.557804,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w194831458",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "arrecife-colegio-de-educacion-infantil-y-primaria-capellania-del-yagabo",
+  "name": "Colegio de Educación Infantil y Primaria Capellania del Yagabo",
+  "city": "Arrecife",
+  "country": "España",
+  "lat": 28.96666,
+  "lng": -13.559537,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w194831459",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "arrecife-colegio-de-educacion-infantil-y-primaria-los-geranios",
+  "name": "Colegio de Educación Infantil y Primaria Los Geranios",
+  "city": "Arrecife",
+  "country": "España",
+  "lat": 28.977694,
+  "lng": -13.548007,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w194831460",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "arrecife-colegio-de-educacion-infantil-y-primaria-mercedes-medina-diaz",
+  "name": "Colegio de Educación Infantil y Primaria Mercedes Medina Diaz",
+  "city": "Arrecife",
+  "country": "España",
+  "lat": 28.977424,
+  "lng": -13.546287,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w194831461",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "arrecife-colegio-de-educacion-infantil-y-primaria-playa-honda",
+  "name": "Colegio de Educación Infantil y Primaria Playa Honda",
+  "city": "Arrecife",
+  "country": "España",
+  "lat": 28.953858,
+  "lng": -13.593196,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w451330900",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "arrecife-the-british-school-of-lanzarote",
+  "name": "The British School of Lanzarote",
+  "city": "Arrecife",
+  "country": "España",
+  "lat": 28.995645,
+  "lng": -13.544432,
+  "addr": "",
+  "phone": "+34 928 81 00 85",
+  "web": "http://www.thebritishschoollanzarote.com/index.html",
+  "email": "info@thebritishschoollanzarote.com",
+  "levels": [
+   "Preescolar",
+   "Prepa"
+  ],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w472406387",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "arrecife-colegio-de-educacion-infantil-y-primaria-la-destila",
+  "name": "Colegio de Educación Infantil y Primaria La Destila",
+  "city": "Arrecife",
+  "country": "España",
+  "lat": 28.959926,
+  "lng": -13.554987,
+  "addr": "",
+  "phone": "+34 928 21 16 40",
+  "web": "https://www.gobiernodecanarias.org/medusa/edublog/ceipladestila/",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1103158087",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "roquetas-de-mar-colegio-de-educacion-infantil-y-primaria-las-marinas",
+  "name": "Colegio de Educación Infantil y Primaria Las Marinas",
+  "city": "Roquetas de Mar",
+  "country": "España",
+  "lat": 36.732389,
+  "lng": -2.633528,
+  "addr": "Calle Bartolomé de las Casas",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3517040243",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "roquetas-de-mar-formatica",
+  "name": "Formatica",
+  "city": "Roquetas de Mar",
+  "country": "España",
+  "lat": 36.764075,
+  "lng": -2.612468,
+  "addr": "Avenida de Roquetas de Mar 50",
+  "phone": "+34685800800",
+  "web": "https://www.centroformatica.com/",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n11261781333",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "roquetas-de-mar-colegio-de-educacion-infantil-y-primaria-las-salinas",
+  "name": "Colegio de Educación Infantil y Primaria Las Salinas",
+  "city": "Roquetas de Mar",
+  "country": "España",
+  "lat": 36.770324,
+  "lng": -2.609774,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w241087830",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "roquetas-de-mar-colegio-de-educacion-infantil-y-primaria-torrequebrada",
+  "name": "Colegio de Educación Infantil y Primaria Torrequebrada",
+  "city": "Roquetas de Mar",
+  "country": "España",
+  "lat": 36.796996,
+  "lng": -2.586187,
+  "addr": "Calle Costa Brava",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w327564462",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "roquetas-de-mar-colegio-de-educacion-infantil-y-primaria-las-lomas",
+  "name": "Colegio de Educación Infantil y Primaria Las Lomas",
+  "city": "Roquetas de Mar",
+  "country": "España",
+  "lat": 36.757167,
+  "lng": -2.612249,
+  "addr": "Plaza del Educador",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w327727013",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "roquetas-de-mar-colegio-de-educacion-infantil-y-primaria-virgen-del-rosario",
+  "name": "Colegio de Educación Infantil y Primaria Virgen del Rosario",
+  "city": "Roquetas de Mar",
+  "country": "España",
+  "lat": 36.763846,
+  "lng": -2.615838,
+  "addr": "Calle Magisterio 7",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w327734798",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "roquetas-de-mar-centro-docente-privado-portomagno",
+  "name": "Centro Docente Privado Portomagno",
+  "city": "Roquetas de Mar",
+  "country": "España",
+  "lat": 36.763043,
+  "lng": -2.609342,
+  "addr": "Calle Romanila 72",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w327924153",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "roquetas-de-mar-colegio-de-educacion-infantil-y-primaria-la-romanilla",
+  "name": "Colegio de Educación Infantil y Primaria La Romanilla",
+  "city": "Roquetas de Mar",
+  "country": "España",
+  "lat": 36.761008,
+  "lng": -2.608403,
+  "addr": "Plaza de Sor Dolores 2",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w329262928",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "roquetas-de-mar-centro-docente-privado-al-bayyana",
+  "name": "Centro Docente Privado Al-Bayyana",
+  "city": "Roquetas de Mar",
+  "country": "España",
+  "lat": 36.763932,
+  "lng": -2.62561,
+  "addr": "Calle Vilanova i la Geltrú 7",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w330919057",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "roquetas-de-mar-saint-s-george-s-british-school-of-almeria",
+  "name": "Saint's George’s British School of Almeria",
+  "city": "Roquetas de Mar",
+  "country": "España",
+  "lat": 36.771438,
+  "lng": -2.606738,
+  "addr": "Calle Alemania 28",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w378294157",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "roquetas-de-mar-colegio-de-educacion-infantil-y-primaria-saint-sylvain-d-anjou",
+  "name": "Colegio de Educación Infantil y Primaria Saint Sylvain d'Anjou",
+  "city": "Roquetas de Mar",
+  "country": "España",
+  "lat": 36.802419,
+  "lng": -2.622607,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w461936103",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "roquetas-de-mar-colegio-de-educacion-infantil-y-primaria-virgen-de-la-paz",
+  "name": "Colegio de Educación Infantil y Primaria Virgen de la Paz",
+  "city": "Roquetas de Mar",
+  "country": "España",
+  "lat": 36.799013,
+  "lng": -2.645794,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w461941398",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "roquetas-de-mar-colegio-de-educacion-infantil-y-primaria-profesor-tierno-galvan",
+  "name": "Colegio de Educación Infantil y Primaria Profesor Tierno Galván",
+  "city": "Roquetas de Mar",
+  "country": "España",
+  "lat": 36.795542,
+  "lng": -2.612946,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w461948563",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "roquetas-de-mar-colegio-de-educacion-infantil-y-primaria-gabriel-cara",
+  "name": "Colegio de Educación Infantil y Primaria Gabriel Cara",
+  "city": "Roquetas de Mar",
+  "country": "España",
+  "lat": 36.733083,
+  "lng": -2.626431,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w837216085",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "san-luis-de-la-paz-universidad-continente-americano",
+  "name": "Universidad Continente Americano",
+  "city": "San Luis de la Paz",
+  "country": "México",
+  "lat": 21.297934,
+  "lng": -100.532166,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Bilingüe o internacional",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1431372608",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "san-luis-de-la-paz-universidad-de-dolores-hidalgo-san-luis-de-la-paz",
+  "name": "Universidad de Dolores Hidalgo-San Luis de la Paz",
+  "city": "San Luis de la Paz",
+  "country": "México",
+  "lat": 21.299481,
+  "lng": -100.514696,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1556642801",
   "found": "2026-11-23"
  }
 ]
