@@ -262916,7 +262916,10 @@
   "found": "2026-11-10",
   "code": "368001005771",
   "padron": "MEN datos.gov.co",
-  "students": 287
+  "students": 287,
+  "img": "",
+  "whatsapp": "+573174137659",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bucaramanga-colegio-cristiano-la-reforma",
@@ -262986,7 +262989,8 @@
   "found": "2026-11-10",
   "code": "368001005615",
   "padron": "MEN datos.gov.co",
-  "students": 3
+  "students": 3,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "bucaramanga-colegio-nuestra-senora-del-milagro",
@@ -263137,7 +263141,8 @@
   "found": "2026-11-10",
   "code": "368001000770",
   "padron": "MEN datos.gov.co",
-  "students": 591
+  "students": 591,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "bucaramanga-colegio-san-pedro-claver",
@@ -263164,7 +263169,10 @@
   "found": "2026-11-10",
   "code": "368001000729",
   "padron": "MEN datos.gov.co",
-  "students": 1075
+  "students": 1075,
+  "img": "https://www.cxeducativa.com/img/logo_vertical.png",
+  "whatsapp": "+573013035737",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bucaramanga-colegio-san-pedro-claver-infantiles",
@@ -263331,7 +263339,9 @@
   "found": "2026-11-10",
   "code": "368001005747",
   "padron": "MEN datos.gov.co",
-  "students": 347
+  "students": 347,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bucaramanga-colegio-agustiniano",
@@ -263419,7 +263429,10 @@
   "found": "2026-11-10",
   "code": "368001000796",
   "padron": "MEN datos.gov.co",
-  "students": 400
+  "students": 400,
+  "img": "",
+  "whatsapp": "+573102763906",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bucaramanga-universidad-santo-tomas",
@@ -263509,7 +263522,10 @@
   "found": "2026-11-10",
   "code": "368001000371",
   "padron": "MEN datos.gov.co",
-  "students": 1226
+  "students": 1226,
+  "img": "https://colegioadventistalibertad.edu.co/assets/images/escudo.png",
+  "whatsapp": "+573168817507",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bucaramanga-colegio-nuestra-senora-del-rosario-3",
@@ -264198,7 +264214,9 @@
   "found": "2026-11-10",
   "code": "368001002837",
   "padron": "MEN datos.gov.co",
-  "students": 1226
+  "students": 1226,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bucaramanga-presc-kids-kinder",
@@ -264304,7 +264322,9 @@
   "found": "2026-11-10",
   "code": "468001007010",
   "padron": "MEN datos.gov.co",
-  "students": 691
+  "students": 691,
+  "img": "https://www.comfenalcosantander.com.co/wp-content/uploads/2024/05/opengraph_Comfenalco.jpeg",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bucaramanga-colegio-franciscano-del-virrey-solis",
@@ -264329,7 +264349,10 @@
   "found": "2026-11-10",
   "code": "368001000656",
   "padron": "MEN datos.gov.co",
-  "students": 571
+  "students": 571,
+  "img": "",
+  "whatsapp": "+573182494264",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bucaramanga-colegio-panamericano",
@@ -264354,7 +264377,10 @@
   "found": "2026-11-10",
   "code": "368276000478",
   "padron": "MEN datos.gov.co",
-  "students": 823
+  "students": 823,
+  "img": "",
+  "whatsapp": "+573023262436",
+  "webAt": "2026-11-23"
  },
  {
   "id": "bucaramanga-fundacion-colegio-uis",
@@ -270055,7 +270081,8 @@
   "found": "2026-11-10",
   "code": "350001001141",
   "padron": "MEN datos.gov.co",
-  "students": 288
+  "students": 288,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "villavicencio-gimnasio-integral-nuevas-aventuras",
@@ -272027,7 +272054,9 @@
   "found": "2026-11-10",
   "code": "350001001800",
   "padron": "MEN datos.gov.co",
-  "students": 106
+  "students": 106,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "villavicencio-jardin-y-maternal-malufs",
@@ -278239,7 +278268,8 @@
   "found": "2026-11-10",
   "code": "373001000391",
   "padron": "MEN datos.gov.co",
-  "students": 410
+  "students": 410,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "ibague-colegio-nuevo-liceo",
@@ -281892,7 +281922,8 @@
    "0453118",
    "0451658",
    "0344671"
-  ]
+  ],
+  "imgTry": "2026-11-23"
  },
  {
   "id": "chiclayo-universidad-de-lambayeque",
@@ -282155,7 +282186,9 @@
    "1460740",
    "1354778",
    "1634682"
-  ]
+  ],
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "chiclayo-colegio-san-agustin",
@@ -282239,7 +282272,8 @@
    "1362144",
    "1309145",
    "1309137"
-  ]
+  ],
+  "imgTry": "2026-11-23"
  },
  {
   "id": "chiclayo-c-e-p-santa-maria-reina",
@@ -282271,7 +282305,8 @@
    "0453175",
    "0451674",
    "0476978"
-  ]
+  ],
+  "imgTry": "2026-11-23"
  },
  {
   "id": "chiclayo-centro-pre-universidad-senor-de-sipan",
@@ -282429,7 +282464,8 @@
    "0453241",
    "0451625",
    "1159557"
-  ]
+  ],
+  "imgTry": "2026-11-23"
  },
  {
   "id": "chiclayo-colegio-rosa-maria-checa",
@@ -282561,7 +282597,9 @@
   "codes": [
    "1460740",
    "1354778"
-  ]
+  ],
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "chiclayo-universidad-alas-peruanas",
@@ -285228,7 +285266,9 @@
   "found": "2026-11-10",
   "code": "347001800221",
   "padron": "MEN datos.gov.co",
-  "students": 290
+  "students": 290,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "santa-marta-colegio-cristiano-hefziba-beula",
@@ -286866,7 +286906,8 @@
   "found": "2026-11-10",
   "code": "347001051571",
   "padron": "MEN datos.gov.co",
-  "students": 184
+  "students": 184,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "santa-marta-institucion-jose-gregorio-hernandez",
@@ -287694,7 +287735,8 @@
   "found": "2026-11-10",
   "code": "347001005570",
   "padron": "MEN datos.gov.co",
-  "students": 215
+  "students": 215,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "santa-marta-institucion-educativa-dist-el-pantano",
@@ -287910,7 +287952,8 @@
   "found": "2026-11-10",
   "code": "347001004522",
   "padron": "MEN datos.gov.co",
-  "students": 173
+  "students": 173,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "santa-marta-colegio-nueva-york",
@@ -288072,7 +288115,8 @@
   "found": "2026-11-10",
   "code": "347001001914",
   "padron": "MEN datos.gov.co",
-  "students": 351
+  "students": 351,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "santa-marta-escuela-san-martin-de-porres",
@@ -288205,7 +288249,9 @@
   "found": "2026-11-10",
   "code": "347001000845",
   "padron": "MEN datos.gov.co",
-  "students": 553
+  "students": 553,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "santa-marta-colegio-mix-20-de-julio",
@@ -288276,7 +288322,8 @@
   "found": "2026-11-10",
   "code": "347001000721",
   "padron": "MEN datos.gov.co",
-  "students": 455
+  "students": 455,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "santa-marta-colegio-eucaristico",
@@ -295225,7 +295272,8 @@
   "found": "2026-11-10",
   "code": "366170002134",
   "padron": "MEN datos.gov.co",
-  "students": 302
+  "students": 302,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "pereira-universidad-del-quindio-sede-pereira",
@@ -296867,7 +296915,9 @@
   "found": "2026-11-10",
   "code": "317001001519",
   "padron": "MEN datos.gov.co",
-  "students": 276
+  "students": 276,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "manizales-instituto-manizales",
@@ -296928,7 +296978,10 @@
   "found": "2026-11-10",
   "code": "417873000587",
   "padron": "MEN datos.gov.co",
-  "students": 187
+  "students": 187,
+  "img": "",
+  "whatsapp": "+573156870834",
+  "webAt": "2026-11-23"
  },
  {
   "id": "manizales-instituto-integrado-la-sultana",
@@ -297336,7 +297389,9 @@
   "found": "2026-11-10",
   "code": "323001007011",
   "padron": "MEN datos.gov.co",
-  "students": 687
+  "students": 687,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "monteria-colegio-artistico-sueno-inf",
@@ -297959,7 +298014,9 @@
   "found": "2026-11-10",
   "code": "323001002311",
   "padron": "MEN datos.gov.co",
-  "students": 472
+  "students": 472,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "monteria-institucion-educativa-comfacor-jaime-exbrayat",
@@ -298182,7 +298239,8 @@
   "found": "2026-11-10",
   "code": "323001800080",
   "padron": "MEN datos.gov.co",
-  "students": 45
+  "students": 45,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "monteria-centro-educativo-villa-nueva",
@@ -298252,7 +298310,9 @@
   "found": "2026-11-10",
   "code": "323001800021",
   "padron": "MEN datos.gov.co",
-  "students": 29
+  "students": 29,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "monteria-gimnasio-monterrey",
@@ -307049,7 +307109,10 @@
   "found": "2026-11-10",
   "code": "352001001519",
   "padron": "MEN datos.gov.co",
-  "students": 974
+  "students": 974,
+  "img": "https://bethlemitaspasto.edu.co/wp-content/uploads/2026/06/PrescoSelecc-1024x683.png",
+  "whatsapp": "+573104198006",
+  "webAt": "2026-11-23"
  },
  {
   "id": "pasto-colegio-filipense-nuestra-senora-de-la-esperanza",
@@ -307632,7 +307695,8 @@
   "found": "2026-11-10",
   "code": "352001800098",
   "padron": "MEN datos.gov.co",
-  "students": 368
+  "students": 368,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "pasto-institucion-politecnico-sur-andino",
@@ -308078,7 +308142,8 @@
   "found": "2026-11-10",
   "code": "352001000903",
   "padron": "MEN datos.gov.co",
-  "students": 1300
+  "students": 1300,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "pasto-universidad-mariana",
@@ -311684,7 +311749,8 @@
   "found": "2026-11-10",
   "code": "341001004265",
   "padron": "MEN datos.gov.co",
-  "students": 128
+  "students": 128,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "neiva-colegio-san-miguel-arcangel",
@@ -311730,7 +311796,9 @@
   "found": "2026-11-10",
   "code": "341001005237",
   "padron": "MEN datos.gov.co",
-  "students": 604
+  "students": 604,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "neiva-colegio-piaget",
@@ -311755,7 +311823,8 @@
   "found": "2026-11-10",
   "code": "341001005431",
   "padron": "MEN datos.gov.co",
-  "students": 811
+  "students": 811,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "neiva-aspaen-gimnasio-yumana",
@@ -311878,7 +311947,10 @@
   "found": "2026-11-10",
   "code": "341001004001",
   "padron": "MEN datos.gov.co",
-  "students": 242
+  "students": 242,
+  "img": "",
+  "whatsapp": "+573176645678",
+  "webAt": "2026-11-23"
  },
  {
   "id": "uruapan-universidad-interamericana-para-el-desarrollo-sede-uruapan",
@@ -312364,7 +312436,9 @@
    "1003201",
    "0818864",
    "1000801"
-  ]
+  ],
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "chimbote-colegio-santa-rosa-de-lima",
@@ -315171,7 +315245,8 @@
   "found": "2026-11-10",
   "code": "376520002456",
   "padron": "MEN datos.gov.co",
-  "students": 284
+  "students": 284,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "palmira-colegio-rosa-virginia",
@@ -326409,7 +326484,8 @@
   "found": "2026-11-11",
   "code": "319001004715",
   "padron": "MEN datos.gov.co",
-  "students": 511
+  "students": 511,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "popayan-institucion-educ-jardin-inf-castillo-del-saber",
@@ -327871,7 +327947,9 @@
   "found": "2026-11-11",
   "code": "319001001180",
   "padron": "MEN datos.gov.co",
-  "students": 506
+  "students": 506,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "popayan-colegio-san-jose-de-tarbes",
@@ -328467,7 +328545,9 @@
   "found": "2026-11-11",
   "code": "319001000434",
   "padron": "MEN datos.gov.co",
-  "students": 547
+  "students": 547,
+  "img": "https://champagnat.edu.co/wp-content/uploads/2025/03/portada-champagnat.jpg",
+  "webAt": "2026-11-23"
  },
  {
   "id": "popayan-universidad-del-cauca-2",
@@ -335262,7 +335342,9 @@
   "found": "2026-11-11",
   "code": "381001002281",
   "padron": "MEN datos.gov.co",
-  "students": 158
+  "students": 158,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "arauca-colegio-pablo-neruda",
@@ -338982,7 +339064,9 @@
   "found": "2026-11-11",
   "code": "344001003853",
   "padron": "MEN datos.gov.co",
-  "students": 134
+  "students": 134,
+  "img": "https://www.colmagra.edu.co/wp-content/uploads/2023/12/cropped-DiseA%C2%B1o_Logo_Colmagra-1.png",
+  "webAt": "2026-11-23"
  },
  {
   "id": "riohacha-centro-educativo-del-caribe",
@@ -339834,7 +339918,8 @@
   "found": "2026-11-11",
   "code": "344001800141",
   "padron": "MEN datos.gov.co",
-  "students": 160
+  "students": 160,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "riohacha-colegio-cristiano-psicopedagogico",
@@ -344170,7 +344255,9 @@
   "found": "2026-11-11",
   "code": "370001000057",
   "padron": "MEN datos.gov.co",
-  "students": 1348
+  "students": 1348,
+  "img": "https://colmercedes.edu.co/wp-content/uploads/2026/08/PLANTILLA-CIRCULOS-PAG-WEB-.png",
+  "webAt": "2026-11-23"
  },
  {
   "id": "sincelejo-gimnasio-moderno-los-angeles",
@@ -353145,7 +353232,8 @@
   "found": "2026-11-11",
   "code": "468547800020",
   "padron": "MEN datos.gov.co",
-  "students": 175
+  "students": 175,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "floridablanca-colegio-liceo-bilingue-rodolfo-llinas",
@@ -353169,7 +353257,8 @@
   "found": "2026-11-11",
   "code": "468547800011",
   "padron": "MEN datos.gov.co",
-  "students": 69
+  "students": 69,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "floridablanca-aspaen-gimnasio-cantillana",
@@ -353260,7 +353349,8 @@
   "found": "2026-11-11",
   "code": "368547002170",
   "padron": "MEN datos.gov.co",
-  "students": 51
+  "students": 51,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "floridablanca-colegio-ciudad-inf-quinta-granada",
@@ -385662,7 +385752,9 @@
   "found": "2026-11-12",
   "code": "368081002794",
   "padron": "MEN datos.gov.co",
-  "students": 324
+  "students": 324,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "barrancabermeja-colegio-central-integrada",
@@ -388011,7 +388103,8 @@
   "found": "2026-11-12",
   "code": "315001001923",
   "padron": "MEN datos.gov.co",
-  "students": 347
+  "students": 347,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "tunja-universidad-de-boyaca",
@@ -408800,7 +408893,10 @@
   "found": "2026-11-13",
   "code": "376364002343",
   "padron": "MEN datos.gov.co",
-  "students": 609
+  "students": 609,
+  "img": "",
+  "whatsapp": "+573156552124",
+  "webAt": "2026-11-23"
  },
  {
   "id": "jamundi-colegio-ciudadela-terranova",
@@ -409965,7 +410061,9 @@
    "0359489",
    "0359067",
    "0360297"
-  ]
+  ],
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "nuevo-chimbote-universidad-san-pedro",
@@ -419447,7 +419545,9 @@
   "found": "2026-11-13",
   "code": "405045000338",
   "padron": "MEN datos.gov.co",
-  "students": 570
+  "students": 570,
+  "img": "",
+  "webAt": "2026-11-23"
  },
  {
   "id": "apartado-centro-educativo-centro-de-desarrollo-infantil-suenos-de-compartir",
@@ -419470,7 +419570,8 @@
   "found": "2026-11-13",
   "code": "305045800046",
   "padron": "MEN datos.gov.co",
-  "students": 185
+  "students": 185,
+  "imgTry": "2026-11-23"
  },
  {
   "id": "apartado-institucion-de-educacion-formal-centro-de-sistemas",
@@ -1458489,5 +1458590,624 @@
   "src": "osm",
   "osm": "w1369756911",
   "found": "2026-11-22"
+ },
+ {
+  "id": "juigalpa-colegio-san-francisco-de-asis",
+  "name": "Colegio San Francisco de Asís",
+  "city": "Juigalpa",
+  "country": "Nicaragua",
+  "lat": 12.111613,
+  "lng": -85.367695,
+  "addr": "6da Calle NE",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w209140640",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "juigalpa-colegio-diocesano-nuestra-senora-de-guadalupe",
+  "name": "Colegio diocesano Nuestra Señora de Guadalupe",
+  "city": "Juigalpa",
+  "country": "Nicaragua",
+  "lat": 12.096179,
+  "lng": -85.369471,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w593112786",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "clorinda-instituto-santa-catalina-laboure-n6",
+  "name": "Instituto Santa Catalina Laboure (Ñ6)",
+  "city": "Clorinda",
+  "country": "Argentina",
+  "lat": -25.288066,
+  "lng": -57.719034,
+  "addr": "San Vicente de Paul 1250",
+  "phone": "+54 3718 42 1272",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n3595278336",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "clorinda-instituto-tecnico-san-jose-15",
+  "name": "Instituto Técnico San José 15",
+  "city": "Clorinda",
+  "country": "Argentina",
+  "lat": -25.300272,
+  "lng": -57.720455,
+  "addr": "San Vicente de Paul 2402",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Primaria",
+   "Secundaria",
+   "Prepa"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n7034180577",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "clorinda-universidad",
+  "name": "Universidad",
+  "city": "Clorinda",
+  "country": "Argentina",
+  "lat": -25.285297,
+  "lng": -57.704955,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w669206986",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "clorinda-universidad-2",
+  "name": "Universidad",
+  "city": "Clorinda",
+  "country": "Argentina",
+  "lat": -25.295306,
+  "lng": -57.727041,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w669206988",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "pacora-instituto-superior-benjamin-rosales-pareja",
+  "name": "Instituto Superior Benjamín Rosales Pareja",
+  "city": "Pacora",
+  "country": "Panamá",
+  "lat": 9.095767,
+  "lng": -79.313429,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w732977717",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "pacora-colegio-inmaculada-concepcion-de-maria",
+  "name": "Colegio Inmaculada Concepcion de Maria",
+  "city": "Pacora",
+  "country": "Panamá",
+  "lat": 9.087459,
+  "lng": -79.290418,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1286468532",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "vila-real-colegio-nuestra-senora-de-la-consolacion",
+  "name": "Colegio Nuestra Señora de la Consolación",
+  "city": "Vila-real",
+  "country": "España",
+  "lat": 39.932817,
+  "lng": -0.10341,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w40753347",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "vila-real-laude-british-school-of-vilareal",
+  "name": "Laude British School Of Vilareal",
+  "city": "Vila-real",
+  "country": "España",
+  "lat": 39.92091,
+  "lng": -0.094494,
+  "addr": "Camino Tercer Sedeny",
+  "phone": "+34 964 500 155",
+  "web": "https://britishschoolvilareal.com/",
+  "email": "info@bsvr.edu.es",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w588980403",
+  "found": "2026-11-23",
+  "img": "https://www.bsvr.edu.es/IB%20-%20British%20School%20of%20Vila-Real/School%20logo/Vila-Real-iSP_colored.svg",
+  "webAt": "2026-11-23"
+ },
+ {
+  "id": "linares-centro-educativo-ciudad-de-linares",
+  "name": "Centro Educativo Ciudad de Linares",
+  "city": "Linares",
+  "country": "España",
+  "lat": 38.089108,
+  "lng": -3.64129,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w217135777",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "linares-colegio-santa-teresa-doctora",
+  "name": "Colegio Santa Teresa Doctora",
+  "city": "Linares",
+  "country": "España",
+  "lat": 38.102864,
+  "lng": -3.639277,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w255979006",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "linares-colegio-padre-poveda",
+  "name": "Colegio Padre Poveda",
+  "city": "Linares",
+  "country": "España",
+  "lat": 38.097968,
+  "lng": -3.638953,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w274183567",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "linares-colegio-salesianos",
+  "name": "Colegio Salesianos",
+  "city": "Linares",
+  "country": "España",
+  "lat": 38.099938,
+  "lng": -3.634955,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w469039536",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "linares-colegio-jaen",
+  "name": "Colegio Jaén",
+  "city": "Linares",
+  "country": "España",
+  "lat": 38.091446,
+  "lng": -3.638569,
+  "addr": "Calle Jaén 26",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w469077595",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "linares-colegio-sagrada-familia",
+  "name": "Colegio Sagrada Familia",
+  "city": "Linares",
+  "country": "España",
+  "lat": 38.094192,
+  "lng": -3.639596,
+  "addr": "Calle Áurea Galindo 1",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w469077598",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "linares-colegio-acel",
+  "name": "Colegio ACEL",
+  "city": "Linares",
+  "country": "España",
+  "lat": 38.09163,
+  "lng": -3.627573,
+  "addr": "Calle Goya 2",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w469107198",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "linares-colegio-de-educacion-especial-virgen-de-linarejos",
+  "name": "Colegio de Educación Especial Virgen de Linarejos",
+  "city": "Linares",
+  "country": "España",
+  "lat": 38.106167,
+  "lng": -3.633773,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w469413515",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "linares-colegio-los-arrayanes",
+  "name": "Colegio Los Arrayanes",
+  "city": "Linares",
+  "country": "España",
+  "lat": 38.108193,
+  "lng": -3.635864,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w469413520",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "linares-colegio-francisco-banos",
+  "name": "Colegio Francisco Baños",
+  "city": "Linares",
+  "country": "España",
+  "lat": 38.110433,
+  "lng": -3.637739,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w474353848",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "linares-colegio-alfonso-garcia-chamorro",
+  "name": "Colegio Alfonso García Chamorro",
+  "city": "Linares",
+  "country": "España",
+  "lat": 38.071795,
+  "lng": -3.58978,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w675654378",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "linares-colegio-sagrado-corazon",
+  "name": "Colegio Sagrado Corazón",
+  "city": "Linares",
+  "country": "España",
+  "lat": 38.092028,
+  "lng": -3.633856,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w752692548",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "villa-hayes-universidad-metropolitana-de-asuncion",
+  "name": "Universidad Metropolitana de Asunción",
+  "city": "Villa Hayes",
+  "country": "Paraguay",
+  "lat": -25.091226,
+  "lng": -57.517967,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5446038905",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "villa-hayes-colegio-raul-pena",
+  "name": "Colegio Raul Peña",
+  "city": "Villa Hayes",
+  "country": "Paraguay",
+  "lat": -25.095828,
+  "lng": -57.524336,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5446038906",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "villa-hayes-colegio-tecnico-defensores-del-chaco",
+  "name": "Colegio Tecnico Defensores del Chaco",
+  "city": "Villa Hayes",
+  "country": "Paraguay",
+  "lat": -25.089448,
+  "lng": -57.535029,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1103196878",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "villa-hayes-colegio-privado-subvencionado-manuel-molinas",
+  "name": "Colegio Privado Subvencionado Manuel Molinas",
+  "city": "Villa Hayes",
+  "country": "Paraguay",
+  "lat": -25.090409,
+  "lng": -57.521598,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1103218241",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "plottier-escuela-secundaria-de-arte-para-el-alma-libre",
+  "name": "Escuela Secundaria de Arte para el Alma Libre",
+  "city": "Plottier",
+  "country": "Argentina",
+  "lat": -38.950213,
+  "lng": -68.177365,
+  "addr": "Ayuntún Hué 3891",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1040716610",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "plottier-colegio-amancay",
+  "name": "Colegio Amancay",
+  "city": "Plottier",
+  "country": "Argentina",
+  "lat": -38.956115,
+  "lng": -68.243762,
+  "addr": "Buenos Aires Sur 1006",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1043296220",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "plottier-instituto-de-formacion-y-educacion-superior",
+  "name": "Instituto de Formación y Educación Superior",
+  "city": "Plottier",
+  "country": "Argentina",
+  "lat": -38.968105,
+  "lng": -68.237034,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar",
+   "Secundaria"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "r13921645",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "arandas-colegio-de-los-altos-2",
+  "name": "Colegio De Los Altos",
+  "city": "Arandas",
+  "country": "México",
+  "lat": 20.699994,
+  "lng": -102.353383,
+  "addr": "Santa Bertha 402",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802520606",
+  "found": "2026-11-23"
+ },
+ {
+  "id": "arandas-escuela-preparatoria-regional-de-arandas",
+  "name": "Escuela Preparatoria Regional De Arandas",
+  "city": "Arandas",
+  "country": "México",
+  "lat": 20.699295,
+  "lng": -102.351916,
+  "addr": "General Arteaga",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Prepa"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3802572801",
+  "found": "2026-11-23"
  }
 ]

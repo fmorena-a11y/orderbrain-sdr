@@ -7525,7 +7525,20 @@
   "AR|Viedma": "2026-11-22T20:48:49.481Z",
   "CO|n306381625": "2026-11-22T20:52:57.013Z",
   "ES|n240422991": "2026-11-22T20:53:35.435Z",
-  "CO|n703319439": "2026-11-22T21:00:17.633Z"
+  "CO|n703319439": "2026-11-22T21:00:17.633Z",
+  "ES|n1470838541": "2026-11-23T02:53:57.422Z",
+  "NI|n2773636390": "2026-11-23T02:54:31.783Z",
+  "MX|Tizimín": "2026-11-23T02:55:12.383Z",
+  "AR|Clorinda": "2026-11-23T02:55:48.514Z",
+  "PA|n931383178": "2026-11-23T02:56:28.534Z",
+  "ES|n1470839537": "2026-11-23T02:57:04.784Z",
+  "ES|n1470838471": "2026-11-23T02:57:40.545Z",
+  "MX|Taxco": "2026-11-23T02:58:16.068Z",
+  "PY|n313926435": "2026-11-23T02:58:46.298Z",
+  "AR|Villa Constitución": "2026-11-23T02:59:27.169Z",
+  "AR|Plottier": "2026-11-23T02:59:59.241Z",
+  "MX|Arandas": "2026-11-23T03:00:36.651Z",
+  "ES|n256552113": "2026-11-23T03:07:44.505Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7680,6 +7693,111 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-23T02:53:13.243Z",
+   "cities": [
+    {
+     "cc": "ES",
+     "city": "Mollet del Vallès",
+     "found": 0,
+     "updated": 0,
+     "osm": 67
+    },
+    {
+     "cc": "NI",
+     "city": "Juigalpa",
+     "found": 2,
+     "updated": 0,
+     "osm": 11
+    },
+    {
+     "cc": "MX",
+     "city": "Tizimín",
+     "found": 0,
+     "updated": 0,
+     "osm": 20
+    },
+    {
+     "cc": "AR",
+     "city": "Clorinda",
+     "found": 4,
+     "updated": 0,
+     "osm": 45
+    },
+    {
+     "cc": "PA",
+     "city": "Pacora",
+     "found": 2,
+     "updated": 0,
+     "osm": 9
+    },
+    {
+     "cc": "ES",
+     "city": "Vila-real",
+     "found": 2,
+     "updated": 0,
+     "osm": 36
+    },
+    {
+     "cc": "ES",
+     "city": "Linares",
+     "found": 12,
+     "updated": 0,
+     "osm": 24
+    },
+    {
+     "cc": "MX",
+     "city": "Taxco",
+     "found": 0,
+     "updated": 0,
+     "osm": 11
+    },
+    {
+     "cc": "PY",
+     "city": "Villa Hayes",
+     "found": 4,
+     "updated": 0,
+     "osm": 15
+    },
+    {
+     "cc": "AR",
+     "city": "Villa Constitución",
+     "found": 0,
+     "updated": 0,
+     "osm": 8
+    },
+    {
+     "cc": "AR",
+     "city": "Plottier",
+     "found": 3,
+     "updated": 0,
+     "osm": 27
+    },
+    {
+     "cc": "MX",
+     "city": "Arandas",
+     "found": 2,
+     "updated": 0,
+     "osm": 57
+    },
+    {
+     "cc": "ES",
+     "city": "Las Rozas de Madrid",
+     "found": 0,
+     "updated": 0,
+     "osm": 70
+    }
+   ],
+   "added": 31,
+   "enriched": 0,
+   "photos": 8,
+   "contacts": 11,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 16.1,
+   "total": 62063
+  },
   {
    "at": "2026-11-22T20:45:14.915Z",
    "cities": [
@@ -9684,69 +9802,6 @@
    ],
    "minutes": 19,
    "total": 21995
-  },
-  {
-   "at": "2026-11-17T01:33:52.622Z",
-   "cities": [
-    {
-     "cc": "VE",
-     "city": "Santa Rita",
-     "found": 0,
-     "updated": 0,
-     "osm": 0
-    },
-    {
-     "cc": "CL",
-     "city": "Ovalle",
-     "found": 19,
-     "updated": 0,
-     "osm": 51
-    },
-    {
-     "cc": "PY",
-     "city": "Areguá",
-     "found": 2,
-     "updated": 0,
-     "osm": 41
-    },
-    {
-     "cc": "MX",
-     "city": "Cadereyta Jiménez",
-     "found": 2,
-     "updated": 0,
-     "osm": 11
-    },
-    {
-     "cc": "MX",
-     "city": "Texmelucan",
-     "found": 1,
-     "updated": 0,
-     "osm": 20
-    },
-    {
-     "cc": "ES",
-     "city": "Benidorm",
-     "found": 4,
-     "updated": 0,
-     "osm": 26
-    },
-    {
-     "cc": "ES",
-     "city": "Palencia",
-     "found": 26,
-     "updated": 0,
-     "osm": 55
-    }
-   ],
-   "added": 54,
-   "enriched": 0,
-   "photos": 1,
-   "contacts": 1,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 18.4,
-   "total": 21953
   }
  ]
 }
