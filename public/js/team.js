@@ -494,10 +494,10 @@ function demosHtml(d) {
   return `${periodPick(d)}${intro}${cut ? `<div class="callout warn" style="margin-bottom:10px">${icon("alert")}<span>Pipedrive devolvió demasiado y cortó la lista: los números van «?».</span></div>` : ""}${rule}${tbl}${items}${defs}`;
 }
 // ---------- subpestañas: las que le tocan a cada uno (las mismas reglas que antes decidían qué tarjetas se veían)
-const TABS = [["demos", "Demos", "video"], ["actividad", "Actividad", "clock"], ["equipos", "Equipos", "users"], ["accesos", "Accesos", "user"], ["cuenta", "Base y clientes", "refresh"]];
+const TABS = [["demos", "Demos", "video"], ["actividad", "Actividad", "clock"], ["equipos", "Equipos", "users"], ["accesos", "Accesos", "user"], ["cuenta", "Base y clientes", "refresh"], ["gasto", "Gasto de IA", "chart"]];
 function tabsFor() {
   const sc = S.profile?.scope || {}, leader = !!S.profile?.leader;
-  return TABS.filter(([k]) => k === "actividad" || (leader && (k === "demos" || k === "accesos")) || (k === "equipos" && leader && (sc.admin || sc.on)) || (k === "cuenta" && leader && sc.all));
+  return TABS.filter(([k]) => k === "actividad" || (leader && (k === "demos" || k === "accesos")) || (k === "equipos" && leader && (sc.admin || sc.on)) || ((k === "cuenta" || k === "gasto") && leader && sc.all));
 }
 const hashTab = () => (location.hash.match(/^#\/equipo\/(\w+)/) || [])[1] || "";
 function curTab() {
@@ -538,6 +538,7 @@ function draw() {
     accesos: () => section("hAc", "user", "Accesos del equipo", "cada persona entra con su email y su código personal", `<div class="card-b" id="codes">${'<div class="skel" style="margin:14px 0"></div>'.repeat(3)}</div>`),
     cuenta: () => `${section("hSy", "refresh", "Sincronizar con Pipedrive", "cruza toda la base de colegios de una vez", '<div class="card-b" id="syncBox" aria-live="polite"></div>')}
       ${section("hWd", "globe", "World Dominion", "qué colegios ya son clientes de OrderEAT", '<div class="card-b" id="wdBox"></div>')}`,
+    gasto: () => section("hSp", "chart", "Gasto de IA", "API y suscripciones · solo dirección", '<div class="card-b" id="spBox"></div>'),
   };
   host.innerHTML = `<div class="page read">
     <div class="page-head"><div><h1>Equipo</h1><p>${esc(sub)}</p></div><div class="team-head">${teamSelect("teamPick")}${leader ? `<a class="btn" href="#/metricas">${icon("chart", "sm")} Ver métricas</a>` : ""}</div></div>
@@ -557,6 +558,7 @@ function draw() {
   host.querySelector("#teamPick")?.addEventListener("change", e => { setTeamView(e.target.value); S.team7 = null; draw(); refresh(); drawCodes(); });
   if (tab === "equipos") { if (!tdata) loadTeams(); else drawTeams(); }
   if (tab === "accesos") { if (!codes) loadCodes(); else drawCodes(); }
+  if (tab === "gasto") import("./aispend.js").then(m => { const b = host.querySelector("#spBox"); if (b) m.renderSpend(b); });
   if (tab === "cuenta") { drawSync(); if (!syncing) loadSync(); drawWd(); if (!wdBusy && Date.now() - wdAt > 20e3) loadWd(); }
   host.querySelectorAll("[data-id]").forEach(b => b.onclick = () => openSchool(b.dataset.id));
   host.querySelectorAll("[data-dsch]").forEach(b => b.onclick = () => openSchool(b.dataset.dsch));

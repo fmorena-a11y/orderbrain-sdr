@@ -43,7 +43,7 @@ export async function loadStudy(id, { refresh = false, make = false } = {}) {
     let st = null;
     try { st = (await api(`/api/schools/${id}/study`, { body: { refresh, confirm: true } })).study; }
     catch (e) {
-      if (e?.code === "ai_budget" || e?.code === "ai_confirm") throw e;
+      if (["ai_budget", "ai_confirm", "ai_busy"].includes(e?.code)) throw e;
       // si otra persona lo está generando, esperar a que aparezca
       for (let i = 0; i < 24 && !st && D.id === id; i++) { await new Promise(r => setTimeout(r, 8000)); st = (await api(`/api/schools/${id}/study`).catch(() => ({}))).study; }
       if (!st) throw e;
