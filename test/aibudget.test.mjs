@@ -12,7 +12,7 @@ test("costo por usage: tokens y búsquedas", () => {
 
 test("tope del mes", async () => {
   const { limits } = B;
-  assert.equal(limits().month, 30);
+  assert.equal(limits().month, 70);
 });
 
 test("tope por persona y de toda la cuenta", async () => {
