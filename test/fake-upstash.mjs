@@ -27,6 +27,7 @@ export async function fakeUpstash() {
       case "DEL": { let n = 0; for (const k of a) { exp.delete(k); if (str.delete(k) | hash.delete(k) | zset.delete(k)) n++; } return n; }
       case "HSET": { const h = H(a[0]); for (let i = 1; i < a.length; i += 2) h.set(String(a[i]), String(a[i + 1])); return (a.length - 1) / 2; }
       case "HGET": return hash.get(a[0])?.get(String(a[1])) ?? null;
+      case "HINCRBY": { const h = H(a[0]), n = Number(h.get(String(a[1])) || 0) + Number(a[2]); h.set(String(a[1]), String(n)); return n; }
       case "HMGET": return a.slice(1).map(f => hash.get(a[0])?.get(String(f)) ?? null);
       case "HDEL": { let n = 0; for (const f of a.slice(1)) if (hash.get(a[0])?.delete(String(f))) n++; return n; }
       case "HGETALL": return [...(hash.get(a[0]) || new Map())].flat();

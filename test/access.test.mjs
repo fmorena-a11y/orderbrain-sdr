@@ -149,3 +149,20 @@ test("store: se guarda por email en un hash sin vencimiento; otra instancia lo v
   assert.equal(m["roto@ordereat.com"], undefined);
   assert.equal(accessOf({ assigned: m["roto@ordereat.com"] }).leader, false);
 });
+
+test("store: la relectura periódica baja la lista entera solo si cambió (contador «ver»: ancho de banda de Redis)", async () => {
+  const hgetall = () => R.log.filter(c => String(c[0]).toUpperCase() === "HGETALL" && c[1] === "acc:access").length;
+  await store.getAccessMap({ fresh: true });
+  const before = hgetall();
+  // pasan más de 5 s y nada cambió: solo se pide el contador, no la lista
+  await new Promise(r => setTimeout(r, 5200));
+  await store.getAccessMap();
+  assert.equal(hgetall(), before, "sin cambios no vuelve a bajar el hash entero");
+  // otra instancia escribe (HSET + contador): la próxima relectura la baja
+  R.run(["HSET", "acc:access", "nuevo@ordereat.com", JSON.stringify(accessRecord({ level: "lider", title: "", by: "a@ordereat.com", byName: "A", at: "2026-11-11T12:00:00Z" }))]);
+  R.run(["HINCRBY", "acc:ver", "access", "1"]);
+  await new Promise(r => setTimeout(r, 5200));
+  const m = await store.getAccessMap();
+  assert.equal(hgetall(), before + 1);
+  assert.equal(m["nuevo@ordereat.com"].level, "lider");
+});
