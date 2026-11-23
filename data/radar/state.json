@@ -7548,10 +7548,9 @@
   "CO|n703169441": "2026-11-23T18:27:24.010Z",
   "AR|Presidente Derqui": "2026-11-23T18:28:03.197Z",
   "DO|n252989429": "2026-11-23T18:28:42.410Z",
-  "AR|Bosques": "2026-11-23T18:57:07.427Z",
-  "CO|n703179520": "2026-11-23T18:59:15.191Z",
-  "PE|Huamachuco": "2026-11-23T19:03:29.886Z",
-  "MX|Acayucan": "2026-11-23T19:10:13.327Z"
+  "AR|Bosques": "2026-11-23T18:39:41.497Z",
+  "CO|n703179520": "2026-11-23T18:41:59.897Z",
+  "MX|Acayucan": "2026-11-23T19:16:23.848Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7703,11 +7702,44 @@
    "n": 1,
    "at": "2026-11-22T02:33:54.731Z",
    "error": "The operation was aborted due to timeout"
+  },
+  "PE|Huamachuco": {
+   "n": 1,
+   "at": "2026-11-23T18:54:35.506Z",
+   "error": "Overpass 502"
+  },
+  "MX|Zumpango": {
+   "n": 1,
+   "at": "2026-11-23T19:29:20.997Z",
+   "error": "Overpass 504"
   }
  },
  "runs": [
   {
-   "at": "2026-11-23T18:56:29.514Z",
+   "at": "2026-11-23T19:12:19.158Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Acayucan",
+     "found": 0,
+     "updated": 0,
+     "osm": 0
+    }
+   ],
+   "added": 0,
+   "enriched": 0,
+   "photos": 15,
+   "contacts": 10,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "MX|Zumpango: Overpass 504"
+   ],
+   "minutes": 18.4,
+   "total": 62106
+  },
+  {
+   "at": "2026-11-23T18:38:55.638Z",
    "cities": [
     {
      "cc": "AR",
@@ -7722,30 +7754,18 @@
      "found": 3,
      "updated": 1,
      "osm": 37
-    },
-    {
-     "cc": "PE",
-     "city": "Huamachuco",
-     "found": 0,
-     "updated": 0,
-     "osm": 29
-    },
-    {
-     "cc": "MX",
-     "city": "Acayucan",
-     "found": 0,
-     "updated": 0,
-     "osm": 14
     }
    ],
    "added": 5,
    "enriched": 0,
    "photos": 13,
-   "contacts": 10,
+   "contacts": 9,
    "ai": 0,
    "studies": 0,
-   "errors": [],
-   "minutes": 15.5,
+   "errors": [
+    "PE|Huamachuco: Overpass 502"
+   ],
+   "minutes": 17.3,
    "total": 62106
   },
   {
@@ -9570,139 +9590,6 @@
    ],
    "minutes": 18.3,
    "total": 22244
-  },
-  {
-   "at": "2026-11-17T09:20:59.577Z",
-   "cities": [
-    {
-     "cc": "VE",
-     "city": "Guasdualito",
-     "found": 1,
-     "updated": 0,
-     "osm": 1
-    },
-    {
-     "cc": "BO",
-     "city": "Cotoca",
-     "found": 0,
-     "updated": 0,
-     "osm": 4
-    },
-    {
-     "cc": "PE",
-     "city": "Ilo",
-     "found": 1,
-     "updated": 0,
-     "osm": 50
-    },
-    {
-     "cc": "CO",
-     "city": "El Espinal",
-     "found": 6,
-     "updated": 1,
-     "osm": 26
-    },
-    {
-     "cc": "PR",
-     "city": "Caguas",
-     "found": 12,
-     "updated": 0,
-     "osm": 60
-    },
-    {
-     "cc": "MX",
-     "city": "Guanajuato",
-     "found": 12,
-     "updated": 0,
-     "osm": 34
-    },
-    {
-     "cc": "MX",
-     "city": "Temascalcingo",
-     "found": 0,
-     "updated": 0,
-     "osm": 3
-    },
-    {
-     "cc": "CR",
-     "city": "Limón",
-     "found": 4,
-     "updated": 0,
-     "osm": 38
-    },
-    {
-     "cc": "CR",
-     "city": "Puntarenas",
-     "found": 0,
-     "updated": 0,
-     "osm": 14
-    },
-    {
-     "cc": "VE",
-     "city": "Punta de Mata",
-     "found": 1,
-     "updated": 0,
-     "osm": 7
-    },
-    {
-     "cc": "ES",
-     "city": "Alcalá de Guadaíra",
-     "found": 11,
-     "updated": 0,
-     "osm": 18
-    },
-    {
-     "cc": "CO",
-     "city": "Marinilla",
-     "found": 4,
-     "updated": 0,
-     "osm": 53
-    },
-    {
-     "cc": "PE",
-     "city": "Moquegua",
-     "found": 17,
-     "updated": 0,
-     "osm": 75
-    },
-    {
-     "cc": "ES",
-     "city": "Castelldefels",
-     "found": 3,
-     "updated": 0,
-     "osm": 44
-    },
-    {
-     "cc": "VE",
-     "city": "Pariaguán",
-     "found": 4,
-     "updated": 0,
-     "osm": 13
-    },
-    {
-     "cc": "CO",
-     "city": "Arjona",
-     "found": 14,
-     "updated": 0,
-     "osm": 36
-    },
-    {
-     "cc": "VE",
-     "city": "San Juan de Colón",
-     "found": 3,
-     "updated": 0,
-     "osm": 9
-    }
-   ],
-   "added": 93,
-   "enriched": 0,
-   "photos": 1,
-   "contacts": 1,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 17.6,
-   "total": 22237
   }
  ]
 }
