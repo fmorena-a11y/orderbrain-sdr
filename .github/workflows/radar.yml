@@ -40,7 +40,6 @@ jobs:
       - name: Buscar colegios
         env:
           GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           RADAR_COUNTRIES: ${{ inputs.countries }}
           RADAR_MINUTES: ${{ inputs.minutes || '20' }}
         run: node scripts/radar.mjs

@@ -26,7 +26,9 @@ const RESCAN_DAYS = Number(env.RADAR_RESCAN_DAYS || 30);
 const PLACES_MAX = Number(env.RADAR_PLACES_MAX || 150);
 const WEB_MAX = Number(env.RADAR_WEB_MAX || 60);
 const AI_MAX = Number(env.RADAR_AI_MAX || 120);
-const STUDY_MAX = Number(env.RADAR_STUDY_MAX || 8);
+// El radar NO usa la IA (gasto sin tope: corre cada 2 horas). Su workflow ya no recibe ANTHROPIC_API_KEY y, aunque la
+// tuviera, los estudios van en 0 salvo RADAR_STUDY_MAX explícito.
+const STUDY_MAX = Number(env.RADAR_STUDY_MAX || 0);
 const STUDY_DIR = path.join(ROOT, "data", "studies");
 const T0 = Date.now();
 const timeLeft = () => MINUTES * 60e3 - (Date.now() - T0);

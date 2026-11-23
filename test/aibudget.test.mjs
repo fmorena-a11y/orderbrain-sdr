@@ -10,6 +10,11 @@ test("costo por usage: tokens y búsquedas", () => {
   assert.equal(+B.costOf("modelo-raro", { input_tokens: 1e6 }).toFixed(4), 5); // desconocido: el más caro
 });
 
+test("tope del mes", async () => {
+  const { limits } = B;
+  assert.equal(limits().month, 30);
+});
+
 test("tope por persona y de toda la cuenta", async () => {
   await B.guard("a@x.com");
   await B.charge("a@x.com", "estudio", "claude-opus-5-5", { input_tokens: 125000 }); // US$0,50
