@@ -2078,12 +2078,22 @@ button.lh-row:hover { background: var(--surface-2); }
 .sp-meter i { display: block; height: 100%; background: var(--ok); }
 .sp-meter i.hot { background: var(--err); }
 .sp-chart { position: relative; height: 140px; display: flex; align-items: flex-end; gap: 3px; border-bottom: 1px solid var(--line-2); }
-.sp-col { flex: 1; height: 100%; display: flex; align-items: flex-end; min-width: 0; }
+.sp-col { flex: 1; height: 100%; display: flex; flex-direction: column-reverse; justify-content: flex-start; min-width: 0; }
+.sp-col i.s { background: var(--ok); opacity: .55; border-radius: 0; min-height: 0; }
 .sp-col i { display: block; width: 100%; min-height: 1px; background: var(--accent); border-radius: 2px 2px 0 0; opacity: .85; }
 .sp-col i.hot { background: var(--err); opacity: 1; }
 .sp-col i.zero { background: var(--line-2); }
 .sp-cap { position: absolute; left: 0; right: 0; border-top: 1px dashed var(--muted); pointer-events: none; }
 .sp-cap span { position: absolute; right: 0; top: -18px; font-size: var(--fs-2xs); color: var(--muted); }
+.sp-kpis { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+.sp-two { display: grid; gap: 2px; font-size: var(--fs-xs); color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.sp-two span { display: inline-flex; gap: 4px; align-items: center; }
+.sp-note { font-size: var(--fs-xs); margin: -6px 0 0; }
+.sp-by { display: flex; gap: 8px; margin: 0 0 12px; flex-wrap: wrap; }
+.sp-leg { display: inline-flex; gap: 12px; }
+.sp-leg span { display: inline-flex; gap: 4px; align-items: center; }
+.sp-leg i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; background: var(--accent); }
+.sp-leg i.s { background: var(--ok); opacity: .55; }
 .sp-axis { display: flex; justify-content: space-between; font-size: var(--fs-2xs); color: var(--faint); margin-top: 4px; }
 .sp-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
 .sp-rows { display: grid; }

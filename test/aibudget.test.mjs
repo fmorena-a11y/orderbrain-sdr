@@ -29,3 +29,15 @@ test("tope por persona y de toda la cuenta", async () => {
   assert.equal(u.days[0].total, 1);
   assert.equal(u.days[0].features.estudio, 1);
 });
+
+test("tablero: hoy, semana, mes y año separados en API y suscripción", async () => {
+  const m = new Date().toISOString().slice(0, 7);
+  await B.setPlan({ subs: [{ name: "Max", usd: "100", since: m }, { name: "vieja", usd: "", since: m }], past: [{ month: m, usd: "10,5", note: "consola" }, { month: "mal", usd: 3 }] }, "test");
+  const d = await B.dashboard(), P = d.periods, days = new Date(Date.UTC(+m.slice(0, 4), +m.slice(5), 0)).getUTCDate();
+  assert.equal(d.plan.subs.length, 2); assert.equal(d.plan.subs[1].usd, 0); assert.equal(d.plan.past.length, 1); // un mes mal escrito no entra
+  assert.equal(P.month.subs, 100);
+  assert.equal(P.month.api, +(d.monthApp + 10.5).toFixed(2));
+  assert.equal(P.day.subs, +(100 / days).toFixed(2));
+  assert.ok(P.year.total >= P.month.total && P.month.total >= P.day.total);
+  assert.equal(d.weeks.length, 12); assert.equal(d.months.length, 12);
+});
