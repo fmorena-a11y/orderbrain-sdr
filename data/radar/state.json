@@ -7548,8 +7548,10 @@
   "CO|n703169441": "2026-11-23T18:27:24.010Z",
   "AR|Presidente Derqui": "2026-11-23T18:28:03.197Z",
   "DO|n252989429": "2026-11-23T18:28:42.410Z",
-  "AR|Bosques": "2026-11-23T18:39:41.497Z",
-  "CO|n703179520": "2026-11-23T18:41:59.897Z"
+  "AR|Bosques": "2026-11-23T18:57:07.427Z",
+  "CO|n703179520": "2026-11-23T18:59:15.191Z",
+  "PE|Huamachuco": "2026-11-23T19:03:29.886Z",
+  "MX|Acayucan": "2026-11-23T19:10:13.327Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7701,16 +7703,11 @@
    "n": 1,
    "at": "2026-11-22T02:33:54.731Z",
    "error": "The operation was aborted due to timeout"
-  },
-  "PE|Huamachuco": {
-   "n": 1,
-   "at": "2026-11-23T18:54:35.506Z",
-   "error": "Overpass 502"
   }
  },
  "runs": [
   {
-   "at": "2026-11-23T18:38:55.638Z",
+   "at": "2026-11-23T18:56:29.514Z",
    "cities": [
     {
      "cc": "AR",
@@ -7725,18 +7722,30 @@
      "found": 3,
      "updated": 1,
      "osm": 37
+    },
+    {
+     "cc": "PE",
+     "city": "Huamachuco",
+     "found": 0,
+     "updated": 0,
+     "osm": 29
+    },
+    {
+     "cc": "MX",
+     "city": "Acayucan",
+     "found": 0,
+     "updated": 0,
+     "osm": 14
     }
    ],
    "added": 5,
    "enriched": 0,
    "photos": 13,
-   "contacts": 9,
+   "contacts": 10,
    "ai": 0,
    "studies": 0,
-   "errors": [
-    "PE|Huamachuco: Overpass 502"
-   ],
-   "minutes": 17.3,
+   "errors": [],
+   "minutes": 15.5,
    "total": 62106
   },
   {
