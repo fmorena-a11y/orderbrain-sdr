@@ -7543,7 +7543,11 @@
   "ES|n279235745": "2026-11-23T14:52:12.942Z",
   "MX|San Luis de la Paz": "2026-11-23T14:52:59.880Z",
   "ES|n256329511": "2026-11-23T14:53:38.511Z",
-  "ES|n319938844": "2026-11-23T14:59:37.084Z"
+  "ES|n319938844": "2026-11-23T14:59:37.084Z",
+  "CO|n424725068": "2026-11-23T18:19:32.258Z",
+  "CO|n703169441": "2026-11-23T18:27:24.010Z",
+  "AR|Presidente Derqui": "2026-11-23T18:28:03.197Z",
+  "DO|n252989429": "2026-11-23T18:28:42.410Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7698,6 +7702,50 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-23T18:18:57.535Z",
+   "cities": [
+    {
+     "cc": "CO",
+     "city": "Chinchiná",
+     "found": 1,
+     "updated": 0,
+     "osm": 9
+    },
+    {
+     "cc": "CO",
+     "city": "San Pelayo",
+     "found": 1,
+     "updated": 0,
+     "osm": 23
+    },
+    {
+     "cc": "AR",
+     "city": "Presidente Derqui",
+     "found": 0,
+     "updated": 0,
+     "osm": 38
+    },
+    {
+     "cc": "DO",
+     "city": "Esperanza",
+     "found": 8,
+     "updated": 0,
+     "osm": 15
+    }
+   ],
+   "added": 10,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 2,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "AR|Bosques: sin tiempo en esta corrida"
+   ],
+   "minutes": 19.3,
+   "total": 62101
+  },
   {
    "at": "2026-11-23T14:50:43.189Z",
    "cities": [
@@ -9681,111 +9729,6 @@
    ],
    "minutes": 15.9,
    "total": 22144
-  },
-  {
-   "at": "2026-11-17T05:16:58.789Z",
-   "cities": [
-    {
-     "cc": "ES",
-     "city": "Torrevieja",
-     "found": 4,
-     "updated": 0,
-     "osm": 29
-    },
-    {
-     "cc": "PY",
-     "city": "Villarrica",
-     "found": 2,
-     "updated": 0,
-     "osm": 25
-    },
-    {
-     "cc": "CL",
-     "city": "Quillota",
-     "found": 31,
-     "updated": 0,
-     "osm": 64
-    },
-    {
-     "cc": "SV",
-     "city": "Usulután",
-     "found": 2,
-     "updated": 0,
-     "osm": 20
-    },
-    {
-     "cc": "CO",
-     "city": "Cumaribo",
-     "found": 1,
-     "updated": 0,
-     "osm": 5
-    },
-    {
-     "cc": "MX",
-     "city": "Valle de Santiago",
-     "found": 2,
-     "updated": 0,
-     "osm": 7
-    },
-    {
-     "cc": "VE",
-     "city": "San Joaquín",
-     "found": 4,
-     "updated": 0,
-     "osm": 22
-    },
-    {
-     "cc": "MX",
-     "city": "San Miguel de Allende",
-     "found": 5,
-     "updated": 0,
-     "osm": 18
-    },
-    {
-     "cc": "CO",
-     "city": "Garzón",
-     "found": 10,
-     "updated": 0,
-     "osm": 25
-    },
-    {
-     "cc": "PE",
-     "city": "Abancay",
-     "found": 3,
-     "updated": 0,
-     "osm": 100
-    },
-    {
-     "cc": "BO",
-     "city": "Yacuiba",
-     "found": 8,
-     "updated": 0,
-     "osm": 34
-    },
-    {
-     "cc": "CL",
-     "city": "Melipilla",
-     "found": 30,
-     "updated": 0,
-     "osm": 59
-    },
-    {
-     "cc": "CO",
-     "city": "El Banco",
-     "found": 10,
-     "updated": 0,
-     "osm": 37
-    }
-   ],
-   "added": 112,
-   "enriched": 0,
-   "photos": 1,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 13.6,
-   "total": 22107
   }
  ]
 }
