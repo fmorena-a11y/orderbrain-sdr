@@ -7550,7 +7550,8 @@
   "DO|n252989429": "2026-11-23T18:28:42.410Z",
   "AR|Bosques": "2026-11-23T18:39:41.497Z",
   "CO|n703179520": "2026-11-23T18:41:59.897Z",
-  "MX|Acayucan": "2026-11-23T19:16:23.848Z"
+  "MX|Acayucan": "2026-11-23T19:16:23.848Z",
+  "AR|San Lorenzo": "2026-11-24T03:09:31.958Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7715,6 +7716,27 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-24T02:56:28.253Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "San Lorenzo",
+     "found": 5,
+     "updated": 0,
+     "osm": 39
+    }
+   ],
+   "added": 5,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 2,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 14.4,
+   "total": 62111
+  },
   {
    "at": "2026-11-23T19:12:19.158Z",
    "cities": [
@@ -9552,43 +9574,6 @@
     "CO|n703168345: The operation was aborted due to timeout"
    ],
    "minutes": 13.8,
-   "total": 22244
-  },
-  {
-   "at": "2026-11-17T11:16:20.381Z",
-   "cities": [
-    {
-     "cc": "ES",
-     "city": "Tarragona",
-     "found": 1,
-     "updated": 0,
-     "osm": 50
-    },
-    {
-     "cc": "MX",
-     "city": "Cortazar",
-     "found": 3,
-     "updated": 0,
-     "osm": 22
-    },
-    {
-     "cc": "AR",
-     "city": "San Fernando",
-     "found": 3,
-     "updated": 0,
-     "osm": 167
-    }
-   ],
-   "added": 7,
-   "enriched": 0,
-   "photos": 1,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "CO|n6141180690: sin tiempo en esta corrida"
-   ],
-   "minutes": 18.3,
    "total": 22244
   }
  ]
