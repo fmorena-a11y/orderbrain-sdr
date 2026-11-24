@@ -41440,7 +41440,7 @@
   "lat": -33.5017,
   "lng": -70.693066,
   "addr": "Pasaje 8 Norte 3922",
-  "phone": "",
+  "phone": "+56223307299",
   "web": "https://mundokarol.org/cekcc/",
   "email": "",
   "levels": [],
@@ -41451,7 +41451,9 @@
   "src": "osm",
   "osm": "w386003123",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-24"
  },
  {
   "id": "santiago-complejo-educacional-particular-monsenor-luis-arturo-perez",
@@ -42692,7 +42694,7 @@
   "src": "osm",
   "osm": "w447311622",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "santiago-santa-cruz-college",
@@ -42864,7 +42866,7 @@
   "src": "osm",
   "osm": "w447775514",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "santiago-universidad-san-sebastian-2",
@@ -44875,7 +44877,7 @@
   "src": "osm",
   "osm": "w543922587",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "santiago-the-kent-school",
@@ -44936,7 +44938,7 @@
   "src": "osm",
   "osm": "w544063826",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "santiago-colegio-san-adrian",
@@ -47533,7 +47535,7 @@
   "src": "osm",
   "osm": "w737765524",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "santiago-saint-mary-joseph-school",
@@ -47795,14 +47797,16 @@
   "addr": "Avenida Grecia 4000",
   "phone": "",
   "web": "https://www.colegiosiria.cl/",
-  "email": "",
+  "email": "contacto@colegiosiria.cl",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w828748404",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-10",
+  "img": "https://www.colegiosiria.cl/wp-content/uploads/1761660805978.jpg",
+  "webAt": "2026-11-24"
  },
  {
   "id": "santiago-colegio-particular-regina-pacis",
@@ -47841,7 +47845,7 @@
   "src": "osm",
   "osm": "w829206461",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "santiago-colegio-santa-lucia-de-lo-canas",
@@ -47918,7 +47922,7 @@
   "src": "osm",
   "osm": "w839521079",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "santiago-colegio-alberto-hurtado-cruchaga",
@@ -48295,7 +48299,9 @@
   "src": "osm",
   "osm": "w975417572",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-24"
  },
  {
   "id": "santiago-weston-academy",
@@ -48636,7 +48642,7 @@
   "src": "osm",
   "osm": "w1099771891",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "santiago-aiep-san-joaquin",
@@ -50109,7 +50115,7 @@
   "src": "osm",
   "osm": "w1196645748",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "santiago-hospital-clinico-veterinario-de-la-universidad-andres-bello",
@@ -51458,7 +51464,7 @@
   "src": "osm",
   "osm": "w1246126673",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "santiago-instituto-de-la-sordera",
@@ -52055,7 +52061,7 @@
   "src": "osm",
   "osm": "w1310928129",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "santiago-colegio-san-diego",
@@ -54145,7 +54151,7 @@
   "src": "osm",
   "osm": "n2482541019",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "buenos-aires-instituto-superior-de-ensenanza-radiofonica-iser",
@@ -56192,7 +56198,7 @@
   "src": "osm",
   "osm": "n4384957802",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "buenos-aires-derose-method-san-isidro",
@@ -56556,7 +56562,7 @@
   "src": "osm",
   "osm": "n4702138274",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "buenos-aires-universidad-de-palermo",
@@ -66803,7 +66809,7 @@
   "src": "osm",
   "osm": "n5990570803",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "buenos-aires-complejo-educativo-machado",
@@ -69233,7 +69239,9 @@
   "src": "osm",
   "osm": "n12015931354",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-24"
  },
  {
   "id": "buenos-aires-milenio-iii-college",
@@ -70752,7 +70760,7 @@
   "src": "osm",
   "osm": "w272343401",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "buenos-aires-colegio-del-centenario",
@@ -70853,7 +70861,7 @@
   "src": "osm",
   "osm": "w291372204",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "buenos-aires-colegio-santisimo-redentor",
@@ -71571,7 +71579,7 @@
   "src": "osm",
   "osm": "w402516058",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "buenos-aires-sworn-junior-college",
@@ -73179,7 +73187,7 @@
   "src": "osm",
   "osm": "w480374067",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "buenos-aires-universidad-de-hurlingham",
@@ -73328,7 +73336,7 @@
   "src": "osm",
   "osm": "w504595317",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "buenos-aires-colegio-la-salle",
@@ -73367,7 +73375,7 @@
   "src": "osm",
   "osm": "w504900502",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "buenos-aires-instituto-maria-santisima-de-la-luz",
@@ -77293,7 +77301,7 @@
   "src": "osm",
   "osm": "w1462674731",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "buenos-aires-instituto-san-bartolome",
@@ -80597,7 +80605,7 @@
   "src": "osm",
   "osm": "n10245454267",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10",
+  "imgTry": "2026-11-24",
   "code": "325740000477",
   "padron": "MEN datos.gov.co",
   "students": 103
@@ -80624,7 +80632,7 @@
   "src": "osm",
   "osm": "n10245457750",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10",
+  "imgTry": "2026-11-24",
   "code": "325740000027",
   "padron": "MEN datos.gov.co",
   "students": 400
@@ -81569,7 +81577,7 @@
   "src": "osm",
   "osm": "w42643872",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "bogota-colegio-claustro-moderno",
@@ -83807,7 +83815,7 @@
   "src": "osm",
   "osm": "w185139034",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "bogota-gimnasio-campestre",
@@ -84640,7 +84648,7 @@
   "src": "osm",
   "osm": "w320124120",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "bogota-centro-educativo-san-luis-gonzaga-fe-y-alegria",
@@ -85899,7 +85907,7 @@
   "src": "osm",
   "osm": "w403723253",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "bogota-universidad-santo-tomas-campus-el-aquinate",
@@ -87435,7 +87443,7 @@
   "src": "osm",
   "osm": "w531972449",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "bogota-colegio-bogota-andino",
@@ -90918,7 +90926,7 @@
   "src": "osm",
   "osm": "w963240696",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "bogota-colegio-celestin-freinet-sede-soacha",
@@ -91308,7 +91316,7 @@
   "src": "osm",
   "osm": "w1090311151",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "bogota-colegio-soledad-acosta-de-samper",
@@ -91912,7 +91920,7 @@
   "src": "osm",
   "osm": "w1296481915",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "bogota-arcos",
@@ -92007,7 +92015,7 @@
   "src": "osm",
   "osm": "w1312343755",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "bogota-facultad-de-arte-y-diseno-universidad-jorge-tadeo-lozano",
@@ -92030,7 +92038,7 @@
   "src": "osm",
   "osm": "w1312351302",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "bogota-innova-school-cota",
@@ -95446,7 +95454,7 @@
   "src": "osm",
   "osm": "w35415390",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "guayaquil-colegio-balandra",
@@ -95587,7 +95595,7 @@
   "src": "osm",
   "osm": "w35668431",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "guayaquil-unidad-educativa-mixta-bilingue-san-judas-tadeo",
@@ -96960,7 +96968,7 @@
   "src": "osm",
   "osm": "w434450139",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "guayaquil-unidad-educativa-dr-modesto-chavez-franco",
@@ -97338,9 +97346,9 @@
   "lat": -2.178348,
   "lng": -79.899264,
   "addr": "Calle Única - César Palacio García",
-  "phone": "",
+  "phone": "+593042390319",
   "web": "https://unidadeducativaladolorosa.edu.ec/",
-  "email": "",
+  "email": "info@unidadeducativaladolorosa.edu.ec",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)",
@@ -97350,7 +97358,10 @@
   "src": "osm",
   "osm": "w699924386",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-10",
+  "img": "",
+  "whatsapp": "+593999631931",
+  "webAt": "2026-11-24"
  },
  {
   "id": "guayaquil-unidad-educativa-victoria-torres-de-neira",
@@ -97600,7 +97611,7 @@
   "src": "osm",
   "osm": "w1235082482",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "guayaquil-escuela-particular-gran-bretana",
@@ -100766,7 +100777,7 @@
   "lat": -0.156641,
   "lng": -78.497384,
   "addr": "",
-  "phone": "",
+  "phone": "+593963001135",
   "web": "https://www.intisana.com/",
   "email": "",
   "levels": [],
@@ -100776,7 +100787,9 @@
   "osm": "n4415912490",
   "found": "2026-11-10",
   "img": "",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-10",
+  "whatsapp": "+593963001135",
+  "webAt": "2026-11-24"
  },
  {
   "id": "quito-colegio-victor-manuel-penaherrera",
@@ -101473,7 +101486,7 @@
   "src": "osm",
   "osm": "n5290245922",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "quito-comunidad-educativa-el-trebol-montessori",
@@ -101889,7 +101902,7 @@
   "src": "osm",
   "osm": "n5993887707",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "quito-ism-school",
@@ -103446,7 +103459,7 @@
   "src": "osm",
   "osm": "w268717776",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "quito-unidad-educativa-san-vicente-de-paul",
@@ -103488,7 +103501,7 @@
   "src": "osm",
   "osm": "w270766476",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10",
+  "imgTry": "2026-11-24",
   "img": ""
  },
  {
@@ -105599,7 +105612,7 @@
   "src": "osm",
   "osm": "w874919788",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10",
+  "imgTry": "2026-11-24",
   "img": ""
  },
  {
@@ -108236,7 +108249,7 @@
   "addr": "0 Avenida 13-70",
   "phone": "",
   "web": "https://asoprodsa.com/",
-  "email": "",
+  "email": "admondominio@asoprodsa.com",
   "levels": [],
   "opp": [
    "Confesional (puede ser parte de una red)",
@@ -108247,7 +108260,8 @@
   "osm": "w53533914",
   "found": "2026-11-10",
   "imgTry": "2026-11-10",
-  "img": ""
+  "img": "",
+  "webAt": "2026-11-24"
  },
  {
   "id": "ciudad-de-guatemala-liceo-javier",
@@ -110415,9 +110429,9 @@
   "lat": 14.606341,
   "lng": -90.505932,
   "addr": "",
-  "phone": "",
+  "phone": "+50223387700",
   "web": "http://www.ufm.edu",
-  "email": "",
+  "email": "webmaster@ufm.edu",
   "levels": [
    "Universidad"
   ],
@@ -110428,7 +110442,9 @@
   "src": "osm",
   "osm": "w469109519",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-10",
+  "img": "https://www.ufm.edu/wp-content/uploads/2023/05/logo-ufm01-black.jpg",
+  "webAt": "2026-11-24"
  },
  {
   "id": "ciudad-de-guatemala-instituto-federico-mora",
@@ -110633,7 +110649,7 @@
   "src": "osm",
   "osm": "w699797442",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "ciudad-de-guatemala-colegio-las-americas",
@@ -124528,7 +124544,7 @@
   "src": "osm",
   "osm": "w766566606",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10",
+  "imgTry": "2026-11-24",
   "img": "",
   "code": "305001000115",
   "padron": "MEN datos.gov.co",
@@ -125102,7 +125118,7 @@
   "src": "osm",
   "osm": "w1256762490",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10",
+  "imgTry": "2026-11-24",
   "img": ""
  },
  {
@@ -125262,7 +125278,7 @@
   "src": "osm",
   "osm": "w1474490176",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "medellin-colegio-sanjose-de-las-vegas",
@@ -128014,7 +128030,7 @@
   "src": "osm",
   "osm": "w227870782",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "caracas-liceo-jose-avalos",
@@ -128320,7 +128336,7 @@
   "src": "osm",
   "osm": "w233773728",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "caracas-international-christian-school",
@@ -129388,7 +129404,9 @@
   "src": "osm",
   "osm": "w297823053",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-24"
  },
  {
   "id": "caracas-u-e-instituto-humanitas",
@@ -130286,7 +130304,7 @@
   "src": "osm",
   "osm": "w583979441",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "caracas-colegio-luz-de-caracas",
@@ -130790,7 +130808,7 @@
   "src": "osm",
   "osm": "w1003479481",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-24"
  },
  {
   "id": "caracas-instituto-cecilio-acosta",
@@ -627867,7 +627885,8 @@
   "code": "318753800018",
   "found": "2026-11-19",
   "students": 109,
-  "approx": "1km"
+  "approx": "1km",
+  "osm": "n12480718531"
  },
  {
   "id": "saldana-liceo-moderno",
@@ -1460415,6 +1460434,399 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1174679592",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "san-vicente-del-caguan-institucion-de-excelencia-humana-y-acad-ideha",
+  "name": "Institución de Excelencia Humana y Acad Ideha",
+  "city": "San Vicente del Caguán",
+  "country": "Colombia",
+  "lat": 2.112954,
+  "lng": -74.771075,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480716781",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "san-vicente-del-caguan-institucion-de-educacion-para-adultos-sabert",
+  "name": "Institución de Educación Para Adultos Sabert",
+  "city": "San Vicente del Caguán",
+  "country": "Colombia",
+  "lat": 2.11146,
+  "lng": -74.769022,
+  "addr": "",
+  "phone": "+57 320 8722492",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480716979",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "san-vicente-del-caguan-institucion-academico-victoria-inavi",
+  "name": "Institución Academico Victoria Inavi",
+  "city": "San Vicente del Caguán",
+  "country": "Colombia",
+  "lat": 2.114543,
+  "lng": -74.769923,
+  "addr": "",
+  "phone": "+57 316 5254591",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480717430",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "san-vicente-del-caguan-instituto-de-excelecia-humana-y-academica",
+  "name": "Instituto De Excelecia Humana Y Academica",
+  "city": "San Vicente del Caguán",
+  "country": "Colombia",
+  "lat": 2.115019,
+  "lng": -74.773297,
+  "addr": "Carrera 6",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1102442794",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "san-ignacio-guazu-universidad-catolica-sede-san-ignacio",
+  "name": "Universidad Católica sede San Ignacio",
+  "city": "San Ignacio Guazú",
+  "country": "Paraguay",
+  "lat": -26.885873,
+  "lng": -57.040588,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3686320576",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "san-ignacio-guazu-7000-colegio-de-formacion-integral-filadelfia",
+  "name": "7000 Colegio de formacion Integral Filadelfia",
+  "city": "San Ignacio Guazú",
+  "country": "Paraguay",
+  "lat": -26.887452,
+  "lng": -57.030429,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4566965783",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "san-ignacio-guazu-colegio-san-vicente-de-paul",
+  "name": "Colegio San Vicente de Paul",
+  "city": "San Ignacio Guazú",
+  "country": "Paraguay",
+  "lat": -26.891837,
+  "lng": -57.023043,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w495973324",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "sabana-grande-de-boya-government-school",
+  "name": "Government School",
+  "city": "Sabana Grande de Boyá",
+  "country": "República Dominicana",
+  "lat": 18.942724,
+  "lng": -69.790921,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n6049987014",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "sabana-grande-de-boya-liceo",
+  "name": "Liceo",
+  "city": "Sabana Grande de Boyá",
+  "country": "República Dominicana",
+  "lat": 18.941335,
+  "lng": -69.797416,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w343816244",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "sabana-grande-de-boya-colegio-cristiano-juan-calvino",
+  "name": "Colegio Cristiano Juan Calvino",
+  "city": "Sabana Grande de Boyá",
+  "country": "República Dominicana",
+  "lat": 18.944756,
+  "lng": -69.791017,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w344644807",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "marcos-paz-instituto-san-jose",
+  "name": "Instituto San José",
+  "city": "Marcos Paz",
+  "country": "Argentina",
+  "lat": -34.784491,
+  "lng": -58.833571,
+  "addr": "Avenida Doctor Marcos Paz 1963",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n5924990126",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "marcos-paz-universidad-siglo-21",
+  "name": "Universidad Siglo 21",
+  "city": "Marcos Paz",
+  "country": "Argentina",
+  "lat": -34.777516,
+  "lng": -58.833476,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11618873287",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "marcos-paz-instituto-privado-de-marcos-paz",
+  "name": "Instituto Privado de Marcos Paz",
+  "city": "Marcos Paz",
+  "country": "Argentina",
+  "lat": -34.769205,
+  "lng": -58.831143,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n11826528754",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "marcos-paz-instituto-nuestra-senora-de-fatima",
+  "name": "Instituto Nuestra Señora de Fátima",
+  "city": "Marcos Paz",
+  "country": "Argentina",
+  "lat": -34.781238,
+  "lng": -58.847164,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12184702266",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "chaparral-colegio-soledad-medina",
+  "name": "Colegio Soledad Medina",
+  "city": "Chaparral",
+  "country": "Colombia",
+  "lat": 3.719927,
+  "lng": -75.495563,
+  "addr": "vía Chaparral",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n750035409",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "chaparral-colegio-manuel-murillo-toro",
+  "name": "Colegio Manuel Murillo Toro",
+  "city": "Chaparral",
+  "country": "Colombia",
+  "lat": 3.719985,
+  "lng": -75.491771,
+  "addr": "vía Chaparral",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n4299213112",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "chaparral-colegio-sagrado-corazon-de-jesus",
+  "name": "Colegio Sagrado Corazon de Jesus",
+  "city": "Chaparral",
+  "country": "Colombia",
+  "lat": 3.718865,
+  "lng": -75.496294,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n5520561426",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "chaparral-universidad-del-tolima",
+  "name": "Universidad del Tolima",
+  "city": "Chaparral",
+  "country": "Colombia",
+  "lat": 3.717072,
+  "lng": -75.475174,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w60318929",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "chaparral-colegio-medalla-milagrosa",
+  "name": "Colegio Medalla Milagrosa",
+  "city": "Chaparral",
+  "country": "Colombia",
+  "lat": 3.718472,
+  "lng": -75.498695,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w578626011",
+  "found": "2026-11-24"
+ },
+ {
+  "id": "chaparral-liceo-santa-teresita-del-nino-jesus",
+  "name": "Liceo Santa Teresita del Niño Jesús",
+  "city": "Chaparral",
+  "country": "Colombia",
+  "lat": 3.717955,
+  "lng": -75.496077,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w623867518",
   "found": "2026-11-24"
  }
 ]
