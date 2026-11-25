@@ -60,11 +60,21 @@ async function start() {
     enterApp();
     // la primera vez: nombre completo y rol en el equipo (se usa en saludos, firmas y en Equipo)
     if (!me.profile?.complete) profileDialog({ required: true });
+    if (me.storeDown) storeNotice();
     gmailReturn(); // volviste de conectar Gmail (sin ventana aparte)
     loadGmail(); loadPdMail();
     // Tu Google: si recién entraste con Google, cómo quedó conectado; si entraste con tu código y no lo conectaste, el aviso
     googleNotice(googleBack().st).catch(() => {});
   } catch { showLogin(); }
+}
+// La base de la app (Redis) está en pausa: se puede trabajar con Pipedrive, pero no se guarda lo propio de la app
+function storeNotice() {
+  if (document.getElementById("storeDown")) return;
+  const el = document.createElement("div");
+  el.id = "storeDown"; el.className = "callout warn store-down"; el.setAttribute("role", "status");
+  el.innerHTML = `${icon("alert")}<span><b>La base de la app está en pausa</b> (llegó al límite de su plan). Podés trabajar: lo que registres va a Pipedrive. Hasta que vuelva no se guardan perfiles, sesiones, equipos, bases cargadas ni estudios.</span><button class="icon-btn" aria-label="Cerrar">${icon("x")}</button>`;
+  el.querySelector("button").onclick = () => el.remove();
+  document.body.appendChild(el);
 }
 async function showLogin() {
   document.querySelectorAll(".modal").forEach(m => m.remove()); // si la sesión vence con un diálogo abierto

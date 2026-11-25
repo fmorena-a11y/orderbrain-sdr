@@ -5,7 +5,7 @@ import { OAuth2Client } from "google-auth-library";
 import path from "path";
 import { fileURLToPath } from "url";
 import * as pd from "./lib/pipedrive.js";
-import { kv, key as kvKey, schools, byId, sync, flush, kvEnabled, syncExtras, canonicalId, getProfile, setProfile, ROLES, syncArchived, getAccessMap, getTeams, bump } from "./lib/store.js";
+import { kv, key as kvKey, schools, byId, sync, flush, kvEnabled, syncExtras, canonicalId, getProfile, setProfile, ROLES, syncArchived, getAccessMap, getTeams, bump, storeDown } from "./lib/store.js";
 import * as ACC from "./lib/access.js";
 import * as TM from "./lib/teams.js";
 import { writesPipedrive } from "./lib/readonly.js";
@@ -271,7 +271,8 @@ app.get("/api/me", auth, wrap(async (req, res) => {
   req.session.user = withProfile(req.session.user, pr, v);
   const roles = v.leader ? { lider: ROLES.lider } : { sdr: ROLES.sdr, ae: ROLES.ae };
   res.json({
-  user: req.session.user, profile: { complete: !!(pr?.name && (baseRole(pr) || v.leader || v.acc.stale)), suggested: req.session.user.pdName || "", roles, leader: v.leader, access: accessView(v.acc), scope: await scopeView(v) }, ai: ai.aiEnabled(), study: studyEnabled(), demo: pd.DEMO, goal: DAILY_GOAL, pdWeb: pd.PD_WEB, sessionMax: sessions.MAX_ITEMS,
+  // con la base en pausa no se puede leer ni guardar el perfil: no se pide (la app sigue con el nombre de Pipedrive o Google)
+  user: req.session.user, storeDown: storeDown(), profile: { complete: storeDown() || !!(pr?.name && (baseRole(pr) || v.leader || v.acc.stale)), suggested: req.session.user.pdName || "", roles, leader: v.leader, access: accessView(v.acc), scope: await scopeView(v) }, ai: ai.aiEnabled(), study: studyEnabled(), demo: pd.DEMO, goal: DAILY_GOAL, pdWeb: pd.PD_WEB, sessionMax: sessions.MAX_ITEMS,
   countries: [...new Set(schools.map(s => s.country))].sort(), workCountries: sales.workCountries({ email: req.session.user.email, pdUserId: req.session.user.pdUserId, leader: v.leader }), markets: MARKETS, outcomes: sales.OUTCOMES, lostReasons: LOST_REASONS, archiveReasons: ARCHIVE_REASONS, types: TYPE_LABEL,
   });
 }));
