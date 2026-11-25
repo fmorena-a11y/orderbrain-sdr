@@ -7563,7 +7563,16 @@
   "CR|San Isidro de El General": "2026-11-25T01:03:03.404Z",
   "CR|Alajuela": "2026-11-25T01:03:44.693Z",
   "VE|n3260410243": "2026-11-25T01:06:24.721Z",
-  "MX|Los Reyes de Salgado": "2026-11-25T11:32:03.251Z"
+  "MX|Los Reyes de Salgado": "2026-11-25T11:32:03.251Z",
+  "CO|n352934496": "2026-11-25T21:48:53.403Z",
+  "ES|n1470839536": "2026-11-25T21:49:28.498Z",
+  "NI|n302364870": "2026-11-25T21:50:18.350Z",
+  "AR|Concepción": "2026-11-25T21:51:00.934Z",
+  "CL|Coyhaique": "2026-11-25T21:51:39.095Z",
+  "CO|n281868041": "2026-11-25T21:52:14.401Z",
+  "ES|n29215168": "2026-11-25T21:52:58.440Z",
+  "MX|Apizaco": "2026-11-25T21:57:04.296Z",
+  "AR|San Martín": "2026-11-25T22:01:12.169Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7728,6 +7737,83 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-25T21:48:11.159Z",
+   "cities": [
+    {
+     "cc": "CO",
+     "city": "Arauquita",
+     "found": 1,
+     "updated": 0,
+     "osm": 10
+    },
+    {
+     "cc": "ES",
+     "city": "Vic",
+     "found": 1,
+     "updated": 0,
+     "osm": 25
+    },
+    {
+     "cc": "NI",
+     "city": "Chichigalpa",
+     "found": 1,
+     "updated": 0,
+     "osm": 8
+    },
+    {
+     "cc": "AR",
+     "city": "Concepción",
+     "found": 5,
+     "updated": 0,
+     "osm": 36
+    },
+    {
+     "cc": "CL",
+     "city": "Coyhaique",
+     "found": 20,
+     "updated": 0,
+     "osm": 41
+    },
+    {
+     "cc": "CO",
+     "city": "San Onofre",
+     "found": 0,
+     "updated": 0,
+     "osm": 12
+    },
+    {
+     "cc": "ES",
+     "city": "Segovia",
+     "found": 7,
+     "updated": 0,
+     "osm": 41
+    },
+    {
+     "cc": "MX",
+     "city": "Apizaco",
+     "found": 2,
+     "updated": 0,
+     "osm": 19
+    },
+    {
+     "cc": "AR",
+     "city": "San Martín",
+     "found": 1,
+     "updated": 0,
+     "osm": 36
+    }
+   ],
+   "added": 38,
+   "enriched": 0,
+   "photos": 2,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 15,
+   "total": 62205
+  },
   {
    "at": "2026-11-25T11:26:14.895Z",
    "cities": [
@@ -9576,48 +9662,6 @@
    "errors": [],
    "minutes": 16,
    "total": 22381
-  },
-  {
-   "at": "2026-11-17T19:24:12.105Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Zihuatanejo",
-     "found": 1,
-     "updated": 0,
-     "osm": 9
-    },
-    {
-     "cc": "CO",
-     "city": "Corozal",
-     "found": 16,
-     "updated": 0,
-     "osm": 47
-    },
-    {
-     "cc": "DO",
-     "city": "San Luis",
-     "found": 0,
-     "updated": 0,
-     "osm": 36
-    },
-    {
-     "cc": "AR",
-     "city": "General Pico",
-     "found": 2,
-     "updated": 0,
-     "osm": 11
-    }
-   ],
-   "added": 19,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 14.1,
-   "total": 22320
   }
  ]
 }
