@@ -7562,7 +7562,8 @@
   "CO|n703170145": "2026-11-25T00:58:21.286Z",
   "CR|San Isidro de El General": "2026-11-25T01:03:03.404Z",
   "CR|Alajuela": "2026-11-25T01:03:44.693Z",
-  "VE|n3260410243": "2026-11-25T01:06:24.721Z"
+  "VE|n3260410243": "2026-11-25T01:06:24.721Z",
+  "MX|Los Reyes de Salgado": "2026-11-25T11:32:03.251Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7727,6 +7728,29 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-25T11:26:14.895Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Los Reyes de Salgado",
+     "found": 1,
+     "updated": 0,
+     "osm": 5
+    }
+   ],
+   "added": 1,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "CO|n352934496: sin tiempo en esta corrida"
+   ],
+   "minutes": 19.3,
+   "total": 62167
+  },
   {
    "at": "2026-11-25T00:51:03.066Z",
    "cities": [
@@ -9594,43 +9618,6 @@
    "errors": [],
    "minutes": 14.1,
    "total": 22320
-  },
-  {
-   "at": "2026-11-17T17:21:43.720Z",
-   "cities": [
-    {
-     "cc": "AR",
-     "city": "San Miguel",
-     "found": 0,
-     "updated": 0,
-     "osm": 97
-    },
-    {
-     "cc": "PY",
-     "city": "San Antonio",
-     "found": 0,
-     "updated": 0,
-     "osm": 96
-    },
-    {
-     "cc": "MX",
-     "city": "San Mateo Atenco",
-     "found": 0,
-     "updated": 0,
-     "osm": 165
-    }
-   ],
-   "added": 0,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "ES|n2375518653: The operation was aborted due to timeout"
-   ],
-   "minutes": 19.2,
-   "total": 22301
   }
  ]
 }

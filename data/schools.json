@@ -217363,7 +217363,7 @@
   "src": "osm",
   "osm": "r5876011",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "managua-universidad-de-managua-udem",
@@ -222282,7 +222282,7 @@
   "src": "osm",
   "osm": "n3757433145",
   "found": "2026-11-10",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "madrid-universidad-nebrija-campus-de-madrid-princesa",
@@ -222431,7 +222431,7 @@
   "src": "osm",
   "osm": "n4913017293",
   "found": "2026-11-10",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "madrid-academia-aprobando",
@@ -225858,7 +225858,7 @@
   "src": "osm",
   "osm": "w29083468",
   "found": "2026-11-10",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-santa-maria-5",
@@ -226813,7 +226813,7 @@
   "src": "osm",
   "osm": "w33770017",
   "found": "2026-11-10",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-el-olivar",
@@ -230110,7 +230110,7 @@
   "src": "osm",
   "osm": "w262419205",
   "found": "2026-11-10",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "madrid-colegio-de-educacion-especial-santiago-ramon-y-cajal",
@@ -232265,7 +232265,7 @@
   "src": "osm",
   "osm": "w324862180",
   "found": "2026-11-10",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "madrid-colegio-corpus-christi",
@@ -233257,7 +233257,7 @@
   "src": "osm",
   "osm": "w338379452",
   "found": "2026-11-10",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "madrid-centro-privado-de-educacion-infantil-primaria-y-secundaria-sagrado-cor-9",
@@ -234039,7 +234039,7 @@
   "src": "osm",
   "osm": "w396802969",
   "found": "2026-11-10",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "madrid-centro-privado-de-educacion-primaria-y-secundaria-santa-maria-de-los-a",
@@ -234373,7 +234373,7 @@
   "src": "osm",
   "osm": "w452964710",
   "found": "2026-11-10",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-blas-de-lezo",
@@ -234628,7 +234628,7 @@
   "src": "osm",
   "osm": "w499284600",
   "found": "2026-11-10",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "madrid-colegio-de-educacion-infantil-y-primaria-fuente-del-palomar",
@@ -234707,7 +234707,7 @@
   "src": "osm",
   "osm": "w520790789",
   "found": "2026-11-10",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "madrid-colegio-miramadrid",
@@ -234877,7 +234877,7 @@
   "src": "osm",
   "osm": "w590822333",
   "found": "2026-11-10",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "madrid-colegio-nuestra-senora-schoenstatt",
@@ -1461553,6 +1461553,28 @@
   "private": "probable",
   "src": "osm",
   "osm": "n3444840432",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "los-reyes-de-salgado-instituto-tecnologico-superior-de-los-reyes",
+  "name": "Instituto Tecnológico Superior de Los Reyes",
+  "city": "Los Reyes de Salgado",
+  "country": "México",
+  "lat": 19.615645,
+  "lng": -102.47702,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w460788600",
   "found": "2026-11-25"
  }
 ]
