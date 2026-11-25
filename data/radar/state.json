@@ -7550,7 +7550,13 @@
   "DO|n252989429": "2026-11-23T18:28:42.410Z",
   "AR|Bosques": "2026-11-23T18:39:41.497Z",
   "CO|n703179520": "2026-11-23T18:41:59.897Z",
-  "MX|Acayucan": "2026-11-23T19:16:23.848Z"
+  "MX|Acayucan": "2026-11-23T19:16:23.848Z",
+  "AR|San Lorenzo": "2026-11-24T03:09:31.958Z",
+  "CO|n404732744": "2026-11-24T14:58:08.702Z",
+  "PY|n849644090": "2026-11-24T15:04:45.875Z",
+  "DO|n252996542": "2026-11-24T15:05:29.308Z",
+  "AR|Marcos Paz": "2026-11-24T15:06:08.854Z",
+  "CO|n703219870": "2026-11-24T15:11:39.725Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7715,6 +7721,76 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-24T14:57:24.311Z",
+   "cities": [
+    {
+     "cc": "CO",
+     "city": "San Vicente del Caguán",
+     "found": 4,
+     "updated": 1,
+     "osm": 29
+    },
+    {
+     "cc": "PY",
+     "city": "San Ignacio Guazú",
+     "found": 3,
+     "updated": 0,
+     "osm": 19
+    },
+    {
+     "cc": "DO",
+     "city": "Sabana Grande de Boyá",
+     "found": 3,
+     "updated": 0,
+     "osm": 11
+    },
+    {
+     "cc": "AR",
+     "city": "Marcos Paz",
+     "found": 4,
+     "updated": 0,
+     "osm": 20
+    },
+    {
+     "cc": "CO",
+     "city": "Chaparral",
+     "found": 6,
+     "updated": 0,
+     "osm": 15
+    }
+   ],
+   "added": 20,
+   "enriched": 0,
+   "photos": 2,
+   "contacts": 6,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 15.5,
+   "total": 62131
+  },
+  {
+   "at": "2026-11-24T02:56:28.253Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "San Lorenzo",
+     "found": 5,
+     "updated": 0,
+     "osm": 39
+    }
+   ],
+   "added": 5,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 2,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 14.4,
+   "total": 62111
+  },
   {
    "at": "2026-11-23T19:12:19.158Z",
    "cities": [
@@ -9530,66 +9606,6 @@
    ],
    "minutes": 19.2,
    "total": 22259
-  },
-  {
-   "at": "2026-11-17T13:31:57.978Z",
-   "cities": [
-    {
-     "cc": "CO",
-     "city": "Santa Rosa de Cabal",
-     "found": 0,
-     "updated": 0,
-     "osm": 17
-    }
-   ],
-   "added": 0,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "CO|n703168345: The operation was aborted due to timeout"
-   ],
-   "minutes": 13.8,
-   "total": 22244
-  },
-  {
-   "at": "2026-11-17T11:16:20.381Z",
-   "cities": [
-    {
-     "cc": "ES",
-     "city": "Tarragona",
-     "found": 1,
-     "updated": 0,
-     "osm": 50
-    },
-    {
-     "cc": "MX",
-     "city": "Cortazar",
-     "found": 3,
-     "updated": 0,
-     "osm": 22
-    },
-    {
-     "cc": "AR",
-     "city": "San Fernando",
-     "found": 3,
-     "updated": 0,
-     "osm": 167
-    }
-   ],
-   "added": 7,
-   "enriched": 0,
-   "photos": 1,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "CO|n6141180690: sin tiempo en esta corrida"
-   ],
-   "minutes": 18.3,
-   "total": 22244
   }
  ]
 }
