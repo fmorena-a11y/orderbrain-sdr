@@ -130832,7 +130832,8 @@
   "osm": "w1003482954",
   "found": "2026-11-10",
   "img": "",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-10",
+  "webAt": "2026-11-25"
  },
  {
   "id": "caracas-u-e-colegio-parroquial-la-sagrada-familia",
@@ -130874,7 +130875,8 @@
   "osm": "w1003962832",
   "found": "2026-11-10",
   "img": "",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-10",
+  "webAt": "2026-11-25"
  },
  {
   "id": "caracas-colegio-el-salvador",
@@ -135348,7 +135350,7 @@
   "src": "osm",
   "osm": "n8923673702",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10",
+  "imgTry": "2026-11-25",
   "img": ""
  },
  {
@@ -135368,7 +135370,7 @@
   "src": "osm",
   "osm": "n8972662980",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "cali-gimnasio-los-farallones",
@@ -135973,7 +135975,7 @@
   "src": "osm",
   "osm": "w1102474107",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "cali-universidad-san-buenaventura-de-cali",
@@ -136258,7 +136260,7 @@
   "src": "osm",
   "osm": "r6151643",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "cali-colegio-guias",
@@ -136424,7 +136426,7 @@
   "src": "osm",
   "osm": "r6775328",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "cali-universidad-icesi",
@@ -137156,7 +137158,7 @@
   "src": "osm",
   "osm": "r17511688",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "cali-universidad-ecci",
@@ -137198,7 +137200,7 @@
   "osm": "n14312980846",
   "found": "2026-11-10",
   "img": "https://static.cdninstagram.com/rsrc.php/v4/yD/r/R0fBIMurK8v.png",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "cali-colegio-bilingue-lancaser",
@@ -139804,7 +139806,7 @@
   "src": "osm",
   "osm": "w66757608",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "maracaibo-colegio-el-naranjal",
@@ -144767,7 +144769,7 @@
   "src": "osm",
   "osm": "w83552775",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "cordoba-universidad-catolica-de-cordoba",
@@ -146016,7 +146018,7 @@
   "src": "osm",
   "osm": "w1343490660",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "ecatepec-de-morelos-universidad-tecnologica-de-tecamac",
@@ -147984,7 +147986,7 @@
   "src": "osm",
   "osm": "n10616881773",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "puebla-de-zaragoza-idepca-instituto-de-desarrollo-profesional-y-capacitacion",
@@ -148413,7 +148415,7 @@
   "src": "osm",
   "osm": "w151776086",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10",
+  "imgTry": "2026-11-25",
   "code": "21PBH0023P",
   "padron": "SEP CCT",
   "codes": [
@@ -149293,7 +149295,7 @@
   "src": "osm",
   "osm": "w136892655",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "ciudad-juarez-instituto-de-arquitectura-diseno-y-arte-iada-instituto-de-ingenieria-y",
@@ -150465,7 +150467,7 @@
   "src": "osm",
   "osm": "w797144123",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "maracay-liceo-militar-libertador",
@@ -158463,7 +158465,7 @@
   "src": "osm",
   "osm": "w238090326",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "barranquilla-colegio-buen-consejo",
@@ -159865,7 +159867,7 @@
   "src": "osm",
   "osm": "w842260219",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "barranquilla-universidad-sergio-arboleda-sede-barranquilla",
@@ -161639,7 +161641,7 @@
   "src": "osm",
   "osm": "n10899514887",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "montevideo-colegio-divina-providencia",
@@ -162288,7 +162290,7 @@
   "src": "osm",
   "osm": "w456239673",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "montevideo-colegio-y-liceo-misericordista",
@@ -163627,7 +163629,7 @@
   "src": "osm",
   "osm": "n9877067884",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "rosario-escuela-1178-padre-claret",
@@ -164334,7 +164336,7 @@
   "src": "osm",
   "osm": "w474265323",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "rosario-colegio-medalla-milagrosa",
@@ -164616,7 +164618,7 @@
   "src": "osm",
   "osm": "w941137386",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "rosario-colegio-san-miguel-arcangel",
@@ -165040,7 +165042,7 @@
   "osm": "w1383537592",
   "found": "2026-11-10",
   "img": "",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "rosario-anexo-escuela-3066-san-pablo",
@@ -168638,7 +168640,7 @@
   "src": "osm",
   "osm": "n12833875759",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "cartagena-de-indias-corpoacademyc",
@@ -168723,7 +168725,7 @@
   "src": "osm",
   "osm": "w64881697",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "cartagena-de-indias-universidad-tecnologica-de-bolivar",
@@ -168891,7 +168893,7 @@
   "src": "osm",
   "osm": "w96025492",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "cartagena-de-indias-colegio-gutierrez-de-pineres",
@@ -169418,7 +169420,7 @@
   "src": "osm",
   "osm": "w1206315584",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "cartagena-de-indias-colegio-nuestra-senora-de-la-consolara-nsc",
@@ -169817,7 +169819,7 @@
   "src": "osm",
   "osm": "w1359920751",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "cartagena-de-indias-instituto-angelitos-alegres",
@@ -170033,7 +170035,7 @@
   "src": "osm",
   "osm": "w1525917191",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10",
+  "imgTry": "2026-11-25",
   "code": "313001801154",
   "padron": "MEN datos.gov.co",
   "students": 61
@@ -170175,7 +170177,7 @@
   "src": "osm",
   "osm": "n4046063137",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "arequipa-maria-montessori",
@@ -170640,7 +170642,7 @@
   "src": "osm",
   "osm": "w327170134",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "arequipa-universidad-de-san-martin-de-porres",
@@ -172181,7 +172183,7 @@
   "src": "osm",
   "osm": "w833686169",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "panama-colegio-bilingue-santo-domingo-savio",
@@ -172591,7 +172593,7 @@
   "src": "osm",
   "osm": "w1053821129",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "panama-lycee-francais-international-de-panama",
@@ -172769,7 +172771,7 @@
   "src": "osm",
   "osm": "w1282225411",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "panama-the-king-s-school",
@@ -174248,7 +174250,7 @@
   "src": "osm",
   "osm": "n5550507021",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "santo-domingo-instituto-superior-de-formacion-docente-salome-urena-recinto-eugenio-m",
@@ -177493,7 +177495,7 @@
   "src": "osm",
   "osm": "w933884322",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "santo-domingo-instituto-tecnologico-profesor-simon-orozco",
@@ -177897,7 +177899,7 @@
   "src": "osm",
   "osm": "n2595625967",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "mendoza-instituto-de-biologia-agricola-mendoza-ibam",
@@ -177934,7 +177936,7 @@
   "src": "osm",
   "osm": "n2595625969",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "mendoza-instituto-de-histologia-y-embriologia-ihem",
@@ -177953,7 +177955,7 @@
   "src": "osm",
   "osm": "n2595625970",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "mendoza-instituto-de-medicina-y-biologia-experimental-de-cuyo-imbecu",
@@ -179438,7 +179440,7 @@
   "src": "osm",
   "osm": "w498693175",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "mendoza-colegio-portezuelo",
@@ -179457,7 +179459,7 @@
   "src": "osm",
   "osm": "w499304005",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "mendoza-escuela-tecnica-de-la-universidad-de-mendoza",
@@ -180250,7 +180252,7 @@
   "addr": "Circuito Colonias 486",
   "phone": "",
   "web": "https://prepamexico.edu.mx/",
-  "email": "",
+  "email": "contacto@prepamexico.edu.mx",
   "levels": [
    "Prepa"
   ],
@@ -180275,7 +180277,9 @@
    "31PJN0077T",
    "31PJN0425J",
    "31PJN0450I"
-  ]
+  ],
+  "img": "",
+  "webAt": "2026-11-25"
  },
  {
   "id": "merida-preparatoria-miguel-angel",
@@ -182565,7 +182569,7 @@
   "src": "osm",
   "osm": "n12115463939",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10",
+  "imgTry": "2026-11-25",
   "code": "23PES0137S",
   "padron": "SEP CCT",
   "codes": [
@@ -182753,7 +182757,9 @@
   "src": "osm",
   "osm": "w1282955398",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-25"
  },
  {
   "id": "cancun-british-international-school",
@@ -182825,7 +182831,7 @@
   "src": "osm",
   "osm": "w1316050526",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "cancun-instituto-americano-leonardo-da-vinci",
@@ -188494,7 +188500,7 @@
   "src": "osm",
   "osm": "w284875628",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "mexicali-centro-escolar-ingles",
@@ -188604,7 +188610,7 @@
   "src": "osm",
   "osm": "w1175210972",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "mexicali-colegio-anglo-americano-nuestra-senora-de-la-paz",
@@ -188887,7 +188893,8 @@
   "osm": "n690820498",
   "found": "2026-11-10",
   "img": "https://www.umsa.bo/documents/20142/33077/umsa.jpg",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-11",
+  "webAt": "2026-11-25"
  },
  {
   "id": "el-alto-instituto-educativo-san-fernando",
@@ -193594,7 +193601,7 @@
   "src": "osm",
   "osm": "n9791528292",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10",
+  "imgTry": "2026-11-25",
   "code": "24PES0050M",
   "padron": "SEP CCT",
   "codes": [
@@ -194554,7 +194561,7 @@
   "src": "osm",
   "osm": "w527109244",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "ciudad-guayana-u-e-fe-y-alegria-virgen-nina",
@@ -196124,7 +196131,7 @@
   "src": "osm",
   "osm": "w1130829901",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10",
+  "imgTry": "2026-11-25",
   "code": "25PBH0176P",
   "padron": "SEP CCT",
   "codes": [
@@ -199578,7 +199585,7 @@
   "src": "osm",
   "osm": "w778694367",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "san-salvador-instituto-de-ciudad-credisa",
@@ -203458,7 +203465,8 @@
   "osm": "w877423036",
   "found": "2026-11-10",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-11",
+  "webAt": "2026-11-25"
  },
  {
   "id": "santiago-de-queretaro-universidad-mondragon",
@@ -209797,7 +209805,7 @@
   "lat": 7.881683,
   "lng": -72.502265,
   "addr": "",
-  "phone": "",
+  "phone": "+576075880091ext101102103",
   "web": "https://www.fesc.edu.co/portal/",
   "email": "",
   "levels": [
@@ -209811,7 +209819,10 @@
   "src": "osm",
   "osm": "w271561621",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-10",
+  "img": "",
+  "whatsapp": "+573189480673",
+  "webAt": "2026-11-25"
  },
  {
   "id": "cucuta-universidad-simon-bolivar-sede-2",
@@ -212387,7 +212398,7 @@
   "src": "osm",
   "osm": "w273096614",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "asuncion-st-anne-s-school",
@@ -214581,7 +214592,7 @@
   "src": "osm",
   "osm": "w1471986482",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "san-pedro-sula-ipc-instituto-politecnico-centroamericano",
@@ -214760,7 +214771,7 @@
   "src": "osm",
   "osm": "n1819067246",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "managua-colegio-calasanz",
@@ -214817,7 +214828,7 @@
   "src": "osm",
   "osm": "n2339946939",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "managua-colegio-liceo-franciscano",
@@ -217289,7 +217300,7 @@
   "src": "osm",
   "osm": "w1154825569",
   "found": "2026-11-10",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-25"
  },
  {
   "id": "managua-universidad-central-de-nicaragua",
@@ -632821,7 +632832,8 @@
   "code": "354518001091",
   "found": "2026-11-19",
   "students": 5,
-  "approx": "1km"
+  "approx": "1km",
+  "osm": "n12480805396"
  },
  {
   "id": "tocancipa-colegio-alcazar-campestre",
@@ -1460828,5 +1460840,719 @@
   "src": "osm",
   "osm": "w623867518",
   "found": "2026-11-24"
+ },
+ {
+  "id": "gracias-instituto-tecnico-dr-ramon-rosa",
+  "name": "Instituto Técnico Dr. Ramón Rosa",
+  "city": "Gracias",
+  "country": "Honduras",
+  "lat": 14.58089,
+  "lng": -88.588344,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w855470169",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "estepona-colegio-de-educacion-infantil-y-primaria-ramon-garcia",
+  "name": "Colegio de Educación Infantil y Primaría Ramón García",
+  "city": "Estepona",
+  "country": "España",
+  "lat": 36.425229,
+  "lng": -5.152821,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n1707378769",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "estepona-instituto-mediterraneo",
+  "name": "Instituto Mediterráneo",
+  "city": "Estepona",
+  "country": "España",
+  "lat": 36.422145,
+  "lng": -5.151178,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w401031779",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "estepona-colegio-de-educacion-primaria-victor-de-la-serna",
+  "name": "Colegio de Educación Primaria Víctor de la Serna",
+  "city": "Estepona",
+  "country": "España",
+  "lat": 36.425413,
+  "lng": -5.150386,
+  "addr": "Avenida de San Lorenzo",
+  "phone": "",
+  "web": "https://colegiovictordelaserna.blogspot.com",
+  "email": "29002848.edu@juntadeandalucia.es",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w446093059",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "estepona-colegio-diocesano-juan-xxiii",
+  "name": "Colegio Diocesano Juan XXIII",
+  "city": "Estepona",
+  "country": "España",
+  "lat": 36.411069,
+  "lng": -5.193347,
+  "addr": "Calle José Nadal",
+  "phone": "",
+  "web": "https://juanveintitres.fvictoria.es/",
+  "email": "juanveintitres@fundacionvictoria.edu.es",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1070057707",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "estepona-colegio-de-educacion-infantil-y-primaria-maria-espinosa",
+  "name": "Colegio de Educación Infantil y Primaria María Espinosa",
+  "city": "Estepona",
+  "country": "España",
+  "lat": 36.433521,
+  "lng": -5.143361,
+  "addr": "",
+  "phone": "",
+  "web": "https://ceipmaria-espinosa.blogspot.com",
+  "email": "",
+  "levels": [
+   "Primaria"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1459792873",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "pamplona-centro-educativo-centro-de-estimulacion-educativo-infantil-magic-time-",
+  "name": "Centro Educativo Centro de Estimulación Educativo Infantil Magic Time Bilingue",
+  "city": "Pamplona",
+  "country": "Colombia",
+  "lat": 7.369084,
+  "lng": -72.653302,
+  "addr": "",
+  "phone": "3182885864",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480805383",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "pamplona-jardin-infantil-mi-pequeno-mundo",
+  "name": "Jardin Infantil Mi Pequeño Mundo",
+  "city": "Pamplona",
+  "country": "Colombia",
+  "lat": 7.370907,
+  "lng": -72.650032,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480805385",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "pamplona-jardin-infantil-lapices-y-colores",
+  "name": "Jardín Infantil Lapices y Colores",
+  "city": "Pamplona",
+  "country": "Colombia",
+  "lat": 7.367241,
+  "lng": -72.651758,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480805386",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "pamplona-institucion-educativa-capacitaciones-intelcoc",
+  "name": "Institución Educativa Capacitaciónes Intelcoc",
+  "city": "Pamplona",
+  "country": "Colombia",
+  "lat": 7.3761,
+  "lng": -72.648402,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480805387",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "pamplona-colegio-luis-carlos-galan-sarmiento",
+  "name": "Colegio Luis Carlos Galán Sarmiento",
+  "city": "Pamplona",
+  "country": "Colombia",
+  "lat": 7.377759,
+  "lng": -72.647497,
+  "addr": "",
+  "phone": "5683351",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480805388",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "pamplona-otra-sigla-bach-diverisificado-a-dist-para-adultos-de-la",
+  "name": "Otra-Sigla Bach Diverisificado A Dist Para Adultos De La",
+  "city": "Pamplona",
+  "country": "Colombia",
+  "lat": 7.378309,
+  "lng": -72.649064,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480805389",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "pamplona-institucion-educativa-cambridge-school-kindergarden",
+  "name": "Institución Educativa Cambridge School Kindergarden",
+  "city": "Pamplona",
+  "country": "Colombia",
+  "lat": 7.376883,
+  "lng": -72.648066,
+  "addr": "",
+  "phone": "5683362",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480805390",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "pamplona-jardin-infantil-el-busecito-encantado",
+  "name": "Jardín Infantil El Busecito Encantado",
+  "city": "Pamplona",
+  "country": "Colombia",
+  "lat": 7.374689,
+  "lng": -72.648054,
+  "addr": "",
+  "phone": "5684822",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480805391",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "pamplona-jardin-infantil-estrillitas-creativas",
+  "name": "Jardín Infantil Estrillitas Creativas",
+  "city": "Pamplona",
+  "country": "Colombia",
+  "lat": 7.376769,
+  "lng": -72.648098,
+  "addr": "",
+  "phone": "563310",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480805393",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "pamplona-jardin-infantil-mil-primeros-pasitos",
+  "name": "Jardín Infantil Mil Primeros Pasitos",
+  "city": "Pamplona",
+  "country": "Colombia",
+  "lat": 7.379072,
+  "lng": -72.65002,
+  "addr": "",
+  "phone": "5682771",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Preescolar"
+  ],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480805394",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "pamplona-otra-sigla-cambridge-shool",
+  "name": "Otra-Sigla Cambridge Shool",
+  "city": "Pamplona",
+  "country": "Colombia",
+  "lat": 7.375664,
+  "lng": -72.651461,
+  "addr": "",
+  "phone": "5683362",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480805395",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "pamplona-colegio-nuestra-senora-del-rosario",
+  "name": "Colegio Nuestra Señora Del Rosario",
+  "city": "Pamplona",
+  "country": "Colombia",
+  "lat": 7.378402,
+  "lng": -72.648349,
+  "addr": "",
+  "phone": "5682506",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12480805398",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "pamplona-universidad-de-pamplona",
+  "name": "Universidad de Pamplona",
+  "city": "Pamplona",
+  "country": "Colombia",
+  "lat": 7.385809,
+  "lng": -72.649688,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w51371488",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "pamplona-colegio-san-jose",
+  "name": "Colegio San jose",
+  "city": "Pamplona",
+  "country": "Colombia",
+  "lat": 7.37089,
+  "lng": -72.652461,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w72011054",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "pamplona-cambridge-school-pamplona",
+  "name": "Cambridge School (Pamplona)",
+  "city": "Pamplona",
+  "country": "Colombia",
+  "lat": 7.374535,
+  "lng": -72.650108,
+  "addr": "Carrera 5 7-94",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1175923249",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "pamplona-iser-instituto-superior-de-educacion-rural",
+  "name": "ISER (Instituto Superior de Educacion Rural)",
+  "city": "Pamplona",
+  "country": "Colombia",
+  "lat": 7.372346,
+  "lng": -72.644716,
+  "addr": "Calle 8 8-155",
+  "phone": "",
+  "web": "https://www.iser.edu.co",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1282288104",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "san-isidro-de-el-general-univesidad-internacional-san-isidro-labrador",
+  "name": "Univesidad Internacional San Isidro Labrador",
+  "city": "San Isidro de El General",
+  "country": "Costa Rica",
+  "lat": 9.398891,
+  "lng": -83.705035,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Bilingüe o internacional",
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w923996839",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "san-isidro-de-el-general-escuela-la-aurora",
+  "name": "Escuela La Aurora",
+  "city": "San Isidro de El General",
+  "country": "Costa Rica",
+  "lat": 9.368236,
+  "lng": -83.685758,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w924025528",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "san-isidro-de-el-general-escuela-bilingue-y-multidisciplinaria",
+  "name": "Escuela Bilingüe y Multidisciplinaria",
+  "city": "San Isidro de El General",
+  "country": "Costa Rica",
+  "lat": 9.333966,
+  "lng": -83.676191,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1085903837",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "alajuela-pan-american-school",
+  "name": "Pan-American School",
+  "city": "Alajuela",
+  "country": "Costa Rica",
+  "lat": 9.975064,
+  "lng": -84.19724,
+  "addr": "Radial San Antonio",
+  "phone": "",
+  "web": "https://panam.ed.cr",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w75990306",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "alajuela-universidad-adventista-de-centroamerica",
+  "name": "Universidad Adventista de Centroamérica",
+  "city": "Alajuela",
+  "country": "Costa Rica",
+  "lat": 10.032312,
+  "lng": -84.21575,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w320331072",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "alajuela-saint-margaret-school",
+  "name": "Saint Margaret School",
+  "city": "Alajuela",
+  "country": "Costa Rica",
+  "lat": 9.981544,
+  "lng": -84.188789,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w457742276",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "alajuela-colegio-saint-paul",
+  "name": "Colegio Saint Paul",
+  "city": "Alajuela",
+  "country": "Costa Rica",
+  "lat": 9.978778,
+  "lng": -84.204488,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w627461143",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "alajuela-colegio-cristiano-bilingue-la-palabra-de-vida",
+  "name": "Colegio Cristiano Bilingüe La Palabra de Vida",
+  "city": "Alajuela",
+  "country": "Costa Rica",
+  "lat": 9.982071,
+  "lng": -84.199178,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Bilingüe o internacional"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w627462261",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "alajuela-golden-valley-school",
+  "name": "Golden Valley School",
+  "city": "Alajuela",
+  "country": "Costa Rica",
+  "lat": 10.011691,
+  "lng": -84.22381,
+  "addr": "Avenida 4",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w696675810",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "alajuela-centro-integral-de-educacion-privada-cidep",
+  "name": "Centro Integral de Educación Privada CIDEP",
+  "city": "Alajuela",
+  "country": "Costa Rica",
+  "lat": 9.984736,
+  "lng": -84.181283,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w766240650",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "alajuela-centro-educativo-san-fernando",
+  "name": "Centro Educativo San Fernando",
+  "city": "Alajuela",
+  "country": "Costa Rica",
+  "lat": 10.009606,
+  "lng": -84.195926,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)",
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1483129819",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "bejuma-unidad-educativa-instituto-san-martin",
+  "name": "Unidad Educativa Instituto San Martin",
+  "city": "Bejuma",
+  "country": "Venezuela",
+  "lat": 10.17474,
+  "lng": -68.255077,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n2330821856",
+  "found": "2026-11-25"
+ },
+ {
+  "id": "bejuma-liceo-nacional-arturo-michelena",
+  "name": "Liceo Nacional Arturo Michelena",
+  "city": "Bejuma",
+  "country": "Venezuela",
+  "lat": 10.17131,
+  "lng": -68.250862,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3444840432",
+  "found": "2026-11-25"
  }
 ]

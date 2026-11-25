@@ -7556,7 +7556,13 @@
   "PY|n849644090": "2026-11-24T15:04:45.875Z",
   "DO|n252996542": "2026-11-24T15:05:29.308Z",
   "AR|Marcos Paz": "2026-11-24T15:06:08.854Z",
-  "CO|n703219870": "2026-11-24T15:11:39.725Z"
+  "CO|n703219870": "2026-11-24T15:11:39.725Z",
+  "HN|n13235480977": "2026-11-25T00:53:18.538Z",
+  "ES|n1470838281": "2026-11-25T00:55:05.366Z",
+  "CO|n703170145": "2026-11-25T00:58:21.286Z",
+  "CR|San Isidro de El General": "2026-11-25T01:03:03.404Z",
+  "CR|Alajuela": "2026-11-25T01:03:44.693Z",
+  "VE|n3260410243": "2026-11-25T01:06:24.721Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7721,6 +7727,62 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-25T00:51:03.066Z",
+   "cities": [
+    {
+     "cc": "HN",
+     "city": "Gracias",
+     "found": 1,
+     "updated": 0,
+     "osm": 12
+    },
+    {
+     "cc": "ES",
+     "city": "Estepona",
+     "found": 5,
+     "updated": 0,
+     "osm": 12
+    },
+    {
+     "cc": "CO",
+     "city": "Pamplona",
+     "found": 16,
+     "updated": 1,
+     "osm": 51
+    },
+    {
+     "cc": "CR",
+     "city": "San Isidro de El General",
+     "found": 3,
+     "updated": 0,
+     "osm": 47
+    },
+    {
+     "cc": "CR",
+     "city": "Alajuela",
+     "found": 8,
+     "updated": 0,
+     "osm": 96
+    },
+    {
+     "cc": "VE",
+     "city": "Bejuma",
+     "found": 2,
+     "updated": 0,
+     "osm": 6
+    }
+   ],
+   "added": 35,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 2,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 17.1,
+   "total": 62166
+  },
   {
    "at": "2026-11-24T14:57:24.311Z",
    "cities": [
@@ -9569,43 +9631,6 @@
    ],
    "minutes": 19.2,
    "total": 22301
-  },
-  {
-   "at": "2026-11-17T15:18:46.084Z",
-   "cities": [
-    {
-     "cc": "ES",
-     "city": "Ceuta",
-     "found": 12,
-     "updated": 0,
-     "osm": 28
-    },
-    {
-     "cc": "AR",
-     "city": "Ciudad Evita",
-     "found": 0,
-     "updated": 0,
-     "osm": 93
-    },
-    {
-     "cc": "PR",
-     "city": "Guaynabo",
-     "found": 3,
-     "updated": 0,
-     "osm": 77
-    }
-   ],
-   "added": 15,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "PY|n660785278: The operation was aborted due to timeout"
-   ],
-   "minutes": 19.2,
-   "total": 22259
   }
  ]
 }
