@@ -7581,7 +7581,9 @@
   "AR|Villaguay": "2026-11-26T04:16:00.017Z",
   "ES|n1470838284": "2026-11-26T04:18:05.328Z",
   "MX|San Pedro de las Colonias": "2026-11-26T04:25:47.237Z",
-  "CL|Machalí": "2026-11-26T14:15:54.773Z"
+  "CL|Machalí": "2026-11-26T14:15:54.773Z",
+  "CO|n703169501": "2026-11-26T23:11:25.402Z",
+  "CL|Angol": "2026-11-26T23:19:22.103Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7751,6 +7753,34 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-26T23:03:41.672Z",
+   "cities": [
+    {
+     "cc": "CO",
+     "city": "San Andrés de Sotavento",
+     "found": 2,
+     "updated": 0,
+     "osm": 12
+    },
+    {
+     "cc": "CL",
+     "city": "Angol",
+     "found": 18,
+     "updated": 0,
+     "osm": 30
+    }
+   ],
+   "added": 20,
+   "enriched": 0,
+   "photos": 3,
+   "contacts": 5,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 17.1,
+   "total": 62247
+  },
   {
    "at": "2026-11-26T13:59:45.883Z",
    "cities": [
@@ -9585,50 +9615,6 @@
    ],
    "minutes": 19.3,
    "total": 22493
-  },
-  {
-   "at": "2026-11-18T03:08:37.250Z",
-   "cities": [
-    {
-     "cc": "AR",
-     "city": "Don Torcuato",
-     "found": 2,
-     "updated": 0,
-     "osm": 72
-    },
-    {
-     "cc": "CO",
-     "city": "Puerto Asís",
-     "found": 7,
-     "updated": 0,
-     "osm": 35
-    },
-    {
-     "cc": "ES",
-     "city": "Granollers",
-     "found": 0,
-     "updated": 0,
-     "osm": 0
-    },
-    {
-     "cc": "MX",
-     "city": "Sahuayo de Morelos",
-     "found": 0,
-     "updated": 0,
-     "osm": 0
-    }
-   ],
-   "added": 9,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "HN|n307406289: sin tiempo en esta corrida"
-   ],
-   "minutes": 19,
-   "total": 22440
   }
  ]
 }

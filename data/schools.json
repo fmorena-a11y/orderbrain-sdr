@@ -1390,7 +1390,7 @@
   "pitch": "Perfil bilingüe.",
   "zone": "Centro-oeste",
   "id": "piura-colegio-peruano-canadiense",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-26"
  },
  {
   "name": "Colegio Salesiano Don Bosco",
@@ -1507,7 +1507,7 @@
   "pitch": "Colegio de mujeres, hermano de Turicará.",
   "zone": "Norte",
   "id": "piura-colegio-vallesol",
-  "imgTry": "2026-11-10",
+  "imgTry": "2026-11-26",
   "levels": [
    "Preescolar",
    "Primaria",
@@ -3948,7 +3948,7 @@
   "osm": "n4331307092",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "lima-universidad-sergio-bernales",
@@ -4171,7 +4171,7 @@
   "osm": "n4423757189",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-26",
   "code": "0449553",
   "padron": "ESCALE MINEDU",
   "codes": [
@@ -4974,7 +4974,7 @@
   "osm": "n5567128884",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-10",
+  "imgTry": "2026-11-26",
   "code": "1243955",
   "padron": "ESCALE MINEDU",
   "codes": [
@@ -5193,7 +5193,7 @@
   "osm": "n5594896485",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "lima-colegio-san-luis",
@@ -5452,7 +5452,7 @@
   "osm": "n5631686922",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "lima-colegio-el-buen-maestro",
@@ -5573,7 +5573,8 @@
   "osm": "n5845170495",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-11",
+  "webAt": "2026-11-26"
  },
  {
   "id": "lima-colegio-lord-byron",
@@ -5624,7 +5625,7 @@
   "osm": "n5923245389",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "lima-iep-san-judas-tadeo",
@@ -5734,7 +5735,7 @@
   "osm": "n7561201969",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "lima-instituto-santa-rosa-2",
@@ -5756,7 +5757,8 @@
   "osm": "n7905599975",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-11",
+  "webAt": "2026-11-26"
  },
  {
   "id": "lima-yataco-academy",
@@ -6073,7 +6075,7 @@
   "osm": "w52967820",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "lima-universidad-peruana-cayetano-heredia-campo-central",
@@ -6267,7 +6269,8 @@
   "osm": "w129904656",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-11",
+  "webAt": "2026-11-26"
  },
  {
   "id": "lima-colegio-santa-maria-marianista",
@@ -6499,7 +6502,7 @@
   "osm": "w160698066",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "lima-instituto-san-ignacio-de-loyola",
@@ -6778,7 +6781,7 @@
   "osm": "w257348902",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-26",
   "code": "0322818",
   "padron": "ESCALE MINEDU"
  },
@@ -6904,7 +6907,7 @@
   "osm": "w285827604",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "lima-universidad-tecnologica-del-peru",
@@ -7062,7 +7065,7 @@
   "osm": "w310523619",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "lima-centro-de-idiomas-britanico",
@@ -7177,7 +7180,7 @@
   "osm": "w360056176",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "lima-fetzer-academy",
@@ -7334,7 +7337,7 @@
   "osm": "w370732346",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-26",
   "code": "0874313",
   "padron": "ESCALE MINEDU",
   "codes": [
@@ -7870,7 +7873,7 @@
   "osm": "w403719147",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-26",
   "code": "1513571",
   "padron": "ESCALE MINEDU",
   "codes": [
@@ -8122,7 +8125,7 @@
   "osm": "w410087498",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "lima-colegio-jose-olaya-balandra",
@@ -8181,7 +8184,8 @@
   "osm": "w416499884",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-11",
+  "webAt": "2026-11-26"
  },
  {
   "id": "lima-colegio-privado-cristina-beatriz",
@@ -8316,7 +8320,7 @@
   "osm": "w426255445",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-26",
   "code": "1265495",
   "padron": "ESCALE MINEDU",
   "codes": [
@@ -8566,7 +8570,8 @@
   "osm": "w435545539",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-11",
+  "webAt": "2026-11-26"
  },
  {
   "id": "lima-instituto-empresarial-de-la-universidad-alas-peruanas",
@@ -9618,7 +9623,8 @@
    "0874537",
    "0759506",
    "0759308"
-  ]
+  ],
+  "webAt": "2026-11-26"
  },
  {
   "id": "lima-i-e-p-los-angeles-de-dios",
@@ -10222,7 +10228,7 @@
   "osm": "w437682086",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-26",
   "code": "0601674",
   "padron": "ESCALE MINEDU",
   "codes": [
@@ -10533,7 +10539,7 @@
   "osm": "w437875682",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "lima-colegio-particular-san-rafael",
@@ -11434,7 +11440,7 @@
   "osm": "w439956594",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-26",
   "code": "0340505",
   "padron": "ESCALE MINEDU",
   "codes": [
@@ -12294,7 +12300,7 @@
   "osm": "w451612936",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-26",
   "code": "0693549",
   "padron": "ESCALE MINEDU",
   "codes": [
@@ -12388,7 +12394,7 @@
   "osm": "w454578934",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "lima-i-e-p-maria-reina-de-los-apostoles",
@@ -12509,7 +12515,7 @@
   "osm": "w454698511",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-10",
+  "imgTry": "2026-11-26",
   "code": "1509181",
   "padron": "ESCALE MINEDU",
   "codes": [
@@ -12798,7 +12804,7 @@
   "osm": "w483689463",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "lima-i-e-p-jose-maria-arguedas",
@@ -12936,7 +12942,7 @@
   "osm": "w495775879",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "lima-instituto-cepea",
@@ -12956,7 +12962,7 @@
   "osm": "w495775909",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "lima-i-e-p-pedro-ruiz-gallo",
@@ -390401,7 +390407,7 @@
   "src": "osm",
   "osm": "w85504849",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "la-serena-colegio-san-antonio",
@@ -391769,7 +391775,7 @@
   "src": "osm",
   "osm": "w235129100",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "jerez-de-la-frontera-colegio-de-educacion-infantil-y-primaria-isabel-la-catolica",
@@ -393494,7 +393500,7 @@
   "src": "osm",
   "osm": "w1117619545",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "oviedo-colegio-santa-maria-del-naranco",
@@ -394133,7 +394139,7 @@
   "src": "osm",
   "osm": "w553296320",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "iquique-colegio-adventista-de-iquique",
@@ -399672,7 +399678,7 @@
   "src": "osm",
   "osm": "n6858713481",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "leon-colegio-la-salle",
@@ -400321,7 +400327,7 @@
   "src": "osm",
   "osm": "w270743840",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "almeria-colegio-de-educacion-infantil-y-primaria-adela-diaz",
@@ -403533,7 +403539,9 @@
   "src": "osm",
   "osm": "w777989157",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-26"
  },
  {
   "id": "puerto-montt-colegio-dario-salas",
@@ -403592,7 +403600,9 @@
   "src": "osm",
   "osm": "w1050133416",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-26"
  },
  {
   "id": "puerto-montt-colegio-american-school",
@@ -404700,7 +404710,9 @@
   "src": "osm",
   "osm": "w1364982781",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-26"
  },
  {
   "id": "moreno-instituto-tiberio-botto",
@@ -405810,7 +405822,7 @@
   "src": "osm",
   "osm": "w1003309057",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "albacete-colegio-de-educacion-infantil-y-primaria-pedro-simon-abril",
@@ -407093,7 +407105,7 @@
   "src": "osm",
   "osm": "w406840666",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "bayamon-colegio-marista",
@@ -407453,7 +407465,9 @@
   "src": "osm",
   "osm": "w689452045",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-26"
  },
  {
   "id": "san-fernando-de-apure-colegio-san-rafael",
@@ -407660,7 +407674,7 @@
   "src": "osm",
   "osm": "n12217024295",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "chillan-instituto-profesional-valle-central-chillan",
@@ -408874,7 +408888,7 @@
   "src": "osm",
   "osm": "n4459477189",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "ciudad-acuna-universidad-vizcaya-de-las-americas",
@@ -1460947,7 +1460961,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w446093059",
-  "found": "2026-11-25"
+  "found": "2026-11-25",
+  "imgTry": "2026-11-26"
  },
  {
   "id": "estepona-colegio-diocesano-juan-xxiii",
@@ -1460967,7 +1460982,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1070057707",
-  "found": "2026-11-25"
+  "found": "2026-11-25",
+  "imgTry": "2026-11-26"
  },
  {
   "id": "estepona-colegio-de-educacion-infantil-y-primaria-maria-espinosa",
@@ -1460989,7 +1461005,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1459792873",
-  "found": "2026-11-25"
+  "found": "2026-11-25",
+  "imgTry": "2026-11-26"
  },
  {
   "id": "pamplona-centro-educativo-centro-de-estimulacion-educativo-infantil-magic-time-",
@@ -1461316,15 +1461333,17 @@
   "lat": 7.372346,
   "lng": -72.644716,
   "addr": "Calle 8 8-155",
-  "phone": "",
+  "phone": "+576075686868",
   "web": "https://www.iser.edu.co",
-  "email": "",
+  "email": "denunciascorrupcion@iser.edu.co",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w1282288104",
-  "found": "2026-11-25"
+  "found": "2026-11-25",
+  "img": "",
+  "webAt": "2026-11-26"
  },
  {
   "id": "san-isidro-de-el-general-univesidad-internacional-san-isidro-labrador",
@@ -1461399,9 +1461418,9 @@
   "lat": 9.975064,
   "lng": -84.19724,
   "addr": "Radial San Antonio",
-  "phone": "",
+  "phone": "+50622985700",
   "web": "https://panam.ed.cr",
-  "email": "",
+  "email": "info@panam.ed.cr",
   "levels": [],
   "opp": [
    "Bilingüe o internacional"
@@ -1461409,7 +1461428,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w75990306",
-  "found": "2026-11-25"
+  "found": "2026-11-25",
+  "img": "https://panam.ed.cr/img/carousel1_2.png",
+  "webAt": "2026-11-26"
  },
  {
   "id": "alajuela-universidad-adventista-de-centroamerica",
@@ -1461925,7 +1461946,7 @@
   "lat": -45.572288,
   "lng": -72.067511,
   "addr": "Plaza de Armas 315",
-  "phone": "",
+  "phone": "+56672231226",
   "web": "https://lsfb.cl/",
   "email": "",
   "levels": [],
@@ -1461935,7 +1461956,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w222708476",
-  "found": "2026-11-25"
+  "found": "2026-11-25",
+  "img": "https://lsfb.cl/wp-content/uploads/2024/10/logo01.png",
+  "webAt": "2026-11-26"
  },
  {
   "id": "coyhaique-colegio-mater-dei-de-coyhaique",
@@ -1462017,9 +1462040,9 @@
   "lat": -45.57103,
   "lng": -72.013515,
   "addr": "Ruta 243 CH",
-  "phone": "",
+  "phone": "800600310",
   "web": "https://www.uach.cl/",
-  "email": "",
+  "email": "admision@uach.cl",
   "levels": [
    "Universidad"
   ],
@@ -1462029,7 +1462052,10 @@
   "private": "probable",
   "src": "osm",
   "osm": "w613062993",
-  "found": "2026-11-25"
+  "found": "2026-11-25",
+  "img": "https://uach.cl/_imag/logo-small-blanco.png",
+  "whatsapp": "+56958533553",
+  "webAt": "2026-11-26"
  },
  {
   "id": "coyhaique-colegio-diego-portales-de-coyhaique",
@@ -1462065,7 +1462091,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "w827509137",
-  "found": "2026-11-25"
+  "found": "2026-11-25",
+  "img": "",
+  "webAt": "2026-11-26"
  },
  {
   "id": "coyhaique-colegio-campo-de-hielo",
@@ -1462188,7 +1462216,9 @@
   "private": "probable",
   "src": "osm",
   "osm": "n6540182418",
-  "found": "2026-11-25"
+  "found": "2026-11-25",
+  "img": "",
+  "webAt": "2026-11-26"
  },
  {
   "id": "segovia-academia-estudio",
@@ -1462246,7 +1462276,8 @@
   "private": "probable",
   "src": "osm",
   "osm": "w187034127",
-  "found": "2026-11-25"
+  "found": "2026-11-25",
+  "imgTry": "2026-11-26"
  },
  {
   "id": "segovia-colegio-claret",
@@ -1462267,7 +1462298,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w239330072",
-  "found": "2026-11-25"
+  "found": "2026-11-25",
+  "img": "",
+  "webAt": "2026-11-26"
  },
  {
   "id": "segovia-colegio-marista-nuestra-senora-de-la-fuencisla",
@@ -1462277,7 +1462310,7 @@
   "lat": 40.947001,
   "lng": -4.127071,
   "addr": "Camino de la Piedad 8",
-  "phone": "",
+  "phone": "921436761",
   "web": "https://maristassegovia.org/",
   "email": "",
   "levels": [],
@@ -1462288,7 +1462321,9 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w294862039",
-  "found": "2026-11-25"
+  "found": "2026-11-25",
+  "img": "",
+  "webAt": "2026-11-26"
  },
  {
   "id": "segovia-antiguo-colegio-sagrado-corazon",
@@ -1462816,6 +1462851,386 @@
   "private": "probable",
   "src": "osm",
   "osm": "w1194628086",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "san-andres-de-sotavento-institucion-educ-filadelfia",
+  "name": "Institución Educ Filadelfia",
+  "city": "San Andrés de Sotavento",
+  "country": "Colombia",
+  "lat": 9.146308,
+  "lng": -75.51207,
+  "addr": "",
+  "phone": "+57 604 7799782",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n12487369373",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "san-andres-de-sotavento-centro-educativo-cent-doc-urb-mix-buenos-aires",
+  "name": "Centro Educativo Cent Doc Urb Mix Buenos Aires",
+  "city": "San Andrés de Sotavento",
+  "country": "Colombia",
+  "lat": 9.150735,
+  "lng": -75.50964,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1465731959",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "angol-colegio-mozart-scholl-angol",
+  "name": "Colegio Mozart Scholl Angol",
+  "city": "Angol",
+  "country": "Chile",
+  "lat": -37.813298,
+  "lng": -72.680532,
+  "addr": "Avenida Bernardo O'Higgins 2221, Pablo Neruda",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n9296208842",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "angol-escuela-particular-saint-george",
+  "name": "Escuela Particular Saint George",
+  "city": "Angol",
+  "country": "Chile",
+  "lat": -37.792654,
+  "lng": -72.711593,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n11299926547",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "angol-liceo-tecnico-juanita-fernandez-solar",
+  "name": "Liceo Tecnico Juanita Fernandez Solar",
+  "city": "Angol",
+  "country": "Chile",
+  "lat": -37.801532,
+  "lng": -72.703747,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11435531539",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "angol-colegio-adventista-de-angol",
+  "name": "Colegio Adventista de Angol",
+  "city": "Angol",
+  "country": "Chile",
+  "lat": -37.812535,
+  "lng": -72.685453,
+  "addr": "Úrsula Suárez 2682",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n11435569138",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "angol-escuela-particular-el-mirador",
+  "name": "Escuela Particular El Mirador",
+  "city": "Angol",
+  "country": "Chile",
+  "lat": -37.811968,
+  "lng": -72.689878,
+  "addr": "Jorge Alessandri 1482",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "n11435627327",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "angol-liceo-agricola-el-vergel",
+  "name": "Liceo Agricola El Vergel",
+  "city": "Angol",
+  "country": "Chile",
+  "lat": -37.824381,
+  "lng": -72.662283,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n12278638374",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "angol-universidad-de-la-frontera",
+  "name": "Universidad de la Frontera",
+  "city": "Angol",
+  "country": "Chile",
+  "lat": -37.800672,
+  "lng": -72.703191,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [
+   "Universidad"
+  ],
+  "opp": [
+   "Universidad (OrderGO)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142395224",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "angol-colegio-san-francisco-de-asis",
+  "name": "Colegio San Francisco de Asis",
+  "city": "Angol",
+  "country": "Chile",
+  "lat": -37.795255,
+  "lng": -72.715726,
+  "addr": "Purén 747",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142395232",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "angol-liceo-comercial-armando-bravo",
+  "name": "Liceo Comercial Armando Bravo",
+  "city": "Angol",
+  "country": "Chile",
+  "lat": -37.797709,
+  "lng": -72.711455,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w142395237",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "angol-colegio-alemania",
+  "name": "Colegio Alemania",
+  "city": "Angol",
+  "country": "Chile",
+  "lat": -37.809329,
+  "lng": -72.69358,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w222970781",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "angol-colegio-basico-aragon",
+  "name": "Colegio Básico Aragón",
+  "city": "Angol",
+  "country": "Chile",
+  "lat": -37.805329,
+  "lng": -72.695126,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w224057152",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "angol-colegio-maria-sylvester-rasch",
+  "name": "Colegio Maria Sylvester Rasch",
+  "city": "Angol",
+  "country": "Chile",
+  "lat": -37.794854,
+  "lng": -72.720926,
+  "addr": "Covadonga 1116-1212",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w557090217",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "angol-liceo-enrique-ballacey-cottereau",
+  "name": "Liceo Enrique Ballacey Cottereau",
+  "city": "Angol",
+  "country": "Chile",
+  "lat": -37.801033,
+  "lng": -72.702651,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w610546982",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "angol-colegio-san-jose",
+  "name": "Colegio San José",
+  "city": "Angol",
+  "country": "Chile",
+  "lat": -37.812859,
+  "lng": -72.686995,
+  "addr": "Inés de Suárez 200",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w809719660",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "angol-liceo-angol",
+  "name": "Liceo Angol",
+  "city": "Angol",
+  "country": "Chile",
+  "lat": -37.802784,
+  "lng": -72.69384,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w891264637",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "angol-colegio-diego-duble-urrutia",
+  "name": "Colegio Diego Dublé Urrutia",
+  "city": "Angol",
+  "country": "Chile",
+  "lat": -37.809979,
+  "lng": -72.700852,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w891470283",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "angol-liceo-los-nogales",
+  "name": "Liceo Los Nogales",
+  "city": "Angol",
+  "country": "Chile",
+  "lat": -37.807295,
+  "lng": -72.713577,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w891470308",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "angol-escuela-particular-nuestra-senora-del-rosario",
+  "name": "Escuela Particular Nuestra Señora del Rosario",
+  "city": "Angol",
+  "country": "Chile",
+  "lat": -37.804609,
+  "lng": -72.70747,
+  "addr": "Pedro Aguirre Cerda Interior 050",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Privado confirmado en el mapa"
+  ],
+  "private": "seguro",
+  "src": "osm",
+  "osm": "w1149262704",
   "found": "2026-11-26"
  }
 ]
