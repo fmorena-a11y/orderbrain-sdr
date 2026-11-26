@@ -351282,7 +351282,7 @@
   "src": "osm",
   "osm": "n12462448469",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "oaxaca-de-juarez-escuela-preparatoria-general-lazaro-cardenas-del-rio",
@@ -351756,7 +351756,7 @@
   "src": "osm",
   "osm": "n12465998289",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "oaxaca-de-juarez-colegio-mundo-feliz",
@@ -352942,7 +352942,7 @@
   "src": "osm",
   "osm": "w1117847107",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "gijon-colegio-andolina",
@@ -353198,7 +353198,7 @@
   "src": "osm",
   "osm": "n9078412930",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "floridablanca-colegio-aspaen-saucara",
@@ -355505,7 +355505,7 @@
   "src": "osm",
   "osm": "w137201452",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "la-paz-colegio-california",
@@ -357903,7 +357903,7 @@
   "src": "osm",
   "osm": "w439945772",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "chosica-colegio-marcelino-champagnat",
@@ -362785,7 +362785,7 @@
   "src": "osm",
   "osm": "w111831318",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "rancagua-colegio-pequeno-mozart",
@@ -362822,7 +362822,7 @@
   "src": "osm",
   "osm": "w112024174",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "rancagua-colegio-santa-filomena",
@@ -362915,7 +362915,7 @@
   "src": "osm",
   "osm": "w143577337",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "rancagua-liceo-maria-luisa-bombal",
@@ -363061,9 +363061,9 @@
   "lat": -34.16904,
   "lng": -70.724114,
   "addr": "",
-  "phone": "",
+  "phone": "56939404146",
   "web": "https://www.lippac.cl/",
-  "email": "",
+  "email": "comunicaciones@lippac.cl",
   "levels": [
    "Universidad"
   ],
@@ -363074,7 +363074,9 @@
   "src": "osm",
   "osm": "w146813071",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-11",
+  "img": "",
+  "webAt": "2026-11-26"
  },
  {
   "id": "rancagua-colegio-nahuelcura",
@@ -363209,7 +363211,7 @@
   "src": "osm",
   "osm": "w164137480",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "rancagua-colegio-gabriela-mistral",
@@ -363288,7 +363290,7 @@
   "src": "osm",
   "osm": "w164422317",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "rancagua-colegio-las-americas",
@@ -363423,7 +363425,7 @@
   "src": "osm",
   "osm": "w176708138",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "rancagua-instituto-hermanas-esclavas-del-corazon-de-jesus",
@@ -363481,7 +363483,7 @@
   "src": "osm",
   "osm": "w181952885",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "rancagua-colegio-jean-piaget",
@@ -363574,7 +363576,7 @@
   "src": "osm",
   "osm": "w195383255",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "rancagua-instituto-rancagua",
@@ -363723,7 +363725,7 @@
   "src": "osm",
   "osm": "w559230853",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "rancagua-colegio-el-cobre",
@@ -363742,7 +363744,7 @@
   "src": "osm",
   "osm": "w560392062",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "rancagua-colegio-paulo-freire",
@@ -364037,7 +364039,7 @@
   "src": "osm",
   "osm": "w1116365835",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "rancagua-colegio-edumaster-college",
@@ -364555,7 +364557,7 @@
   "src": "osm",
   "osm": "w458943004",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "san-salvador-de-jujuy-colegio-secundario-43",
@@ -365653,7 +365655,7 @@
   "src": "osm",
   "osm": "w639429811",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "granada-colegio-monaita",
@@ -365821,7 +365823,7 @@
   "src": "osm",
   "osm": "w1141932827",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "granada-colegio-de-educacion-infantil-y-primaria-javier-imbroda",
@@ -367738,7 +367740,7 @@
   "src": "osm",
   "osm": "n7854857938",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-26",
   "code": "15PPR7096B",
   "padron": "SEP CCT"
  },
@@ -367910,7 +367912,7 @@
   "src": "osm",
   "osm": "n12513267183",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "toluca-escuela-secundaria-particular-no-382-jose-ma-de-yermo-y-pares",
@@ -368029,7 +368031,7 @@
   "src": "osm",
   "osm": "n12519591408",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "toluca-universidad-mexiquense",
@@ -368119,7 +368121,7 @@
   "src": "osm",
   "osm": "n12521576183",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "toluca-escuela-montessori",
@@ -368535,7 +368537,7 @@
   "src": "osm",
   "osm": "n12528236136",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-26",
   "code": "15PPR3475K",
   "padron": "SEP CCT",
   "codes": [
@@ -368703,7 +368705,7 @@
   "src": "osm",
   "osm": "n12531910569",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-26",
   "code": "15PPR3048R",
   "padron": "SEP CCT",
   "codes": [
@@ -368863,7 +368865,7 @@
   "src": "osm",
   "osm": "n12537563807",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "toluca-universidad-alfa-lambda-plantel-toluca-centro",
@@ -368895,9 +368897,9 @@
   "lat": 19.2622,
   "lng": -99.60206,
   "addr": "Calle Moctezuma",
-  "phone": "",
+  "phone": "+527221333373",
   "web": "https://www.liceoholandes.edu.mx/",
-  "email": "",
+  "email": "abogadolh@liceoholandes.edu.mx",
   "levels": [
    "Primaria"
   ],
@@ -368908,7 +368910,10 @@
   "found": "2026-11-11",
   "imgTry": "2026-11-11",
   "code": "15PPR7099Z",
-  "padron": "SEP CCT"
+  "padron": "SEP CCT",
+  "img": "",
+  "whatsapp": "+527221333373",
+  "webAt": "2026-11-26"
  },
  {
   "id": "toluca-licenciado-adolfo-lopez-mateos-escuela-preparatoria-1",
@@ -368993,7 +368998,7 @@
   "src": "osm",
   "osm": "n12540584779",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-26",
   "code": "15PPR3280Y",
   "padron": "SEP CCT",
   "codes": [
@@ -369150,7 +369155,7 @@
   "src": "osm",
   "osm": "n12540891523",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "toluca-iuytem-instituto-universitario-y-tecnologico-del-estado-de-mexico",
@@ -369171,7 +369176,7 @@
   "src": "osm",
   "osm": "n12540930980",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-26",
   "code": "15PBH6141H",
   "padron": "SEP CCT"
  },
@@ -369661,7 +369666,7 @@
   "src": "osm",
   "osm": "n12547761674",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "toluca-instituto-educativo-para-el-desarrollo-integral-del-saber",
@@ -369946,7 +369951,7 @@
   "src": "osm",
   "osm": "n12560312124",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "toluca-universidad-internacional-de-profesiones-unipro-escuela-internacional-",
@@ -370480,7 +370485,7 @@
   "src": "osm",
   "osm": "n12590389695",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "toluca-colegio-forger",
@@ -370633,7 +370638,7 @@
   "src": "osm",
   "osm": "n12591592846",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-26",
   "code": "15PPR1380J",
   "padron": "SEP CCT",
   "codes": [
@@ -370801,7 +370806,7 @@
   "src": "osm",
   "osm": "n12619139656",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-26",
   "code": "15PBH6030C",
   "padron": "SEP CCT"
  },
@@ -370864,7 +370869,7 @@
   "src": "osm",
   "osm": "n12627850018",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-26",
   "code": "15PPR3120K",
   "padron": "SEP CCT",
   "codes": [
@@ -371031,7 +371036,7 @@
   "src": "osm",
   "osm": "w204168946",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "toluca-universidad-tecmilenio-campus-toluca",
@@ -371306,7 +371311,7 @@
   "src": "osm",
   "osm": "w468041861",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "toluca-colegio-nuevo-continente",
@@ -371329,7 +371334,7 @@
   "src": "osm",
   "osm": "w501292169",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-26",
   "code": "15PES1393G",
   "padron": "SEP CCT",
   "codes": [
@@ -372643,7 +372648,7 @@
   "src": "osm",
   "osm": "w77213637",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "cartagena-colegio-de-educacion-infantil-y-primaria-la-asomada",
@@ -374464,7 +374469,7 @@
   "src": "osm",
   "osm": "w113727686",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "concepcion-liceo-lucila-godoy-alcayaga",
@@ -374521,7 +374526,7 @@
   "src": "osm",
   "osm": "w113742058",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "concepcion-colegio-manuel-rodriguez",
@@ -374948,7 +374953,7 @@
   "src": "osm",
   "osm": "w124859815",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "concepcion-colegio-concepcion-san-pedro-campus-villa",
@@ -375300,7 +375305,7 @@
   "src": "osm",
   "osm": "w307243097",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "concepcion-colegio-santa-eufrasia",
@@ -378101,7 +378106,7 @@
   "src": "osm",
   "osm": "w874223802",
   "found": "2026-11-11",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "la-coruna-uie-universidade-campus-da-coruna",
@@ -378354,7 +378359,7 @@
   "src": "osm",
   "osm": "w37565860",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "pamplona-colegio-san-cernin",
@@ -378521,7 +378526,7 @@
   "src": "osm",
   "osm": "w169499832",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "pamplona-colegio-irabia-izaga",
@@ -378560,7 +378565,9 @@
   "src": "osm",
   "osm": "w201099450",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-26"
  },
  {
   "id": "pamplona-colegio-regina-pacis-capuchinas",
@@ -378723,7 +378730,7 @@
   "src": "osm",
   "osm": "w378974851",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "pamplona-liceo-monjardin",
@@ -378777,16 +378784,18 @@
   "lat": 42.804711,
   "lng": -1.647455,
   "addr": "Calle Abejeras 22",
-  "phone": "",
+  "phone": "+34948076857",
   "web": "https://www.santisimosacramento.com/",
-  "email": "",
+  "email": "colegio@santisimosacramento.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w379168925",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-12",
+  "img": "",
+  "webAt": "2026-11-26"
  },
  {
   "id": "pamplona-colegio-vedruna",
@@ -384335,7 +384344,7 @@
   "src": "osm",
   "osm": "w601392449",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "arica-colegio-san-juan-de-la-blachere",
@@ -384791,7 +384800,7 @@
   "src": "osm",
   "osm": "w185172505",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "vigo-colexio-privado-san-xose-de-cluny",
@@ -385016,7 +385025,7 @@
   "src": "osm",
   "osm": "w285456059",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "vigo-colexio-privado-aloya",
@@ -385237,7 +385246,7 @@
   "src": "osm",
   "osm": "w495417969",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "vigo-colegio-san-jose-de-la-guia",
@@ -385258,7 +385267,7 @@
   "src": "osm",
   "osm": "w495427506",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "vigo-instituto-es-valentin-paz-andrade",
@@ -387731,7 +387740,7 @@
   "src": "osm",
   "osm": "w186840813",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "barrancabermeja-instituto-educativo-jose-prudencio-casd",
@@ -388303,7 +388312,7 @@
   "src": "osm",
   "osm": "r12214117",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "tulua-colegio-bilingue-hispanoamericano",
@@ -389268,7 +389277,7 @@
   "src": "osm",
   "osm": "w190779536",
   "found": "2026-11-12",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-26"
  },
  {
   "id": "elche-colegio-san-jose-artesano-salesianos-elche",
@@ -1462697,6 +1462706,116 @@
   "private": "seguro",
   "src": "osm",
   "osm": "w276747558",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "machali-colegio-san-jose",
+  "name": "Colegio San José",
+  "city": "Machalí",
+  "country": "Chile",
+  "lat": -34.181329,
+  "lng": -70.650686,
+  "addr": "Irarrázaval 209",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [
+   "Confesional (puede ser parte de una red)"
+  ],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n10997784003",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "machali-colegio-real-de-caren",
+  "name": "Colegio Real de Carén",
+  "city": "Machalí",
+  "country": "Chile",
+  "lat": -34.168781,
+  "lng": -70.650145,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w169130014",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "machali-colegio-diego-portales",
+  "name": "Colegio Diego Portales",
+  "city": "Machalí",
+  "country": "Chile",
+  "lat": -34.174383,
+  "lng": -70.642857,
+  "addr": "La Vinilla 250",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w197598531",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "machali-colegio-los-llanos",
+  "name": "Colegio Los Llanos",
+  "city": "Machalí",
+  "country": "Chile",
+  "lat": -34.166508,
+  "lng": -70.649321,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w198500305",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "machali-colegio-gabriela-mistral",
+  "name": "Colegio Gabriela Mistral",
+  "city": "Machalí",
+  "country": "Chile",
+  "lat": -34.183872,
+  "lng": -70.64985,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w618986715",
+  "found": "2026-11-26"
+ },
+ {
+  "id": "machali-colegio-arturo-prat",
+  "name": "Colegio Arturo Prat",
+  "city": "Machalí",
+  "country": "Chile",
+  "lat": -34.181772,
+  "lng": -70.649322,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "w1194628086",
   "found": "2026-11-26"
  }
 ]

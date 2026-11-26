@@ -7580,7 +7580,8 @@
   "AR|Perico": "2026-11-26T04:15:16.026Z",
   "AR|Villaguay": "2026-11-26T04:16:00.017Z",
   "ES|n1470838284": "2026-11-26T04:18:05.328Z",
-  "MX|San Pedro de las Colonias": "2026-11-26T04:25:47.237Z"
+  "MX|San Pedro de las Colonias": "2026-11-26T04:25:47.237Z",
+  "CL|Machalí": "2026-11-26T14:15:54.773Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7742,9 +7743,37 @@
    "n": 1,
    "at": "2026-11-23T19:29:20.997Z",
    "error": "Overpass 504"
+  },
+  "AR|Centenario": {
+   "n": 1,
+   "at": "2026-11-26T14:10:41.036Z",
+   "error": "Overpass 504"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-26T13:59:45.883Z",
+   "cities": [
+    {
+     "cc": "CL",
+     "city": "Machalí",
+     "found": 6,
+     "updated": 0,
+     "osm": 24
+    }
+   ],
+   "added": 6,
+   "enriched": 0,
+   "photos": 0,
+   "contacts": 3,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "AR|Centenario: Overpass 504"
+   ],
+   "minutes": 17.1,
+   "total": 62227
+  },
   {
    "at": "2026-11-26T04:12:19.289Z",
    "cities": [
@@ -9600,97 +9629,6 @@
    ],
    "minutes": 19,
    "total": 22440
-  },
-  {
-   "at": "2026-11-18T01:39:12.548Z",
-   "cities": [
-    {
-     "cc": "AR",
-     "city": "Martínez",
-     "found": 7,
-     "updated": 1,
-     "osm": 242
-    },
-    {
-     "cc": "CO",
-     "city": "Agustín Codazzi",
-     "found": 0,
-     "updated": 0,
-     "osm": 0
-    },
-    {
-     "cc": "PE",
-     "city": "Lambayeque",
-     "found": 0,
-     "updated": 0,
-     "osm": 20
-    },
-    {
-     "cc": "CL",
-     "city": "Buin",
-     "found": 19,
-     "updated": 0,
-     "osm": 47
-    },
-    {
-     "cc": "ES",
-     "city": "Gandia",
-     "found": 10,
-     "updated": 0,
-     "osm": 40
-    },
-    {
-     "cc": "VE",
-     "city": "Caja Seca",
-     "found": 0,
-     "updated": 0,
-     "osm": 3
-    },
-    {
-     "cc": "MX",
-     "city": "Tultepec",
-     "found": 0,
-     "updated": 0,
-     "osm": 68
-    },
-    {
-     "cc": "AR",
-     "city": "Garín",
-     "found": 14,
-     "updated": 0,
-     "osm": 71
-    },
-    {
-     "cc": "VE",
-     "city": "Achaguas",
-     "found": 0,
-     "updated": 0,
-     "osm": 0
-    },
-    {
-     "cc": "ES",
-     "city": "Sant Cugat del Vallès",
-     "found": 0,
-     "updated": 0,
-     "osm": 79
-    },
-    {
-     "cc": "CO",
-     "city": "Sevilla",
-     "found": 0,
-     "updated": 0,
-     "osm": 5
-    }
-   ],
-   "added": 50,
-   "enriched": 0,
-   "photos": 2,
-   "contacts": 5,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 13.4,
-   "total": 22431
   }
  ]
 }
