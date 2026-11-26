@@ -7572,7 +7572,15 @@
   "CO|n281868041": "2026-11-25T21:52:14.401Z",
   "ES|n29215168": "2026-11-25T21:52:58.440Z",
   "MX|Apizaco": "2026-11-25T21:57:04.296Z",
-  "AR|San Martín": "2026-11-25T22:01:12.169Z"
+  "AR|San Martín": "2026-11-25T22:01:12.169Z",
+  "MX|San Agustín": "2026-11-26T04:12:59.884Z",
+  "DO|n252989422": "2026-11-26T04:13:26.179Z",
+  "ES|n1470838567": "2026-11-26T04:14:04.274Z",
+  "AR|Gobernador Julio A. Costa": "2026-11-26T04:14:36.494Z",
+  "AR|Perico": "2026-11-26T04:15:16.026Z",
+  "AR|Villaguay": "2026-11-26T04:16:00.017Z",
+  "ES|n1470838284": "2026-11-26T04:18:05.328Z",
+  "MX|San Pedro de las Colonias": "2026-11-26T04:25:47.237Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7737,6 +7745,76 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-26T04:12:19.289Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "San Agustín",
+     "found": 3,
+     "updated": 3,
+     "osm": 80
+    },
+    {
+     "cc": "DO",
+     "city": "Bisonó",
+     "found": 1,
+     "updated": 0,
+     "osm": 4
+    },
+    {
+     "cc": "ES",
+     "city": "Motril",
+     "found": 4,
+     "updated": 0,
+     "osm": 30
+    },
+    {
+     "cc": "AR",
+     "city": "Gobernador Julio A. Costa",
+     "found": 0,
+     "updated": 0,
+     "osm": 129
+    },
+    {
+     "cc": "AR",
+     "city": "Perico",
+     "found": 1,
+     "updated": 0,
+     "osm": 14
+    },
+    {
+     "cc": "AR",
+     "city": "Villaguay",
+     "found": 4,
+     "updated": 0,
+     "osm": 31
+    },
+    {
+     "cc": "ES",
+     "city": "Figueres",
+     "found": 3,
+     "updated": 0,
+     "osm": 29
+    },
+    {
+     "cc": "MX",
+     "city": "San Pedro de las Colonias",
+     "found": 0,
+     "updated": 0,
+     "osm": 5
+    }
+   ],
+   "added": 16,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 1,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 15.1,
+   "total": 62221
+  },
   {
    "at": "2026-11-25T21:48:11.159Z",
    "cities": [
@@ -9613,55 +9691,6 @@
    "errors": [],
    "minutes": 13.4,
    "total": 22431
-  },
-  {
-   "at": "2026-11-17T23:11:35.241Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Dolores Hidalgo",
-     "found": 2,
-     "updated": 0,
-     "osm": 4
-    },
-    {
-     "cc": "CO",
-     "city": "Fundación",
-     "found": 21,
-     "updated": 0,
-     "osm": 47
-    },
-    {
-     "cc": "CO",
-     "city": "Chiquinquirá",
-     "found": 7,
-     "updated": 0,
-     "osm": 21
-    },
-    {
-     "cc": "AR",
-     "city": "Oberá",
-     "found": 22,
-     "updated": 0,
-     "osm": 77
-    },
-    {
-     "cc": "CO",
-     "city": "Leticia",
-     "found": 9,
-     "updated": 0,
-     "osm": 33
-    }
-   ],
-   "added": 61,
-   "enriched": 0,
-   "photos": 2,
-   "contacts": 2,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 16,
-   "total": 22381
   }
  ]
 }
