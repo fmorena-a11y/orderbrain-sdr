@@ -12982,7 +12982,7 @@
   "osm": "w496777760",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "lima-i-e-p-divino-maestro",
@@ -13165,7 +13165,7 @@
   "osm": "w517364788",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "lima-colegio-san-antonio-de-lima-college",
@@ -13279,7 +13279,7 @@
   "osm": "w521108996",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-27",
   "code": "1316645",
   "padron": "ESCALE MINEDU"
  },
@@ -13381,7 +13381,7 @@
   "osm": "w529329063",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-27",
   "code": "1087360",
   "padron": "ESCALE MINEDU",
   "codes": [
@@ -13513,7 +13513,7 @@
   "osm": "w559577282",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "lima-colegio-fernando-viese-eslava",
@@ -13535,7 +13535,7 @@
   "osm": "w564757980",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "lima-universidad-tecnologica-del-peru-4",
@@ -13669,7 +13669,9 @@
   "osm": "w621763280",
   "found": "2026-11-09",
   "img": "https://www.upn.edu.pe/sites/default/files/imagen-metatag.jpg",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-11",
+  "whatsapp": "+51958754444",
+  "webAt": "2026-11-27"
  },
  {
   "id": "lima-universidad-de-ciencias-y-artes-de-america-latina",
@@ -13765,7 +13767,7 @@
   "osm": "w635855450",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "lima-colegio-parroquial-nino-jesus",
@@ -13947,7 +13949,7 @@
   "osm": "w740573889",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "lima-colegio-villa-gratia-dei",
@@ -14164,7 +14166,7 @@
   "osm": "w849895986",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-27",
   "code": "1242999",
   "padron": "ESCALE MINEDU",
   "codes": [
@@ -14616,7 +14618,7 @@
   "osm": "w1112542564",
   "found": "2026-11-09",
   "img": "",
-  "imgTry": "2026-11-11",
+  "imgTry": "2026-11-27",
   "code": "1483395",
   "padron": "ESCALE MINEDU",
   "codes": [
@@ -16582,7 +16584,7 @@
   "src": "osm",
   "osm": "n6143214185",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "ciudad-de-mexico-universidad-insurgentes-plantel-xola",
@@ -18235,7 +18237,7 @@
   "src": "osm",
   "osm": "n12519614048",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10",
+  "imgTry": "2026-11-27",
   "code": "15PPR3469Z",
   "padron": "SEP CCT",
   "codes": [
@@ -18771,7 +18773,7 @@
   "src": "osm",
   "osm": "n12542893978",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "ciudad-de-mexico-baur-internacional",
@@ -19315,7 +19317,7 @@
   "src": "osm",
   "osm": "n12547728445",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "ciudad-de-mexico-aurus-academia",
@@ -19376,7 +19378,7 @@
   "src": "osm",
   "osm": "n12548451348",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10",
+  "imgTry": "2026-11-27",
   "code": "15PPR3658S",
   "padron": "SEP CCT",
   "codes": [
@@ -19525,7 +19527,7 @@
   "src": "osm",
   "osm": "n12554883484",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "ciudad-de-mexico-instituto-las-americas",
@@ -19623,7 +19625,8 @@
   "codes": [
    "09PES1018S",
    "09PPR1869Y"
-  ]
+  ],
+  "webAt": "2026-11-27"
  },
  {
   "id": "ciudad-de-mexico-academia-de-belleza-casa-luna",
@@ -19894,7 +19897,8 @@
   "codes": [
    "15PPR3019W",
    "15PJN5128Z"
-  ]
+  ],
+  "webAt": "2026-11-27"
  },
  {
   "id": "ciudad-de-mexico-prepa-abierta-oficina-cuajimalpa-0915",
@@ -20135,7 +20139,7 @@
   "src": "osm",
   "osm": "n12590511828",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10",
+  "imgTry": "2026-11-27",
   "code": "09PPR1587Q",
   "padron": "SEP CCT"
  },
@@ -20327,7 +20331,7 @@
   "src": "osm",
   "osm": "n12620551063",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "ciudad-de-mexico-colegio-tecax-secundaria-09pes0587c",
@@ -20366,7 +20370,7 @@
   "src": "osm",
   "osm": "n12627322364",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "ciudad-de-mexico-escuela-secundaria-particular-incorporada-lazaro-cardenas",
@@ -21571,7 +21575,7 @@
   "src": "osm",
   "osm": "w246076632",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "ciudad-de-mexico-universidad-intercontinental-campus-sur",
@@ -22028,7 +22032,7 @@
   "src": "osm",
   "osm": "w344030464",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "ciudad-de-mexico-instituto-asuncion-de-mexico",
@@ -22200,7 +22204,7 @@
   "src": "osm",
   "osm": "w404399542",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "ciudad-de-mexico-colegio-avante",
@@ -22219,7 +22223,7 @@
   "src": "osm",
   "osm": "w405051032",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "ciudad-de-mexico-colegio-simon-bolivar-secundaria",
@@ -22639,7 +22643,7 @@
   "src": "osm",
   "osm": "w471355319",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "ciudad-de-mexico-universidad-justo-sierra-plantel-acueducto",
@@ -23598,7 +23602,10 @@
   "src": "osm",
   "osm": "w615995223",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-10",
+  "img": "",
+  "whatsapp": "+525554143597",
+  "webAt": "2026-11-27"
  },
  {
   "id": "ciudad-de-mexico-kinder-amaelia-fierro-bandala",
@@ -23738,7 +23745,7 @@
   "src": "osm",
   "osm": "w670004288",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10",
+  "imgTry": "2026-11-27",
   "code": "09PBH0172B",
   "padron": "SEP CCT"
  },
@@ -32199,7 +32206,7 @@
   "src": "osm",
   "osm": "n906435291",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "santiago-colegio-altamira-adultos",
@@ -33119,7 +33126,7 @@
   "src": "osm",
   "osm": "n4640985592",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "santiago-escuela-de-ingles-john-o-shea",
@@ -33140,7 +33147,7 @@
   "src": "osm",
   "osm": "n4700450789",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "santiago-jardin-infantil-baby-school",
@@ -33161,7 +33168,9 @@
   "src": "osm",
   "osm": "n4803540522",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-27"
  },
  {
   "id": "santiago-universidad-de-talca-lbi",
@@ -37256,7 +37265,9 @@
   "src": "osm",
   "osm": "w96709285",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-27"
  },
  {
   "id": "santiago-colegio-redland-school",
@@ -38208,7 +38219,7 @@
   "src": "osm",
   "osm": "w157450164",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "santiago-colegio-san-agustin",
@@ -38515,7 +38526,7 @@
   "src": "osm",
   "osm": "w170831419",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "santiago-liceo-polivalente-paul-harris",
@@ -39218,7 +39229,7 @@
   "src": "osm",
   "osm": "w188157644",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "santiago-colegio-semper-altius",
@@ -39874,7 +39885,7 @@
   "src": "osm",
   "osm": "w237673810",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "santiago-colegio-alicante-del-valle",
@@ -40253,7 +40264,7 @@
   "src": "osm",
   "osm": "w263521297",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "santiago-colegio-antilhue-de-pudahuel",
@@ -44782,7 +44793,9 @@
   "src": "osm",
   "osm": "w521104200",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-10",
+  "img": "",
+  "webAt": "2026-11-27"
  },
  {
   "id": "santiago-universidad-santo-tomas-campus-catemito",
@@ -44842,7 +44855,7 @@
   "src": "osm",
   "osm": "w533698845",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "santiago-colegio-aleman-sankt-thomas-morus",
@@ -45103,7 +45116,9 @@
   "src": "osm",
   "osm": "w545978202",
   "found": "2026-11-09",
-  "imgTry": "2026-11-10"
+  "imgTry": "2026-11-10",
+  "img": "https://vibe.filesafe.space/meta/1789424153482116108/og_image.webp",
+  "webAt": "2026-11-27"
  },
  {
   "id": "santiago-colegio-arzobispo-crescente-errazuriz",
@@ -45401,7 +45416,7 @@
   "addr": "Avenida Calera de Tango",
   "phone": "+56442939821",
   "web": "https://www.rieljan.cl/",
-  "email": "",
+  "email": "contacto@rieljan.cl",
   "levels": [],
   "opp": [],
   "private": "probable",
@@ -45409,7 +45424,8 @@
   "osm": "w563653728",
   "found": "2026-11-09",
   "img": "https://www.rieljan.cl/wp-content/uploads/2026/05/ESCUDO.svg",
-  "imgTry": "2026-11-12"
+  "imgTry": "2026-11-12",
+  "webAt": "2026-11-27"
  },
  {
   "id": "santiago-colegio-alborada-de-lampa",
@@ -415062,16 +415078,18 @@
   "lat": 42.449801,
   "lng": -2.45164,
   "addr": "",
-  "phone": "",
+  "phone": "+442071128285",
   "web": "https://montessorilogrono.org/",
-  "email": "",
+  "email": "hello@themebau.com",
   "levels": [],
   "opp": [],
   "private": "probable",
   "src": "osm",
   "osm": "w781367108",
   "found": "2026-11-13",
-  "imgTry": "2026-11-13"
+  "imgTry": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-27"
  },
  {
   "id": "logrono-colegio-paula-montal-escolapios",
@@ -415130,7 +415148,7 @@
   "src": "osm",
   "osm": "w1222775010",
   "found": "2026-11-13",
-  "imgTry": "2026-11-13"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "logrono-colegio-alcaste",
@@ -415345,7 +415363,7 @@
   "src": "osm",
   "osm": "w127310360",
   "found": "2026-11-13",
-  "imgTry": "2026-11-13"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "santa-cruz-de-tenerife-colegio-e-e-nuestra-senora-del-carmen",
@@ -415402,7 +415420,7 @@
   "src": "osm",
   "osm": "w141901728",
   "found": "2026-11-13",
-  "imgTry": "2026-11-13"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "santa-cruz-de-tenerife-colegio-ofra-vistabella",
@@ -415421,7 +415439,7 @@
   "src": "osm",
   "osm": "w167536153",
   "found": "2026-11-13",
-  "imgTry": "2026-11-13"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "santa-cruz-de-tenerife-colegio-de-educacion-infantil-y-primaria-rafael-gavino-del-bosque",
@@ -415506,7 +415524,7 @@
   "src": "osm",
   "osm": "w190221566",
   "found": "2026-11-13",
-  "imgTry": "2026-11-13"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "santa-cruz-de-tenerife-colegio-cisneros",
@@ -415525,7 +415543,7 @@
   "src": "osm",
   "osm": "w190289841",
   "found": "2026-11-13",
-  "imgTry": "2026-11-13"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "santa-cruz-de-tenerife-colegio-hispano-ingles",
@@ -415608,7 +415626,7 @@
   "src": "osm",
   "osm": "w198529461",
   "found": "2026-11-13",
-  "imgTry": "2026-11-13"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "santa-cruz-de-tenerife-colegio-de-educacion-infantil-y-primaria-las-chumberas",
@@ -415745,7 +415763,7 @@
   "src": "osm",
   "osm": "r2570020",
   "found": "2026-11-13",
-  "imgTry": "2026-11-13"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "santa-cruz-de-tenerife-colegio-rodriguez-alberto",
@@ -416632,7 +416650,7 @@
   "src": "osm",
   "osm": "w413120492",
   "found": "2026-11-13",
-  "imgTry": "2026-11-13"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "quilpue-colegio-nehuen-de-quilpue",
@@ -417576,7 +417594,9 @@
   "src": "osm",
   "osm": "w171170917",
   "found": "2026-11-13",
-  "imgTry": "2026-11-13"
+  "imgTry": "2026-11-13",
+  "img": "https://buenavistazaror.cl/img/og-image.jpeg?v=8b42662d",
+  "webAt": "2026-11-27"
  },
  {
   "id": "talcahuano-colegio-espiritu-santo",
@@ -418490,7 +418510,7 @@
   "src": "osm",
   "osm": "w564437580",
   "found": "2026-11-13",
-  "imgTry": "2026-11-13"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "villa-de-alvarez-colegio-adonai",
@@ -418557,7 +418577,7 @@
   "src": "osm",
   "osm": "w784086812",
   "found": "2026-11-13",
-  "imgTry": "2026-11-13"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "villa-de-alvarez-colegio-ingles-de-colima",
@@ -418948,7 +418968,7 @@
   "src": "osm",
   "osm": "n677091429",
   "found": "2026-11-13",
-  "imgTry": "2026-11-13"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "salamanca-colegio-amor-de-dios",
@@ -419454,7 +419474,7 @@
   "src": "osm",
   "osm": "r929539",
   "found": "2026-11-13",
-  "imgTry": "2026-11-13"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "salamanca-colegio-salesiano-san-jose",
@@ -420788,7 +420808,9 @@
   "src": "osm",
   "osm": "w589112829",
   "found": "2026-11-13",
-  "imgTry": "2026-11-13"
+  "imgTry": "2026-11-13",
+  "img": "",
+  "webAt": "2026-11-27"
  },
  {
   "id": "los-angeles-liceo-aleman",
@@ -421553,7 +421575,7 @@
   "src": "osm",
   "osm": "n13602903701",
   "found": "2026-11-13",
-  "imgTry": "2026-11-13"
+  "imgTry": "2026-11-27"
  },
  {
   "id": "la-romana-colegio-saint-matthew",
@@ -1463232,5 +1463254,23 @@
   "src": "osm",
   "osm": "w1149262704",
   "found": "2026-11-26"
+ },
+ {
+  "id": "ezeiza-colegio-humanos",
+  "name": "Colegio Humanos",
+  "city": "Ezeiza",
+  "country": "Argentina",
+  "lat": -34.893854,
+  "lng": -58.51092,
+  "addr": "",
+  "phone": "",
+  "web": "",
+  "email": "",
+  "levels": [],
+  "opp": [],
+  "private": "probable",
+  "src": "osm",
+  "osm": "n3778920696",
+  "found": "2026-11-27"
  }
 ]

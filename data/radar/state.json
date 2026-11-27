@@ -7583,7 +7583,8 @@
   "MX|San Pedro de las Colonias": "2026-11-26T04:25:47.237Z",
   "CL|Machalí": "2026-11-26T14:15:54.773Z",
   "CO|n703169501": "2026-11-26T23:11:25.402Z",
-  "CL|Angol": "2026-11-26T23:19:22.103Z"
+  "CL|Angol": "2026-11-26T23:19:22.103Z",
+  "AR|Ezeiza": "2026-11-27T08:46:50.260Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7750,9 +7751,37 @@
    "n": 1,
    "at": "2026-11-26T14:10:41.036Z",
    "error": "Overpass 504"
+  },
+  "CO|n703168220": {
+   "n": 1,
+   "at": "2026-11-27T08:59:15.871Z",
+   "error": "fetch failed"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-27T08:45:06.634Z",
+   "cities": [
+    {
+     "cc": "AR",
+     "city": "Ezeiza",
+     "found": 1,
+     "updated": 0,
+     "osm": 52
+    }
+   ],
+   "added": 1,
+   "enriched": 0,
+   "photos": 2,
+   "contacts": 4,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "CO|n703168220: fetch failed"
+   ],
+   "minutes": 15.6,
+   "total": 62248
+  },
   {
    "at": "2026-11-26T23:03:41.672Z",
    "cities": [
@@ -9529,92 +9558,6 @@
    "errors": [],
    "minutes": 18.8,
    "total": 22514
-  },
-  {
-   "at": "2026-11-18T05:19:54.104Z",
-   "cities": [
-    {
-     "cc": "HN",
-     "city": "Yoro",
-     "found": 2,
-     "updated": 0,
-     "osm": 9
-    },
-    {
-     "cc": "HN",
-     "city": "Sonaguera",
-     "found": 1,
-     "updated": 0,
-     "osm": 2
-    },
-    {
-     "cc": "CO",
-     "city": "Ciénaga de Oro",
-     "found": 2,
-     "updated": 0,
-     "osm": 13
-    },
-    {
-     "cc": "CO",
-     "city": "Planeta Rica",
-     "found": 5,
-     "updated": 0,
-     "osm": 23
-    },
-    {
-     "cc": "CL",
-     "city": "San Felipe",
-     "found": 24,
-     "updated": 0,
-     "osm": 52
-    },
-    {
-     "cc": "ES",
-     "city": "Pontevedra",
-     "found": 5,
-     "updated": 0,
-     "osm": 56
-    },
-    {
-     "cc": "AR",
-     "city": "Eldorado",
-     "found": 11,
-     "updated": 1,
-     "osm": 54
-    },
-    {
-     "cc": "MX",
-     "city": "Jesús María",
-     "found": 0,
-     "updated": 0,
-     "osm": 82
-    },
-    {
-     "cc": "MX",
-     "city": "Guamúchil",
-     "found": 3,
-     "updated": 0,
-     "osm": 11
-    },
-    {
-     "cc": "AR",
-     "city": "San Francisco Solano",
-     "found": 0,
-     "updated": 0,
-     "osm": 127
-    }
-   ],
-   "added": 53,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "AR|Villa Tesei: sin tiempo en esta corrida"
-   ],
-   "minutes": 19.3,
-   "total": 22493
   }
  ]
 }
