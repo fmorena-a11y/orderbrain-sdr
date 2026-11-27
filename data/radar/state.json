@@ -7584,7 +7584,11 @@
   "CL|Machalí": "2026-11-26T14:15:54.773Z",
   "CO|n703169501": "2026-11-26T23:11:25.402Z",
   "CL|Angol": "2026-11-26T23:19:22.103Z",
-  "AR|Ezeiza": "2026-11-27T08:46:50.260Z"
+  "AR|Ezeiza": "2026-11-27T08:46:50.260Z",
+  "PE|Catacaos": "2026-11-27T19:36:19.395Z",
+  "MX|Valle Hermoso": "2026-11-27T19:37:55.140Z",
+  "MX|Xalisco": "2026-11-27T19:37:59.264Z",
+  "MX|Pesquería": "2026-11-27T19:45:50.308Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7759,6 +7763,48 @@
   }
  },
  "runs": [
+  {
+   "at": "2026-11-27T19:30:22.946Z",
+   "cities": [
+    {
+     "cc": "PE",
+     "city": "Catacaos",
+     "found": 0,
+     "updated": 0,
+     "osm": 42
+    },
+    {
+     "cc": "MX",
+     "city": "Valle Hermoso",
+     "found": 0,
+     "updated": 0,
+     "osm": 0
+    },
+    {
+     "cc": "MX",
+     "city": "Xalisco",
+     "found": 0,
+     "updated": 0,
+     "osm": 0
+    },
+    {
+     "cc": "MX",
+     "city": "Pesquería",
+     "found": 0,
+     "updated": 0,
+     "osm": 14
+    }
+   ],
+   "added": 0,
+   "enriched": 0,
+   "photos": 2,
+   "contacts": 3,
+   "ai": 0,
+   "studies": 0,
+   "errors": [],
+   "minutes": 16.6,
+   "total": 62248
+  },
   {
    "at": "2026-11-27T08:45:06.634Z",
    "cities": [
@@ -9502,62 +9548,6 @@
    ],
    "minutes": 19.1,
    "total": 22539
-  },
-  {
-   "at": "2026-11-18T07:38:54.845Z",
-   "cities": [
-    {
-     "cc": "AR",
-     "city": "Villa Tesei",
-     "found": 1,
-     "updated": 0,
-     "osm": 110
-    },
-    {
-     "cc": "BO",
-     "city": "Viacha",
-     "found": 1,
-     "updated": 0,
-     "osm": 9
-    },
-    {
-     "cc": "AR",
-     "city": "Villa Carlos Paz",
-     "found": 6,
-     "updated": 0,
-     "osm": 21
-    },
-    {
-     "cc": "CO",
-     "city": "Santa Cruz de Mompox",
-     "found": 8,
-     "updated": 0,
-     "osm": 26
-    },
-    {
-     "cc": "VE",
-     "city": "Socopó",
-     "found": 1,
-     "updated": 0,
-     "osm": 3
-    },
-    {
-     "cc": "DO",
-     "city": "Dajabón",
-     "found": 4,
-     "updated": 0,
-     "osm": 5
-    }
-   ],
-   "added": 21,
-   "enriched": 0,
-   "photos": 2,
-   "contacts": 1,
-   "ai": 0,
-   "studies": 0,
-   "errors": [],
-   "minutes": 18.8,
-   "total": 22514
   }
  ]
 }
