@@ -7588,7 +7588,9 @@
   "PE|Catacaos": "2026-11-27T19:36:19.395Z",
   "MX|Valle Hermoso": "2026-11-27T19:37:55.140Z",
   "MX|Xalisco": "2026-11-27T19:37:59.264Z",
-  "MX|Pesquería": "2026-11-27T19:45:50.308Z"
+  "MX|Pesquería": "2026-11-27T19:45:50.308Z",
+  "MX|Santa Ana Chiautempan": "2026-11-28T02:59:05.473Z",
+  "CO|n362301531": "2026-11-28T02:59:34.420Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7760,9 +7762,44 @@
    "n": 1,
    "at": "2026-11-27T08:59:15.871Z",
    "error": "fetch failed"
+  },
+  "ES|n1470838500": {
+   "n": 1,
+   "at": "2026-11-28T02:58:22.272Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-28T02:46:31.576Z",
+   "cities": [
+    {
+     "cc": "MX",
+     "city": "Santa Ana Chiautempan",
+     "found": 8,
+     "updated": 0,
+     "osm": 61
+    },
+    {
+     "cc": "CO",
+     "city": "Carepa",
+     "found": 4,
+     "updated": 0,
+     "osm": 19
+    }
+   ],
+   "added": 12,
+   "enriched": 0,
+   "photos": 2,
+   "contacts": 5,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "ES|n1470838500: The operation was aborted due to timeout"
+   ],
+   "minutes": 14.3,
+   "total": 62260
+  },
   {
    "at": "2026-11-27T19:30:22.946Z",
    "cities": [
@@ -9504,50 +9541,6 @@
    ],
    "minutes": 19.1,
    "total": 22553
-  },
-  {
-   "at": "2026-11-18T09:22:17.438Z",
-   "cities": [
-    {
-     "cc": "CO",
-     "city": "Plato",
-     "found": 11,
-     "updated": 0,
-     "osm": 30
-    },
-    {
-     "cc": "MX",
-     "city": "San Andrés Tuxtla",
-     "found": 6,
-     "updated": 0,
-     "osm": 25
-    },
-    {
-     "cc": "ES",
-     "city": "Irún",
-     "found": 4,
-     "updated": 0,
-     "osm": 39
-    },
-    {
-     "cc": "DO",
-     "city": "Hato Mayor del Rey",
-     "found": 4,
-     "updated": 0,
-     "osm": 9
-    }
-   ],
-   "added": 25,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "MX|Uriangato: sin tiempo en esta corrida"
-   ],
-   "minutes": 19.1,
-   "total": 22539
   }
  ]
 }
