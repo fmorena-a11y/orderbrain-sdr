@@ -7590,7 +7590,8 @@
   "MX|Xalisco": "2026-11-27T19:37:59.264Z",
   "MX|Pesquería": "2026-11-27T19:45:50.308Z",
   "MX|Santa Ana Chiautempan": "2026-11-28T02:59:05.473Z",
-  "CO|n362301531": "2026-11-28T02:59:34.420Z"
+  "CO|n362301531": "2026-11-28T02:59:34.420Z",
+  "CO|n3297689961": "2026-11-28T13:12:24.922Z"
  },
  "failed": {
   "PY|n1437475089": {
@@ -7767,9 +7768,37 @@
    "n": 1,
    "at": "2026-11-28T02:58:22.272Z",
    "error": "The operation was aborted due to timeout"
+  },
+  "MX|Tierra Blanca": {
+   "n": 1,
+   "at": "2026-11-28T13:25:57.580Z",
+   "error": "The operation was aborted due to timeout"
   }
  },
  "runs": [
+  {
+   "at": "2026-11-28T13:11:44.598Z",
+   "cities": [
+    {
+     "cc": "CO",
+     "city": "Chinú",
+     "found": 4,
+     "updated": 1,
+     "osm": 24
+    }
+   ],
+   "added": 4,
+   "enriched": 0,
+   "photos": 1,
+   "contacts": 0,
+   "ai": 0,
+   "studies": 0,
+   "errors": [
+    "MX|Tierra Blanca: The operation was aborted due to timeout"
+   ],
+   "minutes": 16.3,
+   "total": 62264
+  },
   {
    "at": "2026-11-28T02:46:31.576Z",
    "cities": [
@@ -9503,43 +9532,6 @@
     "HN|n321606235: Overpass 504"
    ],
    "minutes": 13.3,
-   "total": 22553
-  },
-  {
-   "at": "2026-11-18T11:18:56.808Z",
-   "cities": [
-    {
-     "cc": "MX",
-     "city": "Uriangato",
-     "found": 8,
-     "updated": 0,
-     "osm": 33
-    },
-    {
-     "cc": "UY",
-     "city": "Las Piedras",
-     "found": 3,
-     "updated": 0,
-     "osm": 51
-    },
-    {
-     "cc": "CO",
-     "city": "La Plata",
-     "found": 3,
-     "updated": 0,
-     "osm": 8
-    }
-   ],
-   "added": 14,
-   "enriched": 0,
-   "photos": 0,
-   "contacts": 0,
-   "ai": 0,
-   "studies": 0,
-   "errors": [
-    "HN|n321606235: sin tiempo en esta corrida"
-   ],
-   "minutes": 19.1,
    "total": 22553
   }
  ]
